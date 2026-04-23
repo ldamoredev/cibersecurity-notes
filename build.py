@@ -262,7 +262,7 @@ PAGE_TEMPLATE = """<!doctype html>
 </head>
 <body data-root="{root_href}">
 <header class="topbar">
-  <a class="brand" href="{home_href}">ldamore notes</a>
+  <a class="brand" href="{home_href}">ldamoredev notes</a>
   <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
   <button id="theme-toggle" title="Toggle theme">◐</button>
 </header>
@@ -337,7 +337,7 @@ def strip_html(s: str) -> str:
 
 
 def build_home(tree: dict, notes: list[Note]) -> str:
-    lines = ["<h1>ldamore notes</h1>",
+    lines = ["<h1>ldamoredev notes</h1>",
              "<p>Static snapshot of my Obsidian vault. Two sections: <strong>Cybersecurity</strong> (concept notes, playbooks, tooling) and <strong>Projects</strong> (integration work that ties branches together).</p>"]
     for section_key, section_label in SECTIONS:
         subs = tree.get(section_key, {})
@@ -402,7 +402,7 @@ def main() -> int:
         })
 
     # Home page.
-    home_note = Note(section="", rel_path=Path("index.md"), title="ldamore notes", slug="index", body_md="")
+    home_note = Note(section="", rel_path=Path("index.md"), title="ldamoredev notes", slug="index", body_md="")
     home_body = build_home(tree, notes)
     sidebar_html = render_sidebar(tree, home_note)
     (OUT / "index.html").write_text(
