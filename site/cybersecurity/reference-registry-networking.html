@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reference Registry — Networking Seed</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/pygments.css">
+</head>
+<body data-root="..">
+<header class="topbar">
+  <a class="brand" href="../index.html">ldamore notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="index.html">Cybersecurity Index</a>
+<a class="" href="reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="active" href="reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<details><summary>api-security</summary>
+<a class="" href="api-security/index.html">API Security Index</a>
+<a class="" href="api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="api-security/authorization.html">Authorization</a>
+<a class="" href="api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="attack-surface-mapping/service-enumeration.html">Service Enumeration</a>
+<a class="" href="attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="devsecops/index.html">DevSecOps Index</a>
+<a class="" href="devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="devsecops/container-security.html">Container Security</a>
+<a class="" href="devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="networking/index.html">Networking Index</a>
+<a class="" href="networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="networking/dns-security.html">DNS Security</a>
+<a class="" href="networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="networking/http-headers.html">HTTP Headers</a>
+<a class="" href="networking/http-messages.html">HTTP Messages</a>
+<a class="" href="networking/http-overview.html">HTTP Overview</a>
+<a class="" href="networking/load-balancers.html">Load Balancers</a>
+<a class="" href="networking/metadata-endpoints.html">Metadata Endpoints</a>
+<a class="" href="networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="networking/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="offensive-security/recon.html">Recon</a>
+<a class="" href="offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>tooling</summary>
+<a class="" href="tooling/recon-automation.html">Recon Automation</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="web-security/index.html">Web Security Index</a>
+<a class="" href="web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="web-security/idor.html">IDOR</a>
+<a class="" href="web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="web-security/session-management.html">Session Management</a>
+<a class="" href="web-security/sql-injection.html">SQL Injection</a>
+</details>
+</div>
+<div class="sidebar-section"><h3>Projects</h3>
+<a class="" href="../projects/index.html">Projects Index</a>
+<a class="" href="../projects/attack-surface-review-project.html">Attack Surface Review Project</a>
+<a class="" href="../projects/devsecops-hardening-project.html">DevSecOps Hardening Project</a>
+<a class="" href="../projects/secure-api-baseline-project.html">Secure API Baseline Project</a>
+<a class="" href="../projects/vulnerable-web-app-project.html">Vulnerable Web App Project</a>
+</div>
+</nav>
+<main class="content">
+
+<article>
+<h1 id="reference-registry-networking-seed">Reference Registry — Networking Seed</h1>
+<h2 id="purpose">Purpose</h2>
+<p>This note is the networking-specific seed for the broader cybersecurity reference registry.</p>
+<p>Use it to:
+- standardize references for networking notes
+- keep source quality consistent
+- help Codex assign references without inventing weak source sets
+- make future networking notes easier to expand</p>
+<h2 id="source-of-truth-rule">Source of truth rule</h2>
+<p>For networking notes, this registry is the primary source of truth.</p>
+<p>Use it together with:
+- <code>&lt;a href="networking/index.html"&gt;Networking Index&lt;/a&gt;</code> for study order and branch structure
+- <code>&lt;a href="reference-registry.html"&gt;Cybersecurity Reference Registry&lt;/a&gt;</code> for broader cross-branch fallback only when this note does not yet cover a networking topic</p>
+<p>When assigning references:
+- choose the smallest set of strongest references for the exact note
+- do not invent random networking reference sets ad hoc
+- if a note is missing here, infer from the closest networking parent topic first and add a registry entry proposal
+- keep networking references tied to security implications, not academic abstraction</p>
+<hr />
+<h2 id="reference-selection-policy">Reference selection policy</h2>
+<h3 id="source-priority">Source priority</h3>
+<ol>
+<li>official documentation</li>
+<li>official labs and practical training</li>
+<li>standards and testing guides</li>
+<li>high-signal research</li>
+<li>secondary sources only when they add clear value</li>
+</ol>
+<h3 id="per-note-target">Per-note target</h3>
+<ul>
+<li>minimum 2 references</li>
+<li>ideal 3 references</li>
+<li>avoid bloating notes with long lists</li>
+</ul>
+<h3 id="labeling">Labeling</h3>
+<p>Use:
+- <strong>Foundational</strong>
+- <strong>Testing / Lab</strong>
+- <strong>Research / Deep Dive</strong>
+- <strong>Official Tool Docs</strong></p>
+<hr />
+<h1 id="networking-topic-map">Networking topic map</h1>
+<h2 id="tcp-ip-basics">tcp-ip-basics</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> MDN HTTP overview — https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview
+- <strong>Official Tool Docs:</strong> Nmap Network Scanning — https://nmap.org/book/toc.html
+- <strong>Official Tool Docs:</strong> Wireshark User’s Guide — https://www.wireshark.org/docs/wsug_html_chunked/</p>
+<p>Why:
+- TCP/IP notes should stay grounded in real network behavior, not abstract theory
+- Nmap and Wireshark are the most practical anchors for how communication and reachability are observed</p>
+<hr />
+<h2 id="ports-and-services">ports-and-services</h2>
+<p>Preferred references:
+- <strong>Official Tool Docs:</strong> Nmap Reference Guide — https://nmap.org/book/man.html
+- <strong>Official Tool Docs:</strong> Nmap Network Scanning — https://nmap.org/book/toc.html
+- <strong>Foundational:</strong> OWASP WSTG — https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/</p>
+<p>Why:
+- this topic is operational and tied directly to attack surface
+- Nmap is the core practical reference</p>
+<hr />
+<h2 id="dns-resolution">dns-resolution</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> Cloudflare Learning Center on DNS records — https://www.cloudflare.com/learning/dns/dns-records/
+- <strong>Research / Deep Dive:</strong> ProjectDiscovery guide to DNS takeovers — https://projectdiscovery.io/blog/guide-to-dns-takeovers
+- <strong>Foundational:</strong> OWASP WSTG — https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/</p>
+<p>Why:
+- this note should explain how names resolve in practice and why that matters for ownership, exposure, and asset discovery</p>
+<hr />
+<h2 id="dns-security">dns-security</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> OWASP WSTG — https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/
+- <strong>Research / Deep Dive:</strong> ProjectDiscovery guide to DNS takeovers — https://projectdiscovery.io/blog/guide-to-dns-takeovers
+- <strong>Research / Deep Dive:</strong> HackerOne guide to subdomain takeovers — https://www.hackerone.com/blog/guide-subdomain-takeovers-20</p>
+<p>Why:
+- DNS matters most here as attack surface and ownership drift, not just protocol theory</p>
+<hr />
+<h2 id="http-overview">http-overview</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> MDN HTTP overview — https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview
+- <strong>Foundational:</strong> MDN HTTP main reference — https://developer.mozilla.org/en-US/docs/Web/HTTP
+- <strong>Foundational:</strong> MDN HTTP request methods — https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods</p>
+<p>Why:
+- MDN is the strongest free source for HTTP semantics and browser/server behavior</p>
+<hr />
+<h2 id="http-messages">http-messages</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> MDN HTTP messages — https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Messages
+- <strong>Foundational:</strong> MDN HTTP overview — https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview
+- <strong>Testing / Lab:</strong> PortSwigger request smuggling academy — https://portswigger.net/web-security/request-smuggling</p>
+<p>Why:
+- HTTP messages are best understood through both protocol shape and security consequences</p>
+<hr />
+<h2 id="http-headers">http-headers</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> MDN HTTP headers — https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
+- <strong>Foundational:</strong> OWASP Cheat Sheet Series — https://cheatsheetseries.owasp.org/
+- <strong>Testing / Lab:</strong> PortSwigger Web Security Academy — https://portswigger.net/web-security</p>
+<p>Why:
+- header behavior sits at the intersection of protocol semantics, browser behavior, and multiple exploit classes</p>
+<hr />
+<h2 id="cookies-and-sessions">cookies-and-sessions</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> MDN Set-Cookie header — https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie
+- <strong>Foundational:</strong> OWASP WSTG — https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/
+- <strong>Foundational:</strong> OWASP Cheat Sheet Series — https://cheatsheetseries.owasp.org/</p>
+<p>Why:
+- this note needs browser semantics plus security testing/mitigation framing</p>
+<hr />
+<h2 id="tls-https">tls-https</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> MDN HTTPS — https://developer.mozilla.org/en-US/docs/Glossary/HTTPS
+- <strong>Foundational:</strong> MDN Strict-Transport-Security — https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
+- <strong>Official Tool Docs:</strong> OpenSSL docs — https://docs.openssl.org/</p>
+<p>Why:
+- this note should stay practical: transport trust, TLS termination, HSTS, and certificate inspection</p>
+<hr />
+<h2 id="reverse-proxies">reverse-proxies</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> MDN HTTP messages — https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Messages
+- <strong>Testing / Lab:</strong> PortSwigger request smuggling academy — https://portswigger.net/web-security/request-smuggling
+- <strong>Research / Deep Dive:</strong> PortSwigger research archive — https://portswigger.net/research</p>
+<p>Why:
+- reverse proxies are a trust-boundary note, so protocol semantics and smuggling research are the best anchors</p>
+<hr />
+<h2 id="client-ip-trust">client-ip-trust</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> MDN X-Forwarded-For — https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For
+- <strong>Testing / Lab:</strong> PortSwigger request smuggling academy — https://portswigger.net/web-security/request-smuggling
+- <strong>Foundational:</strong> OWASP WSTG — https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/</p>
+<p>Why:
+- this note is about how trust headers affect logging, rate limiting, allowlists, and access controls</p>
+<hr />
+<h2 id="load-balancers">load-balancers</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> MDN HTTPS — https://developer.mozilla.org/en-US/docs/Glossary/HTTPS
+- <strong>Foundational:</strong> MDN HTTP headers — https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
+- <strong>Testing / Lab:</strong> PortSwigger Web Security Academy — https://portswigger.net/web-security</p>
+<p>Why:
+- load balancers are entry-point and trust-boundary notes, not just infra notes</p>
+<hr />
+<h2 id="firewalls-and-network-boundaries">firewalls-and-network-boundaries</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> OWASP WSTG — https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/
+- <strong>Official Tool Docs:</strong> Nmap Network Scanning — https://nmap.org/book/toc.html
+- <strong>Official Tool Docs:</strong> Nmap Reference Guide — https://nmap.org/book/man.html</p>
+<p>Why:
+- this note should connect exposure assumptions to evidence-based discovery</p>
+<hr />
+<h2 id="nat-and-private-networks">nat-and-private-networks</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> MDN HTTP overview — https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview
+- <strong>Testing / Lab:</strong> PortSwigger SSRF topic — https://portswigger.net/web-security/ssrf
+- <strong>Official Tool Docs:</strong> Nmap Network Scanning — https://nmap.org/book/toc.html</p>
+<p>Why:
+- the value of this note is in linking private reachability to SSRF and internal trust boundaries</p>
+<hr />
+<h2 id="metadata-endpoints">metadata-endpoints</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> PortSwigger SSRF topic — https://portswigger.net/web-security/ssrf
+- <strong>Foundational:</strong> OWASP SSRF Prevention Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html
+- <strong>Research / Deep Dive:</strong> AWS Instance Metadata Service docs — https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html</p>
+<p>Why:
+- this note should tightly connect internal reachability, SSRF, and cloud credential exposure risk</p>
+<hr />
+<h2 id="nmap-scanning">nmap-scanning</h2>
+<p>Preferred references:
+- <strong>Official Tool Docs:</strong> Nmap Reference Guide — https://nmap.org/book/man.html
+- <strong>Official Tool Docs:</strong> Nmap Network Scanning — https://nmap.org/book/toc.html
+- <strong>Foundational:</strong> OWASP WSTG — https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/</p>
+<p>Why:
+- Nmap should be taught from the official manual first</p>
+<hr />
+<h2 id="service-enumeration">service-enumeration</h2>
+<p>Preferred references:
+- <strong>Official Tool Docs:</strong> Nmap Reference Guide — https://nmap.org/book/man.html
+- <strong>Official Tool Docs:</strong> Nmap Network Scanning — https://nmap.org/book/toc.html
+- <strong>Foundational:</strong> OWASP WSTG — https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/</p>
+<p>Why:
+- this note is where discovery becomes actionable understanding of exposed services and protocols</p>
+<hr />
+<h2 id="wireshark-workflows">wireshark-workflows</h2>
+<p>Preferred references:
+- <strong>Official Tool Docs:</strong> Wireshark User’s Guide — https://www.wireshark.org/docs/wsug_html_chunked/
+- <strong>Official Tool Docs:</strong> Wireshark docs portal — https://www.wireshark.org/docs/
+- <strong>Official Tool Docs:</strong> Wireshark display filters — https://www.wireshark.org/docs/man-pages/wireshark-filter.html</p>
+<p>Why:
+- this topic is tool-native and should remain grounded in the official docs</p>
+<hr />
+<h2 id="packet-analysis">packet-analysis</h2>
+<p>Preferred references:
+- <strong>Official Tool Docs:</strong> Wireshark User’s Guide — https://www.wireshark.org/docs/wsug_html_chunked/
+- <strong>Official Tool Docs:</strong> Wireshark display filter reference — https://www.wireshark.org/docs/dfref/
+- <strong>Foundational:</strong> MDN HTTP messages — https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Messages</p>
+<p>Why:
+- packet analysis needs both capture tooling and message interpretation</p>
+<hr />
+<h2 id="caching-and-security">caching-and-security</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> MDN HTTP caching — https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
+- <strong>Foundational:</strong> MDN Cache-Control — https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
+- <strong>Testing / Lab:</strong> PortSwigger Web Security Academy — https://portswigger.net/web-security</p>
+<p>Why:
+- caching issues are subtle and often arise from protocol semantics interacting with shared infrastructure</p>
+<hr />
+<h1 id="registry-usage-rules">Registry usage rules</h1>
+<ul>
+<li>choose the smallest set of strongest references for each exact note</li>
+<li>do not assign generic links blindly</li>
+<li>prefer official documentation and strong labs</li>
+<li>if a future networking note is missing from this registry, map it to the closest parent topic first</li>
+<li>when adding cloud-specific networking notes later, add provider docs only if the note becomes implementation-specific</li>
+</ul>
+<hr />
+<h1 id="suggested-next-networking-registry-entries">Suggested next networking registry entries</h1>
+<p>Add these when the branch expands:
+- dns-record-types
+- http-status-codes
+- http-methods
+- caching-keys-and-vary
+- content-negotiation
+- health-check-endpoints
+- network-segmentation
+- egress-control</p>
+</article>
+</main>
+</div>
+<script src="../assets/search.js"></script>
+</body>
+</html>

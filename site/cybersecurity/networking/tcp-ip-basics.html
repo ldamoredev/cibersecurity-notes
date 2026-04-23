@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TCP/IP Basics</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamore notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details open><summary>networking</summary>
+<a class="" href="index.html">Networking Index</a>
+<a class="" href="caching-and-security.html">Caching and Security</a>
+<a class="" href="client-ip-trust.html">Client IP Trust</a>
+<a class="" href="cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="dns-resolution.html">DNS Resolution</a>
+<a class="" href="dns-security.html">DNS Security</a>
+<a class="" href="firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="http-headers.html">HTTP Headers</a>
+<a class="" href="http-messages.html">HTTP Messages</a>
+<a class="" href="http-overview.html">HTTP Overview</a>
+<a class="" href="load-balancers.html">Load Balancers</a>
+<a class="" href="metadata-endpoints.html">Metadata Endpoints</a>
+<a class="" href="nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="packet-analysis.html">Packet Analysis</a>
+<a class="" href="ports-and-services.html">Ports and Services</a>
+<a class="" href="reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="service-enumeration.html">Service Enumeration</a>
+<a class="" href="subdomain-takeover.html">Subdomain Takeover</a>
+<a class="active" href="tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="tls-https.html">TLS and HTTPS</a>
+<a class="" href="wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>tooling</summary>
+<a class="" href="../tooling/recon-automation.html">Recon Automation</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="../web-security/index.html">Web Security Index</a>
+<a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="../web-security/idor.html">IDOR</a>
+<a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="../web-security/session-management.html">Session Management</a>
+<a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+</details>
+</div>
+<div class="sidebar-section"><h3>Projects</h3>
+<a class="" href="../../projects/index.html">Projects Index</a>
+<a class="" href="../../projects/attack-surface-review-project.html">Attack Surface Review Project</a>
+<a class="" href="../../projects/devsecops-hardening-project.html">DevSecOps Hardening Project</a>
+<a class="" href="../../projects/secure-api-baseline-project.html">Secure API Baseline Project</a>
+<a class="" href="../../projects/vulnerable-web-app-project.html">Vulnerable Web App Project</a>
+</div>
+</nav>
+<main class="content">
+
+<article>
+<h1 id="tcpip-basics">TCP/IP Basics</h1>
+<h2 id="definition">Definition</h2>
+<p>TCP/IP is the practical foundation of network communication on the Internet. IP provides addressing and routing between hosts, while TCP provides reliable transport with sequencing, retransmission, and connection management.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Most security problems are not “just code problems”. They also depend on how systems become reachable, how traffic is routed, and what assumptions are made across layers. If you do not understand how IP and TCP fit together, you will struggle to reason about exposure, packet capture, SSRF reachability, or service enumeration.</p>
+<h2 id="attacker-perspective">Attacker perspective</h2>
+<p>Attackers care about TCP/IP because it determines:
+- whether a target is reachable
+- which ports can be probed
+- how connections are established and torn down
+- what can be fingerprinted from network behavior</p>
+<p>A lot of offensive work starts before any application exploit: discover a host, identify an exposed service, understand how the traffic flows, then move upward into HTTP, APIs, authentication, or business logic.</p>
+<h2 id="defender-perspective">Defender perspective</h2>
+<p>Defenders use TCP/IP understanding to:
+- segment systems properly
+- reduce unnecessary exposure
+- validate security group and firewall behavior
+- understand packet captures and connection logs
+- separate “application bug” from “network path” issues</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>Your Node API is listening on <code>0.0.0.0:3000</code> instead of <code>127.0.0.1:3000</code>, so it is reachable outside the host.</li>
+<li>A reverse proxy forwards traffic to an internal backend over TCP, and the backend trusts headers that came from the proxy path.</li>
+<li>An SSRF bug becomes more dangerous when the app can open TCP connections to private IPs.</li>
+</ul>
+<h2 id="useful-commands">Useful commands</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Show listening TCP/UDP sockets</span>
+lsof<span class="w"> </span>-i<span class="w"> </span>-P<span class="w"> </span>-n
+
+<span class="c1"># Check routes and interfaces (macOS/Linux variants differ)</span>
+netstat<span class="w"> </span>-rn
+ip<span class="w"> </span>addr
+ip<span class="w"> </span>route
+
+<span class="c1"># Test TCP reachability</span>
+nc<span class="w"> </span>-vz<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span><span class="m">3000</span>
+</code></pre></div>
+
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="ports-and-services.html">ports-and-services</a></li>
+<li><a href="http-overview.html">http-overview</a></li>
+<li><a href="nat-and-private-networks.html">nat-and-private-networks</a></li>
+<li><a href="packet-analysis.html">packet-analysis</a></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Foundational:</strong> MDN HTTP overview — https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview</li>
+<li><strong>Official Tool Docs:</strong> Nmap Network Scanning — https://nmap.org/book/toc.html</li>
+<li><strong>Official Tool Docs:</strong> Wireshark User’s Guide — https://www.wireshark.org/docs/wsug_html_chunked/</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>
