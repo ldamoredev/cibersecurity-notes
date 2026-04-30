@@ -367,9 +367,90 @@ a:hover { text-decoration: underline; }
 }
 html[data-theme="dark"] .unresolved-link { color: #ffb072; border-bottom-color: #ffb072; }
 
+.start-panel {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) minmax(300px, 1.6fr);
+  gap: 1rem;
+  margin: 2rem 0 2.6rem;
+  padding: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--surface), var(--surface-soft));
+  box-shadow: var(--shadow);
+}
+.start-panel h2 { margin: 0.2rem 0 0.4rem; }
+.start-panel p { color: var(--muted); margin: 0; }
+.path-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+.path-card {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface) 86%, var(--accent-soft));
+  color: var(--fg);
+}
+.path-card:hover {
+  text-decoration: none;
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+.path-card span {
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+.path-card strong { font-size: 1rem; line-height: 1.25; }
+.path-card small { color: var(--muted); line-height: 1.45; }
+.related-notes {
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--border);
+}
+.related-notes h2 { font-size: 1.2rem; margin: 0 0 1rem; }
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+.related-card {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-soft);
+  color: var(--fg);
+}
+.related-card:hover { text-decoration: none; border-color: var(--border-strong); }
+.related-card span {
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 760;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.related-card strong { line-height: 1.28; }
+.related-card small { color: var(--muted); line-height: 1.45; }
+#search-results .hit p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
 @media (max-width: 1120px) {
   .layout { grid-template-columns: var(--sidebar-w) minmax(0, 1fr); }
   .toc { display: none; }
+}
+@media (max-width: 860px) {
+  .start-panel { grid-template-columns: 1fr; }
+  .path-grid, .related-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 780px) {
   :root { --topbar-h: 58px; }

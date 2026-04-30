@@ -40,12 +40,28 @@
   }
 
   function score(entry, terms) {
-    const hay = (entry.title + " " + entry.branch + " " + entry.group + " " + entry.kind + " " + entry.tags.join(" ") + " " + entry.text).toLowerCase();
+    const keywords = (entry.keywords || []).join(" ");
+    const description = entry.description || "";
+    const title = entry.title.toLowerCase();
+    const branch = entry.branch.toLowerCase();
+    const tags = entry.tags.join(" ").toLowerCase();
+    const hay = (
+      entry.title + " " +
+      keywords + " " +
+      description + " " +
+      entry.branch + " " +
+      entry.group + " " +
+      entry.kind + " " +
+      entry.tags.join(" ") + " " +
+      entry.text
+    ).toLowerCase();
     let s = 0;
     for (const t of terms) {
       if (!t) continue;
-      if (entry.title.toLowerCase().includes(t)) s += 5;
-      if (entry.branch.toLowerCase().includes(t)) s += 3;
+      if (title.includes(t)) s += 10;
+      if (keywords.toLowerCase().includes(t)) s += 8;
+      if (tags.includes(t)) s += 6;
+      if (branch.includes(t)) s += 4;
       if (entry.kind.toLowerCase().includes(t)) s += 2;
       const occurrences = hay.split(t).length - 1;
       if (!occurrences) return 0;
@@ -73,7 +89,7 @@
       results.innerHTML = '<div class="empty">No matches</div>';
     } else {
       results.innerHTML = hits.map(h =>
-        `<a class="hit" href="${root}/${h.e.url}"><div class="hit-title">${escapeHtml(h.e.title)}</div><div class="meta">${escapeHtml(h.e.branch)} · ${escapeHtml(h.e.kind)} · ${escapeHtml(h.e.url)}</div></a>`
+        `<a class="hit" href="${root}/${h.e.url}"><div class="hit-title">${escapeHtml(h.e.title)}</div><div class="meta">${escapeHtml(h.e.branch)} · ${escapeHtml(h.e.kind)} · ${escapeHtml(h.e.url)}</div><p>${escapeHtml(h.e.description || "")}</p></a>`
       ).join("");
     }
     results.hidden = false;

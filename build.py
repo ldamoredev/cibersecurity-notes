@@ -9,20 +9,48 @@ from __future__ import annotations
 
 import html
 import json
+import os
 import re
 import shutil
 import sys
+from datetime import date
 from dataclasses import dataclass, field
 from pathlib import Path
 
 import markdown
 import yaml
 
-VAULT = Path("/Users/lautarodamore/obsidian-vault/ldamore")
+VAULT = Path(os.environ.get("VAULT", "/Users/lautarodamore/obsidian-vault/ldamore"))
 OUT = Path(__file__).resolve().parent / "site"
+STATIC = Path(__file__).resolve().parent / "static"
 SECTIONS = [
     ("cybersecurity", "Cybersecurity"),
 ]
+
+SITE_NAME = "ldamoredev Security Atlas"
+SITE_SHORT_NAME = "Security Atlas"
+SITE_AUTHOR = "ldamoredev"
+SITE_URL = os.environ.get(
+    "SITE_URL",
+    "https://ldamoredev.github.io/cibersecurity-notes",
+).rstrip("/")
+
+SITE_DESCRIPTION = (
+    "A personal cybersecurity knowledge base for web security, API security, "
+    "cloud security, offensive security, DevSecOps, and practical playbooks."
+)
+
+SITE_KEYWORDS = [
+    "cybersecurity",
+    "web security",
+    "API security",
+    "cloud security",
+    "offensive security",
+    "DevSecOps",
+    "security playbooks",
+]
+
+THEME_COLOR = "#256d85"
 
 # Only publish mature cybersecurity branches and their reference registries.
 # Keep private/project execution notes, templates, tooling experiments, and
@@ -475,12 +503,329 @@ def render_toc(html_body: str) -> str:
     return "\n".join(lines)
 
 
+def root_asset(root_href: str, path: str) -> str:
+    base = root_href if root_href else "."
+    return f"{base.rstrip('/')}/{path.lstrip('/')}"
+
+
+def absolute_site_url(path: str) -> str:
+    return f"{SITE_URL}/{path.lstrip('/')}"
+
+
+def canonical_url(note: Note) -> str:
+    if note.section == "" and note.rel_path == Path("index.md"):
+        return absolute_site_url("index.html")
+    return absolute_site_url(note.url)
+
+
+def page_title(note: Note) -> str:
+    label = note_label(note)
+    branch = branch_slug(note)
+
+    if note.section == "" and note.rel_path == Path("index.md"):
+        return f"Cybersecurity Notes Index | {SITE_NAME}"
+    if page_kind(note) == "index" and branch:
+        return f"{branch_label(branch)} Notes | {SITE_NAME}"
+    if page_kind(note) == "registry":
+        return f"{label} | {SITE_NAME}"
+    if branch:
+        return f"{label} - {branch_label(branch)} | {SITE_NAME}"
+    return f"{label} | {SITE_NAME}"
+
+
+def normalize_ws(value: str) -> str:
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def first_content_paragraph(md_text: str) -> str:
+    cleaned = FRONTMATTER_RE.sub("", md_text, count=1)
+    cleaned = re.sub(r"```.*?```", " ", cleaned, flags=re.DOTALL)
+    cleaned = re.sub(r"`([^`]+)`", r"\1", cleaned)
+    cleaned = re.sub(r"!\[[^\]]*\]\([^)]*\)", " ", cleaned)
+    cleaned = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", cleaned)
+    cleaned = WIKILINK_RE.sub(
+        lambda m: m.group(2) or m.group(1).split("/")[-1],
+        cleaned,
+    )
+    cleaned = re.sub(r"^#{1,6}\s+.*$", "", cleaned, flags=re.MULTILINE)
+
+    for block in re.split(r"\n\s*\n", cleaned):
+        block = normalize_ws(block)
+        if not block or block.startswith("#") or block.startswith("---"):
+            continue
+        block = re.sub(r"^[-*+]\s+", "", block)
+        block = re.sub(r"^>\s*", "", block)
+        block = TAG_RE.sub(r"\1", block)
+        block = normalize_ws(block)
+        if len(block) >= 40:
+            return block
+    return ""
+
+
+def truncate_description(value: str, limit: int = 165) -> str:
+    value = normalize_ws(strip_html(value))
+    if len(value) <= limit:
+        return value
+    clipped = value[: limit - 1]
+    if " " in clipped:
+        clipped = clipped.rsplit(" ", 1)[0]
+    return clipped.rstrip(".,;:-") + "..."
+
+
+def note_description(note: Note) -> str:
+    fm_description = note.frontmatter.get("description") or note.frontmatter.get("summary")
+    if isinstance(fm_description, str) and fm_description.strip():
+        return truncate_description(fm_description)
+    if note.section == "" and note.rel_path == Path("index.md"):
+        return SITE_DESCRIPTION
+
+    branch = branch_slug(note)
+    if page_kind(note) == "index" and branch:
+        return truncate_description(f"{branch_label(branch)} notes: {branch_summary(branch)}")
+
+    para = first_content_paragraph(note.body_md)
+    if para:
+        return truncate_description(para)
+    if branch:
+        return truncate_description(
+            f"{note_label(note)} in the {branch_label(branch)} branch of the ldamoredev cybersecurity knowledge base."
+        )
+    return SITE_DESCRIPTION
+
+
+def page_keywords(note: Note) -> list[str]:
+    keywords = list(SITE_KEYWORDS)
+    branch = branch_slug(note)
+    if branch:
+        keywords.append(branch_label(branch))
+    keywords.append(note_label(note))
+    keywords.extend(note.tags)
+
+    seen: set[str] = set()
+    result: list[str] = []
+    for k in keywords:
+        k = str(k).strip().lstrip("#")
+        key = k.lower()
+        if k and key not in seen:
+            seen.add(key)
+            result.append(k)
+    return result[:14]
+
+
+def breadcrumb_items(note: Note) -> list[tuple[str, str]]:
+    items: list[tuple[str, str]] = [("Home", absolute_site_url("index.html"))]
+    if note.rel_path.parts and note.rel_path.parts[0] == "cybersecurity":
+        items.append(("Cybersecurity", absolute_site_url("cybersecurity/index.html")))
+    branch = branch_slug(note)
+    if branch:
+        items.append((branch_label(branch), absolute_site_url(f"cybersecurity/{branch}/index.html")))
+    if not (note.section == "" and note.rel_path == Path("index.md")):
+        items.append((note_label(note), canonical_url(note)))
+    return items
+
+
+def json_ld_for(note: Note) -> str:
+    description = note_description(note)
+    canonical = canonical_url(note)
+    title = page_title(note)
+    breadcrumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": i + 1,
+                "name": name,
+                "item": url,
+            }
+            for i, (name, url) in enumerate(breadcrumb_items(note))
+        ],
+    }
+
+    if note.section == "" and note.rel_path == Path("index.md"):
+        page = {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": SITE_NAME,
+            "url": SITE_URL + "/",
+            "description": SITE_DESCRIPTION,
+            "author": {"@type": "Person", "name": SITE_AUTHOR},
+        }
+    elif page_kind(note) == "index":
+        page = {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": title,
+            "headline": note_label(note),
+            "description": description,
+            "url": canonical,
+            "isPartOf": {"@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/"},
+            "author": {"@type": "Person", "name": SITE_AUTHOR},
+        }
+    else:
+        page = {
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "name": title,
+            "headline": note_label(note),
+            "description": description,
+            "url": canonical,
+            "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
+            "isPartOf": {"@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/"},
+            "author": {"@type": "Person", "name": SITE_AUTHOR},
+            "keywords": page_keywords(note),
+        }
+    return json.dumps([page, breadcrumb], ensure_ascii=False, separators=(",", ":"))
+
+
+def seo_head(note: Note, root_href: str) -> str:
+    title = page_title(note)
+    description = note_description(note)
+    canonical = canonical_url(note)
+    og_image = absolute_site_url("assets/og-image.png")
+    kind = "article" if page_kind(note) in {"concept", "playbook", "registry"} else "website"
+    lines = [
+        f'<title>{html.escape(title)}</title>',
+        f'<meta name="description" content="{html.escape(description)}">',
+        f'<meta name="author" content="{html.escape(SITE_AUTHOR)}">',
+        f'<meta name="keywords" content="{html.escape(", ".join(page_keywords(note)))}">',
+        f'<meta name="theme-color" content="{THEME_COLOR}">',
+        f'<link rel="canonical" href="{html.escape(canonical)}">',
+        f'<link rel="icon" href="{html.escape(root_asset(root_href, "favicon.ico"))}" sizes="any">',
+        f'<link rel="icon" href="{html.escape(root_asset(root_href, "favicon.svg"))}" type="image/svg+xml">',
+        f'<link rel="apple-touch-icon" href="{html.escape(root_asset(root_href, "apple-touch-icon.png"))}">',
+        f'<link rel="manifest" href="{html.escape(root_asset(root_href, "site.webmanifest"))}">',
+        f'<meta property="og:site_name" content="{html.escape(SITE_NAME)}">',
+        f'<meta property="og:type" content="{kind}">',
+        f'<meta property="og:title" content="{html.escape(title)}">',
+        f'<meta property="og:description" content="{html.escape(description)}">',
+        f'<meta property="og:url" content="{html.escape(canonical)}">',
+        f'<meta property="og:image" content="{html.escape(og_image)}">',
+        '<meta name="twitter:card" content="summary_large_image">',
+        f'<meta name="twitter:title" content="{html.escape(title)}">',
+        f'<meta name="twitter:description" content="{html.escape(description)}">',
+        f'<meta name="twitter:image" content="{html.escape(og_image)}">',
+        f'<script type="application/ld+json">{json_ld_for(note).replace("</", "<\\/")}</script>',
+    ]
+    branch = branch_slug(note)
+    if branch:
+        lines.insert(12, f'<meta property="article:section" content="{html.escape(branch_label(branch))}">')
+    return "\n".join(lines)
+
+
+def related_notes_html(note: Note, all_notes: list[Note]) -> str:
+    if page_kind(note) not in {"concept", "playbook"}:
+        return ""
+
+    branch = branch_slug(note)
+    here = note.out_path.parent
+    note_tags = set(t.lower() for t in note.tags)
+    candidates: list[tuple[int, str, Note]] = []
+
+    for other in all_notes:
+        if other.rel_path == note.rel_path or page_kind(other) in {"index", "registry"}:
+            continue
+        score = 0
+        if branch and branch_slug(other) == branch:
+            score += 5
+        if branch and branch_group(branch_slug(other)) == branch_group(branch):
+            score += 1
+        shared_tags = note_tags.intersection(t.lower() for t in other.tags)
+        score += len(shared_tags) * 3
+        if score:
+            candidates.append((score, other.title.lower(), other))
+    if not candidates:
+        return ""
+
+    lines = [
+        '<section class="related-notes" aria-label="Explore nearby notes">',
+        "<h2>Explore nearby notes</h2>",
+        '<div class="related-grid">',
+    ]
+    for _, _, other in sorted(candidates, key=lambda x: (-x[0], x[1]))[:6]:
+        href = os.path.relpath(other.out_path, here)
+        branch_name = branch_label(branch_slug(other)) if branch_slug(other) else "Cybersecurity"
+        desc = note_description(other)
+        lines.append(
+            f'<a class="related-card" href="{html.escape(href)}">'
+            f'<span>{html.escape(branch_name)}</span>'
+            f'<strong>{html.escape(note_label(other))}</strong>'
+            f'<small>{html.escape(desc)}</small>'
+            "</a>"
+        )
+    lines.append("</div></section>")
+    return "\n".join(lines)
+
+
+def xml_escape(value: str) -> str:
+    return html.escape(value, quote=True)
+
+
+def write_sitemap(notes: list[Note]) -> None:
+    today = date.today().isoformat()
+    urls = [absolute_site_url("index.html")] + [canonical_url(n) for n in notes]
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+    for url in sorted(set(urls)):
+        priority = "1.0" if url.endswith("/index.html") else "0.7"
+        lines.append("  <url>")
+        lines.append(f"    <loc>{xml_escape(url)}</loc>")
+        lines.append(f"    <lastmod>{today}</lastmod>")
+        lines.append("    <changefreq>weekly</changefreq>")
+        lines.append(f"    <priority>{priority}</priority>")
+        lines.append("  </url>")
+    lines.append("</urlset>\n")
+    (OUT / "sitemap.xml").write_text("\n".join(lines), encoding="utf-8")
+
+
+def write_robots() -> None:
+    (OUT / "robots.txt").write_text(
+        "User-agent: *\n"
+        "Allow: /\n\n"
+        f"Sitemap: {absolute_site_url('sitemap.xml')}\n",
+        encoding="utf-8",
+    )
+
+
+def write_manifest() -> None:
+    manifest = {
+        "name": SITE_NAME,
+        "short_name": SITE_SHORT_NAME,
+        "description": SITE_DESCRIPTION,
+        "start_url": "./index.html",
+        "display": "standalone",
+        "background_color": "#111416",
+        "theme_color": THEME_COLOR,
+        "icons": [
+            {"src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png"},
+            {"src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png"},
+        ],
+    }
+    (OUT / "site.webmanifest").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+def copy_static_assets() -> None:
+    if not STATIC.exists():
+        return
+    for path in STATIC.rglob("*"):
+        if path.is_dir():
+            continue
+        target = OUT / path.relative_to(STATIC)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(path, target)
+
+
 PAGE_TEMPLATE = """<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{title}</title>
+{seo_head}
 <link rel="stylesheet" href="{css_href}">
 <link rel="stylesheet" href="{pygments_href}">
 </head>
@@ -514,8 +859,13 @@ PAGE_TEMPLATE = """<!doctype html>
 """
 
 
-def render_page(note: Note, html_body: str, sidebar_html: str, tree: dict) -> str:
-    import os
+def render_page(
+    note: Note,
+    html_body: str,
+    sidebar_html: str,
+    tree: dict,
+    all_notes: list[Note] | None = None,
+) -> str:
     here = note.out_path.parent
     css_href = os.path.relpath(OUT / "assets" / "style.css", here)
     pyg_href = os.path.relpath(OUT / "assets" / "pygments.css", here)
@@ -523,9 +873,11 @@ def render_page(note: Note, html_body: str, sidebar_html: str, tree: dict) -> st
     home_href = os.path.relpath(OUT / "index.html", here)
     root_href = os.path.relpath(OUT, here) or "."
 
-    toc_html = render_toc(html_body)
+    toc_html = "" if note.section == "" else render_toc(html_body)
+    related_html = related_notes_html(note, all_notes or [])
+    article_body = html_body + ("\n" + related_html if related_html else "")
     return PAGE_TEMPLATE.format(
-        title=html.escape(note.title),
+        seo_head=seo_head(note, root_href),
         css_href=html.escape(css_href),
         pygments_href=html.escape(pyg_href),
         search_js_href=html.escape(search_js),
@@ -536,7 +888,7 @@ def render_page(note: Note, html_body: str, sidebar_html: str, tree: dict) -> st
         breadcrumbs=breadcrumb_html(note),
         page_meta=page_meta_html(note),
         article_class="article-home" if note.rel_path == Path("index.md") else "article-note",
-        body=html_body,
+        body=article_body,
         toc=toc_html,
     )
 
@@ -584,6 +936,21 @@ def build_home(tree: dict, notes: list[Note]) -> str:
         '</div>',
         '</section>',
     ]
+    lines.extend([
+        '<section class="start-panel" aria-labelledby="start-here">',
+        '<div>',
+        '<p class="eyebrow">Suggested paths</p>',
+        '<h2 id="start-here">Start with a path, not a folder</h2>',
+        '<p>Pick the route that matches the skill you want to build, then use search when you need a specific concept.</p>',
+        '</div>',
+        '<div class="path-grid">',
+        '<a class="path-card" href="cybersecurity/web-security/index.html"><span>01</span><strong>Web security fundamentals</strong><small>Browser trust, sessions, access control, and server-side bugs.</small></a>',
+        '<a class="path-card" href="cybersecurity/api-security/index.html"><span>02</span><strong>API security fundamentals</strong><small>Authorization, token trust, inventory drift, and property-level abuse.</small></a>',
+        '<a class="path-card" href="cybersecurity/offensive-security/index.html"><span>03</span><strong>Recon to testing</strong><small>Discovery, validation, scope control, and handoff into concrete tests.</small></a>',
+        '<a class="path-card" href="cybersecurity/security-playbooks/index.html"><span>04</span><strong>Execution playbooks</strong><small>Repeatable workflows for turning concepts into practical checks.</small></a>',
+        '</div>',
+        '</section>',
+    ])
     cyber_index = next((n for n in subs.get("", []) if n.slug == "index"), None)
     if cyber_index:
         lines.append(f'<p class="home-index-link"><a href="{html.escape(cyber_index.url)}">Open the full cybersecurity index</a></p>')
@@ -650,7 +1017,7 @@ def main() -> int:
         broken_total += rewritten.count('class="unresolved-link"')
         body_html = md_to_html(rewritten)
         sidebar_html = render_sidebar(tree, n)
-        page = render_page(n, body_html, sidebar_html, tree)
+        page = render_page(n, body_html, sidebar_html, tree, notes)
         n.out_path.parent.mkdir(parents=True, exist_ok=True)
         n.out_path.write_text(page, encoding="utf-8")
 
@@ -662,6 +1029,8 @@ def main() -> int:
             "group": branch_group(branch_slug(n)) if branch_slug(n) else "Reference",
             "kind": page_kind(n),
             "tags": n.tags,
+            "description": note_description(n),
+            "keywords": page_keywords(n),
             "text": strip_html(body_html)[:2000],
         })
 
@@ -670,7 +1039,7 @@ def main() -> int:
     home_body = build_home(tree, notes)
     sidebar_html = render_sidebar(tree, home_note)
     (OUT / "index.html").write_text(
-        render_page(home_note, home_body, sidebar_html, tree),
+        render_page(home_note, home_body, sidebar_html, tree, notes),
         encoding="utf-8",
     )
 
@@ -682,6 +1051,10 @@ def main() -> int:
     write_pygments_css(OUT / "assets" / "pygments.css")
     (OUT / "assets" / "style.css").write_text(STYLE_CSS, encoding="utf-8")
     (OUT / "assets" / "search.js").write_text(SEARCH_JS, encoding="utf-8")
+    copy_static_assets()
+    write_manifest()
+    write_sitemap(notes)
+    write_robots()
 
     print(f"Wrote {len(notes) + 1} pages to {OUT} (unresolved wikilinks: {broken_total})")
     return 0
@@ -1056,9 +1429,90 @@ a:hover { text-decoration: underline; }
 }
 html[data-theme="dark"] .unresolved-link { color: #ffb072; border-bottom-color: #ffb072; }
 
+.start-panel {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) minmax(300px, 1.6fr);
+  gap: 1rem;
+  margin: 2rem 0 2.6rem;
+  padding: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--surface), var(--surface-soft));
+  box-shadow: var(--shadow);
+}
+.start-panel h2 { margin: 0.2rem 0 0.4rem; }
+.start-panel p { color: var(--muted); margin: 0; }
+.path-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+.path-card {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface) 86%, var(--accent-soft));
+  color: var(--fg);
+}
+.path-card:hover {
+  text-decoration: none;
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+.path-card span {
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+.path-card strong { font-size: 1rem; line-height: 1.25; }
+.path-card small { color: var(--muted); line-height: 1.45; }
+.related-notes {
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--border);
+}
+.related-notes h2 { font-size: 1.2rem; margin: 0 0 1rem; }
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+.related-card {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-soft);
+  color: var(--fg);
+}
+.related-card:hover { text-decoration: none; border-color: var(--border-strong); }
+.related-card span {
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 760;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.related-card strong { line-height: 1.28; }
+.related-card small { color: var(--muted); line-height: 1.45; }
+#search-results .hit p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
 @media (max-width: 1120px) {
   .layout { grid-template-columns: var(--sidebar-w) minmax(0, 1fr); }
   .toc { display: none; }
+}
+@media (max-width: 860px) {
+  .start-panel { grid-template-columns: 1fr; }
+  .path-grid, .related-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 780px) {
   :root { --topbar-h: 58px; }
@@ -1124,12 +1578,28 @@ SEARCH_JS = r"""
   }
 
   function score(entry, terms) {
-    const hay = (entry.title + " " + entry.branch + " " + entry.group + " " + entry.kind + " " + entry.tags.join(" ") + " " + entry.text).toLowerCase();
+    const keywords = (entry.keywords || []).join(" ");
+    const description = entry.description || "";
+    const title = entry.title.toLowerCase();
+    const branch = entry.branch.toLowerCase();
+    const tags = entry.tags.join(" ").toLowerCase();
+    const hay = (
+      entry.title + " " +
+      keywords + " " +
+      description + " " +
+      entry.branch + " " +
+      entry.group + " " +
+      entry.kind + " " +
+      entry.tags.join(" ") + " " +
+      entry.text
+    ).toLowerCase();
     let s = 0;
     for (const t of terms) {
       if (!t) continue;
-      if (entry.title.toLowerCase().includes(t)) s += 5;
-      if (entry.branch.toLowerCase().includes(t)) s += 3;
+      if (title.includes(t)) s += 10;
+      if (keywords.toLowerCase().includes(t)) s += 8;
+      if (tags.includes(t)) s += 6;
+      if (branch.includes(t)) s += 4;
       if (entry.kind.toLowerCase().includes(t)) s += 2;
       const occurrences = hay.split(t).length - 1;
       if (!occurrences) return 0;
@@ -1157,7 +1627,7 @@ SEARCH_JS = r"""
       results.innerHTML = '<div class="empty">No matches</div>';
     } else {
       results.innerHTML = hits.map(h =>
-        `<a class="hit" href="${root}/${h.e.url}"><div class="hit-title">${escapeHtml(h.e.title)}</div><div class="meta">${escapeHtml(h.e.branch)} · ${escapeHtml(h.e.kind)} · ${escapeHtml(h.e.url)}</div></a>`
+        `<a class="hit" href="${root}/${h.e.url}"><div class="hit-title">${escapeHtml(h.e.title)}</div><div class="meta">${escapeHtml(h.e.branch)} · ${escapeHtml(h.e.kind)} · ${escapeHtml(h.e.url)}</div><p>${escapeHtml(h.e.description || "")}</p></a>`
       ).join("");
     }
     results.hidden = false;
