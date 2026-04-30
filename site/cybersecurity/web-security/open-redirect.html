@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Open Redirect</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="../networking/index.html">Networking Index</a>
+<a class="" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="../networking/dns-security.html">DNS Security</a>
+<a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details open><summary>web-security</summary>
+<a class="" href="index.html">Web Security Index</a>
+<a class="" href="auth-flaws.html">Authentication Flaws</a>
+<a class="" href="broken-access-control.html">Broken Access Control</a>
+<a class="" href="business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="command-injection.html">Command Injection</a>
+<a class="" href="content-security-policy.html">Content Security Policy</a>
+<a class="" href="cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="gadget-chains.html">Gadget Chains</a>
+<a class="" href="deserialization.html">Insecure Deserialization</a>
+<a class="" href="idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="oauth-security.html">OAuth Security</a>
+<a class="active" href="open-redirect.html">Open Redirect</a>
+<a class="" href="owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="path-traversal.html">Path Traversal</a>
+<a class="" href="phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="request-smuggling.html">Request Smuggling</a>
+<a class="" href="ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="session-management.html">Session Management</a>
+<a class="" href="sql-injection.html">SQL Injection</a>
+<a class="" href="xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#web-security</span> <span class="tag">#open-redirect</span></div>
+<article>
+<h1 id="open-redirect">Open Redirect</h1>
+<h2 id="definition">Definition</h2>
+<p>Open redirect occurs when an application redirects users to attacker-controlled destinations based on untrusted input without strict destination validation.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Open redirects often look low impact alone, but they become powerful when chained with phishing, OAuth flows, login redirects, token leakage, CSP bypasses, or trusted-domain allowlists. The trusted domain performs the redirect, so users and systems may treat the destination as legitimate.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Open redirect has <strong>3 parts</strong>:</p>
+<ol>
+<li><strong>Redirect parameter.</strong> <code>next</code>, <code>url</code>, <code>redirect</code>, <code>returnTo</code>, <code>continue</code>, or similar.</li>
+<li><strong>Server/client redirect behavior.</strong> HTTP <code>Location</code>, JavaScript assignment, meta refresh, or framework routing.</li>
+<li><strong>Weak validation.</strong> The application accepts arbitrary or bypassable destinations.</li>
+</ol>
+<p>Payload-shaped example:</p>
+<div class="codehilite"><pre><span></span><code><span class="nf">GET</span> <span class="nn">/login?next=https://evil.example</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">app.example.test</span>
+</code></pre></div>
+
+<p>The bug is not redirecting after login. The bug is letting untrusted input choose a destination outside the allowed trust boundary.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>Attackers test:</p>
+<ul>
+<li>redirect parameters in login, logout, SSO, password reset, and invite flows</li>
+<li>absolute URLs, protocol-relative URLs, and encoded URLs</li>
+<li>path confusion: <code>//evil.example</code>, <code>/\evil.example</code>, <code>%2f%2fevil.example</code></li>
+<li>userinfo tricks: <code>https://app.example.test@evil.example</code></li>
+<li>subdomain and suffix confusion</li>
+<li>OAuth redirect and callback chains</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Open redirects appear in <strong>5 contexts</strong>.</p>
+<h3 id="1-login-return-redirect">1. Login return redirect</h3>
+<p>The app redirects after authentication to an arbitrary destination.</p>
+<h3 id="2-oauth-redirect-chain">2. OAuth redirect chain</h3>
+<p>A trusted redirect endpoint is used to bypass OAuth redirect URI restrictions.</p>
+<h3 id="3-client-side-redirect">3. Client-side redirect</h3>
+<p>JavaScript reads a URL parameter and navigates the browser.</p>
+<h3 id="4-domain-validation-bypass">4. Domain validation bypass</h3>
+<p>Suffix, substring, userinfo, encoding, or scheme tricks bypass allowlists.</p>
+<h3 id="5-token-leakage-redirect">5. Token leakage redirect</h3>
+<p>Tokens or codes in URLs are forwarded to attacker-controlled destinations.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>OAuth or SSO compromise chain.</strong> Redirects bypass strict callback rules.</li>
+<li><strong>Credential phishing.</strong> Trusted domains lend credibility to phishing links.</li>
+<li><strong>Token or code leakage.</strong> Sensitive URL fragments or query parameters leak.</li>
+<li><strong>Access-control bypass chains.</strong> Redirect behavior interacts with allowlists or SSRF filters.</li>
+<li><strong>Brand abuse.</strong> Trusted links send users to malicious content.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Use server-side destination IDs instead of raw URLs.</strong>
+   Map <code>next=dashboard</code> to a known internal route rather than accepting arbitrary URLs.</p>
+</li>
+<li>
+<p><strong>Allow only relative paths when possible.</strong>
+   Most post-login redirects do not need external destinations.</p>
+</li>
+<li>
+<p><strong>Validate destinations with URL parsers and exact allowlists.</strong>
+   Compare canonical scheme, host, and path; avoid substring checks.</p>
+</li>
+<li>
+<p><strong>Keep OAuth redirect URIs exact and avoid redirect-chain endpoints.</strong>
+   OAuth clients should not allow trusted open redirectors as callback paths.</p>
+</li>
+<li>
+<p><strong>Do not place secrets in URLs.</strong>
+   This reduces damage if redirects or referrers misbehave.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Substring allowlists.</strong> <code>trusted.com.evil.example</code> is not trusted.</li>
+<li><strong>Checking only URL starts-with.</strong> Encoding and userinfo can bypass naive checks.</li>
+<li><strong>User confirmation pages alone.</strong> They reduce phishing but do not fix unsafe redirect logic.</li>
+<li><strong>Assuming same-domain redirectors are harmless.</strong> Chains matter.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use owned apps or labs.</p>
+<h3 id="find-redirect-parameters">Find redirect parameters</h3>
+<div class="codehilite"><pre><span></span><code>rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;redirect|returnTo|next|continue|callback|url&quot;</span><span class="w"> </span>src<span class="w"> </span>routes<span class="w"> </span>public
+</code></pre></div>
+
+<p>Review where user-controlled destinations are accepted.</p>
+<h3 id="test-absolute-destination">Test absolute destination</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;https://app.example.test/login?next=https://example.org&#39;</span>
+</code></pre></div>
+
+<p>Check whether <code>Location</code> points outside the intended domain.</p>
+<h3 id="test-parser-confusion">Test parser confusion</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;https://app.example.test/login?next=//example.org&#39;</span>
+curl<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;https://app.example.test/login?next=https://app.example.test@example.org&#39;</span>
+</code></pre></div>
+
+<p>Use a controlled destination in labs.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>Login accepts <code>next=https://evil.example</code>.</li>
+<li>Password reset redirects to a user-controlled URL after completion.</li>
+<li>OAuth callback allowlists a path that is itself an open redirect.</li>
+<li>JavaScript redirects based on <code>location.hash</code>.</li>
+<li>A support link uses a redirector that can target arbitrary domains.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="oauth-security.html">oauth-security</a></li>
+<li><a href="auth-flaws.html">auth-flaws</a></li>
+<li><a href="session-management.html">session-management</a></li>
+<li><a href="ssrf.html">ssrf</a></li>
+<li><a href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: oauth-redirect-uri-bypass">oauth-redirect-uri-bypass</span></li>
+<li><span class="broken-link" title="Unresolved: client-side-open-redirect">client-side-open-redirect</span></li>
+<li><span class="broken-link" title="Unresolved: url-parser-confusion">url-parser-confusion</span></li>
+<li><span class="broken-link" title="Unresolved: phishing-link-hardening">phishing-link-hardening</span></li>
+<li><span class="broken-link" title="Unresolved: safe-return-url-design">safe-return-url-design</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Foundational:</strong> OWASP Unvalidated Redirects and Forwards Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html</li>
+<li><strong>Testing / Lab:</strong> PortSwigger OAuth authentication — https://portswigger.net/web-security/oauth</li>
+<li><strong>Foundational:</strong> OWASP WSTG latest — https://owasp.org/www-project-web-security-testing-guide/latest/</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

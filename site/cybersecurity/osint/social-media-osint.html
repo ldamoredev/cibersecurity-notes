@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Social Media OSINT</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="../networking/index.html">Networking Index</a>
+<a class="" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="../networking/dns-security.html">DNS Security</a>
+<a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details open><summary>osint</summary>
+<a class="" href="index.html">OSINT Index</a>
+<a class="" href="breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="company-osint.html">Company OSINT</a>
+<a class="" href="email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="google-dorking.html">Google Dorking</a>
+<a class="" href="image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="osint.html">OSINT</a>
+<a class="" href="osint-reporting.html">OSINT Reporting</a>
+<a class="" href="osint-triage.html">OSINT Triage</a>
+<a class="" href="search-engine-operators.html">Search Engine Operators</a>
+<a class="active" href="social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="../web-security/index.html">Web Security Index</a>
+<a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="../web-security/session-management.html">Session Management</a>
+<a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#osint</span> <span class="tag">#social-media</span></div>
+<article>
+<h1 id="social-media-osint">Social Media OSINT</h1>
+<h2 id="definition">Definition</h2>
+<p>Social media OSINT is the collection and analysis of public social-platform information to understand identities, roles, relationships, events, technologies, locations, or organizational context. It is the <strong>most ethically sensitive OSINT mode</strong> because the raw material is people's voluntary public expression about their lives.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Social media reveals employees, vendors, locations, technologies, support channels, incident hints, internal terminology, and brand relationships — context that sharpens both defensive posture and attacker pretexting. A single launch announcement can confirm a stack choice; a single conference photo can confirm a facility; a single fake support account can be the first signal of an active brand-impersonation campaign.</p>
+<p>It is also where OSINT most easily becomes invasive. The platform invites people to share, but the analyst's job is <strong>not to harvest everything that is shared</strong> — it is to answer a scoped question with the minimum personal data the question requires. The ethical line is not "is this technically public" but "does collecting this advance the question and is the harm proportionate."</p>
+<p>For defensive social-media OSINT specifically, the highest-value use cases are:
+- detecting brand and executive impersonation
+- finding accidentally-leaked operational context (screenshots, badges, internal hostnames)
+- mapping public technology choices that affect security posture
+- monitoring for early-warning incident signals (employees publicly discussing outages or breaches)</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Social media OSINT processes <strong>5 signal types</strong>. A scoped investigation usually answers one of them, not all five.</p>
+<ol>
+<li><strong>Identity signals.</strong> Names, handles, roles, bios, and profile cross-links between platforms. Useful for confirming a person's role and employer; risky for everything beyond that.</li>
+<li><strong>Relationship signals.</strong> Employers, teams, vendors, events, and communities. The connective tissue between people and organizations.</li>
+<li><strong>Timeline signals.</strong> Posts, dates, launches, incidents, hiring waves, travel/event mentions. Provides temporal context that single-snapshot collection misses.</li>
+<li><strong>Media signals.</strong> Images, videos, locations, badges, screens, and visible documents. Often the highest-yield exposure surface (see <a href="image-and-location-osint.html">image-and-location-osint</a>).</li>
+<li><strong>Technology signals.</strong> Tools, stack mentions, screenshots, job/project clues, public commits linked from profiles.</li>
+</ol>
+<p>The bug is <strong>overcollection</strong>. The skill is asking "what answers the question with the least personal data," then stopping when the question is answered.</p>
+<p>A worked example, defensive use:</p>
+<div class="codehilite"><pre><span></span><code>Question:    Are any fake &quot;Example Corp Support&quot; accounts impersonating us on Twitter/X?
+Scope:       brand handle, top 5 lookalikes, top 20 mentions in last 30 days.
+Collection:  handle, account creation date, post count, official-link claim, follower delta.
+Triage:      one account &quot;examplecorp_support&quot; created 2026-04-22, posts DM-redirect scam.
+Report:      brand-impersonation finding → platform abuse report + customer warning post.
+Stored:      handle, screenshots, evidence URLs, action ledger. No personal user data.
+</code></pre></div>
+
+<p>Notice what the example does <strong>not</strong> collect: real users' handles, follower lists, friends, or DMs. The question did not require any of that.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>The skill is choosing the lightest-touch source that answers the question.</p>
+<ul>
+<li><strong>Official company accounts</strong> for launches, vendor announcements, status updates.</li>
+<li><strong>Public employee profile pages</strong> (LinkedIn, GitHub, conference bios) for role and technology corroboration.</li>
+<li><strong>Posts about launches, incidents, hiring, vendors</strong> for timeline context.</li>
+<li><strong>Public screenshots and images</strong> for technology and operational signals (then <a href="image-and-location-osint.html">image OSINT</a> takes over for deeper analysis).</li>
+<li><strong>Profile links between platforms</strong> for identity-collision resolution (LinkedIn → GitHub → public commit email is a common chain).</li>
+<li><strong>Hashtags, event pages, and conference posts</strong> for sector and partnership context.</li>
+<li><strong>Account age and impersonation clues</strong> for brand-protection use cases.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Social OSINT clusters into <strong>5 ethical boundaries</strong>. Each one has a different "is this in scope" test.</p>
+<h3 id="1-official-account-analysis">1. Official account analysis</h3>
+<p>Company-controlled posts and announcements are usually low sensitivity. The account speaks publicly on the company's behalf. In-scope test: is this content the organization itself published? If yes, treat as standard OSINT input.</p>
+<h3 id="2-public-professional-profile-analysis">2. Public professional profile analysis</h3>
+<p>Roles, employer history, and stated technologies on professional platforms (LinkedIn, GitHub, conference bios). In-scope test: does this clue answer a security question (stack, scope, vendor) without aggregating personal context? Stop at role + employer + relevant technology; do not build a personal dossier.</p>
+<h3 id="3-mediacontext-analysis">3. Media/context analysis</h3>
+<p>Images may reveal locations, screens, badges, internal documents, or layout details. In-scope test: is the image being analyzed for an organizational signal (visible internal tool, badge access pattern) or a personal one (where someone lives)? Only the first is in scope.</p>
+<h3 id="4-impersonation-and-fraud-review">4. Impersonation and fraud review</h3>
+<p>Fake accounts, brand impersonation, fake support handles, executive impersonation. <strong>This is the strongest defensive use case</strong> — it protects users, employees, and the brand. In-scope test: is the analysis pointed at the impersonator, not at real users interacting with them?</p>
+<h3 id="5-high-risk-personal-targeting">5. High-risk personal targeting</h3>
+<p>Personal life, family, harassment-adjacent collection, doxxing-adjacent collection. <strong>Out of scope by default</strong> for security OSINT. In-scope test: there is no in-scope test; if the question requires this, the question itself is wrong.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Social-engineering context.</strong> Public roles, vendor relationships, and workflows sharpen pretexting.</li>
+<li><strong>Technology and vendor clues.</strong> Public posts and stated stacks reveal tools, platforms, and SaaS providers.</li>
+<li><strong>Location/event context.</strong> Images and event posts reveal physical or operational clues.</li>
+<li><strong>Brand impersonation detection.</strong> Fake accounts can harm users and the brand; defensive social OSINT catches them.</li>
+<li><strong>Scope context.</strong> Public profiles confirm which products, teams, and domains belong to the organization.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Defenses prioritize <strong>minimization first, official-source preference second</strong>.</p>
+<ol>
+<li>
+<p><strong>Define a people-data minimization rule before collection.</strong>
+   Collect only what answers the security question. Default to organizational signals (official accounts, brand monitoring) over personal signals (employee profiles).</p>
+</li>
+<li>
+<p><strong>Prefer official and professional sources.</strong>
+   Avoid personal-life collection unless there is a clear authorized reason. Conference talks and stated roles are appropriate; vacation posts are not.</p>
+</li>
+<li>
+<p><strong>Train staff on public oversharing risks.</strong>
+   Screenshots of internal tools, conference badges, incident details, and over-detailed launch posts leak operational context. Awareness is cheaper than monitoring.</p>
+</li>
+<li>
+<p><strong>Monitor brand impersonation and fake support accounts.</strong>
+   This is the most defensible offensive-social-OSINT use case — it protects users, not threatens them. Tie findings to platform abuse-reporting workflows.</p>
+</li>
+<li>
+<p><strong>Separate social context from technical scope.</strong>
+   A person's profile is not permission to test systems. Even when corroborating that an employee owns a domain, the technical scope must be authorized separately.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Assuming public personal data is fair game.</strong> Ethical and legal limits still apply (GDPR, platform ToS, harassment frameworks).</li>
+<li><strong>Collecting large personal dossiers "just in case."</strong> This increases harm and reduces signal-to-noise.</li>
+<li><strong>Treating social clues as proof.</strong> A LinkedIn role is a claim, not verified employment; corroborate before acting.</li>
+<li><strong>Ignoring official social accounts.</strong> They often reveal launches, vendor deals, and acquisition signals before any other source.</li>
+<li><strong>Reading deleted-but-archived content as current.</strong> Archive snapshots show past state; current scope requires current verification.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use your own public footprint, a company you own, or a benign public brand. Stay strictly passive; do not engage with target accounts.</p>
+<h3 id="build-a-minimal-collection-plan">Build a minimal collection plan</h3>
+<div class="codehilite"><pre><span></span><code>Question:           &quot;Are there fake support accounts impersonating Example Corp?&quot;
+Accounts to review: @ExampleCorp official + top 5 lookalikes + top 20 brand mentions.
+Personal data:      none beyond impersonator handle. No real-user data collected.
+Evidence needed:    handle, creation date, post pattern, official-link claim, screenshots.
+Stop condition:     all 5 lookalikes triaged + 30-day mention window scanned.
+</code></pre></div>
+
+<p>The minimization line is explicit and enforceable.</p>
+<h3 id="track-an-official-account-for-technical-clues">Track an official account for technical clues</h3>
+<div class="codehilite"><pre><span></span><code>launch post  → product name  → docs link → domain → certificate transparency check
+vendor post  → vendor name   → CNAME check on owned subdomains
+hiring post  → stated stack  → corroborate via job description
+incident post → service name → status page check + DNS check
+</code></pre></div>
+
+<p>Move technical clues into <a href="company-osint.html">company-osint</a> and <a href="../attack-surface-mapping/external-attack-surface.html">external attack surface</a>.</p>
+<h3 id="detect-brand-impersonation">Detect brand impersonation</h3>
+<div class="codehilite"><pre><span></span><code>platform | account              | created   | claim                         | evidence | report path
+twitter  | @examplecorp_support | 2026-04-22 | impersonates support          | DM scam pattern | platform abuse + customer post
+linkedin | &quot;Example Corp Inc&quot;   | 2026-04-15 | fake company page             | logo theft     | platform takedown form
+</code></pre></div>
+
+<p>Defensive use; never engage the impersonator from analyst accounts.</p>
+<h3 id="resolve-identity-collision-via-cross-platform-links">Resolve identity-collision via cross-platform links</h3>
+<div class="codehilite"><pre><span></span><code>LinkedIn profile → claims role at Example Corp
+GitHub profile (linked from LinkedIn) → public commits to example-corp/* repos
+Conference bio (linked from LinkedIn) → matches name + employer + timeframe
+Decision: likely (3 axes corroborate, all from professional sources)
+</code></pre></div>
+
+<p>Three professional axes promote a claim from "uncertain" to "likely." Personal-life axes do not belong here.</p>
+<h3 id="audit-your-own-social-footprint">Audit your own social footprint</h3>
+<div class="codehilite"><pre><span></span><code>official account                 | last public review date
+employee public profiles (sample) | last training date
+public screenshots in posts       | last hygiene review
+brand mentions monitoring         | active feed
+</code></pre></div>
+
+<p>Defensive social OSINT against your own brand catches what attackers will see.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A company launch post reveals a new product domain, then certificate transparency confirms the subdomain pattern.</li>
+<li>An employee screenshot during a launch shows an internal dashboard name visible in the browser tab.</li>
+<li>A conference post mentions a vendor platform, exposing a third-party trust relationship.</li>
+<li>A fake <code>@examplecorp_support</code> account posts DM-redirect scams; defensive OSINT catches it within 24 hours.</li>
+<li>LinkedIn → GitHub profile links connect a developer's public commits to internal repos that match the company's public package naming.</li>
+<li>A vacation post by an executive reveals approximate travel dates; this is <strong>not</strong> in scope for security OSINT and should not be collected.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="osint.html">osint</a></li>
+<li><a href="osint-triage.html">osint-triage</a></li>
+<li><a href="company-osint.html">company-osint</a></li>
+<li><a href="email-and-phone-osint.html">email-and-phone-osint</a></li>
+<li><a href="image-and-location-osint.html">image-and-location-osint</a></li>
+<li><a href="../offensive-security/company-mapping.html">Company Mapping</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: brand-impersonation-monitoring">brand-impersonation-monitoring</span></li>
+<li><span class="broken-link" title="Unresolved: social-media-minimization">social-media-minimization</span></li>
+<li><span class="broken-link" title="Unresolved: employee-profile-osint">employee-profile-osint</span></li>
+<li><span class="broken-link" title="Unresolved: event-osint">event-osint</span></li>
+<li><span class="broken-link" title="Unresolved: screenshot-leakage">screenshot-leakage</span></li>
+<li><span class="broken-link" title="Unresolved: platform-abuse-reporting">platform-abuse-reporting</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Foundational:</strong> Bellingcat Online Investigation Toolkit — https://bellingcat.gitbook.io/toolkit</li>
+<li><strong>Foundational:</strong> OSINT Framework — https://osintframework.com/</li>
+<li><strong>Ethics / Safety:</strong> EFF Surveillance Self-Defense — https://ssd.eff.org/</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

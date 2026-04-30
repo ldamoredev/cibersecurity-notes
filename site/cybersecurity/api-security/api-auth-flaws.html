@@ -22,11 +22,15 @@
 <a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
 <a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
 <a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
 <a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
 <a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
 <a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
 <a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
 <a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
 <details open><summary>api-security</summary>
 <a class="" href="index.html">API Security Index</a>
 <a class="active" href="api-auth-flaws.html">API Authentication Flaws</a>
@@ -41,6 +45,7 @@
 <a class="" href="excessive-data-exposure.html">Excessive Data Exposure</a>
 <a class="" href="jwt-attacks.html">JWT Attacks</a>
 <a class="" href="mass-assignment.html">Mass Assignment</a>
+<a class="" href="polymorphic-deserialization.html">Polymorphic Deserialization</a>
 <a class="" href="token-lifecycle.html">Token Lifecycle</a>
 </details>
 <details><summary>attack-surface-mapping</summary>
@@ -49,12 +54,25 @@
 <a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
 <a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
 <a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
 <a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
 <a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
 <a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
-<a class="" href="../attack-surface-mapping/service-enumeration.html">Service Enumeration</a>
 <a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
 <a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
 </details>
 <details><summary>devsecops</summary>
 <a class="" href="../devsecops/index.html">DevSecOps Index</a>
@@ -71,11 +89,25 @@
 <a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
 <a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
 <details><summary>networking</summary>
 <a class="" href="../networking/index.html">Networking Index</a>
 <a class="" href="../networking/caching-and-security.html">Caching and Security</a>
 <a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
 <a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
 <a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
 <a class="" href="../networking/dns-security.html">DNS Security</a>
 <a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
@@ -83,14 +115,12 @@
 <a class="" href="../networking/http-messages.html">HTTP Messages</a>
 <a class="" href="../networking/http-overview.html">HTTP Overview</a>
 <a class="" href="../networking/load-balancers.html">Load Balancers</a>
-<a class="" href="../networking/metadata-endpoints.html">Metadata Endpoints</a>
 <a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
 <a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
 <a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
 <a class="" href="../networking/ports-and-services.html">Ports and Services</a>
 <a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
 <a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
-<a class="" href="../networking/subdomain-takeover.html">Subdomain Takeover</a>
 <a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
 <a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
 <a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
@@ -110,6 +140,19 @@
 <a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
 <a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
 </details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
 <details><summary>security-playbooks</summary>
 <a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
 <a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
@@ -123,62 +166,175 @@
 <a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
 <a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
 </details>
-<details><summary>tooling</summary>
-<a class="" href="../tooling/recon-automation.html">Recon Automation</a>
-</details>
 <details><summary>web-security</summary>
 <a class="" href="../web-security/index.html">Web Security Index</a>
 <a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
 <a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
 <a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
 <a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
 <a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
 <a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
 <a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
-<a class="" href="../web-security/idor.html">IDOR</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
 <a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
 <a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
 <a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
 <a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
 <a class="" href="../web-security/session-management.html">Session Management</a>
 <a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
 </details>
-</div>
-<div class="sidebar-section"><h3>Projects</h3>
-<a class="" href="../../projects/index.html">Projects Index</a>
-<a class="" href="../../projects/attack-surface-review-project.html">Attack Surface Review Project</a>
-<a class="" href="../../projects/devsecops-hardening-project.html">DevSecOps Hardening Project</a>
-<a class="" href="../../projects/secure-api-baseline-project.html">Secure API Baseline Project</a>
-<a class="" href="../../projects/vulnerable-web-app-project.html">Vulnerable Web App Project</a>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
 </div>
 </nav>
 <main class="content">
-
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#api-security</span> <span class="tag">#authentication</span></div>
 <article>
 <h1 id="api-authentication-flaws">API Authentication Flaws</h1>
 <h2 id="definition">Definition</h2>
-<p>API authentication flaws are practical weaknesses in how an API verifies identity across clients, tokens, devices, and workflows. This note focuses on the applied failure patterns beyond the broader category label.</p>
+<p>API authentication flaws are practical weaknesses in how an API verifies identity across login, recovery, MFA, device, token, and machine-client flows.</p>
 <h2 id="why-it-matters">Why it matters</h2>
-<p>Authentication in APIs is rarely just one login form. It involves mobile apps, SPAs, machine clients, refresh flows, service tokens, and recovery logic. Complexity creates inconsistency.
-This note is narrower than <a href="broken-authentication.html">broken-authentication</a>: it focuses on how those inconsistencies appear in real API flows, while <a href="jwt-attacks.html">jwt-attacks</a> and <a href="token-lifecycle.html">token-lifecycle</a> isolate token-specific failure modes.</p>
-<h2 id="attacker-perspective">Attacker perspective</h2>
-<p>Attackers test:
-- differences between clients
-- incomplete MFA enforcement
-- password reset and device flows
-- token bridging between auth stages
-- machine credentials with excessive reach</p>
-<h2 id="defender-perspective">Defender perspective</h2>
-<p>Defenders should:
-- document all auth entry points and token types
-- keep auth logic centralized where possible
-- ensure every client follows equivalent security guarantees
-- test recovery and device flows as thoroughly as login</p>
+<p>API authentication is rarely one neat login form. Real systems have SPAs, mobile apps, service accounts, refresh tokens, password reset flows, magic links, device pairing, OAuth/OIDC callbacks, and legacy clients. Each flow can accidentally define a different meaning of "authenticated."</p>
+<p>This note focuses on applied workflow inconsistencies. <a href="broken-authentication.html">broken-authentication</a> is the broader category, while <a href="jwt-attacks.html">jwt-attacks</a> and <a href="token-lifecycle.html">token-lifecycle</a> isolate token-specific failure modes.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>API authentication flaws commonly appear across <strong>5 auth surfaces</strong>:</p>
+<ol>
+<li><strong>Login.</strong> Password, SSO, OAuth, passkey, or API-key entry points.</li>
+<li><strong>Recovery.</strong> Password reset, email verification, account recovery, and magic links.</li>
+<li><strong>MFA and device trust.</strong> Step-up authentication, remembered devices, and device registration.</li>
+<li><strong>Refresh and session continuation.</strong> Access-token renewal, rotation, logout, and revocation.</li>
+<li><strong>Machine credentials.</strong> API keys, service tokens, client credentials, and partner integrations.</li>
+</ol>
+<p>The bug is usually not "no authentication." It is inconsistent authentication guarantees between these surfaces.</p>
+<p>Example failure:</p>
+<div class="codehilite"><pre><span></span><code>Web login: password + MFA -&gt; full session
+Mobile refresh: refresh token -&gt; full session, no MFA state check
+Password reset: one-time link -&gt; access token, no device or MFA review
+</code></pre></div>
+
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>Attackers test:</p>
+<ul>
+<li>web vs mobile vs partner client behavior</li>
+<li>tokens issued before MFA is complete</li>
+<li>password reset links that create fully authenticated sessions</li>
+<li>device registration or remembered-device flows</li>
+<li>API keys with excessive scope or no rotation</li>
+<li>logout, password change, and account-lock effects</li>
+<li>differences between legacy and current API versions</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>API auth flaws appear in <strong>6 recurring forms</strong>.</p>
+<h3 id="1-pre-mfa-token-bridging">1. Pre-MFA token bridging</h3>
+<p>The API issues a token after the password step and later treats it as fully authenticated.</p>
+<h3 id="2-recovery-flow-as-weaker-login">2. Recovery flow as weaker login</h3>
+<p>Reset, magic-link, or verification flows become easier login paths than normal authentication.</p>
+<h3 id="3-device-trust-overreach">3. Device trust overreach</h3>
+<p>Remembered devices or device registration produce durable credentials with weak revocation.</p>
+<h3 id="4-client-inconsistency">4. Client inconsistency</h3>
+<p>Mobile, web, partner, or internal clients enforce different credential, MFA, or session rules.</p>
+<h3 id="5-machine-credential-sprawl">5. Machine credential sprawl</h3>
+<p>API keys and service tokens have broad privileges, long lifetimes, or unclear ownership.</p>
+<h3 id="6-step-up-bypass">6. Step-up bypass</h3>
+<p>Sensitive operations require step-up in one route but not another route that reaches the same effect.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Account takeover.</strong> Recovery, reset, or MFA gaps allow unauthorized access.</li>
+<li><strong>MFA bypass.</strong> Password-only or pre-MFA states become enough for sensitive API calls.</li>
+<li><strong>Persistent access.</strong> Tokens or device credentials survive logout, reset, or account lock.</li>
+<li><strong>Machine-client compromise.</strong> Long-lived service credentials expose broad API reach.</li>
+<li><strong>Audit and incident confusion.</strong> Multiple auth surfaces make it unclear which guarantee failed.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Inventory every authentication entry point and token type.</strong>
+   You cannot secure only the main login route. Recovery, device, refresh, service, and partner flows all issue trust.</p>
+</li>
+<li>
+<p><strong>Model auth states explicitly.</strong>
+   Separate anonymous, password-verified, MFA-verified, step-up verified, device-trusted, and service-authenticated states.</p>
+</li>
+<li>
+<p><strong>Centralize security decisions while preserving flow context.</strong>
+   Shared auth middleware helps consistency, but it must carry whether MFA, recovery, device trust, or service identity was used.</p>
+</li>
+<li>
+<p><strong>Treat recovery and device flows as login-equivalent.</strong>
+   A password reset or device pairing path can become the easiest way into the account if not hardened.</p>
+</li>
+<li>
+<p><strong>Scope and rotate machine credentials.</strong>
+   API keys and service tokens need ownership, least privilege, expiry, rotation, and revocation.</p>
+</li>
+<li>
+<p><strong>Test auth flows as cross-client workflows.</strong>
+   Compare web, mobile, API docs, legacy versions, and partner clients for equivalent security guarantees.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Assuming the main login flow represents all authentication.</strong> Recovery, refresh, and machine flows often bypass it.</li>
+<li><strong>Client-side MFA flags.</strong> The server must enforce auth state from trusted server-side context or validated token claims.</li>
+<li><strong>Long-lived API keys without ownership.</strong> Unknown owners and no expiry make incident response slow.</li>
+<li><strong>Logout that only clears client storage.</strong> Server-side token usefulness must be addressed.</li>
+<li><strong>Security by client type.</strong> Mobile or partner clients are still direct API callers.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use an owned app or lab environment with web and API clients.</p>
+<h3 id="map-auth-entry-points">Map auth entry points</h3>
+<div class="codehilite"><pre><span></span><code>rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;login|reset|recover|mfa|refresh|device|api-key|client_credentials&quot;</span><span class="w"> </span>routes<span class="w"> </span>src<span class="w"> </span>openapi.yaml
+</code></pre></div>
+
+<p>Turn the results into a table of flow, credential, token issued, MFA state, lifetime, and revocation event.</p>
+<h3 id="test-pre-mfa-token-behavior">Test pre-MFA token behavior</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;email&quot;:&quot;user@example.test&quot;,&quot;password&quot;:&quot;correct-password&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://api.example.test/auth/login
+</code></pre></div>
+
+<p>If the response includes a token before MFA, test whether that token can call sensitive endpoints.</p>
+<h3 id="test-reset-token-session-strength">Test reset-token session strength</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;resetToken&quot;:&quot;TOKEN&quot;,&quot;newPassword&quot;:&quot;NewPass123!&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://api.example.test/auth/reset/complete
+</code></pre></div>
+
+<p>Check whether reset completion creates a full session and whether old tokens remain usable.</p>
+<h3 id="test-machine-credential-scope">Test machine credential scope</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$SERVICE_TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://api.example.test/admin/users
+</code></pre></div>
+
+<p>Service credentials should be limited to intended routes, tenants, and actions.</p>
 <h2 id="practical-examples">Practical examples</h2>
 <ul>
-<li>a mobile API route skips the same control enforced in the web flow</li>
-<li>device registration creates long-lived credentials with weak revocation</li>
-<li>password reset tokens can be replayed or abused</li>
+<li>A mobile API route skips MFA enforced on the web flow.</li>
+<li>Password reset completion returns a full access token without invalidating old sessions.</li>
+<li>Device registration creates a long-lived token that cannot be revoked per device.</li>
+<li>A partner API key can call admin-like endpoints outside its integration scope.</li>
+<li>A sensitive operation requires step-up in the UI but not through the direct API route.</li>
 </ul>
 <h2 id="related-notes">Related notes</h2>
 <ul>
@@ -187,6 +343,14 @@ This note is narrower than <a href="broken-authentication.html">broken-authentic
 <li><a href="token-lifecycle.html">token-lifecycle</a></li>
 <li><a href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a></li>
 <li><a href="../web-security/auth-flaws.html">Auth Flaws</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: mfa-state-machines">mfa-state-machines</span></li>
+<li><span class="broken-link" title="Unresolved: device-trust-flaws">device-trust-flaws</span></li>
+<li><span class="broken-link" title="Unresolved: password-reset-api-security">password-reset-api-security</span></li>
+<li><span class="broken-link" title="Unresolved: machine-credential-sprawl">machine-credential-sprawl</span></li>
+<li><span class="broken-link" title="Unresolved: step-up-authentication">step-up-authentication</span></li>
 </ul>
 <h2 id="references">References</h2>
 <ul>

@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reference Registry — Linux Privilege Escalation</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/pygments.css">
+</head>
+<body data-root="..">
+<header class="topbar">
+  <a class="brand" href="../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="index.html">Cybersecurity Index</a>
+<a class="" href="reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="active" href="reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="api-security/index.html">API Security Index</a>
+<a class="" href="api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="api-security/authorization.html">Authorization</a>
+<a class="" href="api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="devsecops/index.html">DevSecOps Index</a>
+<a class="" href="devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="devsecops/container-security.html">Container Security</a>
+<a class="" href="devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="networking/index.html">Networking Index</a>
+<a class="" href="networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="networking/dns-security.html">DNS Security</a>
+<a class="" href="networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="networking/http-headers.html">HTTP Headers</a>
+<a class="" href="networking/http-messages.html">HTTP Messages</a>
+<a class="" href="networking/http-overview.html">HTTP Overview</a>
+<a class="" href="networking/load-balancers.html">Load Balancers</a>
+<a class="" href="networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="offensive-security/recon.html">Recon</a>
+<a class="" href="offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details><summary>osint</summary>
+<a class="" href="osint/index.html">OSINT Index</a>
+<a class="" href="osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="osint/company-osint.html">Company OSINT</a>
+<a class="" href="osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="osint/google-dorking.html">Google Dorking</a>
+<a class="" href="osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="osint/osint.html">OSINT</a>
+<a class="" href="osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="web-security/index.html">Web Security Index</a>
+<a class="" href="web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="web-security/command-injection.html">Command Injection</a>
+<a class="" href="web-security/content-security-policy.html">Content Security Policy</a>
+<a class="" href="web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="web-security/open-redirect.html">Open Redirect</a>
+<a class="" href="web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="web-security/session-management.html">Session Management</a>
+<a class="" href="web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="web-security/xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+
+<article>
+<h1 id="reference-registry-linux-privilege-escalation">Reference Registry — Linux Privilege Escalation</h1>
+<h2 id="purpose">Purpose</h2>
+<p>This note standardizes references for the linux-privilege-escalation branch.</p>
+<p>Use it to:
+- keep host privesc notes tied to strong Linux and tool references
+- avoid random checklist sprawl
+- separate authorized lab practice from unsafe activity
+- help future agents choose consistent references</p>
+<h2 id="source-of-truth-rule">Source of truth rule</h2>
+<p>For linux-privilege-escalation notes, this registry is the primary source of truth.</p>
+<p>Use it together with:
+- <a href="linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+- <a href="offensive-security/index.html">Offensive Security / Recon Index</a>
+- <a href="security-playbooks/index.html">Security Playbooks Index</a></p>
+<hr />
+<h2 id="reference-selection-policy">Reference selection policy</h2>
+<h3 id="source-priority">Source priority</h3>
+<ol>
+<li>official Linux, sudo, systemd, and project documentation</li>
+<li>official tool documentation</li>
+<li>high-signal training/checklist material</li>
+<li>curated technique databases</li>
+<li>secondary sources only when clearly useful</li>
+</ol>
+<h3 id="per-note-target">Per-note target</h3>
+<ul>
+<li>minimum 2 references</li>
+<li>ideal 3 references</li>
+<li>avoid long reference lists in atomic notes</li>
+</ul>
+<h3 id="labeling">Labeling</h3>
+<p>Use:
+- <strong>Foundational</strong>
+- <strong>Official Docs</strong>
+- <strong>Testing / Lab</strong>
+- <strong>Technique Reference</strong>
+- <strong>Research / Deep Dive</strong>
+- <strong>Mitigation</strong></p>
+<hr />
+<h1 id="linux-privilege-escalation-topic-map">Linux privilege escalation topic map</h1>
+<h2 id="linux-privilege-escalation">linux-privilege-escalation</h2>
+<p>Preferred references:
+- <strong>Technique Reference:</strong> GTFOBins — https://gtfobins.github.io/
+- <strong>Testing / Lab:</strong> PayloadsAllTheThings: Linux Privilege Escalation — https://swisskyrepo.github.io/InternalAllTheThings/redteam/escalation/linux-privilege-escalation/
+- <strong>Testing / Lab:</strong> HackTricks Linux Privilege Escalation — https://book.hacktricks.wiki/en/linux-hardening/privilege-escalation/index.html</p>
+<h2 id="linux-enumeration">linux-enumeration</h2>
+<p>Preferred references:
+- <strong>Testing / Lab:</strong> PayloadsAllTheThings: Linux Privilege Escalation — https://swisskyrepo.github.io/InternalAllTheThings/redteam/escalation/linux-privilege-escalation/
+- <strong>Official Docs:</strong> proc filesystem — https://man7.org/linux/man-pages/man5/proc.5.html
+- <strong>Official Docs:</strong> systemd service units — https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html</p>
+<h2 id="suid-sgid-misconfigurations">suid-sgid-misconfigurations</h2>
+<p>Preferred references:
+- <strong>Technique Reference:</strong> GTFOBins: SUID — https://gtfobins.github.io/#+suid
+- <strong>Official Docs:</strong> chmod — https://man7.org/linux/man-pages/man1/chmod.1.html
+- <strong>Testing / Lab:</strong> HackTricks SUID — https://book.hacktricks.wiki/en/linux-hardening/privilege-escalation/index.html#sudo-and-suid</p>
+<h2 id="sudo-misconfigurations">sudo-misconfigurations</h2>
+<p>Preferred references:
+- <strong>Official Docs:</strong> sudoers manual — https://www.sudo.ws/docs/man/sudoers.man/
+- <strong>Technique Reference:</strong> GTFOBins: sudo — https://gtfobins.github.io/#+sudo
+- <strong>Official Docs:</strong> sudo manual — https://www.sudo.ws/docs/man/sudo.man/</p>
+<h2 id="linux-capabilities">linux-capabilities</h2>
+<p>Preferred references:
+- <strong>Official Docs:</strong> Linux capabilities — https://man7.org/linux/man-pages/man7/capabilities.7.html
+- <strong>Official Docs:</strong> setcap — https://man7.org/linux/man-pages/man8/setcap.8.html
+- <strong>Technique Reference:</strong> GTFOBins: capabilities — https://gtfobins.github.io/#+capabilities</p>
+<h2 id="cron-and-timer-abuse">cron-and-timer-abuse</h2>
+<p>Preferred references:
+- <strong>Official Docs:</strong> crontab file format — https://man7.org/linux/man-pages/man5/crontab.5.html
+- <strong>Official Docs:</strong> systemd timers — https://www.freedesktop.org/software/systemd/man/latest/systemd.timer.html
+- <strong>Official Docs:</strong> systemd service units — https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html</p>
+<h2 id="path-hijacking">path-hijacking</h2>
+<p>Preferred references:
+- <strong>Official Docs:</strong> Bash command search and execution — https://www.gnu.org/software/bash/manual/bash.html#Command-Search-and-Execution
+- <strong>Official Docs:</strong> ld.so dynamic linker — https://man7.org/linux/man-pages/man8/ld.so.8.html
+- <strong>Testing / Lab:</strong> PayloadsAllTheThings: Linux Privilege Escalation — https://swisskyrepo.github.io/InternalAllTheThings/redteam/escalation/linux-privilege-escalation/</p>
+<h2 id="kernel-exploit-triage">kernel-exploit-triage</h2>
+<p>Preferred references:
+- <strong>Official Docs:</strong> Linux kernel security bugs — https://www.kernel.org/doc/html/latest/admin-guide/security-bugs.html
+- <strong>Official Docs:</strong> uname — https://man7.org/linux/man-pages/man1/uname.1.html
+- <strong>Research / Deep Dive:</strong> MITRE ATT&amp;CK Privilege Escalation — https://attack.mitre.org/tactics/TA0004/</p>
+<h2 id="linpeas-workflow">linpeas-workflow</h2>
+<p>Preferred references:
+- <strong>Official Tool Docs:</strong> PEASS-ng / LinPEAS — https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS
+- <strong>Testing / Lab:</strong> HackTricks Linux Privilege Escalation — https://book.hacktricks.wiki/en/linux-hardening/privilege-escalation/index.html
+- <strong>Technique Reference:</strong> GTFOBins — https://gtfobins.github.io/</p>
+<hr />
+<h2 id="registry-usage-rules">Registry usage rules</h2>
+<ul>
+<li>Use active exploitation only in owned labs, CTFs, or explicitly authorized hosts.</li>
+<li>Prefer enumeration, evidence, and remediation framing before exploit execution.</li>
+<li>Do not treat automated scripts as the source of truth; use them to prioritize manual verification.</li>
+<li>Kernel exploit notes must emphasize patching, version validation, snapshotting, and crash risk.</li>
+<li>Keep web initial access, cloud access paths, and recon in their existing branches; this branch starts after a local Linux foothold exists.</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../assets/search.js"></script>
+</body>
+</html>

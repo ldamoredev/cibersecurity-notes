@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Company OSINT</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="../networking/index.html">Networking Index</a>
+<a class="" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="../networking/dns-security.html">DNS Security</a>
+<a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details open><summary>osint</summary>
+<a class="" href="index.html">OSINT Index</a>
+<a class="" href="breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="active" href="company-osint.html">Company OSINT</a>
+<a class="" href="email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="google-dorking.html">Google Dorking</a>
+<a class="" href="image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="osint.html">OSINT</a>
+<a class="" href="osint-reporting.html">OSINT Reporting</a>
+<a class="" href="osint-triage.html">OSINT Triage</a>
+<a class="" href="search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="../web-security/index.html">Web Security Index</a>
+<a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="../web-security/session-management.html">Session Management</a>
+<a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#osint</span> <span class="tag">#company-mapping</span></div>
+<article>
+<h1 id="company-osint">Company OSINT</h1>
+<h2 id="definition">Definition</h2>
+<p>Company OSINT is the use of public sources to understand an organization's brands, domains, products, subsidiaries, vendors, technologies, public people context, and exposed digital footprint. It is the OSINT mode that produces a <strong>defensible ownership and surface map</strong> — the artifact that downstream <a href="../offensive-security/scope-validation.html">scope validation</a> and <a href="../attack-surface-mapping/external-attack-surface.html">external attack surface</a> depend on.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Companies rarely expose themselves through a single domain. Public pages, support portals, job posts, status pages, docs, vendor CNAMEs, social accounts, certificates, and acquisition history all describe the real organization. Treating "the main marketing site" as the scope is the most common reason scopes miss real exposure.</p>
+<p>Company OSINT is the defensive equivalent of attacker reconnaissance. The same map an attacker assembles from public sources is the map a defender needs to know what implies trust to users, partners, and search engines. Without it, scope is guesswork and "third-party trust" is invisible.</p>
+<p>The deliverable is a scoped, evidence-backed map that downstream branches can act on:
+- <strong>Scope validation</strong> receives an ownership-confidence list before any active testing.
+- <strong>External attack surface</strong> receives a domain/vendor inventory tied to ownership evidence.
+- <strong>Third-party exposure</strong> receives the vendor relationship list with evidence quality grades.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Company OSINT pulls from <strong>6 clue families</strong>. A useful map crosses at least three of them per asset.</p>
+<ol>
+<li><strong>Brand and product clues.</strong> Public product names, app store listings, customer-facing domains, public docs, status pages, terms-of-service pages.</li>
+<li><strong>Legal and ownership clues.</strong> Subsidiaries, acquisitions, corporate filings, regulatory disclosures, terms-of-service legal-entity fields, certificate "O=" organization fields.</li>
+<li><strong>Technical clues.</strong> Stack, cloud provider, APIs, SDKs, package names, certificate transparency entries, ASN/BGP records.</li>
+<li><strong>Vendor clues.</strong> Support, identity, analytics, status, CDN, SaaS providers — most visible via CNAME records on subdomains and via referenced third-party scripts.</li>
+<li><strong>People clues.</strong> Roles, teams, hiring, public maintainers, security contacts. Used for organizational context only, with <a href="social-media-osint.html">minimization rules</a> applied.</li>
+<li><strong>Historical clues.</strong> Archived pages, legacy products, old brands, stale support docs, expired-but-published certificates.</li>
+</ol>
+<p>The bug is <strong>not that public company context exists</strong>. The OSINT skill is <strong>connecting clues without overclaiming ownership</strong> — a vendor-hosted page is not target infrastructure; an acquired-brand domain may or may not still belong to the parent; a cert SAN does not prove deployment.</p>
+<p>A worked example:</p>
+<div class="codehilite"><pre><span></span><code>Question:    Map Example Corp&#39;s external surface for scope validation.
+Brand clue:  example.com main site, example.app product, exampledev.com developer portal.
+Legal clue:  TOS lists &quot;Example Corp Inc.&quot; as legal entity; subsidiary &quot;ExSubsidiary Ltd.&quot; in filings.
+Technical:  certificate transparency returns 47 names under example.com + 12 under exampledev.com.
+Vendor:     CNAME chain on support.example.com → zendesk; status.example.com → statuspage.io.
+People:     LinkedIn shows ExSubsidiary employees with &quot;Example Corp&quot; group affiliation (corroboration).
+Historical: archive.org reveals legacy-brand.example.io still resolves to a live page.
+Output:     ownership map with 3 verified primary domains, 4 vendor-hosted (third-party trust), 1 legacy.
+</code></pre></div>
+
+<p>Each entry in the map carries evidence and a confidence label, not a single-source assertion.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>The discipline is "verify ownership across at least three clue families before promoting to verified."</p>
+<ul>
+<li><strong>Official websites, terms, privacy, status, support pages</strong> — anchor for legal entity and primary brand.</li>
+<li><strong>Certificate transparency (<code>crt.sh</code>) and DNS records</strong> — primary technical inventory source.</li>
+<li><strong>Job postings and engineering blogs</strong> — disclose stack, cloud, and team structure.</li>
+<li><strong>Public repositories and package registries</strong> — reveal naming conventions and maintainer identities.</li>
+<li><strong>Vendor-hosted custom domains</strong> — CNAMEs to <code>*.zendesk.com</code>, <code>*.statuspage.io</code>, <code>*.cloudfront.net</code>, <code>*.elasticbeanstalk.com</code> indicate third-party trust.</li>
+<li><strong>Social accounts and product announcements</strong> — anchor for current brand and vendor relationships.</li>
+<li><strong>Acquisition/brand history and archived pages</strong> — surface legacy assets that still carry trust.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Company OSINT clusters into <strong>5 ambiguity classes</strong>. Most map errors are one of these.</p>
+<h3 id="1-brand-ambiguity">1. Brand ambiguity</h3>
+<p>Product and brand names may not match legal entities. "Example" the brand, "Example Corp Inc." the company, and "ExSubsidiary Ltd." the legal owner of half the infrastructure can all be the same organization — or not. Resolve via terms-of-service legal-entity fields, certificate "O=" fields, and corporate filings.</p>
+<h3 id="2-vendor-ambiguity">2. Vendor ambiguity</h3>
+<p>Vendor-hosted surfaces (<code>support.example.com</code> → Zendesk) carry target trust without being target-owned infrastructure. Test against the vendor host, not the target. Evidence: CNAME chain, response headers, vendor-specific TLS cert SANs.</p>
+<h3 id="3-acquisition-drift">3. Acquisition drift</h3>
+<p>Old assets and domains often remain after ownership changes — sometimes for years. The current owner may not know they exist. Evidence: archive.org snapshots, legal-entity history, certificate timeline. Acquisition drift is a frequent source of "wait, that's still ours?" exposure.</p>
+<h3 id="4-shared-platform-ambiguity">4. Shared-platform ambiguity</h3>
+<p>CDN, cloud, and SaaS platforms host many tenants. A <code>*.cloudfront.net</code> IP serves thousands of customers; an Elasticsearch endpoint on a shared cluster does not "belong" to one tenant. Resolve via Host-header behavior, vendor-tenant identifiers, or out-of-band ownership confirmation.</p>
+<h3 id="5-people-context-ambiguity">5. People-context ambiguity</h3>
+<p>Public profiles may be stale, personal, or unrelated to current scope. A LinkedIn profile listing "Example Corp" as employer may be 5 years out of date. Use only with corroboration; never use as primary scope evidence.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Scope clarification.</strong> Ownership evidence guides safe testing in pentests and bug bounty work; the alternative is off-scope mistakes.</li>
+<li><strong>Public asset discovery.</strong> Brands, vendors, and acquisitions reveal domains and services not in any internal inventory.</li>
+<li><strong>Third-party exposure mapping.</strong> SaaS and identity providers become visible as part of the trust surface.</li>
+<li><strong>Technology targeting.</strong> Job posts, engineering blogs, and public repositories reveal stack choices that drive prioritization.</li>
+<li><strong>Stale asset discovery.</strong> Legacy brands and archived pages reveal forgotten systems that carry current trust.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Defenses cluster around <strong>maintaining the company's own external map</strong> with confidence labels.</p>
+<ol>
+<li>
+<p><strong>Maintain an external-facing company map.</strong>
+   Defenders should know which brands, vendors, and domains imply trust. The map should match what an attacker would build, kept up to date.</p>
+</li>
+<li>
+<p><strong>Publish clear security scope and contacts.</strong>
+   <code>security.txt</code>, a security page, and a stated bug-bounty/disclosure scope reduce ambiguity for researchers and internal teams. See <a href="email-and-phone-osint.html">email-and-phone-osint</a>.</p>
+</li>
+<li>
+<p><strong>Clean up stale public signals.</strong>
+   Old docs, deprecated support pages, expired-product domains, and archived staging environments keep expanding perceived surface long after the team that built them moves on.</p>
+</li>
+<li>
+<p><strong>Review job posts and docs for unnecessary technical detail.</strong>
+   Public hiring can be useful without oversharing sensitive architecture. "We use Kubernetes" is fine; "our auth uses module X version Y on cluster Z" is not.</p>
+</li>
+<li>
+<p><strong>Use confidence levels for ownership.</strong>
+   Do not treat one clue as proof. The map should have verified / likely / uncertain / vendor-hosted columns with evidence per row.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Assuming the main website is the company.</strong> Brands, vendors, and acquisitions expand context far beyond it.</li>
+<li><strong>Assuming shared infrastructure proves ownership.</strong> Shared platforms (CDN, cloud, SaaS) host many tenants; "served from cloudfront.net" is not ownership evidence.</li>
+<li><strong>Ignoring old acquisitions.</strong> Legacy assets often persist long after acquisitions complete; they carry current trust until decommissioned.</li>
+<li><strong>Treating people profiles as technical scope.</strong> Roles are organizational context, never authorization to test systems.</li>
+<li><strong>Trusting WHOIS organization fields alone.</strong> Privacy services and stale registrations make WHOIS unreliable as a single ownership source.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use a public company you own, an authorized scope, or a benign training target.</p>
+<h3 id="build-a-company-map">Build a company map</h3>
+<div class="codehilite"><pre><span></span><code>brand          | domain               | evidence                         | owner confidence | related assets        | notes
+example.com    | example.com          | TOS legal-entity + cert O=       | verified         | 47 cert SAN names     | primary
+exampledev.com | exampledev.com       | TOS reference + cert chain       | verified         | 12 cert SAN names     | dev portal
+support        | support.example.com  | CNAME → zendesk                  | vendor-hosted    | n/a                   | third-party trust
+status         | status.example.com   | CNAME → statuspage.io            | vendor-hosted    | n/a                   | third-party trust
+legacy-brand   | legacy-brand.example.io | archive.org 2018-2024, cur DNS A | likely           | 3 cert SAN names      | acquisition drift
+</code></pre></div>
+
+<p>The map is the deliverable. Confidence labels are load-bearing.</p>
+<h3 id="extract-vendor-relationships-from-cnames">Extract vendor relationships from CNAMEs</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>host<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nv">cname</span><span class="o">=</span><span class="k">$(</span>dig<span class="w"> </span>CNAME<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$host</span><span class="s2">&quot;</span><span class="w"> </span>+short<span class="k">)</span>
+<span class="w">  </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$cname</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$host</span><span class="s2"> -&gt; </span><span class="nv">$cname</span><span class="s2">&quot;</span>
+<span class="k">done</span><span class="w"> </span>&lt;<span class="w"> </span>subdomains.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>vendor-cnames.txt
+
+<span class="c1"># Then summarize vendors</span>
+awk<span class="w"> </span><span class="s1">&#39;{print $3}&#39;</span><span class="w"> </span>vendor-cnames.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/\.$//; s/.*\.//&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rn
+</code></pre></div>
+
+<p>Vendor mappings feed <a href="../attack-surface-mapping/third-party-exposure.html">third-party exposure</a> review.</p>
+<h3 id="cross-corroborate-ownership">Cross-corroborate ownership</h3>
+<div class="codehilite"><pre><span></span><code>Source 1: certificate &quot;O=&quot; field         → &quot;Example Corp, Inc.&quot;
+Source 2: terms-of-service legal entity  → &quot;Example Corp, Inc.&quot;
+Source 3: archive.org earliest snapshot  → 2014, branding consistent with current
+Source 4: WHOIS organization (if visible)→ &quot;Example Corp&quot;
+Decision: verified ownership; promote to map.
+</code></pre></div>
+
+<p>Three independent sources promote ownership from "likely" to "verified."</p>
+<h3 id="review-public-technology-clues-without-overclaiming">Review public technology clues without overclaiming</h3>
+<div class="codehilite"><pre><span></span><code>source                      | technology clue                | confidence | security relevance        | next action
+job post 2026-03            | &quot;experience with Spring Boot&quot;  | medium     | suggests Java/Spring stack | corroborate via headers
+engineering blog 2025-11    | &quot;we run on Kubernetes / GCP&quot;   | high       | cloud + orchestration     | scope GCP-specific reviews
+public commit 2026-04       | maintainer email pattern       | high       | email pattern + identity  | feed email pattern map
+acquired-brand status page  | vendor list (Datadog, Auth0)   | high       | vendor inventory          | feed third-party map
+</code></pre></div>
+
+<p>Single-source clues do not become "verified" without corroboration.</p>
+<h3 id="audit-acquisition-drift">Audit acquisition drift</h3>
+<div class="codehilite"><pre><span></span><code>acquisition  | acquired entity      | acquisition date | known assets | unknown-but-found assets
+2019         | LegacyBrand Inc.     | 2019-Q3          | 2 domains    | 3 additional domains via cert search
+2022         | TinyTool Ltd.        | 2022-Q1          | 1 SaaS app   | 1 staging domain still resolving
+</code></pre></div>
+
+<p>Acquisition drift is the most common "we didn't know we still owned this" finding.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A status page reveals service names, regions, and dependent vendors that no public spec discloses.</li>
+<li>Job posts reveal cloud and framework choices that narrow active testing scope.</li>
+<li>Vendor CNAMEs identify support and identity providers, exposing third-party trust relationships.</li>
+<li>An acquired brand still has live infrastructure that the parent organization had forgotten about.</li>
+<li>Public repositories reveal package naming conventions that match internal naming visible elsewhere.</li>
+<li>Certificate transparency reveals an unannounced staging subdomain pattern, surfacing pre-launch surface.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="osint.html">osint</a></li>
+<li><a href="osint-triage.html">osint-triage</a></li>
+<li><a href="social-media-osint.html">social-media-osint</a></li>
+<li><a href="email-and-phone-osint.html">email-and-phone-osint</a></li>
+<li><a href="../offensive-security/company-mapping.html">Company Mapping</a></li>
+<li><a href="../offensive-security/scope-validation.html">Scope Validation</a></li>
+<li><a href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: brand-domain-inventory">brand-domain-inventory</span></li>
+<li><span class="broken-link" title="Unresolved: job-posting-osint">job-posting-osint</span></li>
+<li><span class="broken-link" title="Unresolved: vendor-relationship-mapping">vendor-relationship-mapping</span></li>
+<li><span class="broken-link" title="Unresolved: acquisition-surface-mapping">acquisition-surface-mapping</span></li>
+<li><span class="broken-link" title="Unresolved: public-repository-osint">public-repository-osint</span></li>
+<li><span class="broken-link" title="Unresolved: ownership-confidence-grading">ownership-confidence-grading</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Foundational:</strong> OSINT Framework — https://osintframework.com/</li>
+<li><strong>Research / Deep Dive:</strong> ProjectDiscovery recon 101 — https://projectdiscovery.io/blog/reconnaissance-a-deep-dive-in-active-passive-reconnaissance</li>
+<li><strong>Foundational:</strong> OWASP WSTG information gathering — https://owasp.org/www-project-web-security-testing-guide/latest/</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

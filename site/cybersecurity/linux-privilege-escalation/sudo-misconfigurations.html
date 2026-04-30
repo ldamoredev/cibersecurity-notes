@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sudo Misconfigurations</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details open><summary>linux-privilege-escalation</summary>
+<a class="" href="index.html">Linux Privilege Escalation Index</a>
+<a class="" href="cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="path-hijacking.html">PATH Hijacking</a>
+<a class="active" href="sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="../networking/index.html">Networking Index</a>
+<a class="" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="../networking/dns-security.html">DNS Security</a>
+<a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="../web-security/index.html">Web Security Index</a>
+<a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="../web-security/session-management.html">Session Management</a>
+<a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#linux-privilege-escalation</span> <span class="tag">#sudo</span></div>
+<article>
+<h1 id="sudo-misconfigurations">Sudo Misconfigurations</h1>
+<h2 id="definition">Definition</h2>
+<p>Sudo misconfiguration is an administrative delegation flaw where a user can run a command as another user, often root, in a way that grants more power than intended.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Sudo is a normal operations tool, so its risk is often hidden inside legitimate maintenance workflows. A single broad rule can turn a minor foothold into full host compromise.</p>
+<p>For defenders, sudo review is one of the highest-value Linux hardening activities because it directly describes who may cross privilege boundaries.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Ask 5 sudo questions:</p>
+<ol>
+<li><strong>Who:</strong> which user or group receives delegation?</li>
+<li><strong>As whom:</strong> which target user can they become?</li>
+<li><strong>What:</strong> which command, path, and arguments are allowed?</li>
+<li><strong>How:</strong> is a password required, is environment preserved, are wildcards used?</li>
+<li><strong>Escape:</strong> can the allowed command run a shell, edit files, load plugins, or write root-owned paths?</li>
+</ol>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<ul>
+<li>Inspect <code>sudo -l</code> before reading assumptions from <code>/etc/sudoers</code>.</li>
+<li>Treat command arguments as part of the permission.</li>
+<li>Check GTFOBins for shell escape or file-write behavior.</li>
+<li>Look for <code>NOPASSWD</code>, <code>SETENV</code>, broad wildcards, interpreters, editors, pagers, archive tools, and package managers.</li>
+<li>Prove with minimal commands in an owned lab.</li>
+</ul>
+<h3 id="worked-example-sudo-rule-to-root-cause">Worked example: sudo rule to root cause</h3>
+<div class="codehilite"><pre><span></span><code>sudo -l lead: (root) NOPASSWD: /usr/bin/vim /var/log/app.log
+Boundary question: can the user use the editor to write outside the intended file?
+Minimal lab proof: demonstrate root-owned file write in a disposable path
+What not to do: modify real logs or plant persistence
+Root cause: shell-capable/editor binary delegated as root
+Fix: replace editor sudo with a narrow log-view command or controlled support workflow
+</code></pre></div>
+
+<p>The report should not stop at "vim can escape." It should explain why the delegated workflow gave the user a general-purpose root editor.</p>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<h3 id="1-shell-capable-binary">1. Shell-capable binary</h3>
+<p>The allowed command can spawn a shell or execute another command.</p>
+<h3 id="2-file-write-as-root">2. File write as root</h3>
+<p>The command can overwrite root-owned files or place content in trusted locations.</p>
+<h3 id="3-argument-wildcard">3. Argument wildcard</h3>
+<p>A sudo rule restricts the binary but allows attacker-controlled arguments.</p>
+<h3 id="4-environment-preservation">4. Environment preservation</h3>
+<p>The rule allows dangerous environment influence through <code>SETENV</code>, <code>env_keep</code>, or loader variables.</p>
+<h3 id="5-relative-or-writable-command-path">5. Relative or writable command path</h3>
+<p>The rule points to a path that can be replaced or influenced by the user.</p>
+<h2 id="impact">Impact</h2>
+<ul>
+<li>Root command execution.</li>
+<li>Root file read or write.</li>
+<li>Persistent service or cron modification.</li>
+<li>Secret extraction from root-readable files.</li>
+<li>Lateral movement through keys, tokens, or configuration.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<ul>
+<li><strong>Use exact command paths and exact arguments.</strong> Sudo rules should be narrow enough that command behavior is predictable.</li>
+<li><strong>Avoid shell-capable tools where possible.</strong> Editors, pagers, interpreters, and archive tools often have escape behavior.</li>
+<li><strong>Require authentication for sensitive paths.</strong> <code>NOPASSWD</code> should be rare and justified.</li>
+<li><strong>Disable dangerous environment preservation.</strong> Avoid <code>SETENV</code> and broad <code>env_keep</code> rules unless the risk is understood.</li>
+<li><strong>Review sudo logs.</strong> Sudo execution should be observable and tied to a user.</li>
+</ul>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Trusting that a command "is not a shell."</strong> Many tools can execute commands indirectly.</li>
+<li><strong>Relying on user training.</strong> The policy should prevent accidental overreach.</li>
+<li><strong>Using wildcards for convenience.</strong> Wildcards often move the security decision from policy to attacker-controlled input.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use an owned lab user with a deliberately safe sudo rule.</p>
+<h3 id="read-the-users-sudo-surface">Read the user's sudo surface</h3>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>-l
+</code></pre></div>
+
+<p>Copy the exact command, target user, password state, and options.</p>
+<h3 id="classify-the-command">Classify the command</h3>
+<div class="codehilite"><pre><span></span><code>Allowed command:
+Target user:
+Password required:
+Can read files:
+Can write files:
+Can execute commands:
+Environment influence:
+GTFOBins class:
+</code></pre></div>
+
+<p>This makes the risky behavior explicit.</p>
+<h3 id="test-argument-boundaries-safely">Test argument boundaries safely</h3>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>/allowed/command<span class="w"> </span>--help
+sudo<span class="w"> </span>/allowed/command<span class="w"> </span>--version
+</code></pre></div>
+
+<p>Use documentation and harmless flags before trying impact proof.</p>
+<h3 id="record-a-minimal-proof-decision">Record a minimal proof decision</h3>
+<div class="codehilite"><pre><span></span><code>Finding:
+Allowed sudo rule:
+Potential escape:
+Proof chosen:
+Why this proof is minimal:
+Fix:
+Retest:
+</code></pre></div>
+
+<p>The report should explain policy failure, not just "got root".</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A user may run <code>vim</code> as root and can edit root-owned files.</li>
+<li>A backup command accepts a destination path that writes into <code>/etc</code>.</li>
+<li>A sudo rule allows <code>/usr/bin/find *</code>, and argument control changes behavior.</li>
+<li><code>SETENV</code> lets a privileged command load untrusted behavior.</li>
+<li>A rule grants a service restart, but the service file is writable by the user.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="linux-privilege-escalation.html">linux-privilege-escalation</a></li>
+<li><a href="linux-enumeration.html">linux-enumeration</a></li>
+<li><a href="path-hijacking.html">path-hijacking</a></li>
+<li><a href="suid-sgid-misconfigurations.html">suid-sgid-misconfigurations</a></li>
+<li><a href="linpeas-workflow.html">linpeas-workflow</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: sudoers-policy-design">sudoers-policy-design</span></li>
+<li><span class="broken-link" title="Unresolved: sudo-environment-risk">sudo-environment-risk</span></li>
+<li><span class="broken-link" title="Unresolved: gtfobins-workflow">gtfobins-workflow</span></li>
+<li><span class="broken-link" title="Unresolved: writable-service-files">writable-service-files</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Official Docs:</strong> sudoers manual — https://www.sudo.ws/docs/man/sudoers.man/</li>
+<li><strong>Technique Reference:</strong> GTFOBins: sudo — https://gtfobins.github.io/#+sudo</li>
+<li><strong>Official Docs:</strong> sudo manual — https://www.sudo.ws/docs/man/sudo.man/</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

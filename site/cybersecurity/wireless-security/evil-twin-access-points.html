@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evil Twin Access Points</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="../networking/index.html">Networking Index</a>
+<a class="" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="../networking/dns-security.html">DNS Security</a>
+<a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="../web-security/index.html">Web Security Index</a>
+<a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="../web-security/session-management.html">Session Management</a>
+<a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
+</details>
+<details open><summary>wireless-security</summary>
+<a class="" href="index.html">Wireless Security Index</a>
+<a class="" href="arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="bettercap-workflows.html">Bettercap Workflows</a>
+<a class="active" href="evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="wep-security.html">WEP Security</a>
+<a class="" href="wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="wireless-security.html">Wireless Security</a>
+<a class="" href="wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#wireless-security</span></div>
+<article>
+<h1 id="evil-twin-access-points">Evil Twin Access Points</h1>
+<h2 id="definition">Definition</h2>
+<p>An evil twin access point is a rogue wireless network that imitates a legitimate SSID to lure clients into connecting to an attacker-controlled network.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Evil twin attacks exploit client trust, user habit, and weak network identity signals. The access point name alone is not proof that the network is legitimate.</p>
+<p>This topic belongs between wireless and social engineering: the radio layer attracts the device, while the human or application layer may expose credentials or traffic.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Evil twin risk has <strong>5 steps</strong>:</p>
+<ol>
+<li><strong>Choose a target SSID.</strong> The rogue network imitates a familiar name.</li>
+<li><strong>Broadcast a lookalike AP.</strong> The attacker uses signal strength, placement, or timing to attract clients.</li>
+<li><strong>Client connects.</strong> Auto-join or user selection sends the device to the rogue network.</li>
+<li><strong>Traffic is controlled.</strong> The rogue network may route, block, inspect, or redirect traffic.</li>
+<li><strong>Follow-on attack occurs.</strong> Captive portals, DNS manipulation, TLS errors, or local MITM become possible.</li>
+</ol>
+<p>The bug is trusting SSID text as identity instead of using strong authentication and application-layer protection.</p>
+<p>A worked example, awareness lab without credential capture:</p>
+<div class="codehilite"><pre><span></span><code>Lab:
+  duplicate &quot;Guest-Lab&quot; SSID on isolated AP
+
+Client behavior:
+  test phone shows two networks with same name
+
+Portal:
+  displays training page with no credential fields
+
+Observation:
+  user cannot distinguish legitimacy from SSID name alone
+
+Decision:
+  disable auto-join for public SSIDs, monitor duplicate BSSIDs, and avoid credential entry into Wi-Fi portals
+</code></pre></div>
+
+<p>Evil-twin labs should teach trust failure without harvesting secrets.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>Testing looks at:</p>
+<ul>
+<li>whether devices auto-join known SSIDs</li>
+<li>whether the legitimate network uses Enterprise certificates or only PSK</li>
+<li>whether users accept captive portals or certificate warnings</li>
+<li>whether DNS and HTTP traffic can be manipulated after connection</li>
+<li>whether monitoring detects duplicate SSIDs or rogue BSSIDs</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Evil twin attacks have <strong>4 common variants</strong>.</p>
+<h3 id="1-open-network-lookalike">1. Open-network lookalike</h3>
+<p>Imitates a public or guest Wi-Fi name and relies on user familiarity.</p>
+<h3 id="2-captive-portal-lure">2. Captive-portal lure</h3>
+<p>Displays a fake login or registration page after connection.</p>
+<h3 id="3-stronger-signal-attraction">3. Stronger-signal attraction</h3>
+<p>Places the rogue AP close enough to look more reliable than the real AP.</p>
+<h3 id="4-deauth-assisted-attraction">4. Deauth-assisted attraction</h3>
+<p>Forces clients off the real AP so they reconnect to the rogue one.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Credential capture.</strong> Fake portals can trick users into entering passwords.</li>
+<li><strong>Traffic manipulation.</strong> DNS and unencrypted traffic can be changed.</li>
+<li><strong>Session compromise.</strong> Weak application security may leak tokens or cookies.</li>
+<li><strong>Malware delivery.</strong> Captive portals or redirects can lead to hostile content.</li>
+<li><strong>Trust erosion.</strong> Users learn unsafe habits around Wi-Fi prompts and warnings.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Use WPA-Enterprise with certificate validation for trusted networks.</strong>
+   Proper certificate validation gives clients a real network identity check beyond SSID text.</p>
+</li>
+<li>
+<p><strong>Disable auto-join for risky public networks.</strong>
+   Reducing automatic connection limits silent attraction.</p>
+</li>
+<li>
+<p><strong>Monitor for rogue BSSIDs and duplicate SSIDs.</strong>
+   Wireless controllers and surveys can detect unauthorized APs using familiar names.</p>
+</li>
+<li>
+<p><strong>Train users not to submit credentials to Wi-Fi portals for corporate access.</strong>
+   User behavior matters because evil twins often cross into phishing.</p>
+</li>
+<li>
+<p><strong>Keep application-layer TLS strong.</strong>
+   TLS prevents many same-network manipulations even after a client joins a bad network.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Recognizing the SSID name.</strong> Names are easy to copy.</li>
+<li><strong>Assuming a lock icon in Wi-Fi settings proves safety.</strong> It may only show local link encryption.</li>
+<li><strong>Using VPN as the only control.</strong> VPN helps after connection but does not fix credential phishing or bad client trust.</li>
+<li><strong>Ignoring certificate warnings.</strong> Warnings are often the first visible signal of interception.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use a closed lab with your own client. Do not collect real credentials.</p>
+<h3 id="inventory-duplicate-ssids">Inventory duplicate SSIDs</h3>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>wlan0mon
+</code></pre></div>
+
+<p>Look for the same ESSID with different BSSIDs, channels, and encryption.</p>
+<h3 id="create-a-no-credential-awareness-lab">Create a no-credential awareness lab</h3>
+<div class="codehilite"><pre><span></span><code>SSID:
+Client behavior:
+Captive portal text:
+No password fields:
+User education point:
+</code></pre></div>
+
+<p>Demonstrate recognition risk without harvesting secrets.</p>
+<h3 id="validate-rogue-ap-detection">Validate rogue AP detection</h3>
+<div class="codehilite"><pre><span></span><code>Expected BSSID list:
+Detected BSSID list:
+Unknown duplicates:
+Alert source:
+Action taken:
+</code></pre></div>
+
+<p>Turn the lab into a monitoring check.</p>
+<h3 id="create-a-client-auto-join-inventory">Create a client auto-join inventory</h3>
+<div class="codehilite"><pre><span></span><code>device | saved SSIDs | auto-join? | public/open? | owner | change needed
+</code></pre></div>
+
+<p>Auto-join is the client-side half of evil-twin risk.</p>
+<h3 id="review-portal-safety">Review portal safety</h3>
+<div class="codehilite"><pre><span></span><code>portal asks for credentials:
+certificate warning shown:
+domain displayed:
+training text:
+no-secret proof:
+</code></pre></div>
+
+<p>Awareness labs should avoid collecting credentials or normalizing unsafe entry.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A fake coffee-shop SSID attracts laptops configured to auto-join.</li>
+<li>A rogue AP near an office broadcasts the corporate guest network name.</li>
+<li>Users enter VPN credentials into a fake captive portal.</li>
+<li>A device accepts a network with the same SSID but weaker security.</li>
+<li>A wireless controller flags an unknown BSSID broadcasting a protected SSID.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="wireless-security.html">wireless-security</a></li>
+<li><a href="wifi-deauthentication.html">wifi-deauthentication</a></li>
+<li><a href="mitm-on-local-networks.html">mitm-on-local-networks</a></li>
+<li><a href="../osint/osint.html">OSINT</a></li>
+<li><a href="../web-security/oauth-security.html">OAuth Security</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: captive-portal-security">captive-portal-security</span></li>
+<li><span class="broken-link" title="Unresolved: enterprise-wifi-8021x">enterprise-wifi-8021x</span></li>
+<li><span class="broken-link" title="Unresolved: phishing-kill-chain">phishing-kill-chain</span></li>
+<li><span class="broken-link" title="Unresolved: mfa-phishing-resistance">mfa-phishing-resistance</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Official Tool Docs:</strong> bettercap WiFi module — https://www.bettercap.org/modules/wifi/</li>
+<li><strong>Official Tool Docs:</strong> Aircrack-ng airbase-ng — https://www.aircrack-ng.org/doku.php?id=airbase-ng</li>
+<li><strong>Mitigation:</strong> Wi-Fi Alliance security overview — https://www.wi-fi.org/discover-wi-fi/security</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

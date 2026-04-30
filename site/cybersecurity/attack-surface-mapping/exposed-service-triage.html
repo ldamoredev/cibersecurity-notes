@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exposed Service Triage</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details open><summary>attack-surface-mapping</summary>
+<a class="" href="index.html">Attack Surface Mapping Index</a>
+<a class="" href="admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="endpoint-discovery.html">Endpoint Discovery</a>
+<a class="active" href="exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="exposed-storage.html">Exposed Storage</a>
+<a class="" href="external-attack-surface.html">External Attack Surface</a>
+<a class="" href="internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="../networking/index.html">Networking Index</a>
+<a class="" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="../networking/dns-security.html">DNS Security</a>
+<a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="../web-security/index.html">Web Security Index</a>
+<a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="../web-security/session-management.html">Session Management</a>
+<a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#attack-surface-mapping</span> <span class="tag">#service-exposure</span> <span class="tag">#triage</span></div>
+<article>
+<h1 id="exposed-service-triage">Exposed Service Triage</h1>
+<h2 id="definition">Definition</h2>
+<p>Exposed service triage is the process of turning discovered network services into security decisions: expected public surface, undocumented side door, forgotten admin path, risky remote access, or drift that needs retirement.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Finding an open port is only the beginning. The security value comes from deciding what exposure means. A public <code>443</code> may be expected, while an untracked <code>22</code>, <code>3389</code>, database port, vendor appliance, or management console may be the real finding.</p>
+<p>This note stays focused on ownership, exposure meaning, and prioritization. <a href="../networking/service-enumeration.html">Service Enumeration</a> owns the protocol and banner mechanics.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Triage has <strong>5 questions</strong>:</p>
+<ol>
+<li><strong>What is listening?</strong> Protocol, product, version, TLS certificate, virtual host, and behavior.</li>
+<li><strong>Where is it reachable from?</strong> Public internet, VPN, cloud workload, partner, or internal segment.</li>
+<li><strong>Is it expected?</strong> Product surface, admin surface, legacy compatibility, temporary environment, or unknown.</li>
+<li><strong>What privilege or data does it expose?</strong> Auth strength, control-plane power, tenant data, or secrets.</li>
+<li><strong>Who owns the decision?</strong> Team, vendor, environment, decommission plan, or escalation path.</li>
+</ol>
+<p>The bug is not "a port is open." The bug is open service plus weak ownership, weak controls, high privilege, sensitive data, or unexpected reachability.</p>
+<p>A worked triage example:</p>
+<div class="codehilite"><pre><span></span><code>Finding:
+  203.0.113.42:8443 serves &quot;Jenkins&quot;
+
+Question 1, what is listening?
+  Jenkins web console over TLS
+
+Question 2, where reachable?
+  public internet, not only VPN
+
+Question 3, expected?
+  not in public asset inventory
+
+Question 4, privilege/data?
+  build jobs, environment variables, deployment credentials possible
+
+Question 5, owner?
+  platform team, but host tag says &quot;migration-2024&quot;
+
+Triage:
+  high priority direct control-plane exposure, not merely &quot;open 8443&quot;
+</code></pre></div>
+
+<p>Good triage turns a scanner row into an owner/action decision.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>Practitioners look for:</p>
+<ul>
+<li>non-standard ports and management ports</li>
+<li>HTTP services on high ports</li>
+<li>SSH, RDP, VPN, database, cache, queue, and admin protocols</li>
+<li>default pages, default credentials indicators, and appliance banners</li>
+<li>TLS certificates that reveal hostnames or vendors</li>
+<li>services reachable directly behind CDN/proxy assumptions</li>
+<li>staging and temporary services with production data</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Exposed services fall into <strong>6 triage classes</strong>.</p>
+<h3 id="1-expected-product-service">1. Expected product service</h3>
+<p>Public HTTP/API/mail/DNS/service exposure that matches inventory and has normal controls.</p>
+<h3 id="2-forgotten-remote-access">2. Forgotten remote access</h3>
+<p>SSH, RDP, VPN, or management protocols left public after migration or troubleshooting.</p>
+<h3 id="3-direct-origin-exposure">3. Direct origin exposure</h3>
+<p>Backend origins are reachable without the intended CDN, WAF, or reverse proxy.</p>
+<h3 id="4-exposed-data-service">4. Exposed data service</h3>
+<p>Databases, caches, queues, search clusters, or object services reachable outside their trust boundary.</p>
+<h3 id="5-vendor-or-appliance-interface">5. Vendor or appliance interface</h3>
+<p>Managed devices, dashboards, and third-party products expose control-plane behavior.</p>
+<h3 id="6-legacy-or-temporary-service">6. Legacy or temporary service</h3>
+<p>Old versions, beta services, migrations, or incident-response tooling stay reachable.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Initial access.</strong> Remote access, admin, or exploitable service becomes the entry point.</li>
+<li><strong>Data exposure.</strong> Databases, search, storage, or dashboards leak sensitive information.</li>
+<li><strong>Edge bypass.</strong> Direct origins skip CDN/WAF/proxy authentication or filtering.</li>
+<li><strong>Privilege escalation.</strong> Management services expose powerful actions.</li>
+<li><strong>Patch gap.</strong> Unknown services lag behind current vulnerability management.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Maintain service inventory with expected exposure and owners.</strong>
+   Every reachable service should map to a purpose, owner, environment, and allowed source.</p>
+</li>
+<li>
+<p><strong>Reduce public reachability for management and data services.</strong>
+   Admin, database, cache, queue, and remote-access services should rarely be internet-facing.</p>
+</li>
+<li>
+<p><strong>Validate direct-origin and alternate-port reachability.</strong>
+   If a service should only be reachable through a proxy/CDN, test that the origin rejects direct traffic.</p>
+</li>
+<li>
+<p><strong>Require strong authentication and patch ownership.</strong>
+   Exposure reduction is best, but remaining services need MFA, keys, least privilege, current versions, and logging.</p>
+</li>
+<li>
+<p><strong>Triage by impact, not novelty.</strong>
+   A boring exposed storage or admin panel often matters more than an exotic low-impact protocol.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Relying on unusual ports.</strong> Scanners and certificate logs find them.</li>
+<li><strong>Banners hidden but services open.</strong> Protocol behavior often reveals enough.</li>
+<li><strong>Assuming cloud security groups are self-documenting.</strong> Rules need owner and purpose.</li>
+<li><strong>Putting a WAF in front while leaving the origin reachable.</strong> Direct origin access bypasses the control.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use owned systems only.</p>
+<h3 id="scan-expected-service-ports">Scan expected service ports</h3>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span>-Pn<span class="w"> </span>--open<span class="w"> </span>-p<span class="w"> </span><span class="m">1</span>-10000<span class="w"> </span>target.example.test
+</code></pre></div>
+
+<p>Convert open services into expected, unexpected, unknown, and retire candidates.</p>
+<h3 id="fingerprint-http-services-on-high-ports">Fingerprint HTTP services on high ports</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span><span class="w"> </span>p<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">8080</span><span class="w"> </span><span class="m">8081</span><span class="w"> </span><span class="m">8443</span><span class="w"> </span><span class="m">9000</span><span class="w"> </span><span class="m">9090</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>curl<span class="w"> </span>-k<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;https://target.example.test:</span><span class="nv">$p</span><span class="s2">/&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head
+<span class="k">done</span>
+</code></pre></div>
+
+<p>Look for admin panels, default pages, and alternate apps.</p>
+<h3 id="check-certificate-clues">Check certificate clues</h3>
+<div class="codehilite"><pre><span></span><code>openssl<span class="w"> </span>s_client<span class="w"> </span>-connect<span class="w"> </span>target.example.test:443<span class="w"> </span>-servername<span class="w"> </span>target.example.test<span class="w"> </span>&lt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-noout<span class="w"> </span>-subject<span class="w"> </span>-issuer<span class="w"> </span>-ext<span class="w"> </span>subjectAltName
+</code></pre></div>
+
+<p>Certificates often reveal internal names, vendors, or alternate hosts.</p>
+<h3 id="test-direct-origin-behavior">Test direct-origin behavior</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>--resolve<span class="w"> </span>app.example.test:443:203.0.113.10<span class="w"> </span>https://app.example.test/
+</code></pre></div>
+
+<p>The origin should not serve normal traffic if CDN/proxy mediation is required.</p>
+<h3 id="convert-scanner-output-into-exposure-classes">Convert scanner output into exposure classes</h3>
+<div class="codehilite"><pre><span></span><code>host | port | service | reachable from | expected? | owner | class | next action
+</code></pre></div>
+
+<p>Use the triage classes in this note instead of treating every open port equally.</p>
+<h3 id="check-remote-admin-lockout-signals">Check remote-admin lockout signals</h3>
+<div class="codehilite"><pre><span></span><code>nmap<span class="w"> </span>-sV<span class="w"> </span>-Pn<span class="w"> </span>-p<span class="w"> </span><span class="m">22</span>,3389,5900,5985,5986<span class="w"> </span>target.example.test
+</code></pre></div>
+
+<p>Remote administration deserves source restrictions, MFA or key controls, and owner confirmation.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A host exposes HTTPS and an untracked SSH service.</li>
+<li>A public reverse proxy leaks alternate virtual hosts.</li>
+<li>A supposedly internal database responds externally on a high port.</li>
+<li>A CDN origin accepts traffic directly.</li>
+<li>A vendor appliance exposes a management login page.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="../networking/ports-and-services.html">Ports and Services</a></li>
+<li><a href="../networking/service-enumeration.html">Service Enumeration</a></li>
+<li><a href="external-attack-surface.html">external-attack-surface</a></li>
+<li><a href="admin-interface-discovery.html">admin-interface-discovery</a></li>
+<li><a href="../offensive-security/active-recon.html">Active Recon</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: direct-origin-exposure">direct-origin-exposure</span></li>
+<li><span class="broken-link" title="Unresolved: remote-access-exposure">remote-access-exposure</span></li>
+<li><span class="broken-link" title="Unresolved: database-exposure">database-exposure</span></li>
+<li><span class="broken-link" title="Unresolved: appliance-admin-surfaces">appliance-admin-surfaces</span></li>
+<li><span class="broken-link" title="Unresolved: service-owner-triage">service-owner-triage</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Official Tool Docs:</strong> Nmap Network Scanning — https://nmap.org/book/toc.html</li>
+<li><strong>Foundational:</strong> OWASP WSTG latest — https://owasp.org/www-project-web-security-testing-guide/latest/</li>
+<li><strong>Research / Deep Dive:</strong> ProjectDiscovery Reconnaissance 104 — https://projectdiscovery.io/blog/reconnaissance-series-4</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

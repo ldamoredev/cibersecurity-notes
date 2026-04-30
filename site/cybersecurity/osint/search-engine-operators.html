@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Search Engine Operators</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="../networking/index.html">Networking Index</a>
+<a class="" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="../networking/dns-security.html">DNS Security</a>
+<a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details open><summary>osint</summary>
+<a class="" href="index.html">OSINT Index</a>
+<a class="" href="breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="company-osint.html">Company OSINT</a>
+<a class="" href="email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="google-dorking.html">Google Dorking</a>
+<a class="" href="image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="osint.html">OSINT</a>
+<a class="" href="osint-reporting.html">OSINT Reporting</a>
+<a class="" href="osint-triage.html">OSINT Triage</a>
+<a class="active" href="search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="../web-security/index.html">Web Security Index</a>
+<a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="../web-security/session-management.html">Session Management</a>
+<a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#osint</span> <span class="tag">#search</span></div>
+<article>
+<h1 id="search-engine-operators">Search Engine Operators</h1>
+<h2 id="definition">Definition</h2>
+<p>Search engine operators are query syntax features that scope, exclude, combine, or target results more precisely than ordinary keyword searches. They turn a search box into a passive OSINT instrument that narrows millions of indexed pages down to the specific public artifacts that answer a defined question.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Search operators are the highest-leverage OSINT tool because they are zero-cost, zero-credential, and entirely passive — no packets reach the target, only the search engine's index. They surface public documents, indexed admin paths, exposed source maps, error messages, and historical content without any active probing.</p>
+<p>Operators also force discipline. A bare keyword query returns marketing pages and noise; a scoped query (<code>site:</code> + <code>filetype:</code> + exact phrase + exclusion terms) returns the specific exposed artifact you set out to find. The skill is <strong>query design</strong>, not memorizing operator names.</p>
+<p>Different engines index different pages. Google, Bing, DuckDuckGo, Yandex, and Baidu have different crawlers, filters, and de-indexing policies; rotating engines reveals content one engine has dropped.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Search operators answer <strong>5 query questions</strong> in combination. A useful query usually answers at least three of them.</p>
+<ol>
+<li><strong>Where?</strong> <code>site:example.com</code>, <code>site:*.example.com</code>, <code>inurl:</code> — limits to a domain, subdomain pattern, or URL fragment.</li>
+<li><strong>What exact text?</strong> <code>"exact phrase"</code> — forces exact string match instead of stemmed or related terms; essential for finding copied error messages, leaked tokens, or specific internal terminology.</li>
+<li><strong>What type?</strong> <code>filetype:pdf</code> / <code>ext:xlsx</code> — limits to a content category. Combine with <code>site:</code> to find an organization's public documents.</li>
+<li><strong>What not?</strong> <code>-excluded -term -site:noisy.example.com</code> — removes false positives. Often the difference between a useful result page and 200 noisy pages.</li>
+<li><strong>What relationship?</strong> <code>term1 OR term2</code>, parentheses <code>(a OR b) -c</code>, <code>intitle:</code>, <code>intext:</code> — combines or relates terms when the question has alternatives or constraints.</li>
+</ol>
+<p>The bug is not "using search." The OSINT skill is <strong>building a query that answers a defined question without collecting noise</strong>, then iterating it against the result set.</p>
+<p>A worked example:</p>
+<div class="codehilite"><pre><span></span><code>Question:  Does example.com expose any indexed admin or backup files?
+Iteration 1: site:example.com (inurl:admin OR inurl:backup) → 412 hits, mostly product blog
+Iteration 2: + (filetype:zip OR filetype:sql OR filetype:bak) → 7 hits, all backup-shaped
+Iteration 3: + -site:blog.example.com -&quot;product backup feature&quot; → 3 hits, all real exposures
+</code></pre></div>
+
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>The operator inventory is small. The skill is composing them.</p>
+<ul>
+<li><code>site:</code> and <code>site:*.</code> for domain and subdomain scoping.</li>
+<li><code>"exact phrase"</code> for verbatim string matching (errors, copied templates, leaked tokens).</li>
+<li><code>-term</code> and <code>-site:</code> for exclusion of known noise.</li>
+<li><code>filetype:</code> / <code>ext:</code> for document discovery (<code>pdf</code>, <code>xlsx</code>, <code>csv</code>, <code>sql</code>, <code>bak</code>, <code>zip</code>, <code>tar</code>, <code>log</code>).</li>
+<li><code>intitle:</code> / <code>inurl:</code> / <code>intext:</code> for matching where the term appears.</li>
+<li>Range and date filters via Google's Tools panel or <code>before:</code> / <code>after:</code>.</li>
+<li><code>cache:</code> for the engine's cached copy when the live page changed or was removed.</li>
+<li>Alternate engines (Bing, DuckDuckGo, Yandex) to cover indexing blind spots — Yandex frequently retains content Google removes.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Operator use clusters into <strong>5 practical modes</strong>. Most investigations chain at least three of them.</p>
+<h3 id="1-domain-scoping">1. Domain scoping</h3>
+<p>Find content under a specific domain or subdomain. <code>site:example.com</code>, <code>site:*.example.com</code>, or <code>site:example.com -site:blog.example.com</code>. The first move on any organization-targeted OSINT.</p>
+<h3 id="2-document-discovery">2. Document discovery</h3>
+<p>Find PDFs, spreadsheets, presentations, and exports. <code>site:example.com (filetype:pdf OR filetype:xlsx OR filetype:csv)</code>. Public documents often carry author metadata, internal project labels, and template artifacts that drive <a href="company-osint.html">company-osint</a>.</p>
+<h3 id="3-endpoint-discovery">3. Endpoint discovery</h3>
+<p>Find URLs containing API, admin, login, callback, or version paths. <code>site:example.com (inurl:api OR inurl:v1 OR inurl:admin OR "redirect_uri")</code>. Hand off live findings into <a href="../attack-surface-mapping/endpoint-discovery.html">endpoint discovery</a> for active validation.</p>
+<h3 id="4-error-and-exposure-discovery">4. Error and exposure discovery</h3>
+<p>Find indexed errors, directory listings, or accidental public pages. <code>site:example.com (intitle:"index of" OR "Application error" OR "stack trace")</code>. Treats search as a defensive lint against the public footprint.</p>
+<h3 id="5-exclusion-and-cleanup">5. Exclusion and cleanup</h3>
+<p>Strip noise the previous four modes generated. <code>-site:noisy-blog.example.com -"product changelog" -"job posting"</code>. Exclusion is iterative — each query refines based on the noise the previous one produced.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Public document discovery.</strong> Files surface internal terms, names, and project labels via metadata.</li>
+<li><strong>Hidden route discovery.</strong> Indexed URLs reveal endpoints that are not in any public spec.</li>
+<li><strong>Scope and ownership clues.</strong> Cross-domain results connect brands, vendors, and acquisitions.</li>
+<li><strong>Exposure detection.</strong> Directory listings, error pages, and source maps surface as signal.</li>
+<li><strong>Noise reduction.</strong> Better queries reduce false leads and analyst fatigue.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Defenses here are about reviewing your own indexed footprint, not blocking search.</p>
+<ol>
+<li>
+<p><strong>Review what search engines index for your domains.</strong>
+   Search results are part of your public surface. Run defensive operator queries on a quarterly cadence; treat new indexed content as new exposure.</p>
+</li>
+<li>
+<p><strong>Remove sensitive public content at the source.</strong>
+   Deindexing only helps after the content is no longer publicly accessible. Otherwise the URL still works for anyone who knows it.</p>
+</li>
+<li>
+<p><strong>Use robots and noindex as indexing controls, not security controls.</strong>
+   They reduce discoverability but do not restrict access. A crawler ignoring <code>robots.txt</code> will still pull the page, and <code>robots.txt</code> itself is often the highest-signal map of paths that should not be public.</p>
+</li>
+<li>
+<p><strong>Monitor risky query patterns against your public footprint.</strong>
+   Backups, exports, and error pages should be found by your own scheduled queries first. Tie findings to a tracked remediation queue.</p>
+</li>
+<li>
+<p><strong>Avoid publishing unnecessary metadata.</strong>
+   Strip EXIF and document properties before publication. Public PDFs carrying internal author names and template paths are common indexed exposures.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong><code>robots.txt</code> as access control.</strong> It is a crawler instruction, not authorization; many crawlers and all attackers ignore it.</li>
+<li><strong>Deleting the search result while leaving the file public.</strong> The exposure remains; the next crawl re-indexes it.</li>
+<li><strong>Assuming one search engine sees everything.</strong> Coverage differs; Yandex often retains content Google removes.</li>
+<li><strong>Broad queries without triage.</strong> They create noise, not intelligence — every result must be triaged into <a href="osint-triage.html">verified / likely / uncertain / noise / sensitive</a>.</li>
+<li><strong>Trusting the operator's literal name.</strong> Engines silently reinterpret operators; verify the result set, not the syntax.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use your own domain, or a deliberately chosen public training target. None of these queries probe the target — they only read the search engine's index.</p>
+<h3 id="find-public-documents">Find public documents</h3>
+<div class="codehilite"><pre><span></span><code>site:example.test (filetype:pdf OR filetype:xlsx OR filetype:csv OR filetype:docx)
+</code></pre></div>
+
+<p>Review whether each document is intentionally public; document metadata is often where internal terminology leaks.</p>
+<h3 id="find-indexed-route-clues">Find indexed route clues</h3>
+<div class="codehilite"><pre><span></span><code>site:example.test (inurl:api OR inurl:v1 OR inurl:admin)
+site:example.test &quot;redirect_uri&quot;
+site:example.test inurl:.well-known
+</code></pre></div>
+
+<p>Move route clues into <a href="../attack-surface-mapping/endpoint-discovery.html">endpoint discovery</a> for owned-scope validation.</p>
+<h3 id="find-exposure-shaped-content">Find exposure-shaped content</h3>
+<div class="codehilite"><pre><span></span><code>site:example.test intitle:&quot;index of&quot;
+site:example.test (&quot;Application error&quot; OR &quot;stack trace&quot; OR &quot;DEBUG&quot;)
+site:example.test (filetype:bak OR filetype:sql OR filetype:zip OR filetype:tar)
+</code></pre></div>
+
+<p>Exposure-shaped content is where defensive dorking pays back the most per minute.</p>
+<h3 id="iterate-exclusion">Iterate exclusion</h3>
+<div class="codehilite"><pre><span></span><code>site:example.test &quot;login&quot; -support -docs -site:blog.example.test
+</code></pre></div>
+
+<p>Run the bare query first, list noise sources, then exclude. Two iterations usually halves the result count.</p>
+<h3 id="compare-engines">Compare engines</h3>
+<div class="codehilite"><pre><span></span><code>site:example.test &quot;internal&quot; → check on Google, Bing, Yandex, DuckDuckGo
+</code></pre></div>
+
+<p>Different engines drop, retain, or rank content differently. A clean Google result does not mean clean exposure.</p>
+<h3 id="use-cached-copies-for-changed-pages">Use cached copies for changed pages</h3>
+<div class="codehilite"><pre><span></span><code>cache:example.test/old-admin
+</code></pre></div>
+
+<p>When a page has been changed or removed, the cached copy may still show the original content for hours to weeks.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li><code>site:</code> reveals old docs, deprecated subdomains, and acquired-brand pages still indexed.</li>
+<li><code>filetype:pdf</code> finds public reports whose author metadata names internal team members.</li>
+<li><code>inurl:api</code> finds indexed API documentation that exposes routes never advertised publicly.</li>
+<li>Exact-phrase search for a known stack-trace string finds every page that ever printed that error.</li>
+<li>Yandex retains content Google has dropped; rotating engines reveals stale-but-still-public exposures.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="google-dorking.html">google-dorking</a></li>
+<li><a href="osint-triage.html">osint-triage</a></li>
+<li><a href="company-osint.html">company-osint</a></li>
+<li><a href="breach-and-leak-intelligence.html">breach-and-leak-intelligence</a></li>
+<li><a href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a></li>
+<li><a href="../offensive-security/passive-recon.html">Passive Recon</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: advanced-search-pages">advanced-search-pages</span></li>
+<li><span class="broken-link" title="Unresolved: search-result-triage">search-result-triage</span></li>
+<li><span class="broken-link" title="Unresolved: search-engine-cache">search-engine-cache</span></li>
+<li><span class="broken-link" title="Unresolved: public-document-discovery">public-document-discovery</span></li>
+<li><span class="broken-link" title="Unresolved: historical-internet-artifacts">historical-internet-artifacts</span></li>
+<li><span class="broken-link" title="Unresolved: engine-coverage-blind-spots">engine-coverage-blind-spots</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Official Tool Docs:</strong> Google Search Help: refine searches — https://support.google.com/websearch/answer/2466433/refine-web-searches</li>
+<li><strong>Official Tool Docs:</strong> Google Advanced Search Help — https://support.google.com/websearch/answer/35890</li>
+<li><strong>Foundational:</strong> Bellingcat Online Investigation Toolkit — https://bellingcat.gitbook.io/toolkit</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

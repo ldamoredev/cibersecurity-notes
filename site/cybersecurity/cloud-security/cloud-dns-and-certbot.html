@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cloud DNS and Certbot</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details open><summary>cloud-security</summary>
+<a class="" href="index.html">Cloud Security Index</a>
+<a class="active" href="cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="../networking/index.html">Networking Index</a>
+<a class="" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="../networking/dns-security.html">DNS Security</a>
+<a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="../web-security/index.html">Web Security Index</a>
+<a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="../web-security/session-management.html">Session Management</a>
+<a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#cloud-security</span></div>
+<article>
+<h1 id="cloud-dns-and-certbot">Cloud DNS and Certbot</h1>
+<h2 id="definition">Definition</h2>
+<p>Cloud DNS and Certbot is the operational pattern of pointing cloud-hosted domains at cloud resources and issuing TLS certificates for those services.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Cloud labs often move quickly from "I launched a VM" to "I exposed a domain with HTTPS." That path touches DNS ownership, public IPs, certificates, firewall rules, web server config, and renewal automation.</p>
+<p>The security lesson is that DNS and TLS are not decoration. They are ownership, reachability, and trust controls.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Cloud DNS and certificate setup has <strong>6 steps</strong>:</p>
+<ol>
+<li><strong>Own or delegate a domain.</strong> Registrar and authoritative DNS decide control.</li>
+<li><strong>Create records.</strong> A/AAAA/CNAME records point names at cloud resources.</li>
+<li><strong>Expose service ports.</strong> HTTP/HTTPS must be reachable for validation and service.</li>
+<li><strong>Prove domain control.</strong> ACME validation uses HTTP or DNS challenges.</li>
+<li><strong>Install certificates.</strong> The service presents a valid cert for the name.</li>
+<li><strong>Automate renewal.</strong> Short-lived certs require reliable renewal and reload.</li>
+</ol>
+<p>The bug is not using Certbot. The bug is weak DNS ownership, stale records, broad exposure, or broken renewal assumptions.</p>
+<p>A worked example, certificate setup to exposure drift:</p>
+<div class="codehilite"><pre><span></span><code>Goal:
+  expose lab.example.test over HTTPS
+
+DNS:
+  A record points to static cloud IP
+
+Validation:
+  HTTP-01 challenge required opening TCP/80
+
+After setup:
+  HTTPS works, but TCP/80 remains public and redirects to app
+
+Teardown risk:
+  VM can be deleted while DNS still points at static IP or future reused address
+
+Decision:
+  track DNS record, static IP, firewall rule, certificate renewal, and teardown as one lifecycle unit
+</code></pre></div>
+
+<p>The security unit is the name-to-service lifecycle, not only the certificate command.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>Reviews look at:</p>
+<ul>
+<li>registrar and DNS account protection</li>
+<li>A/AAAA/CNAME records pointing to current resources</li>
+<li>stale records after teardown</li>
+<li>HTTP validation paths and temporary firewall openings</li>
+<li>certificate name coverage and renewal timers</li>
+<li>TLS config and redirect behavior</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Cloud DNS/TLS risk has <strong>4 common shapes</strong>.</p>
+<h3 id="1-stale-dns-to-deleted-resources">1. Stale DNS to deleted resources</h3>
+<p>Records point at abandoned cloud services or IPs.</p>
+<h3 id="2-temporary-validation-exposure-left-open">2. Temporary validation exposure left open</h3>
+<p>HTTP or admin ports stay reachable after certificate setup.</p>
+<h3 id="3-renewal-failure">3. Renewal failure</h3>
+<p>Certificates expire because automation cannot reach the challenge path or reload the service.</p>
+<h3 id="4-wildcard-or-broad-certificate-scope">4. Wildcard or broad certificate scope</h3>
+<p>One certificate or DNS challenge path covers more names than expected.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Domain takeover path.</strong> Stale DNS may point at reclaimable cloud resources.</li>
+<li><strong>Service exposure.</strong> DNS makes lab services discoverable and memorable.</li>
+<li><strong>TLS trust failure.</strong> Expired or wrong certs train users to ignore warnings.</li>
+<li><strong>Credential exposure.</strong> Misconfigured HTTPS can leave login flows on HTTP.</li>
+<li><strong>Operational drift.</strong> Old records survive after the lab is gone.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Treat DNS as inventory.</strong>
+   Every record should map to an owner, resource, purpose, and teardown condition.</p>
+</li>
+<li>
+<p><strong>Protect registrar and DNS accounts.</strong>
+   Domain control is a high-impact administrative boundary.</p>
+</li>
+<li>
+<p><strong>Use least exposure for validation.</strong>
+   Open only the ports and paths required, then close what is no longer needed.</p>
+</li>
+<li>
+<p><strong>Monitor certificate renewal.</strong>
+   Renewal failures are predictable and should alert before expiry.</p>
+</li>
+<li>
+<p><strong>Clean records during teardown.</strong>
+   DNS cleanup is part of cloud resource cleanup.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Assuming HTTPS means the host is safe.</strong> TLS proves name binding, not application security.</li>
+<li><strong>Leaving HTTP open because Certbot needed it once.</strong> Validation requirements do not justify permanent exposure.</li>
+<li><strong>Deleting a VM but leaving DNS.</strong> Stale records become future attack surface.</li>
+<li><strong>Ignoring DNS account security.</strong> DNS control can redirect all traffic.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use a lab domain or subdomain.</p>
+<h3 id="map-dns-to-cloud-resources">Map DNS to cloud resources</h3>
+<div class="codehilite"><pre><span></span><code>Name:
+Record type:
+Target:
+Cloud resource:
+Owner:
+Expires:
+</code></pre></div>
+
+<p>Make DNS cleanup explicit.</p>
+<h3 id="check-certificate-posture">Check certificate posture</h3>
+<div class="codehilite"><pre><span></span><code>openssl<span class="w"> </span>s_client<span class="w"> </span>-connect<span class="w"> </span>example.com:443<span class="w"> </span>-servername<span class="w"> </span>example.com<span class="w"> </span>&lt;/dev/null
+</code></pre></div>
+
+<p>Record issuer, SANs, expiry, and chain status.</p>
+<h3 id="teardown-dns-safely">Teardown DNS safely</h3>
+<div class="codehilite"><pre><span></span><code>Resource deleted:
+DNS record removed:
+Certificate renewal disabled:
+Firewall rules closed:
+Verification date:
+</code></pre></div>
+
+<p>Avoid leaving names pointed at abandoned infrastructure.</p>
+<h3 id="check-http-to-https-behavior">Check HTTP-to-HTTPS behavior</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-I<span class="w"> </span>http://lab.example.test/
+curl<span class="w"> </span>-I<span class="w"> </span>https://lab.example.test/
+</code></pre></div>
+
+<p>Certificate setup should not leave unexpected plaintext paths or admin redirects.</p>
+<h3 id="track-certificate-renewal-ownership">Track certificate renewal ownership</h3>
+<div class="codehilite"><pre><span></span><code>certificate name | renewal method | service reload | owner | alert before expiry | teardown condition
+</code></pre></div>
+
+<p>Short-lived certificates need operational ownership, not just initial issuance.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A Route 53 record points to a deleted load balancer.</li>
+<li>A lab VM opens HTTP for ACME validation and never closes it.</li>
+<li>A Certbot renewal fails after a firewall change.</li>
+<li>A wildcard cert is reused across unrelated lab services.</li>
+<li>A domain registrar account lacks MFA.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="cloud-lab-infrastructure.html">cloud-lab-infrastructure</a></li>
+<li><a href="cloud-network-boundaries.html">cloud-network-boundaries</a></li>
+<li><a href="../networking/dns-resolution.html">DNS Resolution</a></li>
+<li><a href="../networking/tls-https.html">TLS and HTTPS</a></li>
+<li><a href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: cloud-dns-takeover">cloud-dns-takeover</span></li>
+<li><span class="broken-link" title="Unresolved: acme-dns-challenges">acme-dns-challenges</span></li>
+<li><span class="broken-link" title="Unresolved: certificate-renewal-monitoring">certificate-renewal-monitoring</span></li>
+<li><span class="broken-link" title="Unresolved: cloud-load-balancer-tls">cloud-load-balancer-tls</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Official Docs:</strong> AWS Route 53 Developer Guide — https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.html</li>
+<li><strong>Official Docs:</strong> Certbot documentation — https://eff-certbot.readthedocs.io/en/stable/</li>
+<li><strong>Official Docs:</strong> Let's Encrypt documentation — https://letsencrypt.org/docs/</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

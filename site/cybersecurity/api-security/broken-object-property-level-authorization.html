@@ -22,11 +22,15 @@
 <a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
 <a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
 <a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
 <a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
 <a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
 <a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
 <a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
 <a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
 <details open><summary>api-security</summary>
 <a class="" href="index.html">API Security Index</a>
 <a class="" href="api-auth-flaws.html">API Authentication Flaws</a>
@@ -41,6 +45,7 @@
 <a class="" href="excessive-data-exposure.html">Excessive Data Exposure</a>
 <a class="" href="jwt-attacks.html">JWT Attacks</a>
 <a class="" href="mass-assignment.html">Mass Assignment</a>
+<a class="" href="polymorphic-deserialization.html">Polymorphic Deserialization</a>
 <a class="" href="token-lifecycle.html">Token Lifecycle</a>
 </details>
 <details><summary>attack-surface-mapping</summary>
@@ -49,12 +54,25 @@
 <a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
 <a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
 <a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
 <a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
 <a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
 <a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
-<a class="" href="../attack-surface-mapping/service-enumeration.html">Service Enumeration</a>
 <a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
 <a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
 </details>
 <details><summary>devsecops</summary>
 <a class="" href="../devsecops/index.html">DevSecOps Index</a>
@@ -71,11 +89,25 @@
 <a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
 <a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
 <details><summary>networking</summary>
 <a class="" href="../networking/index.html">Networking Index</a>
 <a class="" href="../networking/caching-and-security.html">Caching and Security</a>
 <a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
 <a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
 <a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
 <a class="" href="../networking/dns-security.html">DNS Security</a>
 <a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
@@ -83,14 +115,12 @@
 <a class="" href="../networking/http-messages.html">HTTP Messages</a>
 <a class="" href="../networking/http-overview.html">HTTP Overview</a>
 <a class="" href="../networking/load-balancers.html">Load Balancers</a>
-<a class="" href="../networking/metadata-endpoints.html">Metadata Endpoints</a>
 <a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
 <a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
 <a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
 <a class="" href="../networking/ports-and-services.html">Ports and Services</a>
 <a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
 <a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
-<a class="" href="../networking/subdomain-takeover.html">Subdomain Takeover</a>
 <a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
 <a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
 <a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
@@ -110,6 +140,19 @@
 <a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
 <a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
 </details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
 <details><summary>security-playbooks</summary>
 <a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
 <a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
@@ -123,68 +166,198 @@
 <a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
 <a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
 </details>
-<details><summary>tooling</summary>
-<a class="" href="../tooling/recon-automation.html">Recon Automation</a>
-</details>
 <details><summary>web-security</summary>
 <a class="" href="../web-security/index.html">Web Security Index</a>
 <a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
 <a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
 <a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
 <a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
 <a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
 <a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
 <a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
-<a class="" href="../web-security/idor.html">IDOR</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
 <a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
 <a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
 <a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
 <a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
 <a class="" href="../web-security/session-management.html">Session Management</a>
 <a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
 </details>
-</div>
-<div class="sidebar-section"><h3>Projects</h3>
-<a class="" href="../../projects/index.html">Projects Index</a>
-<a class="" href="../../projects/attack-surface-review-project.html">Attack Surface Review Project</a>
-<a class="" href="../../projects/devsecops-hardening-project.html">DevSecOps Hardening Project</a>
-<a class="" href="../../projects/secure-api-baseline-project.html">Secure API Baseline Project</a>
-<a class="" href="../../projects/vulnerable-web-app-project.html">Vulnerable Web App Project</a>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
 </div>
 </nav>
 <main class="content">
-
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#api-security</span> <span class="tag">#bopla</span> <span class="tag">#authorization</span></div>
 <article>
 <h1 id="broken-object-property-level-authorization">Broken Object Property Level Authorization</h1>
 <h2 id="definition">Definition</h2>
-<p>Broken Object Property Level Authorization (BOPLA) happens when an API does not correctly enforce which object properties a client can read or modify.</p>
+<p>Broken Object Property Level Authorization (BOPLA) occurs when an API authorizes access to an object but fails to authorize which properties of that object the caller may read or modify.</p>
 <h2 id="why-it-matters">Why it matters</h2>
-<p>This risk explains why APIs can be dangerous even when route-level authorization appears correct. The endpoint may be allowed, but the fields within the response or request are not properly constrained.
-Keep the boundary tight: <a href="excessive-data-exposure.html">excessive-data-exposure</a> is the read-side symptom, while <a href="mass-assignment.html">mass-assignment</a> is the write-side symptom.</p>
-<h2 id="attacker-perspective">Attacker perspective</h2>
-<p>Attackers test:
-- whether hidden or sensitive fields are returned
-- whether writable fields exist that the UI never exposes
-- whether property-level differences exist between roles
-- whether JSON structures can include extra fields safely</p>
-<h2 id="defender-perspective">Defender perspective</h2>
-<p>Defenders should:
-- define which properties are readable and writable by role and context
-- avoid over-serializing internal objects
-- validate allowed fields explicitly
-- review serializers, DTOs, and binding helpers carefully</p>
+<p>APIs often expose structured objects directly. Even when the route and object are allowed, individual fields can cross trust boundaries: role flags, tenant IDs, financial limits, workflow states, internal notes, PII, and security metadata.</p>
+<p>BOPLA is the property-level branch of <a href="authorization.html">authorization</a>. Its two most important symptoms are <a href="excessive-data-exposure.html">excessive-data-exposure</a> on the read side and <a href="mass-assignment.html">mass-assignment</a> on the write side.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>BOPLA has <strong>2 directions</strong>:</p>
+<ol>
+<li><strong>Read-side property exposure.</strong> The caller receives fields they should not see.</li>
+<li><strong>Write-side property mutation.</strong> The caller changes fields they should not control.</li>
+</ol>
+<p>It usually appears because the API treats "can access this object" as equivalent to "can see or edit every field on this object."</p>
+<p>Unsafe response shape:</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/users/:id&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">requireLogin</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">findAuthorized</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+
+<p>The object lookup may be authorized, but serializing the internal entity leaks every property.</p>
+<p>Unsafe update shape:</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="s1">&#39;/api/profile&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">requireLogin</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">updated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">updated</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+
+<p>The caller may update their profile, but not necessarily <code>role</code>, <code>tenantId</code>, <code>creditLimit</code>, or <code>mfaEnabled</code>.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>Attackers test:</p>
+<ul>
+<li>response fields across roles, tenants, and API versions</li>
+<li>hidden properties present in mobile or admin responses</li>
+<li>extra JSON fields in <code>POST</code>, <code>PUT</code>, and <code>PATCH</code></li>
+<li>nested objects such as <code>user.role.name</code>, <code>account.billingPlan</code>, or <code>permissions[]</code></li>
+<li>fields returned by export, search, report, and debug endpoints</li>
+<li>differences between public, authenticated, support, and admin callers</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>BOPLA is easier to reason about as <strong>5 protected property classes</strong>:</p>
+<h3 id="1-identity-and-ownership-fields">1. Identity and ownership fields</h3>
+<p>Fields like <code>userId</code>, <code>ownerId</code>, <code>tenantId</code>, <code>organizationId</code>, and <code>accountId</code> decide who controls or sees the object.</p>
+<h3 id="2-role-and-permission-fields">2. Role and permission fields</h3>
+<p>Fields like <code>role</code>, <code>isAdmin</code>, <code>scopes</code>, <code>permissions</code>, and <code>supportAccess</code> alter authority.</p>
+<h3 id="3-workflow-and-state-fields">3. Workflow and state fields</h3>
+<p>Fields like <code>approved</code>, <code>published</code>, <code>locked</code>, <code>refunded</code>, and <code>status</code> control business transitions.</p>
+<h3 id="4-financial-and-quota-fields">4. Financial and quota fields</h3>
+<p>Fields like <code>creditLimit</code>, <code>account_credit_cents</code>, <code>plan</code>, <code>discount</code>, and <code>usageCap</code> affect money or resource consumption.</p>
+<h3 id="5-sensitive-or-internal-fields">5. Sensitive or internal fields</h3>
+<p>Fields like <code>passwordHash</code>, <code>mfaSecret</code>, <code>resetToken</code>, <code>internalNotes</code>, <code>riskScore</code>, and <code>debugMetadata</code> should not be exposed to ordinary clients.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Privilege escalation.</strong> Writable role or permission fields grant stronger authority.</li>
+<li><strong>Tenant boundary break.</strong> Ownership or tenant fields move data across accounts.</li>
+<li><strong>Sensitive data disclosure.</strong> Internal, financial, or personal fields leak through responses.</li>
+<li><strong>Business logic abuse.</strong> Workflow, quota, price, or approval fields are changed directly.</li>
+<li><strong>Audit confusion.</strong> Logs show legitimate endpoints but miss unauthorized field access.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Define readable and writable fields per role, action, and object state.</strong>
+   Property policy must be explicit. A user may read <code>email</code> but not <code>riskScore</code>, or update <code>displayName</code> but not <code>role</code>.</p>
+</li>
+<li>
+<p><strong>Use response DTOs and request DTOs instead of internal models.</strong>
+   Public API shapes should be intentionally smaller than persistence entities. This prevents accidental serialization and binding of internal fields.</p>
+</li>
+<li>
+<p><strong>Reject unknown or forbidden request properties.</strong>
+   Silent ignoring can be acceptable for compatibility, but explicit rejection is better for sensitive endpoints because it surfaces probing and prevents false confidence in tests.</p>
+</li>
+<li>
+<p><strong>Test field behavior with multiple roles and tenants.</strong>
+   Compare responses and accepted writes for normal, admin, support, read-only, and wrong-tenant users.</p>
+</li>
+<li>
+<p><strong>Review export, search, and batch endpoints separately.</strong>
+   These often use different serializers or query projections than normal detail endpoints.</p>
+</li>
+<li>
+<p><strong>Log protected-field write attempts.</strong>
+   Attempts to submit <code>isAdmin</code>, <code>tenantId</code>, <code>ownerId</code>, or financial fields are useful abuse signals.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Route-level authorization alone.</strong> Access to <code>/profile</code> does not imply access to every profile property.</li>
+<li><strong>Frontend forms.</strong> Attackers can send JSON properties the UI never renders.</li>
+<li><strong>Serializer defaults.</strong> Framework defaults often serialize more than the API contract intends.</li>
+<li><strong>Client-side field filtering.</strong> Sensitive fields already crossed the boundary if the client had to remove them.</li>
+<li><strong>Naming fields obscurely.</strong> Hidden or undocumented fields leak through traffic, schemas, mobile clients, and error messages.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use an owned API, local lab, or deliberately vulnerable app with at least two roles.</p>
+<h3 id="diff-response-fields-by-role">Diff response fields by role</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$USER</span><span class="s2">&quot;</span><span class="w">  </span>https://api.example.test/users/me<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-S<span class="w"> </span><span class="s1">&#39;keys&#39;</span>
+curl<span class="w"> </span>-s<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$ADMIN</span><span class="s2">&quot;</span><span class="w"> </span>https://api.example.test/users/me<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-S<span class="w"> </span><span class="s1">&#39;keys&#39;</span>
+</code></pre></div>
+
+<p>Expected: differences should match a documented property policy, not accidental serializer behavior.</p>
+<h3 id="submit-protected-write-fields">Submit protected write fields</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-X<span class="w"> </span>PATCH<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$USER</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;displayName&quot;:&quot;A&quot;,&quot;role&quot;:&quot;admin&quot;,&quot;tenantId&quot;:&quot;other&quot;,&quot;creditLimit&quot;:999999}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://api.example.test/users/me
+</code></pre></div>
+
+<p>The API should reject or ignore forbidden fields predictably, and it should not persist them.</p>
+<h3 id="check-nested-property-binding">Check nested property binding</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-X<span class="w"> </span>PATCH<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$USER</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;profile&quot;:{&quot;timezone&quot;:&quot;UTC&quot;},&quot;account&quot;:{&quot;plan&quot;:&quot;enterprise&quot;}}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://api.example.test/profile
+</code></pre></div>
+
+<p>Nested objects often bypass simple top-level allowlists.</p>
+<h3 id="test-exportsearch-serializers">Test export/search serializers</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$USER</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://api.example.test/users/export?format=json&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.[0]&#39;</span>
+</code></pre></div>
+
+<p>Exports should not return a richer internal object than normal API responses.</p>
 <h2 id="practical-examples">Practical examples</h2>
 <ul>
-<li>the API returns internal IDs, flags, or PII the UI never shows</li>
-<li>the request accepts a property like <code>isAdmin</code> or <code>creditLimit</code></li>
-<li>different roles should see different fields, but the server returns all of them</li>
+<li>A profile response includes <code>mfaSecret</code> or <code>passwordResetToken</code>.</li>
+<li>A normal user can set <code>role: "admin"</code> in a JSON body.</li>
+<li>A support user can see <code>riskScore</code> for accounts outside their queue.</li>
+<li>An export endpoint includes internal notes hidden from the detail endpoint.</li>
+<li>A nested <code>account.plan</code> field can be changed through a profile update.</li>
 </ul>
 <h2 id="related-notes">Related notes</h2>
 <ul>
+<li><a href="authorization.html">authorization</a></li>
+<li><a href="broken-object-level-authorization.html">broken-object-level-authorization</a></li>
+<li><a href="broken-function-level-authorization.html">broken-function-level-authorization</a></li>
 <li><a href="excessive-data-exposure.html">excessive-data-exposure</a></li>
 <li><a href="mass-assignment.html">mass-assignment</a></li>
-<li><a href="authorization.html">authorization</a></li>
-<li><a href="api-security-top-10.html">api-security-top-10</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: field-level-permissions">field-level-permissions</span></li>
+<li><span class="broken-link" title="Unresolved: response-dto-design">response-dto-design</span></li>
+<li><span class="broken-link" title="Unresolved: request-dto-allowlists">request-dto-allowlists</span></li>
+<li><span class="broken-link" title="Unresolved: serializer-overexposure">serializer-overexposure</span></li>
+<li><span class="broken-link" title="Unresolved: nested-property-authorization">nested-property-authorization</span></li>
 </ul>
 <h2 id="references">References</h2>
 <ul>

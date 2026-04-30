@@ -22,11 +22,15 @@
 <a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
 <a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
 <a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
 <a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
 <a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
 <a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
 <a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
 <a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
 <details open><summary>api-security</summary>
 <a class="" href="index.html">API Security Index</a>
 <a class="" href="api-auth-flaws.html">API Authentication Flaws</a>
@@ -41,6 +45,7 @@
 <a class="" href="excessive-data-exposure.html">Excessive Data Exposure</a>
 <a class="active" href="jwt-attacks.html">JWT Attacks</a>
 <a class="" href="mass-assignment.html">Mass Assignment</a>
+<a class="" href="polymorphic-deserialization.html">Polymorphic Deserialization</a>
 <a class="" href="token-lifecycle.html">Token Lifecycle</a>
 </details>
 <details><summary>attack-surface-mapping</summary>
@@ -49,12 +54,25 @@
 <a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
 <a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
 <a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
 <a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
 <a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
 <a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
-<a class="" href="../attack-surface-mapping/service-enumeration.html">Service Enumeration</a>
 <a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
 <a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
 </details>
 <details><summary>devsecops</summary>
 <a class="" href="../devsecops/index.html">DevSecOps Index</a>
@@ -71,11 +89,25 @@
 <a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
 <a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
 <details><summary>networking</summary>
 <a class="" href="../networking/index.html">Networking Index</a>
 <a class="" href="../networking/caching-and-security.html">Caching and Security</a>
 <a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
 <a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
 <a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
 <a class="" href="../networking/dns-security.html">DNS Security</a>
 <a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
@@ -83,14 +115,12 @@
 <a class="" href="../networking/http-messages.html">HTTP Messages</a>
 <a class="" href="../networking/http-overview.html">HTTP Overview</a>
 <a class="" href="../networking/load-balancers.html">Load Balancers</a>
-<a class="" href="../networking/metadata-endpoints.html">Metadata Endpoints</a>
 <a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
 <a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
 <a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
 <a class="" href="../networking/ports-and-services.html">Ports and Services</a>
 <a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
 <a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
-<a class="" href="../networking/subdomain-takeover.html">Subdomain Takeover</a>
 <a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
 <a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
 <a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
@@ -110,6 +140,19 @@
 <a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
 <a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
 </details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
 <details><summary>security-playbooks</summary>
 <a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
 <a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
@@ -123,77 +166,198 @@
 <a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
 <a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
 </details>
-<details><summary>tooling</summary>
-<a class="" href="../tooling/recon-automation.html">Recon Automation</a>
-</details>
 <details><summary>web-security</summary>
 <a class="" href="../web-security/index.html">Web Security Index</a>
 <a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
 <a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
 <a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
 <a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
 <a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
 <a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
 <a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
-<a class="" href="../web-security/idor.html">IDOR</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
 <a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
 <a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
 <a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
 <a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
 <a class="" href="../web-security/session-management.html">Session Management</a>
 <a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
 </details>
-</div>
-<div class="sidebar-section"><h3>Projects</h3>
-<a class="" href="../../projects/index.html">Projects Index</a>
-<a class="" href="../../projects/attack-surface-review-project.html">Attack Surface Review Project</a>
-<a class="" href="../../projects/devsecops-hardening-project.html">DevSecOps Hardening Project</a>
-<a class="" href="../../projects/secure-api-baseline-project.html">Secure API Baseline Project</a>
-<a class="" href="../../projects/vulnerable-web-app-project.html">Vulnerable Web App Project</a>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
 </div>
 </nav>
 <main class="content">
-
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#api-security</span> <span class="tag">#jwt</span> <span class="tag">#authentication</span></div>
 <article>
 <h1 id="jwt-attacks">JWT Attacks</h1>
 <h2 id="definition">Definition</h2>
-<p>JWT attacks are weaknesses in how JSON Web Tokens are issued, validated, trusted, scoped, or expired. The risk is rarely “JWT exists”; the risk is how the application uses it.</p>
+<p>JWT attacks exploit weaknesses in how JSON Web Tokens are issued, validated, trusted, scoped, or expired. The risk is not that an API uses JWTs; the risk is accepting token content without the right cryptographic and contextual checks.</p>
 <h2 id="why-it-matters">Why it matters</h2>
-<p>JWTs are attractive because they are portable and easy to distribute across clients and services. But they also encourage teams to push trust decisions into claims that can become stale, inconsistent, or insufficiently validated.
-This note is specifically about token validation and token-contained trust, not every authentication flaw that happens to use JWTs.</p>
-<h2 id="attacker-perspective">Attacker perspective</h2>
-<p>Attackers test:
-- expired token acceptance
-- weak or inconsistent claim validation
-- stale roles or scopes inside tokens
-- differences across services consuming the same token
-- assumptions that token presence implies authorization</p>
-<h2 id="defender-perspective">Defender perspective</h2>
-<p>Defenders should:
-- validate signature and critical claims consistently
-- avoid overloading tokens with long-lived authorization truth
-- keep token lifetime and scope narrow
-- design revocation and rotation intentionally
-- separate authentication from authorization checks</p>
+<p>JWTs are portable trust containers. That portability is useful for APIs and microservices, but it also means a bad validation decision can propagate across services, clients, and authorization layers.</p>
+<p>This note focuses on token validation and token-contained trust. <a href="broken-authentication.html">broken-authentication</a> stays broader, and <a href="token-lifecycle.html">token-lifecycle</a> owns issuance, refresh, rotation, revocation, and expiry behavior over time.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>A JWT consumer must pass <strong>6 validation gates</strong>:</p>
+<ol>
+<li><strong>Structure.</strong> The token is well-formed and decoded safely.</li>
+<li><strong>Signature.</strong> The signature is valid for the expected algorithm and key.</li>
+<li><strong>Issuer.</strong> <code>iss</code> matches the trusted identity provider.</li>
+<li><strong>Audience.</strong> <code>aud</code> matches this API or service.</li>
+<li><strong>Time.</strong> <code>exp</code>, <code>nbf</code>, and <code>iat</code> are acceptable for this trust decision.</li>
+<li><strong>Claims and context.</strong> <code>sub</code>, <code>scope</code>, <code>role</code>, tenant, session, and assurance claims are authorized for the action.</li>
+</ol>
+<p>JWT attacks usually exploit one missing gate or inconsistent gates across services.</p>
+<p>Example inspection:</p>
+<div class="codehilite"><pre><span></span><code>jq<span class="w"> </span>-R<span class="w"> </span><span class="s1">&#39;split(&quot;.&quot;) | .[0], .[1] | @base64d | fromjson&#39;</span><span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$JWT</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<p>Decoding is not validation. It only reveals what the token claims.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>Attackers test:</p>
+<ul>
+<li>expired token reuse</li>
+<li>wrong <code>aud</code> or <code>iss</code> acceptance</li>
+<li>algorithm confusion or weak key selection</li>
+<li>acceptance of unsigned or improperly signed tokens</li>
+<li>stale roles, scopes, or tenant claims after change</li>
+<li>inconsistent validation between services</li>
+<li>logout, password reset, and revocation expectations</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>JWT attacks appear in <strong>7 common forms</strong>.</p>
+<h3 id="1-signature-validation-failure">1. Signature validation failure</h3>
+<p>The service decodes the token but does not properly verify the signature.</p>
+<h3 id="2-algorithm-and-key-confusion">2. Algorithm and key confusion</h3>
+<p>The service accepts unexpected algorithms, uses the wrong key source, or trusts attacker-influenced key metadata.</p>
+<h3 id="3-issuer-or-audience-mismatch">3. Issuer or audience mismatch</h3>
+<p>A token minted for another service, tenant, or environment is accepted.</p>
+<h3 id="4-expiry-and-freshness-failure">4. Expiry and freshness failure</h3>
+<p>Expired, not-yet-valid, or very old tokens remain usable.</p>
+<h3 id="5-stale-authorization-claims">5. Stale authorization claims</h3>
+<p>Roles or scopes in old tokens continue to grant access after privilege changes.</p>
+<h3 id="6-cross-service-inconsistency">6. Cross-service inconsistency</h3>
+<p>One API validates claims strictly while another service accepts weaker tokens.</p>
+<h3 id="7-token-presence-confusion">7. Token presence confusion</h3>
+<p>The application treats "has a JWT" as equivalent to "may perform this action."</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Authentication bypass.</strong> Invalid or attacker-crafted tokens are accepted.</li>
+<li><strong>Privilege escalation.</strong> Stale or manipulated claims grant stronger access.</li>
+<li><strong>Cross-service access.</strong> Tokens for one audience work against another API.</li>
+<li><strong>Persistent access.</strong> Tokens survive logout, password change, or role downgrade.</li>
+<li><strong>Tenant boundary break.</strong> Tenant claims are trusted without server-side authorization.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Use vetted JWT libraries with strict verification settings.</strong>
+   Do not hand-roll JWT validation. Configure allowed algorithms, expected issuer, expected audience, clock skew, and required claims explicitly.</p>
+</li>
+<li>
+<p><strong>Pin trust to expected issuer, audience, algorithm, and key material.</strong>
+   A valid signature is not enough if the token came from the wrong issuer or was meant for another service.</p>
+</li>
+<li>
+<p><strong>Keep tokens short-lived and narrowly scoped.</strong>
+   Short lifetimes reduce stale-claim risk. Narrow audiences and scopes reduce blast radius.</p>
+</li>
+<li>
+<p><strong>Treat JWT claims as inputs to authorization, not final authority.</strong>
+   Roles, tenant IDs, and scopes still need server-side policy checks against the requested object and action.</p>
+</li>
+<li>
+<p><strong>Design revocation and key rotation deliberately.</strong>
+   Stateless tokens still need practical answers for logout, compromise, role change, and signing-key rollover.</p>
+</li>
+<li>
+<p><strong>Test every token consumer.</strong>
+   In microservices, the weakest consumer defines the effective trust boundary.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Base64 decoding checks.</strong> Reading the payload is not signature validation.</li>
+<li><strong>Trusting <code>alg</code>, <code>kid</code>, or key URLs from untrusted input.</strong> Header metadata must not select arbitrary trust roots.</li>
+<li><strong>Long-lived role claims.</strong> Roles embedded for hours or days become stale authority.</li>
+<li><strong>JWTs as authorization by themselves.</strong> Tokens identify and carry claims; policy still decides access.</li>
+<li><strong>Logout that only deletes the browser token.</strong> Other copies of the token may remain usable.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use only tokens from systems you own or intentionally vulnerable labs.</p>
+<h3 id="decode-and-document-validation-assumptions">Decode and document validation assumptions</h3>
+<div class="codehilite"><pre><span></span><code>jq<span class="w"> </span>-R<span class="w"> </span><span class="s1">&#39;split(&quot;.&quot;) | .[0], .[1] | @base64d | fromjson&#39;</span><span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$JWT</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<p>Record <code>alg</code>, <code>kid</code>, <code>iss</code>, <code>aud</code>, <code>sub</code>, <code>exp</code>, <code>iat</code>, scopes, roles, and tenant claims.</p>
+<h3 id="test-audience-and-issuer-boundaries">Test audience and issuer boundaries</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN_FOR_OTHER_API</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://api.example.test/users/me
+</code></pre></div>
+
+<p>The API should reject tokens minted for a different audience or issuer.</p>
+<h3 id="test-expiry-behavior">Test expiry behavior</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$EXPIRED_TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://api.example.test/users/me
+</code></pre></div>
+
+<p>Expired tokens should fail consistently across all services.</p>
+<h3 id="test-stale-privilege-claims">Test stale privilege claims</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$OLD_ADMIN_TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://api.example.test/admin/users
+</code></pre></div>
+
+<p>After role downgrade, old privileged tokens should not keep granting sensitive access beyond the intended window.</p>
 <h2 id="practical-examples">Practical examples</h2>
 <ul>
-<li>one service rejects an expired token while another still accepts it</li>
-<li>a role change is not reflected because old tokens remain valid</li>
-<li>a token with valid structure but wrong audience is still accepted</li>
+<li>A token with the wrong audience is accepted by an internal API.</li>
+<li>One service accepts expired tokens while another rejects them.</li>
+<li>A role downgrade does not affect previously issued admin tokens.</li>
+<li>JWT header metadata leads the verifier to the wrong key.</li>
+<li>A service checks signature but ignores tenant authorization.</li>
 </ul>
 <h2 id="related-notes">Related notes</h2>
 <ul>
 <li><a href="broken-authentication.html">broken-authentication</a></li>
 <li><a href="api-auth-flaws.html">api-auth-flaws</a></li>
 <li><a href="token-lifecycle.html">token-lifecycle</a></li>
+<li><a href="authorization.html">authorization</a></li>
 <li><a href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a></li>
 <li><a href="../web-security/session-management.html">Session Management</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: jwt-audience-validation">jwt-audience-validation</span></li>
+<li><span class="broken-link" title="Unresolved: jwt-key-confusion">jwt-key-confusion</span></li>
+<li><span class="broken-link" title="Unresolved: stale-jwt-claims">stale-jwt-claims</span></li>
+<li><span class="broken-link" title="Unresolved: jwt-revocation-strategies">jwt-revocation-strategies</span></li>
+<li><span class="broken-link" title="Unresolved: microservice-token-validation">microservice-token-validation</span></li>
 </ul>
 <h2 id="references">References</h2>
 <ul>
 <li><strong>Foundational:</strong> OWASP Authentication Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html</li>
 <li><strong>Foundational:</strong> OWASP JSON Web Token for Java Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html</li>
-<li><strong>Testing / Lab:</strong> PortSwigger Web Security Academy — https://portswigger.net/web-security</li>
+<li><strong>Testing / Lab:</strong> PortSwigger JWT attacks topic — https://portswigger.net/web-security/jwt</li>
 </ul>
 </article>
 </main>

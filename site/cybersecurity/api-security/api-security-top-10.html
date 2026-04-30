@@ -22,11 +22,15 @@
 <a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
 <a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
 <a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
 <a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
 <a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
 <a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
 <a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
 <a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
 <details open><summary>api-security</summary>
 <a class="" href="index.html">API Security Index</a>
 <a class="" href="api-auth-flaws.html">API Authentication Flaws</a>
@@ -41,6 +45,7 @@
 <a class="" href="excessive-data-exposure.html">Excessive Data Exposure</a>
 <a class="" href="jwt-attacks.html">JWT Attacks</a>
 <a class="" href="mass-assignment.html">Mass Assignment</a>
+<a class="" href="polymorphic-deserialization.html">Polymorphic Deserialization</a>
 <a class="" href="token-lifecycle.html">Token Lifecycle</a>
 </details>
 <details><summary>attack-surface-mapping</summary>
@@ -49,12 +54,25 @@
 <a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
 <a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
 <a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
 <a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
 <a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
 <a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
-<a class="" href="../attack-surface-mapping/service-enumeration.html">Service Enumeration</a>
 <a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
 <a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
 </details>
 <details><summary>devsecops</summary>
 <a class="" href="../devsecops/index.html">DevSecOps Index</a>
@@ -71,11 +89,25 @@
 <a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
 <a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
 <details><summary>networking</summary>
 <a class="" href="../networking/index.html">Networking Index</a>
 <a class="" href="../networking/caching-and-security.html">Caching and Security</a>
 <a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
 <a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
 <a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
 <a class="" href="../networking/dns-security.html">DNS Security</a>
 <a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
@@ -83,14 +115,12 @@
 <a class="" href="../networking/http-messages.html">HTTP Messages</a>
 <a class="" href="../networking/http-overview.html">HTTP Overview</a>
 <a class="" href="../networking/load-balancers.html">Load Balancers</a>
-<a class="" href="../networking/metadata-endpoints.html">Metadata Endpoints</a>
 <a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
 <a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
 <a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
 <a class="" href="../networking/ports-and-services.html">Ports and Services</a>
 <a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
 <a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
-<a class="" href="../networking/subdomain-takeover.html">Subdomain Takeover</a>
 <a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
 <a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
 <a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
@@ -110,6 +140,19 @@
 <a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
 <a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
 </details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
 <details><summary>security-playbooks</summary>
 <a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
 <a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
@@ -123,68 +166,212 @@
 <a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
 <a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
 </details>
-<details><summary>tooling</summary>
-<a class="" href="../tooling/recon-automation.html">Recon Automation</a>
-</details>
 <details><summary>web-security</summary>
 <a class="" href="../web-security/index.html">Web Security Index</a>
 <a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
 <a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
 <a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
 <a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
 <a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
 <a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
 <a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
-<a class="" href="../web-security/idor.html">IDOR</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
 <a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
 <a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
 <a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
 <a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
 <a class="" href="../web-security/session-management.html">Session Management</a>
 <a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
 </details>
-</div>
-<div class="sidebar-section"><h3>Projects</h3>
-<a class="" href="../../projects/index.html">Projects Index</a>
-<a class="" href="../../projects/attack-surface-review-project.html">Attack Surface Review Project</a>
-<a class="" href="../../projects/devsecops-hardening-project.html">DevSecOps Hardening Project</a>
-<a class="" href="../../projects/secure-api-baseline-project.html">Secure API Baseline Project</a>
-<a class="" href="../../projects/vulnerable-web-app-project.html">Vulnerable Web App Project</a>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
 </div>
 </nav>
 <main class="content">
-
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#api-security</span> <span class="tag">#owasp</span></div>
 <article>
 <h1 id="api-security-top-10">API Security Top 10</h1>
 <h2 id="definition">Definition</h2>
-<p>The OWASP API Security Top 10 is a focused awareness framework for the most important API-specific security risk categories. It complements, rather than replaces, broader web-security guidance.</p>
+<p>The OWASP API Security Top 10 is a focused awareness framework for the most important API-specific security risk categories. It complements broader web security guidance by emphasizing object access, function exposure, property control, resource consumption, and API inventory drift.</p>
 <h2 id="why-it-matters">Why it matters</h2>
-<p>API security has its own failure patterns. APIs expose object identifiers, machine-readable data, business functions, and backend integration surfaces in ways that are often broader than a traditional UI. This changes what attackers enumerate and how defenders should think about trust boundaries.</p>
-<h2 id="attacker-perspective">Attacker perspective</h2>
-<p>Attackers use APIs because:
-- the surface is often larger than the web UI exposes
-- object identifiers are easier to manipulate directly
-- functions are callable without the frontend
-- machine-readable responses are easier to diff and automate against
-- undocumented or legacy endpoints often remain reachable</p>
-<h2 id="defender-perspective">Defender perspective</h2>
-<p>Defenders should use the API Top 10 to:
-- prioritize common API failure modes
-- distinguish object-, function-, and property-level authorization
-- connect backend implementation choices to exposure
-- design safer API review and testing workflows</p>
+<p>APIs expose business objects, identifiers, machine-readable data, backend functions, and integration surfaces more directly than most browser UIs. This changes how attackers enumerate systems and how defenders should think about trust boundaries.</p>
+<p>This page is the API branch map. Individual notes carry the operational detail: <a href="authorization.html">authorization</a>, <a href="broken-object-level-authorization.html">broken-object-level-authorization</a>, <a href="broken-authentication.html">broken-authentication</a>, <a href="broken-object-property-level-authorization.html">broken-object-property-level-authorization</a>, <a href="api-rate-limiting.html">api-rate-limiting</a>, <a href="broken-function-level-authorization.html">broken-function-level-authorization</a>, <a href="api-inventory-management.html">api-inventory-management</a>, and <a href="polymorphic-deserialization.html">polymorphic-deserialization</a>.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>The 2023 API Top 10 can be held as <strong>5 API security questions</strong>:</p>
+<ol>
+<li><strong>Who can access which object?</strong> BOLA and object authorization.</li>
+<li><strong>Who can invoke which function?</strong> BFLA and workflow/action authorization.</li>
+<li><strong>Which properties cross the boundary?</strong> BOPLA, excessive exposure, and mass assignment.</li>
+<li><strong>How much can callers consume?</strong> Rate limits, cost controls, and unrestricted resource consumption.</li>
+<li><strong>What API surface exists?</strong> Inventory, versions, misconfiguration, and unsafe consumption.</li>
+</ol>
+<p>This framing is more useful than memorizing the list because most API reviews involve these questions repeatedly.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>Attackers use APIs because:</p>
+<ul>
+<li>object identifiers are easier to manipulate directly</li>
+<li>functions are callable without the frontend</li>
+<li>machine-readable responses are easy to diff and automate</li>
+<li>undocumented or legacy endpoints often remain reachable</li>
+<li>mobile and partner clients reveal alternate API paths</li>
+<li>schemas and docs reveal route, field, and model structure</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>The OWASP API Top 10 2023 categories are:</p>
+<ol>
+<li>
+<p><strong>API1: Broken Object Level Authorization.</strong>
+   Object references are accessible without per-object authorization.</p>
+</li>
+<li>
+<p><strong>API2: Broken Authentication.</strong>
+   Identity, credentials, tokens, or auth workflows are weak or inconsistent.</p>
+</li>
+<li>
+<p><strong>API3: Broken Object Property Level Authorization.</strong>
+   APIs expose or accept properties the caller should not see or control.</p>
+</li>
+<li>
+<p><strong>API4: Unrestricted Resource Consumption.</strong>
+   Callers can consume too much compute, memory, storage, downstream cost, or business resource.</p>
+</li>
+<li>
+<p><strong>API5: Broken Function Level Authorization.</strong>
+   Callers invoke functions their role or state should not allow.</p>
+</li>
+<li>
+<p><strong>API6: Unrestricted Access to Sensitive Business Flows.</strong>
+   Business workflows can be automated or abused at scale even without a classic technical bug.</p>
+</li>
+<li>
+<p><strong>API7: Server Side Request Forgery.</strong>
+   API-controlled URL fetches reach internal or unintended network resources.</p>
+</li>
+<li>
+<p><strong>API8: Security Misconfiguration.</strong>
+   Unsafe defaults, verbose errors, weak headers, permissive parsers, or exposed management surfaces increase risk.</p>
+</li>
+<li>
+<p><strong>API9: Improper Inventory Management.</strong>
+   Unknown versions, hosts, environments, or routes remain reachable.</p>
+</li>
+<li>
+<p><strong>API10: Unsafe Consumption of APIs.</strong>
+    An API trusts upstream or third-party APIs without enough validation, isolation, or failure handling.</p>
+</li>
+</ol>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Tenant and account compromise.</strong> Object, function, and property authorization failures cross account boundaries.</li>
+<li><strong>Account takeover or persistence.</strong> Auth and token flaws allow unauthorized access or long-lived access.</li>
+<li><strong>Sensitive data exposure.</strong> Responses, exports, schemas, and debug output leak data.</li>
+<li><strong>Business abuse.</strong> Workflows, quotas, inventory, pricing, or approvals are automated or manipulated.</li>
+<li><strong>Infrastructure and cost damage.</strong> Resource exhaustion, SSRF, and misconfiguration reach backend systems or create large spend.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Threat-model APIs by object, function, property, resource, and inventory.</strong>
+   These five questions catch most API-specific risk during design and review.</p>
+</li>
+<li>
+<p><strong>Build authorization and authentication tests as matrices.</strong>
+   Use multiple users, roles, tenants, token states, and API versions. Single-user happy-path tests miss API security bugs.</p>
+</li>
+<li>
+<p><strong>Use explicit request and response contracts.</strong>
+   DTOs, schemas, and field policies reduce mass assignment and excessive exposure.</p>
+</li>
+<li>
+<p><strong>Inventory and monitor deployed API surface continuously.</strong>
+   Security depends on what is reachable, not only what is documented.</p>
+</li>
+<li>
+<p><strong>Apply abuse controls to high-value and high-cost workflows.</strong>
+   Rate limits, concurrency limits, quotas, and anomaly detection belong on business flows, not only login.</p>
+</li>
+<li>
+<p><strong>Treat API dependencies and parsers as trust boundaries.</strong>
+   Validate inbound and outbound API data, avoid unsafe deserialization, and isolate third-party failures.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Frontend-only controls.</strong> APIs are directly callable.</li>
+<li><strong>Authentication alone.</strong> Logged-in users still need object, function, and property authorization.</li>
+<li><strong>Documentation-only inventory.</strong> Attackers enumerate deployed surface.</li>
+<li><strong>Generic WAF coverage.</strong> API bugs are often business-logic and authorization failures.</li>
+<li><strong>One-time launch review.</strong> API surface and clients drift continuously.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use an owned API, training lab, or intentionally vulnerable app.</p>
+<h3 id="build-an-owasp-api-review-matrix">Build an OWASP API review matrix</h3>
+<div class="codehilite"><pre><span></span><code>endpoint | object auth | function auth | property read/write | rate/cost | version/owner
+</code></pre></div>
+
+<p>Fill it for the most sensitive endpoints first.</p>
+<h3 id="map-one-endpoint-to-the-five-questions">Map one endpoint to the five questions</h3>
+<div class="codehilite"><pre><span></span><code>POST /api/projects/{id}/members
+object: can caller access project?
+function: can caller invite members?
+properties: can caller set role/status?
+resource: are invites limited?
+inventory: does v1/mobile behave the same?
+</code></pre></div>
+
+<p>This creates a reusable review habit.</p>
+<h3 id="compare-deployed-routes-to-docs">Compare deployed routes to docs</h3>
+<div class="codehilite"><pre><span></span><code>rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;/api/|router\\.|app\\.(get|post|put|patch|delete)&quot;</span><span class="w"> </span>src<span class="w"> </span>routes<span class="w"> </span>openapi.yaml
+</code></pre></div>
+
+<p>Look for routes missing from docs or tests.</p>
 <h2 id="practical-examples">Practical examples</h2>
 <ul>
 <li>The UI hides fields the API still returns.</li>
 <li>Admin-only actions are callable directly by a normal client.</li>
 <li>Old API versions remain deployed and discoverable.</li>
+<li>A report endpoint can be triggered repeatedly to create high backend cost.</li>
+<li>An API fetches attacker-provided URLs from inside the network.</li>
 </ul>
 <h2 id="related-notes">Related notes</h2>
 <ul>
 <li><a href="authorization.html">authorization</a></li>
 <li><a href="broken-object-level-authorization.html">broken-object-level-authorization</a></li>
 <li><a href="broken-authentication.html">broken-authentication</a></li>
+<li><a href="broken-object-property-level-authorization.html">broken-object-property-level-authorization</a></li>
+<li><a href="api-rate-limiting.html">api-rate-limiting</a></li>
+<li><a href="broken-function-level-authorization.html">broken-function-level-authorization</a></li>
 <li><a href="api-inventory-management.html">api-inventory-management</a></li>
+<li><a href="polymorphic-deserialization.html">polymorphic-deserialization</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: unrestricted-access-to-sensitive-business-flows">unrestricted-access-to-sensitive-business-flows</span></li>
+<li><span class="broken-link" title="Unresolved: api-ssrf">api-ssrf</span></li>
+<li><span class="broken-link" title="Unresolved: api-security-misconfiguration">api-security-misconfiguration</span></li>
+<li><span class="broken-link" title="Unresolved: unsafe-consumption-of-apis">unsafe-consumption-of-apis</span></li>
+<li><span class="broken-link" title="Unresolved: api-security-review-matrix">api-security-review-matrix</span></li>
 </ul>
 <h2 id="references">References</h2>
 <ul>

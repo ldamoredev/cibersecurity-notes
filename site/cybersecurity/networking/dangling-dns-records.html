@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dangling DNS Records</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details open><summary>networking</summary>
+<a class="" href="index.html">Networking Index</a>
+<a class="" href="caching-and-security.html">Caching and Security</a>
+<a class="" href="client-ip-trust.html">Client IP Trust</a>
+<a class="" href="metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="active" href="dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="dns-resolution.html">DNS Resolution</a>
+<a class="" href="dns-security.html">DNS Security</a>
+<a class="" href="firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="http-headers.html">HTTP Headers</a>
+<a class="" href="http-messages.html">HTTP Messages</a>
+<a class="" href="http-overview.html">HTTP Overview</a>
+<a class="" href="load-balancers.html">Load Balancers</a>
+<a class="" href="nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="packet-analysis.html">Packet Analysis</a>
+<a class="" href="ports-and-services.html">Ports and Services</a>
+<a class="" href="reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="service-enumeration.html">Service Enumeration</a>
+<a class="" href="tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="tls-https.html">TLS and HTTPS</a>
+<a class="" href="wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="../web-security/index.html">Web Security Index</a>
+<a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="../web-security/session-management.html">Session Management</a>
+<a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#networking</span> <span class="tag">#dns</span> <span class="tag">#dangling-records</span></div>
+<article>
+<h1 id="dangling-dns-records">Dangling DNS Records</h1>
+<h2 id="definition">Definition</h2>
+<p>Dangling DNS records are DNS entries that still point to infrastructure, cloud resources, SaaS mappings, storage buckets, CDN distributions, or service targets that no longer exist or are no longer controlled by the intended owner.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Dangling records are the lifecycle failure underneath many subdomain takeover findings. A hostname can look legitimate to users, browsers, cookies, HSTS policy, OAuth redirect allowlists, and internal documentation while its backing target is abandoned or claimable.</p>
+<p>This networking note owns the stale name-target mechanism. <a href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a> owns the confirmed exposure condition where an attacker can claim the target.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>A dangling-record failure has <strong>4 moving parts</strong>:</p>
+<ol>
+<li><strong>DNS name remains live.</strong> The organization still publishes <code>blog.example.com</code>, <code>docs.example.com</code>, or another hostname.</li>
+<li><strong>Target lifecycle changes.</strong> The backing app, bucket, CDN distribution, SaaS tenant, or cloud load balancer is deleted, renamed, expired, or moved.</li>
+<li><strong>DNS cleanup does not happen.</strong> The stale record still points at the old provider target.</li>
+<li><strong>Provider behavior decides impact.</strong> Some providers return harmless errors; others allow a new tenant/resource to claim the same target.</li>
+</ol>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span><code>docs.example.com. 300 IN CNAME example-docs.vendor-cdn.net.
+</code></pre></div>
+
+<p>If <code>example-docs</code> is deleted at the vendor but DNS remains, an attacker may be able to register <code>example-docs</code> and serve content as <code>docs.example.com</code>.</p>
+<p>The bug is the broken lifecycle link between DNS and the provider resource, not DNS resolution alone.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>Attackers and defenders inspect:</p>
+<ul>
+<li><code>CNAME</code> records pointing to SaaS, CDN, app-hosting, storage, and cloud-provider names</li>
+<li><code>A</code> / <code>AAAA</code> records pointing to deallocated cloud IPs or old load balancers</li>
+<li>provider-specific error strings such as "no such app", "project not found", "bucket not found", or "unconfigured domain"</li>
+<li>TXT verification records that may preserve old provider ownership</li>
+<li>DNS records for retired environments: <code>staging</code>, <code>preview</code>, <code>old</code>, <code>docs</code>, <code>help</code>, <code>status</code>, <code>campaign</code></li>
+<li>CT logs and DNS history for hostnames that no longer appear in current inventory</li>
+<li>provider documentation on whether custom-domain targets are claimable after deletion</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Dangling records appear in <strong>6 common shapes</strong>.</p>
+<h3 id="1-dangling-cname-to-saas-or-app-hosting">1. Dangling CNAME to SaaS or app hosting</h3>
+<p>The hostname aliases to a provider-managed name, but the tenant/project/site no longer exists. This is the classic subdomain takeover shape for documentation sites, support portals, marketing pages, and app platforms.</p>
+<h3 id="2-deleted-storage-bucket-or-static-site">2. Deleted storage bucket or static site</h3>
+<p>The DNS record points to object storage or static hosting, and the bucket/site name becomes available to another account. Impact depends on provider namespace rules and region matching.</p>
+<h3 id="3-deallocated-cloud-ip-or-load-balancer">3. Deallocated cloud IP or load balancer</h3>
+<p>An <code>A</code> record points to an IP or load balancer that was released. If the address or endpoint can later be assigned to another customer, the stale record can route traffic to the wrong owner.</p>
+<h3 id="4-stale-cdn-distribution-or-custom-domain">4. Stale CDN distribution or custom domain</h3>
+<p>The organization removes the CDN distribution or custom-domain binding but leaves DNS. Another distribution may be able to claim the hostname if certificate/domain validation permits it.</p>
+<h3 id="5-verification-token-residue">5. Verification-token residue</h3>
+<p>TXT records for email, SaaS, domain validation, search consoles, analytics, or cloud providers remain after the integration is retired. The record may not route traffic, but it can preserve proof-of-control.</p>
+<h3 id="6-internalprivate-dangling-records">6. Internal/private dangling records</h3>
+<p>Private hosted zones and internal DNS can dangle too. The impact is usually internal misrouting, SSRF amplification, service impersonation, or confusing incident response rather than public takeover.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Subdomain takeover.</strong> Attacker serves content under a trusted hostname after claiming the backing provider target.</li>
+<li><strong>Credential/session abuse.</strong> Trusted subdomain status can influence cookies, OAuth redirect allowlists, CORS, SSO callbacks, or phishing credibility.</li>
+<li><strong>Traffic interception.</strong> Users, API clients, or automation continue sending requests to a name whose target is no longer yours.</li>
+<li><strong>Brand and phishing abuse.</strong> The attacker gets HTTPS and a legitimate-looking hostname if certificate issuance succeeds.</li>
+<li><strong>Internal service confusion.</strong> Private stale names route workloads to wrong services or dead endpoints.</li>
+<li><strong>Inventory drift.</strong> Dangling records are evidence that asset lifecycle and DNS lifecycle are disconnected.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Bind DNS records to owned provider resources in inventory.</strong>
+   Every external record should map to a concrete cloud/SaaS/CDN/storage resource with an owner and lifecycle state. If the backing resource disappears, DNS should alert or fail review.</p>
+</li>
+<li>
+<p><strong>Delete or park DNS before destroying the target.</strong>
+   Deprovisioning should remove the DNS record or point it to a controlled parking endpoint before deleting the provider resource. This avoids the claimable window.</p>
+</li>
+<li>
+<p><strong>Continuously scan provider-specific dangling fingerprints.</strong>
+   Periodically resolve CNAMEs and request the host over HTTP/HTTPS. Provider "not found" messages are high-signal. Keep a fingerprint list but verify manually before declaring takeover.</p>
+</li>
+<li>
+<p><strong>Clean up stale verification TXT records.</strong>
+   Remove SaaS, email, search, and cloud validation records when integrations end. Verification tokens are often forgotten because they do not serve traffic directly.</p>
+</li>
+<li>
+<p><strong>Prefer provider configurations that require domain validation before claim.</strong>
+   Some platforms prevent arbitrary claim without a fresh DNS token or certificate validation. Choose safer providers and enable domain-ownership checks where available.</p>
+</li>
+<li>
+<p><strong>Monitor DNS and certificate transparency for abandoned names.</strong>
+   CT logs may show certificates for old hosts. DNS history may show names that disappeared from inventory but still receive traffic or remain delegated.</p>
+</li>
+<li>
+<p><strong>Document accepted parked states.</strong>
+   A deliberate <code>CNAME</code> to a controlled parking host or <code>A</code> to a sink page is different from an accidental provider error. Make the difference visible.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Assuming a provider 404 is harmless.</strong> Some provider 404s are exactly the signal that a target can be claimed.</li>
+<li><strong>Relying on HSTS or HTTPS.</strong> TLS can protect the connection to an attacker-controlled claimed target; it does not prove the target is yours.</li>
+<li><strong>Deleting the cloud resource first.</strong> That creates the dangling condition. DNS cleanup must happen before or with deletion.</li>
+<li><strong>Scanning only current inventory.</strong> Dangling records often live in forgotten hosts found through CT logs, DNS history, docs, or old repos.</li>
+<li><strong>Treating all fingerprints as confirmed takeovers.</strong> Provider behavior changes. A fingerprint means investigate and safely prove claimability in authorized scope.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Run only against domains you own or are authorized to assess.</p>
+<h3 id="list-cname-targets-and-provider-boundaries">List CNAME targets and provider boundaries</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>name<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nv">target</span><span class="o">=</span><span class="k">$(</span>dig<span class="w"> </span>+short<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span><span class="w"> </span>CNAME<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n1<span class="k">)</span>
+<span class="w">  </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$target</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;%-45s -&gt; %s\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$target</span><span class="s2">&quot;</span>
+<span class="k">done</span><span class="w"> </span>&lt;<span class="w"> </span>subdomains.txt
+</code></pre></div>
+
+<p>Label each target by provider and expected owner.</p>
+<h3 id="probe-provider-error-fingerprints">Probe provider error fingerprints</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>name<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;\n== %s ==\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span>
+<span class="w">  </span>dig<span class="w"> </span>+short<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span><span class="w"> </span>CNAME
+<span class="w">  </span>curl<span class="w"> </span>-skL<span class="w"> </span>--max-time<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="s2">&quot;https://</span><span class="nv">$name</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39;1,12p&#39;</span>
+<span class="k">done</span><span class="w"> </span>&lt;<span class="w"> </span>subdomains.txt
+</code></pre></div>
+
+<p>Look for provider-specific unconfigured-domain messages, then verify against the provider's current docs and your scope rules.</p>
+<h3 id="compare-dns-with-asset-inventory">Compare DNS with asset inventory</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>name<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nv">target</span><span class="o">=</span><span class="k">$(</span>dig<span class="w"> </span>+short<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span><span class="w"> </span>CNAME<span class="w"> </span>A<span class="w"> </span>AAAA<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="k">)</span>
+<span class="w">  </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;%s,%s\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$target</span><span class="s2">&quot;</span>
+<span class="k">done</span><span class="w"> </span>&lt;<span class="w"> </span>subdomains.txt<span class="w"> </span>&gt;<span class="w"> </span>dns-targets.csv
+</code></pre></div>
+
+<p>Diff <code>dns-targets.csv</code> against cloud/CDN/SaaS inventory exports. Unmatched targets are review candidates.</p>
+<h3 id="check-stale-verification-records">Check stale verification records</h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">domain</span><span class="o">=</span>example.com
+dig<span class="w"> </span>+short<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$domain</span><span class="s2">&quot;</span><span class="w"> </span>TXT
+<span class="k">for</span><span class="w"> </span>sub<span class="w"> </span><span class="k">in</span><span class="w"> </span>google-site-verification<span class="w"> </span>atlassian-domain-verification<span class="w"> </span>amazonses<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>dig<span class="w"> </span>+short<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$sub</span><span class="s2">.</span><span class="nv">$domain</span><span class="s2">&quot;</span><span class="w"> </span>TXT
+<span class="k">done</span>
+</code></pre></div>
+
+<p>Unexpected tokens should map to active integrations or be removed.</p>
+<h3 id="review-certificate-transparency-for-forgotten-names">Review Certificate Transparency for forgotten names</h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">domain</span><span class="o">=</span>example.com
+curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;https://crt.sh/?q=%25.</span><span class="nv">$domain</span><span class="s2">&amp;output=json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.[].name_value&#39;</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u
+</code></pre></div>
+
+<p>Names in CT but not inventory are good dangling-record candidates.</p>
+<h3 id="safe-confirmation-pattern">Safe confirmation pattern</h3>
+<div class="codehilite"><pre><span></span><code>1. Confirm the hostname is in authorized scope.
+2. Confirm the provider target no longer maps to an owned resource.
+3. Confirm provider docs say the target is claimable.
+4. Use the least invasive proof allowed by the program or owner.
+5. Never serve deceptive content or collect traffic.
+</code></pre></div>
+
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li><code>help.example.com</code> points to a deleted helpdesk tenant and displays a provider "project not found" page.</li>
+<li><code>static.example.com</code> points to a removed storage bucket whose name can be re-created.</li>
+<li><code>campaign.example.com</code> points to a retired marketing SaaS custom domain after the contract ended.</li>
+<li><code>_amazonses.example.com</code> remains long after SES sending was migrated elsewhere.</li>
+<li>A private DNS record still points <code>payments.internal</code> to an old service IP now used by another workload.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="dns-resolution.html">dns-resolution</a> — how the name-target chain resolves.</li>
+<li><a href="dns-security.html">dns-security</a> — ownership, control, and cleanup process.</li>
+<li><a href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a> — exposure finding when the target is claimable.</li>
+<li><a href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a></li>
+<li><a href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a></li>
+<li><a href="tls-https.html">tls-https</a> — HSTS and certificate behavior can amplify trusted-subdomain impact.</li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: provider-takeover-fingerprints">provider-takeover-fingerprints</span></li>
+<li><span class="broken-link" title="Unresolved: stale-verification-records">stale-verification-records</span></li>
+<li><span class="broken-link" title="Unresolved: cloud-storage-takeover">cloud-storage-takeover</span></li>
+<li><span class="broken-link" title="Unresolved: cdn-custom-domain-takeover">cdn-custom-domain-takeover</span></li>
+<li><span class="broken-link" title="Unresolved: dns-inventory-automation">dns-inventory-automation</span></li>
+<li><span class="broken-link" title="Unresolved: safe-takeover-proof">safe-takeover-proof</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Foundational:</strong> Cloudflare Learning Center on DNS records — https://www.cloudflare.com/learning/dns/dns-records/</li>
+<li><strong>Testing / Lab:</strong> OWASP WSTG Information Gathering — https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/</li>
+<li><strong>Research / Deep Dive:</strong> ProjectDiscovery guide to DNS takeovers — https://projectdiscovery.io/blog/guide-to-dns-takeovers</li>
+<li><strong>Research / Deep Dive:</strong> HackerOne guide to subdomain takeovers — https://www.hackerone.com/blog/guide-subdomain-takeovers-20</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

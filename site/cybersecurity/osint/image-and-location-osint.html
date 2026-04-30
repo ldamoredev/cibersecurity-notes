@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Image and Location OSINT</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="../networking/index.html">Networking Index</a>
+<a class="" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="../networking/dns-security.html">DNS Security</a>
+<a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details open><summary>osint</summary>
+<a class="" href="index.html">OSINT Index</a>
+<a class="" href="breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="company-osint.html">Company OSINT</a>
+<a class="" href="email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="google-dorking.html">Google Dorking</a>
+<a class="active" href="image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="osint.html">OSINT</a>
+<a class="" href="osint-reporting.html">OSINT Reporting</a>
+<a class="" href="osint-triage.html">OSINT Triage</a>
+<a class="" href="search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="../web-security/index.html">Web Security Index</a>
+<a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="../web-security/session-management.html">Session Management</a>
+<a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#osint</span> <span class="tag">#images</span> <span class="tag">#geolocation</span></div>
+<article>
+<h1 id="image-and-location-osint">Image and Location OSINT</h1>
+<h2 id="definition">Definition</h2>
+<p>Image and location OSINT is the analysis of public images, videos, embedded metadata, maps, landmarks, shadows, signs, and environmental clues to infer where, when, or how media was produced. It is the OSINT mode that turns visual context — often shared casually — into structured, evidence-backed claims about location, time, or organizational state.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Images can reveal offices, screens, badges, equipment, internal documents, travel patterns, facility layouts, and operational context that no text channel discloses. A single conference photo can confirm a facility location; a single launch screenshot can confirm an internal tool's hostname; a single team photo with a visible whiteboard can leak roadmap content.</p>
+<p>This is also the OSINT mode where <strong>privacy and safety risk concentrates</strong>. Locations reveal where people live and work; images reveal who is in a room together; metadata reveals the device that took the photo. The defensive use is high-leverage; the offensive use against individuals is almost always out of scope.</p>
+<p>The defensive priorities, in order:
+- <strong>Pre-publication review</strong> — catch sensitive backgrounds before content leaves the building.
+- <strong>Metadata stripping</strong> — remove device, GPS, and editing fingerprints from outbound images.
+- <strong>Screenshot hygiene</strong> — train staff on visible URLs, account names, internal tools, and document titles in screenshots.
+- <strong>Defensive geolocation</strong> — verify what an attacker can already infer about facility locations from public imagery.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Image/location OSINT uses <strong>5 evidence layers</strong>. A defensible location claim usually combines at least three.</p>
+<ol>
+<li><strong>Metadata.</strong> EXIF (Exchangeable Image File Format) data including timestamps, device information, GPS coordinates, lens parameters, and editing-software signatures. Highly informative when present, but stripped or modified by many platforms on upload.</li>
+<li><strong>Visual content.</strong> Landmarks, business signs, badges, screens, vehicle registrations, language/script, branded objects, layouts, architectural features.</li>
+<li><strong>Environmental clues.</strong> Weather conditions, vegetation/season, sun angle and shadow length (chronolocation), road markings (regional), license plate formats.</li>
+<li><strong>Map correlation.</strong> Street view, satellite imagery, business listings, OpenStreetMap features, terrain — used to corroborate visual content claims.</li>
+<li><strong>Source context.</strong> Post timestamp, account history, caption text, platform, surrounding posts. Provides the temporal and accountability frame.</li>
+</ol>
+<p>The bug is treating a single image clue as proof. Location and time claims need <strong>corroboration across at least two independent layers</strong> before promoting from "likely" to "verified" (see <a href="osint-triage.html">osint-triage</a>).</p>
+<p>A worked example, defensive use:</p>
+<div class="codehilite"><pre><span></span><code>Question:    What can an attacker infer about Example Corp HQ from public photos?
+Sources:     official launch event photos, employee public LinkedIn posts, Glassdoor office tour.
+Layer 1 (metadata):    GPS stripped on all sampled images; one launch photo retains time.
+Layer 2 (visual):      visible building number, distinctive lobby art, branded reception sign.
+Layer 3 (environment): season + sun-angle consistent with summer afternoon photos.
+Layer 4 (map):         Google Street View matches building number + lobby art.
+Layer 5 (context):     post captions explicitly name the city.
+Verified:              HQ location + approximate floor visible from public photos.
+Action:                pre-publication review training; reception-sign placement review.
+</code></pre></div>
+
+<p>The evidence chain shows what an attacker would conclude with the same effort — which is the defensive deliverable.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>The discipline is "what is the lightest tooling that produces a defensible claim."</p>
+<ul>
+<li><strong>EXIF metadata</strong> via <code>exiftool</code> for files with metadata preserved.</li>
+<li><strong>Reverse image search</strong> (Google Lens, Yandex Images, TinEye) for visual matches across the web.</li>
+<li><strong>Map and street-view comparison</strong> (Google Maps/Earth, Bing Maps, OpenStreetMap, Mapillary) for landmark corroboration.</li>
+<li><strong>Sign, language, architecture, road markings</strong> for region narrowing.</li>
+<li><strong>Shadow analysis (chronolocation)</strong> for time-of-day and date-window estimation.</li>
+<li><strong>Screen and background reading</strong> for internal tool, hostname, document title, and badge exposure.</li>
+<li><strong>Upload context and platform compression behavior</strong> — some platforms strip EXIF, some keep it; behavior changes by upload path (web vs mobile vs API).</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Image/location OSINT clusters into <strong>5 work modes</strong>.</p>
+<h3 id="1-metadata-extraction">1. Metadata extraction</h3>
+<p>Reads embedded EXIF when platforms preserve it. Useful when present, fragile when not. Many social platforms strip GPS on upload, but messaging apps and direct file shares often preserve it. Investigators must not assume "platform X strips" without per-path testing.</p>
+<h3 id="2-visual-geolocation">2. Visual geolocation</h3>
+<p>Uses scene clues (landmarks, signs, architecture, vegetation) to infer location. Strongest when multiple independent clues converge on the same region; weakest when clues are generic ("anywhere with palm trees").</p>
+<h3 id="3-temporal-verification-chronolocation">3. Temporal verification (chronolocation)</h3>
+<p>Uses shadows, sun position, weather, vegetation/season, or correlated event posts to infer time. Shadow length plus sun azimuth narrows time-of-day to within minutes if the location is known.</p>
+<h3 id="4-sensitive-background-review">4. Sensitive-background review</h3>
+<p>Finds screens, badges, internal documents, whiteboards, equipment serial numbers, or facility access controls in images. <strong>Highest defensive value</strong> because these leaks are usually accidental and easy to fix at the publication stage.</p>
+<h3 id="5-manipulation-review">5. Manipulation review</h3>
+<p>Checks whether image context may be edited, reused, miscaptioned, or AI-generated. Reverse image search reveals reuse; metadata + compression-artifact analysis reveals editing; per-pixel inconsistency reveals manipulation. Crucial when images are evidence in incident reports.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Physical location exposure.</strong> Offices, homes, facilities, and travel patterns may be identified — both organizational and personal.</li>
+<li><strong>Operational leakage.</strong> Visible screens, badges, internal documents, and equipment reveal internal context attackers cannot otherwise observe.</li>
+<li><strong>Social-engineering context.</strong> Events, role visibility, and physical presence sharpen pretexting.</li>
+<li><strong>Incident verification.</strong> Images can support or refute claims about events, breach details, or asset state.</li>
+<li><strong>Privacy harm.</strong> People and locations can be exposed unnecessarily; this is the dominant risk for personal-target image OSINT and the reason most personal-target use cases are out of scope.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Defenses cluster around <strong>pre-publication review</strong> and <strong>multi-layer corroboration</strong>.</p>
+<ol>
+<li>
+<p><strong>Review images before public posting.</strong>
+   Check backgrounds, screens, badges, documents, and metadata. Most exposures are accidental and would be caught by a 30-second review per image.</p>
+</li>
+<li>
+<p><strong>Strip metadata where not needed.</strong>
+   <code>exiftool -all=</code> removes EXIF; many publication pipelines should do this by default. Metadata removal cuts accidental device/location exposure without affecting the image content.</p>
+</li>
+<li>
+<p><strong>Use minimization for people and location data.</strong>
+   Avoid collecting or publishing more than the investigation requires. Personal-target geolocation is out of scope for security OSINT.</p>
+</li>
+<li>
+<p><strong>Corroborate geolocation claims.</strong>
+   Use independent clues from at least two of the five layers before reporting a location. Single-layer claims stay in "likely" or "uncertain."</p>
+</li>
+<li>
+<p><strong>Train teams on screenshot and photo hygiene.</strong>
+   Visible URLs, account names, internal tool screens, document titles, badge details, and reflection-revealed details are the most common accidental leaks. Awareness is cheaper than monitoring.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Assuming platforms strip all metadata.</strong> Behavior varies by platform, upload path, and file type; test the actual flow before relying on it.</li>
+<li><strong>Cropping without checking reflections, mirrors, or screen contents.</strong> Sensitive details persist in unobvious places.</li>
+<li><strong>Single-clue geolocation.</strong> Similar landmarks, signs, and architecture mislead; multi-layer corroboration is mandatory.</li>
+<li><strong>Publishing exact locations unnecessarily.</strong> Defensive reports can describe risk without exposing the exact coordinates that drove the finding.</li>
+<li><strong>Trusting reverse-image search alone for manipulation detection.</strong> No-match does not mean original; manipulation detection needs metadata + visual analysis combined.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use your own photos, owned content, or public training images. Do not analyze images of identifiable third parties without authorization.</p>
+<h3 id="inspect-exif-metadata">Inspect EXIF metadata</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Full metadata dump</span>
+exiftool<span class="w"> </span>image.jpg
+
+<span class="c1"># Just the security-relevant fields</span>
+exiftool<span class="w"> </span>-GPSLatitude<span class="w"> </span>-GPSLongitude<span class="w"> </span>-DateTimeOriginal<span class="w"> </span>-Make<span class="w"> </span>-Model<span class="w"> </span>-Software<span class="w"> </span>image.jpg
+
+<span class="c1"># Strip all metadata before publication</span>
+exiftool<span class="w"> </span>-all<span class="o">=</span><span class="w"> </span>-overwrite_original<span class="w"> </span>image.jpg
+</code></pre></div>
+
+<p>Record only the relevant fields. Avoid storing unnecessary personal metadata in the report itself.</p>
+<h3 id="build-a-visual-clue-table">Build a visual clue table</h3>
+<div class="codehilite"><pre><span></span><code>clue                  | observation                          | possible meaning              | confidence | corroboration
+language              | Latin script, Spanish words          | Spanish-speaking region       | low        | needs sign-content match
+architecture          | art-deco facade, light brick         | early 20th c. urban building  | medium     | match to map imagery
+business sign         | &quot;Café Mirador&quot; on storefront         | specific business name        | medium     | reverse-search business name
+sun angle             | shadow ratio ~0.6                    | mid-morning if location known | low        | needs latitude estimate
+visible landmark      | distinctive bell tower               | matches Cathedral X           | high       | direct map match
+</code></pre></div>
+
+<p>This is the artifact that turns a hunch into a defensible claim.</p>
+<h3 id="reverse-image-search-across-multiple-engines">Reverse-image search across multiple engines</h3>
+<div class="codehilite"><pre><span></span><code>Google Lens   → 0 matches
+Yandex Images → 3 matches, all on travel blog (2023-08)
+TinEye        → 1 match, original publication date 2023-08-12
+Conclusion: image is reused from 2023-08; not an original recent photo.
+</code></pre></div>
+
+<p>Engine coverage differs significantly; rotate engines for any meaningful manipulation check.</p>
+<h3 id="review-screenshot-leakage">Review screenshot leakage</h3>
+<div class="codehilite"><pre><span></span><code>visible URL:       https://internal-tools.example.test/admin/users
+account name:      visible in browser tab — &quot;j.smith@example.test&quot;
+internal tool:     &quot;MetricMon v3&quot; branding visible
+document title:    &quot;Q3 Roadmap.docx&quot; in adjacent tab
+badge/room:        visible building access badge with photo
+calendar item:     &quot;Vendor X negotiation&quot; visible in sidebar
+</code></pre></div>
+
+<p>This kind of audit applied to a launch screenshot catches 90% of accidental operational leakage.</p>
+<h3 id="audit-your-own-visible-detail-exposure">Audit your own visible-detail exposure</h3>
+<div class="codehilite"><pre><span></span><code>content type     | last review                | finding
+team photos      | 2026-04-15                 | strip EXIF, blur badges, check whiteboard
+launch screenshots| 2026-04-20                 | redact internal hostnames, sidebar items
+event photos     | 2026-04-22                 | check building number, signage, equipment serials
+exec travel posts | not reviewed (out of scope) | flag for personal-OPSEC training, not for analysis
+</code></pre></div>
+
+<p>Defensive image OSINT against your own content catches what attackers will see.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A public office photo reveals a dashboard URL on a screen, exposing an internal tool hostname.</li>
+<li>EXIF metadata on a partner-shared image includes GPS coordinates, exposing the photographer's home.</li>
+<li>A badge in the background of a launch photo reveals a facility access pattern (proximity card with employee number visible).</li>
+<li>Street signs and architecture combined with a building number and reverse-image business match identify an unannounced satellite office.</li>
+<li>A team screenshot exposes an internal hostname in the browser tab and a document title in the adjacent window.</li>
+<li>A conference photo's shadow analysis confirms it was taken at the time the post claims (chronolocation as authenticity check).</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="social-media-osint.html">social-media-osint</a></li>
+<li><a href="osint-triage.html">osint-triage</a></li>
+<li><a href="osint-reporting.html">osint-reporting</a></li>
+<li><a href="email-and-phone-osint.html">email-and-phone-osint</a></li>
+<li><a href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a></li>
+<li><a href="../offensive-security/passive-recon.html">Passive Recon</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: exif-metadata">exif-metadata</span></li>
+<li><span class="broken-link" title="Unresolved: visual-geolocation">visual-geolocation</span></li>
+<li><span class="broken-link" title="Unresolved: screenshot-hygiene">screenshot-hygiene</span></li>
+<li><span class="broken-link" title="Unresolved: reverse-image-search">reverse-image-search</span></li>
+<li><span class="broken-link" title="Unresolved: shadow-analysis">shadow-analysis</span></li>
+<li><span class="broken-link" title="Unresolved: chronolocation">chronolocation</span></li>
+<li><span class="broken-link" title="Unresolved: image-manipulation-review">image-manipulation-review</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Foundational:</strong> Bellingcat Online Investigation Toolkit — https://bellingcat.gitbook.io/toolkit</li>
+<li><strong>Official Tool Docs:</strong> ExifTool by Phil Harvey — https://exiftool.org/</li>
+<li><strong>Foundational:</strong> OSINT Framework — https://osintframework.com/</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

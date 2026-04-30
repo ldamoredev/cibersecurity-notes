@@ -22,11 +22,15 @@
 <a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
 <a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
 <a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
 <a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
 <a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
 <a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
 <a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
 <a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
 <details open><summary>api-security</summary>
 <a class="" href="index.html">API Security Index</a>
 <a class="" href="api-auth-flaws.html">API Authentication Flaws</a>
@@ -41,6 +45,7 @@
 <a class="" href="excessive-data-exposure.html">Excessive Data Exposure</a>
 <a class="" href="jwt-attacks.html">JWT Attacks</a>
 <a class="" href="mass-assignment.html">Mass Assignment</a>
+<a class="" href="polymorphic-deserialization.html">Polymorphic Deserialization</a>
 <a class="active" href="token-lifecycle.html">Token Lifecycle</a>
 </details>
 <details><summary>attack-surface-mapping</summary>
@@ -49,12 +54,25 @@
 <a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
 <a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
 <a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
 <a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
 <a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
 <a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
-<a class="" href="../attack-surface-mapping/service-enumeration.html">Service Enumeration</a>
 <a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
 <a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
 </details>
 <details><summary>devsecops</summary>
 <a class="" href="../devsecops/index.html">DevSecOps Index</a>
@@ -71,11 +89,25 @@
 <a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
 <a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
 <details><summary>networking</summary>
 <a class="" href="../networking/index.html">Networking Index</a>
 <a class="" href="../networking/caching-and-security.html">Caching and Security</a>
 <a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
 <a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
 <a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
 <a class="" href="../networking/dns-security.html">DNS Security</a>
 <a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
@@ -83,14 +115,12 @@
 <a class="" href="../networking/http-messages.html">HTTP Messages</a>
 <a class="" href="../networking/http-overview.html">HTTP Overview</a>
 <a class="" href="../networking/load-balancers.html">Load Balancers</a>
-<a class="" href="../networking/metadata-endpoints.html">Metadata Endpoints</a>
 <a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
 <a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
 <a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
 <a class="" href="../networking/ports-and-services.html">Ports and Services</a>
 <a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
 <a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
-<a class="" href="../networking/subdomain-takeover.html">Subdomain Takeover</a>
 <a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
 <a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
 <a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
@@ -110,6 +140,19 @@
 <a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
 <a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
 </details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
 <details><summary>security-playbooks</summary>
 <a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
 <a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
@@ -123,69 +166,194 @@
 <a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
 <a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
 </details>
-<details><summary>tooling</summary>
-<a class="" href="../tooling/recon-automation.html">Recon Automation</a>
-</details>
 <details><summary>web-security</summary>
 <a class="" href="../web-security/index.html">Web Security Index</a>
 <a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
 <a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
 <a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
 <a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
 <a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
 <a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
 <a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
-<a class="" href="../web-security/idor.html">IDOR</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
 <a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
 <a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
 <a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
 <a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
 <a class="" href="../web-security/session-management.html">Session Management</a>
 <a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
 </details>
-</div>
-<div class="sidebar-section"><h3>Projects</h3>
-<a class="" href="../../projects/index.html">Projects Index</a>
-<a class="" href="../../projects/attack-surface-review-project.html">Attack Surface Review Project</a>
-<a class="" href="../../projects/devsecops-hardening-project.html">DevSecOps Hardening Project</a>
-<a class="" href="../../projects/secure-api-baseline-project.html">Secure API Baseline Project</a>
-<a class="" href="../../projects/vulnerable-web-app-project.html">Vulnerable Web App Project</a>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
 </div>
 </nav>
 <main class="content">
-
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#api-security</span> <span class="tag">#tokens</span> <span class="tag">#authentication</span></div>
 <article>
 <h1 id="token-lifecycle">Token Lifecycle</h1>
 <h2 id="definition">Definition</h2>
-<p>Token lifecycle refers to how tokens are created, issued, refreshed, rotated, revoked, expired, and invalidated across the life of an authenticated API session or machine relationship.</p>
+<p>Token lifecycle is the full sequence of creating, issuing, refreshing, rotating, revoking, expiring, and invalidating tokens across an authenticated API session or machine-to-machine relationship.</p>
 <h2 id="why-it-matters">Why it matters</h2>
-<p>Many API authentication weaknesses are lifecycle problems rather than login problems. Tokens that are too long-lived, insufficiently rotated, or poorly revoked become standing trust artifacts.
-This note is about what happens after issuance; <a href="jwt-attacks.html">jwt-attacks</a> is the better fit for validation semantics, while <a href="broken-authentication.html">broken-authentication</a> and <a href="api-auth-flaws.html">api-auth-flaws</a> stay broader.</p>
-<h2 id="attacker-perspective">Attacker perspective</h2>
-<p>Attackers look for:
-- refresh tokens that never rotate
-- access tokens that remain valid after logout or password change
-- tokens that outlive privilege changes
-- inconsistent revocation across services</p>
-<h2 id="defender-perspective">Defender perspective</h2>
-<p>Defenders should:
-- define clear TTLs and trust transitions
-- rotate refresh tokens intentionally
-- revoke tokens on meaningful account and security events
-- avoid keeping stale authority embedded for too long</p>
+<p>Many API authentication weaknesses are lifecycle failures rather than login failures. A token that survives too long, refreshes without rotation, or ignores revocation events becomes a standing trust artifact.</p>
+<p>This note is about what happens after issuance. <a href="jwt-attacks.html">jwt-attacks</a> covers validation semantics, while <a href="broken-authentication.html">broken-authentication</a> and <a href="api-auth-flaws.html">api-auth-flaws</a> cover broader authentication workflows.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Token lifecycle has <strong>6 events</strong>:</p>
+<ol>
+<li><strong>Issuance.</strong> The system creates a token after a defined authentication state.</li>
+<li><strong>Use.</strong> APIs accept the token for specific audiences, scopes, routes, and actions.</li>
+<li><strong>Refresh.</strong> The client obtains new access without repeating full authentication.</li>
+<li><strong>Rotation.</strong> Refresh credentials are replaced to reduce replay value.</li>
+<li><strong>Revocation.</strong> The system invalidates tokens after security or account events.</li>
+<li><strong>Expiry.</strong> The token stops working after a planned lifetime.</li>
+</ol>
+<p>The weakness appears when teams define issuance but leave refresh, rotation, revocation, and expiry fuzzy.</p>
+<p>Example lifecycle table:</p>
+<div class="codehilite"><pre><span></span><code>access token  | 10 min | bearer | no rotation | expires only
+refresh token | 30 days | stored | rotate each use | revoke on logout/password change
+api key       | 90 days | header | manual rotate | revoke on owner removal
+</code></pre></div>
+
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>Attackers test:</p>
+<ul>
+<li>access tokens that remain valid after logout</li>
+<li>refresh tokens that can be replayed after use</li>
+<li>tokens that survive password change, MFA reset, account lock, or device removal</li>
+<li>old role or tenant claims after privilege changes</li>
+<li>service tokens with no expiry or owner</li>
+<li>inconsistent invalidation across services</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Token lifecycle failures appear in <strong>7 forms</strong>.</p>
+<h3 id="1-overlong-access-tokens">1. Overlong access tokens</h3>
+<p>Access tokens live long enough that compromise has a large window.</p>
+<h3 id="2-non-rotating-refresh-tokens">2. Non-rotating refresh tokens</h3>
+<p>Refresh tokens can be replayed repeatedly if stolen.</p>
+<h3 id="3-logout-mismatch">3. Logout mismatch</h3>
+<p>Logout clears client state but does not invalidate token usefulness.</p>
+<h3 id="4-security-event-blind-spots">4. Security-event blind spots</h3>
+<p>Password change, MFA reset, account disable, or device removal does not affect active tokens.</p>
+<h3 id="5-stale-authorization-claims">5. Stale authorization claims</h3>
+<p>Issued tokens preserve old roles, scopes, or tenant state for too long.</p>
+<h3 id="6-service-token-permanence">6. Service-token permanence</h3>
+<p>Machine credentials have no owner, expiry, scope, or rotation process.</p>
+<h3 id="7-distributed-revocation-lag">7. Distributed revocation lag</h3>
+<p>One API rejects a revoked token while another continues accepting it.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Persistent unauthorized access.</strong> Stolen or old tokens remain useful.</li>
+<li><strong>Privilege persistence.</strong> Role or scope changes do not take effect quickly.</li>
+<li><strong>Session fixation or replay.</strong> Refresh tokens can be reused after theft.</li>
+<li><strong>Machine credential compromise.</strong> Long-lived service tokens expose broad API surface.</li>
+<li><strong>Incident response delay.</strong> Teams cannot confidently invalidate affected credentials.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Define lifecycle rules per token type.</strong>
+   Access tokens, refresh tokens, API keys, device tokens, and service tokens need different lifetimes, scopes, storage rules, and revocation semantics.</p>
+</li>
+<li>
+<p><strong>Use short-lived access tokens with narrow audience and scope.</strong>
+   This limits replay value and stale authorization exposure.</p>
+</li>
+<li>
+<p><strong>Rotate refresh tokens and detect reuse.</strong>
+   Refresh-token reuse after rotation is a strong signal of theft and should revoke the token family.</p>
+</li>
+<li>
+<p><strong>Bind revocation to meaningful security events.</strong>
+   Logout, password change, MFA change, device removal, account lock, role downgrade, and key compromise should have explicit token effects.</p>
+</li>
+<li>
+<p><strong>Track token families, devices, and owners.</strong>
+   Users and operators need to revoke a device, integration, or service credential without destroying unrelated sessions.</p>
+</li>
+<li>
+<p><strong>Test revocation propagation across services.</strong>
+   Distributed systems need consistent rejection of revoked or stale tokens.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Very long-lived bearer tokens.</strong> Anyone holding the token can use it for too long.</li>
+<li><strong>Refresh without rotation.</strong> A stolen refresh token remains valuable indefinitely inside its lifetime.</li>
+<li><strong>Logout as UI cleanup only.</strong> The token must stop being accepted where policy requires it.</li>
+<li><strong>Embedding long-lived roles in tokens.</strong> Authorization truth changes faster than token expiry.</li>
+<li><strong>Manual spreadsheets for API key ownership.</strong> Service credentials need enforceable ownership and rotation.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use a lab account where you can trigger auth events safely.</p>
+<h3 id="build-a-lifecycle-matrix">Build a lifecycle matrix</h3>
+<div class="codehilite"><pre><span></span><code>token type | lifetime | audience | scope | rotation | revocation events | owner/device
+</code></pre></div>
+
+<p>Fill it for access tokens, refresh tokens, API keys, service tokens, and device tokens.</p>
+<h3 id="test-logout-revocation">Test logout revocation</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$ACCESS_TOKEN</span><span class="s2">&quot;</span><span class="w"> </span>https://api.example.test/users/me
+curl<span class="w"> </span>-i<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$ACCESS_TOKEN</span><span class="s2">&quot;</span><span class="w"> </span>https://api.example.test/auth/logout
+curl<span class="w"> </span>-i<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$ACCESS_TOKEN</span><span class="s2">&quot;</span><span class="w"> </span>https://api.example.test/users/me
+</code></pre></div>
+
+<p>The expected result depends on the design, but it must be documented and consistent.</p>
+<h3 id="test-refresh-token-rotation">Test refresh token rotation</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;refreshToken&quot;:&quot;&#39;</span><span class="nv">$REFRESH_TOKEN</span><span class="s1">&#39;&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://api.example.test/auth/refresh
+</code></pre></div>
+
+<p>Repeat with the old refresh token. Reuse should fail if rotation is enabled.</p>
+<h3 id="test-privilege-change-freshness">Test privilege-change freshness</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$OLD_ADMIN_TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://api.example.test/admin/users
+</code></pre></div>
+
+<p>After role downgrade, old tokens should stop granting privileged access within the intended window.</p>
 <h2 id="practical-examples">Practical examples</h2>
 <ul>
-<li>access tokens remain valid after the user changes password</li>
-<li>refresh token rotation is missing, enabling replay</li>
-<li>role downgrade does not affect already-issued tokens</li>
+<li>Access tokens remain valid after password change.</li>
+<li>Refresh token rotation is missing, enabling replay.</li>
+<li>A role downgrade does not affect already-issued tokens.</li>
+<li>API keys have no owner or expiry.</li>
+<li>One microservice honors revocation while another accepts stale tokens.</li>
 </ul>
 <h2 id="related-notes">Related notes</h2>
 <ul>
 <li><a href="jwt-attacks.html">jwt-attacks</a></li>
 <li><a href="broken-authentication.html">broken-authentication</a></li>
 <li><a href="api-auth-flaws.html">api-auth-flaws</a></li>
+<li><a href="api-rate-limiting.html">api-rate-limiting</a></li>
 <li><a href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a></li>
 <li><a href="../web-security/session-management.html">Session Management</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: refresh-token-rotation">refresh-token-rotation</span></li>
+<li><span class="broken-link" title="Unresolved: token-family-revocation">token-family-revocation</span></li>
+<li><span class="broken-link" title="Unresolved: device-session-management">device-session-management</span></li>
+<li><span class="broken-link" title="Unresolved: api-key-rotation">api-key-rotation</span></li>
+<li><span class="broken-link" title="Unresolved: stale-authorization-claims">stale-authorization-claims</span></li>
 </ul>
 <h2 id="references">References</h2>
 <ul>

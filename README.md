@@ -1,15 +1,19 @@
 # obsidian-site
 
-Static HTML mirror of the `cybersecurity/` and `projects/` sections of my
+Static HTML mirror of the mature `cybersecurity/` branches from my
 Obsidian vault at `/Users/lautarodamore/obsidian-vault/ldamore/`.
+
+The build intentionally excludes private/project execution notes, templates,
+tooling experiments, and future/unpromoted cybersecurity branches.
 
 Plain HTML + CSS + a tiny vanilla-JS search. No framework, no runtime server,
 no build toolchain beyond Python.
 
 ## Layout
 
-- `build.py` — single-file build script (Python 3, stdlib + `markdown`, `pyyaml`, `pygments`).
+- `build.py` — single-file build script (Python 3 + `markdown`, `pyyaml`, `pygments`).
 - `site/` — generated output. Open `site/index.html` directly or serve the folder.
+- `.venv/` — local ignored virtualenv for the build dependencies.
 
 ## Rebuild
 
@@ -17,7 +21,9 @@ After adding or editing notes in the vault:
 
 ```bash
 cd ~/obsidian-site
-python3 build.py
+python3 -m venv .venv
+.venv/bin/python -m pip install markdown pyyaml pygments
+.venv/bin/python build.py
 ```
 
 The script clears `site/` and regenerates everything. It prints how many notes
@@ -49,15 +55,12 @@ throughout, so the `file://` scheme works too.
 
 ## Dependencies
 
-Already installed in the system Python:
+Install into the local ignored virtualenv:
 
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install markdown pyyaml pygments
 ```
-markdown  >= 3.4
-pyyaml    >= 6.0
-pygments  >= 2.15
-```
-
-If you ever need to reinstall: `pip3 install markdown pyyaml pygments`.
 
 ## Deploy to GitHub Pages
 
@@ -70,7 +73,7 @@ Update flow:
 
 ```bash
 cd ~/obsidian-site
-python3 build.py
+.venv/bin/python build.py
 git add -A
 git commit -m "update notes"
 git push

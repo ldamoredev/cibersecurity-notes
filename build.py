@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build a static HTML site from an Obsidian vault.
 
-Walks cybersecurity/ and projects/ under VAULT, converts each .md to .html,
+Walks mature cybersecurity branches under VAULT, converts each .md to .html,
 resolves [[wikilinks]] and relative .md links, emits a sidebar and a
 client-side search index. No framework, no build step beyond running this.
 """
@@ -22,8 +22,40 @@ VAULT = Path("/Users/lautarodamore/obsidian-vault/ldamore")
 OUT = Path(__file__).resolve().parent / "site"
 SECTIONS = [
     ("cybersecurity", "Cybersecurity"),
-    ("projects", "Projects"),
 ]
+
+# Only publish mature cybersecurity branches and their reference registries.
+# Keep private/project execution notes, templates, tooling experiments, and
+# future/unpromoted branches out of the public static mirror.
+MATURE_CYBERSECURITY_BRANCHES = {
+    "api-security",
+    "attack-surface-mapping",
+    "cloud-security",
+    "devsecops",
+    "linux-privilege-escalation",
+    "networking",
+    "offensive-security",
+    "osint",
+    "security-playbooks",
+    "web-security",
+    "wireless-security",
+}
+
+MATURE_CYBERSECURITY_ROOT_FILES = {
+    "index.md",
+    "reference-registry.md",
+    "reference-registry-api-security.md",
+    "reference-registry-attack-surface-mapping.md",
+    "reference-registry-cloud-security.md",
+    "reference-registry-devsecops.md",
+    "reference-registry-linux-privilege-escalation.md",
+    "reference-registry-networking.md",
+    "reference-registry-offensive-security-recon.md",
+    "reference-registry-osint.md",
+    "reference-registry-playbooks.md",
+    "reference-registry-web-security.md",
+    "reference-registry-wireless-security.md",
+}
 
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 WIKILINK_RE = re.compile(r"\[\[([^\]\|]+)(?:\|([^\]]+))?\]\]")
@@ -33,7 +65,7 @@ TAG_RE = re.compile(r"(?<!\w)#([A-Za-z][A-Za-z0-9_\-/]*)")
 
 @dataclass
 class Note:
-    section: str           # "cybersecurity" | "projects"
+    section: str           # "cybersecurity"
     rel_path: Path         # path relative to VAULT, e.g. cybersecurity/networking/foo.md
     title: str
     slug: str              # basename without extension
@@ -48,6 +80,17 @@ class Note:
     @property
     def url(self) -> str:
         return str(self.rel_path.with_suffix(".html"))
+
+
+def should_publish(section: str, path: Path) -> bool:
+    """Return whether a vault markdown file should be published."""
+    rel = path.relative_to(VAULT)
+    if section != "cybersecurity":
+        return True
+    if len(rel.parts) == 2:
+        return rel.name in MATURE_CYBERSECURITY_ROOT_FILES
+    branch = rel.parts[1]
+    return branch in MATURE_CYBERSECURITY_BRANCHES
 
 
 def load_note(section: str, path: Path) -> Note:
@@ -338,7 +381,7 @@ def strip_html(s: str) -> str:
 
 def build_home(tree: dict, notes: list[Note]) -> str:
     lines = ["<h1>ldamoredev notes</h1>",
-             "<p>Static snapshot of my Obsidian vault. Two sections: <strong>Cybersecurity</strong> (concept notes, playbooks, tooling) and <strong>Projects</strong> (integration work that ties branches together).</p>"]
+             "<p>Static snapshot of mature cybersecurity notes from my Obsidian vault. Project notes, templates, tooling experiments, and unpromoted branches are intentionally excluded.</p>"]
     for section_key, section_label in SECTIONS:
         subs = tree.get(section_key, {})
         if not subs:
@@ -374,6 +417,8 @@ def main() -> int:
             print(f"[warn] missing: {root}", file=sys.stderr)
             continue
         for p in sorted(root.rglob("*.md")):
+            if not should_publish(section_key, p):
+                continue
             notes.append(load_note(section_key, p))
 
     print(f"Loaded {len(notes)} notes.")

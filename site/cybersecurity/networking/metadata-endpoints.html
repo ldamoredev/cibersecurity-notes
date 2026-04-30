@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Metadata Endpoints</title>
+<title>Cloud Instance Metadata Endpoints</title>
 <link rel="stylesheet" href="../../assets/style.css">
 <link rel="stylesheet" href="../../assets/pygments.css">
 </head>
@@ -22,11 +22,15 @@
 <a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
 <a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
 <a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
 <a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
 <a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
 <a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
 <a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
 <a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
 <details><summary>api-security</summary>
 <a class="" href="../api-security/index.html">API Security Index</a>
 <a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
@@ -41,6 +45,7 @@
 <a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
 <a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
 <a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
 <a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
 </details>
 <details><summary>attack-surface-mapping</summary>
@@ -49,12 +54,25 @@
 <a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
 <a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
 <a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
 <a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
 <a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
 <a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
-<a class="" href="../attack-surface-mapping/service-enumeration.html">Service Enumeration</a>
 <a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
 <a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
 </details>
 <details><summary>devsecops</summary>
 <a class="" href="../devsecops/index.html">DevSecOps Index</a>
@@ -71,11 +89,25 @@
 <a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
 <a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
 <details open><summary>networking</summary>
 <a class="" href="index.html">Networking Index</a>
 <a class="" href="caching-and-security.html">Caching and Security</a>
 <a class="" href="client-ip-trust.html">Client IP Trust</a>
+<a class="active" href="metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
 <a class="" href="cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="dangling-dns-records.html">Dangling DNS Records</a>
 <a class="" href="dns-resolution.html">DNS Resolution</a>
 <a class="" href="dns-security.html">DNS Security</a>
 <a class="" href="firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
@@ -83,14 +115,12 @@
 <a class="" href="http-messages.html">HTTP Messages</a>
 <a class="" href="http-overview.html">HTTP Overview</a>
 <a class="" href="load-balancers.html">Load Balancers</a>
-<a class="active" href="metadata-endpoints.html">Metadata Endpoints</a>
 <a class="" href="nat-and-private-networks.html">NAT and Private Networks</a>
 <a class="" href="nmap-scanning.html">Nmap Scanning</a>
 <a class="" href="packet-analysis.html">Packet Analysis</a>
 <a class="" href="ports-and-services.html">Ports and Services</a>
 <a class="" href="reverse-proxies.html">Reverse Proxies</a>
 <a class="" href="service-enumeration.html">Service Enumeration</a>
-<a class="" href="subdomain-takeover.html">Subdomain Takeover</a>
 <a class="" href="tcp-ip-basics.html">TCP/IP Basics</a>
 <a class="" href="tls-https.html">TLS and HTTPS</a>
 <a class="" href="wireshark-workflows.html">Wireshark Workflows</a>
@@ -110,6 +140,19 @@
 <a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
 <a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
 </details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
 <details><summary>security-playbooks</summary>
 <a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
 <a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
@@ -123,77 +166,285 @@
 <a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
 <a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
 </details>
-<details><summary>tooling</summary>
-<a class="" href="../tooling/recon-automation.html">Recon Automation</a>
-</details>
 <details><summary>web-security</summary>
 <a class="" href="../web-security/index.html">Web Security Index</a>
 <a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
 <a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
 <a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
 <a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
 <a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
 <a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
 <a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
-<a class="" href="../web-security/idor.html">IDOR</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
 <a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
 <a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
 <a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
 <a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
 <a class="" href="../web-security/session-management.html">Session Management</a>
 <a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
 </details>
-</div>
-<div class="sidebar-section"><h3>Projects</h3>
-<a class="" href="../../projects/index.html">Projects Index</a>
-<a class="" href="../../projects/attack-surface-review-project.html">Attack Surface Review Project</a>
-<a class="" href="../../projects/devsecops-hardening-project.html">DevSecOps Hardening Project</a>
-<a class="" href="../../projects/secure-api-baseline-project.html">Secure API Baseline Project</a>
-<a class="" href="../../projects/vulnerable-web-app-project.html">Vulnerable Web App Project</a>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
 </div>
 </nav>
 <main class="content">
-
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#networking</span> <span class="tag">#cloud</span> <span class="tag">#ssrf</span> <span class="tag">#credentials</span> <span class="tag">#metadata</span></div>
 <article>
-<h1 id="metadata-endpoints">Metadata Endpoints</h1>
+<h1 id="cloud-instance-metadata-endpoints">Cloud Instance Metadata Endpoints</h1>
 <h2 id="definition">Definition</h2>
-<p>Metadata endpoints are special internal service endpoints, common in cloud environments, that provide information or credentials about the running instance, environment, or attached identity.</p>
+<p>Cloud-instance metadata endpoints are HTTP services hosted by the cloud provider on a <strong>link-local address</strong> (typically <code>169.254.169.254</code>) that any process running inside the virtual machine can query without authentication. They expose information about the instance — region, identity, user-data — and, critically, <strong>short-lived IAM credentials for the role attached to the instance</strong>. The same primitive exists across every major cloud, with subtle protocol differences that matter for attacker tooling and for defenders writing SSRF allowlists.</p>
+<p>The single sentence that explains why this whole topic exists: <strong>the metadata endpoint binds the cloud's IAM permissions to the network-layer property "any process inside this VM"</strong>, which the application's security model usually does not.</p>
 <h2 id="why-it-matters">Why it matters</h2>
-<p>Metadata endpoints matter because they are usually not intended for direct public use, but they may still be reachable by applications running inside the environment. That makes them a critical SSRF and internal reachability topic.</p>
-<h2 id="attacker-perspective">Attacker perspective</h2>
-<p>Attackers care about metadata endpoints because:
-- an SSRF bug may let them query instance metadata
-- metadata services can expose credentials, tokens, or environment details
-- internal-only assumptions are often wrong once server-side request capability exists</p>
-<h2 id="defender-perspective">Defender perspective</h2>
-<p>Defenders should understand:
-- whether metadata endpoints are reachable from workloads
-- what protections the cloud platform provides
-- how SSRF transforms metadata access into credential exposure
-- how to reduce unnecessary access from applications</p>
-<h2 id="practical-examples">Practical examples</h2>
+<p>Instance metadata services are the highest-impact SSRF target on the public Internet, by a wide margin. A vulnerability in any application that issues outbound HTTP requests in response to attacker input — image fetchers, webhook handlers, URL previews, RSS readers, OpenID/OAuth flows, JWKS fetchers, server-side iframe embedders — becomes a direct path to the instance's IAM credentials. Those credentials usually permit the application's normal cloud operations: read S3 buckets, write to queues, call internal APIs, sometimes assume other roles.</p>
+<p>This matters for four specific reasons:</p>
 <ul>
-<li>A server-side fetch feature can reach cloud metadata and leak temporary credentials.</li>
-<li>A containerized workload can access metadata because network controls are too broad.</li>
-<li>A team assumes “not public” means “safe”, ignoring server-side request paths.</li>
+<li><strong>The endpoint is reachable from anything in the VM.</strong> Containers, pods, sidecars, and the application itself all share the same network namespace by default unless the operator did something deliberate to block this.</li>
+<li><strong>The credentials are real.</strong> They are STS / token-broker credentials with the same permissions the application uses. Not test creds, not scoped, not gated by additional auth.</li>
+<li><strong>Defenses that "look right" often miss it.</strong> SSRF allowlists that block <code>127.0.0.1</code> and <code>localhost</code> and forget <code>169.254.169.254</code> are extremely common. So are URL parsers that allow <code>0.0.0.0</code>, IPv6 mapped addresses, or DNS-rebinding tricks.</li>
+<li><strong>Detection is rare.</strong> Metadata fetches look like ordinary outbound HTTP from inside the VM. CloudTrail / GCP audit logs see the <em>use</em> of the credentials, not the <em>theft</em> of them.</li>
 </ul>
-<h2 id="useful-commands">Useful commands</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Example placeholder for controlled internal testing only</span>
-curl<span class="w"> </span>http://169.254.169.254/
+<h2 id="how-it-works">How it works</h2>
+<p>The metadata service is just an HTTP server on a link-local address that returns text or JSON when queried. <strong>4 properties</strong> make it dangerous:</p>
+<ol>
+<li><strong>Link-local reachability.</strong> <code>169.254.169.254</code> is in <code>169.254.0.0/16</code> (RFC 3927) — not routable on the public Internet, but reachable from any process that can issue a TCP/HTTP request from inside the VM.</li>
+<li><strong>No authentication by default</strong> (or trivially weak header-only "auth" — see Variants).</li>
+<li><strong>Returns short-lived credentials</strong> for the IAM role attached to the instance. Token validity is usually 1–12 hours; refreshing requires only re-asking the endpoint.</li>
+<li><strong>Bypasses the application's security model entirely.</strong> The app's authn/authz, its rate limits, its allowlist — all of these are <em>application-layer</em> controls. The metadata endpoint is a <em>network-layer</em> primitive that sits underneath all of them.</li>
+</ol>
+<p>The canonical attack request, AWS IMDSv1:</p>
+<div class="codehilite"><pre><span></span><code><span class="nf">GET</span> <span class="nn">/latest/meta-data/iam/security-credentials/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">169.254.169.254</span>
 </code></pre></div>
 
+<p>Response: a list of role names. Then:</p>
+<div class="codehilite"><pre><span></span><code><span class="nf">GET</span> <span class="nn">/latest/meta-data/iam/security-credentials/&lt;role-name&gt;</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">169.254.169.254</span>
+</code></pre></div>
+
+<p>Response, JSON, including:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;AccessKeyId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ASIA...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;SecretAccessKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FwoG...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Expiration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-28T11:59:00Z&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>These three values are immediately usable as <code>AWS_ACCESS_KEY_ID</code>, <code>AWS_SECRET_ACCESS_KEY</code>, and <code>AWS_SESSION_TOKEN</code> for any AWS API the role permits.</p>
+<p>The bug is rarely "the metadata service exists." The bug is the absence of one of: a hardened metadata mode (IMDSv2), a network-layer block on link-local egress from public-facing workloads, or an application-layer SSRF defense that closes the link-local gate explicitly.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>What attackers and operators look at:</p>
+<ul>
+<li><strong>Confirm the cloud first.</strong> <code>169.254.169.254</code> answers on AWS, Azure, DigitalOcean, Oracle, Alibaba; GCP responds at <code>169.254.169.254</code> <em>and</em> <code>metadata.google.internal</code>. The exact paths and required headers differ; sending the wrong shape returns 401/403/404 and reveals the cloud.</li>
+<li><strong>Look for SSRF primitives.</strong> URL fetchers, webhook deliverers, image proxies, OpenID-discovery fetchers, XML/SVG with external entities, OAuth <code>redirect_uri</code> validators that follow the URL.</li>
+<li><strong>Read the role policy.</strong> Once credentials are exfiltrated, <code>aws sts get-caller-identity</code> and <code>aws iam get-account-authorization-details</code> (or <code>gcloud auth list</code>, <code>az account show</code>) reveal what the role can do. Most roles are over-scoped.</li>
+<li><strong>Recognize SSRF allowlist gaps.</strong> Common bypass shapes: <code>0.0.0.0</code>, IPv4 in dotted-decimal-as-integer (<code>http://2852039166/</code>), IPv6-mapped (<code>[::ffff:169.254.169.254]</code>), DNS records pointing at <code>169.254.169.254</code>, redirect chains that the app follows blindly, raw <code>fetch()</code> calls in JS-side rendering.</li>
+<li><strong>Check the hop limit.</strong> AWS IMDSv2 lets the operator set a TTL (<code>HttpPutResponseHopLimit</code>) on the metadata response; with a hop limit of 1, traffic from inside a Docker container or Kubernetes pod can't reach back. With the default of 1 set correctly, container compromises can't pivot to host credentials. With the default of 64 (or unset), they can.</li>
+<li><strong>Pivot via assume-role.</strong> If the harvested credentials can <code>sts:AssumeRole</code>, the blast radius extends to every role they can chain to — across accounts when trust policies allow it.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Each cloud's metadata service has its own protocol shape. Treating them as one is a defender mistake; using the wrong one is an attacker mistake. <strong>6 variants</strong> matter in practice.</p>
+<h3 id="1-aws-imdsv1">1. AWS IMDSv1</h3>
+<p>GET against <code>http://169.254.169.254/latest/meta-data/...</code>, no auth, no required headers. The default on instances launched before late 2019. Still extremely common in production. Trivially exploitable via any SSRF.</p>
+<h3 id="2-aws-imdsv2">2. AWS IMDSv2</h3>
+<p>Token-based: a <code>PUT /latest/api/token</code> request with <code>X-aws-ec2-metadata-token-ttl-seconds: 21600</code> returns a session token; subsequent <code>GET</code> requests must carry <code>X-aws-ec2-metadata-token: &lt;token&gt;</code>. <strong>Two properties make IMDSv2 hard to abuse via SSRF</strong>: the <code>PUT</code> method (most SSRF primitives only do GET) and the custom request header (most SSRF primitives can't set arbitrary headers). Also supports <code>HttpPutResponseHopLimit</code> to block container reach-through. Switching from IMDSv1 → IMDSv2-required is the single highest-leverage hardening on AWS.</p>
+<h3 id="3-gcp-metadata">3. GCP metadata</h3>
+<p><code>http://metadata.google.internal/computeMetadata/v1/...</code> (also reachable at <code>169.254.169.254</code>). Requires header <code>Metadata-Flavor: Google</code> on every request. Header-required posture means most basic SSRF primitives can't reach it. Returns service-account credentials at <code>/computeMetadata/v1/instance/service-accounts/default/token</code>.</p>
+<h3 id="4-azure-imds">4. Azure IMDS</h3>
+<p><code>http://169.254.169.254/metadata/instance?api-version=2021-02-01</code>. Requires header <code>Metadata: true</code>. Tokens fetched at <code>/metadata/identity/oauth2/token?api-version=2018-02-01&amp;resource=https://management.azure.com/</code>.</p>
+<h3 id="5-digitalocean-alibaba-oracle">5. DigitalOcean / Alibaba / Oracle</h3>
+<p>DigitalOcean: <code>http://169.254.169.254/metadata/v1/</code>. Alibaba Cloud and Oracle Cloud each have their own variants. Less commonly targeted but exist; if your application runs there, the same defense pattern applies.</p>
+<h3 id="6-kubernetes-service-account-tokens-the-metadata-adjacent-variant">6. Kubernetes service account tokens (the metadata-adjacent variant)</h3>
+<p>Pods get JWTs at <code>/var/run/secrets/kubernetes.io/serviceaccount/token</code> (file, not HTTP) which authenticate to the kube-apiserver at <code>https://kubernetes.default.svc</code>. Not a metadata endpoint per se, but the same shape: link-local-ish identity primitive that credentials any process in the pod, no application-layer gate. Defense: bind service accounts to least privilege; mount with <code>automountServiceAccountToken: false</code> where possible.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered by severity:</p>
+<ul>
+<li><strong>Cloud-account compromise.</strong> Harvested credentials let the attacker exercise every IAM permission the role holds. In poorly scoped accounts, this reaches data exfiltration, privilege escalation via <code>iam:PassRole</code> chains, persistence (creating new IAM users / access keys), and pivoting into other accounts when cross-account trust policies allow it.</li>
+<li><strong>Data exfiltration from cloud storage.</strong> S3, GCS, Azure Blob — most application roles can read at least some buckets the attacker cannot reach directly.</li>
+<li><strong>Internal API access.</strong> Internal services that authenticate via SigV4 / metadata-derived identity now answer to the attacker.</li>
+<li><strong>Lateral movement.</strong> Roles with <code>sts:AssumeRole</code> or analogous cross-role chains let the attacker pivot to higher-privilege roles. See <a href="nat-and-private-networks.html">nat-and-private-networks</a> for the lateral-movement framing.</li>
+<li><strong>Persistence.</strong> Credentials issued by the metadata service refresh automatically; an attacker who keeps stealing fresh tokens has indefinite access until the role is revoked or the application stack is rotated.</li>
+<li><strong>Cost / abuse.</strong> Compromised credentials run cryptominers, send phishing email, or stage further attacks at the victim's expense.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Switch to the hardened metadata mode and require it.</strong>
+   AWS: <code>MetadataOptions.HttpTokens=required</code> (IMDSv2-only) and <code>HttpPutResponseHopLimit=1</code>. GCP: rely on the <code>Metadata-Flavor</code> header and review service-account scope. Azure: rely on <code>Metadata: true</code>. Set this at the org/account level — Service Control Policies (AWS), Organization Policies (GCP), Azure Policy — so individual workloads cannot opt out. This single change defeats the overwhelming majority of metadata-via-SSRF attacks.</p>
+</li>
+<li>
+<p><strong>Block egress to the link-local range from any workload that takes user input.</strong>
+   At the network layer, deny <code>169.254.0.0/16</code> (and IPv6 link-local <code>fe80::/10</code>) outbound from public-facing pods/instances/functions. Cloud security groups, Kubernetes NetworkPolicy, service-mesh egress policies (Istio, Linkerd) all support this. Pair with the application-level allowlist; do not rely on either alone.</p>
+</li>
+<li>
+<p><strong>Application-level URL allowlist with explicit private/link-local denial.</strong>
+   Every URL-fetching primitive (image fetcher, webhook deliverer, OAuth redirect validator, RSS reader, PDF renderer) must resolve the hostname, check the resolved IP against an explicit deny-list (<code>127.0.0.0/8</code>, <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>, <code>169.254.0.0/16</code>, <code>::1</code>, <code>fc00::/7</code>, <code>fe80::/10</code>, <code>0.0.0.0</code>), and re-check after every redirect. DNS rebinding is real; resolve once and connect to the resolved IP, not the hostname.</p>
+</li>
+<li>
+<p><strong>Use VPC service endpoints / Private Google Access / Azure Private Link.</strong>
+   Where the workload's job is "talk to S3 / GCS / a few specific cloud APIs," route via private endpoints with explicit IAM scoping. This both reduces egress dependency on the metadata service for IAM and makes credential theft less useful — many private endpoints can be additionally gated on VPC identity.</p>
+</li>
+<li>
+<p><strong>Scope the IAM role aggressively.</strong>
+   Default role attached to a public-facing web tier should grant only the specific bucket/queue/secret access it needs, with <code>Condition</code> clauses where possible (source VPC, request tag, IP). When credentials leak — and assume they will — least privilege is the difference between "annoying" and "RCE-equivalent."</p>
+</li>
+<li>
+<p><strong>Detect anomalous metadata access patterns.</strong>
+   GuardDuty (<code>UnauthorizedAccess:EC2/MetadataDNSRebind</code>, <code>Discovery:EC2/PortProbeUnprotectedPort</code>) and similar GCP/Azure detections cover the obvious cases. Custom: alert on STS calls from IPs / regions / user agents the application doesn't normally use.</p>
+</li>
+<li>
+<p><strong>Disable Kubernetes pod automount of service-account tokens</strong> unless the pod actually needs to call the API server.
+   <code>automountServiceAccountToken: false</code> at the pod-spec level. Enforce via admission control. Many workloads ship with the default-mounted token and never use it; that token is just sitting there waiting for a process compromise.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Blocking only <code>127.0.0.1</code> and <code>localhost</code>.</strong> The link-local range, IPv4-as-integer, IPv6-mapped, and <code>0.0.0.0</code> are all separate gates. SSRF allowlists that close one and miss the others are the most common metadata-leak path in production.</li>
+<li><strong>String-matching the URL.</strong> <code>http://169.254.169.254/</code>, <code>http://[::ffff:a9fe:a9fe]/</code>, <code>http://2852039166/</code>, <code>http://attacker.com/?host=169.254.169.254</code> (open redirect chained with SSRF), and DNS records pointing at link-local are all the same target. Resolve and check the IP, not the hostname or string.</li>
+<li><strong>Trusting "the cloud platform handles it."</strong> Cloud defaults often favor compatibility over hardening. IMDSv1 is still allowed by default unless an org policy says otherwise. Default service accounts in GKE and AKS are over-scoped. Defense is your responsibility, not the platform's.</li>
+<li><strong>WAF rules alone.</strong> WAFs see the application's request; they don't see the application's outbound HTTP. Metadata theft happens on the egress path, which most WAFs don't observe.</li>
+<li><strong>Long-lived static cloud credentials inside the app.</strong> "We use static credentials so the metadata endpoint doesn't matter." Leaked static credentials are <em>worse</em> — they don't expire on their own, and they often have broader scope because operators were too tired to scope them.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Stock curl. <strong>Run these only against instances you own.</strong> The link-local address is per-VM, but the actions invoke real cloud APIs on credentials that are real money.</p>
+<h3 id="identify-the-cloud-and-try-imdsv1">Identify the cloud and try IMDSv1</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># AWS IMDSv1 (succeeds if not hardened)</span>
+curl<span class="w"> </span>-s<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span>http://169.254.169.254/latest/meta-data/
+
+<span class="c1"># GCP — header required</span>
+curl<span class="w"> </span>-s<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Metadata-Flavor: Google&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>http://metadata.google.internal/computeMetadata/v1/
+
+<span class="c1"># Azure — header required, query parameter required</span>
+curl<span class="w"> </span>-s<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Metadata: true&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;http://169.254.169.254/metadata/instance?api-version=2021-02-01&#39;</span>
+
+<span class="c1"># DigitalOcean</span>
+curl<span class="w"> </span>-s<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span>http://169.254.169.254/metadata/v1/
+</code></pre></div>
+
+<h3 id="verify-aws-imdsv2-enforcement">Verify AWS IMDSv2 enforcement</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># IMDSv1 should fail when IMDSv2 is required</span>
+curl<span class="w"> </span>-s<span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s1">&#39;imdsv1: %{http_code}\n&#39;</span><span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>http://169.254.169.254/latest/meta-data/
+
+<span class="c1"># IMDSv2 token request</span>
+<span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;X-aws-ec2-metadata-token-ttl-seconds: 60&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>http://169.254.169.254/latest/api/token<span class="k">)</span>
+
+<span class="c1"># Use the token</span>
+curl<span class="w"> </span>-s<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-aws-ec2-metadata-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>http://169.254.169.254/latest/meta-data/iam/info
+</code></pre></div>
+
+<h3 id="test-container-reachability-hop-limit-verification">Test container reachability (hop-limit verification)</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># From a Docker container or Kubernetes pod on AWS:</span>
+docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>curlimages/curl:latest<span class="w"> </span>-s<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>http://169.254.169.254/latest/meta-data/
+<span class="c1"># A correctly hop-limited IMDSv2 instance returns timeout / connection refused</span>
+<span class="c1"># from inside containers; the host still reaches it.</span>
+</code></pre></div>
+
+<h3 id="probe-ssrf-for-metadata-reach-lab-targets-only">Probe SSRF for metadata reach (lab targets only)</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Bypass shapes a hardened SSRF allowlist must defeat</span>
+<span class="k">for</span><span class="w"> </span>url<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;http://169.254.169.254/&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;http://[::ffff:169.254.169.254]/&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;http://2852039166/&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;http://0177.0.0.1/&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;http://0:80/&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;http://metadata.google.internal/&#39;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;%-45s -&gt; &#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$url</span><span class="s2">&quot;</span>
+<span class="w">  </span>curl<span class="w"> </span>-s<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s1">&#39;%{http_code}\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$url</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>timeout
+<span class="k">done</span>
+</code></pre></div>
+
+<h3 id="use-harvested-credentials-safely-in-your-own-lab">Use harvested credentials safely (in your own lab)</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Pull instance creds, set env, list role&#39;s identity — read-only sanity check</span>
+<span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;X-aws-ec2-metadata-token-ttl-seconds: 60&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>http://169.254.169.254/latest/api/token<span class="k">)</span>
+<span class="nv">ROLE</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-aws-ec2-metadata-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>http://169.254.169.254/latest/meta-data/iam/security-credentials/<span class="k">)</span>
+<span class="nv">CREDS</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-aws-ec2-metadata-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;http://169.254.169.254/latest/meta-data/iam/security-credentials/</span><span class="nv">$ROLE</span><span class="s2">&quot;</span><span class="k">)</span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$CREDS</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span>.AccessKeyId<span class="k">)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$CREDS</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span>.SecretAccessKey<span class="k">)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_SESSION_TOKEN</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$CREDS</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span>.Token<span class="k">)</span>
+
+aws<span class="w"> </span>sts<span class="w"> </span>get-caller-identity
+<span class="c1"># This is the same shape an attacker exercises after a successful theft.</span>
+<span class="c1"># In a real audit, this lab confirms your role is over-scoped before the attacker does.</span>
+</code></pre></div>
+
+<h3 id="audit-hop-limit-and-imds-mode-across-an-account">Audit hop-limit and IMDS mode across an account</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># AWS — list all instances and their metadata-options posture</span>
+aws<span class="w"> </span>ec2<span class="w"> </span>describe-instances<span class="w"> </span>--query<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;Reservations[].Instances[].{Id:InstanceId,Tokens:MetadataOptions.HttpTokens,Hop:MetadataOptions.HttpPutResponseHopLimit}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span>table
+<span class="c1"># Expected: HttpTokens=required, HttpPutResponseHopLimit=1 across the fleet.</span>
+</code></pre></div>
+
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A photo-sharing site lets users provide a remote URL for avatar import. The fetcher runs in EC2 with IMDSv1 enabled. An attacker submits <code>http://169.254.169.254/latest/meta-data/iam/security-credentials/web-role/</code>, harvests credentials, and reads every user's profile photo from S3.</li>
+<li>A SaaS webhook system follows redirects on outbound deliveries. Attacker's webhook URL <code>https://attacker.example/redirect</code> 302-redirects to <code>http://169.254.169.254/...</code>. The webhook system never re-checks the destination after redirect.</li>
+<li>A Kubernetes pod runs an image-OCR microservice that fetches images via URL. The cluster has no NetworkPolicy and runs on EKS with default IMDSv2 hop limit (1). The pod cannot reach the host's metadata directly — but it <em>can</em> reach the kubelet API on <code>127.0.0.1:10250</code> from inside the pod, which lets it exec into other pods on the same node.</li>
+<li>A GitHub Actions runner runs on a self-hosted EC2 instance with IMDSv1 enabled. A pull request from a fork runs untrusted code. The PR's job script fetches the metadata endpoint and prints the credentials into the public action log.</li>
+<li>A serverless function fetches OAuth provider metadata (<code>/.well-known/openid-configuration</code>) via a configurable URL. Misconfigured to use an attacker-controlled provider URL, the fetch hits <code>169.254.169.254</code> instead. Lambda execution role compromised.</li>
+<li>A Spring Boot application validates <code>redirect_uri</code> parameters against an allowlist, but the allowlist matches by string prefix. Attacker submits <code>redirect_uri=http://169.254.169.254/...?legitimate.example.com</code> — prefix matches start of attacker URL after a clever encoding — and metadata is reached.</li>
+</ul>
 <h2 id="related-notes">Related notes</h2>
 <ul>
-<li><a href="nat-and-private-networks.html">nat-and-private-networks</a></li>
-<li><a href="firewalls-and-network-boundaries.html">firewalls-and-network-boundaries</a></li>
-<li><a href="load-balancers.html">load-balancers</a></li>
-<li><a href="../web-security/ssrf.html">SSRF</a></li>
+<li><a href="nat-and-private-networks.html">nat-and-private-networks</a> — link-local space, the substrate this whole topic sits on.</li>
+<li><a href="firewalls-and-network-boundaries.html">firewalls-and-network-boundaries</a> — the network-layer egress block that gates metadata reach.</li>
+<li><a href="reverse-proxies.html">reverse-proxies</a> — proxies are common SSRF intermediaries; trust-boundary thinking applies.</li>
+<li><a href="client-ip-trust.html">client-ip-trust</a> — IP-allowlist confusion is a sibling failure mode for cloud-internal trust.</li>
+<li><a href="../web-security/ssrf.html">SSRF</a> — the application-layer primitive that makes this attack possible.</li>
+<li><a href="../web-security/cors-misconfiguration.html">CORS misconfiguration</a> — adjacency: client-side origin trust does not protect server-side fetchers.</li>
+<li><a href="../web-security/file-upload-abuse.html">File upload abuse</a> — SVG/PDF/HTML uploads can become SSRF vectors via headless renderers.</li>
+<li><span class="broken-link" title="Unresolved: cybersecurity/security-playbooks/trace-metadata-endpoint-reachability">Trace metadata endpoint reachability</span></li>
+<li><a href="../devsecops/secrets-management.html">secrets-management</a> — long-lived static credentials are the worse alternative to instance metadata.</li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: imdsv2-hop-limit-design">imdsv2-hop-limit-design</span></li>
+<li><span class="broken-link" title="Unresolved: ssrf-allowlist-design">ssrf-allowlist-design</span></li>
+<li><span class="broken-link" title="Unresolved: gcp-workload-identity">gcp-workload-identity</span></li>
+<li><span class="broken-link" title="Unresolved: aws-sts-assume-role-chains">aws-sts-assume-role-chains</span></li>
+<li><span class="broken-link" title="Unresolved: kubernetes-service-account-tokens">kubernetes-service-account-tokens</span></li>
+<li><span class="broken-link" title="Unresolved: dns-rebinding">dns-rebinding</span></li>
+<li><span class="broken-link" title="Unresolved: metadata-detection-with-guardduty">metadata-detection-with-guardduty</span></li>
 </ul>
 <h2 id="references">References</h2>
 <ul>
-<li><strong>Foundational:</strong> PortSwigger SSRF topic — https://portswigger.net/web-security/ssrf</li>
+<li><strong>Foundational:</strong> AWS Instance Metadata Service docs — https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html</li>
+<li><strong>Foundational:</strong> GCP metadata server docs — https://cloud.google.com/compute/docs/metadata/overview</li>
+<li><strong>Foundational:</strong> Azure Instance Metadata Service docs — https://learn.microsoft.com/en-us/azure/virtual-machines/instance-metadata-service</li>
 <li><strong>Foundational:</strong> OWASP SSRF Prevention Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html</li>
-<li><strong>Research / Deep Dive:</strong> AWS Instance Metadata Service docs — https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html</li>
+<li><strong>Testing / Lab:</strong> PortSwigger SSRF topic — https://portswigger.net/web-security/ssrf</li>
 </ul>
 </article>
 </main>

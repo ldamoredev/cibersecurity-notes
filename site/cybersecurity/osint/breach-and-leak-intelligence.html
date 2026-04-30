@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Breach and Leak Intelligence</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="../networking/index.html">Networking Index</a>
+<a class="" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="../networking/dns-security.html">DNS Security</a>
+<a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details open><summary>osint</summary>
+<a class="" href="index.html">OSINT Index</a>
+<a class="active" href="breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="company-osint.html">Company OSINT</a>
+<a class="" href="email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="google-dorking.html">Google Dorking</a>
+<a class="" href="image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="osint.html">OSINT</a>
+<a class="" href="osint-reporting.html">OSINT Reporting</a>
+<a class="" href="osint-triage.html">OSINT Triage</a>
+<a class="" href="search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="../web-security/index.html">Web Security Index</a>
+<a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="../web-security/session-management.html">Session Management</a>
+<a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#osint</span> <span class="tag">#breach-intelligence</span></div>
+<article>
+<h1 id="breach-and-leak-intelligence">Breach and Leak Intelligence</h1>
+<h2 id="definition">Definition</h2>
+<p>Breach and leak intelligence is the OSINT practice of identifying public indicators that accounts, domains, credentials, documents, code, or systems may have appeared in breaches, paste sites, public repositories, or exposed datasets. The output is a triaged list of indicators tied to <strong>specific remediation actions</strong>, not a folder of leaked data.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Leak signals change security priorities. A confirmed credential exposure forces a password reset; a confirmed API token exposure forces token rotation and session revocation; a confirmed document exposure triggers an incident response review. Without breach intelligence, organizations rotate credentials reactively after compromise instead of proactively after exposure.</p>
+<p>The dangerous move is treating leaked data casually. Breach indicators must be <strong>scoped, minimal, and handled as sensitive material</strong>. Storing raw dumps creates legal, ethical, and data-handling risk far beyond the original exposure. The goal is to know the indicator exists and act on it — not to collect the contents.</p>
+<p>The asymmetry: organizations rarely know about a breach until external indicators surface. Defensive breach OSINT closes that gap by treating public leak feeds as a free early-warning channel.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Breach/leak OSINT processes <strong>5 signal types</strong>. Each one triggers a different remediation track.</p>
+<ol>
+<li><strong>Account exposure.</strong> Emails or usernames appear in breach indexes (HIBP, public dump listings). Triggers password reset and MFA enforcement for the affected accounts.</li>
+<li><strong>Credential exposure.</strong> Passwords, hashes, tokens, API keys, or session cookies are exposed in repositories, pastes, or breach dumps. Triggers immediate rotation and session revocation; <strong>do not debate whether the credential was used</strong>.</li>
+<li><strong>Document exposure.</strong> Internal files, logs, backups, or exports become public via misconfigured storage, indexed mistakes, or third-party dumps. Triggers incident response, data classification review, and source removal.</li>
+<li><strong>Repository exposure.</strong> Code, configs, secrets, or infrastructure names leak via public commits, fork mistakes, or open mirrors. Triggers secret rotation and a <code>git history</code> review (rotation alone does not remove the secret from history).</li>
+<li><strong>Third-party exposure.</strong> Vendor or SaaS incidents expose related data (employee accounts on a third-party tool, customer data via a vendor breach). Triggers vendor risk review and downstream credential rotation.</li>
+</ol>
+<p>The bug is not "a breach result exists." The OSINT task is <strong>deciding whether the signal is relevant, current, sensitive, and actionable</strong> — and tying it to a remediation owner.</p>
+<p>A worked example:</p>
+<div class="codehilite"><pre><span></span><code>Indicator:    HIBP returns 23 employee emails in &quot;Cit0day&quot; 2020 collection.
+Sensitivity:  sensitive bucket — contains hashes (per HIBP metadata).
+Action 1:     force password reset on the 23 accounts (password reuse risk is the threat).
+Action 2:     check whether any of the 23 are admin/privileged → 2 are; rotate session tokens.
+Action 3:     enforce MFA for the affected role groups.
+Stored:       breach name, date, account count, action ledger. Not raw passwords.
+</code></pre></div>
+
+<p>The OSINT artifact is the action ledger, not the breach data.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>The discipline is uniform across signal types: <strong>find indicator → triage → minimize → act → record</strong>.</p>
+<ul>
+<li><strong>Domain-wide email breach indicators</strong> via HIBP <code>breachedaccount</code> and <code>domainsearch</code> APIs.</li>
+<li><strong>Public paste/repository mentions of domains or tokens</strong> via secret scanners (gitleaks, trufflehog) against owned repos and via GitHub code search for unowned mentions.</li>
+<li><strong>Exposed API keys and cloud credentials</strong> via secret-pattern signatures (<code>AKIA[0-9A-Z]{16}</code>, GitHub PATs, GCP keys, Slack webhooks).</li>
+<li><strong>Public document dumps and backups</strong> via <a href="google-dorking.html">Google dorking</a> and archive monitoring.</li>
+<li><strong>Vendor breach notices</strong> via vendor security feeds, ENISA/CISA advisories, and public breach disclosures.</li>
+<li><strong>Repeated password reuse risk signals</strong> via HIBP <code>Pwned Passwords</code> (k-anonymity API; never submit full passwords).</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Leak intelligence has <strong>5 handling classes</strong>. Each class implies a different evidence and storage discipline.</p>
+<h3 id="1-public-breach-index-signal">1. Public breach-index signal</h3>
+<p>A reputable service reports an account or domain appears in a known breach. Evidence: breach name, date, data classes, source reliability. Storage: indicator + action ledger, never raw passwords. Action: password reset + MFA enforcement scoped to affected accounts.</p>
+<h3 id="2-public-secret-exposure">2. Public secret exposure</h3>
+<p>Tokens, API keys, or credentials appear in public repositories, pastes, or documents. Evidence: source URL, commit hash, timestamp, the secret pattern (not the full secret in long-term storage). Action: <strong>immediate rotation, then forensic review</strong> — rotation first, history cleanup second, "did anyone use it" investigation third.</p>
+<h3 id="3-historical-leak">3. Historical leak</h3>
+<p>Old data may still matter if passwords, emails, or naming patterns persist. Evidence: breach age, persistence indicators (still-current naming conventions, still-active accounts). Action: treat as current exposure if any indicator is still relevant; do not dismiss because the breach is old.</p>
+<h3 id="4-third-party-leak">4. Third-party leak</h3>
+<p>A vendor incident affects target data or accounts. Evidence: vendor disclosure, data classes affected, indicator that the target is in scope. Action: vendor risk review, downstream credential rotation for accounts that used the vendor, customer notification if applicable.</p>
+<h3 id="5-unverified-claim">5. Unverified claim</h3>
+<p>A forum, paste, or post claims a leak but lacks corroboration. Evidence: claim location, timestamp, any sample provided. Action: <strong>corroborate before escalating</strong>; many "leak" claims are recycled, fake, or aggregations of older data. Do not download samples casually.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Account takeover risk.</strong> Reused passwords or active credentials in dumps enable direct compromise.</li>
+<li><strong>Cloud or API compromise.</strong> Exposed tokens may grant direct programmatic access; impact depends on token scope.</li>
+<li><strong>Sensitive data disclosure.</strong> Documents, exports, and backups leak customer or internal information.</li>
+<li><strong>Social-engineering enablement.</strong> Leaked context (org charts, internal terminology, vendor relationships) sharpens phishing and pretexting.</li>
+<li><strong>Incident response trigger.</strong> Even stale leaks require verification, action ledger, and cleanup.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Defenses prioritize <strong>rotation-first, investigation-second</strong>, and minimization throughout.</p>
+<ol>
+<li>
+<p><strong>Treat leaked credentials and tokens as compromised.</strong>
+   Rotate secrets and revoke sessions before debating whether they were used. Investigation can run in parallel; rotation cannot wait for investigation to finish.</p>
+</li>
+<li>
+<p><strong>Use domain monitoring and secret scanning.</strong>
+   Domain-level breach monitoring (HIBP, vendor feeds) and repository secret scanning (CI-integrated, scheduled) feed indicators directly into incident response. Manual sweeps catch nothing in real time.</p>
+</li>
+<li>
+<p><strong>Minimize handling of raw leaked data.</strong>
+   Store the indicator and the action ledger; avoid storing raw passwords, full dumps, or sensitive documents. Apply retention limits. Encrypt at rest.</p>
+</li>
+<li>
+<p><strong>Corroborate unverified claims before escalating.</strong>
+   Leak rumors are common. Evidence quality matters; a forum post with no sample is a lead, not an incident.</p>
+</li>
+<li>
+<p><strong>Connect leak findings to MFA, password reset, and training.</strong>
+   Breach intelligence is only useful when it changes controls. Tie every confirmed indicator to a tracked control change, not a Slack screenshot.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Ignoring old breaches.</strong> Old passwords, emails, and naming patterns may still enable attacks today.</li>
+<li><strong>Downloading full dumps casually.</strong> That creates legal, ethical, and data-handling risk far beyond the original exposure.</li>
+<li><strong>Relying only on user password changes.</strong> Tokens, API keys, OAuth refresh tokens, and active sessions need separate rotation.</li>
+<li><strong>Treating all leak claims as true.</strong> Claims need corroboration; recycled and fake leaks are common.</li>
+<li><strong>Storing the breach contents to "investigate later."</strong> Investigation timelines slip; sensitive data accumulates; the next incident is your own data-handling failure.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use your own accounts, owned domains, or authorized defensive monitoring. Never query third-party emails or domains without authorization.</p>
+<h3 id="build-a-leak-triage-table">Build a leak triage table</h3>
+<div class="codehilite"><pre><span></span><code>indicator         | source       | timestamp           | sensitivity | confidence | action               | owner
+admin@example.com | HIBP Cit0day | 2026-04-29T18:00Z  | sensitive   | verified   | reset+MFA+session    | sec-eng
+AKIA... in repo   | gitleaks CI  | 2026-04-29T18:01Z  | sensitive   | verified   | rotate token now     | sre
+&quot;example leak&quot;    | forum claim  | 2026-04-29T18:02Z  | sensitive   | uncertain  | corroborate, no DL   | sec-eng
+</code></pre></div>
+
+<p>Separate the raw indicator (sensitive) from the action ledger (operational).</p>
+<h3 id="check-a-domain-in-hibp-safely">Check a domain in HIBP safely</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Domain search requires verified ownership and an API key.</span>
+<span class="c1"># Returns breach-name + email-list-counts only — no plaintext passwords.</span>
+curl<span class="w"> </span>-s<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;hibp-api-key: </span><span class="nv">$HIBP_API_KEY</span><span class="s2">&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;user-agent: example-sec-eng&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;https://haveibeenpwned.com/api/v3/breaches?domain=example.com&quot;</span>
+</code></pre></div>
+
+<p>Record breach name, date, data classes, and remediation action — never raw credentials.</p>
+<h3 id="check-a-password-against-pwned-passwords-with-k-anonymity">Check a password against <code>Pwned Passwords</code> with k-anonymity</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Hash locally, send only the first 5 hex chars (k-anonymity).</span>
+<span class="nv">HASH</span><span class="o">=</span><span class="k">$(</span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;%s&#39;</span><span class="w"> </span><span class="s1">&#39;somepassword&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>shasum<span class="w"> </span>-a<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print toupper($1)}&#39;</span><span class="k">)</span>
+<span class="nv">PREFIX</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HASH</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">5</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nv">SUFFIX</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HASH</span><span class="p">:</span><span class="nv">5</span><span class="si">}</span><span class="s2">&quot;</span>
+curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;https://api.pwnedpasswords.com/range/</span><span class="nv">$PREFIX</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;^</span><span class="nv">$SUFFIX</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<p>Never submit a full password to a remote service. The k-anonymity API exists precisely so you don't have to.</p>
+<h3 id="search-owned-repos-for-secrets">Search owned repos for secrets</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># ripgrep sweep</span>
+rg<span class="w"> </span>-nP<span class="w"> </span><span class="s1">&#39;(AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{36}|-----BEGIN (RSA |EC )?PRIVATE KEY-----|api_key\s*=\s*[&quot;\x27])&#39;</span><span class="w"> </span>.
+
+<span class="c1"># gitleaks (history-aware)</span>
+gitleaks<span class="w"> </span>detect<span class="w"> </span>--source<span class="w"> </span>.<span class="w"> </span>--redact<span class="w"> </span>--report-format<span class="w"> </span>json<span class="w"> </span>--report-path<span class="w"> </span>gitleaks.json
+</code></pre></div>
+
+<p>Rotate every real hit before cleaning history. Rotation first; <code>git filter-repo</code> second; investigation third.</p>
+<h3 id="verify-rotation-actually-invalidated-the-old-credential">Verify rotation actually invalidated the old credential</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># After rotating, the old token should now fail.</span>
+curl<span class="w"> </span>-i<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$OLD_TOKEN</span><span class="s2">&quot;</span><span class="w"> </span>https://api.example.com/v1/whoami
+<span class="c1"># Expect 401 Unauthorized.</span>
+</code></pre></div>
+
+<p>A rotation that does not invalidate the old credential is not a rotation.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A company domain appears in HIBP results for a recent breach; 23 employee emails are affected, triggering password reset and MFA enforcement scoped to those accounts.</li>
+<li>A public repo contains an <code>AKIA</code> AWS access key in <code>.env.example</code>; rotation is immediate, history cleanup follows, and CloudTrail review checks for use.</li>
+<li>An old paste contains internal hostnames matching a current naming convention, suggesting attackers can predict new names.</li>
+<li>A vendor breach includes employee contact data; the vendor risk review identifies all employees with vendor accounts and rotates downstream credentials.</li>
+<li>A leaked document reveals internal project names that match current internal Slack channels, sharpening attacker pretexting.</li>
+<li>An "example leak" forum claim has no sample; the indicator stays in "uncertain" until a sample emerges or 90 days pass.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="osint-triage.html">osint-triage</a></li>
+<li><a href="email-and-phone-osint.html">email-and-phone-osint</a></li>
+<li><a href="company-osint.html">company-osint</a></li>
+<li><a href="google-dorking.html">google-dorking</a></li>
+<li><a href="../devsecops/secrets-management.html">Secrets Management</a></li>
+<li><a href="../offensive-security/passive-recon.html">Passive Recon</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: secret-scanning">secret-scanning</span></li>
+<li><span class="broken-link" title="Unresolved: credential-reuse-risk">credential-reuse-risk</span></li>
+<li><span class="broken-link" title="Unresolved: paste-site-monitoring">paste-site-monitoring</span></li>
+<li><span class="broken-link" title="Unresolved: vendor-breach-triage">vendor-breach-triage</span></li>
+<li><span class="broken-link" title="Unresolved: leak-data-handling">leak-data-handling</span></li>
+<li><span class="broken-link" title="Unresolved: rotation-playbooks">rotation-playbooks</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Official Tool Docs:</strong> Have I Been Pwned API documentation — https://haveibeenpwned.com/API/v3</li>
+<li><strong>Foundational:</strong> OSINT Framework — https://osintframework.com/</li>
+<li><strong>Foundational:</strong> OWASP WSTG information gathering — https://owasp.org/www-project-web-security-testing-guide/latest/</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

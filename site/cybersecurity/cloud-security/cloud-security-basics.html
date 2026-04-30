@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cloud Security Basics</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details open><summary>cloud-security</summary>
+<a class="" href="index.html">Cloud Security Index</a>
+<a class="" href="cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="active" href="cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="../networking/index.html">Networking Index</a>
+<a class="" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="../networking/dns-security.html">DNS Security</a>
+<a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="../web-security/index.html">Web Security Index</a>
+<a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="../web-security/session-management.html">Session Management</a>
+<a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#cloud-security</span></div>
+<article>
+<h1 id="cloud-security-basics">Cloud Security Basics</h1>
+<h2 id="definition">Definition</h2>
+<p>Cloud security is the discipline of protecting cloud-hosted identities, resources, networks, data, workloads, logs, and control-plane operations.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Cloud changes the security model because infrastructure becomes API-driven. A single identity permission, public storage rule, exposed security group, leaked key, or metadata path can create broad impact.</p>
+<p>The core idea is shared responsibility: the provider secures the underlying cloud, while the customer still owns configuration, identity, data, workloads, access, and monitoring decisions.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Cloud security has <strong>6 control planes</strong>:</p>
+<ol>
+<li><strong>Identity.</strong> Users, roles, service accounts, and policies decide who can do what.</li>
+<li><strong>Network.</strong> VPCs, subnets, security groups, firewalls, and routes decide reachability.</li>
+<li><strong>Data.</strong> Storage permissions, encryption, retention, and sharing decide exposure.</li>
+<li><strong>Compute.</strong> Instances, containers, functions, and images run workloads.</li>
+<li><strong>Metadata and secrets.</strong> Workloads often receive credentials through platform channels.</li>
+<li><strong>Logging.</strong> Audit trails and detections decide whether risky changes are visible.</li>
+</ol>
+<p>There is no single cloud vulnerability payload. Most cloud failures are control-plane misconfigurations or identity paths that make dangerous actions possible.</p>
+<p>A worked example, cloud risk as combined boundaries:</p>
+<div class="codehilite"><pre><span></span><code>Resource:
+  lab-web-01 VM
+
+Identity:
+  attached role can read all object storage
+
+Network:
+  SSH open to 0.0.0.0/0 and HTTPS public
+
+Data:
+  app writes exports to a private bucket
+
+Logging:
+  control-plane logs enabled, storage data events disabled
+
+Decision:
+  the immediate risk is not &quot;a VM exists&quot;; it is public admin reachability plus broad workload identity
+  plus incomplete data-access visibility
+</code></pre></div>
+
+<p>Cloud security maturity comes from reading identity, network, data, compute, secrets, and logs together.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>Cloud reviews look at:</p>
+<ul>
+<li>account/project/subscription structure</li>
+<li>administrator and workload identities</li>
+<li>public IPs, open security groups, and exposed admin ports</li>
+<li>object storage public access and cross-account sharing</li>
+<li>instance metadata configuration</li>
+<li>secrets in environment variables, repos, images, and CI/CD</li>
+<li>audit logging, alerting, and retention</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Cloud risk has <strong>5 recurring shapes</strong>.</p>
+<h3 id="1-overprivileged-identity">1. Overprivileged identity</h3>
+<p>An identity can perform actions far beyond its job.</p>
+<h3 id="2-public-exposure">2. Public exposure</h3>
+<p>Storage, hosts, admin panels, or APIs are reachable from the internet.</p>
+<h3 id="3-credential-leakage">3. Credential leakage</h3>
+<p>Keys, tokens, or role credentials escape into code, logs, images, or metadata abuse.</p>
+<h3 id="4-boundary-confusion">4. Boundary confusion</h3>
+<p>Teams misunderstand VPCs, security groups, accounts, projects, or shared responsibility.</p>
+<h3 id="5-invisible-change">5. Invisible change</h3>
+<p>Risky configuration changes happen without useful logs or alerts.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Account compromise.</strong> Identity abuse can create new users, roles, keys, and persistence.</li>
+<li><strong>Data exposure.</strong> Public or cross-account storage can leak sensitive data.</li>
+<li><strong>Workload compromise.</strong> Exposed hosts or metadata access can lead to credentials.</li>
+<li><strong>Lateral movement.</strong> One role or subnet can reach other services.</li>
+<li><strong>Runaway cost.</strong> Compromise can create expensive resources.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Design least-privilege identity first.</strong>
+   Cloud control planes are identity-driven. Narrow permissions reduce the blast radius of every other mistake.</p>
+</li>
+<li>
+<p><strong>Keep public exposure intentional and inventoried.</strong>
+   Public IPs, buckets, load balancers, and admin ports should have owners, reasons, and review dates.</p>
+</li>
+<li>
+<p><strong>Segment accounts, networks, and environments.</strong>
+   Production, dev, labs, and personal experiments should not share one flat trust boundary.</p>
+</li>
+<li>
+<p><strong>Enable audit logs before experiments.</strong>
+   Logs are most useful when they exist before the risky event.</p>
+</li>
+<li>
+<p><strong>Set budgets and teardown habits.</strong>
+   Cloud security includes cost safety because resource creation is part of the attack surface.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Assuming provider-managed means provider-secured.</strong> Customer configuration still matters.</li>
+<li><strong>Using one admin account for everything.</strong> Convenience becomes blast radius.</li>
+<li><strong>Relying only on private IPs.</strong> SSRF, peering, VPNs, and compromised workloads can cross "private" boundaries.</li>
+<li><strong>Turning on logs after an incident.</strong> Missing history cannot be reconstructed.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use a personal sandbox account with no production access.</p>
+<h3 id="draw-the-shared-responsibility-split">Draw the shared-responsibility split</h3>
+<div class="codehilite"><pre><span></span><code>Provider owns:
+Customer owns:
+Ambiguous/shared:
+Evidence source:
+</code></pre></div>
+
+<p>Apply it to one service such as object storage, VM compute, or managed database.</p>
+<h3 id="build-a-cloud-risk-inventory">Build a cloud risk inventory</h3>
+<div class="codehilite"><pre><span></span><code>Identity:
+Public endpoints:
+Storage:
+Compute:
+Secrets:
+Logs:
+Budget:
+Teardown date:
+</code></pre></div>
+
+<p>Keep the first lab boring and safe.</p>
+<h3 id="identify-public-resources">Identify public resources</h3>
+<div class="codehilite"><pre><span></span><code>Public IPs:
+Public buckets:
+Public DNS names:
+Open admin ports:
+Owner:
+Reason:
+</code></pre></div>
+
+<p>This turns cloud concepts into attack-surface evidence.</p>
+<h3 id="build-a-six-plane-risk-card">Build a six-plane risk card</h3>
+<div class="codehilite"><pre><span></span><code>Resource:
+Identity risk:
+Network risk:
+Data risk:
+Compute risk:
+Metadata/secrets risk:
+Logging risk:
+Top next action:
+</code></pre></div>
+
+<p>Use this when a cloud finding feels too broad to triage.</p>
+<h3 id="separate-provider-and-customer-controls">Separate provider and customer controls</h3>
+<div class="codehilite"><pre><span></span><code>Control | Provider responsibility | Customer responsibility | Evidence
+IAM role design | no | yes | policy review
+physical datacenter access | yes | no | provider docs
+bucket public policy | no | yes | storage config
+</code></pre></div>
+
+<p>Shared responsibility becomes useful only when mapped to concrete controls.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A lab VM exposes SSH to the internet with no IP restriction.</li>
+<li>A public bucket contains backups thought to be internal.</li>
+<li>A CI role can create admin policies.</li>
+<li>A compromised instance reads role credentials from metadata.</li>
+<li>CloudTrail or audit logs were never enabled in a small account.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="cloud-iam-boundaries.html">cloud-iam-boundaries</a></li>
+<li><a href="cloud-network-boundaries.html">cloud-network-boundaries</a></li>
+<li><a href="public-cloud-storage-exposure.html">public-cloud-storage-exposure</a></li>
+<li><a href="cloud-metadata-security.html">cloud-metadata-security</a></li>
+<li><a href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: cloud-asset-inventory">cloud-asset-inventory</span></li>
+<li><span class="broken-link" title="Unresolved: cloud-account-organization">cloud-account-organization</span></li>
+<li><span class="broken-link" title="Unresolved: cloud-cost-security">cloud-cost-security</span></li>
+<li><span class="broken-link" title="Unresolved: cloud-tagging-strategy">cloud-tagging-strategy</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Foundational:</strong> AWS Shared Responsibility Model — https://aws.amazon.com/compliance/shared-responsibility-model/</li>
+<li><strong>Foundational:</strong> Google Cloud shared responsibility and shared fate — https://cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate</li>
+<li><strong>Foundational:</strong> Microsoft Cloud Adoption Framework security — https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/secure/</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

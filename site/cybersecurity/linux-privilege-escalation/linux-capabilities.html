@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Linux Capabilities</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body data-root="../..">
+<header class="topbar">
+  <a class="brand" href="../../index.html">ldamoredev notes</a>
+  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+  <button id="theme-toggle" title="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="" href="../index.html">Cybersecurity Index</a>
+<a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
+<a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
+<a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
+<a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+<details><summary>api-security</summary>
+<a class="" href="../api-security/index.html">API Security Index</a>
+<a class="" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="" href="../api-security/authorization.html">Authorization</a>
+<a class="" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details><summary>attack-surface-mapping</summary>
+<a class="" href="../attack-surface-mapping/index.html">Attack Surface Mapping Index</a>
+<a class="" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details><summary>devsecops</summary>
+<a class="" href="../devsecops/index.html">DevSecOps Index</a>
+<a class="" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="" href="../devsecops/container-security.html">Container Security</a>
+<a class="" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details open><summary>linux-privilege-escalation</summary>
+<a class="" href="index.html">Linux Privilege Escalation Index</a>
+<a class="" href="cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="active" href="linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="path-hijacking.html">PATH Hijacking</a>
+<a class="" href="sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details><summary>networking</summary>
+<a class="" href="../networking/index.html">Networking Index</a>
+<a class="" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="" href="../networking/dns-security.html">DNS Security</a>
+<a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details><summary>offensive-security</summary>
+<a class="" href="../offensive-security/index.html">Offensive Security / Recon Index</a>
+<a class="" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="" href="../offensive-security/recon.html">Recon</a>
+<a class="" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details><summary>security-playbooks</summary>
+<a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
+<a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+</details>
+<details><summary>web-security</summary>
+<a class="" href="../web-security/index.html">Web Security Index</a>
+<a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="" href="../web-security/session-management.html">Session Management</a>
+<a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
+</details>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#linux-privilege-escalation</span> <span class="tag">#capabilities</span></div>
+<article>
+<h1 id="linux-capabilities">Linux Capabilities</h1>
+<h2 id="definition">Definition</h2>
+<p>Linux capabilities split root privileges into smaller units that can be assigned to processes or files.</p>
+<p>A capability misconfiguration occurs when a binary receives a capability that lets a low-privileged user cross a sensitive boundary.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Capabilities are often introduced to avoid full root, but they still grant pieces of root. A single dangerous capability can be equivalent to root in practice.</p>
+<p>For defenders, capabilities are a precision tool that requires inventory and justification.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Use 5 capability-risk questions:</p>
+<ol>
+<li><strong>Which capability:</strong> what exact power is granted?</li>
+<li><strong>To what:</strong> process, service, or file capability?</li>
+<li><strong>Who can execute:</strong> which users can run the binary?</li>
+<li><strong>What behavior:</strong> can the binary use the capability to read, write, bind, trace, or change identity?</li>
+<li><strong>Can it chain:</strong> does the capability combine with command execution or file write?</li>
+</ol>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<ul>
+<li>Enumerate file capabilities with <code>getcap -r /</code>.</li>
+<li>Prioritize <code>cap_setuid</code>, <code>cap_setgid</code>, <code>cap_dac_read_search</code>, <code>cap_dac_override</code>, <code>cap_sys_admin</code>, <code>cap_net_raw</code>, and <code>cap_net_bind_service</code>.</li>
+<li>Check whether the binary is interpreter-like or shell-capable.</li>
+<li>Compare capability use to the operational need.</li>
+<li>Remove file capabilities that are no longer justified.</li>
+</ul>
+<h3 id="worked-example-capability-that-outgrows-its-purpose">Worked example: capability that outgrows its purpose</h3>
+<div class="codehilite"><pre><span></span><code>Lead: /usr/local/bin/net-helper = cap_net_raw+ep
+Business purpose: collect packet diagnostics for support
+Who can execute: all local users
+Boundary question: can any user now perform packet-level activity?
+Minimal proof: show capability-bearing execution path without capturing unrelated traffic
+Fix: restrict execution to admin group or move diagnostics behind an audited service
+</code></pre></div>
+
+<p>Capabilities are not automatically bad. The finding appears when capability, executable behavior, and broad execution rights combine.</p>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<h3 id="1-identity-changing-capability">1. Identity-changing capability</h3>
+<p><code>cap_setuid</code> or <code>cap_setgid</code> may allow user or group transition.</p>
+<h3 id="2-file-access-capability">2. File-access capability</h3>
+<p>DAC override/read capabilities can bypass normal file permissions.</p>
+<h3 id="3-network-capability">3. Network capability</h3>
+<p>Network capabilities can enable packet capture, raw sockets, or privileged port binding.</p>
+<h3 id="4-broad-system-capability">4. Broad system capability</h3>
+<p><code>cap_sys_admin</code> is notoriously broad and often too close to root.</p>
+<h3 id="5-container-capability-drift">5. Container capability drift</h3>
+<p>Containers may run with capabilities that make host boundaries weaker than expected.</p>
+<h2 id="impact">Impact</h2>
+<ul>
+<li>Privileged file read or write.</li>
+<li>Identity change or root-equivalent execution.</li>
+<li>Packet capture or network manipulation.</li>
+<li>Container escape preconditions.</li>
+<li>Service privilege expansion beyond intended design.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<ul>
+<li><strong>Inventory file capabilities.</strong> Capabilities are less visible than SUID bits and need their own baseline.</li>
+<li><strong>Grant the narrowest capability possible.</strong> Avoid broad capabilities such as <code>cap_sys_admin</code>.</li>
+<li><strong>Limit executable access.</strong> A capability-bearing binary should not be executable by users that do not need it.</li>
+<li><strong>Prefer service-level privilege management.</strong> Avoid scattering file capabilities across custom tools.</li>
+<li><strong>Monitor <code>setcap</code> changes.</strong> Capability assignment is a privilege-boundary change.</li>
+</ul>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Saying "it is not SUID."</strong> Capabilities can be equally dangerous.</li>
+<li><strong>Granting broad capabilities for convenience.</strong> The boundary becomes unclear.</li>
+<li><strong>Ignoring containers.</strong> Container capabilities can change the meaning of "root inside the container."</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use an owned VM or disposable container.</p>
+<h3 id="enumerate-file-capabilities">Enumerate file capabilities</h3>
+<div class="codehilite"><pre><span></span><code>getcap<span class="w"> </span>-r<span class="w"> </span>/<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</code></pre></div>
+
+<p>Classify results as expected, unknown, or dangerous.</p>
+<h3 id="inspect-one-binary">Inspect one binary</h3>
+<div class="codehilite"><pre><span></span><code>ls<span class="w"> </span>-la<span class="w"> </span>/path/to/binary
+getcap<span class="w"> </span>/path/to/binary
+file<span class="w"> </span>/path/to/binary
+</code></pre></div>
+
+<p>Capability risk depends on both the capability and binary behavior.</p>
+<h3 id="build-a-capability-risk-table">Build a capability risk table</h3>
+<div class="codehilite"><pre><span></span><code>Binary:
+Capability:
+Who can execute:
+Normal purpose:
+Dangerous behavior:
+Minimal proof:
+Safer alternative:
+</code></pre></div>
+
+<p>This turns capability output into a decision.</p>
+<h3 id="verify-removal-in-a-lab">Verify removal in a lab</h3>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>setcap<span class="w"> </span>-r<span class="w"> </span>/path/to/binary
+getcap<span class="w"> </span>/path/to/binary
+</code></pre></div>
+
+<p>Only remove capabilities on owned lab systems or with change approval.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>Python with <code>cap_setuid+ep</code> can become root-equivalent.</li>
+<li>A packet tool with <code>cap_net_raw</code> may be justified for a specific admin group, but risky for all users.</li>
+<li>A custom service binary keeps an old capability after the service no longer needs it.</li>
+<li>A container runs with excessive capabilities and weakens host isolation assumptions.</li>
+<li>A backup helper has DAC override when a narrower design would use group permissions.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="linux-privilege-escalation.html">linux-privilege-escalation</a></li>
+<li><a href="linux-enumeration.html">linux-enumeration</a></li>
+<li><a href="suid-sgid-misconfigurations.html">suid-sgid-misconfigurations</a></li>
+<li><a href="kernel-exploit-triage.html">kernel-exploit-triage</a></li>
+<li><a href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: container-capabilities">container-capabilities</span></li>
+<li><span class="broken-link" title="Unresolved: cap-sys-admin-risk">cap-sys-admin-risk</span></li>
+<li><span class="broken-link" title="Unresolved: linux-file-capability-inventory">linux-file-capability-inventory</span></li>
+<li><span class="broken-link" title="Unresolved: capability-hardening-baseline">capability-hardening-baseline</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Official Docs:</strong> Linux capabilities — https://man7.org/linux/man-pages/man7/capabilities.7.html</li>
+<li><strong>Official Docs:</strong> setcap — https://man7.org/linux/man-pages/man8/setcap.8.html</li>
+<li><strong>Technique Reference:</strong> GTFOBins: capabilities — https://gtfobins.github.io/#+capabilities</li>
+</ul>
+</article>
+</main>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

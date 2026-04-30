@@ -22,11 +22,15 @@
 <a class="" href="../reference-registry.html">Cybersecurity Reference Registry</a>
 <a class="" href="../reference-registry-api-security.html">Reference Registry — API Security Seed</a>
 <a class="" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping Seed</a>
+<a class="" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
 <a class="" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps Seed</a>
+<a class="" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
 <a class="" href="../reference-registry-networking.html">Reference Registry — Networking Seed</a>
 <a class="" href="../reference-registry-offensive-security-recon.html">Reference Registry — Offensive Security / Recon Seed</a>
+<a class="" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
 <a class="" href="../reference-registry-playbooks.html">Reference Registry — Playbooks Seed</a>
 <a class="" href="../reference-registry-web-security.html">Reference Registry — Web Security Seed</a>
+<a class="" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
 <details open><summary>api-security</summary>
 <a class="" href="index.html">API Security Index</a>
 <a class="" href="api-auth-flaws.html">API Authentication Flaws</a>
@@ -41,6 +45,7 @@
 <a class="" href="excessive-data-exposure.html">Excessive Data Exposure</a>
 <a class="" href="jwt-attacks.html">JWT Attacks</a>
 <a class="" href="mass-assignment.html">Mass Assignment</a>
+<a class="" href="polymorphic-deserialization.html">Polymorphic Deserialization</a>
 <a class="" href="token-lifecycle.html">Token Lifecycle</a>
 </details>
 <details><summary>attack-surface-mapping</summary>
@@ -49,12 +54,25 @@
 <a class="" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
 <a class="" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
 <a class="" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
 <a class="" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
 <a class="" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
 <a class="" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
-<a class="" href="../attack-surface-mapping/service-enumeration.html">Service Enumeration</a>
 <a class="" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
 <a class="" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details><summary>cloud-security</summary>
+<a class="" href="../cloud-security/index.html">Cloud Security Index</a>
+<a class="" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
 </details>
 <details><summary>devsecops</summary>
 <a class="" href="../devsecops/index.html">DevSecOps Index</a>
@@ -71,11 +89,25 @@
 <a class="" href="../devsecops/secure-by-design.html">Secure by Design</a>
 <a class="" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
+<details><summary>linux-privilege-escalation</summary>
+<a class="" href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a>
+<a class="" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
 <details><summary>networking</summary>
 <a class="" href="../networking/index.html">Networking Index</a>
 <a class="" href="../networking/caching-and-security.html">Caching and Security</a>
 <a class="" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
 <a class="" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
 <a class="" href="../networking/dns-resolution.html">DNS Resolution</a>
 <a class="" href="../networking/dns-security.html">DNS Security</a>
 <a class="" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
@@ -83,14 +115,12 @@
 <a class="" href="../networking/http-messages.html">HTTP Messages</a>
 <a class="" href="../networking/http-overview.html">HTTP Overview</a>
 <a class="" href="../networking/load-balancers.html">Load Balancers</a>
-<a class="" href="../networking/metadata-endpoints.html">Metadata Endpoints</a>
 <a class="" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
 <a class="" href="../networking/nmap-scanning.html">Nmap Scanning</a>
 <a class="" href="../networking/packet-analysis.html">Packet Analysis</a>
 <a class="" href="../networking/ports-and-services.html">Ports and Services</a>
 <a class="" href="../networking/reverse-proxies.html">Reverse Proxies</a>
 <a class="" href="../networking/service-enumeration.html">Service Enumeration</a>
-<a class="" href="../networking/subdomain-takeover.html">Subdomain Takeover</a>
 <a class="" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
 <a class="" href="../networking/tls-https.html">TLS and HTTPS</a>
 <a class="" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
@@ -110,6 +140,19 @@
 <a class="" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
 <a class="" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
 </details>
+<details><summary>osint</summary>
+<a class="" href="../osint/index.html">OSINT Index</a>
+<a class="" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="" href="../osint/company-osint.html">Company OSINT</a>
+<a class="" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="" href="../osint/osint.html">OSINT</a>
+<a class="" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
 <details><summary>security-playbooks</summary>
 <a class="" href="../security-playbooks/index.html">Security Playbooks Index</a>
 <a class="" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
@@ -123,71 +166,195 @@
 <a class="" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
 <a class="" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
 </details>
-<details><summary>tooling</summary>
-<a class="" href="../tooling/recon-automation.html">Recon Automation</a>
-</details>
 <details><summary>web-security</summary>
 <a class="" href="../web-security/index.html">Web Security Index</a>
 <a class="" href="../web-security/auth-flaws.html">Authentication Flaws</a>
 <a class="" href="../web-security/broken-access-control.html">Broken Access Control</a>
 <a class="" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="" href="../web-security/command-injection.html">Command Injection</a>
+<a class="" href="../web-security/content-security-policy.html">Content Security Policy</a>
 <a class="" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
 <a class="" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
 <a class="" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
 <a class="" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
-<a class="" href="../web-security/idor.html">IDOR</a>
+<a class="" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="" href="../web-security/open-redirect.html">Open Redirect</a>
 <a class="" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
 <a class="" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
 <a class="" href="../web-security/request-smuggling.html">Request Smuggling</a>
 <a class="" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
 <a class="" href="../web-security/session-management.html">Session Management</a>
 <a class="" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="" href="../web-security/xxe.html">XXE</a>
 </details>
-</div>
-<div class="sidebar-section"><h3>Projects</h3>
-<a class="" href="../../projects/index.html">Projects Index</a>
-<a class="" href="../../projects/attack-surface-review-project.html">Attack Surface Review Project</a>
-<a class="" href="../../projects/devsecops-hardening-project.html">DevSecOps Hardening Project</a>
-<a class="" href="../../projects/secure-api-baseline-project.html">Secure API Baseline Project</a>
-<a class="" href="../../projects/vulnerable-web-app-project.html">Vulnerable Web App Project</a>
+<details><summary>wireless-security</summary>
+<a class="" href="../wireless-security/index.html">Wireless Security Index</a>
+<a class="" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
 </div>
 </nav>
 <main class="content">
-
+<div class="tags"><span class="tag">#cybersecurity</span> <span class="tag">#api-security</span> <span class="tag">#authorization</span></div>
 <article>
 <h1 id="authorization">Authorization</h1>
 <h2 id="definition">Definition</h2>
-<p>Authorization is the process of determining what an authenticated identity is allowed to access or do. In APIs, that includes object-level access, function-level permissions, and field/property visibility or mutability.</p>
+<p>Authorization is the server-side decision that determines what an authenticated API caller may read, write, invoke, or transition. In APIs, authorization must be enforced at object, function, and property boundaries.</p>
 <h2 id="why-it-matters">Why it matters</h2>
-<p>A lot of teams implement authentication and then assume authorization follows automatically. It does not. In APIs especially, the client can call endpoints directly, manipulate identifiers, and send fields that the UI never exposes.
-This note is the umbrella for API-side access decisions; the broken-* notes below describe how that failure shows up at object, function, and property boundaries.</p>
-<h2 id="attacker-perspective">Attacker perspective</h2>
-<p>Attackers test authorization by changing:
-- object identifiers
-- route families
-- roles and privilege assumptions
-- hidden parameters and fields
-- call order and workflow stages</p>
-<p>They care less about what the frontend allows and more about what the server accepts.</p>
-<h2 id="defender-perspective">Defender perspective</h2>
-<p>Defenders should:
-- treat authorization as a first-class server-side concern
-- define policy at object, function, and property levels
-- deny by default
-- test authorization independently from authentication and UI behavior</p>
+<p>Authentication only answers "who is calling?" Authorization answers "is this caller allowed to do this exact thing to this exact resource with these exact fields?" APIs expose identifiers, methods, routes, JSON bodies, batch actions, and machine-readable responses directly, so frontend hiding is never a control.</p>
+<p>This is the umbrella note. <a href="broken-object-level-authorization.html">broken-object-level-authorization</a> owns object access, <a href="broken-function-level-authorization.html">broken-function-level-authorization</a> owns action access, and <a href="broken-object-property-level-authorization.html">broken-object-property-level-authorization</a> owns field visibility/mutability.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>API authorization has <strong>3 enforcement layers</strong>:</p>
+<ol>
+<li><strong>Object-level:</strong> Can this identity access this object? Example: <code>invoice_id=123</code>.</li>
+<li><strong>Function-level:</strong> Can this identity invoke this operation? Example: <code>POST /admin/users/ban</code>.</li>
+<li><strong>Property-level:</strong> Can this identity see or modify this field? Example: <code>isAdmin</code>, <code>ownerId</code>, <code>account_credit_cents</code>.</li>
+</ol>
+<p>Example unsafe handler:</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/invoices/:id&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">requireLogin</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">invoice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">invoices</span><span class="p">.</span><span class="nx">findById</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">invoice</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+
+<p>The caller is authenticated, but the object lookup is not scoped to <code>req.user</code>. The authorization decision is missing.</p>
+<p>The bug is treating identity as permission.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>Attackers and defenders test:</p>
+<ul>
+<li>object IDs in paths, queries, JSON bodies, and nested structures</li>
+<li>role-only routes such as <code>/admin</code>, <code>/support</code>, <code>/internal</code>, <code>/moderation</code></li>
+<li>hidden fields accepted by <code>POST</code>, <code>PUT</code>, and <code>PATCH</code></li>
+<li>batch, export, import, and report endpoints</li>
+<li>alternate clients and API versions</li>
+<li>workflow state transitions such as approve, refund, publish, invite, suspend</li>
+<li>read/write asymmetry where reads are checked but updates are not</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>API authorization failures fall into <strong>3 canonical families</strong>.</p>
+<h3 id="1-object-level-failures">1. Object-level failures</h3>
+<p>The API checks that the caller is logged in but not that the target object belongs to them or is otherwise authorized. This is BOLA/IDOR.</p>
+<h3 id="2-function-level-failures">2. Function-level failures</h3>
+<p>The API exposes a route or action that the caller's role should not invoke. This includes admin, support, export, destructive, and workflow endpoints.</p>
+<h3 id="3-property-level-failures">3. Property-level failures</h3>
+<p>The API returns or accepts fields the caller should not see or control. This includes excessive data exposure and mass assignment.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Tenant boundary break.</strong> One tenant reads or changes another tenant's data.</li>
+<li><strong>Privilege escalation.</strong> Normal users invoke admin/support actions or mutate privileged fields.</li>
+<li><strong>Data disclosure.</strong> Sensitive properties or entire objects leak through API responses.</li>
+<li><strong>State corruption.</strong> Unauthorized fields or workflow states are changed.</li>
+<li><strong>Business abuse.</strong> Refunds, approvals, exports, invites, credits, quotas, or ownership are manipulated.</li>
+<li><strong>Audit failure.</strong> Logs show authenticated users but not missing authorization decisions.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Deny by default at object, function, and property layers.</strong>
+   Every route should require an explicit policy decision. Missing policy should fail closed, not inherit "authenticated is enough."</p>
+</li>
+<li>
+<p><strong>Scope data access in the query.</strong>
+   Fetch objects through the caller's allowed dataset: <code>WHERE id = ? AND account_id = ?</code>. Post-fetch checks are better than none, but scoped queries prevent accidental exposure and reduce race mistakes.</p>
+</li>
+<li>
+<p><strong>Centralize policy but keep decisions specific.</strong>
+   Use shared authorization helpers/policy objects, but pass resource, action, actor, tenant, and field context. Generic role checks alone are too blunt for APIs.</p>
+</li>
+<li>
+<p><strong>Separate request DTOs from internal models.</strong>
+   Public request/response shapes should define what fields are accepted and returned. Internal entities should not be serialized or bound directly.</p>
+</li>
+<li>
+<p><strong>Test authorization as a matrix.</strong>
+   Use at least two users, two roles, and two tenants. Test read, write, delete, export, batch, and workflow routes separately.</p>
+</li>
+<li>
+<p><strong>Log denials and suspicious cross-boundary attempts.</strong>
+   Repeated object ID changes, admin route attempts, and protected-field submissions are useful abuse signals.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Hiding UI controls.</strong> API callers can send HTTP directly.</li>
+<li><strong>Using UUIDs as authorization.</strong> Unpredictability helps enumeration resistance but does not prove access.</li>
+<li><strong>Trusting client-supplied roles or tenant IDs.</strong> The server must derive authority from trusted session/token context and policy.</li>
+<li><strong>CORS.</strong> CORS controls browser read access; it does not authorize API actions.</li>
+<li><strong>Indirect references alone.</strong> Mapping <code>abc123</code> to an object is not authorization unless the mapping is scoped to the caller.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use an owned API or lab app with at least two users and two roles.</p>
+<h3 id="build-an-authorization-matrix">Build an authorization matrix</h3>
+<div class="codehilite"><pre><span></span><code>Rows: users/roles/tenants
+Columns: endpoints/actions/fields
+Cells: allowed, denied, not applicable
+</code></pre></div>
+
+<p>Keep this as the source of truth for tests.</p>
+<h3 id="test-object-access-with-two-users">Test object access with two users</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$USER_A</span><span class="s2">&quot;</span><span class="w"> </span>https://api.example.test/invoices/100
+curl<span class="w"> </span>-s<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$USER_B</span><span class="s2">&quot;</span><span class="w"> </span>https://api.example.test/invoices/100
+</code></pre></div>
+
+<p>The second request should fail if invoice <code>100</code> belongs only to user A.</p>
+<h3 id="test-function-access">Test function access</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$USER</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://api.example.test/admin/users/123/disable
+</code></pre></div>
+
+<p>Normal users should receive <code>403</code>, not <code>200</code>, <code>404</code> by obscurity, or a partial action.</p>
+<h3 id="test-property-write-control">Test property write control</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-X<span class="w"> </span>PATCH<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$USER</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;displayName&quot;:&quot;A&quot;,&quot;isAdmin&quot;:true,&quot;account_credit_cents&quot;:999999}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://api.example.test/profile
+</code></pre></div>
+
+<p>Protected fields should be rejected or ignored predictably and never persisted.</p>
+<h3 id="test-response-field-exposure">Test response field exposure</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$USER</span><span class="s2">&quot;</span><span class="w"> </span>https://api.example.test/users/me<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
+</code></pre></div>
+
+<p>Look for internal fields, role flags, secrets, ownership IDs, or other users' data.</p>
 <h2 id="practical-examples">Practical examples</h2>
 <ul>
-<li>A user is authenticated but can read another user's invoice.</li>
-<li>A normal client can call an admin-only function directly.</li>
-<li>An API accepts a restricted field in JSON and updates it.</li>
+<li>A user can read another user's invoice by changing <code>/api/invoices/{id}</code>.</li>
+<li>A non-admin can call <code>POST /api/admin/export</code>.</li>
+<li>A profile update accepts <code>isAdmin</code> or <code>support_priority</code>.</li>
+<li>A list endpoint hides sensitive fields, but detail and export endpoints return them.</li>
+<li>A mobile API route skips the policy applied in the web route.</li>
 </ul>
 <h2 id="related-notes">Related notes</h2>
 <ul>
 <li><a href="broken-object-level-authorization.html">broken-object-level-authorization</a></li>
 <li><a href="broken-function-level-authorization.html">broken-function-level-authorization</a></li>
 <li><a href="broken-object-property-level-authorization.html">broken-object-property-level-authorization</a></li>
+<li><a href="mass-assignment.html">mass-assignment</a></li>
+<li><a href="excessive-data-exposure.html">excessive-data-exposure</a></li>
 <li><a href="../web-security/broken-access-control.html">Broken Access Control</a></li>
-<li><a href="../networking/http-messages.html">HTTP Messages</a></li>
+<li><a href="../security-playbooks/exploit-idor.html">Exploit IDOR</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="broken-link" title="Unresolved: policy-based-authorization">policy-based-authorization</span></li>
+<li><span class="broken-link" title="Unresolved: tenant-scoped-queries">tenant-scoped-queries</span></li>
+<li><span class="broken-link" title="Unresolved: authorization-test-matrix">authorization-test-matrix</span></li>
+<li><span class="broken-link" title="Unresolved: field-level-permissions">field-level-permissions</span></li>
+<li><span class="broken-link" title="Unresolved: workflow-state-authorization">workflow-state-authorization</span></li>
 </ul>
 <h2 id="references">References</h2>
 <ul>
