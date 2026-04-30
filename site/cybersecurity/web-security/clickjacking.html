@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Open Redirect</title>
+<title>Clickjacking</title>
 <link rel="stylesheet" href="../../assets/style.css">
 <link rel="stylesheet" href="../../assets/pygments.css">
 </head>
@@ -69,7 +69,7 @@
 <a class="sidebar-link kind-concept" href="auth-flaws.html">Authentication Flaws</a>
 <a class="sidebar-link kind-concept" href="broken-access-control.html">Broken Access Control</a>
 <a class="sidebar-link kind-concept" href="business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
-<a class="sidebar-link kind-concept" href="clickjacking.html">Clickjacking</a>
+<a class="sidebar-link kind-concept active" href="clickjacking.html">Clickjacking</a>
 <a class="sidebar-link kind-concept" href="command-injection.html">Command Injection</a>
 <a class="sidebar-link kind-concept" href="content-security-policy.html">Content Security Policy</a>
 <a class="sidebar-link kind-concept" href="cors-misconfiguration.html">CORS Misconfiguration</a>
@@ -80,7 +80,7 @@
 <a class="sidebar-link kind-concept" href="deserialization.html">Insecure Deserialization</a>
 <a class="sidebar-link kind-concept" href="idor.html">Insecure Direct Object Reference (IDOR)</a>
 <a class="sidebar-link kind-concept" href="oauth-security.html">OAuth Security</a>
-<a class="sidebar-link kind-concept active" href="open-redirect.html">Open Redirect</a>
+<a class="sidebar-link kind-concept" href="open-redirect.html">Open Redirect</a>
 <a class="sidebar-link kind-concept" href="owasp-top-10.html">OWASP Top 10</a>
 <a class="sidebar-link kind-concept" href="path-traversal.html">Path Traversal</a>
 <a class="sidebar-link kind-concept" href="phar-deserialization.html">PHAR Deserialization</a>
@@ -230,138 +230,210 @@
 </div>
 </nav>
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Web Security</a><span>/</span><span>Open Redirect</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Web Security</a><span>/</span><span>Clickjacking</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-blue">Web Security</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#web-security</span><span class="meta-chip tag">#open-redirect</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-blue">Web Security</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#web-security</span><span class="meta-chip tag">#browser-security</span><span class="meta-chip tag">#clickjacking</span></div>
 </header>
 <article class="article-note">
-<h1 id="open-redirect">Open Redirect</h1>
+<h1 id="clickjacking">Clickjacking</h1>
 <h2 id="definition">Definition</h2>
-<p>Open redirect occurs when an application redirects users to attacker-controlled destinations based on untrusted input without strict destination validation.</p>
+<p>Clickjacking is a UI redress attack where an attacker embeds a target page in a frame and tricks the user into clicking or typing into the real target UI while they believe they are interacting with another page.</p>
+<p>The vulnerability is not "a page has buttons." The vulnerability is that a sensitive page can be embedded by an untrusted origin and visually manipulated around a user's trusted session.</p>
 <h2 id="why-it-matters">Why it matters</h2>
-<p>Open redirects often look low impact alone, but they become powerful when chained with phishing, OAuth flows, login redirects, token leakage, CSP bypasses, or trusted-domain allowlists. The trusted domain performs the redirect, so users and systems may treat the destination as legitimate.</p>
+<p>Clickjacking turns the browser's normal framing behavior into a confused-user action channel. If a logged-in user can be lured to an attacker page, the attacker may cause account changes, consent grants, payment actions, destructive admin clicks, or privacy-impacting UI actions.</p>
+<p>It is tightly connected to <a href="content-security-policy.html">content-security-policy</a> because modern protection is usually <code>Content-Security-Policy: frame-ancestors ...</code>. It also touches <a href="csrf.html">csrf</a> because both classes abuse an authenticated user's browser, but they are not the same bug: CSRF sends a request; clickjacking manipulates visible interaction.</p>
 <h2 id="how-it-works">How it works</h2>
-<p>Open redirect has <strong>3 parts</strong>:</p>
+<p>Clickjacking has <strong>5 moving parts</strong>:</p>
 <ol>
-<li><strong>Redirect parameter.</strong> <code>next</code>, <code>url</code>, <code>redirect</code>, <code>returnTo</code>, <code>continue</code>, or similar.</li>
-<li><strong>Server/client redirect behavior.</strong> HTTP <code>Location</code>, JavaScript assignment, meta refresh, or framework routing.</li>
-<li><strong>Weak validation.</strong> The application accepts arbitrary or bypassable destinations.</li>
+<li><strong>Sensitive target page.</strong> The victim is authenticated to a page with meaningful UI actions.</li>
+<li><strong>Attacker-controlled wrapper.</strong> The attacker hosts a page that embeds the target in an <code>&lt;iframe&gt;</code>.</li>
+<li><strong>Visual deception.</strong> CSS opacity, positioning, overlays, or misleading text hide what the user is really clicking.</li>
+<li><strong>User action.</strong> The victim clicks, drags, types, or taps where the attacker wants.</li>
+<li><strong>Browser sends trusted interaction.</strong> The action lands on the framed target page under the victim's session.</li>
 </ol>
-<p>Payload-shaped example:</p>
-<div class="codehilite"><pre><span></span><code><span class="nf">GET</span> <span class="nn">/login?next=https://evil.example</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="o">:</span> <span class="l">app.example.test</span>
+<p>Minimal wrapper shape:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="nt">iframe</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span>
+<span class="w">  </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">opacity</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">;</span>
+<span class="w">  </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">bait</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span>
+<span class="w">  </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">140</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">220</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bait&quot;</span><span class="p">&gt;</span>Claim reward<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://target.example/account/delete&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div>
 
-<p>The bug is not redirecting after login. The bug is letting untrusted input choose a destination outside the allowed trust boundary.</p>
+<p>The bug is not the iframe tag. The bug is missing or too-broad embed control on a page whose UI can cause sensitive state changes.</p>
 <h2 id="techniques-patterns">Techniques / patterns</h2>
-<p>Attackers test:</p>
+<p>Attackers and testers look at:</p>
 <ul>
-<li>redirect parameters in login, logout, SSO, password reset, and invite flows</li>
-<li>absolute URLs, protocol-relative URLs, and encoded URLs</li>
-<li>path confusion: <code>//evil.example</code>, <code>/\evil.example</code>, <code>%2f%2fevil.example</code></li>
-<li>userinfo tricks: <code>https://app.example.test@evil.example</code></li>
-<li>subdomain and suffix confusion</li>
-<li>OAuth redirect and callback chains</li>
+<li>account settings, password reset, email change, MFA, OAuth consent, billing, admin, and destructive-action pages</li>
+<li>pages that render while authenticated and have no anti-framing header</li>
+<li>state-changing actions that rely only on a click or simple form interaction</li>
+<li>single-click confirmations and weak confirmation dialogs</li>
+<li>mixed protection where some pages set <code>frame-ancestors</code> and others do not</li>
+<li>partner or portal flows where legitimate embedding is needed but too broadly allowed</li>
 </ul>
+<h3 id="worked-example-sensitive-page-frameability">Worked example: sensitive page frameability</h3>
+<div class="codehilite"><pre><span></span><code>Target:
+  /account/email
+
+Action:
+  change recovery email
+
+Headers:
+  no Content-Security-Policy frame-ancestors
+  no X-Frame-Options
+
+Test:
+  owned wrapper page embeds /account/email while logged in
+
+Decision:
+  clickjacking risk is real if the framed UI can complete the change or start a sensitive workflow
+</code></pre></div>
+
+<p>A good finding states both frameability and the user action that becomes dangerous.</p>
 <h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>Open redirects appear in <strong>5 contexts</strong>.</p>
-<h3 id="1-login-return-redirect">1. Login return redirect</h3>
-<p>The app redirects after authentication to an arbitrary destination.</p>
-<h3 id="2-oauth-redirect-chain">2. OAuth redirect chain</h3>
-<p>A trusted redirect endpoint is used to bypass OAuth redirect URI restrictions.</p>
-<h3 id="3-client-side-redirect">3. Client-side redirect</h3>
-<p>JavaScript reads a URL parameter and navigates the browser.</p>
-<h3 id="4-domain-validation-bypass">4. Domain validation bypass</h3>
-<p>Suffix, substring, userinfo, encoding, or scheme tricks bypass allowlists.</p>
-<h3 id="5-token-leakage-redirect">5. Token leakage redirect</h3>
-<p>Tokens or codes in URLs are forwarded to attacker-controlled destinations.</p>
+<p>Clickjacking has <strong>5 practical variants</strong>.</p>
+<h3 id="1-classic-transparent-iframe">1. Classic transparent iframe</h3>
+<p>The target page is placed over attacker-controlled bait with low opacity or careful positioning. The victim clicks the real target UI.</p>
+<h3 id="2-cursor-or-pointer-deception">2. Cursor or pointer deception</h3>
+<p>The attacker uses styling and layout to make the pointer appear aligned with a fake action while the real click lands elsewhere.</p>
+<h3 id="3-multi-step-ui-redress">3. Multi-step UI redress</h3>
+<p>The attacker guides the user through several harmless-looking clicks that line up with a sensitive multi-step flow inside the frame.</p>
+<h3 id="4-drag-and-drop-or-typing-abuse">4. Drag-and-drop or typing abuse</h3>
+<p>Some UI actions are not simple clicks. The attack may trick users into dragging data, selecting options, or typing into a framed target.</p>
+<h3 id="5-overbroad-trusted-framing">5. Overbroad trusted framing</h3>
+<p>The site uses <code>frame-ancestors</code> but allows broad partner, wildcard, or legacy origins that can host attacker-controlled pages.</p>
 <h2 id="impact">Impact</h2>
 <p>Ordered roughly by severity:</p>
 <ul>
-<li><strong>OAuth or SSO compromise chain.</strong> Redirects bypass strict callback rules.</li>
-<li><strong>Credential phishing.</strong> Trusted domains lend credibility to phishing links.</li>
-<li><strong>Token or code leakage.</strong> Sensitive URL fragments or query parameters leak.</li>
-<li><strong>Access-control bypass chains.</strong> Redirect behavior interacts with allowlists or SSRF filters.</li>
-<li><strong>Brand abuse.</strong> Trusted links send users to malicious content.</li>
+<li><strong>Account or security setting changes.</strong> Email, MFA, password, session, or recovery settings can be altered.</li>
+<li><strong>Authorization or consent abuse.</strong> OAuth, SSO, app-authorization, or admin-consent pages can be manipulated.</li>
+<li><strong>Financial or destructive actions.</strong> Payments, purchases, deletions, and administrative changes can be triggered.</li>
+<li><strong>Privacy exposure.</strong> Framed UI may reveal state or trick users into sharing information.</li>
+<li><strong>Trust erosion.</strong> Even failed attempts undermine confidence in sensitive workflows.</li>
 </ul>
+<p>Impact depends on the framed page, the user's role, whether the action requires fresh authentication, and whether the target UI has independent confirmation.</p>
 <h2 id="detection-and-defense">Detection and defense</h2>
 <p>Ordered by effectiveness:</p>
 <ol>
 <li>
-<p><strong>Use server-side destination IDs instead of raw URLs.</strong>
-   Map <code>next=dashboard</code> to a known internal route rather than accepting arbitrary URLs.</p>
+<p><strong>Set <code>Content-Security-Policy: frame-ancestors</code> on sensitive pages.</strong>
+   <code>frame-ancestors 'none'</code> blocks all framing; <code>frame-ancestors 'self'</code> limits framing to same-origin pages. This is the modern, expressive browser control and should be deployed on the responses that need protection.</p>
 </li>
 <li>
-<p><strong>Allow only relative paths when possible.</strong>
-   Most post-login redirects do not need external destinations.</p>
+<p><strong>Use <code>X-Frame-Options</code> for legacy browser coverage where appropriate.</strong>
+   <code>DENY</code> and <code>SAMEORIGIN</code> are simpler than CSP and less flexible, but still useful for older clients. Do not rely on <code>ALLOW-FROM</code>; support is inconsistent and obsolete.</p>
 </li>
 <li>
-<p><strong>Validate destinations with URL parsers and exact allowlists.</strong>
-   Compare canonical scheme, host, and path; avoid substring checks.</p>
+<p><strong>Require strong confirmation for high-risk actions.</strong>
+   Re-authentication, typed confirmation, step-up MFA, and transaction signing reduce damage when a UI is exposed. These controls should complement frame blocking, not replace it.</p>
 </li>
 <li>
-<p><strong>Keep OAuth redirect URIs exact and avoid redirect-chain endpoints.</strong>
-   OAuth clients should not allow trusted open redirectors as callback paths.</p>
+<p><strong>Keep legitimate embedding narrow and explicit.</strong>
+   If partners or internal portals must frame a page, allow only exact trusted origins and review whether those origins can host attacker-controlled content.</p>
 </li>
 <li>
-<p><strong>Do not place secrets in URLs.</strong>
-   This reduces damage if redirects or referrers misbehave.</p>
+<p><strong>Test every sensitive route, not just the homepage.</strong>
+   Header middleware, proxy routes, static error pages, and legacy flows often drift. Clickjacking protection is per response.</p>
 </li>
 </ol>
 <h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
 <ul>
-<li><strong>Substring allowlists.</strong> <code>trusted.com.evil.example</code> is not trusted.</li>
-<li><strong>Checking only URL starts-with.</strong> Encoding and userinfo can bypass naive checks.</li>
-<li><strong>User confirmation pages alone.</strong> They reduce phishing but do not fix unsafe redirect logic.</li>
-<li><strong>Assuming same-domain redirectors are harmless.</strong> Chains matter.</li>
+<li><strong>CSRF tokens alone.</strong> Clickjacking uses the user's real browser and real UI, so valid CSRF tokens may be present.</li>
+<li><strong>Frame-busting JavaScript.</strong> Scripts can fail, be blocked, race, or be sandboxed; headers are the primary control.</li>
+<li><strong>Hiding buttons with CSS.</strong> The attacker controls the wrapper page, not the target's secure presentation.</li>
+<li><strong>Only protecting the login page.</strong> The risk is usually authenticated settings, consent, billing, and admin pages.</li>
 </ul>
 <h2 id="practical-labs">Practical labs</h2>
-<p>Use owned apps or labs.</p>
-<h3 id="find-redirect-parameters">Find redirect parameters</h3>
-<div class="codehilite"><pre><span></span><code>rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;redirect|returnTo|next|continue|callback|url&quot;</span><span class="w"> </span>src<span class="w"> </span>routes<span class="w"> </span>public
+<p>Use owned apps or intentionally vulnerable labs.</p>
+<h3 id="inspect-frame-protections">Inspect frame protections</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-I<span class="w"> </span>https://app.example.test/account/settings<span class="w"> </span><span class="p">|</span><span class="w"> </span>rg<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;content-security-policy|x-frame-options&quot;</span>
 </code></pre></div>
 
-<p>Review where user-controlled destinations are accepted.</p>
-<h3 id="test-absolute-destination">Test absolute destination</h3>
-<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;https://app.example.test/login?next=https://example.org&#39;</span>
+<p>Look specifically for <code>frame-ancestors</code> in CSP or <code>DENY</code> / <code>SAMEORIGIN</code> in <code>X-Frame-Options</code>.</p>
+<h3 id="build-a-local-frame-test">Build a local frame test</h3>
+<div class="codehilite"><pre><span></span><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Frame test<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://app.example.test/account/settings&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;900&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;700&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
 
-<p>Check whether <code>Location</code> points outside the intended domain.</p>
-<h3 id="test-parser-confusion">Test parser confusion</h3>
-<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;https://app.example.test/login?next=//example.org&#39;</span>
-curl<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;https://app.example.test/login?next=https://app.example.test@example.org&#39;</span>
+<p>Open this file locally while authenticated to the target app and confirm whether the browser blocks framing.</p>
+<h3 id="compare-sensitive-and-nonsensitive-routes">Compare sensitive and nonsensitive routes</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span><span class="w"> </span>path<span class="w"> </span><span class="k">in</span><span class="w"> </span>/<span class="w"> </span>/account<span class="w"> </span>/account/settings<span class="w"> </span>/admin<span class="w"> </span>/oauth/authorize<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;\n== %s ==\n&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$path</span><span class="s2">&quot;</span>
+<span class="w">  </span>curl<span class="w"> </span>-skI<span class="w"> </span><span class="s2">&quot;https://app.example.test</span><span class="nv">$path</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>rg<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;content-security-policy|x-frame-options&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+<span class="k">done</span>
 </code></pre></div>
 
-<p>Use a controlled destination in labs.</p>
+<p>Protection should be consistent on sensitive routes, not only on the root page.</p>
+<h3 id="check-allowed-ancestors">Check allowed ancestors</h3>
+<div class="codehilite"><pre><span></span><code>Route:
+frame-ancestors value:
+Allowed origins:
+Do allowed origins host user content:
+Sensitive action available:
+Decision:
+</code></pre></div>
+
+<p>An allowlist is only as strong as the least trustworthy allowed origin.</p>
+<h3 id="record-a-clickjacking-finding">Record a clickjacking finding</h3>
+<div class="codehilite"><pre><span></span><code>Page:
+User role:
+Sensitive action:
+Frame protection observed:
+Proof wrapper:
+Action completed or partially completed:
+Recommended header:
+Retest result:
+</code></pre></div>
+
+<p>Avoid destructive proof. Demonstrate frameability and choose a harmless or reversible action.</p>
 <h2 id="practical-examples">Practical examples</h2>
 <ul>
-<li>Login accepts <code>next=https://evil.example</code>.</li>
-<li>Password reset redirects to a user-controlled URL after completion.</li>
-<li>OAuth callback allowlists a path that is itself an open redirect.</li>
-<li>JavaScript redirects based on <code>location.hash</code>.</li>
-<li>A support link uses a redirector that can target arbitrary domains.</li>
+<li>Account settings can be framed and a logged-in user can be tricked into starting an email-change flow.</li>
+<li>An OAuth consent page is frameable and can be aligned under misleading "continue" UI.</li>
+<li>An admin dashboard blocks framing, but a legacy admin action endpoint does not.</li>
+<li>A payment confirmation page uses CSRF tokens but lacks <code>frame-ancestors</code>, allowing UI redress.</li>
+<li>A partner portal requires framing, but <code>frame-ancestors *</code> allows any site to embed the page.</li>
 </ul>
 <h2 id="related-notes">Related notes</h2>
 <ul>
-<li><a href="oauth-security.html">oauth-security</a></li>
+<li><a href="content-security-policy.html">content-security-policy</a></li>
+<li><a href="csrf.html">csrf</a></li>
+<li><a href="../networking/http-headers.html">http-headers</a></li>
+<li><a href="xss.html">xss</a></li>
+<li><a href="open-redirect.html">open-redirect</a></li>
 <li><a href="auth-flaws.html">auth-flaws</a></li>
-<li><a href="session-management.html">session-management</a></li>
-<li><a href="ssrf.html">ssrf</a></li>
-<li><a href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a></li>
 </ul>
 <h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: oauth-redirect-uri-bypass">oauth-redirect-uri-bypass</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: client-side-open-redirect">client-side-open-redirect</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: url-parser-confusion">url-parser-confusion</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: phishing-link-hardening">phishing-link-hardening</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: safe-return-url-design">safe-return-url-design</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: frame-ancestors">frame-ancestors</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: x-frame-options">x-frame-options</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: ui-redress-attacks">ui-redress-attacks</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: oauth-consent-clickjacking">oauth-consent-clickjacking</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: browser-security-headers">browser-security-headers</span></li>
 </ul>
 <h2 id="references">References</h2>
 <ul>
-<li><strong>Foundational:</strong> OWASP Unvalidated Redirects and Forwards Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html</li>
-<li><strong>Testing / Lab:</strong> PortSwigger OAuth authentication — https://portswigger.net/web-security/oauth</li>
-<li><strong>Foundational:</strong> OWASP WSTG latest — https://owasp.org/www-project-web-security-testing-guide/latest/</li>
+<li><strong>Foundational:</strong> MDN CSP <code>frame-ancestors</code> — https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors</li>
+<li><strong>Foundational:</strong> OWASP Clickjacking Defense Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html</li>
+<li><strong>Testing / Lab:</strong> PortSwigger Clickjacking — https://portswigger.net/web-security/clickjacking</li>
 </ul>
 </article>
 </main>
@@ -370,20 +442,20 @@ curl<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;http
 <a class="toc-level-2" href="#why-it-matters">Why it matters</a>
 <a class="toc-level-2" href="#how-it-works">How it works</a>
 <a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
+<a class="toc-level-3" href="#worked-example-sensitive-page-frameability">Worked example: sensitive page frameability</a>
 <a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-login-return-redirect">1. Login return redirect</a>
-<a class="toc-level-3" href="#2-oauth-redirect-chain">2. OAuth redirect chain</a>
-<a class="toc-level-3" href="#3-client-side-redirect">3. Client-side redirect</a>
-<a class="toc-level-3" href="#4-domain-validation-bypass">4. Domain validation bypass</a>
-<a class="toc-level-3" href="#5-token-leakage-redirect">5. Token leakage redirect</a>
+<a class="toc-level-3" href="#1-classic-transparent-iframe">1. Classic transparent iframe</a>
+<a class="toc-level-3" href="#2-cursor-or-pointer-deception">2. Cursor or pointer deception</a>
+<a class="toc-level-3" href="#3-multi-step-ui-redress">3. Multi-step UI redress</a>
+<a class="toc-level-3" href="#4-drag-and-drop-or-typing-abuse">4. Drag-and-drop or typing abuse</a>
+<a class="toc-level-3" href="#5-overbroad-trusted-framing">5. Overbroad trusted framing</a>
 <a class="toc-level-2" href="#impact">Impact</a>
 <a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
 <a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
 <a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-3" href="#find-redirect-parameters">Find redirect parameters</a>
-<a class="toc-level-3" href="#test-absolute-destination">Test absolute destination</a>
-<a class="toc-level-3" href="#test-parser-confusion">Test parser confusion</a>
-<a class="toc-level-2" href="#practical-examples">Practical examples</a>
+<a class="toc-level-3" href="#inspect-frame-protections">Inspect frame protections</a>
+<a class="toc-level-3" href="#build-a-local-frame-test">Build a local frame test</a>
+<a class="toc-level-3" href="#compare-sensitive-and-nonsensitive-routes">Compare sensitive and nonsensitive routes</a>
 <a class="back-to-top" href="#top">Back to top</a></div></aside>
 </div>
 <script src="../../assets/search.js"></script>

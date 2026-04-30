@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Inspect File Upload Surface</title>
+<title>Trace Metadata Endpoint Reachability</title>
 <link rel="stylesheet" href="../../assets/style.css">
 <link rel="stylesheet" href="../../assets/pygments.css">
 </head>
@@ -204,14 +204,14 @@
 <a class="sidebar-link kind-playbook" href="break-jwt-validation.html">Break JWT Validation</a>
 <a class="sidebar-link kind-playbook" href="exploit-idor.html">Exploit IDOR</a>
 <a class="sidebar-link kind-playbook" href="exploit-sqli.html">Exploit SQL Injection</a>
-<a class="sidebar-link kind-playbook active" href="inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="sidebar-link kind-playbook" href="inspect-file-upload-surface.html">Inspect File Upload Surface</a>
 <a class="sidebar-link kind-playbook" href="inspect-session-handling.html">Inspect Session Handling</a>
 <a class="sidebar-link kind-playbook" href="investigate-ssrf.html">Investigate SSRF</a>
 <a class="sidebar-link kind-playbook" href="reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
 <a class="sidebar-link kind-playbook" href="test-client-ip-spoofing.html">Test Client IP Spoofing</a>
 <a class="sidebar-link kind-playbook" href="test-cors-behavior.html">Test CORS Behavior</a>
 <a class="sidebar-link kind-playbook" href="test-path-traversal.html">Test Path Traversal</a>
-<a class="sidebar-link kind-playbook" href="trace-metadata-endpoint-reachability.html">Trace Metadata Endpoint Reachability</a>
+<a class="sidebar-link kind-playbook active" href="trace-metadata-endpoint-reachability.html">Trace Metadata Endpoint Reachability</a>
 </details>
 <details class="registry-group"><summary>Reference System <span>12</span></summary>
 <a class="sidebar-link kind-registry" href="../reference-registry.html">Cybersecurity Reference Registry</a>
@@ -230,71 +230,218 @@
 </div>
 </nav>
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Security Playbooks</a><span>/</span><span>Inspect File Upload Surface</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Security Playbooks</a><span>/</span><span>Trace Metadata Endpoint Reachability</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">playbook</span><span class="meta-chip accent-slate">Security Playbooks</span></div>
+<div class="page-meta"><span class="meta-chip">playbook</span><span class="meta-chip accent-slate">Security Playbooks</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#security-playbook</span><span class="meta-chip tag">#ssrf</span><span class="meta-chip tag">#cloud</span><span class="meta-chip tag">#metadata</span></div>
 </header>
 <article class="article-note">
-<h1 id="inspect-file-upload-surface">Inspect File Upload Surface</h1>
+<h1 id="trace-metadata-endpoint-reachability">Trace Metadata Endpoint Reachability</h1>
 <h2 id="goal">Goal</h2>
-<p>Determine whether upload features create unsafe execution, storage, parser, or exposure paths.</p>
+<p>Determine whether an application, host, container, or SSRF-capable feature can reach cloud instance metadata endpoints, and turn that result into a safe evidence package for hardening.</p>
+<p>The playbook answers one question: <strong>can this workload reach identity-bearing metadata from the place an attacker-controlled request or compromised process would run?</strong></p>
 <h2 id="assumptions">Assumptions</h2>
 <ul>
-<li>uploads may be validated weakly</li>
-<li>post-processing is often riskier than the upload itself</li>
-<li>storage and serving paths may cross trust boundaries</li>
+<li>The target is an owned lab, an explicitly authorized environment, or a defensive audit.</li>
+<li>The workload runs in cloud, container, VM, CI runner, or Kubernetes infrastructure where metadata or metadata-adjacent identity may exist.</li>
+<li>Metadata reachability is a blast-radius question, not automatically a credential-theft exercise.</li>
+<li>SSRF primitives may reveal reachability through status, timing, redirect behavior, DNS callbacks, or partial response differences.</li>
 </ul>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li>one or more upload or import features</li>
-<li>ability to inspect storage, response behavior, or processing side effects where authorized</li>
+<li>Written scope for the host, app, account, cluster, or lab.</li>
+<li>A way to run commands from the relevant vantage point: host shell, container shell, pod shell, CI job, or an owned SSRF test harness.</li>
+<li>Permission to test link-local addresses and cloud metadata service behavior.</li>
+<li>A safe evidence plan that avoids printing, storing, or exfiltrating real cloud credentials unless the engagement explicitly allows it.</li>
+<li>Known cloud/provider context when possible: AWS, GCP, Azure, DigitalOcean, Oracle, Alibaba, Kubernetes, or local lab.</li>
 </ul>
 <h2 id="recon-steps">Recon steps</h2>
 <ol>
-<li>Map all upload and import entry points.</li>
-<li>Identify where files are stored, transformed, previewed, or served.</li>
-<li>Note allowed extensions, MIME handling, naming, and public exposure.</li>
+<li>Identify the execution vantage point: app server, container, pod, CI runner, serverless function, webhook worker, image fetcher, PDF renderer, or URL previewer.</li>
+<li>Identify whether the workload is cloud-hosted and which provider controls metadata behavior.</li>
+<li>Record network context: private IPs, routes, container namespace, egress policy, service mesh, and security group or NetworkPolicy expectations.</li>
+<li>Identify user-controlled server-side request paths, including URL fetchers, redirects, XML/SVG parsing, OAuth/OIDC discovery, webhook delivery, and file preview systems.</li>
+<li>Decide proof level before testing: reachability only, metadata version check, identity path existence, or controlled read-only cloud API call.</li>
 </ol>
-<h2 id="exploit-test-steps">Exploit / test steps</h2>
-<ol>
-<li>Compare extension checks vs actual parser behavior.</li>
-<li>Test whether uploaded content is served back from executable or overly trusted contexts.</li>
-<li>Probe archive and document processing paths.</li>
-<li>Inspect filename handling and path assumptions.</li>
-<li>Look for predictable public URLs or indirect exposure of stored files.</li>
-</ol>
+<h2 id="test-steps">Test steps</h2>
+<h3 id="1-test-direct-host-reachability">1. Test direct host reachability</h3>
+<p>From the host or VM itself:</p>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-sS<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s1">&#39;aws-imds-root: %{http_code}\n&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>http://169.254.169.254/
+
+curl<span class="w"> </span>-sS<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s1">&#39;aws-imds-path: %{http_code}\n&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>http://169.254.169.254/latest/meta-data/
+</code></pre></div>
+
+<p>Interpretation:
+- <code>200</code> on AWS IMDSv1-style paths means basic metadata reachability exists.
+- <code>401</code>, <code>403</code>, or <code>405</code> may mean IMDSv2 or provider header requirements are doing work.
+- timeout or connection failure may mean egress filtering, no metadata service, hop-limit behavior, or non-cloud context.</p>
+<h3 id="2-test-provider-specific-hardening">2. Test provider-specific hardening</h3>
+<p>Use safe metadata checks that do not print credentials:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># AWS IMDSv2 token availability</span>
+<span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-sS<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;X-aws-ec2-metadata-token-ttl-seconds: 60&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>http://169.254.169.254/latest/api/token<span class="k">)</span>
+
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span>curl<span class="w"> </span>-sS<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-aws-ec2-metadata-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>http://169.254.169.254/latest/meta-data/iam/info
+<span class="k">fi</span>
+
+<span class="c1"># GCP metadata root, header required</span>
+curl<span class="w"> </span>-sS<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Metadata-Flavor: Google&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>http://metadata.google.internal/computeMetadata/v1/<span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s1">&#39;gcp: %{http_code}\n&#39;</span>
+
+<span class="c1"># Azure metadata root, header and api-version required</span>
+curl<span class="w"> </span>-sS<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Metadata: true&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;http://169.254.169.254/metadata/instance?api-version=2021-02-01&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s1">&#39;azure: %{http_code}\n&#39;</span>
+</code></pre></div>
+
+<p>Do not fetch credential paths unless the scope explicitly permits it.</p>
+<h3 id="3-test-container-or-pod-reachability">3. Test container or pod reachability</h3>
+<p>Run from the same isolation layer the application uses:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Docker example</span>
+docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>curlimages/curl:latest<span class="w"> </span>-sS<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s1">&#39;container-imds: %{http_code}\n&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>http://169.254.169.254/latest/meta-data/
+
+<span class="c1"># Kubernetes example</span>
+kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-n<span class="w"> </span>&lt;namespace&gt;<span class="w"> </span>&lt;pod&gt;<span class="w"> </span>--<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;curl -sS --max-time 2 -o /dev/null -w &#39;pod-imds: %{http_code}\n&#39; http://169.254.169.254/latest/meta-data/&quot;</span>
+</code></pre></div>
+
+<p>Compare host reachability to container/pod reachability. On AWS, a host may reach IMDS while a correctly hop-limited pod cannot.</p>
+<h3 id="4-test-ssrf-mediated-reachability-safely">4. Test SSRF-mediated reachability safely</h3>
+<p>Use a harmless endpoint or owned callback target first:</p>
+<div class="codehilite"><pre><span></span><code>Feature:
+User-controlled URL:
+Outbound callback observed:
+Redirects followed:
+DNS rebinding possible:
+Direct IP allowed:
+Private/link-local blocked:
+</code></pre></div>
+
+<p>Then test link-local probes only if authorized:</p>
+<div class="codehilite"><pre><span></span><code>http://169.254.169.254/
+http://169.254.169.254/latest/meta-data/
+http://metadata.google.internal/
+http://[::ffff:169.254.169.254]/
+http://2852039166/
+</code></pre></div>
+
+<p>Record differences in status, timing, response length, redirects, and error text. A blind SSRF can still prove reachability through timeouts or out-of-band callbacks.</p>
+<h3 id="5-verify-cloud-control-posture">5. Verify cloud control posture</h3>
+<p>Use provider APIs where available:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># AWS: metadata token and hop-limit posture</span>
+aws<span class="w"> </span>ec2<span class="w"> </span>describe-instances<span class="w"> </span>--query<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;Reservations[].Instances[].{Id:InstanceId,Tokens:MetadataOptions.HttpTokens,Hop:MetadataOptions.HttpPutResponseHopLimit}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span>table
+
+<span class="c1"># Kubernetes: service-account token automount and host networking</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--all-namespaces<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.items[] | select(.spec.hostNetwork == true) | &quot;\(.metadata.namespace)/\(.metadata.name) hostNetwork=true&quot;&#39;</span>
+</code></pre></div>
+
+<p>Control-plane evidence is often cleaner than risky runtime credential proof.</p>
 <h2 id="validation-clues">Validation clues</h2>
 <ul>
-<li>unsafe file types accepted or mishandled</li>
-<li>uploaded content becomes publicly reachable unexpectedly</li>
-<li>processing path reveals parser or storage issues</li>
-<li>files can influence downstream rendering or server behavior</li>
+<li>A host, pod, container, CI runner, or app feature receives non-timeout responses from <code>169.254.169.254</code>.</li>
+<li>Basic GET to AWS metadata succeeds, suggesting IMDSv1 is allowed.</li>
+<li>IMDSv2 token flow works from host and also from container/pod when hop limit should prevent it.</li>
+<li>SSRF feature blocks normal private IPs but permits equivalent encodings, redirects, IPv6-mapped forms, or provider hostnames.</li>
+<li>GCP or Azure header-required metadata blocks naive SSRF, but a richer SSRF primitive can set arbitrary headers.</li>
+<li>Cloud API posture shows <code>HttpTokens=optional</code>, high hop limits, broad service-account scopes, missing NetworkPolicy, or default service-account automount.</li>
 </ul>
+<h2 id="evidence-to-capture">Evidence to capture</h2>
+<p>Use a small table instead of dumping secrets:</p>
+<div class="codehilite"><pre><span></span><code>Vantage point:
+Provider:
+Probe:
+Result:
+Credential path requested: no/yes
+Credentials stored: no/yes
+Control-plane setting:
+Impact if reached:
+Recommended fix:
+Retest:
+</code></pre></div>
+
+<p>If credential access is explicitly in scope, store only enough to prove identity, such as <code>aws sts get-caller-identity</code> output, and redact tokens immediately.</p>
 <h2 id="mitigation">Mitigation</h2>
 <ul>
-<li>validate more than extension alone</li>
-<li>isolate storage and serving paths</li>
-<li>avoid execution-capable contexts</li>
-<li>review previews/transforms as part of the attack surface</li>
-<li>use indirect references and safe naming</li>
+<li>Require hardened metadata mode: AWS IMDSv2 required and hop limit <code>1</code>; provider-equivalent controls for GCP/Azure.</li>
+<li>Block egress to link-local and private ranges from public-facing workloads unless there is a documented need.</li>
+<li>Implement URL allowlists that resolve hosts, deny private/link-local ranges, and re-check after redirects.</li>
+<li>Restrict service accounts and instance roles to least privilege.</li>
+<li>Disable Kubernetes service-account token automount where the pod does not need the API server.</li>
+<li>Add cloud/account policies so new workloads cannot launch with weak metadata posture.</li>
+<li>Retest from the exact workload vantage point after changes.</li>
 </ul>
 <h2 id="logging-detection">Logging / detection</h2>
 <ul>
-<li>unusual upload MIME/type combinations</li>
-<li>repeated failed processing attempts</li>
-<li>public access to files that should remain private</li>
+<li>Alert on metadata-related cloud detections such as DNS rebinding, unusual STS usage, or API calls from unexpected IPs, regions, or user agents.</li>
+<li>Log outbound requests from URL-fetching services and flag link-local/private destinations.</li>
+<li>Monitor changes to AWS metadata options, Kubernetes <code>hostNetwork</code>, service-account automount, and egress NetworkPolicy.</li>
+<li>Correlate SSRF probing against later cloud API use by the same workload role.</li>
+</ul>
+<h2 id="stop-conditions">Stop conditions</h2>
+<p>Stop testing and escalate if:</p>
+<ul>
+<li>credential material appears in a response unexpectedly</li>
+<li>a production workload allows IMDSv1 or pod metadata reachability</li>
+<li>a probe risks modifying cloud resources or generating cost</li>
+<li>a blind SSRF starts hitting sensitive internal services outside scope</li>
+<li>the only remaining proof would require destructive actions, broad credential exfiltration, or cross-account testing</li>
 </ul>
 <h2 id="related-notes">Related notes</h2>
 <ul>
-<li><a href="../web-security/file-upload-abuse.html">file-upload-abuse</a></li>
-<li><a href="../web-security/path-traversal.html">path-traversal</a></li>
-<li><a href="../web-security/xss.html">xss</a></li>
-<li><a href="../attack-surface-mapping/exposed-storage.html">exposed-storage</a></li>
+<li><a href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a></li>
+<li><a href="../networking/nat-and-private-networks.html">NAT and Private Networks</a></li>
+<li><a href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a></li>
+<li><a href="../web-security/ssrf.html">SSRF</a></li>
+<li><a href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a></li>
+<li><a href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a></li>
+<li><a href="investigate-ssrf.html">Investigate SSRF</a></li>
+</ul>
+<h2 id="commands-payloads">Commands / payloads</h2>
+<h3 id="safe-probe-set">Safe probe set</h3>
+<div class="codehilite"><pre><span></span><code>http://169.254.169.254/
+http://169.254.169.254/latest/meta-data/
+http://metadata.google.internal/
+http://[::ffff:169.254.169.254]/
+http://2852039166/
+http://0.0.0.0/
+http://127.0.0.1/
+</code></pre></div>
+
+<h3 id="minimal-aws-posture-command">Minimal AWS posture command</h3>
+<div class="codehilite"><pre><span></span><code>aws<span class="w"> </span>ec2<span class="w"> </span>describe-instances<span class="w"> </span>--query<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;Reservations[].Instances[].{Id:InstanceId,Tokens:MetadataOptions.HttpTokens,Hop:MetadataOptions.HttpPutResponseHopLimit}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span>table
+</code></pre></div>
+
+<h3 id="kubernetes-posture-checks">Kubernetes posture checks</h3>
+<div class="codehilite"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--all-namespaces<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.items[] | select(.spec.automountServiceAccountToken != false) | &quot;\(.metadata.namespace)/\(.metadata.name) token-auto-mounted&quot;&#39;</span>
+
+kubectl<span class="w"> </span>get<span class="w"> </span>networkpolicy<span class="w"> </span>--all-namespaces
+</code></pre></div>
+
+<h2 id="gotchas">Gotchas</h2>
+<ul>
+<li>A timeout is not always safe; it may indicate network filtering, DNS failure, provider mismatch, or a blind SSRF with no visible response.</li>
+<li>IMDSv2 required on the host does not automatically prove containers cannot reach metadata; hop limit and network namespace matter.</li>
+<li>Header-required metadata services reduce basic SSRF risk but do not protect against SSRF primitives that can set arbitrary headers.</li>
+<li>DNS allowlists must be checked after every redirect and should pin resolved IPs to prevent rebinding.</li>
+<li>Never paste real metadata credentials into notes, tickets, or screenshots.</li>
 </ul>
 <h2 id="references">References</h2>
 <ul>
-<li><strong>Testing / Lab:</strong> PortSwigger file upload vulnerabilities — https://portswigger.net/web-security/file-upload</li>
-<li><strong>Foundational:</strong> OWASP WSTG — https://owasp.org/www-project-web-security-testing-guide/latest/</li>
+<li><strong>Testing / Lab:</strong> PortSwigger SSRF topic — https://portswigger.net/web-security/ssrf</li>
+<li><strong>Foundational:</strong> OWASP SSRF Prevention Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html</li>
+<li><strong>Research / Deep Dive:</strong> AWS IMDS docs — https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html</li>
 </ul>
 </article>
 </main>
@@ -303,12 +450,20 @@
 <a class="toc-level-2" href="#assumptions">Assumptions</a>
 <a class="toc-level-2" href="#prerequisites">Prerequisites</a>
 <a class="toc-level-2" href="#recon-steps">Recon steps</a>
-<a class="toc-level-2" href="#exploit-test-steps">Exploit / test steps</a>
+<a class="toc-level-2" href="#test-steps">Test steps</a>
+<a class="toc-level-3" href="#1-test-direct-host-reachability">1. Test direct host reachability</a>
+<a class="toc-level-3" href="#2-test-provider-specific-hardening">2. Test provider-specific hardening</a>
+<a class="toc-level-3" href="#3-test-container-or-pod-reachability">3. Test container or pod reachability</a>
+<a class="toc-level-3" href="#4-test-ssrf-mediated-reachability-safely">4. Test SSRF-mediated reachability safely</a>
+<a class="toc-level-3" href="#5-verify-cloud-control-posture">5. Verify cloud control posture</a>
 <a class="toc-level-2" href="#validation-clues">Validation clues</a>
+<a class="toc-level-2" href="#evidence-to-capture">Evidence to capture</a>
 <a class="toc-level-2" href="#mitigation">Mitigation</a>
 <a class="toc-level-2" href="#logging-detection">Logging / detection</a>
+<a class="toc-level-2" href="#stop-conditions">Stop conditions</a>
 <a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-2" href="#references">References</a>
+<a class="toc-level-2" href="#commands-payloads">Commands / payloads</a>
+<a class="toc-level-3" href="#safe-probe-set">Safe probe set</a>
 <a class="back-to-top" href="#top">Back to top</a></div></aside>
 </div>
 <script src="../../assets/search.js"></script>

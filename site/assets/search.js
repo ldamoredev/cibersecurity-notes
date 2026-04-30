@@ -4,6 +4,7 @@
   const input = document.getElementById("search");
   const results = document.getElementById("search-results");
   const toggle = document.getElementById("theme-toggle");
+  const sidebarToggle = document.getElementById("sidebar-toggle");
 
   // Theme toggle.
   const saved = localStorage.getItem("theme");
@@ -12,6 +13,22 @@
     const cur = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", cur);
     localStorage.setItem("theme", cur);
+  });
+
+  sidebarToggle.addEventListener("click", () => {
+    document.body.classList.toggle("nav-open");
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "/" && document.activeElement !== input) {
+      e.preventDefault();
+      input.focus();
+    }
+    if (e.key === "Escape") {
+      results.hidden = true;
+      document.body.classList.remove("nav-open");
+      input.blur();
+    }
   });
 
   let index = null;
@@ -23,11 +40,13 @@
   }
 
   function score(entry, terms) {
-    const hay = (entry.title + " " + entry.tags.join(" ") + " " + entry.text).toLowerCase();
+    const hay = (entry.title + " " + entry.branch + " " + entry.group + " " + entry.kind + " " + entry.tags.join(" ") + " " + entry.text).toLowerCase();
     let s = 0;
     for (const t of terms) {
       if (!t) continue;
       if (entry.title.toLowerCase().includes(t)) s += 5;
+      if (entry.branch.toLowerCase().includes(t)) s += 3;
+      if (entry.kind.toLowerCase().includes(t)) s += 2;
       const occurrences = hay.split(t).length - 1;
       if (!occurrences) return 0;
       s += occurrences;
@@ -51,10 +70,10 @@
                     .sort((a, b) => b.s - a.s)
                     .slice(0, 20);
     if (!hits.length) {
-      results.innerHTML = '<div class="hit"><em>No matches</em></div>';
+      results.innerHTML = '<div class="empty">No matches</div>';
     } else {
       results.innerHTML = hits.map(h =>
-        `<a class="hit" href="${root}/${h.e.url}"><div>${escapeHtml(h.e.title)}</div><div class="meta">${escapeHtml(h.e.section)} · ${escapeHtml(h.e.url)}</div></a>`
+        `<a class="hit" href="${root}/${h.e.url}"><div class="hit-title">${escapeHtml(h.e.title)}</div><div class="meta">${escapeHtml(h.e.branch)} · ${escapeHtml(h.e.kind)} · ${escapeHtml(h.e.url)}</div></a>`
       ).join("");
     }
     results.hidden = false;
@@ -62,6 +81,7 @@
 
   document.addEventListener("click", (e) => {
     if (e.target === input) return;
+    if (e.target === sidebarToggle) return;
     if (!results.contains(e.target)) results.hidden = true;
   });
 

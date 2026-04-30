@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Reference Registry — API Security</title>
+<title>Reference Registry — Offensive Security</title>
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="stylesheet" href="../assets/pygments.css">
 </head>
@@ -215,13 +215,13 @@
 </details>
 <details class="registry-group" open><summary>Reference System <span>12</span></summary>
 <a class="sidebar-link kind-registry" href="reference-registry.html">Cybersecurity Reference Registry</a>
-<a class="sidebar-link kind-registry active" href="reference-registry-api-security.html">Reference Registry — API Security</a>
+<a class="sidebar-link kind-registry" href="reference-registry-api-security.html">Reference Registry — API Security</a>
 <a class="sidebar-link kind-registry" href="reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping</a>
 <a class="sidebar-link kind-registry" href="reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
 <a class="sidebar-link kind-registry" href="reference-registry-devsecops.html">Reference Registry — DevSecOps</a>
 <a class="sidebar-link kind-registry" href="reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
 <a class="sidebar-link kind-registry" href="reference-registry-networking.html">Reference Registry — Networking</a>
-<a class="sidebar-link kind-registry" href="reference-registry-offensive-security.html">Reference Registry — Offensive Security</a>
+<a class="sidebar-link kind-registry active" href="reference-registry-offensive-security.html">Reference Registry — Offensive Security</a>
 <a class="sidebar-link kind-registry" href="reference-registry-osint.html">Reference Registry — OSINT</a>
 <a class="sidebar-link kind-registry" href="reference-registry-playbooks.html">Reference Registry — Playbooks</a>
 <a class="sidebar-link kind-registry" href="reference-registry-web-security.html">Reference Registry — Web Security</a>
@@ -230,31 +230,31 @@
 </div>
 </nav>
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="index.html">Cybersecurity</a><span>/</span><span>Reference Registry — API Security</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="index.html">Cybersecurity</a><span>/</span><span>Reference Registry — Offensive Security</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">registry</span></div>
 </header>
 <article class="article-note">
-<h1 id="reference-registry-api-security">Reference Registry — API Security</h1>
+<h1 id="reference-registry-offensive-security">Reference Registry — Offensive Security</h1>
 <h2 id="purpose">Purpose</h2>
-<p>This note is the API-security-specific seed for the broader cybersecurity reference registry.</p>
+<p>This note standardizes references for the offensive-security branch.</p>
 <p>Use it to:
-- standardize references for API-security notes
-- keep source quality consistent
-- help Codex assign references without inventing weak source sets
-- make future API-security notes easier to expand</p>
+- keep recon notes tied to strong practical sources
+- help Codex choose consistent references
+- avoid generic recon content with weak sourcing
+- keep the branch centered on discovery, enumeration, validation, and operational handoff while leaving room for broader offensive-security topics</p>
 <h2 id="source-of-truth-rule">Source of truth rule</h2>
-<p>For API-security notes, this registry is the primary source of truth.</p>
+<p>For offensive-security notes, this registry is the primary source of truth.</p>
 <p>Use it together with:
-- <code>&lt;a href="api-security/index.html"&gt;API Security Index&lt;/a&gt;</code> for study order and branch structure
-- <code>&lt;a href="reference-registry.html"&gt;Cybersecurity Reference Registry&lt;/a&gt;</code> for broader fallback only when this note does not yet cover an API-security topic</p>
+- <code>&lt;a href="offensive-security/index.html"&gt;Offensive Security / Recon Index&lt;/a&gt;</code>
+- networking and attack-surface registries when notes overlap strongly</p>
 <hr />
 <h2 id="reference-selection-policy">Reference selection policy</h2>
 <h3 id="source-priority">Source priority</h3>
 <ol>
-<li>official standards and project documentation</li>
-<li>official labs and practical training</li>
-<li>testing guides and cheat sheets</li>
+<li>official or primary project documentation</li>
+<li>practical reconnaissance methodology</li>
+<li>testing guides and structured frameworks</li>
 <li>high-signal research</li>
 <li>secondary sources only when they add clear value</li>
 </ol>
@@ -262,7 +262,6 @@
 <ul>
 <li>minimum 2 references</li>
 <li>ideal 3 references</li>
-<li>avoid bloating notes with long lists</li>
 </ul>
 <h3 id="labeling">Labeling</h3>
 <p>Use:
@@ -271,87 +270,69 @@
 - <strong>Research / Deep Dive</strong>
 - <strong>Official Tool Docs</strong></p>
 <hr />
-<h1 id="api-security-topic-map">API-security topic map</h1>
-<h2 id="api-security-top-10">api-security-top-10</h2>
+<h1 id="offensive-recon-topic-map">Offensive / recon topic map</h1>
+<h2 id="recon">recon</h2>
 <p>Preferred references:
-- <strong>Foundational:</strong> OWASP API Security Top 10 2023 — https://owasp.org/API-Security/editions/2023/en/0x00-header/
-- <strong>Foundational:</strong> OWASP API Security Project — https://owasp.org/www-project-api-security/
-- <strong>Foundational:</strong> OWASP REST Security Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html
-- <strong>Testing / Lab:</strong> PortSwigger API testing — https://portswigger.net/web-security/api-testing</p>
-<h2 id="authorization">authorization</h2>
+- <strong>Foundational:</strong> OWASP WSTG latest — https://owasp.org/www-project-web-security-testing-guide/latest/
+- <strong>Research / Deep Dive:</strong> ProjectDiscovery recon 101 — https://projectdiscovery.io/blog/reconnaissance-a-deep-dive-in-active-passive-reconnaissance
+- <strong>Foundational:</strong> OSINT Framework — https://osintframework.com/</p>
+<h2 id="passive-recon">passive-recon</h2>
 <p>Preferred references:
-- <strong>Foundational:</strong> OWASP Authorization Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html
-- <strong>Foundational:</strong> OWASP API Security Project — https://owasp.org/www-project-api-security/
+- <strong>Research / Deep Dive:</strong> ProjectDiscovery recon 101 — https://projectdiscovery.io/blog/reconnaissance-a-deep-dive-in-active-passive-reconnaissance
+- <strong>Foundational:</strong> OSINT Framework — https://osintframework.com/</p>
+<h2 id="active-recon">active-recon</h2>
+<p>Preferred references:
+- <strong>Research / Deep Dive:</strong> ProjectDiscovery recon 101 — https://projectdiscovery.io/blog/reconnaissance-a-deep-dive-in-active-passive-reconnaissance
+- <strong>Research / Deep Dive:</strong> ProjectDiscovery Reconnaissance 105 — https://projectdiscovery.io/blog/reconnaissance-series-5-additional-active-reconnaissance
+- <strong>Foundational:</strong> OWASP WSTG latest — https://owasp.org/www-project-web-security-testing-guide/latest/</p>
+<h2 id="public-asset-discovery">public-asset-discovery</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> OSINT Framework — https://osintframework.com/
+- <strong>Research / Deep Dive:</strong> ProjectDiscovery Reconnaissance 104 — https://projectdiscovery.io/blog/reconnaissance-series-4
+- <strong>Foundational:</strong> OWASP WSTG latest — https://owasp.org/www-project-web-security-testing-guide/latest/</p>
+<h2 id="company-mapping">company-mapping</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> OSINT Framework — https://osintframework.com/
+- <strong>Research / Deep Dive:</strong> ProjectDiscovery recon 101 — https://projectdiscovery.io/blog/reconnaissance-a-deep-dive-in-active-passive-reconnaissance</p>
+<h2 id="tech-stack-fingerprinting">tech-stack-fingerprinting</h2>
+<p>Preferred references:
+- <strong>Research / Deep Dive:</strong> ProjectDiscovery Reconnaissance 104 — https://projectdiscovery.io/blog/reconnaissance-series-4
+- <strong>Foundational:</strong> OWASP WSTG latest — https://owasp.org/www-project-web-security-testing-guide/latest/
+- <strong>Testing / Lab:</strong> PortSwigger information disclosure — https://portswigger.net/web-security/information-disclosure</p>
+<h2 id="enumeration">enumeration</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> OWASP WSTG latest — https://owasp.org/www-project-web-security-testing-guide/latest/
+- <strong>Research / Deep Dive:</strong> ProjectDiscovery recon 101 — https://projectdiscovery.io/blog/reconnaissance-a-deep-dive-in-active-passive-reconnaissance</p>
+<h2 id="subdomain-enumeration">subdomain-enumeration</h2>
+<p>Preferred references:
+- <strong>Research / Deep Dive:</strong> ProjectDiscovery Reconnaissance 102 — https://projectdiscovery.io/blog/recon-series-2
+- <strong>Foundational:</strong> OSINT Framework — https://osintframework.com/
+- <strong>Foundational:</strong> OWASP WSTG latest — https://owasp.org/www-project-web-security-testing-guide/latest/</p>
+<h2 id="host-and-port-discovery">host-and-port-discovery</h2>
+<p>Preferred references:
+- <strong>Research / Deep Dive:</strong> ProjectDiscovery Reconnaissance 103 — https://projectdiscovery.io/blog/reconnaissance-series-3-host-and-port-discovery
+- <strong>Official Tool Docs:</strong> Nmap Network Scanning — https://nmap.org/book/toc.html
+- <strong>Foundational:</strong> OWASP WSTG latest — https://owasp.org/www-project-web-security-testing-guide/latest/</p>
+<h2 id="scope-validation">scope-validation</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> OWASP WSTG latest — https://owasp.org/www-project-web-security-testing-guide/latest/
+- <strong>Research / Deep Dive:</strong> ProjectDiscovery recon 101 — https://projectdiscovery.io/blog/reconnaissance-a-deep-dive-in-active-passive-reconnaissance
+- <strong>Foundational:</strong> HackerOne Disclosure Guidelines — https://www.hackerone.com/disclosure-guidelines</p>
+<h2 id="service-validation">service-validation</h2>
+<p>Preferred references:
+- <strong>Official Tool Docs:</strong> Nmap Network Scanning — https://nmap.org/book/toc.html
+- <strong>Research / Deep Dive:</strong> ProjectDiscovery Reconnaissance 104 — https://projectdiscovery.io/blog/reconnaissance-series-4</p>
+<h2 id="recon-to-testing-handoff">recon-to-testing-handoff</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> OWASP WSTG latest — https://owasp.org/www-project-web-security-testing-guide/latest/
+- <strong>Testing / Lab:</strong> PortSwigger API testing — https://portswigger.net/web-security/api-testing
 - <strong>Testing / Lab:</strong> PortSwigger access control — https://portswigger.net/web-security/access-control</p>
-<h2 id="broken-object-level-authorization">broken-object-level-authorization</h2>
-<p>Preferred references:
-- <strong>Foundational:</strong> OWASP API1:2023 Broken Object Level Authorization — https://owasp.org/API-Security/editions/2023/en/0xa1-bola/
-- <strong>Foundational:</strong> OWASP API Security Project — https://owasp.org/www-project-api-security/
-- <strong>Testing / Lab:</strong> PortSwigger access control / IDOR — https://portswigger.net/web-security/access-control/idor</p>
-<h2 id="broken-function-level-authorization">broken-function-level-authorization</h2>
-<p>Preferred references:
-- <strong>Foundational:</strong> OWASP API5:2023 Broken Function Level Authorization — https://owasp.org/API-Security/editions/2023/en/0xa5-bfla/
-- <strong>Foundational:</strong> OWASP Authorization Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html
-- <strong>Testing / Lab:</strong> PortSwigger access control — https://portswigger.net/web-security/access-control</p>
-<h2 id="broken-authentication">broken-authentication</h2>
-<p>Preferred references:
-- <strong>Foundational:</strong> OWASP API2:2023 Broken Authentication — https://owasp.org/API-Security/editions/2023/en/0xa2-broken-authentication/
-- <strong>Foundational:</strong> OWASP Authentication Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html
-- <strong>Testing / Lab:</strong> PortSwigger API testing — https://portswigger.net/web-security/api-testing</p>
-<h2 id="api-auth-flaws">api-auth-flaws</h2>
-<p>Preferred references:
-- <strong>Foundational:</strong> OWASP Authentication Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html
-- <strong>Foundational:</strong> OWASP API2:2023 Broken Authentication — https://owasp.org/API-Security/editions/2023/en/0xa2-broken-authentication/
-- <strong>Testing / Lab:</strong> PortSwigger authentication vulnerabilities — https://portswigger.net/web-security/authentication</p>
-<h2 id="jwt-attacks">jwt-attacks</h2>
-<p>Preferred references:
-- <strong>Foundational:</strong> OWASP Authentication Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html
-- <strong>Foundational:</strong> OWASP JSON Web Token for Java Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html
-- <strong>Testing / Lab:</strong> PortSwigger JWT attacks topic — https://portswigger.net/web-security/jwt</p>
-<h2 id="token-lifecycle">token-lifecycle</h2>
-<p>Preferred references:
-- <strong>Foundational:</strong> OWASP Authentication Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html
-- <strong>Foundational:</strong> OWASP API2:2023 Broken Authentication — https://owasp.org/API-Security/editions/2023/en/0xa2-broken-authentication/
-- <strong>Foundational:</strong> OWASP Cheat Sheet Series — https://cheatsheetseries.owasp.org/</p>
-<h2 id="broken-object-property-level-authorization">broken-object-property-level-authorization</h2>
-<p>Preferred references:
-- <strong>Foundational:</strong> OWASP API3:2023 Broken Object Property Level Authorization — https://owasp.org/API-Security/editions/2023/en/0xa3-bopla/
-- <strong>Foundational:</strong> OWASP API Security Project — https://owasp.org/www-project-api-security/
-- <strong>Testing / Lab:</strong> OWASP WSTG API testing: excessive data exposure — https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/12-API_Testing/03-Testing_for_Excessive_Data_Exposure</p>
-<h2 id="excessive-data-exposure">excessive-data-exposure</h2>
-<p>Preferred references:
-- <strong>Foundational:</strong> OWASP WSTG API testing: excessive data exposure — https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/12-API_Testing/03-Testing_for_Excessive_Data_Exposure
-- <strong>Foundational:</strong> OWASP API3:2023 Broken Object Property Level Authorization — https://owasp.org/API-Security/editions/2023/en/0xa3-bopla/
-- <strong>Testing / Lab:</strong> PortSwigger API testing — https://portswigger.net/web-security/api-testing</p>
-<h2 id="mass-assignment">mass-assignment</h2>
-<p>Preferred references:
-- <strong>Foundational:</strong> OWASP API Security Top 10 2023 — https://owasp.org/API-Security/editions/2023/en/0x11-t10/
-- <strong>Foundational:</strong> OWASP API3:2023 Broken Object Property Level Authorization — https://owasp.org/API-Security/editions/2023/en/0xa3-bopla/
-- <strong>Testing / Lab:</strong> PortSwigger API testing — https://portswigger.net/web-security/api-testing</p>
-<h2 id="api-rate-limiting">api-rate-limiting</h2>
-<p>Preferred references:
-- <strong>Foundational:</strong> OWASP API4:2023 Unrestricted Resource Consumption — https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/
-- <strong>Foundational:</strong> OWASP API Security Project — https://owasp.org/www-project-api-security/
-- <strong>Testing / Lab:</strong> PortSwigger API testing — https://portswigger.net/web-security/api-testing</p>
-<h2 id="api-inventory-management">api-inventory-management</h2>
-<p>Preferred references:
-- <strong>Foundational:</strong> OWASP API9:2023 Improper Inventory Management — https://owasp.org/API-Security/editions/2023/en/0xa9-improper-inventory-management/
-- <strong>Foundational:</strong> OWASP API Security Project — https://owasp.org/www-project-api-security/
-- <strong>Testing / Lab:</strong> PortSwigger API testing and OWASP alignment — https://portswigger.net/web-security/api-testing/top-10-api-vulnerabilities</p>
-<h2 id="polymorphic-deserialization">polymorphic-deserialization</h2>
-<p>Preferred references:
-- <strong>Foundational:</strong> OWASP Deserialization Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html
-- <strong>Foundational:</strong> OWASP API8:2023 Security Misconfiguration — https://owasp.org/API-Security/editions/2023/en/0xa8-security-misconfiguration/
-- <strong>Testing / Lab:</strong> PortSwigger Exploiting insecure deserialization — https://portswigger.net/web-security/deserialization/exploiting
-- <strong>Research / Deep Dive:</strong> Moritz Bechler, "Java Unmarshaller Security" (<code>marshalsec</code>) — https://github.com/mbechler/marshalsec/blob/master/marshalsec.pdf
-- <strong>Official Tool Docs:</strong> ysoserial.net — https://github.com/pwntester/ysoserial.net</p>
 <hr />
 <h2 id="registry-usage-rules">Registry usage rules</h2>
 <ul>
-<li>choose the smallest set of strongest references for each exact note</li>
-<li>do not assign generic links blindly</li>
-<li>prefer official documentation and strong labs</li>
-<li>if a future API-security note is missing from this registry, map it to the closest parent topic first</li>
+<li>choose the smallest set of strongest references for the exact note</li>
+<li>prefer one methodology source plus one practical source where possible</li>
+<li>keep recon notes focused on discovery, validation, and transition into testing</li>
 </ul>
 </article>
 </main>
@@ -362,18 +343,18 @@
 <a class="toc-level-3" href="#source-priority">Source priority</a>
 <a class="toc-level-3" href="#per-note-target">Per-note target</a>
 <a class="toc-level-3" href="#labeling">Labeling</a>
-<a class="toc-level-2" href="#api-security-top-10">api-security-top-10</a>
-<a class="toc-level-2" href="#authorization">authorization</a>
-<a class="toc-level-2" href="#broken-object-level-authorization">broken-object-level-authorization</a>
-<a class="toc-level-2" href="#broken-function-level-authorization">broken-function-level-authorization</a>
-<a class="toc-level-2" href="#broken-authentication">broken-authentication</a>
-<a class="toc-level-2" href="#api-auth-flaws">api-auth-flaws</a>
-<a class="toc-level-2" href="#jwt-attacks">jwt-attacks</a>
-<a class="toc-level-2" href="#token-lifecycle">token-lifecycle</a>
-<a class="toc-level-2" href="#broken-object-property-level-authorization">broken-object-property-level-authorization</a>
-<a class="toc-level-2" href="#excessive-data-exposure">excessive-data-exposure</a>
-<a class="toc-level-2" href="#mass-assignment">mass-assignment</a>
-<a class="toc-level-2" href="#api-rate-limiting">api-rate-limiting</a>
+<a class="toc-level-2" href="#recon">recon</a>
+<a class="toc-level-2" href="#passive-recon">passive-recon</a>
+<a class="toc-level-2" href="#active-recon">active-recon</a>
+<a class="toc-level-2" href="#public-asset-discovery">public-asset-discovery</a>
+<a class="toc-level-2" href="#company-mapping">company-mapping</a>
+<a class="toc-level-2" href="#tech-stack-fingerprinting">tech-stack-fingerprinting</a>
+<a class="toc-level-2" href="#enumeration">enumeration</a>
+<a class="toc-level-2" href="#subdomain-enumeration">subdomain-enumeration</a>
+<a class="toc-level-2" href="#host-and-port-discovery">host-and-port-discovery</a>
+<a class="toc-level-2" href="#scope-validation">scope-validation</a>
+<a class="toc-level-2" href="#service-validation">service-validation</a>
+<a class="toc-level-2" href="#recon-to-testing-handoff">recon-to-testing-handoff</a>
 <a class="back-to-top" href="#top">Back to top</a></div></aside>
 </div>
 <script src="../assets/search.js"></script>

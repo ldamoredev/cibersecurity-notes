@@ -27,19 +27,77 @@ SECTIONS = [
 # Only publish mature cybersecurity branches and their reference registries.
 # Keep private/project execution notes, templates, tooling experiments, and
 # future/unpromoted branches out of the public static mirror.
-MATURE_CYBERSECURITY_BRANCHES = {
-    "api-security",
-    "attack-surface-mapping",
-    "cloud-security",
-    "devsecops",
-    "linux-privilege-escalation",
-    "networking",
-    "offensive-security",
-    "osint",
-    "security-playbooks",
-    "web-security",
-    "wireless-security",
+BRANCHES = {
+    "networking": {
+        "label": "Networking",
+        "group": "Foundations",
+        "summary": "Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.",
+        "accent": "sky",
+    },
+    "wireless-security": {
+        "label": "Wireless Security",
+        "group": "Foundations",
+        "summary": "Wi-Fi frames, handshakes, rogue access points, and local-network MITM.",
+        "accent": "teal",
+    },
+    "web-security": {
+        "label": "Web Security",
+        "group": "Foundations",
+        "summary": "Browser behavior, sessions, access control, and server-side exploit patterns.",
+        "accent": "blue",
+    },
+    "api-security": {
+        "label": "API Security",
+        "group": "Foundations",
+        "summary": "Authorization, token trust, inventory drift, and machine-readable abuse.",
+        "accent": "indigo",
+    },
+    "cloud-security": {
+        "label": "Cloud Security",
+        "group": "Foundations",
+        "summary": "IAM, metadata, storage, network boundaries, secrets, and logging controls.",
+        "accent": "cyan",
+    },
+    "attack-surface-mapping": {
+        "label": "Attack Surface Mapping",
+        "group": "Exposure",
+        "summary": "What is exposed, reachable, discoverable, and drifting from intended design.",
+        "accent": "amber",
+    },
+    "osint": {
+        "label": "OSINT",
+        "group": "Exposure",
+        "summary": "Public-source collection, evidence quality, and ethical handling of clues.",
+        "accent": "violet",
+    },
+    "offensive-security": {
+        "label": "Offensive Security / Recon",
+        "group": "Exposure",
+        "summary": "Discovery, validation, and handoff from recon into concrete testing.",
+        "accent": "rose",
+    },
+    "linux-privilege-escalation": {
+        "label": "Linux Privilege Escalation",
+        "group": "Exposure",
+        "summary": "Local boundary failures, enumeration, and safe escalation hypothesis testing.",
+        "accent": "orange",
+    },
+    "devsecops": {
+        "label": "DevSecOps",
+        "group": "Engineering",
+        "summary": "Secure delivery, CI/CD hardening, supply chain, secrets, and release trust.",
+        "accent": "green",
+    },
+    "security-playbooks": {
+        "label": "Security Playbooks",
+        "group": "Execution",
+        "summary": "Repeatable procedures for turning concepts into practical tests.",
+        "accent": "slate",
+    },
 }
+
+BRANCH_GROUPS = ("Foundations", "Exposure", "Engineering", "Execution")
+MATURE_CYBERSECURITY_BRANCHES = set(BRANCHES)
 
 MATURE_CYBERSECURITY_ROOT_FILES = {
     "index.md",
@@ -50,7 +108,7 @@ MATURE_CYBERSECURITY_ROOT_FILES = {
     "reference-registry-devsecops.md",
     "reference-registry-linux-privilege-escalation.md",
     "reference-registry-networking.md",
-    "reference-registry-offensive-security-recon.md",
+    "reference-registry-offensive-security.md",
     "reference-registry-osint.md",
     "reference-registry-playbooks.md",
     "reference-registry-web-security.md",
@@ -82,6 +140,42 @@ class Note:
         return str(self.rel_path.with_suffix(".html"))
 
 
+def branch_slug(note: Note) -> str:
+    if len(note.rel_path.parts) >= 3 and note.rel_path.parts[0] == "cybersecurity":
+        return note.rel_path.parts[1]
+    return ""
+
+
+def page_kind(note: Note) -> str:
+    if note.slug.startswith("reference-registry"):
+        return "registry"
+    if note.rel_path.name == "index.md":
+        return "index"
+    if branch_slug(note) == "security-playbooks":
+        return "playbook"
+    return "concept"
+
+
+def note_label(note: Note) -> str:
+    return note.title.replace(" Seed", "")
+
+
+def branch_label(slug: str) -> str:
+    return BRANCHES.get(slug, {}).get("label", slug.replace("-", " ").title())
+
+
+def branch_group(slug: str) -> str:
+    return BRANCHES.get(slug, {}).get("group", "Other")
+
+
+def branch_summary(slug: str) -> str:
+    return BRANCHES.get(slug, {}).get("summary", "")
+
+
+def branch_accent(slug: str) -> str:
+    return BRANCHES.get(slug, {}).get("accent", "blue")
+
+
 def should_publish(section: str, path: Path) -> bool:
     """Return whether a vault markdown file should be published."""
     rel = path.relative_to(VAULT)
@@ -103,6 +197,8 @@ def load_note(section: str, path: Path) -> Note:
         except yaml.YAMLError:
             fm = {}
         raw = raw[m.end():]
+    if path.name.startswith("reference-registry"):
+        raw = re.sub(r"^# (.+?) Seed$", r"# \1", raw, count=1, flags=re.MULTILINE)
 
     # Title: first H1, else frontmatter title, else humanized filename.
     title_match = re.search(r"^#\s+(.+)$", raw, re.MULTILINE)
@@ -208,7 +304,7 @@ def rewrite_links(md_text: str, note: Note, by_slug: dict[str, list[Note]], by_p
         target_slug, _, anchor = target_raw.partition("#")
         target = resolve(target_slug)
         if not target:
-            return f'<span class="broken-link" title="Unresolved: {html.escape(target_slug)}">{html.escape(label)}</span>'
+            return f'<span class="unresolved-link" title="Unpublished or unresolved: {html.escape(target_slug)}">{html.escape(label)}</span>'
         href = rel_href(target)
         if anchor:
             href += "#" + anchor.strip().lower().replace(" ", "-")
@@ -251,7 +347,7 @@ def build_sidebar_tree(notes: list[Note]) -> dict:
 def render_sidebar(tree: dict, current: Note | None) -> str:
     """Render sidebar HTML with collapsible subfolders."""
     lines: list[str] = ['<nav class="sidebar">']
-    lines.append('<a class="sidebar-home" href="{home}">Home</a>'.format(
+    lines.append('<a class="sidebar-home" href="{home}">Atlas Home</a>'.format(
         home=relpath_from(current, OUT / "index.html")
     ))
     for section_key, section_label in SECTIONS:
@@ -260,17 +356,29 @@ def render_sidebar(tree: dict, current: Note | None) -> str:
             continue
         lines.append(f'<div class="sidebar-section"><h3>{html.escape(section_label)}</h3>')
 
-        # Root-level (no subfolder) notes first.
-        root_notes = subs.get("", [])
+        root_notes = [n for n in subs.get("", []) if not n.slug.startswith("reference-registry")]
         for n in root_notes:
-            lines.append(render_sidebar_link(n, current))
+            lines.append(render_sidebar_link(n, current, label="Cybersecurity Index"))
 
-        for sub in sorted(k for k in subs if k):
-            open_attr = ""
-            if current and current.rel_path.parts[0] == section_key and "/".join(current.rel_path.parts[1:-1]) == sub:
-                open_attr = " open"
-            lines.append(f'<details{open_attr}><summary>{html.escape(sub)}</summary>')
-            for n in subs[sub]:
+        for group in BRANCH_GROUPS:
+            group_subs = [s for s in BRANCHES if s in subs and branch_group(s) == group]
+            if not group_subs:
+                continue
+            lines.append(f'<div class="sidebar-group-label">{html.escape(group)}</div>')
+            for sub in group_subs:
+                lines.append(render_branch_details(subs, sub, current))
+
+        other_subs = sorted(k for k in subs if k and k not in BRANCHES)
+        if other_subs:
+            lines.append('<div class="sidebar-group-label">Other</div>')
+        for sub in other_subs:
+            lines.append(render_branch_details(subs, sub, current))
+
+        registry_notes = [n for n in subs.get("", []) if n.slug.startswith("reference-registry")]
+        if registry_notes:
+            open_attr = " open" if current and page_kind(current) == "registry" else ""
+            lines.append(f'<details class="registry-group"{open_attr}><summary>Reference System <span>{len(registry_notes)}</span></summary>')
+            for n in registry_notes:
                 lines.append(render_sidebar_link(n, current))
             lines.append("</details>")
         lines.append("</div>")
@@ -278,20 +386,93 @@ def render_sidebar(tree: dict, current: Note | None) -> str:
     return "\n".join(lines)
 
 
-def render_sidebar_link(n: Note, current: Note | None) -> str:
+def render_branch_details(subs: dict[str, list[Note]], sub: str, current: Note | None) -> str:
+    lines: list[str] = []
+    open_attr = ""
+    if current and current.rel_path.parts[0] == "cybersecurity" and branch_slug(current) == sub:
+        open_attr = " open"
+    notes = subs[sub]
+    index_note = next((n for n in notes if n.slug == "index"), None)
+    summary = branch_summary(sub)
+    accent = branch_accent(sub)
+    lines.append(
+        f'<details class="branch branch-{html.escape(accent)}"{open_attr}>'
+        f'<summary><span>{html.escape(branch_label(sub))}</span><small>{len(notes)}</small></summary>'
+    )
+    if summary:
+        lines.append(f'<p class="sidebar-summary">{html.escape(summary)}</p>')
+    if index_note:
+        lines.append(render_sidebar_link(index_note, current, label="Overview"))
+    for n in notes:
+        if n.slug == "index":
+            continue
+        lines.append(render_sidebar_link(n, current))
+    lines.append("</details>")
+    return "\n".join(lines)
+
+
+def render_sidebar_link(n: Note, current: Note | None, label: str | None = None) -> str:
     target_html = OUT / n.rel_path.with_suffix(".html")
     here = (OUT / current.rel_path).parent if current else OUT
     import os
     href = os.path.relpath(target_html, here)
-    cls = "active" if current and current.rel_path == n.rel_path else ""
-    label = n.title if len(n.title) < 60 else n.title[:57] + "…"
-    return f'<a class="{cls}" href="{html.escape(href)}">{html.escape(label)}</a>'
+    classes = ["sidebar-link", f"kind-{page_kind(n)}"]
+    if current and current.rel_path == n.rel_path:
+        classes.append("active")
+    visible_label = label or note_label(n)
+    visible_label = visible_label if len(visible_label) < 60 else visible_label[:57] + "..."
+    return f'<a class="{" ".join(classes)}" href="{html.escape(href)}">{html.escape(visible_label)}</a>'
 
 
 def relpath_from(note: Note | None, target: Path) -> str:
     import os
     here = (OUT / note.rel_path).parent if note else OUT
     return os.path.relpath(target, here)
+
+
+def breadcrumb_html(note: Note) -> str:
+    parts = [f'<a href="{html.escape(relpath_from(note, OUT / "index.html"))}">Home</a>']
+    if note.rel_path.parts and note.rel_path.parts[0] == "cybersecurity":
+        cyber_index = OUT / "cybersecurity" / "index.html"
+        parts.append(f'<a href="{html.escape(relpath_from(note, cyber_index))}">Cybersecurity</a>')
+    branch = branch_slug(note)
+    if branch:
+        branch_index = OUT / "cybersecurity" / branch / "index.html"
+        parts.append(f'<a href="{html.escape(relpath_from(note, branch_index))}">{html.escape(branch_label(branch))}</a>')
+    parts.append(f'<span>{html.escape(note_label(note))}</span>')
+    return '<nav class="breadcrumbs" aria-label="Breadcrumb">' + "<span>/</span>".join(parts) + "</nav>"
+
+
+def page_meta_html(note: Note) -> str:
+    branch = branch_slug(note)
+    chips = [f'<span class="meta-chip">{html.escape(page_kind(note))}</span>']
+    if branch:
+        chips.append(f'<span class="meta-chip accent-{html.escape(branch_accent(branch))}">{html.escape(branch_label(branch))}</span>')
+    if note.tags:
+        chips.extend(f'<span class="meta-chip tag">#{html.escape(t)}</span>' for t in note.tags)
+    return f'<div class="page-meta">{"".join(chips)}</div>'
+
+
+def extract_toc(html_body: str) -> list[tuple[int, str, str]]:
+    headings: list[tuple[int, str, str]] = []
+    for m in re.finditer(r'<h([23]) id="([^"]+)">(.*?)</h\1>', html_body, re.DOTALL):
+        level = int(m.group(1))
+        anchor = m.group(2)
+        label = strip_html(m.group(3)).strip()
+        if label:
+            headings.append((level, anchor, html.unescape(label)))
+    return headings
+
+
+def render_toc(html_body: str) -> str:
+    headings = extract_toc(html_body)
+    if not headings:
+        return ""
+    lines = ['<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>']
+    for level, anchor, label in headings[:18]:
+        lines.append(f'<a class="toc-level-{level}" href="#{html.escape(anchor)}">{html.escape(label)}</a>')
+    lines.append('<a class="back-to-top" href="#top">Back to top</a></div></aside>')
+    return "\n".join(lines)
 
 
 PAGE_TEMPLATE = """<!doctype html>
@@ -303,21 +484,29 @@ PAGE_TEMPLATE = """<!doctype html>
 <link rel="stylesheet" href="{css_href}">
 <link rel="stylesheet" href="{pygments_href}">
 </head>
-<body data-root="{root_href}">
+<body id="top" data-root="{root_href}">
 <header class="topbar">
-  <a class="brand" href="{home_href}">ldamoredev notes</a>
-  <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
-  <button id="theme-toggle" title="Toggle theme">◐</button>
+  <button id="sidebar-toggle" title="Toggle navigation" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="{home_href}"><span>ldamoredev</span><small>security atlas</small></a>
+  <div class="search-shell">
+    <input id="search" type="search" placeholder="Search notes..." autocomplete="off">
+    <kbd>/</kbd>
+  </div>
+  <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
 </header>
 <div id="search-results" hidden></div>
-<div class="layout">
+<div class="layout {layout_class}">
 {sidebar}
 <main class="content">
-{tag_line}
-<article>
+{breadcrumbs}
+<header class="page-hero">
+{page_meta}
+</header>
+<article class="{article_class}">
 {body}
 </article>
 </main>
+{toc}
 </div>
 <script src="{search_js_href}"></script>
 </body>
@@ -334,11 +523,7 @@ def render_page(note: Note, html_body: str, sidebar_html: str, tree: dict) -> st
     home_href = os.path.relpath(OUT / "index.html", here)
     root_href = os.path.relpath(OUT, here) or "."
 
-    tag_line = ""
-    if note.tags:
-        chips = " ".join(f'<span class="tag">#{html.escape(t)}</span>' for t in note.tags)
-        tag_line = f'<div class="tags">{chips}</div>'
-
+    toc_html = render_toc(html_body)
     return PAGE_TEMPLATE.format(
         title=html.escape(note.title),
         css_href=html.escape(css_href),
@@ -347,8 +532,12 @@ def render_page(note: Note, html_body: str, sidebar_html: str, tree: dict) -> st
         home_href=html.escape(home_href),
         root_href=html.escape(root_href),
         sidebar=sidebar_html,
-        tag_line=tag_line,
+        layout_class="no-toc" if not toc_html else "with-toc",
+        breadcrumbs=breadcrumb_html(note),
+        page_meta=page_meta_html(note),
+        article_class="article-home" if note.rel_path == Path("index.md") else "article-note",
         body=html_body,
+        toc=toc_html,
     )
 
 
@@ -380,27 +569,54 @@ def strip_html(s: str) -> str:
 
 
 def build_home(tree: dict, notes: list[Note]) -> str:
-    lines = ["<h1>ldamoredev notes</h1>",
-             "<p>Static snapshot of mature cybersecurity notes from my Obsidian vault. Project notes, templates, tooling experiments, and unpromoted branches are intentionally excluded.</p>"]
-    for section_key, section_label in SECTIONS:
-        subs = tree.get(section_key, {})
-        if not subs:
+    subs = tree.get("cybersecurity", {})
+    published_notes = sum(len(v) for v in subs.values())
+    registry_count = len([n for n in subs.get("", []) if n.slug.startswith("reference-registry")])
+    lines = [
+        '<section class="home-hero">',
+        '<p class="eyebrow">Personal security knowledge base</p>',
+        '<h1>ldamoredev security atlas</h1>',
+        '<p class="lede">A static snapshot of mature cybersecurity notes from the Obsidian vault: learning paths, atomic concepts, reference policy, and practical playbooks shaped for fast retrieval.</p>',
+        '<div class="stat-row">',
+        f'<span><strong>{published_notes}</strong> published notes</span>',
+        f'<span><strong>{len(BRANCHES)}</strong> branches</span>',
+        f'<span><strong>{registry_count}</strong> reference registries</span>',
+        '</div>',
+        '</section>',
+    ]
+    cyber_index = next((n for n in subs.get("", []) if n.slug == "index"), None)
+    if cyber_index:
+        lines.append(f'<p class="home-index-link"><a href="{html.escape(cyber_index.url)}">Open the full cybersecurity index</a></p>')
+
+    for group in BRANCH_GROUPS:
+        group_slugs = [slug for slug in BRANCHES if slug in subs and branch_group(slug) == group]
+        if not group_slugs:
             continue
-        lines.append(f'<h2>{html.escape(section_label)}</h2><ul>')
-        count = sum(len(v) for v in subs.values())
-        lines.append(f"<li><em>{count} notes</em></li>")
-        # Prefer an index note if it exists.
-        for n in notes:
-            if n.rel_path.parts[0] == section_key and n.slug == "index" and len(n.rel_path.parts) == 2:
-                lines.append(f'<li><a href="{html.escape(n.url)}">Section index</a></li>')
-                break
-        # Subfolders.
-        for sub in sorted(k for k in subs if k):
-            first = subs[sub][0]
-            import os
-            href = os.path.relpath(OUT / first.rel_path.with_suffix(".html"), OUT)
-            lines.append(f'<li><a href="{html.escape(href)}">{html.escape(sub)}</a> — {len(subs[sub])} notes</li>')
-        lines.append("</ul>")
+        lines.append(f'<section class="branch-section"><h2>{html.escape(group)}</h2><div class="branch-grid">')
+        for slug in group_slugs:
+            notes_for_branch = subs[slug]
+            index_note = next((n for n in notes_for_branch if n.slug == "index"), notes_for_branch[0])
+            href = index_note.url
+            accent = branch_accent(slug)
+            concept_count = len([n for n in notes_for_branch if n.slug != "index"])
+            lines.append(
+                f'<a class="branch-card accent-{html.escape(accent)}" href="{html.escape(href)}">'
+                f'<span class="card-kicker">{html.escape(group)}</span>'
+                f'<h3>{html.escape(branch_label(slug))}</h3>'
+                f'<p>{html.escape(branch_summary(slug))}</p>'
+                f'<span class="card-meta">{concept_count} notes</span>'
+                '</a>'
+            )
+        lines.append('</div></section>')
+
+    registry_notes = [n for n in subs.get("", []) if n.slug.startswith("reference-registry")]
+    if registry_notes:
+        lines.append('<section class="reference-panel"><h2>Reference System</h2>')
+        lines.append('<p>Reference registries stay published, but they sit behind the learning branches instead of competing with them in the primary path.</p>')
+        lines.append('<div class="reference-list">')
+        for n in registry_notes:
+            lines.append(f'<a href="{html.escape(n.url)}">{html.escape(note_label(n))}</a>')
+        lines.append('</div></section>')
     return "\n".join(lines)
 
 
@@ -431,7 +647,7 @@ def main() -> int:
     broken_total = 0
     for n in notes:
         rewritten = rewrite_links(n.body_md, n, by_slug, by_path)
-        broken_total += rewritten.count('class="broken-link"')
+        broken_total += rewritten.count('class="unresolved-link"')
         body_html = md_to_html(rewritten)
         sidebar_html = render_sidebar(tree, n)
         page = render_page(n, body_html, sidebar_html, tree)
@@ -439,9 +655,12 @@ def main() -> int:
         n.out_path.write_text(page, encoding="utf-8")
 
         search_entries.append({
-            "title": n.title,
+            "title": note_label(n),
             "url": n.url,
             "section": n.section,
+            "branch": branch_label(branch_slug(n)) if branch_slug(n) else "Cybersecurity",
+            "group": branch_group(branch_slug(n)) if branch_slug(n) else "Reference",
+            "kind": page_kind(n),
             "tags": n.tags,
             "text": strip_html(body_html)[:2000],
         })
@@ -470,97 +689,396 @@ def main() -> int:
 
 STYLE_CSS = r"""
 :root {
-  --bg: #fdfdfc;
-  --fg: #1b1b1b;
-  --muted: #666;
-  --accent: #2a5db0;
-  --border: #e3e3e0;
-  --code-bg: #f5f5f3;
-  --sidebar-bg: #f8f8f6;
-  --tag-bg: #eef2f9;
+  --bg: #fbfbf8;
+  --surface: #ffffff;
+  --surface-soft: #f4f6f3;
+  --fg: #151817;
+  --muted: #67706b;
+  --muted-2: #8a928e;
+  --accent: #256d85;
+  --accent-soft: #e5f3f5;
+  --border: #dde3dd;
+  --border-strong: #c6d0c8;
+  --code-bg: #eef2ef;
+  --shadow: 0 18px 50px rgba(30, 45, 40, 0.08);
+  --topbar-h: 64px;
+  --sidebar-w: 312px;
+  --toc-w: 236px;
 }
 html[data-theme="dark"] {
-  --bg: #15171a;
-  --fg: #e4e4e1;
-  --muted: #9aa0a6;
-  --accent: #8ab4f8;
-  --border: #2a2d31;
-  --code-bg: #1e2024;
-  --sidebar-bg: #1a1c1f;
-  --tag-bg: #23272e;
+  --bg: #111416;
+  --surface: #171b1d;
+  --surface-soft: #1d2423;
+  --fg: #e8ece8;
+  --muted: #a3ada8;
+  --muted-2: #7e8985;
+  --accent: #70c0d8;
+  --accent-soft: #143039;
+  --border: #2b3433;
+  --border-strong: #3a4745;
+  --code-bg: #202828;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
 }
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
-body { font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif; }
+body { font: 16px/1.68 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif; text-rendering: optimizeLegibility; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 .topbar {
-  display: flex; align-items: center; gap: 1rem;
-  padding: 0.6rem 1rem;
+  display: grid;
+  grid-template-columns: var(--sidebar-w) minmax(280px, 520px) auto;
+  align-items: center;
+  gap: 0.9rem;
+  min-height: var(--topbar-h);
+  padding: 0.75rem clamp(1rem, 2vw, 1.5rem);
   border-bottom: 1px solid var(--border);
-  position: sticky; top: 0; background: var(--bg); z-index: 10;
+  position: sticky;
+  top: 0;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(16px);
+  z-index: 30;
 }
-.topbar .brand { font-weight: 600; color: var(--fg); }
-.topbar #search {
-  flex: 1; max-width: 400px;
-  padding: 0.4rem 0.6rem;
-  border: 1px solid var(--border); border-radius: 6px;
-  background: var(--bg); color: var(--fg);
+.brand { color: var(--fg); display: flex; flex-direction: column; line-height: 1.05; min-width: 0; }
+.brand span { font-weight: 740; letter-spacing: 0; }
+.brand small { margin-top: 0.18rem; color: var(--muted); font-size: 0.74rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+.brand:hover { text-decoration: none; }
+#sidebar-toggle, #theme-toggle {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--fg);
+  cursor: pointer;
+  box-shadow: none;
 }
-#theme-toggle { background: transparent; border: 1px solid var(--border); color: var(--fg); border-radius: 6px; padding: 0.3rem 0.6rem; cursor: pointer; }
+#sidebar-toggle { display: none; }
+.search-shell { position: relative; width: min(100%, 520px); }
+.search-shell input {
+  width: 100%;
+  height: 42px;
+  padding: 0 3rem 0 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--fg);
+  font: inherit;
+  box-shadow: 0 1px 0 rgba(20, 30, 28, 0.03);
+}
+.search-shell input:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
+.search-shell kbd {
+  position: absolute;
+  right: 0.55rem;
+  top: 50%;
+  transform: translateY(-50%);
+  min-width: 24px;
+  padding: 0.05rem 0.38rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--muted);
+  background: var(--surface-soft);
+  font: 0.78rem ui-monospace, SFMono-Regular, Menlo, monospace;
+  text-align: center;
+}
 
 #search-results {
-  position: absolute; top: 52px; left: 0; right: 0; margin: 0 auto; max-width: 600px;
-  background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
-  max-height: 60vh; overflow: auto; padding: 0.5rem; z-index: 20;
+  position: fixed;
+  top: calc(var(--topbar-h) + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(680px, calc(100vw - 2rem));
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  max-height: 68vh;
+  overflow: auto;
+  padding: 0.45rem;
+  z-index: 50;
+  box-shadow: var(--shadow);
 }
-#search-results .hit { padding: 0.4rem 0.6rem; border-radius: 4px; }
-#search-results .hit:hover { background: var(--sidebar-bg); }
-#search-results .hit .meta { color: var(--muted); font-size: 0.85em; }
+#search-results .hit { display: block; padding: 0.75rem 0.85rem; border-radius: 8px; color: var(--fg); }
+#search-results .hit:hover { background: var(--surface-soft); text-decoration: none; }
+#search-results .hit-title { font-weight: 700; }
+#search-results .meta { color: var(--muted); font-size: 0.84rem; margin-top: 0.12rem; }
+#search-results .empty { padding: 0.8rem; color: var(--muted); }
 
-.layout { display: flex; min-height: calc(100vh - 52px); }
+.layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr) var(--toc-w);
+  min-height: calc(100vh - var(--topbar-h));
+}
+.layout.no-toc { grid-template-columns: var(--sidebar-w) minmax(0, 1fr); }
 .sidebar {
-  width: 280px; flex-shrink: 0;
-  background: var(--sidebar-bg);
+  background: var(--surface-soft);
   border-right: 1px solid var(--border);
-  padding: 1rem;
-  overflow-y: auto; max-height: calc(100vh - 52px); position: sticky; top: 52px;
-  font-size: 0.92em;
+  padding: 1.15rem 0.9rem 1.6rem;
+  overflow-y: auto;
+  max-height: calc(100vh - var(--topbar-h));
+  position: sticky;
+  top: var(--topbar-h);
+  font-size: 0.92rem;
 }
-.sidebar a { display: block; padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--fg); }
-.sidebar a:hover { background: var(--tag-bg); text-decoration: none; }
-.sidebar a.active { background: var(--tag-bg); color: var(--accent); font-weight: 600; }
-.sidebar .sidebar-home { font-weight: 600; margin-bottom: 0.5rem; }
-.sidebar-section h3 { font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin: 1rem 0 0.3rem; }
-.sidebar details { margin: 0.15rem 0; }
-.sidebar summary { cursor: pointer; padding: 0.2rem 0.4rem; color: var(--muted); font-weight: 500; }
-.sidebar summary:hover { color: var(--fg); }
+.sidebar-home {
+  display: block;
+  margin: 0 0 1rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--fg);
+  font-weight: 740;
+}
+.sidebar-home:hover { text-decoration: none; border-color: var(--border-strong); }
+.sidebar-section h3, .sidebar-group-label {
+  margin: 1rem 0 0.35rem;
+  padding: 0 0.55rem;
+  color: var(--muted-2);
+  font-size: 0.74rem;
+  font-weight: 760;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.sidebar-section h3 { margin-top: 0; }
+.sidebar details { margin: 0.18rem 0; border-radius: 8px; }
+.sidebar summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+  cursor: pointer;
+  padding: 0.42rem 0.55rem;
+  border-radius: 8px;
+  color: var(--fg);
+  font-weight: 680;
+}
+.sidebar summary:hover { background: var(--surface); }
+.sidebar summary small, .sidebar summary span:last-child {
+  color: var(--muted-2);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.sidebar-summary {
+  margin: 0.1rem 0.55rem 0.45rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+.sidebar-link {
+  display: block;
+  margin: 0.05rem 0 0.05rem 0.8rem;
+  padding: 0.3rem 0.55rem;
+  border-radius: 7px;
+  color: var(--fg);
+  line-height: 1.35;
+}
+.sidebar-link:hover { background: var(--surface); text-decoration: none; }
+.sidebar-link.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 740;
+}
+.kind-registry { color: var(--muted); }
+.registry-group { margin-top: 1.2rem; border-top: 1px solid var(--border); padding-top: 0.75rem; }
 
-.content { flex: 1; padding: 2rem clamp(1rem, 4vw, 3rem); max-width: 900px; }
-.content article { max-width: 72ch; }
-.content h1 { margin-top: 0; font-size: 1.9rem; line-height: 1.25; }
-.content h2 { margin-top: 2rem; padding-bottom: 0.2rem; border-bottom: 1px solid var(--border); }
-.content h3 { margin-top: 1.5rem; }
+.content {
+  min-width: 0;
+  padding: 2.3rem clamp(1.25rem, 4vw, 4rem) 4rem;
+}
+.article-note, .page-hero, .breadcrumbs { max-width: 76ch; }
+.article-home { max-width: 1120px; }
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+.breadcrumbs a { color: var(--muted); }
+.breadcrumbs span:last-child { color: var(--fg); }
+.page-hero { margin-bottom: 0.65rem; }
+.page-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.meta-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0.12rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  background: var(--surface);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.meta-chip.tag { text-transform: none; color: var(--accent); background: var(--accent-soft); border-color: transparent; }
+.content h1 { margin: 0.35rem 0 1rem; font-size: clamp(2rem, 3vw, 3rem); line-height: 1.08; letter-spacing: 0; }
+.content h2 { margin-top: 2.35rem; padding-bottom: 0.32rem; border-bottom: 1px solid var(--border); font-size: 1.45rem; line-height: 1.25; }
+.content h3 { margin-top: 1.55rem; font-size: 1.05rem; }
 .content p, .content li { color: var(--fg); }
-.content blockquote { border-left: 3px solid var(--accent); padding: 0.2rem 1rem; color: var(--muted); background: var(--sidebar-bg); border-radius: 0 4px 4px 0; }
-.content code { background: var(--code-bg); padding: 0.1rem 0.35rem; border-radius: 3px; font-size: 0.9em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
-.content pre { background: var(--code-bg); padding: 0.9rem; border-radius: 6px; overflow-x: auto; font-size: 0.88em; }
+.content p { margin: 1rem 0; }
+.content ul, .content ol { padding-left: 1.35rem; }
+.content li + li { margin-top: 0.2rem; }
+.content blockquote {
+  border-left: 4px solid var(--accent);
+  margin: 1.25rem 0;
+  padding: 0.75rem 1rem;
+  color: var(--muted);
+  background: var(--surface-soft);
+  border-radius: 0 8px 8px 0;
+}
+.content code {
+  background: var(--code-bg);
+  padding: 0.1rem 0.36rem;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.content pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.88em;
+}
 .content pre code { background: transparent; padding: 0; }
-.content table { border-collapse: collapse; margin: 1rem 0; }
-.content th, .content td { border: 1px solid var(--border); padding: 0.4rem 0.7rem; text-align: left; }
-.content th { background: var(--sidebar-bg); }
+.content table { border-collapse: collapse; margin: 1.2rem 0; width: 100%; font-size: 0.94rem; }
+.content th, .content td { border: 1px solid var(--border); padding: 0.48rem 0.7rem; text-align: left; vertical-align: top; }
+.content th { background: var(--surface-soft); }
 .content hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 
-.tags { margin-bottom: 1rem; display: flex; flex-wrap: wrap; gap: 0.3rem; }
-.tag { background: var(--tag-bg); color: var(--accent); padding: 0.1rem 0.5rem; border-radius: 999px; font-size: 0.82em; }
-.broken-link { color: #b00; border-bottom: 1px dashed #b00; cursor: help; }
-html[data-theme="dark"] .broken-link { color: #ff8a80; border-bottom-color: #ff8a80; }
+.toc {
+  padding: 2.3rem 1.2rem 2rem 0;
+}
+.toc-inner {
+  position: sticky;
+  top: calc(var(--topbar-h) + 1.2rem);
+  max-height: calc(100vh - var(--topbar-h) - 2rem);
+  overflow: auto;
+  border-left: 1px solid var(--border);
+  padding-left: 1rem;
+}
+.toc h2 { margin: 0 0 0.65rem; color: var(--muted-2); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.toc a { display: block; padding: 0.18rem 0; color: var(--muted); font-size: 0.84rem; line-height: 1.35; }
+.toc a:hover { color: var(--accent); text-decoration: none; }
+.toc .toc-level-3 { padding-left: 0.75rem; }
+.back-to-top { margin-top: 0.7rem; font-weight: 700; }
 
+.home-hero {
+  max-width: none;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.eyebrow, .card-kicker {
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.lede { color: var(--muted); font-size: 1.08rem; max-width: 68ch; }
+.stat-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.4rem; }
+.stat-row span {
+  display: inline-flex;
+  gap: 0.35rem;
+  align-items: baseline;
+  padding: 0.36rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  background: var(--surface-soft);
+}
+.stat-row strong { color: var(--fg); }
+.home-index-link { font-weight: 720; }
+.branch-section { margin-top: 2.2rem; }
+.branch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.95rem; max-width: none; }
+.branch-card {
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--fg);
+  box-shadow: 0 1px 0 rgba(20, 30, 28, 0.03);
+}
+.branch-card:hover { transform: translateY(-1px); border-color: var(--border-strong); text-decoration: none; box-shadow: var(--shadow); }
+.branch-card h3 { margin: 0.35rem 0; font-size: 1.12rem; }
+.branch-card p { margin: 0; color: var(--muted); line-height: 1.45; }
+.card-meta { margin-top: auto; padding-top: 1rem; color: var(--muted-2); font-size: 0.84rem; font-weight: 700; }
+.reference-panel {
+  max-width: 980px;
+  margin-top: 2.5rem;
+  padding: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-soft);
+}
+.reference-list { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.reference-list a {
+  padding: 0.3rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--fg);
+  font-size: 0.88rem;
+}
+.reference-list a:hover { color: var(--accent); text-decoration: none; }
+
+.accent-sky, .branch-sky { --accent: #27799a; }
+.accent-teal, .branch-teal { --accent: #17826d; }
+.accent-blue, .branch-blue { --accent: #2d68b2; }
+.accent-indigo, .branch-indigo { --accent: #5865b4; }
+.accent-cyan, .branch-cyan { --accent: #1f8690; }
+.accent-amber, .branch-amber { --accent: #9a6a16; }
+.accent-violet, .branch-violet { --accent: #7a5ab5; }
+.accent-rose, .branch-rose { --accent: #b25067; }
+.accent-orange, .branch-orange { --accent: #ad6432; }
+.accent-green, .branch-green { --accent: #2f7b4d; }
+.accent-slate, .branch-slate { --accent: #607080; }
+
+.unresolved-link {
+  color: #a85d20;
+  border-bottom: 1px dashed #a85d20;
+  cursor: help;
+  background: color-mix(in srgb, #a85d20 10%, transparent);
+  border-radius: 4px;
+  padding: 0 0.12rem;
+}
+html[data-theme="dark"] .unresolved-link { color: #ffb072; border-bottom-color: #ffb072; }
+
+@media (max-width: 1120px) {
+  .layout { grid-template-columns: var(--sidebar-w) minmax(0, 1fr); }
+  .toc { display: none; }
+}
 @media (max-width: 780px) {
-  .layout { flex-direction: column; }
-  .sidebar { position: static; width: 100%; max-height: none; border-right: 0; border-bottom: 1px solid var(--border); }
-  .content { padding: 1.2rem; }
+  :root { --topbar-h: 58px; }
+  .topbar { grid-template-columns: auto minmax(110px, 1fr) auto; gap: 0.65rem; }
+  #sidebar-toggle { display: inline-grid; place-items: center; }
+  #theme-toggle { grid-column: 3; grid-row: 1; }
+  .search-shell { grid-column: 1 / -1; grid-row: 2; width: 100%; }
+  .layout { display: block; }
+  .sidebar {
+    display: none;
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  body.nav-open .sidebar { display: block; }
+  .content { padding: 1.25rem 1rem 3rem; }
+  .home-hero { padding: 1.2rem; }
+  .content h1 { font-size: 2rem; }
 }
 """
 
@@ -570,6 +1088,7 @@ SEARCH_JS = r"""
   const input = document.getElementById("search");
   const results = document.getElementById("search-results");
   const toggle = document.getElementById("theme-toggle");
+  const sidebarToggle = document.getElementById("sidebar-toggle");
 
   // Theme toggle.
   const saved = localStorage.getItem("theme");
@@ -578,6 +1097,22 @@ SEARCH_JS = r"""
     const cur = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", cur);
     localStorage.setItem("theme", cur);
+  });
+
+  sidebarToggle.addEventListener("click", () => {
+    document.body.classList.toggle("nav-open");
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "/" && document.activeElement !== input) {
+      e.preventDefault();
+      input.focus();
+    }
+    if (e.key === "Escape") {
+      results.hidden = true;
+      document.body.classList.remove("nav-open");
+      input.blur();
+    }
   });
 
   let index = null;
@@ -589,11 +1124,13 @@ SEARCH_JS = r"""
   }
 
   function score(entry, terms) {
-    const hay = (entry.title + " " + entry.tags.join(" ") + " " + entry.text).toLowerCase();
+    const hay = (entry.title + " " + entry.branch + " " + entry.group + " " + entry.kind + " " + entry.tags.join(" ") + " " + entry.text).toLowerCase();
     let s = 0;
     for (const t of terms) {
       if (!t) continue;
       if (entry.title.toLowerCase().includes(t)) s += 5;
+      if (entry.branch.toLowerCase().includes(t)) s += 3;
+      if (entry.kind.toLowerCase().includes(t)) s += 2;
       const occurrences = hay.split(t).length - 1;
       if (!occurrences) return 0;
       s += occurrences;
@@ -617,10 +1154,10 @@ SEARCH_JS = r"""
                     .sort((a, b) => b.s - a.s)
                     .slice(0, 20);
     if (!hits.length) {
-      results.innerHTML = '<div class="hit"><em>No matches</em></div>';
+      results.innerHTML = '<div class="empty">No matches</div>';
     } else {
       results.innerHTML = hits.map(h =>
-        `<a class="hit" href="${root}/${h.e.url}"><div>${escapeHtml(h.e.title)}</div><div class="meta">${escapeHtml(h.e.section)} · ${escapeHtml(h.e.url)}</div></a>`
+        `<a class="hit" href="${root}/${h.e.url}"><div class="hit-title">${escapeHtml(h.e.title)}</div><div class="meta">${escapeHtml(h.e.branch)} · ${escapeHtml(h.e.kind)} · ${escapeHtml(h.e.url)}</div></a>`
       ).join("");
     }
     results.hidden = false;
@@ -628,6 +1165,7 @@ SEARCH_JS = r"""
 
   document.addEventListener("click", (e) => {
     if (e.target === input) return;
+    if (e.target === sidebarToggle) return;
     if (!results.contains(e.target)) results.hidden = true;
   });
 
