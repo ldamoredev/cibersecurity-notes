@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tor and Onion Services - Privacy, Anonymity &amp; OPSEC | ldamoredev Security Atlas</title>
+<meta name="description" content="Tor is an anonymity network that routes traffic through multiple relays to reduce linkability between a user and a destination. Onion services are services...">
+<meta name="author" content="ldamoredev">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Privacy, Anonymity &amp; OPSEC, Tor and Onion Services, privacy, anonymity, tor, onion-services">
+<meta name="theme-color" content="#256d85">
+<link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/privacy-anonymity-opsec/tor-and-onion-services.html">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Privacy, Anonymity &amp; OPSEC">
+<meta property="og:title" content="Tor and Onion Services - Privacy, Anonymity &amp; OPSEC | ldamoredev Security Atlas">
+<meta property="og:description" content="Tor is an anonymity network that routes traffic through multiple relays to reduce linkability between a user and a destination. Onion services are services...">
+<meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/privacy-anonymity-opsec/tor-and-onion-services.html">
+<meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tor and Onion Services - Privacy, Anonymity &amp; OPSEC | ldamoredev Security Atlas">
+<meta name="twitter:description" content="Tor is an anonymity network that routes traffic through multiple relays to reduce linkability between a user and a destination. Onion services are services...">
+<meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"Tor and Onion Services - Privacy, Anonymity & OPSEC | ldamoredev Security Atlas","headline":"Tor and Onion Services","description":"Tor is an anonymity network that routes traffic through multiple relays to reduce linkability between a user and a destination. Onion services are services...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/privacy-anonymity-opsec/tor-and-onion-services.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/privacy-anonymity-opsec/tor-and-onion-services.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Privacy, Anonymity & OPSEC","Tor and Onion Services","privacy","anonymity","tor","onion-services"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Privacy, Anonymity & OPSEC","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/privacy-anonymity-opsec/index.html"},{"@type":"ListItem","position":4,"name":"Tor and Onion Services","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/privacy-anonymity-opsec/tor-and-onion-services.html"}]}]</script>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body id="top" data-root="../..">
+<header class="topbar">
+  <button id="sidebar-toggle" title="Toggle navigation" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html"><span>ldamoredev</span><small>security atlas</small></a>
+  <div class="search-shell">
+    <input id="search" type="search" placeholder="Search notes..." autocomplete="off">
+    <kbd>/</kbd>
+  </div>
+  <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout with-toc">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Atlas Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="sidebar-link kind-index" href="../index.html">Cybersecurity Index</a>
+<div class="sidebar-group-label">Foundations</div>
+<details class="branch branch-sky"><summary><span>Networking</span><small>22</small></summary>
+<p class="sidebar-summary">Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p>
+<a class="sidebar-link kind-index" href="../networking/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="sidebar-link kind-concept" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="sidebar-link kind-concept" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="sidebar-link kind-concept" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="sidebar-link kind-concept" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-security.html">DNS Security</a>
+<a class="sidebar-link kind-concept" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="sidebar-link kind-concept" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="sidebar-link kind-concept" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="sidebar-link kind-concept" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="sidebar-link kind-concept" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="sidebar-link kind-concept" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="sidebar-link kind-concept" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="sidebar-link kind-concept" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="sidebar-link kind-concept" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="sidebar-link kind-concept" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="sidebar-link kind-concept" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="sidebar-link kind-concept" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details class="branch branch-teal"><summary><span>Wireless Security</span><small>11</small></summary>
+<p class="sidebar-summary">Wi-Fi frames, handshakes, rogue access points, and local-network MITM.</p>
+<a class="sidebar-link kind-index" href="../wireless-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+<details class="branch branch-blue"><summary><span>Web Security</span><small>24</small></summary>
+<p class="sidebar-summary">Browser behavior, sessions, access control, and server-side exploit patterns.</p>
+<a class="sidebar-link kind-index" href="../web-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="sidebar-link kind-concept" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="sidebar-link kind-concept" href="../web-security/clickjacking.html">Clickjacking</a>
+<a class="sidebar-link kind-concept" href="../web-security/command-injection.html">Command Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="sidebar-link kind-concept" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="sidebar-link kind-concept" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="sidebar-link kind-concept" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="sidebar-link kind-concept" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="sidebar-link kind-concept" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="sidebar-link kind-concept" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="sidebar-link kind-concept" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="sidebar-link kind-concept" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="sidebar-link kind-concept" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="sidebar-link kind-concept" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="sidebar-link kind-concept" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/session-management.html">Session Management</a>
+<a class="sidebar-link kind-concept" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/xxe.html">XXE</a>
+</details>
+<details class="branch branch-indigo"><summary><span>API Security</span><small>15</small></summary>
+<p class="sidebar-summary">Authorization, token trust, inventory drift, and machine-readable abuse.</p>
+<a class="sidebar-link kind-index" href="../api-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="sidebar-link kind-concept" href="../api-security/authorization.html">Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="sidebar-link kind-concept" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="sidebar-link kind-concept" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="sidebar-link kind-concept" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="sidebar-link kind-concept" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Cloud Security</span><small>11</small></summary>
+<p class="sidebar-summary">IAM, metadata, storage, network boundaries, secrets, and logging controls.</p>
+<a class="sidebar-link kind-index" href="../cloud-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<div class="sidebar-group-label">Exposure</div>
+<details class="branch branch-amber"><summary><span>Attack Surface Mapping</span><small>11</small></summary>
+<p class="sidebar-summary">What is exposed, reachable, discoverable, and drifting from intended design.</p>
+<a class="sidebar-link kind-index" href="../attack-surface-mapping/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details class="branch branch-violet"><summary><span>OSINT</span><small>11</small></summary>
+<p class="sidebar-summary">Public-source collection, evidence quality, and ethical handling of clues.</p>
+<a class="sidebar-link kind-index" href="../osint/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="sidebar-link kind-concept" href="../osint/company-osint.html">Company OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="sidebar-link kind-concept" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint.html">OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="sidebar-link kind-concept" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="sidebar-link kind-concept" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>13</small></summary>
+<p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
+<a class="sidebar-link kind-index" href="../offensive-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/recon.html">Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details class="branch branch-orange"><summary><span>Linux Privilege Escalation</span><small>10</small></summary>
+<p class="sidebar-summary">Local boundary failures, enumeration, and safe escalation hypothesis testing.</p>
+<a class="sidebar-link kind-index" href="../linux-privilege-escalation/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details class="branch branch-purple" open><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
+<p class="sidebar-summary">VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.</p>
+<a class="sidebar-link kind-index" href="index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="account-correlation.html">Account Correlation</a>
+<a class="sidebar-link kind-concept" href="anonymity-threat-models.html">Anonymity Threat Models</a>
+<a class="sidebar-link kind-concept" href="browser-fingerprinting.html">Browser Fingerprinting</a>
+<a class="sidebar-link kind-concept" href="corporate-vpns-vs-consumer-vpns.html">Corporate VPNs vs Consumer VPNs</a>
+<a class="sidebar-link kind-concept" href="deanonymization-failures.html">Deanonymization Failures</a>
+<a class="sidebar-link kind-concept" href="end-to-end-encryption.html">End-to-End Encryption</a>
+<a class="sidebar-link kind-concept" href="file-metadata-removal.html">File Metadata Removal</a>
+<a class="sidebar-link kind-concept" href="metadata-and-identity-leakage.html">Metadata and Identity Leakage</a>
+<a class="sidebar-link kind-concept" href="opsec-failure-chains.html">OPSEC Failure Chains</a>
+<a class="sidebar-link kind-concept" href="pgp-encryption-and-signatures.html">PGP Encryption and Signatures</a>
+<a class="sidebar-link kind-concept" href="privacy-vs-anonymity-vs-confidentiality.html">Privacy vs Anonymity vs Confidentiality</a>
+<a class="sidebar-link kind-concept" href="private-email-threat-models.html">Private Email Threat Models</a>
+<a class="sidebar-link kind-concept" href="qubes-compartmentalization.html">Qubes Compartmentalization</a>
+<a class="sidebar-link kind-concept" href="secure-deletion-and-storage-wiping.html">Secure Deletion and Storage Wiping</a>
+<a class="sidebar-link kind-concept" href="secure-file-sharing.html">Secure File Sharing</a>
+<a class="sidebar-link kind-concept" href="tails-operational-model.html">Tails Operational Model</a>
+<a class="sidebar-link kind-concept" href="temporary-email-risks.html">Temporary Email Risks</a>
+<a class="sidebar-link kind-concept active" href="tor-and-onion-services.html">Tor and Onion Services</a>
+<a class="sidebar-link kind-concept" href="tor-bridges-and-pluggable-transports.html">Tor Bridges and Pluggable Transports</a>
+<a class="sidebar-link kind-concept" href="tor-browser-security-settings.html">Tor Browser Security Settings</a>
+<a class="sidebar-link kind-concept" href="traffic-correlation.html">Traffic Correlation</a>
+<a class="sidebar-link kind-concept" href="vpn-dns-and-ipv6-leaks.html">VPN DNS and IPv6 Leaks</a>
+<a class="sidebar-link kind-concept" href="vpn-fingerprinting-limitations.html">VPN Fingerprinting Limitations</a>
+<a class="sidebar-link kind-concept" href="vpn-kill-switches.html">VPN Kill Switches</a>
+<a class="sidebar-link kind-concept" href="vpn-leakage-risks.html">VPN Leakage Risks</a>
+<a class="sidebar-link kind-concept" href="vpn-logging-and-trust.html">VPN Logging and Trust</a>
+<a class="sidebar-link kind-concept" href="vpn-protocols.html">VPN Protocols</a>
+<a class="sidebar-link kind-concept" href="vpn-threat-models.html">VPN Threat Models</a>
+<a class="sidebar-link kind-concept" href="vpn-vs-tor.html">VPN vs Tor</a>
+<a class="sidebar-link kind-concept" href="vpn-with-tor.html">VPN with Tor</a>
+<a class="sidebar-link kind-concept" href="whonix-gateway.html">Whonix Gateway</a>
+<a class="sidebar-link kind-concept" href="xmpp-and-private-messaging.html">XMPP and Private Messaging</a>
+</details>
+<div class="sidebar-group-label">Engineering</div>
+<details class="branch branch-green"><summary><span>DevSecOps</span><small>13</small></summary>
+<p class="sidebar-summary">Secure delivery, CI/CD hardening, supply chain, secrets, and release trust.</p>
+<a class="sidebar-link kind-index" href="../devsecops/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="sidebar-link kind-concept" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="sidebar-link kind-concept" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="sidebar-link kind-concept" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="sidebar-link kind-concept" href="../devsecops/container-security.html">Container Security</a>
+<a class="sidebar-link kind-concept" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="sidebar-link kind-concept" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="sidebar-link kind-concept" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="sidebar-link kind-concept" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="sidebar-link kind-concept" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<div class="sidebar-group-label">Execution</div>
+<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>12</small></summary>
+<p class="sidebar-summary">Repeatable procedures for turning concepts into practical tests.</p>
+<a class="sidebar-link kind-index" href="../security-playbooks/index.html">Overview</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/trace-metadata-endpoint-reachability.html">Trace Metadata Endpoint Reachability</a>
+</details>
+<details class="registry-group"><summary>Reference System <span>13</span></summary>
+<a class="sidebar-link kind-registry" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-privacy-anonymity-opsec.html">Reference Registry - Privacy, Anonymity &amp; OPSEC</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-api-security.html">Reference Registry — API Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-networking.html">Reference Registry — Networking</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-offensive-security.html">Reference Registry — Offensive Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-playbooks.html">Reference Registry — Playbooks</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-web-security.html">Reference Registry — Web Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Privacy, Anonymity &amp; OPSEC</a><span>/</span><span>Tor and Onion Services</span></nav>
+<header class="page-hero">
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-purple">Privacy, Anonymity &amp; OPSEC</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#privacy</span><span class="meta-chip tag">#anonymity</span><span class="meta-chip tag">#tor</span><span class="meta-chip tag">#onion-services</span></div>
+</header>
+<article class="article-note">
+<h1 id="tor-and-onion-services">Tor and Onion Services</h1>
+<h2 id="definition">Definition</h2>
+<p>Tor is an anonymity network that routes traffic through multiple relays to reduce linkability between a user and a destination. Onion services are services reachable only through Tor, with cryptographic addresses and hidden network locations.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Tor is not just a slower VPN. A VPN usually asks the user to trust one provider with source and destination metadata. Tor distributes that trust across relays so a single relay should not know both ends of the connection.</p>
+<p>Onion services add another important idea: the service operator can hide the server's network location, and the client can authenticate the service through the <code>.onion</code> address itself. This is useful for censorship resistance, source protection, sensitive publishing, internal privacy services, and learning how anonymity systems reshape trust boundaries.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Use the 5-part Tor model:</p>
+<ol>
+<li>
+<p><strong>Client builds a circuit</strong>
+   Tor Browser chooses relays and builds an encrypted path through the network.</p>
+</li>
+<li>
+<p><strong>Each relay knows only its neighbor</strong>
+   The entry relay sees the user's IP but not the final destination. The exit relay sees the destination but not the user's IP for normal web traffic.</p>
+</li>
+<li>
+<p><strong>The destination sees the exit</strong>
+   For ordinary websites, the site sees the Tor exit relay, not the user's source network.</p>
+</li>
+<li>
+<p><strong>Onion services avoid public exits</strong>
+   Onion service connections stay inside Tor. The client and service meet through Tor circuits rather than exposing the service's public IP.</p>
+</li>
+<li>
+<p><strong>The onion address carries cryptographic meaning</strong>
+   Modern onion addresses are long because they encode cryptographic identity, not because they are random branding.</p>
+</li>
+</ol>
+<p>Connection sketch:</p>
+<div class="codehilite"><pre><span></span><code>Normal Tor web browsing:
+  user -&gt; entry relay -&gt; middle relay -&gt; exit relay -&gt; website
+
+Onion service:
+  user -&gt; Tor circuit -&gt; rendezvous point &lt;- Tor circuit &lt;- onion service
+</code></pre></div>
+
+<p>The bug is not "Tor hides everything." The bug is forgetting that accounts, browser misuse, downloaded files, behavior, and powerful traffic correlation can still matter.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<ul>
+<li>Use Tor Browser rather than routing a daily browser through Tor.</li>
+<li>Treat <code>.onion</code> addresses as cryptographic service identifiers that must be copied exactly.</li>
+<li>Prefer onion service versions of sensitive services when available and trustworthy.</li>
+<li>Avoid logging into identifying accounts when anonymity is the goal.</li>
+<li>Avoid opening downloaded files outside the protected context.</li>
+<li>Distinguish normal Tor exit browsing from onion service traffic.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Use the 5 Tor/onion service distinctions:</p>
+<h3 id="1-normal-web-over-tor">1. Normal web over Tor</h3>
+<p>The user reaches an ordinary website through a Tor exit relay. The exit sees destination traffic metadata and can see unencrypted HTTP content, while the website sees the exit relay.</p>
+<h3 id="2-onion-service-access">2. Onion service access</h3>
+<p>The user reaches a <code>.onion</code> service without a public exit relay to the normal web. The service's location is hidden, and Tor Browser can verify the onion service identity through the address.</p>
+<h3 id="3-onion-location-discovery">3. Onion-Location discovery</h3>
+<p>Some normal websites advertise onion counterparts. This can give users a privacy-preserving path to the same service, but users should still verify that the onion service is expected and legitimate.</p>
+<h3 id="4-authenticated-onion-services">4. Authenticated onion services</h3>
+<p>Some onion services require client authorization. This protects access to the service but does not automatically make user behavior anonymous inside the application.</p>
+<h3 id="5-relay-and-traffic-correlation-limits">5. Relay and traffic-correlation limits</h3>
+<p>Tor distributes trust, but a powerful observer with visibility near both the user and destination may attempt timing correlation. This is a limit to understand, not a reason to treat Tor as useless.</p>
+<h2 id="impact">Impact</h2>
+<ul>
+<li>Reduced linkability between user source IP and destination services.</li>
+<li>Service-location hiding for onion service operators.</li>
+<li>Improved censorship resistance where Tor is reachable or bridges are available.</li>
+<li>Increased service friction, blocking, captchas, and speed tradeoffs.</li>
+<li>Risk of deanonymization through account login, browser changes, file handling, and behavior.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Use Tor Browser as the access boundary</strong>
+   Tor Browser combines routing, browser hardening, isolation, and anti-fingerprinting behavior. A daily browser routed through Tor usually lacks those protections.</p>
+</li>
+<li>
+<p><strong>Keep identities compartmentalized</strong>
+   Do not mix real-name accounts, daily browser profiles, personal files, and anonymous research activity. Tor cannot undo application-layer identity.</p>
+</li>
+<li>
+<p><strong>Verify onion addresses and service context</strong>
+   Onion addresses are long and typo-sensitive. Use trusted sources, bookmarks, or Onion-Location prompts from expected services.</p>
+</li>
+<li>
+<p><strong>Prefer HTTPS for normal web exit traffic</strong>
+   Tor hides source IP from the destination, but exit relays are still on the path to ordinary HTTP sites. HTTPS remains important.</p>
+</li>
+<li>
+<p><strong>Avoid unsafe downloads and external apps</strong>
+   Documents opened outside Tor Browser can make network requests or expose local metadata. Treat downloads as a boundary-crossing event.</p>
+</li>
+<li>
+<p><strong>Understand local visibility</strong>
+   A local network or ISP may see Tor use unless bridges or transports are used. That visibility can itself matter in some environments.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Tor plus real-name login is not anonymity.</strong> The destination knows the account.</li>
+<li><strong>A daily browser through Tor is not Tor Browser.</strong> Browser fingerprinting and state isolation are different layers.</li>
+<li><strong>An onion address does not make a service trustworthy.</strong> It authenticates the service location, not the operator's behavior.</li>
+<li><strong>Tor does not protect against endpoint compromise.</strong> Malware or managed-device monitoring can observe activity before or after Tor.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<h3 id="build-a-tor-observer-table">Build a Tor observer table</h3>
+<div class="codehilite"><pre><span></span><code>Observer                Normal web over Tor          Onion service
+Local network/ISP
+Entry relay
+Middle relay
+Exit relay
+Destination website
+Onion service operator
+Browser/account layer
+</code></pre></div>
+
+<p>The table should show why onion services and normal Tor browsing have different observer models.</p>
+<h3 id="verify-onion-address-handling">Verify onion address handling</h3>
+<div class="codehilite"><pre><span></span><code>Service:
+Source of onion address:
+Address length:
+Bookmarked:
+Tor Browser onion icon state:
+Account used:
+Files downloaded:
+</code></pre></div>
+
+<p>This prevents copy/paste mistakes and account-layer confusion.</p>
+<h3 id="compare-normal-and-onion-service-routing-conceptually">Compare normal and onion service routing conceptually</h3>
+<div class="codehilite"><pre><span></span><code>Normal site:
+  Need exit relay: yes
+  Website sees Tor exit: yes
+  Server IP public: yes
+
+Onion service:
+  Need exit relay: no
+  Website sees Tor exit: no
+  Server IP public: no
+</code></pre></div>
+
+<p>The comparison is enough for most defensive notes without running active probes.</p>
+<h3 id="record-a-safe-download-decision">Record a safe download decision</h3>
+<div class="codehilite"><pre><span></span><code>Downloaded file:
+Source:
+Open inside Tor context:
+Open outside Tor context:
+Network access risk:
+Metadata risk:
+Decision:
+</code></pre></div>
+
+<p>Downloaded files are one of the easiest ways to cross an anonymity boundary by accident.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A news organization offers an onion service to reduce censorship and protect source access.</li>
+<li>A user visits an ordinary website over Tor but logs into a personal account, removing anonymity from that site.</li>
+<li>An operator hosts a sensitive service as an onion service to avoid exposing its origin IP.</li>
+<li>A user opens a downloaded document in a normal office suite, allowing external resources or metadata to escape the Tor context.</li>
+<li>A local network blocks public Tor relays, pushing the user toward bridges or pluggable transports.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="vpn-vs-tor.html">VPN vs Tor</a></li>
+<li><a href="vpn-with-tor.html">VPN with Tor</a></li>
+<li><a href="tor-browser-security-settings.html">Tor Browser Security Settings</a></li>
+<li><a href="metadata-and-identity-leakage.html">Metadata and Identity Leakage</a></li>
+<li><a href="../networking/tls-https.html">TLS / HTTPS</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><a href="tor-bridges-and-pluggable-transports.html">tor-bridges-and-pluggable-transports</a></li>
+<li><a href="traffic-correlation.html">traffic-correlation</a></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: onion-service-operations">onion-service-operations</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: tor-download-safety">tor-download-safety</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Official Tool Docs:</strong> Tor Project Support - https://support.torproject.org/</li>
+<li><strong>Official Tool Docs:</strong> Tor Browser: Onion Services - https://support.torproject.org/tor-browser/features/onion-services/</li>
+<li><strong>Research / Deep Dive:</strong> Tor design paper - https://svn-archive.torproject.org/svn/projects/design-paper/tor-design.pdf</li>
+</ul>
+<section class="related-notes" aria-label="Explore nearby notes">
+<h2>Explore nearby notes</h2>
+<div class="related-grid">
+<a class="related-card" href="tor-bridges-and-pluggable-transports.html"><span>Privacy, Anonymity &amp; OPSEC</span><strong>Tor Bridges and Pluggable Transports</strong><small>Tor bridges are Tor relays that are not listed in the public relay directory. Pluggable transports transform Tor traffic so it is harder for a censor or network...</small></a>
+<a class="related-card" href="traffic-correlation.html"><span>Privacy, Anonymity &amp; OPSEC</span><strong>Traffic Correlation</strong><small>Traffic correlation is the linking of a user&#x27;s activity by comparing traffic timing, volume, routing, and pattern across different observation points.</small></a>
+<a class="related-card" href="vpn-vs-tor.html"><span>Privacy, Anonymity &amp; OPSEC</span><strong>VPN vs Tor</strong><small>VPNs are privacy-routing tools that shift network-path trust to a provider. Tor is an anonymity network designed to distribute trust across relays and reduce...</small></a>
+<a class="related-card" href="vpn-with-tor.html"><span>Privacy, Anonymity &amp; OPSEC</span><strong>VPN with Tor</strong><small>VPN with Tor means combining a VPN and Tor in one workflow, usually as Tor over VPN or VPN over Tor. Combining them changes the trust and visibility model; it does...</small></a>
+<a class="related-card" href="whonix-gateway.html"><span>Privacy, Anonymity &amp; OPSEC</span><strong>Whonix Gateway</strong><small>Whonix Gateway is the Tor-routing component of Whonix. It is designed to separate Tor network routing from user applications, so application traffic from the...</small></a>
+<a class="related-card" href="anonymity-threat-models.html"><span>Privacy, Anonymity &amp; OPSEC</span><strong>Anonymity Threat Models</strong><small>An anonymity threat model is a structured account of who is trying to link an action to a person, what they can observe, and what privacy controls actually reduce...</small></a>
+</div></section>
+</article>
+</main>
+<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
+<a class="toc-level-2" href="#definition">Definition</a>
+<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
+<a class="toc-level-2" href="#how-it-works">How it works</a>
+<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
+<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
+<a class="toc-level-3" href="#1-normal-web-over-tor">1. Normal web over Tor</a>
+<a class="toc-level-3" href="#2-onion-service-access">2. Onion service access</a>
+<a class="toc-level-3" href="#3-onion-location-discovery">3. Onion-Location discovery</a>
+<a class="toc-level-3" href="#4-authenticated-onion-services">4. Authenticated onion services</a>
+<a class="toc-level-3" href="#5-relay-and-traffic-correlation-limits">5. Relay and traffic-correlation limits</a>
+<a class="toc-level-2" href="#impact">Impact</a>
+<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
+<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
+<a class="toc-level-2" href="#practical-labs">Practical labs</a>
+<a class="toc-level-3" href="#build-a-tor-observer-table">Build a Tor observer table</a>
+<a class="toc-level-3" href="#verify-onion-address-handling">Verify onion address handling</a>
+<a class="toc-level-3" href="#compare-normal-and-onion-service-routing-conceptually">Compare normal and onion service routing conceptually</a>
+<a class="toc-level-3" href="#record-a-safe-download-decision">Record a safe download decision</a>
+<a class="back-to-top" href="#top">Back to top</a></div></aside>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

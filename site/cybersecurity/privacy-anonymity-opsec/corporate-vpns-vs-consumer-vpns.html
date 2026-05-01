@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Corporate VPNs vs Consumer VPNs - Privacy, Anonymity &amp; OPSEC | ldamoredev Security Atlas</title>
+<meta name="description" content="Corporate VPNs are usually access-control infrastructure for reaching private organizational resources. Consumer VPNs are usually privacy-routing products for...">
+<meta name="author" content="ldamoredev">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Privacy, Anonymity &amp; OPSEC, Corporate VPNs vs Consumer VPNs, privacy, vpn, corporate-security, access-control">
+<meta name="theme-color" content="#256d85">
+<link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Privacy, Anonymity &amp; OPSEC">
+<meta property="og:title" content="Corporate VPNs vs Consumer VPNs - Privacy, Anonymity &amp; OPSEC | ldamoredev Security Atlas">
+<meta property="og:description" content="Corporate VPNs are usually access-control infrastructure for reaching private organizational resources. Consumer VPNs are usually privacy-routing products for...">
+<meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html">
+<meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Corporate VPNs vs Consumer VPNs - Privacy, Anonymity &amp; OPSEC | ldamoredev Security Atlas">
+<meta name="twitter:description" content="Corporate VPNs are usually access-control infrastructure for reaching private organizational resources. Consumer VPNs are usually privacy-routing products for...">
+<meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"Corporate VPNs vs Consumer VPNs - Privacy, Anonymity & OPSEC | ldamoredev Security Atlas","headline":"Corporate VPNs vs Consumer VPNs","description":"Corporate VPNs are usually access-control infrastructure for reaching private organizational resources. Consumer VPNs are usually privacy-routing products for...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Privacy, Anonymity & OPSEC","Corporate VPNs vs Consumer VPNs","privacy","vpn","corporate-security","access-control"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Privacy, Anonymity & OPSEC","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/privacy-anonymity-opsec/index.html"},{"@type":"ListItem","position":4,"name":"Corporate VPNs vs Consumer VPNs","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html"}]}]</script>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body id="top" data-root="../..">
+<header class="topbar">
+  <button id="sidebar-toggle" title="Toggle navigation" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html"><span>ldamoredev</span><small>security atlas</small></a>
+  <div class="search-shell">
+    <input id="search" type="search" placeholder="Search notes..." autocomplete="off">
+    <kbd>/</kbd>
+  </div>
+  <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout with-toc">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Atlas Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="sidebar-link kind-index" href="../index.html">Cybersecurity Index</a>
+<div class="sidebar-group-label">Foundations</div>
+<details class="branch branch-sky"><summary><span>Networking</span><small>22</small></summary>
+<p class="sidebar-summary">Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p>
+<a class="sidebar-link kind-index" href="../networking/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="sidebar-link kind-concept" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="sidebar-link kind-concept" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="sidebar-link kind-concept" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="sidebar-link kind-concept" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-security.html">DNS Security</a>
+<a class="sidebar-link kind-concept" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="sidebar-link kind-concept" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="sidebar-link kind-concept" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="sidebar-link kind-concept" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="sidebar-link kind-concept" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="sidebar-link kind-concept" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="sidebar-link kind-concept" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="sidebar-link kind-concept" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="sidebar-link kind-concept" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="sidebar-link kind-concept" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="sidebar-link kind-concept" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="sidebar-link kind-concept" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details class="branch branch-teal"><summary><span>Wireless Security</span><small>11</small></summary>
+<p class="sidebar-summary">Wi-Fi frames, handshakes, rogue access points, and local-network MITM.</p>
+<a class="sidebar-link kind-index" href="../wireless-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+<details class="branch branch-blue"><summary><span>Web Security</span><small>24</small></summary>
+<p class="sidebar-summary">Browser behavior, sessions, access control, and server-side exploit patterns.</p>
+<a class="sidebar-link kind-index" href="../web-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="sidebar-link kind-concept" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="sidebar-link kind-concept" href="../web-security/clickjacking.html">Clickjacking</a>
+<a class="sidebar-link kind-concept" href="../web-security/command-injection.html">Command Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="sidebar-link kind-concept" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="sidebar-link kind-concept" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="sidebar-link kind-concept" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="sidebar-link kind-concept" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="sidebar-link kind-concept" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="sidebar-link kind-concept" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="sidebar-link kind-concept" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="sidebar-link kind-concept" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="sidebar-link kind-concept" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="sidebar-link kind-concept" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="sidebar-link kind-concept" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/session-management.html">Session Management</a>
+<a class="sidebar-link kind-concept" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/xxe.html">XXE</a>
+</details>
+<details class="branch branch-indigo"><summary><span>API Security</span><small>15</small></summary>
+<p class="sidebar-summary">Authorization, token trust, inventory drift, and machine-readable abuse.</p>
+<a class="sidebar-link kind-index" href="../api-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="sidebar-link kind-concept" href="../api-security/authorization.html">Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="sidebar-link kind-concept" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="sidebar-link kind-concept" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="sidebar-link kind-concept" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="sidebar-link kind-concept" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Cloud Security</span><small>11</small></summary>
+<p class="sidebar-summary">IAM, metadata, storage, network boundaries, secrets, and logging controls.</p>
+<a class="sidebar-link kind-index" href="../cloud-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<div class="sidebar-group-label">Exposure</div>
+<details class="branch branch-amber"><summary><span>Attack Surface Mapping</span><small>11</small></summary>
+<p class="sidebar-summary">What is exposed, reachable, discoverable, and drifting from intended design.</p>
+<a class="sidebar-link kind-index" href="../attack-surface-mapping/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details class="branch branch-violet"><summary><span>OSINT</span><small>11</small></summary>
+<p class="sidebar-summary">Public-source collection, evidence quality, and ethical handling of clues.</p>
+<a class="sidebar-link kind-index" href="../osint/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="sidebar-link kind-concept" href="../osint/company-osint.html">Company OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="sidebar-link kind-concept" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint.html">OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="sidebar-link kind-concept" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="sidebar-link kind-concept" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>13</small></summary>
+<p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
+<a class="sidebar-link kind-index" href="../offensive-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/recon.html">Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details class="branch branch-orange"><summary><span>Linux Privilege Escalation</span><small>10</small></summary>
+<p class="sidebar-summary">Local boundary failures, enumeration, and safe escalation hypothesis testing.</p>
+<a class="sidebar-link kind-index" href="../linux-privilege-escalation/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details class="branch branch-purple" open><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
+<p class="sidebar-summary">VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.</p>
+<a class="sidebar-link kind-index" href="index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="account-correlation.html">Account Correlation</a>
+<a class="sidebar-link kind-concept" href="anonymity-threat-models.html">Anonymity Threat Models</a>
+<a class="sidebar-link kind-concept" href="browser-fingerprinting.html">Browser Fingerprinting</a>
+<a class="sidebar-link kind-concept active" href="corporate-vpns-vs-consumer-vpns.html">Corporate VPNs vs Consumer VPNs</a>
+<a class="sidebar-link kind-concept" href="deanonymization-failures.html">Deanonymization Failures</a>
+<a class="sidebar-link kind-concept" href="end-to-end-encryption.html">End-to-End Encryption</a>
+<a class="sidebar-link kind-concept" href="file-metadata-removal.html">File Metadata Removal</a>
+<a class="sidebar-link kind-concept" href="metadata-and-identity-leakage.html">Metadata and Identity Leakage</a>
+<a class="sidebar-link kind-concept" href="opsec-failure-chains.html">OPSEC Failure Chains</a>
+<a class="sidebar-link kind-concept" href="pgp-encryption-and-signatures.html">PGP Encryption and Signatures</a>
+<a class="sidebar-link kind-concept" href="privacy-vs-anonymity-vs-confidentiality.html">Privacy vs Anonymity vs Confidentiality</a>
+<a class="sidebar-link kind-concept" href="private-email-threat-models.html">Private Email Threat Models</a>
+<a class="sidebar-link kind-concept" href="qubes-compartmentalization.html">Qubes Compartmentalization</a>
+<a class="sidebar-link kind-concept" href="secure-deletion-and-storage-wiping.html">Secure Deletion and Storage Wiping</a>
+<a class="sidebar-link kind-concept" href="secure-file-sharing.html">Secure File Sharing</a>
+<a class="sidebar-link kind-concept" href="tails-operational-model.html">Tails Operational Model</a>
+<a class="sidebar-link kind-concept" href="temporary-email-risks.html">Temporary Email Risks</a>
+<a class="sidebar-link kind-concept" href="tor-and-onion-services.html">Tor and Onion Services</a>
+<a class="sidebar-link kind-concept" href="tor-bridges-and-pluggable-transports.html">Tor Bridges and Pluggable Transports</a>
+<a class="sidebar-link kind-concept" href="tor-browser-security-settings.html">Tor Browser Security Settings</a>
+<a class="sidebar-link kind-concept" href="traffic-correlation.html">Traffic Correlation</a>
+<a class="sidebar-link kind-concept" href="vpn-dns-and-ipv6-leaks.html">VPN DNS and IPv6 Leaks</a>
+<a class="sidebar-link kind-concept" href="vpn-fingerprinting-limitations.html">VPN Fingerprinting Limitations</a>
+<a class="sidebar-link kind-concept" href="vpn-kill-switches.html">VPN Kill Switches</a>
+<a class="sidebar-link kind-concept" href="vpn-leakage-risks.html">VPN Leakage Risks</a>
+<a class="sidebar-link kind-concept" href="vpn-logging-and-trust.html">VPN Logging and Trust</a>
+<a class="sidebar-link kind-concept" href="vpn-protocols.html">VPN Protocols</a>
+<a class="sidebar-link kind-concept" href="vpn-threat-models.html">VPN Threat Models</a>
+<a class="sidebar-link kind-concept" href="vpn-vs-tor.html">VPN vs Tor</a>
+<a class="sidebar-link kind-concept" href="vpn-with-tor.html">VPN with Tor</a>
+<a class="sidebar-link kind-concept" href="whonix-gateway.html">Whonix Gateway</a>
+<a class="sidebar-link kind-concept" href="xmpp-and-private-messaging.html">XMPP and Private Messaging</a>
+</details>
+<div class="sidebar-group-label">Engineering</div>
+<details class="branch branch-green"><summary><span>DevSecOps</span><small>13</small></summary>
+<p class="sidebar-summary">Secure delivery, CI/CD hardening, supply chain, secrets, and release trust.</p>
+<a class="sidebar-link kind-index" href="../devsecops/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="sidebar-link kind-concept" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="sidebar-link kind-concept" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="sidebar-link kind-concept" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="sidebar-link kind-concept" href="../devsecops/container-security.html">Container Security</a>
+<a class="sidebar-link kind-concept" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="sidebar-link kind-concept" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="sidebar-link kind-concept" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="sidebar-link kind-concept" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="sidebar-link kind-concept" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<div class="sidebar-group-label">Execution</div>
+<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>12</small></summary>
+<p class="sidebar-summary">Repeatable procedures for turning concepts into practical tests.</p>
+<a class="sidebar-link kind-index" href="../security-playbooks/index.html">Overview</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/trace-metadata-endpoint-reachability.html">Trace Metadata Endpoint Reachability</a>
+</details>
+<details class="registry-group"><summary>Reference System <span>13</span></summary>
+<a class="sidebar-link kind-registry" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-privacy-anonymity-opsec.html">Reference Registry - Privacy, Anonymity &amp; OPSEC</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-api-security.html">Reference Registry — API Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-networking.html">Reference Registry — Networking</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-offensive-security.html">Reference Registry — Offensive Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-playbooks.html">Reference Registry — Playbooks</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-web-security.html">Reference Registry — Web Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Privacy, Anonymity &amp; OPSEC</a><span>/</span><span>Corporate VPNs vs Consumer VPNs</span></nav>
+<header class="page-hero">
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-purple">Privacy, Anonymity &amp; OPSEC</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#privacy</span><span class="meta-chip tag">#vpn</span><span class="meta-chip tag">#corporate-security</span><span class="meta-chip tag">#access-control</span></div>
+</header>
+<article class="article-note">
+<h1 id="corporate-vpns-vs-consumer-vpns">Corporate VPNs vs Consumer VPNs</h1>
+<h2 id="definition">Definition</h2>
+<p>Corporate VPNs are usually access-control infrastructure for reaching private organizational resources. Consumer VPNs are usually privacy-routing products for changing network-path visibility on the public internet.</p>
+<p>The word VPN is the same, but the security objective is different.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Confusing corporate and consumer VPNs leads to bad expectations. A corporate VPN is often identity-aware, device-managed, monitored, and logged by design. A consumer VPN is marketed as a privacy tool, but its value depends on provider trust, routing behavior, and leakage controls.</p>
+<p>Corporate VPNs are usually about "who may access this internal resource?" Consumer VPNs are usually about "who can observe my public internet path?"</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Use the 4-difference model:</p>
+<ol>
+<li>
+<p><strong>Security goal</strong>
+   Corporate VPN: authenticated access to company resources. Consumer VPN: reduced local-network or ISP visibility and changed apparent source network.</p>
+</li>
+<li>
+<p><strong>Identity</strong>
+   Corporate VPN: tied to employee identity, device posture, MFA, policy, and monitoring. Consumer VPN: tied to provider account, payment, device, or subscription identity.</p>
+</li>
+<li>
+<p><strong>Logging</strong>
+   Corporate VPN: logging is expected for security operations, compliance, and incident response. Consumer VPN: logging is a privacy trust issue.</p>
+</li>
+<li>
+<p><strong>Traffic scope</strong>
+   Corporate VPN: may route private subnets or all traffic through company infrastructure. Consumer VPN: usually routes public internet traffic through provider exits.</p>
+</li>
+</ol>
+<p>Comparison:</p>
+<div class="codehilite"><pre><span></span><code>Corporate VPN:
+  purpose: access control
+  identity: employee/device
+  logging: expected
+  owner: employer
+  trust question: can this user/device reach this resource?
+
+Consumer VPN:
+  purpose: privacy routing
+  identity: subscriber/provider account
+  logging: privacy-sensitive
+  owner: provider
+  trust question: who sees my network path now?
+</code></pre></div>
+
+<p>The bug is not using a corporate VPN. The bug is expecting it to behave like a consumer privacy product.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<ul>
+<li>Identify whether the VPN exists for access control or privacy routing.</li>
+<li>Check whether all traffic or only private subnets are routed.</li>
+<li>Read corporate acceptable-use and monitoring notices.</li>
+<li>Treat corporate VPN logs as normal security evidence, not a privacy failure.</li>
+<li>Evaluate consumer VPN logs as provider trust evidence.</li>
+<li>Avoid using employer-managed VPNs or devices for personal privacy workflows.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Use the 5 deployment patterns:</p>
+<h3 id="1-full-tunnel-corporate-vpn">1. Full-tunnel corporate VPN</h3>
+<p>All traffic routes through company infrastructure. This can support monitoring and protection but means personal browsing may be visible to employer systems.</p>
+<h3 id="2-split-tunnel-corporate-vpn">2. Split-tunnel corporate VPN</h3>
+<p>Only corporate routes use the VPN. This reduces load and preserves local internet paths, but split policy must be clear and tested.</p>
+<h3 id="3-identity-aware-corporate-access">3. Identity-aware corporate access</h3>
+<p>Modern access may combine VPN, device posture, MFA, SSO, EDR, and conditional access. The tunnel is only one control in a broader access system.</p>
+<h3 id="4-consumer-full-tunnel-vpn">4. Consumer full-tunnel VPN</h3>
+<p>Most consumer VPN use routes public internet traffic through provider exits. The provider becomes the new network-path trust point.</p>
+<h3 id="5-consumer-privacy-marketing-gap">5. Consumer privacy marketing gap</h3>
+<p>Consumer VPNs may overpromise anonymity. They do not remove account identity, browser fingerprints, cookies, behavior, or provider trust.</p>
+<h2 id="impact">Impact</h2>
+<ul>
+<li>Better expectations for employer monitoring and incident response.</li>
+<li>Reduced misuse of corporate VPNs for personal privacy.</li>
+<li>Clearer evaluation of consumer VPN trust claims.</li>
+<li>Better architecture conversations about replacing broad VPN access with identity-aware controls.</li>
+<li>Fewer false assumptions about what "connected to VPN" proves.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Name the VPN objective</strong>
+   Decide whether the VPN is for private-resource access, public-internet privacy, censorship resistance, or network segmentation. The objective determines what "secure" means.</p>
+</li>
+<li>
+<p><strong>Document identity and logging</strong>
+   Corporate VPNs should state what identity, device, route, and activity data are logged. Consumer VPNs should be evaluated for minimization and trust evidence.</p>
+</li>
+<li>
+<p><strong>Prefer least-privilege access for corporate resources</strong>
+   Broad network access should be reduced where possible through segmentation, identity-aware proxies, per-app access, and zero-trust patterns.</p>
+</li>
+<li>
+<p><strong>Test route scope</strong>
+   Full tunnel and split tunnel have different privacy and security consequences. Verify route tables and DNS behavior.</p>
+</li>
+<li>
+<p><strong>Separate personal privacy from managed work environments</strong>
+   Employer-managed devices and VPNs are usually not appropriate for private personal workflows.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Corporate VPN is not personal anonymity.</strong> It often increases employer visibility.</li>
+<li><strong>Consumer VPN is not corporate access control.</strong> It does not authenticate a user to private company resources by itself.</li>
+<li><strong>Split tunnel is not automatically safer.</strong> It reduces some exposure and creates other routing ambiguity.</li>
+<li><strong>Zero trust is not just "no VPN."</strong> It is an architecture of identity, device, policy, telemetry, and least privilege.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<h3 id="classify-a-vpn-deployment">Classify a VPN deployment</h3>
+<div class="codehilite"><pre><span></span><code>VPN name:
+Owner:
+Purpose:
+Users:
+Resources reached:
+Identity provider:
+Device posture required:
+MFA required:
+Logging expected:
+Full or split tunnel:
+</code></pre></div>
+
+<p>The result should make corporate vs consumer intent obvious.</p>
+<h3 id="inspect-route-scope">Inspect route scope</h3>
+<div class="codehilite"><pre><span></span><code>netstat<span class="w"> </span>-rn<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39;1,120p&#39;</span>
+</code></pre></div>
+
+<p>Run before and after connection. Look for whether default traffic or only private subnets use the VPN.</p>
+<h3 id="build-a-monitoring-expectation-card">Build a monitoring expectation card</h3>
+<div class="codehilite"><pre><span></span><code>Corporate VPN:
+Logs user identity:
+Logs device:
+Logs source IP:
+Logs destination/internal resource:
+Logs DNS:
+Retention:
+Notice/policy:
+</code></pre></div>
+
+<p>This turns monitoring into an explicit policy and engineering fact.</p>
+<h3 id="compare-consumer-trust-claims">Compare consumer trust claims</h3>
+<div class="codehilite"><pre><span></span><code>Provider:
+No-log claim:
+Connection logs:
+Traffic logs:
+Payment metadata:
+Audit:
+Jurisdiction:
+Owner:
+Decision:
+</code></pre></div>
+
+<p>Use this for consumer VPNs, not corporate access infrastructure.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>An employee uses corporate VPN to reach internal Git, and the company logs identity, device, and access time.</li>
+<li>A company moves from broad VPN access to per-app access with MFA and device posture checks.</li>
+<li>A consumer VPN reduces ISP visibility on home internet but does not hide account login from websites.</li>
+<li>A split-tunnel corporate VPN sends internal apps through the company and public browsing through the local ISP.</li>
+<li>A user tries to use a work laptop plus corporate VPN for personal privacy and misunderstands employer visibility.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="vpn-threat-models.html">VPN Threat Models</a></li>
+<li><a href="vpn-logging-and-trust.html">VPN Logging and Trust</a></li>
+<li><a href="vpn-protocols.html">VPN Protocols</a></li>
+<li><a href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a></li>
+<li><a href="../devsecops/secure-by-design.html">Secure by Design</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="unresolved-link" title="Unpublished or unresolved: zero-trust-network-access">zero-trust-network-access</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: split-tunneling">split-tunneling</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: device-posture-checks">device-posture-checks</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: corporate-monitoring-boundaries">corporate-monitoring-boundaries</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Threat Model:</strong> EFF Choosing the VPN That's Right for You - https://ssd.eff.org/module/choosing-vpn-thats-right-you</li>
+<li><strong>Foundational:</strong> NIST Zero Trust Architecture SP 800-207 - https://csrc.nist.gov/pubs/sp/800/207/final</li>
+<li><strong>Foundational:</strong> CISA Zero Trust Maturity Model - https://www.cisa.gov/zero-trust-maturity-model</li>
+</ul>
+<section class="related-notes" aria-label="Explore nearby notes">
+<h2>Explore nearby notes</h2>
+<div class="related-grid">
+<a class="related-card" href="vpn-dns-and-ipv6-leaks.html"><span>Privacy, Anonymity &amp; OPSEC</span><strong>VPN DNS and IPv6 Leaks</strong><small>VPN DNS and IPv6 leaks happen when domain lookups or IPv6 traffic leave through a path different from the intended VPN path, exposing metadata to an ISP, local...</small></a>
+<a class="related-card" href="vpn-fingerprinting-limitations.html"><span>Privacy, Anonymity &amp; OPSEC</span><strong>VPN Fingerprinting Limitations</strong><small>VPN fingerprinting limitations are the reasons a VPN cannot stop browser, account, device, and behavior fingerprinting even when network-path visibility changes.</small></a>
+<a class="related-card" href="vpn-kill-switches.html"><span>Privacy, Anonymity &amp; OPSEC</span><strong>VPN Kill Switches</strong><small>A VPN kill switch blocks traffic when the VPN is disconnected or unavailable so the system does not silently fall back to the normal network path.</small></a>
+<a class="related-card" href="vpn-leakage-risks.html"><span>Privacy, Anonymity &amp; OPSEC</span><strong>VPN Leakage Risks</strong><small>VPN leakage risks are identity, routing, resolver, browser, application, file, and behavior signals that escape or bypass the expected VPN privacy model.</small></a>
+<a class="related-card" href="vpn-logging-and-trust.html"><span>Privacy, Anonymity &amp; OPSEC</span><strong>VPN Logging and Trust</strong><small>VPN logging and trust is the problem of deciding what a VPN provider can observe, what it stores, what it can be compelled to disclose, and whether its privacy...</small></a>
+<a class="related-card" href="vpn-protocols.html"><span>Privacy, Anonymity &amp; OPSEC</span><strong>VPN Protocols</strong><small>VPN protocols define how a VPN tunnel is negotiated, encrypted, authenticated, routed, and maintained. They determine the shape of the tunnel, not whether the user...</small></a>
+</div></section>
+</article>
+</main>
+<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
+<a class="toc-level-2" href="#definition">Definition</a>
+<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
+<a class="toc-level-2" href="#how-it-works">How it works</a>
+<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
+<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
+<a class="toc-level-3" href="#1-full-tunnel-corporate-vpn">1. Full-tunnel corporate VPN</a>
+<a class="toc-level-3" href="#2-split-tunnel-corporate-vpn">2. Split-tunnel corporate VPN</a>
+<a class="toc-level-3" href="#3-identity-aware-corporate-access">3. Identity-aware corporate access</a>
+<a class="toc-level-3" href="#4-consumer-full-tunnel-vpn">4. Consumer full-tunnel VPN</a>
+<a class="toc-level-3" href="#5-consumer-privacy-marketing-gap">5. Consumer privacy marketing gap</a>
+<a class="toc-level-2" href="#impact">Impact</a>
+<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
+<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
+<a class="toc-level-2" href="#practical-labs">Practical labs</a>
+<a class="toc-level-3" href="#classify-a-vpn-deployment">Classify a VPN deployment</a>
+<a class="toc-level-3" href="#inspect-route-scope">Inspect route scope</a>
+<a class="toc-level-3" href="#build-a-monitoring-expectation-card">Build a monitoring expectation card</a>
+<a class="toc-level-3" href="#compare-consumer-trust-claims">Compare consumer trust claims</a>
+<a class="back-to-top" href="#top">Back to top</a></div></aside>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

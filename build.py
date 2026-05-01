@@ -110,6 +110,12 @@ BRANCHES = {
         "summary": "Local boundary failures, enumeration, and safe escalation hypothesis testing.",
         "accent": "orange",
     },
+    "privacy-anonymity-opsec": {
+        "label": "Privacy, Anonymity & OPSEC",
+        "group": "Exposure",
+        "summary": "VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.",
+        "accent": "purple",
+    },
     "devsecops": {
         "label": "DevSecOps",
         "group": "Engineering",
@@ -138,6 +144,7 @@ MATURE_CYBERSECURITY_ROOT_FILES = {
     "reference-registry-networking.md",
     "reference-registry-offensive-security.md",
     "reference-registry-osint.md",
+    "reference-registry-privacy-anonymity-opsec.md",
     "reference-registry-playbooks.md",
     "reference-registry-web-security.md",
     "reference-registry-wireless-security.md",
@@ -766,7 +773,11 @@ def write_sitemap(notes: list[Note]) -> None:
     urls = [absolute_site_url("index.html")] + [canonical_url(n) for n in notes]
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        '<!--suppress XmlPathReference -->',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+        '        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"',
+        '        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 '
+        'https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">',
     ]
     for url in sorted(set(urls)):
         priority = "1.0" if url.endswith("/index.html") else "0.7"
