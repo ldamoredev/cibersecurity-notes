@@ -44,7 +44,7 @@
 <div class="sidebar-section"><h3>Cybersecurity</h3>
 <a class="sidebar-link kind-index active" href="index.html">Cybersecurity Index</a>
 <div class="sidebar-group-label">Foundations</div>
-<details class="branch branch-sky"><summary><span>Networking</span><small>22</small></summary>
+<details class="branch branch-sky"><summary><span>Networking</span><small>23</small></summary>
 <p class="sidebar-summary">Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p>
 <a class="sidebar-link kind-index" href="networking/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="networking/caching-and-security.html">Caching and Security</a>
@@ -55,6 +55,7 @@
 <a class="sidebar-link kind-concept" href="networking/dns-resolution.html">DNS Resolution</a>
 <a class="sidebar-link kind-concept" href="networking/dns-security.html">DNS Security</a>
 <a class="sidebar-link kind-concept" href="networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="networking/header-trust-in-node-express.html">Header Trust in Node Express</a>
 <a class="sidebar-link kind-concept" href="networking/http-headers.html">HTTP Headers</a>
 <a class="sidebar-link kind-concept" href="networking/http-messages.html">HTTP Messages</a>
 <a class="sidebar-link kind-concept" href="networking/http-overview.html">HTTP Overview</a>
@@ -83,10 +84,11 @@
 <a class="sidebar-link kind-concept" href="wireless-security/wireless-security.html">Wireless Security</a>
 <a class="sidebar-link kind-concept" href="wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
 </details>
-<details class="branch branch-blue"><summary><span>Web Security</span><small>24</small></summary>
+<details class="branch branch-blue"><summary><span>Web Security</span><small>27</small></summary>
 <p class="sidebar-summary">Browser behavior, sessions, access control, and server-side exploit patterns.</p>
 <a class="sidebar-link kind-index" href="web-security/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="web-security/bot-detection-signals.html">Bot Detection Signals</a>
 <a class="sidebar-link kind-concept" href="web-security/broken-access-control.html">Broken Access Control</a>
 <a class="sidebar-link kind-concept" href="web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
 <a class="sidebar-link kind-concept" href="web-security/clickjacking.html">Clickjacking</a>
@@ -95,10 +97,12 @@
 <a class="sidebar-link kind-concept" href="web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
 <a class="sidebar-link kind-concept" href="web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
 <a class="sidebar-link kind-concept" href="web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="sidebar-link kind-concept" href="web-security/evilginx-and-reverse-proxy-phishing.html">Evilginx and Reverse Proxy Phishing</a>
 <a class="sidebar-link kind-concept" href="web-security/file-upload-abuse.html">File Upload Abuse</a>
 <a class="sidebar-link kind-concept" href="web-security/gadget-chains.html">Gadget Chains</a>
 <a class="sidebar-link kind-concept" href="web-security/deserialization.html">Insecure Deserialization</a>
 <a class="sidebar-link kind-concept" href="web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="sidebar-link kind-concept" href="web-security/mfa-phishing-resistance.html">MFA Phishing Resistance</a>
 <a class="sidebar-link kind-concept" href="web-security/oauth-security.html">OAuth Security</a>
 <a class="sidebar-link kind-concept" href="web-security/open-redirect.html">Open Redirect</a>
 <a class="sidebar-link kind-concept" href="web-security/owasp-top-10.html">OWASP Top 10</a>
@@ -171,10 +175,11 @@
 <a class="sidebar-link kind-concept" href="osint/search-engine-operators.html">Search Engine Operators</a>
 <a class="sidebar-link kind-concept" href="osint/social-media-osint.html">Social Media OSINT</a>
 </details>
-<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>13</small></summary>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>14</small></summary>
 <p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
 <a class="sidebar-link kind-index" href="offensive-security/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="offensive-security/active-recon.html">Active Recon</a>
+<a class="sidebar-link kind-concept" href="offensive-security/cloaking-and-security-evasion.html">Cloaking and Security Evasion</a>
 <a class="sidebar-link kind-concept" href="offensive-security/company-mapping.html">Company Mapping</a>
 <a class="sidebar-link kind-concept" href="offensive-security/enumeration.html">Enumeration</a>
 <a class="sidebar-link kind-concept" href="offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
@@ -336,8 +341,6 @@
 <p>This layer turns concepts into reusable procedures and real execution work.</p>
 <ul>
 <li><a href="security-playbooks/index.html">Security Playbooks</a></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: cybersecurity/projects/index">Projects</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: cybersecurity/tooling/recon-automation">Recon Automation</span> (seed tooling support note)</li>
 </ul>
 <hr />
 <h2 id="recommended-study-order">Recommended study order</h2>
@@ -365,11 +368,6 @@
 <ol start="12">
 <li><a href="security-playbooks/index.html">Security Playbooks</a></li>
 </ol>
-<h3 id="phase-5-execution-and-writeups">Phase 5 — Execution and writeups</h3>
-<ol start="13">
-<li><span class="unresolved-link" title="Unpublished or unresolved: cybersecurity/projects/index">Projects</span></li>
-</ol>
-<hr />
 <h2 id="branch-roles">Branch roles</h2>
 <h3 id="networking">Networking</h3>
 <p>Explains:
@@ -443,12 +441,6 @@
 - how to operationalize concepts
 - how to test specific classes of weakness
 - how to move from theory to repeatable procedure</p>
-<h3 id="projects">Projects</h3>
-<p>Explains:
-- which branches a real exercise pulls together
-- what should be tested or implemented next
-- where findings, writeups, and retrospectives should later live</p>
-<hr />
 <h2 id="reference-registries">Reference registries</h2>
 <p>These are the source-of-truth notes for references in each branch.</p>
 <ul>
@@ -505,10 +497,6 @@
 <li><a href="privacy-anonymity-opsec/index.html">Privacy, Anonymity &amp; OPSEC</a></li>
 <li><a href="security-playbooks/index.html">Security Playbooks</a></li>
 </ul>
-<p>The current execution layer is:</p>
-<ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: cybersecurity/projects/index">Projects</span></li>
-</ul>
 <p>This root index should remain a navigation and system note, not a giant summary note.</p>
 <hr />
 <h2 id="suggested-future-additions">Suggested future additions</h2>
@@ -532,13 +520,13 @@
 <a class="toc-level-3" href="#phase-2-exposure-and-discovery">Phase 2 — Exposure and discovery</a>
 <a class="toc-level-3" href="#phase-3-secure-engineering">Phase 3 — Secure engineering</a>
 <a class="toc-level-3" href="#phase-4-reusable-workflows">Phase 4 — Reusable workflows</a>
-<a class="toc-level-3" href="#phase-5-execution-and-writeups">Phase 5 — Execution and writeups</a>
 <a class="toc-level-2" href="#branch-roles">Branch roles</a>
 <a class="toc-level-3" href="#networking">Networking</a>
 <a class="toc-level-3" href="#wireless-security">Wireless Security</a>
 <a class="toc-level-3" href="#web-security">Web Security</a>
 <a class="toc-level-3" href="#api-security">API Security</a>
 <a class="toc-level-3" href="#cloud-security">Cloud Security</a>
+<a class="toc-level-3" href="#attack-surface-mapping">Attack Surface Mapping</a>
 <a class="back-to-top" href="#top">Back to top</a></div></aside>
 </div>
 <script src="../assets/search.js"></script>

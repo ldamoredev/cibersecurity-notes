@@ -44,7 +44,7 @@
 <div class="sidebar-section"><h3>Cybersecurity</h3>
 <a class="sidebar-link kind-index" href="cybersecurity/index.html">Cybersecurity Index</a>
 <div class="sidebar-group-label">Foundations</div>
-<details class="branch branch-sky"><summary><span>Networking</span><small>22</small></summary>
+<details class="branch branch-sky"><summary><span>Networking</span><small>23</small></summary>
 <p class="sidebar-summary">Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p>
 <a class="sidebar-link kind-index" href="cybersecurity/networking/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/networking/caching-and-security.html">Caching and Security</a>
@@ -55,6 +55,7 @@
 <a class="sidebar-link kind-concept" href="cybersecurity/networking/dns-resolution.html">DNS Resolution</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/networking/dns-security.html">DNS Security</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="cybersecurity/networking/header-trust-in-node-express.html">Header Trust in Node Express</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/networking/http-headers.html">HTTP Headers</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/networking/http-messages.html">HTTP Messages</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/networking/http-overview.html">HTTP Overview</a>
@@ -83,10 +84,11 @@
 <a class="sidebar-link kind-concept" href="cybersecurity/wireless-security/wireless-security.html">Wireless Security</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
 </details>
-<details class="branch branch-blue"><summary><span>Web Security</span><small>24</small></summary>
+<details class="branch branch-blue"><summary><span>Web Security</span><small>27</small></summary>
 <p class="sidebar-summary">Browser behavior, sessions, access control, and server-side exploit patterns.</p>
 <a class="sidebar-link kind-index" href="cybersecurity/web-security/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="cybersecurity/web-security/bot-detection-signals.html">Bot Detection Signals</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/web-security/broken-access-control.html">Broken Access Control</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/web-security/clickjacking.html">Clickjacking</a>
@@ -95,10 +97,12 @@
 <a class="sidebar-link kind-concept" href="cybersecurity/web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="sidebar-link kind-concept" href="cybersecurity/web-security/evilginx-and-reverse-proxy-phishing.html">Evilginx and Reverse Proxy Phishing</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/web-security/file-upload-abuse.html">File Upload Abuse</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/web-security/gadget-chains.html">Gadget Chains</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/web-security/deserialization.html">Insecure Deserialization</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="sidebar-link kind-concept" href="cybersecurity/web-security/mfa-phishing-resistance.html">MFA Phishing Resistance</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/web-security/oauth-security.html">OAuth Security</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/web-security/open-redirect.html">Open Redirect</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/web-security/owasp-top-10.html">OWASP Top 10</a>
@@ -171,10 +175,11 @@
 <a class="sidebar-link kind-concept" href="cybersecurity/osint/search-engine-operators.html">Search Engine Operators</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/osint/social-media-osint.html">Social Media OSINT</a>
 </details>
-<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>13</small></summary>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>14</small></summary>
 <p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
 <a class="sidebar-link kind-index" href="cybersecurity/offensive-security/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/active-recon.html">Active Recon</a>
+<a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/cloaking-and-security-evasion.html">Cloaking and Security Evasion</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/company-mapping.html">Company Mapping</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/enumeration.html">Enumeration</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
@@ -297,7 +302,7 @@
 <h1>ldamoredev security atlas</h1>
 <p class="lede">A static snapshot of mature cybersecurity notes from the Obsidian vault: learning paths, atomic concepts, reference policy, and practical playbooks shaped for fast retrieval.</p>
 <div class="stat-row">
-<span><strong>200</strong> published notes</span>
+<span><strong>205</strong> published notes</span>
 <span><strong>12</strong> branches</span>
 <span><strong>13</strong> reference registries</span>
 </div>
@@ -317,16 +322,16 @@
 </section>
 <p class="home-index-link"><a href="cybersecurity/index.html">Open the full cybersecurity index</a></p>
 <section class="branch-section"><h2>Foundations</h2><div class="branch-grid">
-<a class="branch-card accent-sky" href="cybersecurity/networking/index.html"><span class="card-kicker">Foundations</span><h3>Networking</h3><p>Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p><span class="card-meta">21 notes</span></a>
+<a class="branch-card accent-sky" href="cybersecurity/networking/index.html"><span class="card-kicker">Foundations</span><h3>Networking</h3><p>Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p><span class="card-meta">22 notes</span></a>
 <a class="branch-card accent-teal" href="cybersecurity/wireless-security/index.html"><span class="card-kicker">Foundations</span><h3>Wireless Security</h3><p>Wi-Fi frames, handshakes, rogue access points, and local-network MITM.</p><span class="card-meta">10 notes</span></a>
-<a class="branch-card accent-blue" href="cybersecurity/web-security/index.html"><span class="card-kicker">Foundations</span><h3>Web Security</h3><p>Browser behavior, sessions, access control, and server-side exploit patterns.</p><span class="card-meta">23 notes</span></a>
+<a class="branch-card accent-blue" href="cybersecurity/web-security/index.html"><span class="card-kicker">Foundations</span><h3>Web Security</h3><p>Browser behavior, sessions, access control, and server-side exploit patterns.</p><span class="card-meta">26 notes</span></a>
 <a class="branch-card accent-indigo" href="cybersecurity/api-security/index.html"><span class="card-kicker">Foundations</span><h3>API Security</h3><p>Authorization, token trust, inventory drift, and machine-readable abuse.</p><span class="card-meta">14 notes</span></a>
 <a class="branch-card accent-cyan" href="cybersecurity/cloud-security/index.html"><span class="card-kicker">Foundations</span><h3>Cloud Security</h3><p>IAM, metadata, storage, network boundaries, secrets, and logging controls.</p><span class="card-meta">10 notes</span></a>
 </div></section>
 <section class="branch-section"><h2>Exposure</h2><div class="branch-grid">
 <a class="branch-card accent-amber" href="cybersecurity/attack-surface-mapping/index.html"><span class="card-kicker">Exposure</span><h3>Attack Surface Mapping</h3><p>What is exposed, reachable, discoverable, and drifting from intended design.</p><span class="card-meta">10 notes</span></a>
 <a class="branch-card accent-violet" href="cybersecurity/osint/index.html"><span class="card-kicker">Exposure</span><h3>OSINT</h3><p>Public-source collection, evidence quality, and ethical handling of clues.</p><span class="card-meta">10 notes</span></a>
-<a class="branch-card accent-rose" href="cybersecurity/offensive-security/index.html"><span class="card-kicker">Exposure</span><h3>Offensive Security / Recon</h3><p>Discovery, validation, and handoff from recon into concrete testing.</p><span class="card-meta">12 notes</span></a>
+<a class="branch-card accent-rose" href="cybersecurity/offensive-security/index.html"><span class="card-kicker">Exposure</span><h3>Offensive Security / Recon</h3><p>Discovery, validation, and handoff from recon into concrete testing.</p><span class="card-meta">13 notes</span></a>
 <a class="branch-card accent-orange" href="cybersecurity/linux-privilege-escalation/index.html"><span class="card-kicker">Exposure</span><h3>Linux Privilege Escalation</h3><p>Local boundary failures, enumeration, and safe escalation hypothesis testing.</p><span class="card-meta">9 notes</span></a>
 <a class="branch-card accent-purple" href="cybersecurity/privacy-anonymity-opsec/index.html"><span class="card-kicker">Exposure</span><h3>Privacy, Anonymity &amp; OPSEC</h3><p>VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.</p><span class="card-meta">32 notes</span></a>
 </div></section>

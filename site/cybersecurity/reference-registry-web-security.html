@@ -44,7 +44,7 @@
 <div class="sidebar-section"><h3>Cybersecurity</h3>
 <a class="sidebar-link kind-index" href="index.html">Cybersecurity Index</a>
 <div class="sidebar-group-label">Foundations</div>
-<details class="branch branch-sky"><summary><span>Networking</span><small>22</small></summary>
+<details class="branch branch-sky"><summary><span>Networking</span><small>23</small></summary>
 <p class="sidebar-summary">Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p>
 <a class="sidebar-link kind-index" href="networking/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="networking/caching-and-security.html">Caching and Security</a>
@@ -55,6 +55,7 @@
 <a class="sidebar-link kind-concept" href="networking/dns-resolution.html">DNS Resolution</a>
 <a class="sidebar-link kind-concept" href="networking/dns-security.html">DNS Security</a>
 <a class="sidebar-link kind-concept" href="networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="networking/header-trust-in-node-express.html">Header Trust in Node Express</a>
 <a class="sidebar-link kind-concept" href="networking/http-headers.html">HTTP Headers</a>
 <a class="sidebar-link kind-concept" href="networking/http-messages.html">HTTP Messages</a>
 <a class="sidebar-link kind-concept" href="networking/http-overview.html">HTTP Overview</a>
@@ -83,10 +84,11 @@
 <a class="sidebar-link kind-concept" href="wireless-security/wireless-security.html">Wireless Security</a>
 <a class="sidebar-link kind-concept" href="wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
 </details>
-<details class="branch branch-blue"><summary><span>Web Security</span><small>24</small></summary>
+<details class="branch branch-blue"><summary><span>Web Security</span><small>27</small></summary>
 <p class="sidebar-summary">Browser behavior, sessions, access control, and server-side exploit patterns.</p>
 <a class="sidebar-link kind-index" href="web-security/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="web-security/bot-detection-signals.html">Bot Detection Signals</a>
 <a class="sidebar-link kind-concept" href="web-security/broken-access-control.html">Broken Access Control</a>
 <a class="sidebar-link kind-concept" href="web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
 <a class="sidebar-link kind-concept" href="web-security/clickjacking.html">Clickjacking</a>
@@ -95,10 +97,12 @@
 <a class="sidebar-link kind-concept" href="web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
 <a class="sidebar-link kind-concept" href="web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
 <a class="sidebar-link kind-concept" href="web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="sidebar-link kind-concept" href="web-security/evilginx-and-reverse-proxy-phishing.html">Evilginx and Reverse Proxy Phishing</a>
 <a class="sidebar-link kind-concept" href="web-security/file-upload-abuse.html">File Upload Abuse</a>
 <a class="sidebar-link kind-concept" href="web-security/gadget-chains.html">Gadget Chains</a>
 <a class="sidebar-link kind-concept" href="web-security/deserialization.html">Insecure Deserialization</a>
 <a class="sidebar-link kind-concept" href="web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="sidebar-link kind-concept" href="web-security/mfa-phishing-resistance.html">MFA Phishing Resistance</a>
 <a class="sidebar-link kind-concept" href="web-security/oauth-security.html">OAuth Security</a>
 <a class="sidebar-link kind-concept" href="web-security/open-redirect.html">Open Redirect</a>
 <a class="sidebar-link kind-concept" href="web-security/owasp-top-10.html">OWASP Top 10</a>
@@ -171,10 +175,11 @@
 <a class="sidebar-link kind-concept" href="osint/search-engine-operators.html">Search Engine Operators</a>
 <a class="sidebar-link kind-concept" href="osint/social-media-osint.html">Social Media OSINT</a>
 </details>
-<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>13</small></summary>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>14</small></summary>
 <p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
 <a class="sidebar-link kind-index" href="offensive-security/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="offensive-security/active-recon.html">Active Recon</a>
+<a class="sidebar-link kind-concept" href="offensive-security/cloaking-and-security-evasion.html">Cloaking and Security Evasion</a>
 <a class="sidebar-link kind-concept" href="offensive-security/company-mapping.html">Company Mapping</a>
 <a class="sidebar-link kind-concept" href="offensive-security/enumeration.html">Enumeration</a>
 <a class="sidebar-link kind-concept" href="offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
@@ -350,6 +355,21 @@
 - <strong>Foundational:</strong> OWASP WSTG session management testing — https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/
 - <strong>Foundational:</strong> OWASP Cheat Sheet Series — https://cheatsheetseries.owasp.org/
 - <strong>Foundational:</strong> MDN Set-Cookie header — https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie</p>
+<h2 id="mfa-phishing-resistance">mfa-phishing-resistance</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> NIST SP 800-63B Authentication and Lifecycle Management — https://pages.nist.gov/800-63-4/sp800-63b.html
+- <strong>Mitigation:</strong> CISA More than a Password / MFA — https://www.cisa.gov/mfa
+- <strong>Foundational:</strong> FIDO Alliance Passkeys — https://fidoalliance.org/passkeys/</p>
+<h2 id="evilginx-and-reverse-proxy-phishing">evilginx-and-reverse-proxy-phishing</h2>
+<p>Preferred references:
+- <strong>Research / Deep Dive:</strong> Microsoft, Identifying Adversary-in-the-Middle phishing attacks through third-party network detection — https://techcommunity.microsoft.com/blog/microsoftsentinelblog/identifying-adversary-in-the-middle-aitm-phishing-attacks-through-3rd-party-netw/3991358
+- <strong>Mitigation:</strong> CISA More than a Password / MFA — https://www.cisa.gov/mfa
+- <strong>Foundational:</strong> FIDO Alliance Passkeys — https://fidoalliance.org/passkeys/</p>
+<h2 id="bot-detection-signals">bot-detection-signals</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> OWASP Automated Threats to Web Applications — https://owasp.org/www-project-automated-threats-to-web-applications/
+- <strong>Mitigation:</strong> OWASP Credential Stuffing Prevention Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Credential_Stuffing_Prevention_Cheat_Sheet.html
+- <strong>Foundational:</strong> Cloudflare Learning Center: What is bot management? — https://www.cloudflare.com/learning/bots/what-is-bot-management/</p>
 <h2 id="sql-injection">sql-injection</h2>
 <p>Preferred references:
 - <strong>Foundational:</strong> OWASP Top 10 Injection — https://owasp.org/Top10/2021/A03_2021-Injection/
@@ -470,14 +490,14 @@
 <a class="toc-level-2" href="#broken-access-control">broken-access-control</a>
 <a class="toc-level-2" href="#auth-flaws">auth-flaws</a>
 <a class="toc-level-2" href="#session-management">session-management</a>
+<a class="toc-level-2" href="#mfa-phishing-resistance">mfa-phishing-resistance</a>
+<a class="toc-level-2" href="#evilginx-and-reverse-proxy-phishing">evilginx-and-reverse-proxy-phishing</a>
+<a class="toc-level-2" href="#bot-detection-signals">bot-detection-signals</a>
 <a class="toc-level-2" href="#sql-injection">sql-injection</a>
 <a class="toc-level-2" href="#xss">xss</a>
 <a class="toc-level-2" href="#csrf">csrf</a>
 <a class="toc-level-2" href="#path-traversal">path-traversal</a>
 <a class="toc-level-2" href="#ssrf">ssrf</a>
-<a class="toc-level-2" href="#request-smuggling">request-smuggling</a>
-<a class="toc-level-2" href="#business-logic-vulnerabilities">business-logic-vulnerabilities</a>
-<a class="toc-level-2" href="#cors-misconfiguration">cors-misconfiguration</a>
 <a class="back-to-top" href="#top">Back to top</a></div></aside>
 </div>
 <script src="../assets/search.js"></script>

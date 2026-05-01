@@ -45,7 +45,7 @@
 <div class="sidebar-section"><h3>Cybersecurity</h3>
 <a class="sidebar-link kind-index" href="../index.html">Cybersecurity Index</a>
 <div class="sidebar-group-label">Foundations</div>
-<details class="branch branch-sky" open><summary><span>Networking</span><small>22</small></summary>
+<details class="branch branch-sky" open><summary><span>Networking</span><small>23</small></summary>
 <p class="sidebar-summary">Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p>
 <a class="sidebar-link kind-index" href="index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="caching-and-security.html">Caching and Security</a>
@@ -56,6 +56,7 @@
 <a class="sidebar-link kind-concept" href="dns-resolution.html">DNS Resolution</a>
 <a class="sidebar-link kind-concept" href="dns-security.html">DNS Security</a>
 <a class="sidebar-link kind-concept" href="firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="header-trust-in-node-express.html">Header Trust in Node Express</a>
 <a class="sidebar-link kind-concept" href="http-headers.html">HTTP Headers</a>
 <a class="sidebar-link kind-concept" href="http-messages.html">HTTP Messages</a>
 <a class="sidebar-link kind-concept" href="http-overview.html">HTTP Overview</a>
@@ -84,10 +85,11 @@
 <a class="sidebar-link kind-concept" href="../wireless-security/wireless-security.html">Wireless Security</a>
 <a class="sidebar-link kind-concept" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
 </details>
-<details class="branch branch-blue"><summary><span>Web Security</span><small>24</small></summary>
+<details class="branch branch-blue"><summary><span>Web Security</span><small>27</small></summary>
 <p class="sidebar-summary">Browser behavior, sessions, access control, and server-side exploit patterns.</p>
 <a class="sidebar-link kind-index" href="../web-security/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../web-security/bot-detection-signals.html">Bot Detection Signals</a>
 <a class="sidebar-link kind-concept" href="../web-security/broken-access-control.html">Broken Access Control</a>
 <a class="sidebar-link kind-concept" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
 <a class="sidebar-link kind-concept" href="../web-security/clickjacking.html">Clickjacking</a>
@@ -96,10 +98,12 @@
 <a class="sidebar-link kind-concept" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
 <a class="sidebar-link kind-concept" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
 <a class="sidebar-link kind-concept" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="sidebar-link kind-concept" href="../web-security/evilginx-and-reverse-proxy-phishing.html">Evilginx and Reverse Proxy Phishing</a>
 <a class="sidebar-link kind-concept" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
 <a class="sidebar-link kind-concept" href="../web-security/gadget-chains.html">Gadget Chains</a>
 <a class="sidebar-link kind-concept" href="../web-security/deserialization.html">Insecure Deserialization</a>
 <a class="sidebar-link kind-concept" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="sidebar-link kind-concept" href="../web-security/mfa-phishing-resistance.html">MFA Phishing Resistance</a>
 <a class="sidebar-link kind-concept" href="../web-security/oauth-security.html">OAuth Security</a>
 <a class="sidebar-link kind-concept" href="../web-security/open-redirect.html">Open Redirect</a>
 <a class="sidebar-link kind-concept" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
@@ -172,10 +176,11 @@
 <a class="sidebar-link kind-concept" href="../osint/search-engine-operators.html">Search Engine Operators</a>
 <a class="sidebar-link kind-concept" href="../osint/social-media-osint.html">Social Media OSINT</a>
 </details>
-<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>13</small></summary>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>14</small></summary>
 <p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
 <a class="sidebar-link kind-index" href="../offensive-security/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/cloaking-and-security-evasion.html">Cloaking and Security Evasion</a>
 <a class="sidebar-link kind-concept" href="../offensive-security/company-mapping.html">Company Mapping</a>
 <a class="sidebar-link kind-concept" href="../offensive-security/enumeration.html">Enumeration</a>
 <a class="sidebar-link kind-concept" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
@@ -515,11 +520,11 @@ curl<span class="w"> </span>-sI<span class="w"> </span>http://&lt;origin-ip&gt;/
 <h2>Explore nearby notes</h2>
 <div class="related-grid">
 <a class="related-card" href="client-ip-trust.html"><span>Networking</span><strong>Client IP Trust</strong><small>Client IP trust is the question of **which IP an application treats as &quot;the client&quot;** when requests pass through any intermediary — reverse proxy, load balancer...</small></a>
+<a class="related-card" href="header-trust-in-node-express.html"><span>Networking</span><strong>Header Trust in Node Express</strong><small>Header trust in Node/Express is the decision of whether framework APIs such as req.ip, req.ips, req.hostname, and req.protocol should believe proxy-provided HTTP...</small></a>
 <a class="related-card" href="nat-and-private-networks.html"><span>Networking</span><strong>NAT and Private Networks</strong><small>Private networks use IP address ranges that are **not routable on the public Internet**, by design. NAT (Network Address Translation) lets hosts in those ranges...</small></a>
 <a class="related-card" href="reverse-proxies.html"><span>Networking</span><strong>Reverse Proxies</strong><small>A reverse proxy is an HTTP intermediary that accepts requests on behalf of one or more backend services, applies a fixed set of transformations, and forwards the...</small></a>
 <a class="related-card" href="caching-and-security.html"><span>Networking</span><strong>Caching and Security</strong><small>Caching is the reuse of previously generated responses by browsers, CDNs, reverse proxies, shared intermediaries, or application layers. Caching becomes a security...</small></a>
 <a class="related-card" href="metadata-endpoints.html"><span>Networking</span><strong>Cloud Instance Metadata Endpoints</strong><small>Cloud-instance metadata endpoints are HTTP services hosted by the cloud provider on a **link-local address** (typically 169.254.169.254) that any process running...</small></a>
-<a class="related-card" href="cookies-and-sessions.html"><span>Networking</span><strong>Cookies and Sessions</strong><small>Cookies are HTTP header-carried state that browsers store and automatically attach to later requests. Sessions are the server-side or token-backed continuity model...</small></a>
 </div></section>
 </article>
 </main>

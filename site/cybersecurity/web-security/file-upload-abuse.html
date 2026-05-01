@@ -45,7 +45,7 @@
 <div class="sidebar-section"><h3>Cybersecurity</h3>
 <a class="sidebar-link kind-index" href="../index.html">Cybersecurity Index</a>
 <div class="sidebar-group-label">Foundations</div>
-<details class="branch branch-sky"><summary><span>Networking</span><small>22</small></summary>
+<details class="branch branch-sky"><summary><span>Networking</span><small>23</small></summary>
 <p class="sidebar-summary">Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p>
 <a class="sidebar-link kind-index" href="../networking/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="../networking/caching-and-security.html">Caching and Security</a>
@@ -56,6 +56,7 @@
 <a class="sidebar-link kind-concept" href="../networking/dns-resolution.html">DNS Resolution</a>
 <a class="sidebar-link kind-concept" href="../networking/dns-security.html">DNS Security</a>
 <a class="sidebar-link kind-concept" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../networking/header-trust-in-node-express.html">Header Trust in Node Express</a>
 <a class="sidebar-link kind-concept" href="../networking/http-headers.html">HTTP Headers</a>
 <a class="sidebar-link kind-concept" href="../networking/http-messages.html">HTTP Messages</a>
 <a class="sidebar-link kind-concept" href="../networking/http-overview.html">HTTP Overview</a>
@@ -84,10 +85,11 @@
 <a class="sidebar-link kind-concept" href="../wireless-security/wireless-security.html">Wireless Security</a>
 <a class="sidebar-link kind-concept" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
 </details>
-<details class="branch branch-blue" open><summary><span>Web Security</span><small>24</small></summary>
+<details class="branch branch-blue" open><summary><span>Web Security</span><small>27</small></summary>
 <p class="sidebar-summary">Browser behavior, sessions, access control, and server-side exploit patterns.</p>
 <a class="sidebar-link kind-index" href="index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="auth-flaws.html">Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="bot-detection-signals.html">Bot Detection Signals</a>
 <a class="sidebar-link kind-concept" href="broken-access-control.html">Broken Access Control</a>
 <a class="sidebar-link kind-concept" href="business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
 <a class="sidebar-link kind-concept" href="clickjacking.html">Clickjacking</a>
@@ -96,10 +98,12 @@
 <a class="sidebar-link kind-concept" href="cors-misconfiguration.html">CORS Misconfiguration</a>
 <a class="sidebar-link kind-concept" href="csrf.html">Cross-Site Request Forgery (CSRF)</a>
 <a class="sidebar-link kind-concept" href="xss.html">Cross-Site Scripting (XSS)</a>
+<a class="sidebar-link kind-concept" href="evilginx-and-reverse-proxy-phishing.html">Evilginx and Reverse Proxy Phishing</a>
 <a class="sidebar-link kind-concept active" href="file-upload-abuse.html">File Upload Abuse</a>
 <a class="sidebar-link kind-concept" href="gadget-chains.html">Gadget Chains</a>
 <a class="sidebar-link kind-concept" href="deserialization.html">Insecure Deserialization</a>
 <a class="sidebar-link kind-concept" href="idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="sidebar-link kind-concept" href="mfa-phishing-resistance.html">MFA Phishing Resistance</a>
 <a class="sidebar-link kind-concept" href="oauth-security.html">OAuth Security</a>
 <a class="sidebar-link kind-concept" href="open-redirect.html">Open Redirect</a>
 <a class="sidebar-link kind-concept" href="owasp-top-10.html">OWASP Top 10</a>
@@ -172,10 +176,11 @@
 <a class="sidebar-link kind-concept" href="../osint/search-engine-operators.html">Search Engine Operators</a>
 <a class="sidebar-link kind-concept" href="../osint/social-media-osint.html">Social Media OSINT</a>
 </details>
-<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>13</small></summary>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>14</small></summary>
 <p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
 <a class="sidebar-link kind-index" href="../offensive-security/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/cloaking-and-security-evasion.html">Cloaking and Security Evasion</a>
 <a class="sidebar-link kind-concept" href="../offensive-security/company-mapping.html">Company Mapping</a>
 <a class="sidebar-link kind-concept" href="../offensive-security/enumeration.html">Enumeration</a>
 <a class="sidebar-link kind-concept" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
@@ -410,11 +415,11 @@
 <h2>Explore nearby notes</h2>
 <div class="related-grid">
 <a class="related-card" href="auth-flaws.html"><span>Web Security</span><strong>Authentication Flaws</strong><small>Authentication flaws are weaknesses in how an application verifies identity. They include weak login logic, user enumeration, broken MFA flows, password reset...</small></a>
+<a class="related-card" href="bot-detection-signals.html"><span>Web Security</span><strong>Bot Detection Signals</strong><small>Bot detection signals are the observable clues a web application or edge service uses to classify traffic as human, benign automation, suspicious automation, or...</small></a>
 <a class="related-card" href="broken-access-control.html"><span>Web Security</span><strong>Broken Access Control</strong><small>Broken access control happens when an application fails to enforce what a caller is allowed to access or do.</small></a>
 <a class="related-card" href="business-logic-vulnerabilities.html"><span>Web Security</span><strong>Business Logic Vulnerabilities</strong><small>Business logic vulnerabilities are flaws in the intended workflow, assumptions, invariants, or rule design of an application, where the system behaves as coded but...</small></a>
 <a class="related-card" href="clickjacking.html"><span>Web Security</span><strong>Clickjacking</strong><small>Clickjacking is a UI redress attack where an attacker embeds a target page in a frame and tricks the user into clicking or typing into the real target UI while...</small></a>
 <a class="related-card" href="command-injection.html"><span>Web Security</span><strong>Command Injection</strong><small>Command injection occurs when an application builds an operating-system command from attacker-controlled input and executes it through a shell or process API...</small></a>
-<a class="related-card" href="content-security-policy.html"><span>Web Security</span><strong>Content Security Policy</strong><small>Content Security Policy (CSP) is a browser security control that tells the browser which sources and execution patterns are allowed for scripts, styles, images...</small></a>
 </div></section>
 </article>
 </main>

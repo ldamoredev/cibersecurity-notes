@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cloaking and Security Evasion - Offensive Security / Recon | ldamoredev Security Atlas</title>
+<meta name="description" content="Cloaking is the practice of showing different behavior to different visitors based on signals such as IP, geography, ASN, reverse DNS, User-Agent, browser...">
+<meta name="author" content="ldamoredev">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Offensive Security / Recon, Cloaking and Security Evasion, offensive-security, evasion, cloaking, detection">
+<meta name="theme-color" content="#256d85">
+<link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/cloaking-and-security-evasion.html">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Offensive Security / Recon">
+<meta property="og:title" content="Cloaking and Security Evasion - Offensive Security / Recon | ldamoredev Security Atlas">
+<meta property="og:description" content="Cloaking is the practice of showing different behavior to different visitors based on signals such as IP, geography, ASN, reverse DNS, User-Agent, browser...">
+<meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/cloaking-and-security-evasion.html">
+<meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cloaking and Security Evasion - Offensive Security / Recon | ldamoredev Security Atlas">
+<meta name="twitter:description" content="Cloaking is the practice of showing different behavior to different visitors based on signals such as IP, geography, ASN, reverse DNS, User-Agent, browser...">
+<meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"Cloaking and Security Evasion - Offensive Security / Recon | ldamoredev Security Atlas","headline":"Cloaking and Security Evasion","description":"Cloaking is the practice of showing different behavior to different visitors based on signals such as IP, geography, ASN, reverse DNS, User-Agent, browser...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/cloaking-and-security-evasion.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/cloaking-and-security-evasion.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Offensive Security / Recon","Cloaking and Security Evasion","offensive-security","evasion","cloaking","detection"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Offensive Security / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"Cloaking and Security Evasion","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/cloaking-and-security-evasion.html"}]}]</script>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body id="top" data-root="../..">
+<header class="topbar">
+  <button id="sidebar-toggle" title="Toggle navigation" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html"><span>ldamoredev</span><small>security atlas</small></a>
+  <div class="search-shell">
+    <input id="search" type="search" placeholder="Search notes..." autocomplete="off">
+    <kbd>/</kbd>
+  </div>
+  <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout with-toc">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Atlas Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="sidebar-link kind-index" href="../index.html">Cybersecurity Index</a>
+<div class="sidebar-group-label">Foundations</div>
+<details class="branch branch-sky"><summary><span>Networking</span><small>23</small></summary>
+<p class="sidebar-summary">Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p>
+<a class="sidebar-link kind-index" href="../networking/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="sidebar-link kind-concept" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="sidebar-link kind-concept" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="sidebar-link kind-concept" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="sidebar-link kind-concept" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-security.html">DNS Security</a>
+<a class="sidebar-link kind-concept" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../networking/header-trust-in-node-express.html">Header Trust in Node Express</a>
+<a class="sidebar-link kind-concept" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="sidebar-link kind-concept" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="sidebar-link kind-concept" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="sidebar-link kind-concept" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="sidebar-link kind-concept" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="sidebar-link kind-concept" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="sidebar-link kind-concept" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="sidebar-link kind-concept" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="sidebar-link kind-concept" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="sidebar-link kind-concept" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="sidebar-link kind-concept" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="sidebar-link kind-concept" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details class="branch branch-teal"><summary><span>Wireless Security</span><small>11</small></summary>
+<p class="sidebar-summary">Wi-Fi frames, handshakes, rogue access points, and local-network MITM.</p>
+<a class="sidebar-link kind-index" href="../wireless-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+<details class="branch branch-blue"><summary><span>Web Security</span><small>27</small></summary>
+<p class="sidebar-summary">Browser behavior, sessions, access control, and server-side exploit patterns.</p>
+<a class="sidebar-link kind-index" href="../web-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../web-security/bot-detection-signals.html">Bot Detection Signals</a>
+<a class="sidebar-link kind-concept" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="sidebar-link kind-concept" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="sidebar-link kind-concept" href="../web-security/clickjacking.html">Clickjacking</a>
+<a class="sidebar-link kind-concept" href="../web-security/command-injection.html">Command Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="sidebar-link kind-concept" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="sidebar-link kind-concept" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="sidebar-link kind-concept" href="../web-security/evilginx-and-reverse-proxy-phishing.html">Evilginx and Reverse Proxy Phishing</a>
+<a class="sidebar-link kind-concept" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="sidebar-link kind-concept" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="sidebar-link kind-concept" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="sidebar-link kind-concept" href="../web-security/mfa-phishing-resistance.html">MFA Phishing Resistance</a>
+<a class="sidebar-link kind-concept" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="sidebar-link kind-concept" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="sidebar-link kind-concept" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="sidebar-link kind-concept" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="sidebar-link kind-concept" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="sidebar-link kind-concept" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/session-management.html">Session Management</a>
+<a class="sidebar-link kind-concept" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/xxe.html">XXE</a>
+</details>
+<details class="branch branch-indigo"><summary><span>API Security</span><small>15</small></summary>
+<p class="sidebar-summary">Authorization, token trust, inventory drift, and machine-readable abuse.</p>
+<a class="sidebar-link kind-index" href="../api-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="sidebar-link kind-concept" href="../api-security/authorization.html">Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="sidebar-link kind-concept" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="sidebar-link kind-concept" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="sidebar-link kind-concept" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="sidebar-link kind-concept" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Cloud Security</span><small>11</small></summary>
+<p class="sidebar-summary">IAM, metadata, storage, network boundaries, secrets, and logging controls.</p>
+<a class="sidebar-link kind-index" href="../cloud-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<div class="sidebar-group-label">Exposure</div>
+<details class="branch branch-amber"><summary><span>Attack Surface Mapping</span><small>11</small></summary>
+<p class="sidebar-summary">What is exposed, reachable, discoverable, and drifting from intended design.</p>
+<a class="sidebar-link kind-index" href="../attack-surface-mapping/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details class="branch branch-violet"><summary><span>OSINT</span><small>11</small></summary>
+<p class="sidebar-summary">Public-source collection, evidence quality, and ethical handling of clues.</p>
+<a class="sidebar-link kind-index" href="../osint/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="sidebar-link kind-concept" href="../osint/company-osint.html">Company OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="sidebar-link kind-concept" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint.html">OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="sidebar-link kind-concept" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="sidebar-link kind-concept" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details class="branch branch-rose" open><summary><span>Offensive Security / Recon</span><small>14</small></summary>
+<p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
+<a class="sidebar-link kind-index" href="index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="active-recon.html">Active Recon</a>
+<a class="sidebar-link kind-concept active" href="cloaking-and-security-evasion.html">Cloaking and Security Evasion</a>
+<a class="sidebar-link kind-concept" href="company-mapping.html">Company Mapping</a>
+<a class="sidebar-link kind-concept" href="enumeration.html">Enumeration</a>
+<a class="sidebar-link kind-concept" href="host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="sidebar-link kind-concept" href="passive-recon.html">Passive Recon</a>
+<a class="sidebar-link kind-concept" href="public-asset-discovery.html">Public Asset Discovery</a>
+<a class="sidebar-link kind-concept" href="recon.html">Recon</a>
+<a class="sidebar-link kind-concept" href="recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="sidebar-link kind-concept" href="scope-validation.html">Scope Validation</a>
+<a class="sidebar-link kind-concept" href="service-validation.html">Service Validation</a>
+<a class="sidebar-link kind-concept" href="subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="sidebar-link kind-concept" href="tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details class="branch branch-orange"><summary><span>Linux Privilege Escalation</span><small>10</small></summary>
+<p class="sidebar-summary">Local boundary failures, enumeration, and safe escalation hypothesis testing.</p>
+<a class="sidebar-link kind-index" href="../linux-privilege-escalation/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
+<p class="sidebar-summary">VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.</p>
+<a class="sidebar-link kind-index" href="../privacy-anonymity-opsec/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/account-correlation.html">Account Correlation</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/anonymity-threat-models.html">Anonymity Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/browser-fingerprinting.html">Browser Fingerprinting</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html">Corporate VPNs vs Consumer VPNs</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/deanonymization-failures.html">Deanonymization Failures</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/end-to-end-encryption.html">End-to-End Encryption</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/file-metadata-removal.html">File Metadata Removal</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/metadata-and-identity-leakage.html">Metadata and Identity Leakage</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/opsec-failure-chains.html">OPSEC Failure Chains</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/pgp-encryption-and-signatures.html">PGP Encryption and Signatures</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/privacy-vs-anonymity-vs-confidentiality.html">Privacy vs Anonymity vs Confidentiality</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/private-email-threat-models.html">Private Email Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/qubes-compartmentalization.html">Qubes Compartmentalization</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/secure-deletion-and-storage-wiping.html">Secure Deletion and Storage Wiping</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/secure-file-sharing.html">Secure File Sharing</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tails-operational-model.html">Tails Operational Model</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/temporary-email-risks.html">Temporary Email Risks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-and-onion-services.html">Tor and Onion Services</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-bridges-and-pluggable-transports.html">Tor Bridges and Pluggable Transports</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-browser-security-settings.html">Tor Browser Security Settings</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/traffic-correlation.html">Traffic Correlation</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-dns-and-ipv6-leaks.html">VPN DNS and IPv6 Leaks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-fingerprinting-limitations.html">VPN Fingerprinting Limitations</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-kill-switches.html">VPN Kill Switches</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-leakage-risks.html">VPN Leakage Risks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-logging-and-trust.html">VPN Logging and Trust</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-protocols.html">VPN Protocols</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-threat-models.html">VPN Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-vs-tor.html">VPN vs Tor</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-with-tor.html">VPN with Tor</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/whonix-gateway.html">Whonix Gateway</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/xmpp-and-private-messaging.html">XMPP and Private Messaging</a>
+</details>
+<div class="sidebar-group-label">Engineering</div>
+<details class="branch branch-green"><summary><span>DevSecOps</span><small>13</small></summary>
+<p class="sidebar-summary">Secure delivery, CI/CD hardening, supply chain, secrets, and release trust.</p>
+<a class="sidebar-link kind-index" href="../devsecops/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="sidebar-link kind-concept" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="sidebar-link kind-concept" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="sidebar-link kind-concept" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="sidebar-link kind-concept" href="../devsecops/container-security.html">Container Security</a>
+<a class="sidebar-link kind-concept" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="sidebar-link kind-concept" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="sidebar-link kind-concept" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="sidebar-link kind-concept" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="sidebar-link kind-concept" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<div class="sidebar-group-label">Execution</div>
+<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>12</small></summary>
+<p class="sidebar-summary">Repeatable procedures for turning concepts into practical tests.</p>
+<a class="sidebar-link kind-index" href="../security-playbooks/index.html">Overview</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/trace-metadata-endpoint-reachability.html">Trace Metadata Endpoint Reachability</a>
+</details>
+<details class="registry-group"><summary>Reference System <span>13</span></summary>
+<a class="sidebar-link kind-registry" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-privacy-anonymity-opsec.html">Reference Registry - Privacy, Anonymity &amp; OPSEC</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-api-security.html">Reference Registry — API Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-networking.html">Reference Registry — Networking</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-offensive-security.html">Reference Registry — Offensive Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-playbooks.html">Reference Registry — Playbooks</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-web-security.html">Reference Registry — Web Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Offensive Security / Recon</a><span>/</span><span>Cloaking and Security Evasion</span></nav>
+<header class="page-hero">
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-rose">Offensive Security / Recon</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#evasion</span><span class="meta-chip tag">#cloaking</span><span class="meta-chip tag">#detection</span></div>
+</header>
+<article class="article-note">
+<h1 id="cloaking-and-security-evasion">Cloaking and Security Evasion</h1>
+<h2 id="definition">Definition</h2>
+<p>Cloaking is the practice of showing different behavior to different visitors based on signals such as IP, geography, ASN, reverse DNS, User-Agent, browser fingerprint, proxy reputation, or perceived scanner identity.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Cloaking appears in fraud, phishing, malware delivery, gray-market scraping, and evasive abuse infrastructure. It is also sometimes used legitimately for localization, compliance, or abuse prevention. The security question is not “does content vary?” The question is whether variation hides malicious behavior from defenders, crawlers, scanners, or reviewers.</p>
+<p>The old mirror project is a compact example: it allows Argentina, blocks cloud/security/vendor-looking networks, checks proxy reputation, serves <code>robots.txt</code>, and redirects or denies traffic based on weak signals.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Cloaking has <strong>4 stages</strong>:</p>
+<ol>
+<li>
+<p><strong>Observe the visitor</strong>
+   Collect IP, ASN/org, geolocation, reverse DNS, headers, User-Agent, cookies, JavaScript behavior, and request sequence.</p>
+</li>
+<li>
+<p><strong>Classify the visitor</strong>
+   Decide whether the visitor looks like a victim, crawler, scanner, security vendor, proxy, researcher, or normal user.</p>
+</li>
+<li>
+<p><strong>Fork the response</strong>
+   Victim-like traffic receives the real flow. Suspicious traffic receives a redirect, blank page, benign page, error, or robots denial.</p>
+</li>
+<li>
+<p><strong>Record and adapt</strong>
+   Logs feed future blocklists, allowlists, or targeting rules.</p>
+</li>
+</ol>
+<p>Defensive evidence card:</p>
+<div class="codehilite"><pre><span></span><code>same URL:
+  residential browser -&gt; login page
+  cloud scanner       -&gt; 403
+  security vendor ASN -&gt; news redirect
+  curl User-Agent     -&gt; access denied
+</code></pre></div>
+
+<p>The bug is not content negotiation. The bug is using visitor classification to hide risky behavior from validation.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<ul>
+<li>Compare the same URL from different vantage points: residential, cloud, corporate VPN, mobile, and local lab networks.</li>
+<li>Vary User-Agent, language, cookies, JavaScript execution, and proxy headers to see whether content changes.</li>
+<li>Look for benign redirects, fake 404s, blank pages, delayed responses, or “maintenance” pages shown only to scanner-like clients.</li>
+<li>Preserve body hashes, screenshots, headers, TLS certificate details, and redirect chains for each vantage point.</li>
+<li>Separate legitimate regionalization from evasive branching by asking whether the sensitive behavior appears only for selected visitors.</li>
+<li>Treat blocklists of security vendors, cloud providers, and crawler names as strong cloaking indicators when paired with risky content.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Cloaking has <strong>6 recognizable variants</strong>.</p>
+<h3 id="1-geo-cloaking">1. Geo cloaking</h3>
+<p>Behavior changes by country or region. Legitimate localization exists, but phishing and fraud often target one region while hiding from foreign scanners.</p>
+<h3 id="2-asn-hosting-cloaking">2. ASN / hosting cloaking</h3>
+<p>Traffic from cloud providers, data centers, VPNs, and security vendors receives harmless content. Residential or mobile traffic sees the real flow.</p>
+<h3 id="3-user-agent-cloaking">3. User-Agent cloaking</h3>
+<p>Known crawlers, command-line tools, scanners, or headless browsers are blocked. Browser-like strings receive different content.</p>
+<h3 id="4-reverse-dns-cloaking">4. Reverse-DNS cloaking</h3>
+<p>PTR hostnames containing vendor, cloud, crawler, or security terms are denied. This is fragile but common in older kits.</p>
+<h3 id="5-fingerprint-cloaking">5. Fingerprint cloaking</h3>
+<p>JavaScript, browser APIs, timing, storage, or rendering behavior distinguishes real browsers from automation.</p>
+<h3 id="6-interaction-cloaking">6. Interaction cloaking</h3>
+<p>The suspicious behavior appears only after clicks, login steps, delays, referrers, email-link parameters, or campaign tokens.</p>
+<h2 id="impact">Impact</h2>
+<ul>
+<li><strong>Security review bypass.</strong> Automated scanners or vendor crawlers see benign content while victims see the real payload.</li>
+<li><strong>Phishing longevity.</strong> Reporting and takedown pipelines get misleading evidence.</li>
+<li><strong>Malware delivery control.</strong> Operators reduce exposure to sandboxes and researchers.</li>
+<li><strong>Fraud targeting.</strong> Campaigns focus on specific regions, devices, or account populations.</li>
+<li><strong>False defensive confidence.</strong> A clean scan from one vantage point is mistaken for clean behavior everywhere.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Test from multiple vantage points</strong>
+   One network path is not enough. Compare residential, mobile, corporate, cloud, and controlled scanner paths to reveal response forks.</p>
+</li>
+<li>
+<p><strong>Capture full response evidence</strong>
+   Record status, headers, redirects, body hash, screenshot, DNS answer, TLS certificate, and timing. Cloaking often hides in small differences.</p>
+</li>
+<li>
+<p><strong>Replay with controlled signal changes</strong>
+   Change one variable at a time: User-Agent, cookie jar, language, source network, referrer, JavaScript capability, or campaign token.</p>
+</li>
+<li>
+<p><strong>Monitor for defensive-vendor blocklists</strong>
+   Code or config that names security vendors, crawlers, cloud providers, or threat-intel systems is high-signal evidence of evasion intent.</p>
+</li>
+<li>
+<p><strong>Instrument user-reported paths</strong>
+   Reports from real users should preserve original URL, referrer, email headers, device/browser, and timestamp. The victim path may be the only path that reveals the content.</p>
+</li>
+<li>
+<p><strong>Avoid assuming benign content proves safety</strong>
+   Treat benign responses as one observation from one vantage point. The finding is the differential behavior, not only the hidden payload.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>A single scanner run.</strong> Cloaking exists to make that view incomplete.</li>
+<li><strong>Only testing from cloud infrastructure.</strong> Many cloaking rules specifically block data centers and security vendors.</li>
+<li><strong>Trusting robots.txt.</strong> It is not access control and can itself be part of the decoy surface.</li>
+<li><strong>Ignoring redirects.</strong> The redirect target may be the cloaking decision.</li>
+<li><strong>Calling all variation malicious.</strong> Localization, A/B tests, and compliance banners vary too; the key is security-relevant concealment.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<h3 id="compare-response-fingerprints">Compare response fingerprints</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span><span class="w"> </span>ua<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;curl/8.0&quot;</span><span class="w"> </span><span class="s2">&quot;Mozilla/5.0 Chrome/120 Safari/537.36&quot;</span><span class="w"> </span><span class="s2">&quot;Googlebot/2.1&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>curl<span class="w"> </span>-sk<span class="w"> </span>-A<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ua</span><span class="s2">&quot;</span><span class="w"> </span>-D<span class="w"> </span><span class="s2">&quot;/tmp/headers-</span><span class="nv">$ua</span><span class="s2">.txt&quot;</span><span class="w"> </span>-o<span class="w"> </span><span class="s2">&quot;/tmp/body-</span><span class="nv">$ua</span><span class="s2">.html&quot;</span><span class="w"> </span>https://example.test/
+<span class="w">  </span>shasum<span class="w"> </span><span class="s2">&quot;/tmp/body-</span><span class="nv">$ua</span><span class="s2">.html&quot;</span>
+<span class="k">done</span>
+</code></pre></div>
+
+<p>Different body hashes by User-Agent are a prompt for review, not proof by themselves.</p>
+<h3 id="record-a-vantage-matrix">Record a vantage matrix</h3>
+<div class="codehilite"><pre><span></span><code>url:
+vantage | ip/asn type | user-agent | status | final-url | body-hash | screenshot | notes
+home    | residential | browser    |        |           |           |            |
+cloud   | hosting     | browser    |        |           |           |            |
+mobile  | carrier     | browser    |        |           |           |            |
+cloud   | hosting     | curl       |        |           |           |            |
+</code></pre></div>
+
+<p>The matrix reveals whether the same URL is behaving as one application or several.</p>
+<h3 id="check-redirect-cloaking">Check redirect cloaking</h3>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-skIL<span class="w"> </span>https://example.test/path<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-A<span class="w"> </span><span class="s2">&quot;Mozilla/5.0 Chrome/120 Safari/537.36&quot;</span>
+</code></pre></div>
+
+<p>Compare final locations across networks; harmless-looking redirects may be the fork.</p>
+<h3 id="search-code-for-cloaking-vocabulary">Search code for cloaking vocabulary</h3>
+<div class="codehilite"><pre><span></span><code>rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;bot|crawler|spider|google|virustotal|phishtank|asn|isp|proxy|vpn|reverse|country|geo&quot;</span><span class="w"> </span>.
+</code></pre></div>
+
+<p>In owned code, these terms identify where classification and response branching should be reviewed.</p>
+<h3 id="preserve-victim-path-context">Preserve victim-path context</h3>
+<div class="codehilite"><pre><span></span><code>reported URL:
+timestamp:
+source email/referrer:
+device/browser:
+network type:
+redirect chain:
+visible content:
+comparison vantage:
+</code></pre></div>
+
+<p>Without the original path, defenders may only see the decoy.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A phishing page shows a fake login only to mobile-carrier IPs in one country and redirects cloud scanners to a news site.</li>
+<li>A malicious download link returns a clean PDF to security-vendor ASNs and a payload to residential browsers.</li>
+<li>A scraper ignores <code>robots.txt</code> but changes User-Agent and IP range after being blocked.</li>
+<li>A gray-market bot blocks uptime monitors and security scanners while attacking checkout inventory.</li>
+<li>A fraud campaign requires an email-link token before showing the real page.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="../web-security/bot-detection-signals.html">Bot Detection Signals</a></li>
+<li><a href="recon.html">Recon</a></li>
+<li><a href="active-recon.html">Active Recon</a></li>
+<li><a href="../networking/http-headers.html">HTTP Headers</a></li>
+<li><a href="../privacy-anonymity-opsec/browser-fingerprinting.html">Browser Fingerprinting</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="unresolved-link" title="Unpublished or unresolved: asn-and-hosting-reputation">asn-and-hosting-reputation</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: reverse-dns-security-signals">reverse-dns-security-signals</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: phishing-detection-signals">phishing-detection-signals</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: multi-vantage-testing">multi-vantage-testing</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: malware-sandbox-evasion">malware-sandbox-evasion</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Foundational:</strong> OWASP Automated Threats to Web Applications — https://owasp.org/www-project-automated-threats-to-web-applications/</li>
+<li><strong>Testing / Lab:</strong> OWASP Web Security Testing Guide — https://owasp.org/www-project-web-security-testing-guide/latest/</li>
+<li><strong>Research / Deep Dive:</strong> ProjectDiscovery reconnaissance deep dive — https://projectdiscovery.io/blog/reconnaissance-a-deep-dive-in-active-passive-reconnaissance</li>
+</ul>
+<section class="related-notes" aria-label="Explore nearby notes">
+<h2>Explore nearby notes</h2>
+<div class="related-grid">
+<a class="related-card" href="active-recon.html"><span>Offensive Security / Recon</span><strong>Active Recon</strong><small>Active recon is information gathering that directly interacts with target infrastructure, services, or applications to validate or extend what passive recon...</small></a>
+<a class="related-card" href="company-mapping.html"><span>Offensive Security / Recon</span><strong>Company Mapping</strong><small>Company mapping is the process of connecting domains, brands, subsidiaries, acquisitions, vendors, public identities, products, and infrastructure clues into a...</small></a>
+<a class="related-card" href="enumeration.html"><span>Offensive Security / Recon</span><strong>Enumeration</strong><small>Enumeration is the focused, methodical expansion of discovered leads into concrete, validated knowledge about reachable services, routes, identities, parameters...</small></a>
+<a class="related-card" href="host-and-port-discovery.html"><span>Offensive Security / Recon</span><strong>Host and Port Discovery</strong><small>Host and port discovery is the process of finding live hosts and the reachable ports and services they expose within an authorized scope.</small></a>
+<a class="related-card" href="passive-recon.html"><span>Offensive Security / Recon</span><strong>Passive Recon</strong><small>Passive recon is information gathering that does not directly interact with the target&#x27;s systems in a way that would normally generate target-side traffic.</small></a>
+<a class="related-card" href="public-asset-discovery.html"><span>Offensive Security / Recon</span><strong>Public Asset Discovery</strong><small>Public asset discovery is the process of identifying internet-facing domains, subdomains, hosts, services, APIs, storage surfaces, documents, and supporting...</small></a>
+</div></section>
+</article>
+</main>
+<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
+<a class="toc-level-2" href="#definition">Definition</a>
+<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
+<a class="toc-level-2" href="#how-it-works">How it works</a>
+<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
+<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
+<a class="toc-level-3" href="#1-geo-cloaking">1. Geo cloaking</a>
+<a class="toc-level-3" href="#2-asn-hosting-cloaking">2. ASN / hosting cloaking</a>
+<a class="toc-level-3" href="#3-user-agent-cloaking">3. User-Agent cloaking</a>
+<a class="toc-level-3" href="#4-reverse-dns-cloaking">4. Reverse-DNS cloaking</a>
+<a class="toc-level-3" href="#5-fingerprint-cloaking">5. Fingerprint cloaking</a>
+<a class="toc-level-3" href="#6-interaction-cloaking">6. Interaction cloaking</a>
+<a class="toc-level-2" href="#impact">Impact</a>
+<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
+<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
+<a class="toc-level-2" href="#practical-labs">Practical labs</a>
+<a class="toc-level-3" href="#compare-response-fingerprints">Compare response fingerprints</a>
+<a class="toc-level-3" href="#record-a-vantage-matrix">Record a vantage matrix</a>
+<a class="toc-level-3" href="#check-redirect-cloaking">Check redirect cloaking</a>
+<a class="back-to-top" href="#top">Back to top</a></div></aside>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>
