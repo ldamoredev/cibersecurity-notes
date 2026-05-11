@@ -583,6 +583,16 @@ def absolute_site_url(path: str) -> str:
     return f"{SITE_URL}/{path.lstrip('/')}"
 
 
+def note_last_modified(note: Note) -> str:
+    source = VAULT / note.rel_path
+    try:
+        ts = source.stat().st_mtime
+    except OSError:
+        ts = date.today()
+        return ts.isoformat()
+    return date.fromtimestamp(ts).isoformat()
+
+
 def canonical_url(note: Note) -> str:
     if note.section == "" and note.rel_path == Path("index.md"):
         return absolute_site_url("index.html")
@@ -723,6 +733,7 @@ def json_ld_for(note: Note) -> str:
             "author": {"@type": "Person", "name": SITE_AUTHOR},
         }
     elif page_kind(note) == "index":
+        last_modified = note_last_modified(note)
         page = {
             "@context": "https://schema.org",
             "@type": "CollectionPage",
@@ -730,10 +741,12 @@ def json_ld_for(note: Note) -> str:
             "headline": note_label(note),
             "description": description,
             "url": canonical,
+            "dateModified": last_modified,
             "isPartOf": {"@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/"},
             "author": {"@type": "Person", "name": SITE_AUTHOR},
         }
     else:
+        last_modified = note_last_modified(note)
         page = {
             "@context": "https://schema.org",
             "@type": "TechArticle",
@@ -741,6 +754,8 @@ def json_ld_for(note: Note) -> str:
             "headline": note_label(note),
             "description": description,
             "url": canonical,
+            "datePublished": last_modified,
+            "dateModified": last_modified,
             "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
             "isPartOf": {"@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/"},
             "author": {"@type": "Person", "name": SITE_AUTHOR},
@@ -767,6 +782,7 @@ def seo_head(note: Note, root_href: str) -> str:
         f'<link rel="apple-touch-icon" href="{html.escape(root_asset(root_href, "apple-touch-icon.png"))}">',
         f'<link rel="manifest" href="{html.escape(root_asset(root_href, "site.webmanifest"))}">',
         f'<meta property="og:site_name" content="{html.escape(SITE_NAME)}">',
+        '<meta property="og:locale" content="en_US">',
         f'<meta property="og:type" content="{kind}">',
         f'<meta property="og:title" content="{html.escape(title)}">',
         f'<meta property="og:description" content="{html.escape(description)}">',
@@ -834,22 +850,17 @@ def xml_escape(value: str) -> str:
 
 def write_sitemap(notes: list[Note]) -> None:
     today = date.today().isoformat()
-    urls = [absolute_site_url("index.html")] + [canonical_url(n) for n in notes]
+    entries: dict[str, str] = {absolute_site_url("index.html"): today}
+    for n in notes:
+        entries[canonical_url(n)] = note_last_modified(n)
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
-        '<!--suppress XmlPathReference -->',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
-        '        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"',
-        '        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 '
-        'https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
-    for url in sorted(set(urls)):
-        priority = "1.0" if url.endswith("/index.html") else "0.7"
+    for url in sorted(entries):
         lines.append("  <url>")
         lines.append(f"    <loc>{xml_escape(url)}</loc>")
-        lines.append(f"    <lastmod>{today}</lastmod>")
-        lines.append("    <changefreq>weekly</changefreq>")
-        lines.append(f"    <priority>{priority}</priority>")
+        lines.append(f"    <lastmod>{entries[url]}</lastmod>")
         lines.append("  </url>")
     lines.append("</urlset>\n")
     (OUT / "sitemap.xml").write_text("\n".join(lines), encoding="utf-8")
@@ -999,16 +1010,28 @@ def build_home(tree: dict, notes: list[Note]) -> str:
     subs = tree.get("cybersecurity", {})
     published_notes = sum(len(v) for v in subs.values())
     registry_count = len([n for n in subs.get("", []) if n.slug.startswith("reference-registry")])
+    repo_url = "https://github.com/ldamoredev/cibersecurity-notes"
     lines = [
         '<section class="home-hero">',
-        '<p class="eyebrow">Personal security knowledge base</p>',
-        '<h1>ldamoredev security atlas</h1>',
-        '<p class="lede">A static snapshot of mature cybersecurity notes from the Obsidian vault: learning paths, atomic concepts, reference policy, and practical playbooks shaped for fast retrieval.</p>',
+        '<div class="hero-kicker" aria-hidden="true">',
+        '<span>web</span><span>api</span><span>cloud</span><span>offense</span><span>defense</span><span>devsecops</span><span>opsec</span>',
+        '</div>',
+        '<h1>ldamoredev <span class="hero-accent">security atlas</span></h1>',
+        f'<p class="lede">A working cybersecurity reference. <strong>{published_notes} atomic notes</strong> across <strong>{len(BRANCHES)} branches</strong> — structured for retrieval, not tutorials. Built from a personal Obsidian vault and kept honest by a reference-registry policy.</p>',
+        '<div class="hero-ctas">',
+        '<a class="btn btn-primary" href="#start-here">Start here →</a>',
+        f'<a class="btn btn-ghost" href="{repo_url}" rel="noopener" target="_blank">View on GitHub</a>',
+        '</div>',
         '<div class="stat-row">',
         f'<span><strong>{published_notes}</strong> published notes</span>',
         f'<span><strong>{len(BRANCHES)}</strong> branches</span>',
         f'<span><strong>{registry_count}</strong> reference registries</span>',
         '</div>',
+        '</section>',
+        '<section class="howto-strip" aria-label="How to use this wiki">',
+        '<div class="howto-item"><strong>Search</strong><span>Press <kbd>/</kbd> to jump to any note by title, tag, or content.</span></div>',
+        '<div class="howto-item"><strong>Browse</strong><span>Use the sidebar — grouped by phase, from substrate to specialty tracks.</span></div>',
+        '<div class="howto-item"><strong>Follow a path</strong><span>Pick one of the learning routes below if you\'re not sure where to start.</span></div>',
         '</section>',
     ]
     lines.extend([
@@ -1059,6 +1082,20 @@ def build_home(tree: dict, notes: list[Note]) -> str:
         for n in registry_notes:
             lines.append(f'<a href="{html.escape(n.url)}">{html.escape(note_label(n))}</a>')
         lines.append('</div></section>')
+
+    lines.extend([
+        '<footer class="home-footer">',
+        '<div class="footer-about">',
+        '<strong>ldamoredev security atlas</strong>',
+        '<p>A personal cybersecurity knowledge base. Excerpts from a working Obsidian vault, published as a static reference.</p>',
+        '</div>',
+        '<div class="footer-links">',
+        f'<a href="{repo_url}" rel="noopener" target="_blank">GitHub</a>',
+        '<a href="cybersecurity/start-here.html">Start Here</a>',
+        '<a href="cybersecurity/index.html">Full index</a>',
+        '</div>',
+        '</footer>',
+    ])
     return "\n".join(lines)
 
 
@@ -1417,13 +1454,105 @@ a:hover { text-decoration: underline; }
 .back-to-top { margin-top: 0.7rem; font-weight: 700; }
 
 .home-hero {
+  position: relative;
   max-width: none;
-  padding: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1.75rem, 4vw, 3.25rem);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background:
+    radial-gradient(120% 120% at 0% 0%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 55%),
+    var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.home-hero::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent) 35%, transparent));
+}
+.home-hero h1 {
+  margin: 0 0 0.65rem;
+  font-size: clamp(2.1rem, 3.4vw, 3.15rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+.hero-accent { color: var(--accent); }
+.home-hero .lede { margin: 0 0 1.35rem; }
+.home-hero .lede strong { color: var(--fg); font-weight: 720; }
+.hero-kicker { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+.hero-kicker span {
+  font: 600 0.72rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--muted);
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-soft);
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 0.4rem; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 720;
+  font-size: 0.95rem;
+  line-height: 1;
+  border: 1px solid transparent;
+  transition: transform 80ms ease, background 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+}
+.btn:hover { text-decoration: none; transform: translateY(-1px); }
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.btn-primary { background: var(--accent); color: #fff; box-shadow: 0 1px 0 rgba(0,0,0,0.06); }
+.btn-primary:hover { background: color-mix(in srgb, var(--accent) 88%, #000); }
+html[data-theme="dark"] .btn-primary { color: #0e1416; }
+.btn-ghost { background: transparent; color: var(--fg); border-color: var(--border-strong); }
+.btn-ghost:hover { background: var(--surface-soft); border-color: var(--accent); }
+
+.howto-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1.4rem 0 0;
+}
+.howto-item {
+  padding: 0.85rem 1rem;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--surface);
-  box-shadow: var(--shadow);
 }
+.howto-item strong { display: block; font-size: 0.92rem; margin-bottom: 0.25rem; color: var(--fg); }
+.howto-item span { color: var(--muted); font-size: 0.88rem; line-height: 1.45; }
+.howto-item kbd {
+  display: inline-block;
+  padding: 0.02rem 0.32rem;
+  margin: 0 0.1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-soft);
+  font: 0.82em ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--fg);
+}
+
+.home-footer {
+  margin-top: 3.5rem;
+  padding: 1.5rem 0 0.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.home-footer strong { color: var(--fg); display: block; margin-bottom: 0.25rem; font-size: 0.95rem; }
+.home-footer p { margin: 0; max-width: 56ch; line-height: 1.5; }
+.footer-links { display: flex; gap: 1.1rem; align-items: center; flex-wrap: wrap; }
+.footer-links a { font-weight: 680; }
 .eyebrow, .card-kicker {
   color: var(--accent);
   font-size: 0.76rem;
@@ -1459,7 +1588,11 @@ a:hover { text-decoration: underline; }
   color: var(--fg);
   box-shadow: 0 1px 0 rgba(20, 30, 28, 0.03);
 }
-.branch-card:hover { transform: translateY(-1px); border-color: var(--border-strong); text-decoration: none; box-shadow: var(--shadow); }
+.branch-card { transition: transform 100ms ease, box-shadow 140ms ease, border-color 120ms ease; }
+.branch-card:hover { transform: translateY(-2px); border-color: var(--border-strong); text-decoration: none; box-shadow: var(--shadow); }
+.branch-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.path-card { transition: transform 100ms ease, border-color 120ms ease, background 120ms ease; }
+.path-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .branch-card h3 { margin: 0.35rem 0; font-size: 1.12rem; }
 .branch-card p { margin: 0; color: var(--muted); line-height: 1.45; }
 .card-meta { margin-top: auto; padding-top: 1rem; color: var(--muted-2); font-size: 0.84rem; font-weight: 700; }
@@ -1588,6 +1721,8 @@ html[data-theme="dark"] .unresolved-link { color: #ffb072; border-bottom-color: 
 @media (max-width: 860px) {
   .start-panel { grid-template-columns: 1fr; }
   .path-grid, .related-grid { grid-template-columns: 1fr; }
+  .howto-strip { grid-template-columns: 1fr; }
+  .home-footer { flex-direction: column; }
 }
 @media (max-width: 780px) {
   :root { --topbar-h: 58px; }
