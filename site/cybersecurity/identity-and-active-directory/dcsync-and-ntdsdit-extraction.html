@@ -135,7 +135,7 @@
 <a class="sidebar-link kind-concept" href="../web-security/xxe.html">XXE</a>
 </details>
 <div class="sidebar-group-label">Paired</div>
-<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>18</small></summary>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>20</small></summary>
 <p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
 <a class="sidebar-link kind-index" href="../offensive-security/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="../offensive-security/active-recon.html">Active Recon</a>
@@ -143,8 +143,10 @@
 <a class="sidebar-link kind-concept" href="../offensive-security/company-mapping.html">Company Mapping</a>
 <a class="sidebar-link kind-concept" href="../offensive-security/enumeration.html">Enumeration</a>
 <a class="sidebar-link kind-concept" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/idle-scan-and-ipid-side-channels.html">Idle Scan and IPID Side Channels</a>
 <a class="sidebar-link kind-concept" href="../offensive-security/masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a>
 <a class="sidebar-link kind-concept" href="../offensive-security/nmap-timing-and-evasion.html">Nmap Timing and Evasion</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/nse-vuln-category-audit.html">NSE `vuln` Category Audit</a>
 <a class="sidebar-link kind-concept" href="../offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a>
 <a class="sidebar-link kind-concept" href="../offensive-security/passive-recon.html">Passive Recon</a>
 <a class="sidebar-link kind-concept" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
@@ -213,10 +215,12 @@
 <a class="sidebar-link kind-concept" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
 <a class="sidebar-link kind-concept" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
 </details>
-<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>13</small></summary>
+<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>15</small></summary>
 <p class="sidebar-summary">Repeatable procedures for turning concepts into practical tests.</p>
 <a class="sidebar-link kind-index" href="../security-playbooks/index.html">Overview</a>
 <a class="sidebar-link kind-playbook" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/detect-external-scan-pipeline.html">Detect External Recon Scan Pipeline</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
 <a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
 <a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
@@ -292,7 +296,7 @@
 <a class="sidebar-link kind-concept" href="../devsecops/secure-by-design.html">Secure by Design</a>
 <a class="sidebar-link kind-concept" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
-<details class="branch branch-red" open><summary><span>Identity &amp; Active Directory</span><small>9</small></summary>
+<details class="branch branch-red" open><summary><span>Identity &amp; Active Directory</span><small>11</small></summary>
 <p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
 <a class="sidebar-link kind-index" href="index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="as-rep-roasting.html">AS-REP Roasting</a>
@@ -302,7 +306,9 @@
 <a class="sidebar-link kind-concept" href="golden-ticket-and-krbtgt-compromise.html">Golden Ticket and KRBTGT Compromise</a>
 <a class="sidebar-link kind-concept" href="kerberoasting.html">Kerberoasting</a>
 <a class="sidebar-link kind-concept" href="krbtgt-rotation-and-tier-zero-recovery.html">KRBTGT Rotation and Tier Zero Recovery</a>
+<a class="sidebar-link kind-concept" href="pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash and NTLM Credential Reuse</a>
 <a class="sidebar-link kind-concept" href="silver-ticket-and-service-account-persistence.html">Silver Ticket and Service Account Persistence</a>
+<a class="sidebar-link kind-concept" href="tier-zero-administration-and-paw.html">Tier 0 Administration and Privileged Access Workstations</a>
 </details>
 <div class="sidebar-group-label">Always-on</div>
 <details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
@@ -537,6 +543,7 @@ impacket-psexec<span class="w"> </span>LAB.LOCAL/Administrator@DC01.lab.local<sp
 <li><a href="golden-ticket-and-krbtgt-compromise.html">golden-ticket-and-krbtgt-compromise</a> — the natural post-DCSync Kerberos trust-root abuse path after <code>krbtgt</code> material is recovered.</li>
 <li><a href="krbtgt-rotation-and-tier-zero-recovery.html">krbtgt-rotation-and-tier-zero-recovery</a> — the recovery operation required when DCSync may have exposed <code>krbtgt</code>.</li>
 <li><a href="silver-ticket-and-service-account-persistence.html">silver-ticket-and-service-account-persistence</a> — the service-account ticket-forgery path when DCSync recovers service keys rather than only <code>krbtgt</code>.</li>
+<li><a href="pass-the-hash-and-ntlm-credential-reuse.html">pass-the-hash-and-ntlm-credential-reuse</a> — the direct credential-reuse path after DCSync returns NTLM hashes.</li>
 <li><a href="../foundations/cia-triad-and-what-it-actually-decides.html">CIA triad</a> — DCSync is a confidentiality breach (mass hash exposure) followed by integrity + authenticity breach (forged tickets impersonating any principal).</li>
 <li><a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality</a> — the same <code>MATCH (n)-[:DCSync]-&gt;(:Domain)</code> Cypher query is used by both attackers (find targets) and defenders (find findings).</li>
 <li><a href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral vs signature detection</a> — DCSync detection is purely behavioral (legitimate replication vs anomalous replication source).</li>
@@ -544,7 +551,6 @@ impacket-psexec<span class="w"> </span>LAB.LOCAL/Administrator@DC01.lab.local<sp
 </ul>
 <h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: pass-the-hash-and-ntlm-credential-reuse">pass-the-hash-and-ntlm-credential-reuse</span> — what to do with the user hashes DCSync extracts.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: dcshadow-and-rogue-dc-attacks">dcshadow-and-rogue-dc-attacks</span> — the stealthy DCSync sibling.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: exchange-ad-permission-legacy-issues">exchange-ad-permission-legacy-issues</span> — the recurring source of misconfigured replication rights.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: detect-dcsync-and-ntdsdit-access">detect-dcsync-and-ntdsdit-access</span> — defender-side playbook pair.</li>

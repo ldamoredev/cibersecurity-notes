@@ -134,7 +134,7 @@
 <a class="sidebar-link kind-concept" href="web-security/xxe.html">XXE</a>
 </details>
 <div class="sidebar-group-label">Paired</div>
-<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>18</small></summary>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>20</small></summary>
 <p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
 <a class="sidebar-link kind-index" href="offensive-security/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="offensive-security/active-recon.html">Active Recon</a>
@@ -142,8 +142,10 @@
 <a class="sidebar-link kind-concept" href="offensive-security/company-mapping.html">Company Mapping</a>
 <a class="sidebar-link kind-concept" href="offensive-security/enumeration.html">Enumeration</a>
 <a class="sidebar-link kind-concept" href="offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="sidebar-link kind-concept" href="offensive-security/idle-scan-and-ipid-side-channels.html">Idle Scan and IPID Side Channels</a>
 <a class="sidebar-link kind-concept" href="offensive-security/masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a>
 <a class="sidebar-link kind-concept" href="offensive-security/nmap-timing-and-evasion.html">Nmap Timing and Evasion</a>
+<a class="sidebar-link kind-concept" href="offensive-security/nse-vuln-category-audit.html">NSE `vuln` Category Audit</a>
 <a class="sidebar-link kind-concept" href="offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a>
 <a class="sidebar-link kind-concept" href="offensive-security/passive-recon.html">Passive Recon</a>
 <a class="sidebar-link kind-concept" href="offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
@@ -212,10 +214,12 @@
 <a class="sidebar-link kind-concept" href="linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
 <a class="sidebar-link kind-concept" href="linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
 </details>
-<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>13</small></summary>
+<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>15</small></summary>
 <p class="sidebar-summary">Repeatable procedures for turning concepts into practical tests.</p>
 <a class="sidebar-link kind-index" href="security-playbooks/index.html">Overview</a>
 <a class="sidebar-link kind-playbook" href="security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="sidebar-link kind-playbook" href="security-playbooks/detect-external-scan-pipeline.html">Detect External Recon Scan Pipeline</a>
+<a class="sidebar-link kind-playbook" href="security-playbooks/detect-kerberoasting-and-as-rep-roasting.html">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="sidebar-link kind-playbook" href="security-playbooks/exploit-idor.html">Exploit IDOR</a>
 <a class="sidebar-link kind-playbook" href="security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
 <a class="sidebar-link kind-playbook" href="security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
@@ -291,7 +295,7 @@
 <a class="sidebar-link kind-concept" href="devsecops/secure-by-design.html">Secure by Design</a>
 <a class="sidebar-link kind-concept" href="devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
-<details class="branch branch-red"><summary><span>Identity &amp; Active Directory</span><small>9</small></summary>
+<details class="branch branch-red"><summary><span>Identity &amp; Active Directory</span><small>11</small></summary>
 <p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
 <a class="sidebar-link kind-index" href="identity-and-active-directory/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="identity-and-active-directory/as-rep-roasting.html">AS-REP Roasting</a>
@@ -301,7 +305,9 @@
 <a class="sidebar-link kind-concept" href="identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">Golden Ticket and KRBTGT Compromise</a>
 <a class="sidebar-link kind-concept" href="identity-and-active-directory/kerberoasting.html">Kerberoasting</a>
 <a class="sidebar-link kind-concept" href="identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">KRBTGT Rotation and Tier Zero Recovery</a>
+<a class="sidebar-link kind-concept" href="identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash and NTLM Credential Reuse</a>
 <a class="sidebar-link kind-concept" href="identity-and-active-directory/silver-ticket-and-service-account-persistence.html">Silver Ticket and Service Account Persistence</a>
+<a class="sidebar-link kind-concept" href="identity-and-active-directory/tier-zero-administration-and-paw.html">Tier 0 Administration and Privileged Access Workstations</a>
 </details>
 <div class="sidebar-group-label">Always-on</div>
 <details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
@@ -490,9 +496,9 @@
 <a class="related-card" href="phase-1-substrate.html"><span>Cybersecurity</span><strong>Phase 1 — Substrate (How Things Actually Work)</strong><small>You have finished Phase 0 — Foundations and have the four mental models: *cybersecurity is not a tool list*, *CIA as a decision tool*, *threat modeling as a...</small></a>
 <a class="related-card" href="phase-3-operator.html"><span>Cybersecurity</span><strong>Phase 3 — Operator Surface (Concept → Capability)</strong><small>You have a substrate model from Phase 1 and you can read offense and defense as pairs from Phase 2. Phase 3 is where that knowledge becomes **operator...</small></a>
 <a class="related-card" href="phase-4-specialty.html"><span>Cybersecurity</span><strong>Phase 4 — Specialty Tracks (Pick What Your Job Demands)</strong><small>Phase 4 is the **only phase you do not read linearly**. By design, it is job-context-chosen: you pick the specialty your role actually requires, learn it deeply...</small></a>
+<a class="related-card" href="identity-and-active-directory/tier-zero-administration-and-paw.html"><span>Identity &amp; Active Directory</span><strong>Tier 0 Administration and Privileged Access Workstations</strong><small>**Tier 0** is the set of identities, hosts, and components that have *effective control over the directory itself* — Domain Controllers, the principals with DCSync...</small></a>
 <a class="related-card" href="privacy-anonymity-opsec/account-correlation.html"><span>Privacy, Anonymity &amp; OPSEC</span><strong>Account Correlation</strong><small>Account correlation is the process of linking separate activities or personas through shared accounts, recovery data, identifiers, devices, or repeated usage...</small></a>
 <a class="related-card" href="offensive-security/active-recon.html"><span>Offensive Security / Recon</span><strong>Active Recon</strong><small>Active recon is information gathering that directly interacts with target infrastructure, services, or applications to validate or extend what passive recon...</small></a>
-<a class="related-card" href="attack-surface-mapping/admin-interface-discovery.html"><span>Attack Surface Mapping</span><strong>Admin Interface Discovery</strong><small>Admin interface discovery is the process of identifying management, control-plane, support, diagnostic, or privileged interfaces that should be restricted but may...</small></a>
 </div></section>
 </article>
 </main>

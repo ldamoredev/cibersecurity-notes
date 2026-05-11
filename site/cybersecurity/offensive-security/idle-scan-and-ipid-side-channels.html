@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Idle Scan and IPID Side Channels - Offensive Security / Recon | ldamoredev Security Atlas</title>
+<meta name="description" content="An **idle scan** (nmap -sI zombie:port target) infers a target&#x27;s port state without sending a single packet from the attacker&#x27;s real IP. It works by exploiting a...">
+<meta name="author" content="ldamoredev">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Offensive Security / Recon, Idle Scan and IPID Side Channels, offensive-security, nmap, idle-scan, ipid, side-channel">
+<meta name="theme-color" content="#256d85">
+<link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Offensive Security / Recon">
+<meta property="og:title" content="Idle Scan and IPID Side Channels - Offensive Security / Recon | ldamoredev Security Atlas">
+<meta property="og:description" content="An **idle scan** (nmap -sI zombie:port target) infers a target&#x27;s port state without sending a single packet from the attacker&#x27;s real IP. It works by exploiting a...">
+<meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html">
+<meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Idle Scan and IPID Side Channels - Offensive Security / Recon | ldamoredev Security Atlas">
+<meta name="twitter:description" content="An **idle scan** (nmap -sI zombie:port target) infers a target&#x27;s port state without sending a single packet from the attacker&#x27;s real IP. It works by exploiting a...">
+<meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"Idle Scan and IPID Side Channels - Offensive Security / Recon | ldamoredev Security Atlas","headline":"Idle Scan and IPID Side Channels","description":"An **idle scan** (nmap -sI zombie:port target) infers a target's port state without sending a single packet from the attacker's real IP. It works by exploiting a...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Offensive Security / Recon","Idle Scan and IPID Side Channels","offensive-security","nmap","idle-scan","ipid","side-channel"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Offensive Security / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"Idle Scan and IPID Side Channels","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html"}]}]</script>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body id="top" data-root="../..">
+<header class="topbar">
+  <button id="sidebar-toggle" title="Toggle navigation" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html"><span>ldamoredev</span><small>security atlas</small></a>
+  <div class="search-shell">
+    <input id="search" type="search" placeholder="Search notes..." autocomplete="off">
+    <kbd>/</kbd>
+  </div>
+  <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout with-toc">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Atlas Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="sidebar-link kind-index" href="../index.html">Cybersecurity Index</a>
+<a class="sidebar-link kind-concept" href="../start-here.html">Start Here — Cybersecurity Vault Triage</a>
+<a class="sidebar-link kind-concept" href="../must-know-30.html">Must-Know 30 — The Minimum Viable Security Literacy</a>
+<a class="sidebar-link kind-concept" href="../phase-1-substrate.html">Phase 1 — Substrate (How Things Actually Work)</a>
+<a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
+<a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
+<a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<div class="sidebar-group-label">Orientation</div>
+<details class="branch branch-amber"><summary><span>Foundations</span><small>5</small></summary>
+<p class="sidebar-summary">Phase 0 mental models — what cybersecurity is, the CIA triad as a decision tool, threat-modeling quickstart, and the attacker-defender duality.</p>
+<a class="sidebar-link kind-index" href="../foundations/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality as a Learning Tool</a>
+<a class="sidebar-link kind-concept" href="../foundations/cia-triad-and-what-it-actually-decides.html">CIA Triad — What It Actually Decides</a>
+<a class="sidebar-link kind-concept" href="../foundations/threat-modeling-quickstart.html">Threat Modeling Quickstart</a>
+<a class="sidebar-link kind-concept" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html">What Is Cybersecurity, and Why It Is Not a Tool List</a>
+</details>
+<div class="sidebar-group-label">Substrate</div>
+<details class="branch branch-emerald"><summary><span>Cryptography</span><small>15</small></summary>
+<p class="sidebar-summary">Hashes, encryption, signatures, key exchange, TLS/PKI, password storage, and token correctness.</p>
+<a class="sidebar-link kind-index" href="../cryptography/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../cryptography/aead-and-nonce-misuse.html">AEAD and Nonce Misuse</a>
+<a class="sidebar-link kind-concept" href="../cryptography/asymmetric-encryption-and-key-exchange.html">Asymmetric Encryption and Key Exchange</a>
+<a class="sidebar-link kind-concept" href="../cryptography/certificate-validation-and-pinning.html">Certificate Validation and Pinning</a>
+<a class="sidebar-link kind-concept" href="../cryptography/digital-signatures.html">Digital Signatures</a>
+<a class="sidebar-link kind-concept" href="../cryptography/hashing-vs-encryption-vs-signing.html">Hashing vs Encryption vs Signing</a>
+<a class="sidebar-link kind-concept" href="../cryptography/jwt-cryptographic-correctness.html">JWT Cryptographic Correctness</a>
+<a class="sidebar-link kind-concept" href="../cryptography/kdf-and-key-stretching.html">KDF and Key Stretching</a>
+<a class="sidebar-link kind-concept" href="../cryptography/mac-and-hmac.html">MAC and HMAC</a>
+<a class="sidebar-link kind-concept" href="../cryptography/password-hashing.html">Password Hashing</a>
+<a class="sidebar-link kind-concept" href="../cryptography/post-quantum-awareness.html">Post-Quantum Awareness</a>
+<a class="sidebar-link kind-concept" href="../cryptography/random-and-csprng-pitfalls.html">Random and CSPRNG Pitfalls</a>
+<a class="sidebar-link kind-concept" href="../cryptography/roll-your-own-crypto-failures.html">Roll Your Own Crypto Failures</a>
+<a class="sidebar-link kind-concept" href="../cryptography/symmetric-encryption-modes.html">Symmetric Encryption Modes</a>
+<a class="sidebar-link kind-concept" href="../cryptography/tls-handshake-and-pki.html">TLS Handshake and PKI</a>
+</details>
+<details class="branch branch-sky"><summary><span>Networking</span><small>23</small></summary>
+<p class="sidebar-summary">Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p>
+<a class="sidebar-link kind-index" href="../networking/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="sidebar-link kind-concept" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="sidebar-link kind-concept" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="sidebar-link kind-concept" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="sidebar-link kind-concept" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-security.html">DNS Security</a>
+<a class="sidebar-link kind-concept" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../networking/header-trust-in-node-express.html">Header Trust in Node Express</a>
+<a class="sidebar-link kind-concept" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="sidebar-link kind-concept" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="sidebar-link kind-concept" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="sidebar-link kind-concept" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="sidebar-link kind-concept" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="sidebar-link kind-concept" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="sidebar-link kind-concept" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="sidebar-link kind-concept" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="sidebar-link kind-concept" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="sidebar-link kind-concept" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="sidebar-link kind-concept" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="sidebar-link kind-concept" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details class="branch branch-blue"><summary><span>Web Security</span><small>27</small></summary>
+<p class="sidebar-summary">Browser behavior, sessions, access control, and server-side exploit patterns.</p>
+<a class="sidebar-link kind-index" href="../web-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../web-security/bot-detection-signals.html">Bot Detection Signals</a>
+<a class="sidebar-link kind-concept" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="sidebar-link kind-concept" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="sidebar-link kind-concept" href="../web-security/clickjacking.html">Clickjacking</a>
+<a class="sidebar-link kind-concept" href="../web-security/command-injection.html">Command Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="sidebar-link kind-concept" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="sidebar-link kind-concept" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="sidebar-link kind-concept" href="../web-security/evilginx-and-reverse-proxy-phishing.html">Evilginx and Reverse Proxy Phishing</a>
+<a class="sidebar-link kind-concept" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="sidebar-link kind-concept" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="sidebar-link kind-concept" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="sidebar-link kind-concept" href="../web-security/mfa-phishing-resistance.html">MFA Phishing Resistance</a>
+<a class="sidebar-link kind-concept" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="sidebar-link kind-concept" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="sidebar-link kind-concept" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="sidebar-link kind-concept" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="sidebar-link kind-concept" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="sidebar-link kind-concept" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/session-management.html">Session Management</a>
+<a class="sidebar-link kind-concept" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/xxe.html">XXE</a>
+</details>
+<div class="sidebar-group-label">Paired</div>
+<details class="branch branch-rose" open><summary><span>Offensive Security / Recon</span><small>20</small></summary>
+<p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
+<a class="sidebar-link kind-index" href="index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="active-recon.html">Active Recon</a>
+<a class="sidebar-link kind-concept" href="cloaking-and-security-evasion.html">Cloaking and Security Evasion</a>
+<a class="sidebar-link kind-concept" href="company-mapping.html">Company Mapping</a>
+<a class="sidebar-link kind-concept" href="enumeration.html">Enumeration</a>
+<a class="sidebar-link kind-concept" href="host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="sidebar-link kind-concept active" href="idle-scan-and-ipid-side-channels.html">Idle Scan and IPID Side Channels</a>
+<a class="sidebar-link kind-concept" href="masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a>
+<a class="sidebar-link kind-concept" href="nmap-timing-and-evasion.html">Nmap Timing and Evasion</a>
+<a class="sidebar-link kind-concept" href="nse-vuln-category-audit.html">NSE `vuln` Category Audit</a>
+<a class="sidebar-link kind-concept" href="packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a>
+<a class="sidebar-link kind-concept" href="passive-recon.html">Passive Recon</a>
+<a class="sidebar-link kind-concept" href="public-asset-discovery.html">Public Asset Discovery</a>
+<a class="sidebar-link kind-concept" href="recon.html">Recon</a>
+<a class="sidebar-link kind-concept" href="recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="sidebar-link kind-concept" href="rustscan-and-nse-pipeline.html">RustScan and NSE Pipeline</a>
+<a class="sidebar-link kind-concept" href="scope-validation.html">Scope Validation</a>
+<a class="sidebar-link kind-concept" href="service-validation.html">Service Validation</a>
+<a class="sidebar-link kind-concept" href="subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="sidebar-link kind-concept" href="tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Detection Engineering</span><small>12</small></summary>
+<p class="sidebar-summary">Telemetry, behavioral analytics, correlation, and detection tradeoffs.</p>
+<a class="sidebar-link kind-index" href="../detection-engineering/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation and Kill Chain Observability</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral Detection vs Signature Detection</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/detection-evasion-myths-and-modern-limitations.html">Detection Evasion Myths and Modern Limitations</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/edr-network-observability-and-process-correlation.html">EDR Network Observability and Process Correlation</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html">Encrypted Traffic Analysis and Metadata Leakage</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html">False Positives, False Negatives, and Detection Tradeoffs</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html">IDS/IPS and Behavioral Detection Pipelines</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/network-telemetry-sources-and-visibility.html">Network Telemetry Sources and Visibility</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Scan Anomaly Detection and Fingerprint Analysis</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/telemetry-normalization-correlation-and-enrichment.html">Telemetry Normalization, Correlation, and Enrichment</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html">Zeek, Suricata, and NetFlow Analysis</a>
+</details>
+<div class="sidebar-group-label">Operator</div>
+<details class="branch branch-amber"><summary><span>Attack Surface Mapping</span><small>11</small></summary>
+<p class="sidebar-summary">What is exposed, reachable, discoverable, and drifting from intended design.</p>
+<a class="sidebar-link kind-index" href="../attack-surface-mapping/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details class="branch branch-violet"><summary><span>OSINT</span><small>11</small></summary>
+<p class="sidebar-summary">Public-source collection, evidence quality, and ethical handling of clues.</p>
+<a class="sidebar-link kind-index" href="../osint/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="sidebar-link kind-concept" href="../osint/company-osint.html">Company OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="sidebar-link kind-concept" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint.html">OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="sidebar-link kind-concept" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="sidebar-link kind-concept" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details class="branch branch-orange"><summary><span>Linux Privilege Escalation</span><small>10</small></summary>
+<p class="sidebar-summary">Local boundary failures, enumeration, and safe escalation hypothesis testing.</p>
+<a class="sidebar-link kind-index" href="../linux-privilege-escalation/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>15</small></summary>
+<p class="sidebar-summary">Repeatable procedures for turning concepts into practical tests.</p>
+<a class="sidebar-link kind-index" href="../security-playbooks/index.html">Overview</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/detect-external-scan-pipeline.html">Detect External Recon Scan Pipeline</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html">Detect Kerberoasting and AS-REP Roasting</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/run-scan-pipeline.html">Run External Recon Scan Pipeline</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/trace-metadata-endpoint-reachability.html">Trace Metadata Endpoint Reachability</a>
+</details>
+<div class="sidebar-group-label">Specialty</div>
+<details class="branch branch-teal"><summary><span>Wireless Security</span><small>11</small></summary>
+<p class="sidebar-summary">Wi-Fi frames, handshakes, rogue access points, and local-network MITM.</p>
+<a class="sidebar-link kind-index" href="../wireless-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+<details class="branch branch-indigo"><summary><span>API Security</span><small>15</small></summary>
+<p class="sidebar-summary">Authorization, token trust, inventory drift, and machine-readable abuse.</p>
+<a class="sidebar-link kind-index" href="../api-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="sidebar-link kind-concept" href="../api-security/authorization.html">Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="sidebar-link kind-concept" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="sidebar-link kind-concept" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="sidebar-link kind-concept" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="sidebar-link kind-concept" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Cloud Security</span><small>11</small></summary>
+<p class="sidebar-summary">IAM, metadata, storage, network boundaries, secrets, and logging controls.</p>
+<a class="sidebar-link kind-index" href="../cloud-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details class="branch branch-green"><summary><span>DevSecOps</span><small>13</small></summary>
+<p class="sidebar-summary">Secure delivery, CI/CD hardening, supply chain, secrets, and release trust.</p>
+<a class="sidebar-link kind-index" href="../devsecops/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="sidebar-link kind-concept" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="sidebar-link kind-concept" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="sidebar-link kind-concept" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="sidebar-link kind-concept" href="../devsecops/container-security.html">Container Security</a>
+<a class="sidebar-link kind-concept" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="sidebar-link kind-concept" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="sidebar-link kind-concept" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="sidebar-link kind-concept" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="sidebar-link kind-concept" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details class="branch branch-red"><summary><span>Identity &amp; Active Directory</span><small>11</small></summary>
+<p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
+<a class="sidebar-link kind-index" href="../identity-and-active-directory/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/as-rep-roasting.html">AS-REP Roasting</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound and Attack Path Analysis</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/gmsa-and-modern-service-account-hardening.html">gMSA and Modern Service Account Hardening</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">Golden Ticket and KRBTGT Compromise</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/kerberoasting.html">Kerberoasting</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">KRBTGT Rotation and Tier Zero Recovery</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash and NTLM Credential Reuse</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/silver-ticket-and-service-account-persistence.html">Silver Ticket and Service Account Persistence</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/tier-zero-administration-and-paw.html">Tier 0 Administration and Privileged Access Workstations</a>
+</details>
+<div class="sidebar-group-label">Always-on</div>
+<details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
+<p class="sidebar-summary">VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.</p>
+<a class="sidebar-link kind-index" href="../privacy-anonymity-opsec/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/account-correlation.html">Account Correlation</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/anonymity-threat-models.html">Anonymity Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/browser-fingerprinting.html">Browser Fingerprinting</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html">Corporate VPNs vs Consumer VPNs</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/deanonymization-failures.html">Deanonymization Failures</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/end-to-end-encryption.html">End-to-End Encryption</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/file-metadata-removal.html">File Metadata Removal</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/metadata-and-identity-leakage.html">Metadata and Identity Leakage</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/opsec-failure-chains.html">OPSEC Failure Chains</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/pgp-encryption-and-signatures.html">PGP Encryption and Signatures</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/privacy-vs-anonymity-vs-confidentiality.html">Privacy vs Anonymity vs Confidentiality</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/private-email-threat-models.html">Private Email Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/qubes-compartmentalization.html">Qubes Compartmentalization</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/secure-deletion-and-storage-wiping.html">Secure Deletion and Storage Wiping</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/secure-file-sharing.html">Secure File Sharing</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tails-operational-model.html">Tails Operational Model</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/temporary-email-risks.html">Temporary Email Risks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-and-onion-services.html">Tor and Onion Services</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-bridges-and-pluggable-transports.html">Tor Bridges and Pluggable Transports</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-browser-security-settings.html">Tor Browser Security Settings</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/traffic-correlation.html">Traffic Correlation</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-dns-and-ipv6-leaks.html">VPN DNS and IPv6 Leaks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-fingerprinting-limitations.html">VPN Fingerprinting Limitations</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-kill-switches.html">VPN Kill Switches</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-leakage-risks.html">VPN Leakage Risks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-logging-and-trust.html">VPN Logging and Trust</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-protocols.html">VPN Protocols</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-threat-models.html">VPN Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-vs-tor.html">VPN vs Tor</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-with-tor.html">VPN with Tor</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/whonix-gateway.html">Whonix Gateway</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/xmpp-and-private-messaging.html">XMPP and Private Messaging</a>
+</details>
+<details class="registry-group"><summary>Reference System <span>16</span></summary>
+<a class="sidebar-link kind-registry" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-detection-engineering.html">Reference Registry - Detection Engineering</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-privacy-anonymity-opsec.html">Reference Registry - Privacy, Anonymity &amp; OPSEC</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-api-security.html">Reference Registry — API Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cryptography.html">Reference Registry — Cryptography</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-identity-and-active-directory.html">Reference Registry — Identity and Active Directory</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-networking.html">Reference Registry — Networking</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-offensive-security.html">Reference Registry — Offensive Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-playbooks.html">Reference Registry — Playbooks</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-web-security.html">Reference Registry — Web Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Offensive Security / Recon</a><span>/</span><span>Idle Scan and IPID Side Channels</span></nav>
+<header class="page-hero">
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-rose">Offensive Security / Recon</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#nmap</span><span class="meta-chip tag">#idle-scan</span><span class="meta-chip tag">#ipid</span><span class="meta-chip tag">#side-channel</span><span class="meta-chip tag">#evasion</span></div>
+</header>
+<article class="article-note">
+<h1 id="idle-scan-and-ipid-side-channels">Idle Scan and IPID Side Channels</h1>
+<h2 id="definition">Definition</h2>
+<p>An <strong>idle scan</strong> (<code>nmap -sI zombie:port target</code>) infers a target's port state without sending a single packet from the attacker's real IP. It works by exploiting a <strong>predictable IPID counter</strong> on a third-party "zombie" host: the attacker probes the zombie's current IPID, sends a spoofed SYN to the target <em>as if from the zombie</em>, then re-probes the zombie's IPID. The delta reveals whether the target replied — and to whom. <strong>IPID side channels</strong> is the broader family of inference attacks that use any host's IP identifier field as an observable counter to derive information the attacker cannot see directly.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Idle scan is the only Nmap scan where the scanner's IP <strong>never appears in the target's logs</strong>. Every other scan — even <code>-sN</code>, <code>-sF</code>, <code>-D RND:10</code> — emits packets from the real source. The decoys raise noise; the source is still there. Idle scan is structurally different: the target only ever sees traffic from the zombie. For source-attribution evasion this is unique.</p>
+<p>It also matters as a teaching note because it teaches <strong>three transferable senior ideas</strong>:</p>
+<ul>
+<li><strong>Predictable counters leak information.</strong> Any globally incrementing counter (IPID, TCP ISN under weak RNGs, certain SNMP counters) is a side-channel oracle. The vulnerability is the predictability, not the protocol.</li>
+<li><strong>Trust assumptions stack.</strong> Idle scan assumes (a) the zombie answers consistently, (b) the target trusts the zombie's source IP, (c) the zombie is otherwise quiet enough for delta inference to be reliable. Each assumption is its own attack surface.</li>
+<li><strong>Defenses are protocol-spec changes.</strong> RFC-level guidance to randomize IPID neutralized classic idle scan on every major OS. Senior thinking treats the <em>protocol field</em> as the attack surface, not the tool.</li>
+</ul>
+<p>Idle scan today is mostly <strong>diagnostic</strong> rather than operational — modern OS IPID randomization defeats it on Linux, OpenBSD, modern Windows, and most cloud workloads. But IoT devices, legacy embedded systems, and misconfigured NAT gateways still ship globally-incrementing IPID generators, and the technique remains a clean way to <em>prove</em> an environment is older than its operators claim.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Idle scan reduces to <strong>3 round-trips</strong> and <strong>a one-bit observation</strong>:</p>
+<ol>
+<li><strong>Probe the zombie's current IPID.</strong> Attacker sends an unsolicited SYN-ACK to the zombie. Zombie replies with RST, carrying IPID = N.</li>
+<li><strong>Spoof a SYN to the target from the zombie's IP.</strong> Target receives a SYN that looks like it came from zombie.
+   - If the target port is <strong>open</strong>: target replies SYN-ACK to the zombie. Zombie was not expecting this, so it replies with RST — <em>and increments its IPID</em>. Zombie IPID is now N+1.
+   - If the target port is <strong>closed</strong>: target replies RST to the zombie. Zombie drops the unsolicited RST and does <em>not</em> send any packet. Zombie IPID stays at N.</li>
+<li><strong>Re-probe the zombie's IPID.</strong> Attacker sends another unsolicited SYN-ACK. Zombie replies with RST, carrying its current IPID:
+   - <strong>N+2</strong> (started at N, incremented once during step 2, incremented once now) → port was <strong>open</strong>.
+   - <strong>N+1</strong> (no step-2 increment, only this probe) → port was <strong>closed</strong>.</li>
+</ol>
+<p>A representative invocation:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 1) Find a candidate zombie — must have INCREMENTAL IPID.</span>
+sudo<span class="w"> </span>nmap<span class="w"> </span>-O<span class="w"> </span>ZOMBIE_CANDIDATE<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;ip id sequence&#39;</span>
+<span class="c1"># Look for: &quot;IP ID Sequence Generation: Incremental&quot;</span>
+
+<span class="c1"># 2) Run the idle scan.</span>
+sudo<span class="w"> </span>nmap<span class="w"> </span>-Pn<span class="w"> </span>-sI<span class="w"> </span>ZOMBIE:80<span class="w"> </span>-p<span class="w"> </span><span class="m">22</span>,80,443,3389<span class="w"> </span>TARGET
+<span class="c1"># Target sees traffic from ZOMBIE only. Your IP appears nowhere in the target&#39;s logs.</span>
+</code></pre></div>
+
+<p>The bug is not "Nmap can spoof source IPs" (that has always been possible); the bug is <em>the third-party host's IPID counter is a measurable side channel that leaks the target's response — and is observable to anyone who can probe the third party</em>.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<ul>
+<li><strong>Zombie selection is the entire engagement.</strong> A good zombie has: (a) <code>IP ID Sequence Generation: Incremental</code> per <code>nmap -O</code>, (b) low traffic so the IPID delta is exactly +2 or +1 (busy zombies advance multiple times between probes, producing noise), (c) network reachability to the target on the relevant ports.</li>
+<li><strong>Verify the zombie's IPID generation before scanning.</strong> <code>nmap -O</code> is the first move; if the result is <code>Random</code> or <code>Randomized</code>, that zombie is useless. <code>Broken little-endian incremental</code> (Windows 95-era) is workable but rare in 2026.</li>
+<li><strong>Modern IoT and printers are the typical zombie source.</strong> Embedded network stacks frequently still use global incremental IPID. Network printers, KVM switches, video doorbells, industrial controllers, and out-of-band management interfaces are recurring candidates.</li>
+<li><strong>Idle scan is slow.</strong> Each port requires multiple round-trips. Practical for confirming exposure on a handful of high-value ports; impractical for <code>-p-</code> full-range scans.</li>
+<li><strong>The <code>--proxies</code> flag is not the same thing.</strong> <code>nmap --proxies</code> chains HTTP/SOCKS proxies and rewrites the source at the proxy layer — useful for reachability, useless for evasion (the proxy still logs you). Idle scan removes the source from the <em>target's</em> logs.</li>
+<li><strong>OPSEC: detection lives at the zombie, not the target.</strong> A defender who controls the zombie can correlate three things — IPID jumps that don't match outbound traffic, unsolicited SYN-ACKs from your IP, and unsolicited responses arriving from the target. The technique evades target-side detection by design; defender response is "watch your own infrastructure for being used as a zombie".</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>The IPID-side-channel family has <strong>4 important variants</strong>.</p>
+<h3 id="1-classic-idle-scan-nmap-si">1. Classic idle scan (Nmap <code>-sI</code>)</h3>
+<p>The flow described above. Requires an incremental-IPID zombie reachable from both the attacker and the target. The textbook variant, increasingly hard to land against modern OSes.</p>
+<h3 id="2-per-destination-ipid-idle-scan">2. Per-destination IPID idle scan</h3>
+<p>Linux (since 2014) uses a <em>per-destination-pair</em> IPID counter rather than a global one. Classic idle scan does not work directly, but a refined variant uses the <em>zombie-to-target</em> pair's IPID as the oracle by ensuring the zombie's first interaction with the target is the probe-induced reply. Brittle but documented in academic literature.</p>
+<h3 id="3-tcp-shared-state-side-channels">3. TCP shared-state side channels</h3>
+<p>Beyond IPID, certain TCP fields (ISN under weak RNGs, challenge ACK counters, packet-count-based rate-limit state) can leak target state to a third-party observer. <strong>Ensafi et al. (USENIX 2015)</strong> demonstrated detecting intentional packet drops on the internet using these primitives — censorship detection from outside the censored network entirely.</p>
+<h3 id="4-nat-mapping-inference-via-ipid">4. NAT-mapping inference via IPID</h3>
+<p>A NAT gateway that translates many internal hosts to one external IP frequently shares a single IPID counter across them. Probing the external IPID and watching the rate of advance reveals approximately how many internal hosts are active — an unintended census attack against the perimeter. Defeated by NAT implementations that randomize IPID per outbound flow.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered by typical real-world severity:</p>
+<ul>
+<li><strong>Source-attribution evasion that survives forensic review.</strong> The target's packet captures and logs contain only the zombie. Investigations chase the zombie owner first; the real attacker is invisible unless the zombie itself is captured and its own logs analyzed.</li>
+<li><strong>Trust-relationship inference.</strong> If the zombie is <em>trusted</em> by the target (firewall ACL allows ZOMBIE → TARGET:N but blocks the internet at large), idle scan reveals exposure that no direct scan from the internet would surface. Diagnostic of legacy "allow from this management host" ACLs.</li>
+<li><strong>NAT-population estimation.</strong> Census-style intelligence about an organization's internal scale, leaked through perimeter IPID counters. Useful for sizing follow-up engagements.</li>
+<li><strong>False-confidence in defender visibility.</strong> Defenders who say "we monitor every connection" are correct about the target; they miss idle scans entirely if their telemetry is target-side only.</li>
+<li><strong>Limited operational use today.</strong> Most production OSes randomize IPID. The technique is <em>educational</em> and <em>legacy-target-specific</em> rather than a standard operator move in 2026.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Use a kernel that randomizes IPID per destination or per packet.</strong>
+   Linux 4.1+, modern macOS, FreeBSD, OpenBSD, Windows 10/Server 2016+ all do this by default. The structural fix that ends classic idle scan as a useful attack against modern OSes. Audit any host advertising as a router, gateway, printer, IoT device, or out-of-band management interface — these are the lingering incremental-IPID candidates.</p>
+</li>
+<li>
+<p><strong>Egress filtering and source-address verification (BCP 38).</strong>
+   Idle scan requires the attacker to spoof the zombie's source IP. Networks that enforce ingress filtering (the <em>attacker's</em> upstream drops packets whose source IP is not in the attacker's address space) make the spoof impossible. RFC 2827 / BCP 38 was specified in 2000 and is still inconsistently deployed.</p>
+</li>
+<li>
+<p><strong>Behavioral detection at the zombie side.</strong>
+   The zombie sees three anomalies: (a) unsolicited SYN-ACKs from the attacker, (b) unsolicited RST or SYN-ACK responses from the target, (c) its own IPID advancing without matching outbound application traffic. Any single anomaly is weak; the combination is high-confidence. Defenders should monitor their own infrastructure for being recruited as zombies.</p>
+</li>
+<li>
+<p><strong>Per-destination IPID for any custom network stack.</strong>
+   IoT device manufacturers, embedded systems, and custom network stacks frequently inherit the same incremental-IPID bug because the developers do not know it is an attack surface. Secure-by-default guidance for new TCP/IP implementations should include IPID randomization.</p>
+</li>
+<li>
+<p><strong>Network-level flow monitoring at the perimeter.</strong>
+   Detection on the perimeter (the target's edge router) catches a different signature: the spoofed SYN arrives from a source that does not normally communicate with the target on that port. NetFlow / IPFIX correlation with known communication baselines catches the anomaly even though target host logs miss it.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Target-host logging alone.</strong> Idle scan was designed to defeat this. The target sees a clean session that came from a trusted source IP (the zombie).</li>
+<li><strong>Firewall rules that block "scan-like" patterns.</strong> Idle scan is one SYN per port, spread across whatever pace the attacker chooses. No volumetric signature on the target side.</li>
+<li><strong>TLS / encryption.</strong> Idle scan operates at L3/L4. TLS is irrelevant.</li>
+<li><strong>Geo-blocking the zombie's country.</strong> If the zombie is in-network or near-network, geo-blocking either blocks legitimate traffic or fails to apply.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Run <strong>only</strong> against owned lab environments or authorized engagements. Idle scan against arbitrary internet hosts uses third-party IP addresses without their consent — operationally and legally hazardous outside authorized scope.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 1 — Find a candidate zombie in a lab subnet.</span>
+sudo<span class="w"> </span>nmap<span class="w"> </span>-O<span class="w"> </span><span class="m">10</span>.0.0.0/24<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
+<span class="w">    </span>awk<span class="w"> </span><span class="s1">&#39;/Nmap scan report/{ip=$NF} /IP ID Sequence Generation: Incremental/{print ip}&#39;</span>
+<span class="c1"># Output: every host with incremental IPID is a candidate zombie.</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 2 — Verify a specific zombie&#39;s IPID behavior in detail.</span>
+sudo<span class="w"> </span>nmap<span class="w"> </span>-O<span class="w"> </span>ZOMBIE<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A1<span class="w"> </span><span class="s2">&quot;IP ID Sequence&quot;</span>
+<span class="c1"># Expected: &quot;IP ID Sequence Generation: Incremental&quot;</span>
+<span class="c1"># If you see &quot;Random&quot; or &quot;Randomized&quot;, this zombie cannot be used.</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 3 — Run an idle scan against an authorized lab target.</span>
+sudo<span class="w"> </span>nmap<span class="w"> </span>-Pn<span class="w"> </span>-sI<span class="w"> </span>ZOMBIE:80<span class="w"> </span>-p<span class="w"> </span><span class="m">21</span>,22,80,443,3389,8080<span class="w"> </span>TARGET
+<span class="c1"># The target&#39;s packet capture will show ZOMBIE as the source.</span>
+<span class="c1"># Verify by running tcpdump on TARGET during the scan.</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 4 — Confirm the source-attribution property from TARGET&#39;s perspective.</span>
+<span class="c1"># On TARGET:</span>
+sudo<span class="w"> </span>tcpdump<span class="w"> </span>-i<span class="w"> </span>any<span class="w"> </span>-nn<span class="w"> </span><span class="s2">&quot;host ATTACKER_REAL_IP or host ZOMBIE&quot;</span><span class="w"> </span>-c<span class="w"> </span><span class="m">50</span>
+<span class="c1"># Expected: zero packets to/from ATTACKER_REAL_IP, many packets to/from ZOMBIE.</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 5 — Defender lab: detect being used as a zombie.</span>
+<span class="c1"># On the ZOMBIE host:</span>
+sudo<span class="w"> </span>tcpdump<span class="w"> </span>-i<span class="w"> </span>any<span class="w"> </span>-nn<span class="w"> </span><span class="s1">&#39;tcp and ((tcp[tcpflags] &amp; tcp-syn != 0 and tcp[tcpflags] &amp; tcp-ack != 0) or (tcp[tcpflags] &amp; tcp-rst != 0))&#39;</span><span class="w"> </span>-c<span class="w"> </span><span class="m">200</span>
+<span class="c1"># Look for: SYN-ACK or RST packets arriving from the TARGET that do not correspond</span>
+<span class="c1"># to any outbound connection your host initiated. That is the zombie-side signature.</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 6 — IPID-based NAT-population inference (educational, against owned NAT).</span>
+<span class="c1"># Probe the NAT external IP repeatedly and watch IPID advance.</span>
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>seq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">20</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>sudo<span class="w"> </span>hping3<span class="w"> </span>-c1<span class="w"> </span>-S<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>NAT_EXTERNAL_IP<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
+<span class="w">      </span>grep<span class="w"> </span>-oP<span class="w"> </span><span class="s1">&#39;id=\K\d+&#39;</span>
+<span class="w">  </span>sleep<span class="w"> </span><span class="m">1</span>
+<span class="k">done</span>
+<span class="c1"># If IPID advances by more than ~1 between samples, the NAT is sharing the counter</span>
+<span class="c1"># across multiple internal hosts — the rate of advance approximates the active host count.</span>
+</code></pre></div>
+
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li><strong>Engagement against legacy industrial network.</strong> Target perimeter has strict ACLs but trusts a 2010-era network printer in the same subnet. Idle scan with the printer as zombie reveals ports the direct internet scan reports as <code>filtered</code>. The printer's incremental IPID makes it the only viable path for source-attribution-evading reconnaissance.</li>
+<li><strong>Forensic exercise after a perimeter scan.</strong> Defender team sees scan traffic apparently from <code>printer-3F-001</code>. Investigation reveals the printer's IPID advanced inconsistently with its outbound traffic during the scan window — confirming idle scan and pointing to the real attacker via NetFlow at the printer's egress.</li>
+<li><strong>Modern Linux target — idle scan fails.</strong> Same engagement, but the target is a Linux 5.x host. The per-destination IPID generator means the classic technique does not work; operator falls back to ordinary <code>-sS</code> and accepts the attribution cost.</li>
+<li><strong>NAT census during pre-engagement recon.</strong> Probing an organization's perimeter IP reveals the IPID counter advancing at roughly 50 units per minute, suggesting ~30-50 active internal hosts at the time of measurement. Sized the follow-up internal engagement accordingly.</li>
+<li><strong>Honey-zombie defender win.</strong> Defender deploys an obviously-attractive host (named <code>mgmt-jump-01</code>) with incremental IPID and monitors it for unsolicited SYN-ACKs from the internet. Six months later, an external scan attempt against the corporate IP space generates the expected pattern — caught the operator mid-recon.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="nmap-timing-and-evasion.html">nmap-timing-and-evasion</a> — broader timing/evasion primitives; idle scan is the deepest case of the attribution-evasion question.</li>
+<li><a href="packet-fragmentation-and-decoy-scans.html">packet-fragmentation-and-decoy-scans</a> — sibling evasion family; decoys obscure attribution by noise, idle scan eliminates it by mechanism.</li>
+<li><a href="../networking/tcp-ip-basics.html">TCP/IP basics</a> — the IP identifier field this attack uses.</li>
+<li><a href="../networking/nmap-scanning.html">Nmap Scanning</a> — broader scan strategy this fits inside.</li>
+<li><a href="../networking/packet-analysis.html">Packet Analysis</a> — the right tool to verify the zombie/target packet flow during a lab.</li>
+<li><a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality</a> — idle scan is a clean example of an attack whose defenses are protocol-spec changes, not perimeter rules.</li>
+<li><a href="../detection-engineering/network-telemetry-sources-and-visibility.html">Network telemetry sources and visibility</a> — explains why target-side telemetry alone misses this.</li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="unresolved-link" title="Unpublished or unresolved: ipid-randomization-policies-by-os">ipid-randomization-policies-by-os</span> — comparative table of Linux / macOS / Windows / OpenBSD / BSD-derivative / IoT-stack IPID behavior.</li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: tcp-ip-side-channels-beyond-ipid">tcp-ip-side-channels-beyond-ipid</span> — ISN inference, challenge-ACK counters, packet-count rate limits.</li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: nat-population-inference-attacks">nat-population-inference-attacks</span> — the census variant; defense via per-flow IPID randomization at the NAT.</li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: bcp38-egress-filtering-and-spoofing-defense">bcp38-egress-filtering-and-spoofing-defense</span> — the structural anti-spoofing defense at the attacker's upstream.</li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: detect-idle-scan-at-zombie-side">detect-idle-scan-at-zombie-side</span> — defender-side playbook pair for catching being used as a zombie.</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Official Tool Docs:</strong> Nmap Reference Guide — Idle Scan — https://nmap.org/book/idlescan.html</li>
+<li><strong>Research / Deep Dive:</strong> Antirez (Salvatore Sanfilippo) — Dumb scan / new TCP scan method (original 1998 disclosure on Bugtraq) — https://seclists.org/bugtraq/1998/Dec/79</li>
+<li><strong>Research / Deep Dive:</strong> Ensafi et al. — Detecting Intentional Packet Drops on the Internet via TCP/IP Side Channels (USENIX Security 2015) — https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/ensafi</li>
+</ul>
+<section class="related-notes" aria-label="Explore nearby notes">
+<h2>Explore nearby notes</h2>
+<div class="related-grid">
+<a class="related-card" href="nmap-timing-and-evasion.html"><span>Offensive Security / Recon</span><strong>Nmap Timing and Evasion</strong><small>Nmap timing and evasion is the use of Nmap&#x27;s rate, retry, parallelism, and packet-shape primitives to either (a) reduce false filtered results against rate-limited...</small></a>
+<a class="related-card" href="packet-fragmentation-and-decoy-scans.html"><span>Offensive Security / Recon</span><strong>Packet Fragmentation and Decoy Scans</strong><small>Packet fragmentation (-f, --mtu) and decoy scans (-D) are two Nmap evasion primitives that operate at different layers: fragmentation splits probe headers across...</small></a>
+<a class="related-card" href="cloaking-and-security-evasion.html"><span>Offensive Security / Recon</span><strong>Cloaking and Security Evasion</strong><small>Cloaking is the practice of showing different behavior to different visitors based on signals such as IP, geography, ASN, reverse DNS, User-Agent, browser...</small></a>
+<a class="related-card" href="nse-vuln-category-audit.html"><span>Offensive Security / Recon</span><strong>NSE `vuln` Category Audit</strong><small>The Nmap Scripting Engine&#x27;s vuln category contains roughly **150 scripts** that claim to detect vulnerabilities. They are not all equal: some are reliable...</small></a>
+<a class="related-card" href="rustscan-and-nse-pipeline.html"><span>Offensive Security / Recon</span><strong>RustScan and NSE Pipeline</strong><small>The RustScan + NSE pipeline is a two-stage workflow in which RustScan performs fast asynchronous port discovery on a target and pipes the discovered port list...</small></a>
+<a class="related-card" href="active-recon.html"><span>Offensive Security / Recon</span><strong>Active Recon</strong><small>Active recon is information gathering that directly interacts with target infrastructure, services, or applications to validate or extend what passive recon...</small></a>
+</div></section>
+</article>
+</main>
+<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
+<a class="toc-level-2" href="#definition">Definition</a>
+<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
+<a class="toc-level-2" href="#how-it-works">How it works</a>
+<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
+<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
+<a class="toc-level-3" href="#1-classic-idle-scan-nmap-si">1. Classic idle scan (Nmap  -sI )</a>
+<a class="toc-level-3" href="#2-per-destination-ipid-idle-scan">2. Per-destination IPID idle scan</a>
+<a class="toc-level-3" href="#3-tcp-shared-state-side-channels">3. TCP shared-state side channels</a>
+<a class="toc-level-3" href="#4-nat-mapping-inference-via-ipid">4. NAT-mapping inference via IPID</a>
+<a class="toc-level-2" href="#impact">Impact</a>
+<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
+<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
+<a class="toc-level-2" href="#practical-labs">Practical labs</a>
+<a class="toc-level-2" href="#practical-examples">Practical examples</a>
+<a class="toc-level-2" href="#related-notes">Related notes</a>
+<a class="toc-level-3" href="#suggested-future-atomic-notes">Suggested future atomic notes</a>
+<a class="toc-level-2" href="#references">References</a>
+<a class="back-to-top" href="#top">Back to top</a></div></aside>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

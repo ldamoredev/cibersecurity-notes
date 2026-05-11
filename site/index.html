@@ -134,7 +134,7 @@
 <a class="sidebar-link kind-concept" href="cybersecurity/web-security/xxe.html">XXE</a>
 </details>
 <div class="sidebar-group-label">Paired</div>
-<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>18</small></summary>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>20</small></summary>
 <p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
 <a class="sidebar-link kind-index" href="cybersecurity/offensive-security/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/active-recon.html">Active Recon</a>
@@ -142,8 +142,10 @@
 <a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/company-mapping.html">Company Mapping</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/enumeration.html">Enumeration</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html">Idle Scan and IPID Side Channels</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/nmap-timing-and-evasion.html">Nmap Timing and Evasion</a>
+<a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/nse-vuln-category-audit.html">NSE `vuln` Category Audit</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/passive-recon.html">Passive Recon</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
@@ -212,10 +214,12 @@
 <a class="sidebar-link kind-concept" href="cybersecurity/linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
 </details>
-<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>13</small></summary>
+<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>15</small></summary>
 <p class="sidebar-summary">Repeatable procedures for turning concepts into practical tests.</p>
 <a class="sidebar-link kind-index" href="cybersecurity/security-playbooks/index.html">Overview</a>
 <a class="sidebar-link kind-playbook" href="cybersecurity/security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="sidebar-link kind-playbook" href="cybersecurity/security-playbooks/detect-external-scan-pipeline.html">Detect External Recon Scan Pipeline</a>
+<a class="sidebar-link kind-playbook" href="cybersecurity/security-playbooks/detect-kerberoasting-and-as-rep-roasting.html">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="sidebar-link kind-playbook" href="cybersecurity/security-playbooks/exploit-idor.html">Exploit IDOR</a>
 <a class="sidebar-link kind-playbook" href="cybersecurity/security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
 <a class="sidebar-link kind-playbook" href="cybersecurity/security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
@@ -291,7 +295,7 @@
 <a class="sidebar-link kind-concept" href="cybersecurity/devsecops/secure-by-design.html">Secure by Design</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
-<details class="branch branch-red"><summary><span>Identity &amp; Active Directory</span><small>9</small></summary>
+<details class="branch branch-red"><summary><span>Identity &amp; Active Directory</span><small>11</small></summary>
 <p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
 <a class="sidebar-link kind-index" href="cybersecurity/identity-and-active-directory/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/identity-and-active-directory/as-rep-roasting.html">AS-REP Roasting</a>
@@ -301,7 +305,9 @@
 <a class="sidebar-link kind-concept" href="cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">Golden Ticket and KRBTGT Compromise</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/identity-and-active-directory/kerberoasting.html">Kerberoasting</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">KRBTGT Rotation and Tier Zero Recovery</a>
+<a class="sidebar-link kind-concept" href="cybersecurity/identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash and NTLM Credential Reuse</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/identity-and-active-directory/silver-ticket-and-service-account-persistence.html">Silver Ticket and Service Account Persistence</a>
+<a class="sidebar-link kind-concept" href="cybersecurity/identity-and-active-directory/tier-zero-administration-and-paw.html">Tier 0 Administration and Privileged Access Workstations</a>
 </details>
 <div class="sidebar-group-label">Always-on</div>
 <details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
@@ -371,7 +377,7 @@
 <h1>ldamoredev security atlas</h1>
 <p class="lede">A static snapshot of mature cybersecurity notes from the Obsidian vault: learning paths, atomic concepts, reference policy, and practical playbooks shaped for fast retrieval.</p>
 <div class="stat-row">
-<span><strong>260</strong> published notes</span>
+<span><strong>266</strong> published notes</span>
 <span><strong>16</strong> branches</span>
 <span><strong>16</strong> reference registries</span>
 </div>
@@ -399,21 +405,21 @@
 <a class="branch-card accent-blue" href="cybersecurity/web-security/index.html"><span class="card-kicker">Substrate</span><h3>Web Security</h3><p>Browser behavior, sessions, access control, and server-side exploit patterns.</p><span class="card-meta">27 notes</span></a>
 </div></section>
 <section class="branch-section"><h2>Paired</h2><div class="branch-grid">
-<a class="branch-card accent-rose" href="cybersecurity/offensive-security/index.html"><span class="card-kicker">Paired</span><h3>Offensive Security / Recon</h3><p>Discovery, validation, and handoff from recon into concrete testing.</p><span class="card-meta">18 notes</span></a>
+<a class="branch-card accent-rose" href="cybersecurity/offensive-security/index.html"><span class="card-kicker">Paired</span><h3>Offensive Security / Recon</h3><p>Discovery, validation, and handoff from recon into concrete testing.</p><span class="card-meta">20 notes</span></a>
 <a class="branch-card accent-cyan" href="cybersecurity/detection-engineering/index.html"><span class="card-kicker">Paired</span><h3>Detection Engineering</h3><p>Telemetry, behavioral analytics, correlation, and detection tradeoffs.</p><span class="card-meta">12 notes</span></a>
 </div></section>
 <section class="branch-section"><h2>Operator</h2><div class="branch-grid">
 <a class="branch-card accent-amber" href="cybersecurity/attack-surface-mapping/index.html"><span class="card-kicker">Operator</span><h3>Attack Surface Mapping</h3><p>What is exposed, reachable, discoverable, and drifting from intended design.</p><span class="card-meta">11 notes</span></a>
 <a class="branch-card accent-violet" href="cybersecurity/osint/index.html"><span class="card-kicker">Operator</span><h3>OSINT</h3><p>Public-source collection, evidence quality, and ethical handling of clues.</p><span class="card-meta">11 notes</span></a>
 <a class="branch-card accent-orange" href="cybersecurity/linux-privilege-escalation/index.html"><span class="card-kicker">Operator</span><h3>Linux Privilege Escalation</h3><p>Local boundary failures, enumeration, and safe escalation hypothesis testing.</p><span class="card-meta">10 notes</span></a>
-<a class="branch-card accent-slate" href="cybersecurity/security-playbooks/index.html"><span class="card-kicker">Operator</span><h3>Security Playbooks</h3><p>Repeatable procedures for turning concepts into practical tests.</p><span class="card-meta">13 notes</span></a>
+<a class="branch-card accent-slate" href="cybersecurity/security-playbooks/index.html"><span class="card-kicker">Operator</span><h3>Security Playbooks</h3><p>Repeatable procedures for turning concepts into practical tests.</p><span class="card-meta">15 notes</span></a>
 </div></section>
 <section class="branch-section"><h2>Specialty</h2><div class="branch-grid">
 <a class="branch-card accent-teal" href="cybersecurity/wireless-security/index.html"><span class="card-kicker">Specialty</span><h3>Wireless Security</h3><p>Wi-Fi frames, handshakes, rogue access points, and local-network MITM.</p><span class="card-meta">11 notes</span></a>
 <a class="branch-card accent-indigo" href="cybersecurity/api-security/index.html"><span class="card-kicker">Specialty</span><h3>API Security</h3><p>Authorization, token trust, inventory drift, and machine-readable abuse.</p><span class="card-meta">15 notes</span></a>
 <a class="branch-card accent-cyan" href="cybersecurity/cloud-security/index.html"><span class="card-kicker">Specialty</span><h3>Cloud Security</h3><p>IAM, metadata, storage, network boundaries, secrets, and logging controls.</p><span class="card-meta">11 notes</span></a>
 <a class="branch-card accent-green" href="cybersecurity/devsecops/index.html"><span class="card-kicker">Specialty</span><h3>DevSecOps</h3><p>Secure delivery, CI/CD hardening, supply chain, secrets, and release trust.</p><span class="card-meta">13 notes</span></a>
-<a class="branch-card accent-red" href="cybersecurity/identity-and-active-directory/index.html"><span class="card-kicker">Specialty</span><h3>Identity &amp; Active Directory</h3><p>Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p><span class="card-meta">9 notes</span></a>
+<a class="branch-card accent-red" href="cybersecurity/identity-and-active-directory/index.html"><span class="card-kicker">Specialty</span><h3>Identity &amp; Active Directory</h3><p>Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p><span class="card-meta">11 notes</span></a>
 </div></section>
 <section class="branch-section"><h2>Always-on</h2><div class="branch-grid">
 <a class="branch-card accent-purple" href="cybersecurity/privacy-anonymity-opsec/index.html"><span class="card-kicker">Always-on</span><h3>Privacy, Anonymity &amp; OPSEC</h3><p>VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.</p><span class="card-meta">33 notes</span></a>

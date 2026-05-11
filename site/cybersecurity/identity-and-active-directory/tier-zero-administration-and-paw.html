@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tier 0 Administration and Privileged Access Workstations - Identity &amp; Active Directory | ldamoredev Security Atlas</title>
+<meta name="description" content="**Tier 0** is the set of identities, hosts, and components that have *effective control over the directory itself* — Domain Controllers, the principals with DCSync...">
+<meta name="author" content="ldamoredev">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Identity &amp; Active Directory, Tier 0 Administration and Privileged Access Workstations, identity-and-active-directory, active-directory, tier-zero, paw, architecture">
+<meta name="theme-color" content="#256d85">
+<link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/identity-and-active-directory/tier-zero-administration-and-paw.html">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Identity &amp; Active Directory">
+<meta property="og:title" content="Tier 0 Administration and Privileged Access Workstations - Identity &amp; Active Directory | ldamoredev Security Atlas">
+<meta property="og:description" content="**Tier 0** is the set of identities, hosts, and components that have *effective control over the directory itself* — Domain Controllers, the principals with DCSync...">
+<meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/identity-and-active-directory/tier-zero-administration-and-paw.html">
+<meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tier 0 Administration and Privileged Access Workstations - Identity &amp; Active Directory | ldamoredev Security Atlas">
+<meta name="twitter:description" content="**Tier 0** is the set of identities, hosts, and components that have *effective control over the directory itself* — Domain Controllers, the principals with DCSync...">
+<meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"Tier 0 Administration and Privileged Access Workstations - Identity & Active Directory | ldamoredev Security Atlas","headline":"Tier 0 Administration and Privileged Access Workstations","description":"**Tier 0** is the set of identities, hosts, and components that have *effective control over the directory itself* — Domain Controllers, the principals with DCSync...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/identity-and-active-directory/tier-zero-administration-and-paw.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/identity-and-active-directory/tier-zero-administration-and-paw.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identity & Active Directory","Tier 0 Administration and Privileged Access Workstations","identity-and-active-directory","active-directory","tier-zero","paw","architecture"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identity & Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"Tier 0 Administration and Privileged Access Workstations","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/identity-and-active-directory/tier-zero-administration-and-paw.html"}]}]</script>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body id="top" data-root="../..">
+<header class="topbar">
+  <button id="sidebar-toggle" title="Toggle navigation" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html"><span>ldamoredev</span><small>security atlas</small></a>
+  <div class="search-shell">
+    <input id="search" type="search" placeholder="Search notes..." autocomplete="off">
+    <kbd>/</kbd>
+  </div>
+  <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout with-toc">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Atlas Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="sidebar-link kind-index" href="../index.html">Cybersecurity Index</a>
+<a class="sidebar-link kind-concept" href="../start-here.html">Start Here — Cybersecurity Vault Triage</a>
+<a class="sidebar-link kind-concept" href="../must-know-30.html">Must-Know 30 — The Minimum Viable Security Literacy</a>
+<a class="sidebar-link kind-concept" href="../phase-1-substrate.html">Phase 1 — Substrate (How Things Actually Work)</a>
+<a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
+<a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
+<a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<div class="sidebar-group-label">Orientation</div>
+<details class="branch branch-amber"><summary><span>Foundations</span><small>5</small></summary>
+<p class="sidebar-summary">Phase 0 mental models — what cybersecurity is, the CIA triad as a decision tool, threat-modeling quickstart, and the attacker-defender duality.</p>
+<a class="sidebar-link kind-index" href="../foundations/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality as a Learning Tool</a>
+<a class="sidebar-link kind-concept" href="../foundations/cia-triad-and-what-it-actually-decides.html">CIA Triad — What It Actually Decides</a>
+<a class="sidebar-link kind-concept" href="../foundations/threat-modeling-quickstart.html">Threat Modeling Quickstart</a>
+<a class="sidebar-link kind-concept" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html">What Is Cybersecurity, and Why It Is Not a Tool List</a>
+</details>
+<div class="sidebar-group-label">Substrate</div>
+<details class="branch branch-emerald"><summary><span>Cryptography</span><small>15</small></summary>
+<p class="sidebar-summary">Hashes, encryption, signatures, key exchange, TLS/PKI, password storage, and token correctness.</p>
+<a class="sidebar-link kind-index" href="../cryptography/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../cryptography/aead-and-nonce-misuse.html">AEAD and Nonce Misuse</a>
+<a class="sidebar-link kind-concept" href="../cryptography/asymmetric-encryption-and-key-exchange.html">Asymmetric Encryption and Key Exchange</a>
+<a class="sidebar-link kind-concept" href="../cryptography/certificate-validation-and-pinning.html">Certificate Validation and Pinning</a>
+<a class="sidebar-link kind-concept" href="../cryptography/digital-signatures.html">Digital Signatures</a>
+<a class="sidebar-link kind-concept" href="../cryptography/hashing-vs-encryption-vs-signing.html">Hashing vs Encryption vs Signing</a>
+<a class="sidebar-link kind-concept" href="../cryptography/jwt-cryptographic-correctness.html">JWT Cryptographic Correctness</a>
+<a class="sidebar-link kind-concept" href="../cryptography/kdf-and-key-stretching.html">KDF and Key Stretching</a>
+<a class="sidebar-link kind-concept" href="../cryptography/mac-and-hmac.html">MAC and HMAC</a>
+<a class="sidebar-link kind-concept" href="../cryptography/password-hashing.html">Password Hashing</a>
+<a class="sidebar-link kind-concept" href="../cryptography/post-quantum-awareness.html">Post-Quantum Awareness</a>
+<a class="sidebar-link kind-concept" href="../cryptography/random-and-csprng-pitfalls.html">Random and CSPRNG Pitfalls</a>
+<a class="sidebar-link kind-concept" href="../cryptography/roll-your-own-crypto-failures.html">Roll Your Own Crypto Failures</a>
+<a class="sidebar-link kind-concept" href="../cryptography/symmetric-encryption-modes.html">Symmetric Encryption Modes</a>
+<a class="sidebar-link kind-concept" href="../cryptography/tls-handshake-and-pki.html">TLS Handshake and PKI</a>
+</details>
+<details class="branch branch-sky"><summary><span>Networking</span><small>23</small></summary>
+<p class="sidebar-summary">Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p>
+<a class="sidebar-link kind-index" href="../networking/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="sidebar-link kind-concept" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="sidebar-link kind-concept" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="sidebar-link kind-concept" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="sidebar-link kind-concept" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-security.html">DNS Security</a>
+<a class="sidebar-link kind-concept" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../networking/header-trust-in-node-express.html">Header Trust in Node Express</a>
+<a class="sidebar-link kind-concept" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="sidebar-link kind-concept" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="sidebar-link kind-concept" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="sidebar-link kind-concept" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="sidebar-link kind-concept" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="sidebar-link kind-concept" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="sidebar-link kind-concept" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="sidebar-link kind-concept" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="sidebar-link kind-concept" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="sidebar-link kind-concept" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="sidebar-link kind-concept" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="sidebar-link kind-concept" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details class="branch branch-blue"><summary><span>Web Security</span><small>27</small></summary>
+<p class="sidebar-summary">Browser behavior, sessions, access control, and server-side exploit patterns.</p>
+<a class="sidebar-link kind-index" href="../web-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../web-security/bot-detection-signals.html">Bot Detection Signals</a>
+<a class="sidebar-link kind-concept" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="sidebar-link kind-concept" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="sidebar-link kind-concept" href="../web-security/clickjacking.html">Clickjacking</a>
+<a class="sidebar-link kind-concept" href="../web-security/command-injection.html">Command Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="sidebar-link kind-concept" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="sidebar-link kind-concept" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="sidebar-link kind-concept" href="../web-security/evilginx-and-reverse-proxy-phishing.html">Evilginx and Reverse Proxy Phishing</a>
+<a class="sidebar-link kind-concept" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="sidebar-link kind-concept" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="sidebar-link kind-concept" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="sidebar-link kind-concept" href="../web-security/mfa-phishing-resistance.html">MFA Phishing Resistance</a>
+<a class="sidebar-link kind-concept" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="sidebar-link kind-concept" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="sidebar-link kind-concept" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="sidebar-link kind-concept" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="sidebar-link kind-concept" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="sidebar-link kind-concept" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/session-management.html">Session Management</a>
+<a class="sidebar-link kind-concept" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/xxe.html">XXE</a>
+</details>
+<div class="sidebar-group-label">Paired</div>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>20</small></summary>
+<p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
+<a class="sidebar-link kind-index" href="../offensive-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/cloaking-and-security-evasion.html">Cloaking and Security Evasion</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/idle-scan-and-ipid-side-channels.html">Idle Scan and IPID Side Channels</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/nmap-timing-and-evasion.html">Nmap Timing and Evasion</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/nse-vuln-category-audit.html">NSE `vuln` Category Audit</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/recon.html">Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/rustscan-and-nse-pipeline.html">RustScan and NSE Pipeline</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Detection Engineering</span><small>12</small></summary>
+<p class="sidebar-summary">Telemetry, behavioral analytics, correlation, and detection tradeoffs.</p>
+<a class="sidebar-link kind-index" href="../detection-engineering/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation and Kill Chain Observability</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral Detection vs Signature Detection</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/detection-evasion-myths-and-modern-limitations.html">Detection Evasion Myths and Modern Limitations</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/edr-network-observability-and-process-correlation.html">EDR Network Observability and Process Correlation</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html">Encrypted Traffic Analysis and Metadata Leakage</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html">False Positives, False Negatives, and Detection Tradeoffs</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html">IDS/IPS and Behavioral Detection Pipelines</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/network-telemetry-sources-and-visibility.html">Network Telemetry Sources and Visibility</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Scan Anomaly Detection and Fingerprint Analysis</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/telemetry-normalization-correlation-and-enrichment.html">Telemetry Normalization, Correlation, and Enrichment</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html">Zeek, Suricata, and NetFlow Analysis</a>
+</details>
+<div class="sidebar-group-label">Operator</div>
+<details class="branch branch-amber"><summary><span>Attack Surface Mapping</span><small>11</small></summary>
+<p class="sidebar-summary">What is exposed, reachable, discoverable, and drifting from intended design.</p>
+<a class="sidebar-link kind-index" href="../attack-surface-mapping/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details class="branch branch-violet"><summary><span>OSINT</span><small>11</small></summary>
+<p class="sidebar-summary">Public-source collection, evidence quality, and ethical handling of clues.</p>
+<a class="sidebar-link kind-index" href="../osint/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="sidebar-link kind-concept" href="../osint/company-osint.html">Company OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="sidebar-link kind-concept" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint.html">OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="sidebar-link kind-concept" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="sidebar-link kind-concept" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details class="branch branch-orange"><summary><span>Linux Privilege Escalation</span><small>10</small></summary>
+<p class="sidebar-summary">Local boundary failures, enumeration, and safe escalation hypothesis testing.</p>
+<a class="sidebar-link kind-index" href="../linux-privilege-escalation/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>15</small></summary>
+<p class="sidebar-summary">Repeatable procedures for turning concepts into practical tests.</p>
+<a class="sidebar-link kind-index" href="../security-playbooks/index.html">Overview</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/detect-external-scan-pipeline.html">Detect External Recon Scan Pipeline</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html">Detect Kerberoasting and AS-REP Roasting</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/run-scan-pipeline.html">Run External Recon Scan Pipeline</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/trace-metadata-endpoint-reachability.html">Trace Metadata Endpoint Reachability</a>
+</details>
+<div class="sidebar-group-label">Specialty</div>
+<details class="branch branch-teal"><summary><span>Wireless Security</span><small>11</small></summary>
+<p class="sidebar-summary">Wi-Fi frames, handshakes, rogue access points, and local-network MITM.</p>
+<a class="sidebar-link kind-index" href="../wireless-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+<details class="branch branch-indigo"><summary><span>API Security</span><small>15</small></summary>
+<p class="sidebar-summary">Authorization, token trust, inventory drift, and machine-readable abuse.</p>
+<a class="sidebar-link kind-index" href="../api-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="sidebar-link kind-concept" href="../api-security/authorization.html">Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="sidebar-link kind-concept" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="sidebar-link kind-concept" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="sidebar-link kind-concept" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="sidebar-link kind-concept" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Cloud Security</span><small>11</small></summary>
+<p class="sidebar-summary">IAM, metadata, storage, network boundaries, secrets, and logging controls.</p>
+<a class="sidebar-link kind-index" href="../cloud-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details class="branch branch-green"><summary><span>DevSecOps</span><small>13</small></summary>
+<p class="sidebar-summary">Secure delivery, CI/CD hardening, supply chain, secrets, and release trust.</p>
+<a class="sidebar-link kind-index" href="../devsecops/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="sidebar-link kind-concept" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="sidebar-link kind-concept" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="sidebar-link kind-concept" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="sidebar-link kind-concept" href="../devsecops/container-security.html">Container Security</a>
+<a class="sidebar-link kind-concept" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="sidebar-link kind-concept" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="sidebar-link kind-concept" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="sidebar-link kind-concept" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="sidebar-link kind-concept" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details class="branch branch-red" open><summary><span>Identity &amp; Active Directory</span><small>11</small></summary>
+<p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
+<a class="sidebar-link kind-index" href="index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="as-rep-roasting.html">AS-REP Roasting</a>
+<a class="sidebar-link kind-concept" href="bloodhound-attack-path-analysis.html">BloodHound and Attack Path Analysis</a>
+<a class="sidebar-link kind-concept" href="dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a>
+<a class="sidebar-link kind-concept" href="gmsa-and-modern-service-account-hardening.html">gMSA and Modern Service Account Hardening</a>
+<a class="sidebar-link kind-concept" href="golden-ticket-and-krbtgt-compromise.html">Golden Ticket and KRBTGT Compromise</a>
+<a class="sidebar-link kind-concept" href="kerberoasting.html">Kerberoasting</a>
+<a class="sidebar-link kind-concept" href="krbtgt-rotation-and-tier-zero-recovery.html">KRBTGT Rotation and Tier Zero Recovery</a>
+<a class="sidebar-link kind-concept" href="pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash and NTLM Credential Reuse</a>
+<a class="sidebar-link kind-concept" href="silver-ticket-and-service-account-persistence.html">Silver Ticket and Service Account Persistence</a>
+<a class="sidebar-link kind-concept active" href="tier-zero-administration-and-paw.html">Tier 0 Administration and Privileged Access Workstations</a>
+</details>
+<div class="sidebar-group-label">Always-on</div>
+<details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
+<p class="sidebar-summary">VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.</p>
+<a class="sidebar-link kind-index" href="../privacy-anonymity-opsec/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/account-correlation.html">Account Correlation</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/anonymity-threat-models.html">Anonymity Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/browser-fingerprinting.html">Browser Fingerprinting</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html">Corporate VPNs vs Consumer VPNs</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/deanonymization-failures.html">Deanonymization Failures</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/end-to-end-encryption.html">End-to-End Encryption</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/file-metadata-removal.html">File Metadata Removal</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/metadata-and-identity-leakage.html">Metadata and Identity Leakage</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/opsec-failure-chains.html">OPSEC Failure Chains</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/pgp-encryption-and-signatures.html">PGP Encryption and Signatures</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/privacy-vs-anonymity-vs-confidentiality.html">Privacy vs Anonymity vs Confidentiality</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/private-email-threat-models.html">Private Email Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/qubes-compartmentalization.html">Qubes Compartmentalization</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/secure-deletion-and-storage-wiping.html">Secure Deletion and Storage Wiping</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/secure-file-sharing.html">Secure File Sharing</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tails-operational-model.html">Tails Operational Model</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/temporary-email-risks.html">Temporary Email Risks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-and-onion-services.html">Tor and Onion Services</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-bridges-and-pluggable-transports.html">Tor Bridges and Pluggable Transports</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-browser-security-settings.html">Tor Browser Security Settings</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/traffic-correlation.html">Traffic Correlation</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-dns-and-ipv6-leaks.html">VPN DNS and IPv6 Leaks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-fingerprinting-limitations.html">VPN Fingerprinting Limitations</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-kill-switches.html">VPN Kill Switches</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-leakage-risks.html">VPN Leakage Risks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-logging-and-trust.html">VPN Logging and Trust</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-protocols.html">VPN Protocols</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-threat-models.html">VPN Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-vs-tor.html">VPN vs Tor</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-with-tor.html">VPN with Tor</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/whonix-gateway.html">Whonix Gateway</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/xmpp-and-private-messaging.html">XMPP and Private Messaging</a>
+</details>
+<details class="registry-group"><summary>Reference System <span>16</span></summary>
+<a class="sidebar-link kind-registry" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-detection-engineering.html">Reference Registry - Detection Engineering</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-privacy-anonymity-opsec.html">Reference Registry - Privacy, Anonymity &amp; OPSEC</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-api-security.html">Reference Registry — API Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cryptography.html">Reference Registry — Cryptography</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-identity-and-active-directory.html">Reference Registry — Identity and Active Directory</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-networking.html">Reference Registry — Networking</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-offensive-security.html">Reference Registry — Offensive Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-playbooks.html">Reference Registry — Playbooks</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-web-security.html">Reference Registry — Web Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Identity &amp; Active Directory</a><span>/</span><span>Tier 0 Administration and Privileged Access Workstations</span></nav>
+<header class="page-hero">
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-red">Identity &amp; Active Directory</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#identity-and-active-directory</span><span class="meta-chip tag">#active-directory</span><span class="meta-chip tag">#tier-zero</span><span class="meta-chip tag">#paw</span><span class="meta-chip tag">#architecture</span><span class="meta-chip tag">#defense</span></div>
+</header>
+<article class="article-note">
+<h1 id="tier-0-administration-and-privileged-access-workstations">Tier 0 Administration and Privileged Access Workstations</h1>
+<h2 id="definition">Definition</h2>
+<p><strong>Tier 0</strong> is the set of identities, hosts, and components that have <em>effective control over the directory itself</em> — Domain Controllers, the principals with <code>DCSync</code> or equivalent replication rights, the AD recovery infrastructure (backups, key servers), and the certificate authorities that issue trust material. <strong>Tier 0 administration</strong> is the discipline of treating those identities and hosts as a strictly isolated security plane: they never log in to lower-tier systems, never run user-tier software, and never share credential material with anything outside the Tier 0 boundary. A <strong>Privileged Access Workstation (PAW)</strong> is the dedicated hardware (or VM) that Tier 0 admins use exclusively to perform Tier 0 work — locked down, internet-isolated, with no email client, no browser to arbitrary destinations, and no daily-driver applications.</p>
+<h2 id="definition-continued">Definition (continued)</h2>
+<p>The Microsoft model layers below Tier 0:
+- <strong>Tier 1</strong> = server admins (application servers, database admins, hypervisor admins).
+- <strong>Tier 2</strong> = workstation admins, helpdesk, user-facing IT.
+The defining rule is one-way: a higher tier can administer a lower tier; <strong>a lower tier cannot escalate into a higher tier</strong>. Credentials, sessions, and trust flow downward only.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Every AD attack in this branch — <a href="kerberoasting.html">Kerberoasting</a>, <a href="as-rep-roasting.html">AS-REP Roasting</a>, <a href="bloodhound-attack-path-analysis.html">BloodHound</a> path-finding, <a href="dcsync-and-ntdsdit-extraction.html">DCSync</a>, <a href="pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash</a> — has the same fundamental shape: an attacker compromises a low-tier credential and traverses a chain of trust relationships that ends at Tier 0. <strong>Tier separation is what eliminates the chain.</strong> If a Tier 0 admin's credentials never appear on a Tier 1 or Tier 2 host, every credential-theft attack on those lower-tier hosts produces credentials that cannot reach Tier 0. The blast radius of a workstation compromise is bounded at the workstation.</p>
+<p>The senior framing is that tier administration is the <strong>structural</strong> defense — the one that does not depend on detection working, behavioral analytics being tuned correctly, or the operator making mistakes. It changes the rules of the game rather than the speed of one side. BloodHound output without Tier 0 isolation is "show me my attack paths"; BloodHound output with proper Tier 0 isolation is "show me that no attack paths exist between Tier 1/2 and Tier 0".</p>
+<p>The technique also matters as a teaching note because it forces three difficult organizational facts into view:</p>
+<ul>
+<li><strong>Most organizations have far more Tier 0 principals than their org chart implies.</strong> "Domain Admins" is the visible subset. Effective Tier 0 includes anyone with <code>DCSync</code>, anyone in <code>Backup Operators</code> (can read <code>ntds.dit</code>), anyone with <code>Manage CA</code> on AD-CS, anyone with admin rights on a DC, anyone who can sign code that DCs trust, and anyone who can modify GPOs that DCs apply. The real count is routinely 5–10× the org-chart count.</li>
+<li><strong>Tier 0 admin work is operationally inconvenient by design.</strong> No email, no browser, no Slack on the PAW. Admins push back. The senior framing is that <em>the inconvenience is the control</em> — anything that makes Tier 0 administration feel like normal IT work has weakened the boundary.</li>
+<li><strong>Microsoft has moved away from "ESAE / Red Forest" toward the simpler Enterprise Access Model.</strong> Operators reading 2017–2020 documentation will see "Enhanced Security Admin Environment" (ESAE / Red Forest) as the recommended architecture. Microsoft deprecated ESAE in 2020 and now recommends the Enterprise Access Model with PAWs, Just-In-Time access, and Privileged Identity Management instead. The current guidance is <em>simpler and stronger</em>.</li>
+</ul>
+<h2 id="how-it-works">How it works</h2>
+<p>The Tier 0 discipline operationalizes through <strong>4 rules</strong>:</p>
+<ol>
+<li>
+<p><strong>Define and enumerate Tier 0 explicitly.</strong> Use <a href="bloodhound-attack-path-analysis.html">BloodHound</a> defensively: <code>MATCH (n)-[:DCSync|GetChanges|GetChangesAll]-&gt;(:Domain) RETURN n.name</code> plus <code>MATCH (n)-[:AdminTo|GenericAll|WriteDACL]-&gt;(:Computer {tier0: true}) RETURN n.name</code>. Tag every result as Tier 0 in the directory. The exhaustive list is the input to every subsequent rule.</p>
+</li>
+<li>
+<p><strong>Tier 0 identities use Tier 0 credentials only on Tier 0 systems.</strong> Tier 0 admins have a dedicated admin account (<code>svc-ad-admin-alice</code>) that is <em>separate</em> from their daily-driver account (<code>alice@corp.com</code>). The admin account is used only when logged on to the PAW; it is never used on workstations, servers, jump boxes, or anywhere else. Enforcing this requires GPO restrictions ("Deny logon locally" / "Deny logon as a service" on lower-tier hosts) and audit alerting for violations.</p>
+</li>
+<li>
+<p><strong>PAWs are physically (or logically) separate from the user's daily-driver machine.</strong> The PAW has: dedicated hardware or a hypervisor-isolated VM; restricted internet egress (allowlist to Microsoft Update + Azure AD + nothing else); no Office, no email, no Slack, no general-purpose browser; Credential Guard + Device Guard enabled; AppLocker or WDAC enforcing executable allowlists; BitLocker on every drive. The PAW is the <em>only</em> host where Tier 0 credentials are typed or cached.</p>
+</li>
+<li>
+<p><strong>Tier 0 administration uses Just-In-Time access where possible.</strong> The user's admin account is <em>not</em> a permanent member of <code>Domain Admins</code>; instead, they request elevation through Privileged Identity Management (PIM, in Entra ID / Microsoft Identity Manager). Membership is granted for a bounded window (typically ≤ 4 hours) and requires MFA at elevation time. The default state of every Tier 0 admin is "not a Tier 0 member" — they elevate only when needed.</p>
+</li>
+</ol>
+<p>A representative BloodHound query for the <em>defensive</em> enumeration step:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Effective Tier 0: anyone with DCSync, RDP-to-DC, Admin-to-DC, or GPO control over DCs.</span>
+<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">DCSync</span><span class="p">|</span><span class="n">GetChanges</span><span class="p">|</span><span class="n">GetChangesAll</span><span class="p">|</span><span class="n">AdminTo</span><span class="p">|</span><span class="n">CanRDP</span><span class="p">|</span><span class="n">GpLink</span><span class="p">|</span><span class="n">WriteDACL</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">tier</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">OR</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="n">CONTAINS</span><span class="w"> </span><span class="s">&#39;DC&#39;</span><span class="w"> </span><span class="n">OR</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="n">CONTAINS</span><span class="w"> </span><span class="s">&#39;DOMAIN CONTROLLERS&#39;</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">principal</span><span class="p">,</span><span class="w"> </span><span class="n">labels</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">type</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">name</span>
+</code></pre></div>
+
+<p>The bug is not "AD has too many privileges"; it is <em>trust relationships flow transitively across hosts when credentials are cached, and any cached Tier 0 credential on a non-Tier-0 host extends the Tier 0 boundary to wherever that host lives</em>.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<ul>
+<li><strong>Run BloodHound monthly <em>on your own AD</em> to monitor Tier 0 drift.</strong> A clean BloodHound result one quarter does not mean clean next quarter — new delegations, new Exchange installations, new service-account creations all add edges. Continuous monitoring of the Tier 0 set is the operational discipline.</li>
+<li><strong>Use <code>Protected Users</code> group for every Tier 0 admin account.</strong> Forces Kerberos with AES, disables NTLM/LM/DES/RC4 for that user, prevents long-term credential caching on member hosts. The single biggest defensive multiplier for Tier 0 accounts. See <a href="pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash</a> §Detection-and-defense item 4.</li>
+<li><strong>Authentication Policies and Silos.</strong> Beyond Protected Users, Authentication Policies let you restrict <em>which hosts</em> a credential can be used on (e.g., "the <code>svc-ad-admin-*</code> accounts can only authenticate to <code>paw-*</code> and <code>dc-*</code> computers"). The structural enforcement of the per-account rules.</li>
+<li><strong>Restrict Tier 0 group memberships with <code>AdminSDHolder</code> audit + alerting.</strong> Tier 0 groups have their ACLs templated by <code>AdminSDHolder</code>. Changes propagate every 60 minutes. Alert on any modification to <code>AdminSDHolder</code> or to the membership of any Tier 0 group; both are high-fidelity red-team indicators.</li>
+<li><strong>Disable RDP for Tier 0 admins to anywhere other than PAWs and DCs.</strong> GPO: deny logon via Remote Desktop for the Tier 0 admin group on every Tier 1/2 host. Closes the "admin RDP'd to the workstation to fix it, attacker harvested credentials from LSASS" failure mode.</li>
+<li><strong>PAW hardening checklist</strong> (from Microsoft's Enterprise Access Model): Windows 11/Server 2022+, Credential Guard + Device Guard enabled, BitLocker with TPM PIN, AppLocker/WDAC allowlist policy, no local admin for the user, no software install rights, mandatory MFA at sign-in, time-limited sign-in window, full SIEM logging.</li>
+<li><strong>Don't forget the certificate authority.</strong> AD-CS is Tier 0. Anyone with <code>Manage CA</code> or who can issue certificates with the right templates can forge auth as anyone in the domain (<span class="unresolved-link" title="Unpublished or unresolved: shadow-credentials-and-kerberos-pkinit">shadow-credentials-and-kerberos-pkinit</span>). Audit AD-CS permissions with <a href="bloodhound-attack-path-analysis.html">BloodHound</a> AD-CS edges and tier the CA admins accordingly.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Tier 0 architecture has <strong>3 implementation variants</strong> in real environments.</p>
+<h3 id="1-microsoft-enterprise-access-model-current-guidance-post-2020">1. Microsoft Enterprise Access Model (current guidance, post-2020)</h3>
+<p>The current Microsoft recommendation. Three tiers, PAWs for Tier 0, Privileged Identity Management for Just-In-Time elevation, Authentication Policies and Silos enforcing the boundary. Implementable on Windows Server 2016+. The default starting point for new deployments.</p>
+<h3 id="2-esae-red-forest-deprecated-but-still-deployed">2. ESAE / Red Forest (deprecated, but still deployed)</h3>
+<p>The 2014–2020 pattern: a dedicated <em>administrative forest</em> trusted by the production forest, with all Tier 0 admin accounts living in the admin forest. Provides strong isolation but operationally heavyweight. Microsoft deprecated this in 2020; environments that already deployed it are not advised to migrate just to migrate, but new deployments should use the Enterprise Access Model.</p>
+<h3 id="3-cloud-native-tier-0-entra-id-azure-ad">3. Cloud-native Tier 0 (Entra ID / Azure AD)</h3>
+<p>For organizations whose identity plane is Entra ID rather than on-prem AD. Tier 0 is <code>Global Administrator</code>, <code>Privileged Role Administrator</code>, and the Conditional Access policy administrators. PAWs are still hardware-isolated; PIM provides Just-In-Time elevation; Conditional Access policies enforce "Tier 0 sign-in only from compliant Intune-managed PAW devices". The cloud equivalent of the on-prem model.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered by how often these patterns appear in real-world AD compromises:</p>
+<ul>
+<li><strong>Most successful AD compromises terminate at Tier 0 via a chain that Tier separation would have eliminated.</strong> This is the primary impact — not having the discipline is <em>the</em> enabler of total-domain compromise.</li>
+<li><strong>Tier 0 admins logging in to workstations.</strong> The single most common chain: admin logs in to a workstation to fix an issue → credential cached in LSASS → workstation compromised later → operator extracts the cached admin credential → uses it for DCSync. PAW + "deny logon" GPOs eliminate this.</li>
+<li><strong>Service accounts in Tier 0 groups.</strong> Service accounts in <code>Domain Admins</code> because someone-once-needed-DCSync-for-a-migration-script-in-2014. Kerberoast the service account → become Tier 0. Auditing Tier 0 group membership for service accounts is the single highest-leverage one-time cleanup.</li>
+<li><strong>Forgotten Tier 0 principals from legacy installations.</strong> Exchange installation in 2015 added <code>Exchange Trusted Subsystem</code> with effective DCSync. Exchange was decommissioned in 2020. The group still exists. Anyone who can add themselves to it has Tier 0. Audit + remove.</li>
+<li><strong>Cross-forest trust scenarios with Tier 0 admin accounts that span both.</strong> Tier 0 admin in forest A who also has Tier 0 in forest B = single foothold compromises both forests. Discipline: separate Tier 0 admin accounts per forest, even if the same human owns them.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>This note <em>is</em> the defense — it does not have a separate "detection and defense" section in the usual sense. Defenders run BloodHound monthly and remediate; detection lives in adjacent notes (<a href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html">Detect Kerberoasting and AS-REP Roasting</a> and <a href="#what-to-detect-that-indicates-tier-0-boundary-violation">What to detect that indicates Tier 0 boundary violation</a>).</p>
+<h3 id="what-to-detect-that-indicates-tier-0-boundary-violation">What to detect that indicates Tier 0 boundary violation</h3>
+<p>Ordered by detection value:</p>
+<ol>
+<li>
+<p><strong>Tier 0 admin account authenticating on a non-Tier-0 host.</strong>
+   Event 4624 on a workstation or Tier 1 server with the user account in the Tier 0 admin set. This should never happen under the model. Generate an immediate high-severity alert.</p>
+</li>
+<li>
+<p><strong>Tier 0 group membership changes.</strong>
+   Events 4728/4732/4756 (member added to a security-enabled group) where the group is in the Tier 0 set. Alert on every change; legitimate Tier 0 group changes happen rarely (≤ once per month) and should always come from a known change-management ticket.</p>
+</li>
+<li>
+<p><strong>AdminSDHolder modification.</strong>
+   Event 4670 (permissions on an object were changed) where the object is <code>AdminSDHolder</code>. Often the first step of a Tier 0 backdoor (an attacker gives themselves persistent rights to a Tier 0 group via the ACL template).</p>
+</li>
+<li>
+<p><strong>NTLM authentication from a Tier 0 admin account.</strong>
+   Tier 0 admins should be in <code>Protected Users</code> and therefore unable to authenticate via NTLM. Any Event 4624 with LogonType=3, AuthenticationPackage=NTLM, and user in the Tier 0 set is either a misconfiguration or an active attack.</p>
+</li>
+<li>
+<p><strong>Concurrent active sessions for a Tier 0 admin account.</strong>
+   A real admin uses one session at a time. Two simultaneous sessions on different hosts are almost always either a forgotten session or a credential theft.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>"Just tell admins not to log in to workstations."</strong> Without GPO enforcement, the rule is honored when convenient and broken when inconvenient. The control must be technical.</li>
+<li><strong>MFA on the Tier 0 admin account without limiting <em>where</em> it can be used.</strong> MFA prevents brute force / phishing of the password; it does not prevent credential extraction from LSASS on a workstation where the admin has already authenticated. PAW + Authentication Policies is the structural answer.</li>
+<li><strong>Trusting that "we removed Domain Admin from those accounts".</strong> Run BloodHound. Domain Admin is one of many ways to be Tier 0. Effective enumeration is the only reliable answer.</li>
+<li><strong>A single audit at deployment time.</strong> Tier 0 drift is continuous. The discipline must be ongoing.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 1 — Enumerate the effective Tier 0 in a lab AD.</span>
+<span class="c1"># In BloodHound&#39;s Cypher query box:</span>
+MATCH<span class="w"> </span><span class="o">(</span>n<span class="o">)</span>-<span class="o">[</span>:DCSync<span class="p">|</span>GetChanges<span class="p">|</span>GetChangesAll<span class="p">|</span>AdminTo<span class="p">|</span>CanRDP<span class="p">|</span>WriteDACL<span class="o">]</span>-&gt;<span class="o">(</span>t<span class="o">)</span>
+WHERE<span class="w"> </span>t.name<span class="w"> </span>CONTAINS<span class="w"> </span><span class="s1">&#39;DC&#39;</span><span class="w"> </span>OR<span class="w"> </span>t.name<span class="w"> </span>CONTAINS<span class="w"> </span><span class="s1">&#39;DOMAIN CONTROLLERS&#39;</span>
+RETURN<span class="w"> </span>DISTINCT<span class="w"> </span>n.name<span class="w"> </span>AS<span class="w"> </span>principal,<span class="w"> </span>labels<span class="o">(</span>n<span class="o">)[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span>AS<span class="w"> </span><span class="nb">type</span>
+ORDER<span class="w"> </span>BY<span class="w"> </span>type,<span class="w"> </span>n.name
+<span class="c1"># Every result that is NOT a Domain Controller computer-account is a Tier 0 finding.</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c"># Lab 2 — Audit Tier 0 group memberships in a lab AD.</span>
+<span class="nv">$tier0Groups</span> <span class="p">=</span> <span class="p">@(</span><span class="s1">&#39;Domain Admins&#39;</span><span class="p">,</span> <span class="s1">&#39;Enterprise Admins&#39;</span><span class="p">,</span> <span class="s1">&#39;Schema Admins&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Administrators&#39;</span><span class="p">,</span> <span class="s1">&#39;Backup Operators&#39;</span><span class="p">,</span> <span class="s1">&#39;Account Operators&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Server Operators&#39;</span><span class="p">,</span> <span class="s1">&#39;Print Operators&#39;</span><span class="p">,</span> <span class="s1">&#39;Domain Controllers&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Read-only Domain Controllers&#39;</span><span class="p">,</span> <span class="s1">&#39;Enterprise Read-only Domain Controllers&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Group Policy Creator Owners&#39;</span><span class="p">,</span> <span class="s1">&#39;Cryptographic Operators&#39;</span><span class="p">)</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$g</span> <span class="k">in</span> <span class="nv">$tier0Groups</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">Get-ADGroupMember</span> <span class="n">-Identity</span> <span class="nv">$g</span> <span class="n">2</span><span class="p">&gt;</span><span class="nv">$null</span> <span class="p">|</span>
+        <span class="nb">Select-Object</span> <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;Group&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$g</span><span class="p">}},</span> <span class="n">SamAccountName</span><span class="p">,</span> <span class="n">ObjectClass</span>
+<span class="p">}</span>
+<span class="c"># Anything other than a small number of dedicated admin accounts + DC computer accounts is a finding.</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c"># Lab 3 — Add a test user to Protected Users and verify NTLM is blocked for them.</span>
+<span class="nb">Add-ADGroupMember</span> <span class="n">-Identity</span> <span class="s1">&#39;Protected Users&#39;</span> <span class="n">-Members</span> <span class="s1">&#39;testadmin&#39;</span>
+<span class="c"># Then from a member host try NTLM auth:</span>
+<span class="nv">$cred</span> <span class="p">=</span> <span class="nb">Get-Credential</span> <span class="n">testadmin</span>
+<span class="nb">Invoke-Command</span> <span class="n">-ComputerName</span> <span class="n">lab-srv</span><span class="p">-</span><span class="n">01</span> <span class="n">-Credential</span> <span class="nv">$cred</span> <span class="n">-Authentication</span> <span class="n">Negotiate</span> <span class="n">-ScriptBlock</span> <span class="p">{</span> <span class="n">whoami</span> <span class="p">}</span>
+<span class="c"># Expected with NTLM negotiated: failure. With Kerberos: success.</span>
+<span class="c"># Validates the Protected Users hardening for Tier 0 admins.</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c"># Lab 4 — GPO: deny Tier 0 admin logon to Tier 1/2 hosts.</span>
+<span class="c"># Create a GPO linked to OUs for Tier 1 (servers) and Tier 2 (workstations):</span>
+<span class="c">#   Computer Configuration -&gt; Policies -&gt; Windows Settings -&gt; Security Settings -&gt;</span>
+<span class="c">#     Local Policies -&gt; User Rights Assignment -&gt;</span>
+<span class="c">#       Deny log on locally:         add &#39;Tier 0 Admins&#39; group</span>
+<span class="c">#       Deny log on through Remote Desktop Services: add &#39;Tier 0 Admins&#39;</span>
+<span class="c">#       Deny log on as a batch job:  add &#39;Tier 0 Admins&#39;</span>
+<span class="c">#       Deny log on as a service:    add &#39;Tier 0 Admins&#39;</span>
+<span class="c"># Apply, force gpupdate, then verify by attempting to log on with a Tier 0 admin account:</span>
+<span class="nv">$cred</span> <span class="p">=</span> <span class="nb">Get-Credential</span>
+<span class="nb">Enter-PSSession</span> <span class="n">-ComputerName</span> <span class="n">lab-ws</span><span class="p">-</span><span class="n">01</span> <span class="n">-Credential</span> <span class="nv">$cred</span>
+<span class="c"># Expected: explicit deny error, not &quot;authentication failed&quot;.</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c"># Lab 5 — Detect Tier 0 admin logon on a non-Tier-0 host (defender-side rule).</span>
+<span class="nv">$tier0Users</span> <span class="p">=</span> <span class="p">@(</span><span class="s1">&#39;alice-adm&#39;</span><span class="p">,</span> <span class="s1">&#39;bob-adm&#39;</span><span class="p">,</span> <span class="s1">&#39;carol-adm&#39;</span><span class="p">)</span>
+<span class="nv">$nonTier0Computers</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-ADComputer</span> <span class="n">-Filter</span> <span class="p">*</span> <span class="n">-SearchBase</span> <span class="s2">&quot;OU=Workstations,DC=lab,DC=local&quot;</span><span class="p">).</span><span class="n">Name</span>
+<span class="nb">Get-WinEvent</span> <span class="n">-ComputerName</span> <span class="n">lab-srv</span><span class="p">-</span><span class="n">01</span> <span class="n">-FilterHashtable</span> <span class="p">@{</span>
+    <span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span><span class="p">;</span> <span class="n">ID</span><span class="p">=</span><span class="n">4624</span><span class="p">;</span> <span class="n">StartTime</span><span class="p">=(</span><span class="nb">Get-Date</span><span class="p">).</span><span class="n">AddHours</span><span class="p">(-</span><span class="n">24</span><span class="p">)</span>
+<span class="p">}</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span> <span class="p">|</span>
+    <span class="nb">Where-Object</span> <span class="p">{</span>
+        <span class="nv">$tier0Users</span> <span class="o">-contains</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">5</span><span class="p">].</span><span class="n">Value</span> <span class="o">-and</span>
+        <span class="nv">$nonTier0Computers</span> <span class="o">-contains</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">1</span><span class="p">].</span><span class="n">Value</span>
+    <span class="p">}</span> <span class="p">|</span>
+    <span class="nb">Select-Object</span> <span class="n">TimeCreated</span><span class="p">,</span> <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;User&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">5</span><span class="p">].</span><span class="n">Value</span><span class="p">}},</span> <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;Host&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">1</span><span class="p">].</span><span class="n">Value</span><span class="p">}}</span>
+<span class="c"># Every result is a Tier-0-boundary-violation alert. Pipe into your SIEM.</span>
+</code></pre></div>
+
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li><strong>Quarterly BloodHound audit eliminates 312 attack paths.</strong> Defender's review shows <code>IT Helpdesk</code> group has <code>ForceChangePassword</code> on 47 service accounts, several of which are in <code>Domain Admins</code>. One ACE removal severs 312 distinct paths to DA. Reduces total Tier 0 path count by ~80% in one change.</li>
+<li><strong>PAW deployment after IR finding.</strong> An IR investigation reveals the breach started when a Tier 0 admin RDP'd into a developer workstation to "quickly fix" something; the workstation was already compromised, the operator harvested the cached credential, and DA was achieved in 90 seconds. Three months later: PAWs deployed, deny-logon GPOs enforced, similar follow-up engagement six months later confirms the same chain no longer functions.</li>
+<li><strong>Service account audit catches the legacy DCSync principal.</strong> Audit of Tier 0 effective-rights finds that <code>svc_exchange_2014</code> still has effective DCSync via inherited Exchange-installation permissions from a 2015 Exchange deployment decommissioned in 2020. Removal eliminates a near-invisible permanent backdoor.</li>
+<li><strong>PIM Just-In-Time access reduces Tier 0 footprint by 95%.</strong> Before PIM: 12 permanent Tier 0 admin accounts. After PIM: 0 permanent Tier 0 admins; the same 12 humans can request elevation, MFA at elevation time, ≤ 4-hour membership window. A compromised credential outside the activation window is not Tier 0.</li>
+<li><strong>Cross-forest trust violation found.</strong> An admin in forest A also has Tier 0 in forest B. Single compromise of their workstation (which is in forest A) would compromise both forests. Remediation: separate admin accounts per forest, never the same credential material.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="bloodhound-attack-path-analysis.html">bloodhound-attack-path-analysis</a> — the canonical tool for enumerating effective Tier 0 and identifying boundary-violation chains.</li>
+<li><a href="kerberoasting.html">kerberoasting</a> — service accounts in Tier 0 are the highest-impact Kerberoasting targets; this note's "audit and remove privileged service accounts" defense is the same control.</li>
+<li><a href="as-rep-roasting.html">as-rep-roasting</a> — same: pre-auth-disabled accounts in Tier 0 = catastrophic exposure.</li>
+<li><a href="dcsync-and-ntdsdit-extraction.html">dcsync-and-ntdsdit-extraction</a> — DCSync rights are <em>the</em> Tier 0 boundary; auditing them is the Tier 0 audit.</li>
+<li><a href="pass-the-hash-and-ntlm-credential-reuse.html">pass-the-hash-and-ntlm-credential-reuse</a> — PtH chains terminate at Tier 0; this note is the structural break for those chains.</li>
+<li><a href="gmsa-and-modern-service-account-hardening.html">gmsa-and-modern-service-account-hardening</a> — gMSA accounts eliminate the "service account in Tier 0 with a weak password" pattern; pairs with this note for the service-account hardening discipline.</li>
+<li><a href="krbtgt-rotation-and-tier-zero-recovery.html">krbtgt-rotation-and-tier-zero-recovery</a> — when Tier 0 isolation fails and recovery is required.</li>
+<li><a href="../foundations/threat-modeling-quickstart.html">Threat Modeling Quickstart</a> — Tier separation is the AD-specific application of the threat-modeling discipline of trust-boundary analysis.</li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="unresolved-link" title="Unpublished or unresolved: authentication-policies-and-silos">authentication-policies-and-silos</span> — the GPO+claims mechanism that enforces "this credential can only be used here".</li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: just-in-time-privileged-identity-management">just-in-time-privileged-identity-management</span> — PIM patterns for AD and Entra ID.</li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: adminsdholder-and-tier-0-acl-templates">adminsdholder-and-tier-0-acl-templates</span> — the AD-specific ACL propagation mechanism for Tier 0 groups.</li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: enterprise-access-model-vs-esae">enterprise-access-model-vs-esae</span> — the historical migration and why ESAE was deprecated.</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Hardening:</strong> Microsoft Learn — Enterprise Access Model — https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-access-model</li>
+<li><strong>Hardening:</strong> Microsoft Learn — Privileged Access Workstations (PAW) — https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-deployment</li>
+<li><strong>Hardening:</strong> Microsoft Learn — Protected Users security group — https://learn.microsoft.com/en-us/windows-server/security/credentials-protection-and-management/protected-users-security-group</li>
+<li><strong>Research / Deep Dive:</strong> Sean Metcalf (ADSecurity.org) — Securing Domain Controllers to Improve Active Directory Security — https://adsecurity.org/?p=3299</li>
+</ul>
+<section class="related-notes" aria-label="Explore nearby notes">
+<h2>Explore nearby notes</h2>
+<div class="related-grid">
+<a class="related-card" href="gmsa-and-modern-service-account-hardening.html"><span>Identity &amp; Active Directory</span><strong>gMSA and Modern Service Account Hardening</strong><small>A group Managed Service Account (gMSA) is an Active Directory-managed service identity whose password is long, random, automatically rotated, and retrievable only...</small></a>
+<a class="related-card" href="golden-ticket-and-krbtgt-compromise.html"><span>Identity &amp; Active Directory</span><strong>Golden Ticket and KRBTGT Compromise</strong><small>A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain&#x27;s krbtgt account. It is not...</small></a>
+<a class="related-card" href="krbtgt-rotation-and-tier-zero-recovery.html"><span>Identity &amp; Active Directory</span><strong>KRBTGT Rotation and Tier Zero Recovery</strong><small>KRBTGT rotation is the controlled reset of the domain&#x27;s krbtgt account password material so previously stolen Kerberos ticket-signing keys can no longer validate...</small></a>
+<a class="related-card" href="pass-the-hash-and-ntlm-credential-reuse.html"><span>Identity &amp; Active Directory</span><strong>Pass-the-Hash and NTLM Credential Reuse</strong><small>Pass-the-Hash (PtH) is the technique of authenticating to an NTLM-speaking service using **the NT hash of a user&#x27;s password directly**, without ever knowing or...</small></a>
+<a class="related-card" href="as-rep-roasting.html"><span>Identity &amp; Active Directory</span><strong>AS-REP Roasting</strong><small>AS-REP Roasting is an Active Directory credential attack where an attacker exploits accounts with **Kerberos pre-authentication disabled** by sending an AS-REQ...</small></a>
+<a class="related-card" href="bloodhound-attack-path-analysis.html"><span>Identity &amp; Active Directory</span><strong>BloodHound and Attack Path Analysis</strong><small>BloodHound is an open-source graph-analysis tool that models **Active Directory as a directed graph of principals** (users, groups, computers, GPOs, OUs, domains)...</small></a>
+</div></section>
+</article>
+</main>
+<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
+<a class="toc-level-2" href="#definition">Definition</a>
+<a class="toc-level-2" href="#definition-continued">Definition (continued)</a>
+<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
+<a class="toc-level-2" href="#how-it-works">How it works</a>
+<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
+<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
+<a class="toc-level-3" href="#1-microsoft-enterprise-access-model-current-guidance-post-2020">1. Microsoft Enterprise Access Model (current guidance, post-2020)</a>
+<a class="toc-level-3" href="#2-esae-red-forest-deprecated-but-still-deployed">2. ESAE / Red Forest (deprecated, but still deployed)</a>
+<a class="toc-level-3" href="#3-cloud-native-tier-0-entra-id-azure-ad">3. Cloud-native Tier 0 (Entra ID / Azure AD)</a>
+<a class="toc-level-2" href="#impact">Impact</a>
+<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
+<a class="toc-level-3" href="#what-to-detect-that-indicates-tier-0-boundary-violation">What to detect that indicates Tier 0 boundary violation</a>
+<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
+<a class="toc-level-2" href="#practical-labs">Practical labs</a>
+<a class="toc-level-2" href="#practical-examples">Practical examples</a>
+<a class="toc-level-2" href="#related-notes">Related notes</a>
+<a class="toc-level-3" href="#suggested-future-atomic-notes">Suggested future atomic notes</a>
+<a class="toc-level-2" href="#references">References</a>
+<a class="back-to-top" href="#top">Back to top</a></div></aside>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>
