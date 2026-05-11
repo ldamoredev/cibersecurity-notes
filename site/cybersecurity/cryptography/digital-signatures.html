@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Digital Signatures - Cryptography | ldamoredev Security Atlas</title>
+<meta name="description" content="A digital signature is an asymmetric proof that a specific private key approved a specific message. Anyone with the matching public key can verify the signature...">
+<meta name="author" content="ldamoredev">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Cryptography, Digital Signatures, digital-signatures, authenticity">
+<meta name="theme-color" content="#256d85">
+<link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/digital-signatures.html">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Cryptography">
+<meta property="og:title" content="Digital Signatures - Cryptography | ldamoredev Security Atlas">
+<meta property="og:description" content="A digital signature is an asymmetric proof that a specific private key approved a specific message. Anyone with the matching public key can verify the signature...">
+<meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/digital-signatures.html">
+<meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Digital Signatures - Cryptography | ldamoredev Security Atlas">
+<meta name="twitter:description" content="A digital signature is an asymmetric proof that a specific private key approved a specific message. Anyone with the matching public key can verify the signature...">
+<meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"Digital Signatures - Cryptography | ldamoredev Security Atlas","headline":"Digital Signatures","description":"A digital signature is an asymmetric proof that a specific private key approved a specific message. Anyone with the matching public key can verify the signature...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/digital-signatures.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/digital-signatures.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Cryptography","Digital Signatures","digital-signatures","authenticity"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Cryptography","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/index.html"},{"@type":"ListItem","position":4,"name":"Digital Signatures","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/digital-signatures.html"}]}]</script>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body id="top" data-root="../..">
+<header class="topbar">
+  <button id="sidebar-toggle" title="Toggle navigation" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html"><span>ldamoredev</span><small>security atlas</small></a>
+  <div class="search-shell">
+    <input id="search" type="search" placeholder="Search notes..." autocomplete="off">
+    <kbd>/</kbd>
+  </div>
+  <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout with-toc">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Atlas Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="sidebar-link kind-index" href="../index.html">Cybersecurity Index</a>
+<a class="sidebar-link kind-concept" href="../start-here.html">Start Here — Cybersecurity Vault Triage</a>
+<a class="sidebar-link kind-concept" href="../must-know-30.html">Must-Know 30 — The Minimum Viable Security Literacy</a>
+<a class="sidebar-link kind-concept" href="../phase-1-substrate.html">Phase 1 — Substrate (How Things Actually Work)</a>
+<a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
+<a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
+<a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<div class="sidebar-group-label">Orientation</div>
+<details class="branch branch-amber"><summary><span>Foundations</span><small>5</small></summary>
+<p class="sidebar-summary">Phase 0 mental models — what cybersecurity is, the CIA triad as a decision tool, threat-modeling quickstart, and the attacker-defender duality.</p>
+<a class="sidebar-link kind-index" href="../foundations/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality as a Learning Tool</a>
+<a class="sidebar-link kind-concept" href="../foundations/cia-triad-and-what-it-actually-decides.html">CIA Triad — What It Actually Decides</a>
+<a class="sidebar-link kind-concept" href="../foundations/threat-modeling-quickstart.html">Threat Modeling Quickstart</a>
+<a class="sidebar-link kind-concept" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html">What Is Cybersecurity, and Why It Is Not a Tool List</a>
+</details>
+<div class="sidebar-group-label">Substrate</div>
+<details class="branch branch-emerald" open><summary><span>Cryptography</span><small>15</small></summary>
+<p class="sidebar-summary">Hashes, encryption, signatures, key exchange, TLS/PKI, password storage, and token correctness.</p>
+<a class="sidebar-link kind-index" href="index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="aead-and-nonce-misuse.html">AEAD and Nonce Misuse</a>
+<a class="sidebar-link kind-concept" href="asymmetric-encryption-and-key-exchange.html">Asymmetric Encryption and Key Exchange</a>
+<a class="sidebar-link kind-concept" href="certificate-validation-and-pinning.html">Certificate Validation and Pinning</a>
+<a class="sidebar-link kind-concept active" href="digital-signatures.html">Digital Signatures</a>
+<a class="sidebar-link kind-concept" href="hashing-vs-encryption-vs-signing.html">Hashing vs Encryption vs Signing</a>
+<a class="sidebar-link kind-concept" href="jwt-cryptographic-correctness.html">JWT Cryptographic Correctness</a>
+<a class="sidebar-link kind-concept" href="kdf-and-key-stretching.html">KDF and Key Stretching</a>
+<a class="sidebar-link kind-concept" href="mac-and-hmac.html">MAC and HMAC</a>
+<a class="sidebar-link kind-concept" href="password-hashing.html">Password Hashing</a>
+<a class="sidebar-link kind-concept" href="post-quantum-awareness.html">Post-Quantum Awareness</a>
+<a class="sidebar-link kind-concept" href="random-and-csprng-pitfalls.html">Random and CSPRNG Pitfalls</a>
+<a class="sidebar-link kind-concept" href="roll-your-own-crypto-failures.html">Roll Your Own Crypto Failures</a>
+<a class="sidebar-link kind-concept" href="symmetric-encryption-modes.html">Symmetric Encryption Modes</a>
+<a class="sidebar-link kind-concept" href="tls-handshake-and-pki.html">TLS Handshake and PKI</a>
+</details>
+<details class="branch branch-sky"><summary><span>Networking</span><small>23</small></summary>
+<p class="sidebar-summary">Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p>
+<a class="sidebar-link kind-index" href="../networking/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="sidebar-link kind-concept" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="sidebar-link kind-concept" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="sidebar-link kind-concept" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="sidebar-link kind-concept" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-security.html">DNS Security</a>
+<a class="sidebar-link kind-concept" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../networking/header-trust-in-node-express.html">Header Trust in Node Express</a>
+<a class="sidebar-link kind-concept" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="sidebar-link kind-concept" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="sidebar-link kind-concept" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="sidebar-link kind-concept" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="sidebar-link kind-concept" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="sidebar-link kind-concept" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="sidebar-link kind-concept" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="sidebar-link kind-concept" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="sidebar-link kind-concept" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="sidebar-link kind-concept" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="sidebar-link kind-concept" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="sidebar-link kind-concept" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details class="branch branch-blue"><summary><span>Web Security</span><small>27</small></summary>
+<p class="sidebar-summary">Browser behavior, sessions, access control, and server-side exploit patterns.</p>
+<a class="sidebar-link kind-index" href="../web-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../web-security/bot-detection-signals.html">Bot Detection Signals</a>
+<a class="sidebar-link kind-concept" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="sidebar-link kind-concept" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="sidebar-link kind-concept" href="../web-security/clickjacking.html">Clickjacking</a>
+<a class="sidebar-link kind-concept" href="../web-security/command-injection.html">Command Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="sidebar-link kind-concept" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="sidebar-link kind-concept" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="sidebar-link kind-concept" href="../web-security/evilginx-and-reverse-proxy-phishing.html">Evilginx and Reverse Proxy Phishing</a>
+<a class="sidebar-link kind-concept" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="sidebar-link kind-concept" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="sidebar-link kind-concept" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="sidebar-link kind-concept" href="../web-security/mfa-phishing-resistance.html">MFA Phishing Resistance</a>
+<a class="sidebar-link kind-concept" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="sidebar-link kind-concept" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="sidebar-link kind-concept" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="sidebar-link kind-concept" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="sidebar-link kind-concept" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="sidebar-link kind-concept" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/session-management.html">Session Management</a>
+<a class="sidebar-link kind-concept" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/xxe.html">XXE</a>
+</details>
+<div class="sidebar-group-label">Paired</div>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>18</small></summary>
+<p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
+<a class="sidebar-link kind-index" href="../offensive-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/cloaking-and-security-evasion.html">Cloaking and Security Evasion</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/nmap-timing-and-evasion.html">Nmap Timing and Evasion</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/recon.html">Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/rustscan-and-nse-pipeline.html">RustScan and NSE Pipeline</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Detection Engineering</span><small>12</small></summary>
+<p class="sidebar-summary">Telemetry, behavioral analytics, correlation, and detection tradeoffs.</p>
+<a class="sidebar-link kind-index" href="../detection-engineering/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation and Kill Chain Observability</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral Detection vs Signature Detection</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/detection-evasion-myths-and-modern-limitations.html">Detection Evasion Myths and Modern Limitations</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/edr-network-observability-and-process-correlation.html">EDR Network Observability and Process Correlation</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html">Encrypted Traffic Analysis and Metadata Leakage</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html">False Positives, False Negatives, and Detection Tradeoffs</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html">IDS/IPS and Behavioral Detection Pipelines</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/network-telemetry-sources-and-visibility.html">Network Telemetry Sources and Visibility</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Scan Anomaly Detection and Fingerprint Analysis</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/telemetry-normalization-correlation-and-enrichment.html">Telemetry Normalization, Correlation, and Enrichment</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html">Zeek, Suricata, and NetFlow Analysis</a>
+</details>
+<div class="sidebar-group-label">Operator</div>
+<details class="branch branch-amber"><summary><span>Attack Surface Mapping</span><small>11</small></summary>
+<p class="sidebar-summary">What is exposed, reachable, discoverable, and drifting from intended design.</p>
+<a class="sidebar-link kind-index" href="../attack-surface-mapping/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details class="branch branch-violet"><summary><span>OSINT</span><small>11</small></summary>
+<p class="sidebar-summary">Public-source collection, evidence quality, and ethical handling of clues.</p>
+<a class="sidebar-link kind-index" href="../osint/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="sidebar-link kind-concept" href="../osint/company-osint.html">Company OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="sidebar-link kind-concept" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint.html">OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="sidebar-link kind-concept" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="sidebar-link kind-concept" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details class="branch branch-orange"><summary><span>Linux Privilege Escalation</span><small>10</small></summary>
+<p class="sidebar-summary">Local boundary failures, enumeration, and safe escalation hypothesis testing.</p>
+<a class="sidebar-link kind-index" href="../linux-privilege-escalation/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>13</small></summary>
+<p class="sidebar-summary">Repeatable procedures for turning concepts into practical tests.</p>
+<a class="sidebar-link kind-index" href="../security-playbooks/index.html">Overview</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/run-scan-pipeline.html">Run External Recon Scan Pipeline</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/trace-metadata-endpoint-reachability.html">Trace Metadata Endpoint Reachability</a>
+</details>
+<div class="sidebar-group-label">Specialty</div>
+<details class="branch branch-teal"><summary><span>Wireless Security</span><small>11</small></summary>
+<p class="sidebar-summary">Wi-Fi frames, handshakes, rogue access points, and local-network MITM.</p>
+<a class="sidebar-link kind-index" href="../wireless-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+<details class="branch branch-indigo"><summary><span>API Security</span><small>15</small></summary>
+<p class="sidebar-summary">Authorization, token trust, inventory drift, and machine-readable abuse.</p>
+<a class="sidebar-link kind-index" href="../api-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="sidebar-link kind-concept" href="../api-security/authorization.html">Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="sidebar-link kind-concept" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="sidebar-link kind-concept" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="sidebar-link kind-concept" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="sidebar-link kind-concept" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Cloud Security</span><small>11</small></summary>
+<p class="sidebar-summary">IAM, metadata, storage, network boundaries, secrets, and logging controls.</p>
+<a class="sidebar-link kind-index" href="../cloud-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details class="branch branch-green"><summary><span>DevSecOps</span><small>13</small></summary>
+<p class="sidebar-summary">Secure delivery, CI/CD hardening, supply chain, secrets, and release trust.</p>
+<a class="sidebar-link kind-index" href="../devsecops/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="sidebar-link kind-concept" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="sidebar-link kind-concept" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="sidebar-link kind-concept" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="sidebar-link kind-concept" href="../devsecops/container-security.html">Container Security</a>
+<a class="sidebar-link kind-concept" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="sidebar-link kind-concept" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="sidebar-link kind-concept" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="sidebar-link kind-concept" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="sidebar-link kind-concept" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details class="branch branch-red"><summary><span>Identity &amp; Active Directory</span><small>5</small></summary>
+<p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
+<a class="sidebar-link kind-index" href="../identity-and-active-directory/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/as-rep-roasting.html">AS-REP Roasting</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound and Attack Path Analysis</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/kerberoasting.html">Kerberoasting</a>
+</details>
+<div class="sidebar-group-label">Always-on</div>
+<details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
+<p class="sidebar-summary">VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.</p>
+<a class="sidebar-link kind-index" href="../privacy-anonymity-opsec/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/account-correlation.html">Account Correlation</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/anonymity-threat-models.html">Anonymity Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/browser-fingerprinting.html">Browser Fingerprinting</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html">Corporate VPNs vs Consumer VPNs</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/deanonymization-failures.html">Deanonymization Failures</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/end-to-end-encryption.html">End-to-End Encryption</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/file-metadata-removal.html">File Metadata Removal</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/metadata-and-identity-leakage.html">Metadata and Identity Leakage</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/opsec-failure-chains.html">OPSEC Failure Chains</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/pgp-encryption-and-signatures.html">PGP Encryption and Signatures</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/privacy-vs-anonymity-vs-confidentiality.html">Privacy vs Anonymity vs Confidentiality</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/private-email-threat-models.html">Private Email Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/qubes-compartmentalization.html">Qubes Compartmentalization</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/secure-deletion-and-storage-wiping.html">Secure Deletion and Storage Wiping</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/secure-file-sharing.html">Secure File Sharing</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tails-operational-model.html">Tails Operational Model</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/temporary-email-risks.html">Temporary Email Risks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-and-onion-services.html">Tor and Onion Services</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-bridges-and-pluggable-transports.html">Tor Bridges and Pluggable Transports</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-browser-security-settings.html">Tor Browser Security Settings</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/traffic-correlation.html">Traffic Correlation</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-dns-and-ipv6-leaks.html">VPN DNS and IPv6 Leaks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-fingerprinting-limitations.html">VPN Fingerprinting Limitations</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-kill-switches.html">VPN Kill Switches</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-leakage-risks.html">VPN Leakage Risks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-logging-and-trust.html">VPN Logging and Trust</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-protocols.html">VPN Protocols</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-threat-models.html">VPN Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-vs-tor.html">VPN vs Tor</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-with-tor.html">VPN with Tor</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/whonix-gateway.html">Whonix Gateway</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/xmpp-and-private-messaging.html">XMPP and Private Messaging</a>
+</details>
+<details class="registry-group"><summary>Reference System <span>16</span></summary>
+<a class="sidebar-link kind-registry" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-detection-engineering.html">Reference Registry - Detection Engineering</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-privacy-anonymity-opsec.html">Reference Registry - Privacy, Anonymity &amp; OPSEC</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-api-security.html">Reference Registry — API Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cryptography.html">Reference Registry — Cryptography</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-identity-and-active-directory.html">Reference Registry — Identity and Active Directory</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-networking.html">Reference Registry — Networking</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-offensive-security.html">Reference Registry — Offensive Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-playbooks.html">Reference Registry — Playbooks</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-web-security.html">Reference Registry — Web Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Cryptography</a><span>/</span><span>Digital Signatures</span></nav>
+<header class="page-hero">
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-emerald">Cryptography</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#cryptography</span><span class="meta-chip tag">#digital-signatures</span><span class="meta-chip tag">#authenticity</span></div>
+</header>
+<article class="article-note">
+<h1 id="digital-signatures">Digital Signatures</h1>
+<h2 id="definition">Definition</h2>
+<p>A digital signature is an asymmetric proof that a specific private key approved a specific message. Anyone with the matching public key can verify the signature, but only the private-key holder should be able to create it.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Digital signatures sit underneath TLS certificates, WebAuthn/passkeys, signed JWTs, package signing, code signing, software updates, PGP signatures, SSH host keys, and audit trails. They are different from MACs: with a MAC, every verifier can also forge because they share the same secret; with a signature, the verifier only needs the public key. That distinction is why signatures matter across organizational boundaries.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Digital signatures answer <strong>4 questions</strong>:</p>
+<ol>
+<li>
+<p><strong>Which bytes were signed?</strong>
+   Signatures bind to bytes, not intentions. If the signed representation differs from the parsed representation, the system can still fail.</p>
+</li>
+<li>
+<p><strong>Which private key signed them?</strong>
+   The private key creates the signature. If the private key leaks, the authorship guarantee collapses.</p>
+</li>
+<li>
+<p><strong>Which public key verifies them?</strong>
+   Verification proves only "the matching private key signed this." It does not prove the key belongs to the entity you think unless the public key itself is trusted.</p>
+</li>
+<li>
+<p><strong>Is the algorithm safe for this ecosystem?</strong>
+   Modern defaults: Ed25519 where available, RSA-PSS for RSA compatibility, ECDSA P-256 where required by platform constraints.</p>
+</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>signature = Sign(private_key, message)
+valid = Verify(public_key, message, signature)
+</code></pre></div>
+
+<p>Minimal Ed25519 shape:</p>
+<div class="codehilite"><pre><span></span><code>openssl<span class="w"> </span>genpkey<span class="w"> </span>-algorithm<span class="w"> </span>ed25519<span class="w"> </span>-out<span class="w"> </span>signing.key
+openssl<span class="w"> </span>pkey<span class="w"> </span>-in<span class="w"> </span>signing.key<span class="w"> </span>-pubout<span class="w"> </span>-out<span class="w"> </span>signing.pub
+<span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;release artifact digest&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>message.txt
+openssl<span class="w"> </span>pkeyutl<span class="w"> </span>-sign<span class="w"> </span>-rawin<span class="w"> </span>-inkey<span class="w"> </span>signing.key<span class="w"> </span>-in<span class="w"> </span>message.txt<span class="w"> </span>-out<span class="w"> </span>sig.bin
+openssl<span class="w"> </span>pkeyutl<span class="w"> </span>-verify<span class="w"> </span>-rawin<span class="w"> </span>-pubin<span class="w"> </span>-inkey<span class="w"> </span>signing.pub<span class="w"> </span>-in<span class="w"> </span>message.txt<span class="w"> </span>-sigfile<span class="w"> </span>sig.bin
+</code></pre></div>
+
+<p>The bug is not "we need encryption." Signatures do not hide data. They prove authorship and integrity for data that may be completely public.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<ul>
+<li>Find every place the system accepts signed data: JWTs, SAML, package metadata, webhooks, mobile updates, API callbacks, passkey assertions.</li>
+<li>Check what exact bytes are signed and whether the parser consumes the same bytes.</li>
+<li>Check public-key trust: certificate chain, JWKS origin, pinned key, package registry root, device credential, or manually verified fingerprint.</li>
+<li>Check algorithm allowlists. Verifiers should pin expected algorithms, not accept whatever the message header requests.</li>
+<li>Check key rotation and revocation. Old keys need a defined retirement path; compromised keys need emergency removal.</li>
+<li>Check signature replay. A valid signature on an old message may still need timestamp, challenge, nonce, origin, or audience binding.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Signature failures show up in <strong>6 families</strong>.</p>
+<h3 id="1-verification-skipped">1. Verification skipped</h3>
+<p>The system parses the signed object but never calls verification, or ignores verification failure. This is the "signature as decoration" bug.</p>
+<h3 id="2-wrong-public-key-trusted">2. Wrong public key trusted</h3>
+<p>The signature is valid, but under an attacker-controlled public key. JWKS confusion, certificate validation failure, or accepting embedded public keys can all create this.</p>
+<h3 id="3-algorithm-confusion">3. Algorithm confusion</h3>
+<p>The verifier accepts a weaker or different algorithm than intended. JWT <code>alg=none</code>, HS256-vs-RS256 confusion, and accepting RSA-PKCS1 where RSA-PSS is required are common examples.</p>
+<h3 id="4-nonce-failures-in-ecdsa-like-schemes">4. Nonce failures in ECDSA-like schemes</h3>
+<p>ECDSA and DSA require a fresh unpredictable nonce for each signature unless deterministic nonce generation is used. Nonce reuse can reveal the private key.</p>
+<h3 id="5-signed-metadata-but-unsigned-payload">5. Signed metadata but unsigned payload</h3>
+<p>The system signs a manifest but not the artifact bytes, or signs a header but not the body. Attackers swap the unsigned portion.</p>
+<h3 id="6-missing-context-binding">6. Missing context binding</h3>
+<p>The same valid signature is accepted in the wrong origin, audience, tenant, protocol, or time window because the signed message omits context.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Identity or session forgery.</strong> Signed tokens accepted under the wrong key or algorithm become authentication bypass.</li>
+<li><strong>Supply-chain compromise.</strong> Software updates, packages, or artifacts install malicious content if signature verification is weak.</li>
+<li><strong>Passkey/WebAuthn bypass pressure.</strong> Origin or challenge verification mistakes undermine phishing resistance.</li>
+<li><strong>Audit non-repudiation failure.</strong> The system cannot prove who approved an action if keys are shared or verification is weak.</li>
+<li><strong>Trust-store poisoning.</strong> Adding an attacker public key to a trusted key set makes every future signature valid.</li>
+</ul>
+<p>Impact escalates when signatures guard software releases, authentication tokens, cross-organization approvals, or financial workflows.</p>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Treat public-key trust as part of verification.</strong>
+   A signature is meaningful only under a trusted public key. Verify certificate chains, JWKS origins, pinned fingerprints, or registry trust roots before trusting the signature result.</p>
+</li>
+<li>
+<p><strong>Pin allowed algorithms per use case.</strong>
+   The verifier should already know whether it expects EdDSA, RS256, ES256, or RSA-PSS. Do not let attacker-controlled headers choose verification policy.</p>
+</li>
+<li>
+<p><strong>Sign the full security decision.</strong>
+   Include subject, issuer, audience, expiry, nonce/challenge, origin, tenant, action, artifact digest, and version where relevant.</p>
+</li>
+<li>
+<p><strong>Use modern libraries and deterministic nonce schemes where applicable.</strong>
+   Prefer Ed25519 for simplicity where ecosystem support exists. For ECDSA, rely on vetted implementations with deterministic nonces or strong CSPRNGs.</p>
+</li>
+<li>
+<p><strong>Design key rotation and revocation.</strong>
+   Keep key ids as routing metadata, not proof. Track active, retired, and revoked keys separately.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Checking that a signature field exists.</strong> Existence is not verification.</li>
+<li><strong>Trusting a public key included by the attacker.</strong> A valid signature under an attacker key proves attacker authorship, not legitimate authorship.</li>
+<li><strong>Letting the token choose the algorithm.</strong> Algorithm negotiation inside untrusted data creates confusion bugs.</li>
+<li><strong>Signing only display text.</strong> The machine-enforced fields must be signed.</li>
+<li><strong>Using one private key everywhere.</strong> One compromise then breaks every trust boundary.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<h3 id="sign-and-verify-with-ed25519">Sign and verify with Ed25519</h3>
+<div class="codehilite"><pre><span></span><code>openssl<span class="w"> </span>genpkey<span class="w"> </span>-algorithm<span class="w"> </span>ed25519<span class="w"> </span>-out<span class="w"> </span>sk.pem
+openssl<span class="w"> </span>pkey<span class="w"> </span>-in<span class="w"> </span>sk.pem<span class="w"> </span>-pubout<span class="w"> </span>-out<span class="w"> </span>pk.pem
+<span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;amount=100&amp;to=alice&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>message.txt
+openssl<span class="w"> </span>pkeyutl<span class="w"> </span>-sign<span class="w"> </span>-rawin<span class="w"> </span>-inkey<span class="w"> </span>sk.pem<span class="w"> </span>-in<span class="w"> </span>message.txt<span class="w"> </span>-out<span class="w"> </span>sig.bin
+openssl<span class="w"> </span>pkeyutl<span class="w"> </span>-verify<span class="w"> </span>-rawin<span class="w"> </span>-pubin<span class="w"> </span>-inkey<span class="w"> </span>pk.pem<span class="w"> </span>-in<span class="w"> </span>message.txt<span class="w"> </span>-sigfile<span class="w"> </span>sig.bin
+</code></pre></div>
+
+<p>Verification succeeds only for the exact message.</p>
+<h3 id="show-message-binding">Show message binding</h3>
+<div class="codehilite"><pre><span></span><code><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;amount=900&amp;to=alice&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>message.txt
+openssl<span class="w"> </span>pkeyutl<span class="w"> </span>-verify<span class="w"> </span>-rawin<span class="w"> </span>-pubin<span class="w"> </span>-inkey<span class="w"> </span>pk.pem<span class="w"> </span>-in<span class="w"> </span>message.txt<span class="w"> </span>-sigfile<span class="w"> </span>sig.bin<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;verification failed&quot;</span>
+</code></pre></div>
+
+<p>Changing the message invalidates the signature.</p>
+<h3 id="inspect-a-certificate-signature-chain">Inspect a certificate signature chain</h3>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>s_client<span class="w"> </span>-connect<span class="w"> </span>example.com:443<span class="w"> </span>-servername<span class="w"> </span>example.com<span class="w"> </span>-showcerts<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-noout<span class="w"> </span>-subject<span class="w"> </span>-issuer<span class="w"> </span>-text<span class="w"> </span><span class="p">|</span><span class="w"> </span>rg<span class="w"> </span><span class="s2">&quot;Subject:|Issuer:|Signature Algorithm&quot;</span>
+</code></pre></div>
+
+<p>TLS server identity depends on signatures chained to a trusted CA.</p>
+<h3 id="model-signed-artifact-verification">Model signed artifact verification</h3>
+<div class="codehilite"><pre><span></span><code>artifact.tar.gz
+artifact.sha256
+artifact.sha256.sig
+
+1. verify signature over artifact.sha256
+2. compute SHA-256 over artifact.tar.gz
+3. compare computed digest to signed digest
+4. install only if both checks pass
+</code></pre></div>
+
+<p>The signature must authenticate the digest that actually corresponds to the artifact.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A JWT with RS256 is accepted only if the verifier uses the issuer's trusted public key and rejects algorithm confusion.</li>
+<li>A WebAuthn authenticator signs a challenge and origin-bound data; phishing resistance depends on verifying the origin and challenge.</li>
+<li>A package manager verifies repository metadata signatures before installing packages.</li>
+<li>A CI/CD system signs release artifacts so deployment can reject tampered builds.</li>
+<li>An SSH client warns when a server host key changes because the public key binding changed.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="hashing-vs-encryption-vs-signing.html">hashing-vs-encryption-vs-signing</a></li>
+<li><a href="mac-and-hmac.html">mac-and-hmac</a></li>
+<li><a href="asymmetric-encryption-and-key-exchange.html">asymmetric-encryption-and-key-exchange</a></li>
+<li><a href="jwt-cryptographic-correctness.html">jwt-cryptographic-correctness</a></li>
+<li><a href="tls-handshake-and-pki.html">tls-handshake-and-pki</a></li>
+<li><a href="../web-security/mfa-phishing-resistance.html">MFA Phishing Resistance</a></li>
+<li><a href="../devsecops/artifact-integrity.html">Artifact Integrity</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="unresolved-link" title="Unpublished or unresolved: code-signing">code-signing</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: package-signature-verification">package-signature-verification</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: webauthn-signature-verification">webauthn-signature-verification</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: jwt-jwks-key-rotation">jwt-jwks-key-rotation</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Standard / RFC:</strong> NIST FIPS 186-5: Digital Signature Standard — https://csrc.nist.gov/publications/detail/fips/186/5/final</li>
+<li><strong>Standard / RFC:</strong> RFC 8032: Edwards-Curve Digital Signature Algorithm — https://www.rfc-editor.org/rfc/rfc8032</li>
+<li><strong>Standard / RFC:</strong> RFC 8017: PKCS #1 v2.2 RSA Cryptography Specifications — https://www.rfc-editor.org/rfc/rfc8017</li>
+</ul>
+<section class="related-notes" aria-label="Explore nearby notes">
+<h2>Explore nearby notes</h2>
+<div class="related-grid">
+<a class="related-card" href="aead-and-nonce-misuse.html"><span>Cryptography</span><strong>AEAD and Nonce Misuse</strong><small>Authenticated Encryption with Associated Data (AEAD) encrypts plaintext and authenticates both ciphertext and optional associated data. Nonce misuse happens when...</small></a>
+<a class="related-card" href="asymmetric-encryption-and-key-exchange.html"><span>Cryptography</span><strong>Asymmetric Encryption and Key Exchange</strong><small>Asymmetric encryption and key exchange use different key roles so two parties can establish secrecy without first sharing a symmetric key. In practice, public-key...</small></a>
+<a class="related-card" href="certificate-validation-and-pinning.html"><span>Cryptography</span><strong>Certificate Validation and Pinning</strong><small>Certificate validation is the process of deciding whether a presented certificate chain proves the peer&#x27;s identity for the name being contacted. Certificate...</small></a>
+<a class="related-card" href="hashing-vs-encryption-vs-signing.html"><span>Cryptography</span><strong>Hashing vs Encryption vs Signing</strong><small>Hashing, encryption, and signing are three different cryptographic primitives that solve three different problems: hashing produces a fixed-size, one-way...</small></a>
+<a class="related-card" href="jwt-cryptographic-correctness.html"><span>Cryptography</span><strong>JWT Cryptographic Correctness</strong><small>A JWT (RFC 7519) is a base64url-encoded header.payload.signature triple where the signature is either an HMAC tag (JWS HS*) or an asymmetric digital signature (JWS...</small></a>
+<a class="related-card" href="kdf-and-key-stretching.html"><span>Cryptography</span><strong>KDF and Key Stretching</strong><small>A Key Derivation Function (KDF) turns one secret into one or more purpose-bound cryptographic keys. Key stretching is a related use case where a low-entropy...</small></a>
+</div></section>
+</article>
+</main>
+<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
+<a class="toc-level-2" href="#definition">Definition</a>
+<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
+<a class="toc-level-2" href="#how-it-works">How it works</a>
+<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
+<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
+<a class="toc-level-3" href="#1-verification-skipped">1. Verification skipped</a>
+<a class="toc-level-3" href="#2-wrong-public-key-trusted">2. Wrong public key trusted</a>
+<a class="toc-level-3" href="#3-algorithm-confusion">3. Algorithm confusion</a>
+<a class="toc-level-3" href="#4-nonce-failures-in-ecdsa-like-schemes">4. Nonce failures in ECDSA-like schemes</a>
+<a class="toc-level-3" href="#5-signed-metadata-but-unsigned-payload">5. Signed metadata but unsigned payload</a>
+<a class="toc-level-3" href="#6-missing-context-binding">6. Missing context binding</a>
+<a class="toc-level-2" href="#impact">Impact</a>
+<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
+<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
+<a class="toc-level-2" href="#practical-labs">Practical labs</a>
+<a class="toc-level-3" href="#sign-and-verify-with-ed25519">Sign and verify with Ed25519</a>
+<a class="toc-level-3" href="#show-message-binding">Show message binding</a>
+<a class="toc-level-3" href="#inspect-a-certificate-signature-chain">Inspect a certificate signature chain</a>
+<a class="back-to-top" href="#top">Back to top</a></div></aside>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

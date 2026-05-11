@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IDS/IPS and Behavioral Detection Pipelines - Detection Engineering | ldamoredev Security Atlas</title>
+<meta name="description" content="An IDS/IPS and behavioral detection pipeline is the engineered path from telemetry collection to analytic logic, enrichment, correlation, alerting, triage...">
+<meta name="author" content="ldamoredev">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Detection Engineering, IDS/IPS and Behavioral Detection Pipelines, detection-engineering, ids, ips, behavioral-detection, correlation">
+<meta name="theme-color" content="#256d85">
+<link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/detection-engineering/ids-ips-and-behavioral-detection-pipelines.html">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Detection Engineering">
+<meta property="og:title" content="IDS/IPS and Behavioral Detection Pipelines - Detection Engineering | ldamoredev Security Atlas">
+<meta property="og:description" content="An IDS/IPS and behavioral detection pipeline is the engineered path from telemetry collection to analytic logic, enrichment, correlation, alerting, triage...">
+<meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/detection-engineering/ids-ips-and-behavioral-detection-pipelines.html">
+<meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IDS/IPS and Behavioral Detection Pipelines - Detection Engineering | ldamoredev Security Atlas">
+<meta name="twitter:description" content="An IDS/IPS and behavioral detection pipeline is the engineered path from telemetry collection to analytic logic, enrichment, correlation, alerting, triage...">
+<meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"IDS/IPS and Behavioral Detection Pipelines - Detection Engineering | ldamoredev Security Atlas","headline":"IDS/IPS and Behavioral Detection Pipelines","description":"An IDS/IPS and behavioral detection pipeline is the engineered path from telemetry collection to analytic logic, enrichment, correlation, alerting, triage...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/detection-engineering/ids-ips-and-behavioral-detection-pipelines.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/detection-engineering/ids-ips-and-behavioral-detection-pipelines.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Detection Engineering","IDS/IPS and Behavioral Detection Pipelines","detection-engineering","ids","ips","behavioral-detection","correlation"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Detection Engineering","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/detection-engineering/index.html"},{"@type":"ListItem","position":4,"name":"IDS/IPS and Behavioral Detection Pipelines","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/detection-engineering/ids-ips-and-behavioral-detection-pipelines.html"}]}]</script>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body id="top" data-root="../..">
+<header class="topbar">
+  <button id="sidebar-toggle" title="Toggle navigation" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html"><span>ldamoredev</span><small>security atlas</small></a>
+  <div class="search-shell">
+    <input id="search" type="search" placeholder="Search notes..." autocomplete="off">
+    <kbd>/</kbd>
+  </div>
+  <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout with-toc">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Atlas Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="sidebar-link kind-index" href="../index.html">Cybersecurity Index</a>
+<a class="sidebar-link kind-concept" href="../start-here.html">Start Here — Cybersecurity Vault Triage</a>
+<a class="sidebar-link kind-concept" href="../must-know-30.html">Must-Know 30 — The Minimum Viable Security Literacy</a>
+<a class="sidebar-link kind-concept" href="../phase-1-substrate.html">Phase 1 — Substrate (How Things Actually Work)</a>
+<a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
+<a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
+<a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<div class="sidebar-group-label">Orientation</div>
+<details class="branch branch-amber"><summary><span>Foundations</span><small>5</small></summary>
+<p class="sidebar-summary">Phase 0 mental models — what cybersecurity is, the CIA triad as a decision tool, threat-modeling quickstart, and the attacker-defender duality.</p>
+<a class="sidebar-link kind-index" href="../foundations/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality as a Learning Tool</a>
+<a class="sidebar-link kind-concept" href="../foundations/cia-triad-and-what-it-actually-decides.html">CIA Triad — What It Actually Decides</a>
+<a class="sidebar-link kind-concept" href="../foundations/threat-modeling-quickstart.html">Threat Modeling Quickstart</a>
+<a class="sidebar-link kind-concept" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html">What Is Cybersecurity, and Why It Is Not a Tool List</a>
+</details>
+<div class="sidebar-group-label">Substrate</div>
+<details class="branch branch-emerald"><summary><span>Cryptography</span><small>15</small></summary>
+<p class="sidebar-summary">Hashes, encryption, signatures, key exchange, TLS/PKI, password storage, and token correctness.</p>
+<a class="sidebar-link kind-index" href="../cryptography/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../cryptography/aead-and-nonce-misuse.html">AEAD and Nonce Misuse</a>
+<a class="sidebar-link kind-concept" href="../cryptography/asymmetric-encryption-and-key-exchange.html">Asymmetric Encryption and Key Exchange</a>
+<a class="sidebar-link kind-concept" href="../cryptography/certificate-validation-and-pinning.html">Certificate Validation and Pinning</a>
+<a class="sidebar-link kind-concept" href="../cryptography/digital-signatures.html">Digital Signatures</a>
+<a class="sidebar-link kind-concept" href="../cryptography/hashing-vs-encryption-vs-signing.html">Hashing vs Encryption vs Signing</a>
+<a class="sidebar-link kind-concept" href="../cryptography/jwt-cryptographic-correctness.html">JWT Cryptographic Correctness</a>
+<a class="sidebar-link kind-concept" href="../cryptography/kdf-and-key-stretching.html">KDF and Key Stretching</a>
+<a class="sidebar-link kind-concept" href="../cryptography/mac-and-hmac.html">MAC and HMAC</a>
+<a class="sidebar-link kind-concept" href="../cryptography/password-hashing.html">Password Hashing</a>
+<a class="sidebar-link kind-concept" href="../cryptography/post-quantum-awareness.html">Post-Quantum Awareness</a>
+<a class="sidebar-link kind-concept" href="../cryptography/random-and-csprng-pitfalls.html">Random and CSPRNG Pitfalls</a>
+<a class="sidebar-link kind-concept" href="../cryptography/roll-your-own-crypto-failures.html">Roll Your Own Crypto Failures</a>
+<a class="sidebar-link kind-concept" href="../cryptography/symmetric-encryption-modes.html">Symmetric Encryption Modes</a>
+<a class="sidebar-link kind-concept" href="../cryptography/tls-handshake-and-pki.html">TLS Handshake and PKI</a>
+</details>
+<details class="branch branch-sky"><summary><span>Networking</span><small>23</small></summary>
+<p class="sidebar-summary">Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p>
+<a class="sidebar-link kind-index" href="../networking/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="sidebar-link kind-concept" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="sidebar-link kind-concept" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="sidebar-link kind-concept" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="sidebar-link kind-concept" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-security.html">DNS Security</a>
+<a class="sidebar-link kind-concept" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../networking/header-trust-in-node-express.html">Header Trust in Node Express</a>
+<a class="sidebar-link kind-concept" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="sidebar-link kind-concept" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="sidebar-link kind-concept" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="sidebar-link kind-concept" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="sidebar-link kind-concept" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="sidebar-link kind-concept" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="sidebar-link kind-concept" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="sidebar-link kind-concept" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="sidebar-link kind-concept" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="sidebar-link kind-concept" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="sidebar-link kind-concept" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="sidebar-link kind-concept" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details class="branch branch-blue"><summary><span>Web Security</span><small>27</small></summary>
+<p class="sidebar-summary">Browser behavior, sessions, access control, and server-side exploit patterns.</p>
+<a class="sidebar-link kind-index" href="../web-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../web-security/bot-detection-signals.html">Bot Detection Signals</a>
+<a class="sidebar-link kind-concept" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="sidebar-link kind-concept" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="sidebar-link kind-concept" href="../web-security/clickjacking.html">Clickjacking</a>
+<a class="sidebar-link kind-concept" href="../web-security/command-injection.html">Command Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="sidebar-link kind-concept" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="sidebar-link kind-concept" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="sidebar-link kind-concept" href="../web-security/evilginx-and-reverse-proxy-phishing.html">Evilginx and Reverse Proxy Phishing</a>
+<a class="sidebar-link kind-concept" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="sidebar-link kind-concept" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="sidebar-link kind-concept" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="sidebar-link kind-concept" href="../web-security/mfa-phishing-resistance.html">MFA Phishing Resistance</a>
+<a class="sidebar-link kind-concept" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="sidebar-link kind-concept" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="sidebar-link kind-concept" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="sidebar-link kind-concept" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="sidebar-link kind-concept" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="sidebar-link kind-concept" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/session-management.html">Session Management</a>
+<a class="sidebar-link kind-concept" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/xxe.html">XXE</a>
+</details>
+<div class="sidebar-group-label">Paired</div>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>18</small></summary>
+<p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
+<a class="sidebar-link kind-index" href="../offensive-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/cloaking-and-security-evasion.html">Cloaking and Security Evasion</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/nmap-timing-and-evasion.html">Nmap Timing and Evasion</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/recon.html">Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/rustscan-and-nse-pipeline.html">RustScan and NSE Pipeline</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details class="branch branch-cyan" open><summary><span>Detection Engineering</span><small>12</small></summary>
+<p class="sidebar-summary">Telemetry, behavioral analytics, correlation, and detection tradeoffs.</p>
+<a class="sidebar-link kind-index" href="index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation and Kill Chain Observability</a>
+<a class="sidebar-link kind-concept" href="behavioral-detection-vs-signature-detection.html">Behavioral Detection vs Signature Detection</a>
+<a class="sidebar-link kind-concept" href="detection-evasion-myths-and-modern-limitations.html">Detection Evasion Myths and Modern Limitations</a>
+<a class="sidebar-link kind-concept" href="edr-network-observability-and-process-correlation.html">EDR Network Observability and Process Correlation</a>
+<a class="sidebar-link kind-concept" href="encrypted-traffic-analysis-and-metadata-leakage.html">Encrypted Traffic Analysis and Metadata Leakage</a>
+<a class="sidebar-link kind-concept" href="false-positives-false-negatives-and-detection-tradeoffs.html">False Positives, False Negatives, and Detection Tradeoffs</a>
+<a class="sidebar-link kind-concept active" href="ids-ips-and-behavioral-detection-pipelines.html">IDS/IPS and Behavioral Detection Pipelines</a>
+<a class="sidebar-link kind-concept" href="network-telemetry-sources-and-visibility.html">Network Telemetry Sources and Visibility</a>
+<a class="sidebar-link kind-concept" href="scan-anomaly-detection-and-fingerprint-analysis.html">Scan Anomaly Detection and Fingerprint Analysis</a>
+<a class="sidebar-link kind-concept" href="telemetry-normalization-correlation-and-enrichment.html">Telemetry Normalization, Correlation, and Enrichment</a>
+<a class="sidebar-link kind-concept" href="zeek-suricata-and-netflow-analysis.html">Zeek, Suricata, and NetFlow Analysis</a>
+</details>
+<div class="sidebar-group-label">Operator</div>
+<details class="branch branch-amber"><summary><span>Attack Surface Mapping</span><small>11</small></summary>
+<p class="sidebar-summary">What is exposed, reachable, discoverable, and drifting from intended design.</p>
+<a class="sidebar-link kind-index" href="../attack-surface-mapping/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details class="branch branch-violet"><summary><span>OSINT</span><small>11</small></summary>
+<p class="sidebar-summary">Public-source collection, evidence quality, and ethical handling of clues.</p>
+<a class="sidebar-link kind-index" href="../osint/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="sidebar-link kind-concept" href="../osint/company-osint.html">Company OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="sidebar-link kind-concept" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint.html">OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="sidebar-link kind-concept" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="sidebar-link kind-concept" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details class="branch branch-orange"><summary><span>Linux Privilege Escalation</span><small>10</small></summary>
+<p class="sidebar-summary">Local boundary failures, enumeration, and safe escalation hypothesis testing.</p>
+<a class="sidebar-link kind-index" href="../linux-privilege-escalation/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>13</small></summary>
+<p class="sidebar-summary">Repeatable procedures for turning concepts into practical tests.</p>
+<a class="sidebar-link kind-index" href="../security-playbooks/index.html">Overview</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/run-scan-pipeline.html">Run External Recon Scan Pipeline</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/trace-metadata-endpoint-reachability.html">Trace Metadata Endpoint Reachability</a>
+</details>
+<div class="sidebar-group-label">Specialty</div>
+<details class="branch branch-teal"><summary><span>Wireless Security</span><small>11</small></summary>
+<p class="sidebar-summary">Wi-Fi frames, handshakes, rogue access points, and local-network MITM.</p>
+<a class="sidebar-link kind-index" href="../wireless-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+<details class="branch branch-indigo"><summary><span>API Security</span><small>15</small></summary>
+<p class="sidebar-summary">Authorization, token trust, inventory drift, and machine-readable abuse.</p>
+<a class="sidebar-link kind-index" href="../api-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="sidebar-link kind-concept" href="../api-security/authorization.html">Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="sidebar-link kind-concept" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="sidebar-link kind-concept" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="sidebar-link kind-concept" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="sidebar-link kind-concept" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Cloud Security</span><small>11</small></summary>
+<p class="sidebar-summary">IAM, metadata, storage, network boundaries, secrets, and logging controls.</p>
+<a class="sidebar-link kind-index" href="../cloud-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details class="branch branch-green"><summary><span>DevSecOps</span><small>13</small></summary>
+<p class="sidebar-summary">Secure delivery, CI/CD hardening, supply chain, secrets, and release trust.</p>
+<a class="sidebar-link kind-index" href="../devsecops/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="sidebar-link kind-concept" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="sidebar-link kind-concept" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="sidebar-link kind-concept" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="sidebar-link kind-concept" href="../devsecops/container-security.html">Container Security</a>
+<a class="sidebar-link kind-concept" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="sidebar-link kind-concept" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="sidebar-link kind-concept" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="sidebar-link kind-concept" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="sidebar-link kind-concept" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details class="branch branch-red"><summary><span>Identity &amp; Active Directory</span><small>5</small></summary>
+<p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
+<a class="sidebar-link kind-index" href="../identity-and-active-directory/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/as-rep-roasting.html">AS-REP Roasting</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound and Attack Path Analysis</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/kerberoasting.html">Kerberoasting</a>
+</details>
+<div class="sidebar-group-label">Always-on</div>
+<details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
+<p class="sidebar-summary">VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.</p>
+<a class="sidebar-link kind-index" href="../privacy-anonymity-opsec/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/account-correlation.html">Account Correlation</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/anonymity-threat-models.html">Anonymity Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/browser-fingerprinting.html">Browser Fingerprinting</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html">Corporate VPNs vs Consumer VPNs</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/deanonymization-failures.html">Deanonymization Failures</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/end-to-end-encryption.html">End-to-End Encryption</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/file-metadata-removal.html">File Metadata Removal</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/metadata-and-identity-leakage.html">Metadata and Identity Leakage</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/opsec-failure-chains.html">OPSEC Failure Chains</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/pgp-encryption-and-signatures.html">PGP Encryption and Signatures</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/privacy-vs-anonymity-vs-confidentiality.html">Privacy vs Anonymity vs Confidentiality</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/private-email-threat-models.html">Private Email Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/qubes-compartmentalization.html">Qubes Compartmentalization</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/secure-deletion-and-storage-wiping.html">Secure Deletion and Storage Wiping</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/secure-file-sharing.html">Secure File Sharing</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tails-operational-model.html">Tails Operational Model</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/temporary-email-risks.html">Temporary Email Risks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-and-onion-services.html">Tor and Onion Services</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-bridges-and-pluggable-transports.html">Tor Bridges and Pluggable Transports</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-browser-security-settings.html">Tor Browser Security Settings</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/traffic-correlation.html">Traffic Correlation</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-dns-and-ipv6-leaks.html">VPN DNS and IPv6 Leaks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-fingerprinting-limitations.html">VPN Fingerprinting Limitations</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-kill-switches.html">VPN Kill Switches</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-leakage-risks.html">VPN Leakage Risks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-logging-and-trust.html">VPN Logging and Trust</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-protocols.html">VPN Protocols</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-threat-models.html">VPN Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-vs-tor.html">VPN vs Tor</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-with-tor.html">VPN with Tor</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/whonix-gateway.html">Whonix Gateway</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/xmpp-and-private-messaging.html">XMPP and Private Messaging</a>
+</details>
+<details class="registry-group"><summary>Reference System <span>16</span></summary>
+<a class="sidebar-link kind-registry" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-detection-engineering.html">Reference Registry - Detection Engineering</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-privacy-anonymity-opsec.html">Reference Registry - Privacy, Anonymity &amp; OPSEC</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-api-security.html">Reference Registry — API Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cryptography.html">Reference Registry — Cryptography</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-identity-and-active-directory.html">Reference Registry — Identity and Active Directory</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-networking.html">Reference Registry — Networking</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-offensive-security.html">Reference Registry — Offensive Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-playbooks.html">Reference Registry — Playbooks</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-web-security.html">Reference Registry — Web Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Detection Engineering</a><span>/</span><span>IDS/IPS and Behavioral Detection Pipelines</span></nav>
+<header class="page-hero">
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-cyan">Detection Engineering</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#detection-engineering</span><span class="meta-chip tag">#ids</span><span class="meta-chip tag">#ips</span><span class="meta-chip tag">#behavioral-detection</span><span class="meta-chip tag">#correlation</span></div>
+</header>
+<article class="article-note">
+<h1 id="idsips-and-behavioral-detection-pipelines">IDS/IPS and Behavioral Detection Pipelines</h1>
+<h2 id="definition">Definition</h2>
+<p>An IDS/IPS and behavioral detection pipeline is the engineered path from telemetry collection to analytic logic, enrichment, correlation, alerting, triage, response, suppression, tuning, and evidence retention.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Detection engineering is not "write a rule and wait." A signature can match a packet, but an incident requires context: asset role, user, process, time window, change history, threat model, related alerts, and what response action is safe.</p>
+<p>Modern detection is behavioral and correlational. Legacy IDS thinking often stops at payload signatures. Senior detection engineering asks what behavior should be observable, which data source proves it, what fields are needed for triage, which correlation window is valid, and how the rule will fail.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>A detection pipeline has <strong>8 stages</strong>:</p>
+<ol>
+<li><strong>Collection.</strong> Sensors collect packet, flow, endpoint, identity, application, cloud, and control-plane events.</li>
+<li><strong>Normalization.</strong> Raw fields become a common schema: host, user, IP, port, process, action, outcome, timestamp, event type.</li>
+<li><strong>Enrichment.</strong> Asset role, owner, criticality, geolocation, reputation, vulnerability, identity, and change context are added.</li>
+<li><strong>Atomic detection.</strong> Rules identify one behavior: scan fan-out, suspicious process, malware signature, impossible travel, new admin action.</li>
+<li><strong>Correlation.</strong> Multiple signals are grouped by host, user, IP, process, session, flow ID, or time window.</li>
+<li><strong>Prioritization.</strong> Severity, novelty, asset criticality, confidence, and blast radius determine queue position.</li>
+<li><strong>Response.</strong> Alerts drive analyst investigation, automated containment, ticketing, or suppression.</li>
+<li><strong>Feedback.</strong> False positives, missed attacks, analyst notes, and environment changes update the rule and telemetry model.</li>
+</ol>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span><code>Suricata alert: ET SCAN Nmap Scripting Engine User-Agent
+Zeek: HTTP path enumeration and TLS metadata from same source
+EDR: nmap.exe launched by powershell.exe under a non-admin user
+Asset context: source is a production app server, not a scanner
+Higher-order rule: discovery + abnormal process + high-value destination set
+</code></pre></div>
+
+<p>The useful detection is the correlated behavior, not the single alert string.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<ul>
+<li><strong>Signature detection.</strong> Match known packet, protocol, file, command, or behavior patterns. Strong for known bad and policy violations; weak against unknown variations.</li>
+<li><strong>Anomaly detection.</strong> Compare behavior to baselines: first-seen destination, unusual port, rare parent-child process, abnormal byte ratio, new country, odd cloud API sequence.</li>
+<li><strong>Behavioral detection.</strong> Detect technique-like behavior independent of exact IOC: port fan-out, credential spraying, process injection, mass file encryption, data staging.</li>
+<li><strong>Higher-order detection.</strong> Use lower-level alerts and events as inputs to correlate across time, entities, and data sources.</li>
+<li><strong>Entity resolution.</strong> Normalize hostnames, IPs, cloud instance IDs, users, service accounts, process IDs, and containers so joins mean what they claim.</li>
+<li><strong>Detection-as-code discipline.</strong> Store rules with purpose, data requirements, test events, false-positive notes, ATT&amp;CK mapping, rollback plan, and owner.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Pipelines fail in <strong>7 common ways</strong>.</p>
+<h3 id="1-signature-only-failure">1. Signature-only failure</h3>
+<p>The attacker changes payload, user agent, path, TLS library, or command syntax. A signature rule misses while behavior remains obvious across telemetry.</p>
+<h3 id="2-threshold-only-failure">2. Threshold-only failure</h3>
+<p>A slow scan, distributed login spray, or low-volume beacon stays under a fixed threshold. Long-window and per-entity novelty analytics are needed.</p>
+<h3 id="3-enrichment-failure">3. Enrichment failure</h3>
+<p>An alert on <code>10.0.3.22</code> is low value until the system knows it is a domain controller, scanner, dev laptop, ephemeral container, or NAT gateway.</p>
+<h3 id="4-entity-resolution-failure">4. Entity-resolution failure</h3>
+<p>IP addresses move, hosts rename, cloud instances recycle, NAT hides clients, and usernames collide. Bad joins create false incidents or missed incidents.</p>
+<h3 id="5-correlation-window-failure">5. Correlation-window failure</h3>
+<p>Windows that are too short miss slow behavior. Windows that are too long stitch unrelated events together.</p>
+<h3 id="6-response-mode-failure">6. Response-mode failure</h3>
+<p>IDS alerts are safer to tune loosely; IPS drops require change control, can break production, and need test coverage. Detection and prevention are not the same risk.</p>
+<h3 id="7-feedback-failure">7. Feedback failure</h3>
+<p>Rules that never receive false-positive labels, incident outcomes, or environment changes rot into noise.</p>
+<h2 id="impact">Impact</h2>
+<ul>
+<li><strong>Earlier attack-chain detection.</strong> Correlation catches discovery, staging, credential use, lateral movement, and exploitation as a sequence.</li>
+<li><strong>Better triage.</strong> Analysts get evidence cards instead of isolated alert strings.</li>
+<li><strong>Lower analyst load.</strong> Higher-order rules suppress or deprioritize low-value atomic noise while elevating multi-signal behavior.</li>
+<li><strong>Control risk.</strong> IPS mode can prevent attacks but can also drop business traffic if detection logic is brittle.</li>
+<li><strong>Coverage realism.</strong> ATT&amp;CK mappings become useful only when tied to actual telemetry and field quality.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Define the detection hypothesis before writing logic.</strong>
+   State the behavior, required data sources, expected fields, known false positives, and triage questions. A rule without a hypothesis becomes maintenance debt.</p>
+</li>
+<li>
+<p><strong>Separate atomic detections from correlation detections.</strong>
+   Atomic rules should be simple and explainable. Higher-order rules should combine signals to raise confidence, not hide poor base logic.</p>
+</li>
+<li>
+<p><strong>Engineer triage evidence into alerts.</strong>
+   Include process, parent, user, host role, destination, protocol, recent related alerts, first-seen status, and sensor confidence. The analyst should know why this event matters.</p>
+</li>
+<li>
+<p><strong>Tune by entity role and environment.</strong>
+   Scanner subnets, CI runners, domain controllers, developer laptops, production servers, and cloud workloads need different baselines and allowlists.</p>
+</li>
+<li>
+<p><strong>Test both false positives and false negatives.</strong>
+   Replay pcaps, run local labs, simulate benign admin behavior, and compare expected alerts. A detection should have regression tests where possible.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Rule volume.</strong> Thousands of rules without context create alert debt, not coverage.</li>
+<li><strong>ATT&amp;CK heatmaps alone.</strong> Technique coverage claims do not prove collection, field quality, triage value, or low false-positive rate.</li>
+<li><strong>AI triage without telemetry quality.</strong> Model reasoning cannot recover fields that were never collected or joins that are wrong.</li>
+<li><strong>IPS as a substitute for architecture.</strong> Blocking signatures do not fix overexposed services, weak identity, or missing segmentation.</li>
+<li><strong>Permanent suppressions.</strong> Suppressions should expire or be tied to owners; otherwise they become blind spots.</li>
+</ul>
+<h3 id="operational-misconceptions">Operational misconceptions</h3>
+<ul>
+<li><strong>"Alerts are detections."</strong> Alerts are outputs. Detections include telemetry assumptions, logic, triage, response, and feedback.</li>
+<li><strong>"Anomaly equals malicious."</strong> Novel behavior can be deployment, failover, patching, testing, or broken logging.</li>
+<li><strong>"Behavioral detection has no signatures."</strong> Behavioral rules still encode patterns; they are just higher-level than byte strings.</li>
+<li><strong>"Correlation always improves fidelity."</strong> Correlation amplifies both signal and noise. Bad base events create confident-looking bad incidents.</li>
+</ul>
+<h3 id="modern-limitations">Modern limitations</h3>
+<ul>
+<li>Encrypted traffic reduces payload signatures and shifts value toward metadata, endpoint, and proxy logs.</li>
+<li>Cloud and SaaS logs are delayed, normalized differently, and often expensive at full fidelity.</li>
+<li>Endpoint telemetry may be tampered with or absent on unmanaged assets.</li>
+<li>Attackers increasingly blend into administration tools, CI/CD systems, cloud APIs, and legitimate remote-management platforms.</li>
+</ul>
+<h3 id="telemetry-blind-spots">Telemetry blind spots</h3>
+<ul>
+<li>Uncollected command-line arguments, truncated fields, missing parent process data, or disabled DNS/TLS logging.</li>
+<li>NAT gateways, proxies, and load balancers that collapse many users into one network identity.</li>
+<li>Sensors with clock drift, ingestion lag, parser errors, or packet loss.</li>
+<li>SaaS platforms with limited audit APIs or short retention.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Use isolated lab traffic and local SIEM/hunting stacks.</p>
+<h3 id="build-a-base-scan-alert-and-a-correlation-alert">Build a base scan alert and a correlation alert</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Generate a vertical scan in a lab.</span>
+nmap<span class="w"> </span>-Pn<span class="w"> </span>-p<span class="w"> </span><span class="m">1</span>-1000<span class="w"> </span>LAB_HOST
+
+<span class="c1"># Then add service enumeration.</span>
+nmap<span class="w"> </span>-Pn<span class="w"> </span>-sV<span class="w"> </span>--script<span class="w"> </span><span class="s2">&quot;default,safe&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>,443<span class="w"> </span>LAB_HOST
+</code></pre></div>
+
+<p>Expected telemetry: base rules should catch scan behavior; a correlation rule should elevate "scan plus version/script probing" over a scan alone.</p>
+<h3 id="replay-a-pcap-through-suricata">Replay a pcap through Suricata</h3>
+<div class="codehilite"><pre><span></span><code>suricata<span class="w"> </span>-r<span class="w"> </span>scan.pcap<span class="w"> </span>-l<span class="w"> </span>suricata-out
+jq<span class="w"> </span><span class="s1">&#39;select(.event_type==&quot;alert&quot;) | {ts:.timestamp, sig:.alert.signature, src:.src_ip, dest:.dest_ip}&#39;</span><span class="w"> </span>suricata-out/eve.json
+</code></pre></div>
+
+<p>Expected telemetry: alerts are rule matches. Compare with Zeek/flow records to identify what the rule did not explain.</p>
+<h3 id="create-a-long-window-fan-out-query">Create a long-window fan-out query</h3>
+<div class="codehilite"><pre><span></span><code>Group by source host over 24h:
+- count distinct destination IPs
+- count distinct destination ports
+- count failed connection states
+- count first-seen destination-port pairs
+Alert when role != scanner and novelty + fan-out exceed baseline.
+</code></pre></div>
+
+<p>Expected telemetry: catches slow scans that short rate windows miss. False assumptions: "low rate means benign" and "one threshold fits all hosts."</p>
+<h3 id="test-correlation-window-sensitivity">Test correlation-window sensitivity</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span><span class="w"> </span>p<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="m">443</span><span class="w"> </span><span class="m">445</span><span class="w"> </span><span class="m">3389</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>nmap<span class="w"> </span>-Pn<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$p</span><span class="s2">&quot;</span><span class="w"> </span>LAB_HOST
+<span class="w">  </span>sleep<span class="w"> </span><span class="m">300</span>
+<span class="k">done</span>
+</code></pre></div>
+
+<p>Expected telemetry: a 5-minute window misses the pattern; a 24-hour role-aware window sees unusual port spread. Long windows need asset context to avoid noise.</p>
+<h3 id="compare-ids-and-ips-risk">Compare IDS and IPS risk</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Offline only: inspect what would have alerted before considering blocking.</span>
+suricata<span class="w"> </span>-r<span class="w"> </span>production-like-sample.pcap<span class="w"> </span>-k<span class="w"> </span>none<span class="w"> </span>-l<span class="w"> </span>ids-test
+jq<span class="w"> </span><span class="s1">&#39;select(.event_type==&quot;alert&quot;) | .alert.signature&#39;</span><span class="w"> </span>ids-test/eve.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c
+</code></pre></div>
+
+<p>Expected telemetry: IDS testing reveals candidate drops without affecting traffic. The defensive lesson: prevention logic needs stricter testing than alert logic.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A Suricata scan signature is low priority from a known scanner subnet but high priority from a database server.</li>
+<li>A "new outbound TLS fingerprint" alert is noisy globally but high value for a domain controller role.</li>
+<li>Three low-severity alerts on one host become one high-priority incident because they share process ancestry and occur within a valid attack-chain window.</li>
+<li>A noisy NSE rule is downgraded unless followed by exploit-path requests or credential attempts.</li>
+<li>A cloud workload's flow fan-out is suppressed during an approved deployment window but not after the change ticket closes.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="index.html">Detection Engineering</a></li>
+<li><a href="network-telemetry-sources-and-visibility.html">network-telemetry-sources-and-visibility</a></li>
+<li><a href="scan-anomaly-detection-and-fingerprint-analysis.html">scan-anomaly-detection-and-fingerprint-analysis</a></li>
+<li><a href="zeek-suricata-and-netflow-analysis.html">zeek-suricata-and-netflow-analysis</a></li>
+<li><a href="behavioral-detection-vs-signature-detection.html">behavioral-detection-vs-signature-detection</a></li>
+<li><a href="false-positives-false-negatives-and-detection-tradeoffs.html">false-positives-false-negatives-and-detection-tradeoffs</a></li>
+<li><a href="telemetry-normalization-correlation-and-enrichment.html">telemetry-normalization-correlation-and-enrichment</a></li>
+<li><a href="attack-path-correlation-and-kill-chain-observability.html">attack-path-correlation-and-kill-chain-observability</a></li>
+<li><a href="edr-network-observability-and-process-correlation.html">edr-network-observability-and-process-correlation</a></li>
+<li><a href="../offensive-security/rustscan-and-nse-pipeline.html">RustScan and NSE Pipeline</a></li>
+<li><a href="../offensive-security/cloaking-and-security-evasion.html">Cloaking and Security Evasion</a></li>
+<li><a href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a></li>
+<li><a href="../web-security/bot-detection-signals.html">Bot Detection Signals</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="unresolved-link" title="Unpublished or unresolved: correlation-windows-and-entity-resolution">correlation-windows-and-entity-resolution</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: detection-as-code-and-rule-lifecycle">detection-as-code-and-rule-lifecycle</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: alert-triage-and-evidence-quality">alert-triage-and-evidence-quality</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: detection-coverage-vs-attack-coverage">detection-coverage-vs-attack-coverage</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: suppression-debt">suppression-debt</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Official Tool Docs:</strong> Suricata Documentation - https://docs.suricata.io/</li>
+<li><strong>Foundational:</strong> MITRE ATT&amp;CK Data Sources - https://attack.mitre.org/datasources/</li>
+<li><strong>Research / Deep Dive:</strong> Elastic Higher-Order Detection Rules - https://www.elastic.co/security-labs/higher-order-detection-rules</li>
+<li><strong>Mitigation / Operations:</strong> CISA Best Practices for Event Logging and Threat Detection - https://www.cisa.gov/resources-tools/resources/best-practices-event-logging-and-threat-detection</li>
+</ul>
+<section class="related-notes" aria-label="Explore nearby notes">
+<h2>Explore nearby notes</h2>
+<div class="related-grid">
+<a class="related-card" href="attack-path-correlation-and-kill-chain-observability.html"><span>Detection Engineering</span><strong>Attack Path Correlation and Kill Chain Observability</strong><small>Attack path correlation is the detection and reconstruction of relationships between events across an adversary sequence, such as recon, exploitation, persistence...</small></a>
+<a class="related-card" href="behavioral-detection-vs-signature-detection.html"><span>Detection Engineering</span><strong>Behavioral Detection vs Signature Detection</strong><small>Behavioral detection identifies activity by what an actor or system does over time, while signature detection identifies known artifacts, byte patterns, strings...</small></a>
+<a class="related-card" href="telemetry-normalization-correlation-and-enrichment.html"><span>Detection Engineering</span><strong>Telemetry Normalization, Correlation, and Enrichment</strong><small>Telemetry normalization maps heterogeneous events into consistent fields; enrichment adds context; correlation stitches related events into higher-order evidence.</small></a>
+<a class="related-card" href="detection-evasion-myths-and-modern-limitations.html"><span>Detection Engineering</span><strong>Detection Evasion Myths and Modern Limitations</strong><small>Detection evasion myths are oversimplified claims that confuse avoiding one sensor or signature with becoming invisible to the full telemetry system.</small></a>
+<a class="related-card" href="edr-network-observability-and-process-correlation.html"><span>Detection Engineering</span><strong>EDR Network Observability and Process Correlation</strong><small>EDR network observability is the endpoint-side capture of network-related activity, especially the ability to correlate sockets, connections, destinations...</small></a>
+<a class="related-card" href="encrypted-traffic-analysis-and-metadata-leakage.html"><span>Detection Engineering</span><strong>Encrypted Traffic Analysis and Metadata Leakage</strong><small>Encrypted traffic analysis is the detection and investigation of communication behavior using metadata that remains visible when payload content is protected by...</small></a>
+</div></section>
+</article>
+</main>
+<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
+<a class="toc-level-2" href="#definition">Definition</a>
+<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
+<a class="toc-level-2" href="#how-it-works">How it works</a>
+<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
+<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
+<a class="toc-level-3" href="#1-signature-only-failure">1. Signature-only failure</a>
+<a class="toc-level-3" href="#2-threshold-only-failure">2. Threshold-only failure</a>
+<a class="toc-level-3" href="#3-enrichment-failure">3. Enrichment failure</a>
+<a class="toc-level-3" href="#4-entity-resolution-failure">4. Entity-resolution failure</a>
+<a class="toc-level-3" href="#5-correlation-window-failure">5. Correlation-window failure</a>
+<a class="toc-level-3" href="#6-response-mode-failure">6. Response-mode failure</a>
+<a class="toc-level-3" href="#7-feedback-failure">7. Feedback failure</a>
+<a class="toc-level-2" href="#impact">Impact</a>
+<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
+<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
+<a class="toc-level-3" href="#operational-misconceptions">Operational misconceptions</a>
+<a class="toc-level-3" href="#modern-limitations">Modern limitations</a>
+<a class="toc-level-3" href="#telemetry-blind-spots">Telemetry blind spots</a>
+<a class="back-to-top" href="#top">Back to top</a></div></aside>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

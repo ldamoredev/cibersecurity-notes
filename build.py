@@ -56,90 +56,123 @@ THEME_COLOR = "#256d85"
 # Keep private/project execution notes, templates, tooling experiments, and
 # future/unpromoted branches out of the public static mirror.
 BRANCHES = {
+    "foundations": {
+        "label": "Foundations",
+        "group": "Orientation",
+        "summary": "Phase 0 mental models — what cybersecurity is, the CIA triad as a decision tool, threat-modeling quickstart, and the attacker-defender duality.",
+        "accent": "amber",
+    },
+    "cryptography": {
+        "label": "Cryptography",
+        "group": "Substrate",
+        "summary": "Hashes, encryption, signatures, key exchange, TLS/PKI, password storage, and token correctness.",
+        "accent": "emerald",
+    },
     "networking": {
         "label": "Networking",
-        "group": "Foundations",
+        "group": "Substrate",
         "summary": "Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.",
         "accent": "sky",
     },
     "wireless-security": {
         "label": "Wireless Security",
-        "group": "Foundations",
+        "group": "Specialty",
         "summary": "Wi-Fi frames, handshakes, rogue access points, and local-network MITM.",
         "accent": "teal",
     },
     "web-security": {
         "label": "Web Security",
-        "group": "Foundations",
+        "group": "Substrate",
         "summary": "Browser behavior, sessions, access control, and server-side exploit patterns.",
         "accent": "blue",
     },
     "api-security": {
         "label": "API Security",
-        "group": "Foundations",
+        "group": "Specialty",
         "summary": "Authorization, token trust, inventory drift, and machine-readable abuse.",
         "accent": "indigo",
     },
     "cloud-security": {
         "label": "Cloud Security",
-        "group": "Foundations",
+        "group": "Specialty",
         "summary": "IAM, metadata, storage, network boundaries, secrets, and logging controls.",
         "accent": "cyan",
     },
     "attack-surface-mapping": {
         "label": "Attack Surface Mapping",
-        "group": "Exposure",
+        "group": "Operator",
         "summary": "What is exposed, reachable, discoverable, and drifting from intended design.",
         "accent": "amber",
     },
     "osint": {
         "label": "OSINT",
-        "group": "Exposure",
+        "group": "Operator",
         "summary": "Public-source collection, evidence quality, and ethical handling of clues.",
         "accent": "violet",
     },
     "offensive-security": {
         "label": "Offensive Security / Recon",
-        "group": "Exposure",
+        "group": "Paired",
         "summary": "Discovery, validation, and handoff from recon into concrete testing.",
         "accent": "rose",
     },
     "linux-privilege-escalation": {
         "label": "Linux Privilege Escalation",
-        "group": "Exposure",
+        "group": "Operator",
         "summary": "Local boundary failures, enumeration, and safe escalation hypothesis testing.",
         "accent": "orange",
     },
     "privacy-anonymity-opsec": {
         "label": "Privacy, Anonymity & OPSEC",
-        "group": "Exposure",
+        "group": "Always-on",
         "summary": "VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.",
         "accent": "purple",
     },
     "devsecops": {
         "label": "DevSecOps",
-        "group": "Engineering",
+        "group": "Specialty",
         "summary": "Secure delivery, CI/CD hardening, supply chain, secrets, and release trust.",
         "accent": "green",
     },
+    "detection-engineering": {
+        "label": "Detection Engineering",
+        "group": "Paired",
+        "summary": "Telemetry, behavioral analytics, correlation, and detection tradeoffs.",
+        "accent": "cyan",
+    },
+    "identity-and-active-directory": {
+        "label": "Identity & Active Directory",
+        "group": "Specialty",
+        "summary": "Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.",
+        "accent": "red",
+    },
     "security-playbooks": {
         "label": "Security Playbooks",
-        "group": "Execution",
+        "group": "Operator",
         "summary": "Repeatable procedures for turning concepts into practical tests.",
         "accent": "slate",
     },
 }
 
-BRANCH_GROUPS = ("Foundations", "Exposure", "Engineering", "Execution")
+BRANCH_GROUPS = ("Orientation", "Substrate", "Paired", "Operator", "Specialty", "Always-on")
 MATURE_CYBERSECURITY_BRANCHES = set(BRANCHES)
 
 MATURE_CYBERSECURITY_ROOT_FILES = {
     "index.md",
+    "start-here.md",
+    "must-know-30.md",
+    "phase-1-substrate.md",
+    "phase-2-offense-defense.md",
+    "phase-3-operator.md",
+    "phase-4-specialty.md",
     "reference-registry.md",
     "reference-registry-api-security.md",
+    "reference-registry-cryptography.md",
     "reference-registry-attack-surface-mapping.md",
     "reference-registry-cloud-security.md",
     "reference-registry-devsecops.md",
+    "reference-registry-detection-engineering.md",
+    "reference-registry-identity-and-active-directory.md",
     "reference-registry-linux-privilege-escalation.md",
     "reference-registry-networking.md",
     "reference-registry-offensive-security.md",
@@ -391,9 +424,23 @@ def render_sidebar(tree: dict, current: Note | None) -> str:
             continue
         lines.append(f'<div class="sidebar-section"><h3>{html.escape(section_label)}</h3>')
 
+        # Root-level entry-layer pages: pedagogical order, not alphabetical.
+        root_order = {
+            "index": 0,
+            "start-here": 1,
+            "must-know-30": 2,
+            "phase-1-substrate": 3,
+            "phase-2-offense-defense": 4,
+            "phase-3-operator": 5,
+            "phase-4-specialty": 6,
+        }
         root_notes = [n for n in subs.get("", []) if not n.slug.startswith("reference-registry")]
+        root_notes.sort(key=lambda n: (root_order.get(n.slug, 99), n.title.lower()))
         for n in root_notes:
-            lines.append(render_sidebar_link(n, current, label="Cybersecurity Index"))
+            # Only the actual `index.md` gets the legacy "Cybersecurity Index"
+            # label; entry-layer pages use their real title.
+            label = "Cybersecurity Index" if n.slug == "index" else None
+            lines.append(render_sidebar_link(n, current, label=label))
 
         for group in BRANCH_GROUPS:
             group_subs = [s for s in BRANCHES if s in subs and branch_group(s) == group]

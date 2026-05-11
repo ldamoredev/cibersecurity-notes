@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KDF and Key Stretching - Cryptography | ldamoredev Security Atlas</title>
+<meta name="description" content="A Key Derivation Function (KDF) turns one secret into one or more purpose-bound cryptographic keys. Key stretching is a related use case where a low-entropy...">
+<meta name="author" content="ldamoredev">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Cryptography, KDF and Key Stretching, kdf, key-derivation, key-stretching">
+<meta name="theme-color" content="#256d85">
+<link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/kdf-and-key-stretching.html">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Cryptography">
+<meta property="og:title" content="KDF and Key Stretching - Cryptography | ldamoredev Security Atlas">
+<meta property="og:description" content="A Key Derivation Function (KDF) turns one secret into one or more purpose-bound cryptographic keys. Key stretching is a related use case where a low-entropy...">
+<meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/kdf-and-key-stretching.html">
+<meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KDF and Key Stretching - Cryptography | ldamoredev Security Atlas">
+<meta name="twitter:description" content="A Key Derivation Function (KDF) turns one secret into one or more purpose-bound cryptographic keys. Key stretching is a related use case where a low-entropy...">
+<meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"KDF and Key Stretching - Cryptography | ldamoredev Security Atlas","headline":"KDF and Key Stretching","description":"A Key Derivation Function (KDF) turns one secret into one or more purpose-bound cryptographic keys. Key stretching is a related use case where a low-entropy...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/kdf-and-key-stretching.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/kdf-and-key-stretching.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Cryptography","KDF and Key Stretching","kdf","key-derivation","key-stretching"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Cryptography","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/index.html"},{"@type":"ListItem","position":4,"name":"KDF and Key Stretching","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/kdf-and-key-stretching.html"}]}]</script>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body id="top" data-root="../..">
+<header class="topbar">
+  <button id="sidebar-toggle" title="Toggle navigation" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html"><span>ldamoredev</span><small>security atlas</small></a>
+  <div class="search-shell">
+    <input id="search" type="search" placeholder="Search notes..." autocomplete="off">
+    <kbd>/</kbd>
+  </div>
+  <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout with-toc">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Atlas Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="sidebar-link kind-index" href="../index.html">Cybersecurity Index</a>
+<a class="sidebar-link kind-concept" href="../start-here.html">Start Here — Cybersecurity Vault Triage</a>
+<a class="sidebar-link kind-concept" href="../must-know-30.html">Must-Know 30 — The Minimum Viable Security Literacy</a>
+<a class="sidebar-link kind-concept" href="../phase-1-substrate.html">Phase 1 — Substrate (How Things Actually Work)</a>
+<a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
+<a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
+<a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<div class="sidebar-group-label">Orientation</div>
+<details class="branch branch-amber"><summary><span>Foundations</span><small>5</small></summary>
+<p class="sidebar-summary">Phase 0 mental models — what cybersecurity is, the CIA triad as a decision tool, threat-modeling quickstart, and the attacker-defender duality.</p>
+<a class="sidebar-link kind-index" href="../foundations/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality as a Learning Tool</a>
+<a class="sidebar-link kind-concept" href="../foundations/cia-triad-and-what-it-actually-decides.html">CIA Triad — What It Actually Decides</a>
+<a class="sidebar-link kind-concept" href="../foundations/threat-modeling-quickstart.html">Threat Modeling Quickstart</a>
+<a class="sidebar-link kind-concept" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html">What Is Cybersecurity, and Why It Is Not a Tool List</a>
+</details>
+<div class="sidebar-group-label">Substrate</div>
+<details class="branch branch-emerald" open><summary><span>Cryptography</span><small>15</small></summary>
+<p class="sidebar-summary">Hashes, encryption, signatures, key exchange, TLS/PKI, password storage, and token correctness.</p>
+<a class="sidebar-link kind-index" href="index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="aead-and-nonce-misuse.html">AEAD and Nonce Misuse</a>
+<a class="sidebar-link kind-concept" href="asymmetric-encryption-and-key-exchange.html">Asymmetric Encryption and Key Exchange</a>
+<a class="sidebar-link kind-concept" href="certificate-validation-and-pinning.html">Certificate Validation and Pinning</a>
+<a class="sidebar-link kind-concept" href="digital-signatures.html">Digital Signatures</a>
+<a class="sidebar-link kind-concept" href="hashing-vs-encryption-vs-signing.html">Hashing vs Encryption vs Signing</a>
+<a class="sidebar-link kind-concept" href="jwt-cryptographic-correctness.html">JWT Cryptographic Correctness</a>
+<a class="sidebar-link kind-concept active" href="kdf-and-key-stretching.html">KDF and Key Stretching</a>
+<a class="sidebar-link kind-concept" href="mac-and-hmac.html">MAC and HMAC</a>
+<a class="sidebar-link kind-concept" href="password-hashing.html">Password Hashing</a>
+<a class="sidebar-link kind-concept" href="post-quantum-awareness.html">Post-Quantum Awareness</a>
+<a class="sidebar-link kind-concept" href="random-and-csprng-pitfalls.html">Random and CSPRNG Pitfalls</a>
+<a class="sidebar-link kind-concept" href="roll-your-own-crypto-failures.html">Roll Your Own Crypto Failures</a>
+<a class="sidebar-link kind-concept" href="symmetric-encryption-modes.html">Symmetric Encryption Modes</a>
+<a class="sidebar-link kind-concept" href="tls-handshake-and-pki.html">TLS Handshake and PKI</a>
+</details>
+<details class="branch branch-sky"><summary><span>Networking</span><small>23</small></summary>
+<p class="sidebar-summary">Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p>
+<a class="sidebar-link kind-index" href="../networking/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="sidebar-link kind-concept" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="sidebar-link kind-concept" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="sidebar-link kind-concept" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="sidebar-link kind-concept" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-security.html">DNS Security</a>
+<a class="sidebar-link kind-concept" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../networking/header-trust-in-node-express.html">Header Trust in Node Express</a>
+<a class="sidebar-link kind-concept" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="sidebar-link kind-concept" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="sidebar-link kind-concept" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="sidebar-link kind-concept" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="sidebar-link kind-concept" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="sidebar-link kind-concept" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="sidebar-link kind-concept" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="sidebar-link kind-concept" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="sidebar-link kind-concept" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="sidebar-link kind-concept" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="sidebar-link kind-concept" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="sidebar-link kind-concept" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details class="branch branch-blue"><summary><span>Web Security</span><small>27</small></summary>
+<p class="sidebar-summary">Browser behavior, sessions, access control, and server-side exploit patterns.</p>
+<a class="sidebar-link kind-index" href="../web-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../web-security/bot-detection-signals.html">Bot Detection Signals</a>
+<a class="sidebar-link kind-concept" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="sidebar-link kind-concept" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="sidebar-link kind-concept" href="../web-security/clickjacking.html">Clickjacking</a>
+<a class="sidebar-link kind-concept" href="../web-security/command-injection.html">Command Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="sidebar-link kind-concept" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="sidebar-link kind-concept" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="sidebar-link kind-concept" href="../web-security/evilginx-and-reverse-proxy-phishing.html">Evilginx and Reverse Proxy Phishing</a>
+<a class="sidebar-link kind-concept" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="sidebar-link kind-concept" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="sidebar-link kind-concept" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="sidebar-link kind-concept" href="../web-security/mfa-phishing-resistance.html">MFA Phishing Resistance</a>
+<a class="sidebar-link kind-concept" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="sidebar-link kind-concept" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="sidebar-link kind-concept" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="sidebar-link kind-concept" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="sidebar-link kind-concept" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="sidebar-link kind-concept" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/session-management.html">Session Management</a>
+<a class="sidebar-link kind-concept" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/xxe.html">XXE</a>
+</details>
+<div class="sidebar-group-label">Paired</div>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>18</small></summary>
+<p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
+<a class="sidebar-link kind-index" href="../offensive-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/cloaking-and-security-evasion.html">Cloaking and Security Evasion</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/nmap-timing-and-evasion.html">Nmap Timing and Evasion</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/recon.html">Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/rustscan-and-nse-pipeline.html">RustScan and NSE Pipeline</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Detection Engineering</span><small>12</small></summary>
+<p class="sidebar-summary">Telemetry, behavioral analytics, correlation, and detection tradeoffs.</p>
+<a class="sidebar-link kind-index" href="../detection-engineering/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation and Kill Chain Observability</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral Detection vs Signature Detection</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/detection-evasion-myths-and-modern-limitations.html">Detection Evasion Myths and Modern Limitations</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/edr-network-observability-and-process-correlation.html">EDR Network Observability and Process Correlation</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html">Encrypted Traffic Analysis and Metadata Leakage</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html">False Positives, False Negatives, and Detection Tradeoffs</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html">IDS/IPS and Behavioral Detection Pipelines</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/network-telemetry-sources-and-visibility.html">Network Telemetry Sources and Visibility</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Scan Anomaly Detection and Fingerprint Analysis</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/telemetry-normalization-correlation-and-enrichment.html">Telemetry Normalization, Correlation, and Enrichment</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html">Zeek, Suricata, and NetFlow Analysis</a>
+</details>
+<div class="sidebar-group-label">Operator</div>
+<details class="branch branch-amber"><summary><span>Attack Surface Mapping</span><small>11</small></summary>
+<p class="sidebar-summary">What is exposed, reachable, discoverable, and drifting from intended design.</p>
+<a class="sidebar-link kind-index" href="../attack-surface-mapping/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details class="branch branch-violet"><summary><span>OSINT</span><small>11</small></summary>
+<p class="sidebar-summary">Public-source collection, evidence quality, and ethical handling of clues.</p>
+<a class="sidebar-link kind-index" href="../osint/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="sidebar-link kind-concept" href="../osint/company-osint.html">Company OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="sidebar-link kind-concept" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint.html">OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="sidebar-link kind-concept" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="sidebar-link kind-concept" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details class="branch branch-orange"><summary><span>Linux Privilege Escalation</span><small>10</small></summary>
+<p class="sidebar-summary">Local boundary failures, enumeration, and safe escalation hypothesis testing.</p>
+<a class="sidebar-link kind-index" href="../linux-privilege-escalation/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>13</small></summary>
+<p class="sidebar-summary">Repeatable procedures for turning concepts into practical tests.</p>
+<a class="sidebar-link kind-index" href="../security-playbooks/index.html">Overview</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/run-scan-pipeline.html">Run External Recon Scan Pipeline</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/trace-metadata-endpoint-reachability.html">Trace Metadata Endpoint Reachability</a>
+</details>
+<div class="sidebar-group-label">Specialty</div>
+<details class="branch branch-teal"><summary><span>Wireless Security</span><small>11</small></summary>
+<p class="sidebar-summary">Wi-Fi frames, handshakes, rogue access points, and local-network MITM.</p>
+<a class="sidebar-link kind-index" href="../wireless-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+<details class="branch branch-indigo"><summary><span>API Security</span><small>15</small></summary>
+<p class="sidebar-summary">Authorization, token trust, inventory drift, and machine-readable abuse.</p>
+<a class="sidebar-link kind-index" href="../api-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="sidebar-link kind-concept" href="../api-security/authorization.html">Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="sidebar-link kind-concept" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="sidebar-link kind-concept" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="sidebar-link kind-concept" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="sidebar-link kind-concept" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Cloud Security</span><small>11</small></summary>
+<p class="sidebar-summary">IAM, metadata, storage, network boundaries, secrets, and logging controls.</p>
+<a class="sidebar-link kind-index" href="../cloud-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details class="branch branch-green"><summary><span>DevSecOps</span><small>13</small></summary>
+<p class="sidebar-summary">Secure delivery, CI/CD hardening, supply chain, secrets, and release trust.</p>
+<a class="sidebar-link kind-index" href="../devsecops/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="sidebar-link kind-concept" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="sidebar-link kind-concept" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="sidebar-link kind-concept" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="sidebar-link kind-concept" href="../devsecops/container-security.html">Container Security</a>
+<a class="sidebar-link kind-concept" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="sidebar-link kind-concept" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="sidebar-link kind-concept" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="sidebar-link kind-concept" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="sidebar-link kind-concept" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details class="branch branch-red"><summary><span>Identity &amp; Active Directory</span><small>5</small></summary>
+<p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
+<a class="sidebar-link kind-index" href="../identity-and-active-directory/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/as-rep-roasting.html">AS-REP Roasting</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound and Attack Path Analysis</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/kerberoasting.html">Kerberoasting</a>
+</details>
+<div class="sidebar-group-label">Always-on</div>
+<details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
+<p class="sidebar-summary">VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.</p>
+<a class="sidebar-link kind-index" href="../privacy-anonymity-opsec/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/account-correlation.html">Account Correlation</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/anonymity-threat-models.html">Anonymity Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/browser-fingerprinting.html">Browser Fingerprinting</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html">Corporate VPNs vs Consumer VPNs</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/deanonymization-failures.html">Deanonymization Failures</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/end-to-end-encryption.html">End-to-End Encryption</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/file-metadata-removal.html">File Metadata Removal</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/metadata-and-identity-leakage.html">Metadata and Identity Leakage</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/opsec-failure-chains.html">OPSEC Failure Chains</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/pgp-encryption-and-signatures.html">PGP Encryption and Signatures</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/privacy-vs-anonymity-vs-confidentiality.html">Privacy vs Anonymity vs Confidentiality</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/private-email-threat-models.html">Private Email Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/qubes-compartmentalization.html">Qubes Compartmentalization</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/secure-deletion-and-storage-wiping.html">Secure Deletion and Storage Wiping</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/secure-file-sharing.html">Secure File Sharing</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tails-operational-model.html">Tails Operational Model</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/temporary-email-risks.html">Temporary Email Risks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-and-onion-services.html">Tor and Onion Services</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-bridges-and-pluggable-transports.html">Tor Bridges and Pluggable Transports</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-browser-security-settings.html">Tor Browser Security Settings</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/traffic-correlation.html">Traffic Correlation</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-dns-and-ipv6-leaks.html">VPN DNS and IPv6 Leaks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-fingerprinting-limitations.html">VPN Fingerprinting Limitations</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-kill-switches.html">VPN Kill Switches</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-leakage-risks.html">VPN Leakage Risks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-logging-and-trust.html">VPN Logging and Trust</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-protocols.html">VPN Protocols</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-threat-models.html">VPN Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-vs-tor.html">VPN vs Tor</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-with-tor.html">VPN with Tor</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/whonix-gateway.html">Whonix Gateway</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/xmpp-and-private-messaging.html">XMPP and Private Messaging</a>
+</details>
+<details class="registry-group"><summary>Reference System <span>16</span></summary>
+<a class="sidebar-link kind-registry" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-detection-engineering.html">Reference Registry - Detection Engineering</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-privacy-anonymity-opsec.html">Reference Registry - Privacy, Anonymity &amp; OPSEC</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-api-security.html">Reference Registry — API Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cryptography.html">Reference Registry — Cryptography</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-identity-and-active-directory.html">Reference Registry — Identity and Active Directory</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-networking.html">Reference Registry — Networking</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-offensive-security.html">Reference Registry — Offensive Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-playbooks.html">Reference Registry — Playbooks</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-web-security.html">Reference Registry — Web Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Cryptography</a><span>/</span><span>KDF and Key Stretching</span></nav>
+<header class="page-hero">
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-emerald">Cryptography</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#cryptography</span><span class="meta-chip tag">#kdf</span><span class="meta-chip tag">#key-derivation</span><span class="meta-chip tag">#key-stretching</span></div>
+</header>
+<article class="article-note">
+<h1 id="kdf-and-key-stretching">KDF and Key Stretching</h1>
+<h2 id="definition">Definition</h2>
+<p>A Key Derivation Function (KDF) turns one secret into one or more purpose-bound cryptographic keys. Key stretching is a related use case where a low-entropy secret, usually a password, is deliberately made expensive to guess before it becomes a verifier or encryption key.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Most systems do not have one neat key. They have a root secret, session secret, password, Diffie-Hellman output, cloud KMS data key, or recovery secret that must become several separate keys: encryption key, MAC key, client-to-server key, server-to-client key, cookie key, backup key. Using the raw secret everywhere creates key reuse and cross-protocol failure. KDFs are how a design says: "this key is only for this purpose."</p>
+<h2 id="how-it-works">How it works</h2>
+<p>KDF use splits into <strong>3 jobs</strong>:</p>
+<ol>
+<li>
+<p><strong>Extract</strong>
+   Turn uneven input material into a strong pseudorandom key. Example: HKDF-Extract over a Diffie-Hellman shared secret.</p>
+</li>
+<li>
+<p><strong>Expand</strong>
+   Derive one or more keys with explicit labels and context. Example: <code>app:v1:cookie-mac</code>, <code>app:v1:record-aead</code>, <code>app:v1:webhook-hmac</code>.</p>
+</li>
+<li>
+<p><strong>Stretch</strong>
+   Make guesses expensive when the input is human-memorable or low entropy. Example: PBKDF2, bcrypt, scrypt, or Argon2id for passwords.</p>
+</li>
+</ol>
+<p>HKDF shape:</p>
+<div class="codehilite"><pre><span></span><code>prk = HKDF-Extract(salt, input_key_material)
+okm = HKDF-Expand(prk, info=&quot;app:v1:purpose&quot;, length=32)
+</code></pre></div>
+
+<p>The bug is not "we did not hash the secret." The bug is "we reused one secret across purposes, or we treated a low-entropy password like a high-entropy key."</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<ul>
+<li>Identify root secrets, master keys, passwords, API secrets, session secrets, and DH shared outputs.</li>
+<li>Check whether each purpose gets a separate derived key with a clear label.</li>
+<li>Check whether password-derived keys use a password KDF, not plain SHA-256.</li>
+<li>Check salt usage. KDF salts are not secret, but they prevent shared outputs and precomputation.</li>
+<li>Check context strings. Include application, version, tenant/environment where appropriate, direction, and purpose.</li>
+<li>Check rotation. KDF labels and versioning should make old/new keys distinguishable during migration.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>KDF mistakes show up in <strong>5 families</strong>.</p>
+<h3 id="1-raw-secret-reuse">1. Raw secret reuse</h3>
+<p>The same secret signs cookies, encrypts records, verifies webhooks, and derives CSRF tokens. A leak in one subsystem becomes a universal break.</p>
+<h3 id="2-hash-as-kdf">2. Hash-as-KDF</h3>
+<p>The application uses <code>sha256(secret)</code> or <code>sha256(password)</code> as a key. For high-entropy input this may accidentally look fine, but it lacks context, extract/expand separation, and password stretching.</p>
+<h3 id="3-missing-context-binding">3. Missing context binding</h3>
+<p>The KDF derives bytes but does not label purpose. Two different features can accidentally derive the same key or accept each other's outputs.</p>
+<h3 id="4-password-kdf-confusion">4. Password KDF confusion</h3>
+<p>PBKDF2, bcrypt, scrypt, and Argon2id are for low-entropy passwords. HKDF is not a password hashing function; it assumes input key material is already high entropy or comes from a key agreement.</p>
+<h3 id="5-bad-salt-or-parameter-migration">5. Bad salt or parameter migration</h3>
+<p>Global salts, missing salts, static low iteration counts, or unversioned parameters make upgrades painful and weaken resistance to precomputation.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered roughly by severity:</p>
+<ul>
+<li><strong>Cross-protocol compromise.</strong> A key leaked from a low-risk feature authenticates high-risk tokens elsewhere.</li>
+<li><strong>Password cracking acceleration.</strong> Fast hash-derived password keys are cheap to brute force.</li>
+<li><strong>Token forgery.</strong> Cookie, CSRF, webhook, and reset-token keys collide or reuse material.</li>
+<li><strong>Data decryption after partial leak.</strong> One exposed derived key reveals unrelated encrypted data if derivation was not separated.</li>
+<li><strong>Migration failure.</strong> Unversioned KDF outputs make it hard to rotate algorithms or parameters safely.</li>
+</ul>
+<p>Impact escalates when the root secret is environment-wide, shared across tenants, or stored in source control.</p>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Use HKDF or a standard KDF for high-entropy key material.</strong>
+   HKDF is the common extract-and-expand workhorse. Use explicit <code>info</code> labels for purpose, version, and direction.</p>
+</li>
+<li>
+<p><strong>Use password KDFs for passwords and passphrases.</strong>
+   Argon2id, scrypt, bcrypt, or PBKDF2 where required by FIPS constraints. Passwords need stretching, salts, and upgradeable parameters.</p>
+</li>
+<li>
+<p><strong>Separate keys by purpose.</strong>
+   Derive independent keys for encryption, MAC, sessions, cookies, webhooks, and backups. Do not reuse root secrets directly.</p>
+</li>
+<li>
+<p><strong>Version derivation context and parameters.</strong>
+   Include version labels and store KDF parameters next to derived artifacts where needed. Rotation is a design requirement, not a cleanup chore.</p>
+</li>
+<li>
+<p><strong>Keep root secrets in a real secret manager or KMS.</strong>
+   KDFs do not make hardcoded root secrets safe. They only structure how secrets are used after retrieval.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong><code>sha256(password)</code> as an encryption key.</strong> It is too fast and lacks memory hardness.</li>
+<li><strong>One environment secret for everything.</strong> Convenience turns small leaks into full compromise.</li>
+<li><strong>Secret context in comments only.</strong> The KDF needs machine-enforced context labels.</li>
+<li><strong>A global salt.</strong> Salts should be unique enough to prevent shared outputs and precomputation.</li>
+<li><strong>Deriving keys client-side from weak user passwords without rate limits.</strong> Offline guessing remains the enemy.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<h3 id="derive-two-purpose-specific-keys-with-hkdf">Derive two purpose-specific keys with HKDF</h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">ROOT</span><span class="o">=</span><span class="k">$(</span>openssl<span class="w"> </span>rand<span class="w"> </span>-hex<span class="w"> </span><span class="m">32</span><span class="k">)</span>
+openssl<span class="w"> </span>kdf<span class="w"> </span>-keylen<span class="w"> </span><span class="m">32</span><span class="w"> </span>-kdfopt<span class="w"> </span>digest:SHA256<span class="w"> </span>-kdfopt<span class="w"> </span>key:<span class="nv">$ROOT</span><span class="w"> </span>-kdfopt<span class="w"> </span>info:<span class="s2">&quot;app:v1:cookie-mac&quot;</span><span class="w"> </span>HKDF
+openssl<span class="w"> </span>kdf<span class="w"> </span>-keylen<span class="w"> </span><span class="m">32</span><span class="w"> </span>-kdfopt<span class="w"> </span>digest:SHA256<span class="w"> </span>-kdfopt<span class="w"> </span>key:<span class="nv">$ROOT</span><span class="w"> </span>-kdfopt<span class="w"> </span>info:<span class="s2">&quot;app:v1:record-aead&quot;</span><span class="w"> </span>HKDF
+</code></pre></div>
+
+<p>The two outputs differ because the purpose labels differ.</p>
+<h3 id="show-why-labels-matter">Show why labels matter</h3>
+<div class="codehilite"><pre><span></span><code><span class="nv">ROOT</span><span class="o">=</span><span class="k">$(</span>openssl<span class="w"> </span>rand<span class="w"> </span>-hex<span class="w"> </span><span class="m">32</span><span class="k">)</span>
+openssl<span class="w"> </span>kdf<span class="w"> </span>-keylen<span class="w"> </span><span class="m">32</span><span class="w"> </span>-kdfopt<span class="w"> </span>digest:SHA256<span class="w"> </span>-kdfopt<span class="w"> </span>key:<span class="nv">$ROOT</span><span class="w"> </span>-kdfopt<span class="w"> </span>info:<span class="s2">&quot;same-purpose&quot;</span><span class="w"> </span>HKDF
+openssl<span class="w"> </span>kdf<span class="w"> </span>-keylen<span class="w"> </span><span class="m">32</span><span class="w"> </span>-kdfopt<span class="w"> </span>digest:SHA256<span class="w"> </span>-kdfopt<span class="w"> </span>key:<span class="nv">$ROOT</span><span class="w"> </span>-kdfopt<span class="w"> </span>info:<span class="s2">&quot;same-purpose&quot;</span><span class="w"> </span>HKDF
+</code></pre></div>
+
+<p>Same root and same context produce the same key; context is part of the design.</p>
+<h3 id="compare-password-stretching-cost">Compare password stretching cost</h3>
+<div class="codehilite"><pre><span></span><code><span class="nb">time</span><span class="w"> </span>openssl<span class="w"> </span>dgst<span class="w"> </span>-sha256<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span><span class="s2">&quot;correct horse battery staple&quot;</span>
+<span class="nb">time</span><span class="w"> </span>openssl<span class="w"> </span>pkcs5<span class="w"> </span>-in<span class="w"> </span>/dev/null<span class="w"> </span>-pass<span class="w"> </span>pass:<span class="s2">&quot;correct horse battery staple&quot;</span><span class="w"> </span>-iter<span class="w"> </span><span class="m">600000</span><span class="w"> </span>-v2<span class="w"> </span>sha256<span class="w"> </span>-topk8<span class="w"> </span>-nocrypt<span class="w"> </span>-out<span class="w"> </span>/tmp/pbkdf2-test.pem<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+</code></pre></div>
+
+<p>The exact command behavior may vary by OpenSSL version; the point is that password KDFs intentionally cost more than plain hashes.</p>
+<h3 id="sketch-key-separation-for-an-app">Sketch key separation for an app</h3>
+<div class="codehilite"><pre><span></span><code>root_secret from KMS
+  -&gt; HKDF(info=&quot;prod:v3:cookie-mac&quot;) -&gt; cookie_mac_key
+  -&gt; HKDF(info=&quot;prod:v3:webhook-hmac:stripe&quot;) -&gt; stripe_webhook_key
+  -&gt; HKDF(info=&quot;prod:v3:record-aead&quot;) -&gt; record_encryption_key
+  -&gt; HKDF(info=&quot;prod:v3:csrf&quot;) -&gt; csrf_key
+</code></pre></div>
+
+<p>This turns one managed root into explicit, separated application keys.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>TLS derives traffic keys from a handshake secret and transcript context.</li>
+<li>A backup tool derives separate file-encryption and metadata-authentication keys from one archive key.</li>
+<li>A web app derives cookie-signing and CSRF keys from a root secret rather than reusing the same bytes directly.</li>
+<li>Password managers stretch a master password before unlocking high-entropy vault keys.</li>
+<li>Cloud envelope encryption separates root KMS keys from per-object data keys.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="hashing-vs-encryption-vs-signing.html">hashing-vs-encryption-vs-signing</a></li>
+<li><a href="mac-and-hmac.html">mac-and-hmac</a></li>
+<li><a href="password-hashing.html">password-hashing</a></li>
+<li><a href="asymmetric-encryption-and-key-exchange.html">asymmetric-encryption-and-key-exchange</a></li>
+<li><a href="symmetric-encryption-modes.html">symmetric-encryption-modes</a></li>
+<li><a href="../devsecops/secrets-management.html">Secrets Management</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="unresolved-link" title="Unpublished or unresolved: hkdf-context-design">hkdf-context-design</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: envelope-encryption">envelope-encryption</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: secret-rotation">secret-rotation</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: client-side-encryption">client-side-encryption</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Standard / RFC:</strong> NIST SP 800-108r1: Key Derivation Using Pseudorandom Functions — https://csrc.nist.gov/publications/detail/sp/800-108/rev-1/final</li>
+<li><strong>Standard / RFC:</strong> RFC 5869: HKDF — https://www.rfc-editor.org/rfc/rfc5869</li>
+<li><strong>Standard / RFC:</strong> RFC 8018: PKCS #5 PBKDF2 — https://www.rfc-editor.org/rfc/rfc8018</li>
+</ul>
+<section class="related-notes" aria-label="Explore nearby notes">
+<h2>Explore nearby notes</h2>
+<div class="related-grid">
+<a class="related-card" href="aead-and-nonce-misuse.html"><span>Cryptography</span><strong>AEAD and Nonce Misuse</strong><small>Authenticated Encryption with Associated Data (AEAD) encrypts plaintext and authenticates both ciphertext and optional associated data. Nonce misuse happens when...</small></a>
+<a class="related-card" href="asymmetric-encryption-and-key-exchange.html"><span>Cryptography</span><strong>Asymmetric Encryption and Key Exchange</strong><small>Asymmetric encryption and key exchange use different key roles so two parties can establish secrecy without first sharing a symmetric key. In practice, public-key...</small></a>
+<a class="related-card" href="certificate-validation-and-pinning.html"><span>Cryptography</span><strong>Certificate Validation and Pinning</strong><small>Certificate validation is the process of deciding whether a presented certificate chain proves the peer&#x27;s identity for the name being contacted. Certificate...</small></a>
+<a class="related-card" href="digital-signatures.html"><span>Cryptography</span><strong>Digital Signatures</strong><small>A digital signature is an asymmetric proof that a specific private key approved a specific message. Anyone with the matching public key can verify the signature...</small></a>
+<a class="related-card" href="hashing-vs-encryption-vs-signing.html"><span>Cryptography</span><strong>Hashing vs Encryption vs Signing</strong><small>Hashing, encryption, and signing are three different cryptographic primitives that solve three different problems: hashing produces a fixed-size, one-way...</small></a>
+<a class="related-card" href="jwt-cryptographic-correctness.html"><span>Cryptography</span><strong>JWT Cryptographic Correctness</strong><small>A JWT (RFC 7519) is a base64url-encoded header.payload.signature triple where the signature is either an HMAC tag (JWS HS*) or an asymmetric digital signature (JWS...</small></a>
+</div></section>
+</article>
+</main>
+<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
+<a class="toc-level-2" href="#definition">Definition</a>
+<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
+<a class="toc-level-2" href="#how-it-works">How it works</a>
+<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
+<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
+<a class="toc-level-3" href="#1-raw-secret-reuse">1. Raw secret reuse</a>
+<a class="toc-level-3" href="#2-hash-as-kdf">2. Hash-as-KDF</a>
+<a class="toc-level-3" href="#3-missing-context-binding">3. Missing context binding</a>
+<a class="toc-level-3" href="#4-password-kdf-confusion">4. Password KDF confusion</a>
+<a class="toc-level-3" href="#5-bad-salt-or-parameter-migration">5. Bad salt or parameter migration</a>
+<a class="toc-level-2" href="#impact">Impact</a>
+<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
+<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
+<a class="toc-level-2" href="#practical-labs">Practical labs</a>
+<a class="toc-level-3" href="#derive-two-purpose-specific-keys-with-hkdf">Derive two purpose-specific keys with HKDF</a>
+<a class="toc-level-3" href="#show-why-labels-matter">Show why labels matter</a>
+<a class="toc-level-3" href="#compare-password-stretching-cost">Compare password stretching cost</a>
+<a class="toc-level-3" href="#sketch-key-separation-for-an-app">Sketch key separation for an app</a>
+<a class="back-to-top" href="#top">Back to top</a></div></aside>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

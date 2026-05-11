@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phase 3 — Operator Surface (Concept → Capability) | ldamoredev Security Atlas</title>
+<meta name="description" content="You have a substrate model from Phase 1 and you can read offense and defense as pairs from Phase 2. Phase 3 is where that knowledge becomes **operator...">
+<meta name="author" content="ldamoredev">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Phase 3 — Operator Surface (Concept → Capability), phase-3, operator, workflow, learning-path">
+<meta name="theme-color" content="#256d85">
+<link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/phase-3-operator.html">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Phase 3 — Operator Surface (Concept → Capability) | ldamoredev Security Atlas">
+<meta property="og:description" content="You have a substrate model from Phase 1 and you can read offense and defense as pairs from Phase 2. Phase 3 is where that knowledge becomes **operator...">
+<meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/phase-3-operator.html">
+<meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Phase 3 — Operator Surface (Concept → Capability) | ldamoredev Security Atlas">
+<meta name="twitter:description" content="You have a substrate model from Phase 1 and you can read offense and defense as pairs from Phase 2. Phase 3 is where that knowledge becomes **operator...">
+<meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"Phase 3 — Operator Surface (Concept → Capability) | ldamoredev Security Atlas","headline":"Phase 3 — Operator Surface (Concept → Capability)","description":"You have a substrate model from Phase 1 and you can read offense and defense as pairs from Phase 2. Phase 3 is where that knowledge becomes **operator...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/phase-3-operator.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/phase-3-operator.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Phase 3 — Operator Surface (Concept → Capability)","phase-3","operator","workflow","learning-path"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Phase 3 — Operator Surface (Concept → Capability)","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/phase-3-operator.html"}]}]</script>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/pygments.css">
+</head>
+<body id="top" data-root="..">
+<header class="topbar">
+  <button id="sidebar-toggle" title="Toggle navigation" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../index.html"><span>ldamoredev</span><small>security atlas</small></a>
+  <div class="search-shell">
+    <input id="search" type="search" placeholder="Search notes..." autocomplete="off">
+    <kbd>/</kbd>
+  </div>
+  <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout with-toc">
+<nav class="sidebar">
+<a class="sidebar-home" href="../index.html">Atlas Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="sidebar-link kind-index" href="index.html">Cybersecurity Index</a>
+<a class="sidebar-link kind-concept" href="start-here.html">Start Here — Cybersecurity Vault Triage</a>
+<a class="sidebar-link kind-concept" href="must-know-30.html">Must-Know 30 — The Minimum Viable Security Literacy</a>
+<a class="sidebar-link kind-concept" href="phase-1-substrate.html">Phase 1 — Substrate (How Things Actually Work)</a>
+<a class="sidebar-link kind-concept" href="phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
+<a class="sidebar-link kind-concept active" href="phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
+<a class="sidebar-link kind-concept" href="phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<div class="sidebar-group-label">Orientation</div>
+<details class="branch branch-amber"><summary><span>Foundations</span><small>5</small></summary>
+<p class="sidebar-summary">Phase 0 mental models — what cybersecurity is, the CIA triad as a decision tool, threat-modeling quickstart, and the attacker-defender duality.</p>
+<a class="sidebar-link kind-index" href="foundations/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality as a Learning Tool</a>
+<a class="sidebar-link kind-concept" href="foundations/cia-triad-and-what-it-actually-decides.html">CIA Triad — What It Actually Decides</a>
+<a class="sidebar-link kind-concept" href="foundations/threat-modeling-quickstart.html">Threat Modeling Quickstart</a>
+<a class="sidebar-link kind-concept" href="foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html">What Is Cybersecurity, and Why It Is Not a Tool List</a>
+</details>
+<div class="sidebar-group-label">Substrate</div>
+<details class="branch branch-emerald"><summary><span>Cryptography</span><small>15</small></summary>
+<p class="sidebar-summary">Hashes, encryption, signatures, key exchange, TLS/PKI, password storage, and token correctness.</p>
+<a class="sidebar-link kind-index" href="cryptography/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="cryptography/aead-and-nonce-misuse.html">AEAD and Nonce Misuse</a>
+<a class="sidebar-link kind-concept" href="cryptography/asymmetric-encryption-and-key-exchange.html">Asymmetric Encryption and Key Exchange</a>
+<a class="sidebar-link kind-concept" href="cryptography/certificate-validation-and-pinning.html">Certificate Validation and Pinning</a>
+<a class="sidebar-link kind-concept" href="cryptography/digital-signatures.html">Digital Signatures</a>
+<a class="sidebar-link kind-concept" href="cryptography/hashing-vs-encryption-vs-signing.html">Hashing vs Encryption vs Signing</a>
+<a class="sidebar-link kind-concept" href="cryptography/jwt-cryptographic-correctness.html">JWT Cryptographic Correctness</a>
+<a class="sidebar-link kind-concept" href="cryptography/kdf-and-key-stretching.html">KDF and Key Stretching</a>
+<a class="sidebar-link kind-concept" href="cryptography/mac-and-hmac.html">MAC and HMAC</a>
+<a class="sidebar-link kind-concept" href="cryptography/password-hashing.html">Password Hashing</a>
+<a class="sidebar-link kind-concept" href="cryptography/post-quantum-awareness.html">Post-Quantum Awareness</a>
+<a class="sidebar-link kind-concept" href="cryptography/random-and-csprng-pitfalls.html">Random and CSPRNG Pitfalls</a>
+<a class="sidebar-link kind-concept" href="cryptography/roll-your-own-crypto-failures.html">Roll Your Own Crypto Failures</a>
+<a class="sidebar-link kind-concept" href="cryptography/symmetric-encryption-modes.html">Symmetric Encryption Modes</a>
+<a class="sidebar-link kind-concept" href="cryptography/tls-handshake-and-pki.html">TLS Handshake and PKI</a>
+</details>
+<details class="branch branch-sky"><summary><span>Networking</span><small>23</small></summary>
+<p class="sidebar-summary">Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p>
+<a class="sidebar-link kind-index" href="networking/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="networking/caching-and-security.html">Caching and Security</a>
+<a class="sidebar-link kind-concept" href="networking/client-ip-trust.html">Client IP Trust</a>
+<a class="sidebar-link kind-concept" href="networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="sidebar-link kind-concept" href="networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="sidebar-link kind-concept" href="networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="sidebar-link kind-concept" href="networking/dns-resolution.html">DNS Resolution</a>
+<a class="sidebar-link kind-concept" href="networking/dns-security.html">DNS Security</a>
+<a class="sidebar-link kind-concept" href="networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="networking/header-trust-in-node-express.html">Header Trust in Node Express</a>
+<a class="sidebar-link kind-concept" href="networking/http-headers.html">HTTP Headers</a>
+<a class="sidebar-link kind-concept" href="networking/http-messages.html">HTTP Messages</a>
+<a class="sidebar-link kind-concept" href="networking/http-overview.html">HTTP Overview</a>
+<a class="sidebar-link kind-concept" href="networking/load-balancers.html">Load Balancers</a>
+<a class="sidebar-link kind-concept" href="networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="sidebar-link kind-concept" href="networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="sidebar-link kind-concept" href="networking/packet-analysis.html">Packet Analysis</a>
+<a class="sidebar-link kind-concept" href="networking/ports-and-services.html">Ports and Services</a>
+<a class="sidebar-link kind-concept" href="networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="sidebar-link kind-concept" href="networking/service-enumeration.html">Service Enumeration</a>
+<a class="sidebar-link kind-concept" href="networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="sidebar-link kind-concept" href="networking/tls-https.html">TLS and HTTPS</a>
+<a class="sidebar-link kind-concept" href="networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details class="branch branch-blue"><summary><span>Web Security</span><small>27</small></summary>
+<p class="sidebar-summary">Browser behavior, sessions, access control, and server-side exploit patterns.</p>
+<a class="sidebar-link kind-index" href="web-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="web-security/bot-detection-signals.html">Bot Detection Signals</a>
+<a class="sidebar-link kind-concept" href="web-security/broken-access-control.html">Broken Access Control</a>
+<a class="sidebar-link kind-concept" href="web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="sidebar-link kind-concept" href="web-security/clickjacking.html">Clickjacking</a>
+<a class="sidebar-link kind-concept" href="web-security/command-injection.html">Command Injection</a>
+<a class="sidebar-link kind-concept" href="web-security/content-security-policy.html">Content Security Policy</a>
+<a class="sidebar-link kind-concept" href="web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="sidebar-link kind-concept" href="web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="sidebar-link kind-concept" href="web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="sidebar-link kind-concept" href="web-security/evilginx-and-reverse-proxy-phishing.html">Evilginx and Reverse Proxy Phishing</a>
+<a class="sidebar-link kind-concept" href="web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="sidebar-link kind-concept" href="web-security/gadget-chains.html">Gadget Chains</a>
+<a class="sidebar-link kind-concept" href="web-security/deserialization.html">Insecure Deserialization</a>
+<a class="sidebar-link kind-concept" href="web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="sidebar-link kind-concept" href="web-security/mfa-phishing-resistance.html">MFA Phishing Resistance</a>
+<a class="sidebar-link kind-concept" href="web-security/oauth-security.html">OAuth Security</a>
+<a class="sidebar-link kind-concept" href="web-security/open-redirect.html">Open Redirect</a>
+<a class="sidebar-link kind-concept" href="web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="sidebar-link kind-concept" href="web-security/path-traversal.html">Path Traversal</a>
+<a class="sidebar-link kind-concept" href="web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="sidebar-link kind-concept" href="web-security/request-smuggling.html">Request Smuggling</a>
+<a class="sidebar-link kind-concept" href="web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="sidebar-link kind-concept" href="web-security/session-management.html">Session Management</a>
+<a class="sidebar-link kind-concept" href="web-security/sql-injection.html">SQL Injection</a>
+<a class="sidebar-link kind-concept" href="web-security/xxe.html">XXE</a>
+</details>
+<div class="sidebar-group-label">Paired</div>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>18</small></summary>
+<p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
+<a class="sidebar-link kind-index" href="offensive-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="offensive-security/active-recon.html">Active Recon</a>
+<a class="sidebar-link kind-concept" href="offensive-security/cloaking-and-security-evasion.html">Cloaking and Security Evasion</a>
+<a class="sidebar-link kind-concept" href="offensive-security/company-mapping.html">Company Mapping</a>
+<a class="sidebar-link kind-concept" href="offensive-security/enumeration.html">Enumeration</a>
+<a class="sidebar-link kind-concept" href="offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="sidebar-link kind-concept" href="offensive-security/masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a>
+<a class="sidebar-link kind-concept" href="offensive-security/nmap-timing-and-evasion.html">Nmap Timing and Evasion</a>
+<a class="sidebar-link kind-concept" href="offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a>
+<a class="sidebar-link kind-concept" href="offensive-security/passive-recon.html">Passive Recon</a>
+<a class="sidebar-link kind-concept" href="offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="sidebar-link kind-concept" href="offensive-security/recon.html">Recon</a>
+<a class="sidebar-link kind-concept" href="offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="sidebar-link kind-concept" href="offensive-security/rustscan-and-nse-pipeline.html">RustScan and NSE Pipeline</a>
+<a class="sidebar-link kind-concept" href="offensive-security/scope-validation.html">Scope Validation</a>
+<a class="sidebar-link kind-concept" href="offensive-security/service-validation.html">Service Validation</a>
+<a class="sidebar-link kind-concept" href="offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="sidebar-link kind-concept" href="offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Detection Engineering</span><small>12</small></summary>
+<p class="sidebar-summary">Telemetry, behavioral analytics, correlation, and detection tradeoffs.</p>
+<a class="sidebar-link kind-index" href="detection-engineering/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation and Kill Chain Observability</a>
+<a class="sidebar-link kind-concept" href="detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral Detection vs Signature Detection</a>
+<a class="sidebar-link kind-concept" href="detection-engineering/detection-evasion-myths-and-modern-limitations.html">Detection Evasion Myths and Modern Limitations</a>
+<a class="sidebar-link kind-concept" href="detection-engineering/edr-network-observability-and-process-correlation.html">EDR Network Observability and Process Correlation</a>
+<a class="sidebar-link kind-concept" href="detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html">Encrypted Traffic Analysis and Metadata Leakage</a>
+<a class="sidebar-link kind-concept" href="detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html">False Positives, False Negatives, and Detection Tradeoffs</a>
+<a class="sidebar-link kind-concept" href="detection-engineering/ids-ips-and-behavioral-detection-pipelines.html">IDS/IPS and Behavioral Detection Pipelines</a>
+<a class="sidebar-link kind-concept" href="detection-engineering/network-telemetry-sources-and-visibility.html">Network Telemetry Sources and Visibility</a>
+<a class="sidebar-link kind-concept" href="detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Scan Anomaly Detection and Fingerprint Analysis</a>
+<a class="sidebar-link kind-concept" href="detection-engineering/telemetry-normalization-correlation-and-enrichment.html">Telemetry Normalization, Correlation, and Enrichment</a>
+<a class="sidebar-link kind-concept" href="detection-engineering/zeek-suricata-and-netflow-analysis.html">Zeek, Suricata, and NetFlow Analysis</a>
+</details>
+<div class="sidebar-group-label">Operator</div>
+<details class="branch branch-amber"><summary><span>Attack Surface Mapping</span><small>11</small></summary>
+<p class="sidebar-summary">What is exposed, reachable, discoverable, and drifting from intended design.</p>
+<a class="sidebar-link kind-index" href="attack-surface-mapping/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="sidebar-link kind-concept" href="attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="sidebar-link kind-concept" href="attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="sidebar-link kind-concept" href="attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="sidebar-link kind-concept" href="attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="sidebar-link kind-concept" href="attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="sidebar-link kind-concept" href="attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="sidebar-link kind-concept" href="attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="sidebar-link kind-concept" href="attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="sidebar-link kind-concept" href="attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details class="branch branch-violet"><summary><span>OSINT</span><small>11</small></summary>
+<p class="sidebar-summary">Public-source collection, evidence quality, and ethical handling of clues.</p>
+<a class="sidebar-link kind-index" href="osint/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="sidebar-link kind-concept" href="osint/company-osint.html">Company OSINT</a>
+<a class="sidebar-link kind-concept" href="osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="sidebar-link kind-concept" href="osint/google-dorking.html">Google Dorking</a>
+<a class="sidebar-link kind-concept" href="osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="sidebar-link kind-concept" href="osint/osint.html">OSINT</a>
+<a class="sidebar-link kind-concept" href="osint/osint-reporting.html">OSINT Reporting</a>
+<a class="sidebar-link kind-concept" href="osint/osint-triage.html">OSINT Triage</a>
+<a class="sidebar-link kind-concept" href="osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="sidebar-link kind-concept" href="osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details class="branch branch-orange"><summary><span>Linux Privilege Escalation</span><small>10</small></summary>
+<p class="sidebar-summary">Local boundary failures, enumeration, and safe escalation hypothesis testing.</p>
+<a class="sidebar-link kind-index" href="linux-privilege-escalation/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="sidebar-link kind-concept" href="linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="sidebar-link kind-concept" href="linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="sidebar-link kind-concept" href="linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="sidebar-link kind-concept" href="linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="sidebar-link kind-concept" href="linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="sidebar-link kind-concept" href="linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="sidebar-link kind-concept" href="linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="sidebar-link kind-concept" href="linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>13</small></summary>
+<p class="sidebar-summary">Repeatable procedures for turning concepts into practical tests.</p>
+<a class="sidebar-link kind-index" href="security-playbooks/index.html">Overview</a>
+<a class="sidebar-link kind-playbook" href="security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="sidebar-link kind-playbook" href="security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="sidebar-link kind-playbook" href="security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="sidebar-link kind-playbook" href="security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="sidebar-link kind-playbook" href="security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="sidebar-link kind-playbook" href="security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="sidebar-link kind-playbook" href="security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="sidebar-link kind-playbook" href="security-playbooks/run-scan-pipeline.html">Run External Recon Scan Pipeline</a>
+<a class="sidebar-link kind-playbook" href="security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="sidebar-link kind-playbook" href="security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="sidebar-link kind-playbook" href="security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+<a class="sidebar-link kind-playbook" href="security-playbooks/trace-metadata-endpoint-reachability.html">Trace Metadata Endpoint Reachability</a>
+</details>
+<div class="sidebar-group-label">Specialty</div>
+<details class="branch branch-teal"><summary><span>Wireless Security</span><small>11</small></summary>
+<p class="sidebar-summary">Wi-Fi frames, handshakes, rogue access points, and local-network MITM.</p>
+<a class="sidebar-link kind-index" href="wireless-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="sidebar-link kind-concept" href="wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="sidebar-link kind-concept" href="wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="sidebar-link kind-concept" href="wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="sidebar-link kind-concept" href="wireless-security/wep-security.html">WEP Security</a>
+<a class="sidebar-link kind-concept" href="wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="sidebar-link kind-concept" href="wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="sidebar-link kind-concept" href="wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="sidebar-link kind-concept" href="wireless-security/wireless-security.html">Wireless Security</a>
+<a class="sidebar-link kind-concept" href="wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+<details class="branch branch-indigo"><summary><span>API Security</span><small>15</small></summary>
+<p class="sidebar-summary">Authorization, token trust, inventory drift, and machine-readable abuse.</p>
+<a class="sidebar-link kind-index" href="api-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="sidebar-link kind-concept" href="api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="sidebar-link kind-concept" href="api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="sidebar-link kind-concept" href="api-security/authorization.html">Authorization</a>
+<a class="sidebar-link kind-concept" href="api-security/broken-authentication.html">Broken Authentication</a>
+<a class="sidebar-link kind-concept" href="api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="sidebar-link kind-concept" href="api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="sidebar-link kind-concept" href="api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="sidebar-link kind-concept" href="api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="sidebar-link kind-concept" href="api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="sidebar-link kind-concept" href="api-security/mass-assignment.html">Mass Assignment</a>
+<a class="sidebar-link kind-concept" href="api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="sidebar-link kind-concept" href="api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Cloud Security</span><small>11</small></summary>
+<p class="sidebar-summary">IAM, metadata, storage, network boundaries, secrets, and logging controls.</p>
+<a class="sidebar-link kind-index" href="cloud-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="sidebar-link kind-concept" href="cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="sidebar-link kind-concept" href="cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="sidebar-link kind-concept" href="cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="sidebar-link kind-concept" href="cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="sidebar-link kind-concept" href="cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="sidebar-link kind-concept" href="cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="sidebar-link kind-concept" href="cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="sidebar-link kind-concept" href="cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details class="branch branch-green"><summary><span>DevSecOps</span><small>13</small></summary>
+<p class="sidebar-summary">Secure delivery, CI/CD hardening, supply chain, secrets, and release trust.</p>
+<a class="sidebar-link kind-index" href="devsecops/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="sidebar-link kind-concept" href="devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="sidebar-link kind-concept" href="devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="sidebar-link kind-concept" href="devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="sidebar-link kind-concept" href="devsecops/container-security.html">Container Security</a>
+<a class="sidebar-link kind-concept" href="devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="sidebar-link kind-concept" href="devsecops/image-scanning.html">Image Scanning</a>
+<a class="sidebar-link kind-concept" href="devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="sidebar-link kind-concept" href="devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="sidebar-link kind-concept" href="devsecops/secrets-management.html">Secrets Management</a>
+<a class="sidebar-link kind-concept" href="devsecops/secure-by-design.html">Secure by Design</a>
+<a class="sidebar-link kind-concept" href="devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details class="branch branch-red"><summary><span>Identity &amp; Active Directory</span><small>5</small></summary>
+<p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
+<a class="sidebar-link kind-index" href="identity-and-active-directory/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="identity-and-active-directory/as-rep-roasting.html">AS-REP Roasting</a>
+<a class="sidebar-link kind-concept" href="identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound and Attack Path Analysis</a>
+<a class="sidebar-link kind-concept" href="identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a>
+<a class="sidebar-link kind-concept" href="identity-and-active-directory/kerberoasting.html">Kerberoasting</a>
+</details>
+<div class="sidebar-group-label">Always-on</div>
+<details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
+<p class="sidebar-summary">VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.</p>
+<a class="sidebar-link kind-index" href="privacy-anonymity-opsec/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/account-correlation.html">Account Correlation</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/anonymity-threat-models.html">Anonymity Threat Models</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/browser-fingerprinting.html">Browser Fingerprinting</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html">Corporate VPNs vs Consumer VPNs</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/deanonymization-failures.html">Deanonymization Failures</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/end-to-end-encryption.html">End-to-End Encryption</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/file-metadata-removal.html">File Metadata Removal</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/metadata-and-identity-leakage.html">Metadata and Identity Leakage</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/opsec-failure-chains.html">OPSEC Failure Chains</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/pgp-encryption-and-signatures.html">PGP Encryption and Signatures</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/privacy-vs-anonymity-vs-confidentiality.html">Privacy vs Anonymity vs Confidentiality</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/private-email-threat-models.html">Private Email Threat Models</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/qubes-compartmentalization.html">Qubes Compartmentalization</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/secure-deletion-and-storage-wiping.html">Secure Deletion and Storage Wiping</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/secure-file-sharing.html">Secure File Sharing</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/tails-operational-model.html">Tails Operational Model</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/temporary-email-risks.html">Temporary Email Risks</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/tor-and-onion-services.html">Tor and Onion Services</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/tor-bridges-and-pluggable-transports.html">Tor Bridges and Pluggable Transports</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/tor-browser-security-settings.html">Tor Browser Security Settings</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/traffic-correlation.html">Traffic Correlation</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/vpn-dns-and-ipv6-leaks.html">VPN DNS and IPv6 Leaks</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/vpn-fingerprinting-limitations.html">VPN Fingerprinting Limitations</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/vpn-kill-switches.html">VPN Kill Switches</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/vpn-leakage-risks.html">VPN Leakage Risks</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/vpn-logging-and-trust.html">VPN Logging and Trust</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/vpn-protocols.html">VPN Protocols</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/vpn-threat-models.html">VPN Threat Models</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/vpn-vs-tor.html">VPN vs Tor</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/vpn-with-tor.html">VPN with Tor</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/whonix-gateway.html">Whonix Gateway</a>
+<a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/xmpp-and-private-messaging.html">XMPP and Private Messaging</a>
+</details>
+<details class="registry-group"><summary>Reference System <span>16</span></summary>
+<a class="sidebar-link kind-registry" href="reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="sidebar-link kind-registry" href="reference-registry-detection-engineering.html">Reference Registry - Detection Engineering</a>
+<a class="sidebar-link kind-registry" href="reference-registry-privacy-anonymity-opsec.html">Reference Registry - Privacy, Anonymity &amp; OPSEC</a>
+<a class="sidebar-link kind-registry" href="reference-registry-api-security.html">Reference Registry — API Security</a>
+<a class="sidebar-link kind-registry" href="reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping</a>
+<a class="sidebar-link kind-registry" href="reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="sidebar-link kind-registry" href="reference-registry-cryptography.html">Reference Registry — Cryptography</a>
+<a class="sidebar-link kind-registry" href="reference-registry-devsecops.html">Reference Registry — DevSecOps</a>
+<a class="sidebar-link kind-registry" href="reference-registry-identity-and-active-directory.html">Reference Registry — Identity and Active Directory</a>
+<a class="sidebar-link kind-registry" href="reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="sidebar-link kind-registry" href="reference-registry-networking.html">Reference Registry — Networking</a>
+<a class="sidebar-link kind-registry" href="reference-registry-offensive-security.html">Reference Registry — Offensive Security</a>
+<a class="sidebar-link kind-registry" href="reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="sidebar-link kind-registry" href="reference-registry-playbooks.html">Reference Registry — Playbooks</a>
+<a class="sidebar-link kind-registry" href="reference-registry-web-security.html">Reference Registry — Web Security</a>
+<a class="sidebar-link kind-registry" href="reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="index.html">Cybersecurity</a><span>/</span><span>Phase 3 — Operator Surface (Concept → Capability)</span></nav>
+<header class="page-hero">
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#phase-3</span><span class="meta-chip tag">#operator</span><span class="meta-chip tag">#workflow</span><span class="meta-chip tag">#learning-path</span></div>
+</header>
+<article class="article-note">
+<h1 id="phase-3-operator-surface-concept-capability">Phase 3 — Operator Surface (Concept → Capability)</h1>
+<p>You have a substrate model from <a href="phase-1-substrate.html">Phase 1</a> and you can read offense and defense as pairs from <a href="phase-2-offense-defense.html">Phase 2</a>. Phase 3 is where that knowledge becomes <strong>operator capability</strong>: workflows you can actually execute against authorized targets, not just reason about.</p>
+<p>Phase 3 is the only phase organized around a <strong>workflow</strong>, not a body of theory. The 4 branches form a single end-to-end loop:</p>
+<blockquote>
+<p><strong>Mapping the surface → gathering public evidence → walking through a foothold → executing repeatable procedures.</strong></p>
+</blockquote>
+<p>The 41 atomic notes in those branches collapse into ~12 first-pass notes that give you the working operator loop, then ~12 more that turn the loop into a polished engagement workflow.</p>
+<hr />
+<h2 id="the-phase-3-loop">The Phase 3 loop</h2>
+<div class="codehilite"><pre><span></span><code>  ┌─────────────────────────────────────────────────────────┐
+  │                                                         │
+  ▼                                                         │
+ATTACK SURFACE MAPPING  →  OSINT  →  LINUX PRIVESC  →  PLAYBOOKS  →
+  (what is exposed)      (public      (post-foothold      (repeatable
+                          evidence)    boundary failure)   procedures)
+</code></pre></div>
+
+<p>You can enter the loop at any node depending on engagement context. The first-pass reading order below walks the loop in its natural sequence.</p>
+<hr />
+<h2 id="first-pass-reading-order-12-notes-2-weeks">First-pass reading order (12 notes, ~2 weeks)</h2>
+<h3 id="attack-surface-mapping-3-notes">Attack Surface Mapping — 3 notes</h3>
+<ol>
+<li><strong><a href="attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a></strong> — the core mental model: surface as the intersection of reachability, discoverability, and drift.</li>
+<li><strong><a href="attack-surface-mapping/external-attack-surface.html">External Attack Surface</a></strong> — what is exposed to the public internet, with a discipline for separating intended from actual.</li>
+<li><strong><a href="attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a></strong> — how to rank a hundred discovered services in priority order so you spend time on the right ones.</li>
+</ol>
+<h3 id="osint-3-notes">OSINT — 3 notes</h3>
+<ol start="4">
+<li><strong><a href="osint/osint.html">OSINT</a></strong> — public-source evidence gathering, with a discipline for converting clues into validated facts rather than guesses.</li>
+<li><strong><a href="osint/osint-triage.html">OSINT Triage</a></strong> — which findings deserve investigation now, which are noise, and how to record the decision.</li>
+<li><strong><a href="osint/google-dorking.html">Google Dorking</a></strong> — the most concrete OSINT technique; teaches you what search operators actually do and where indexed data leaks.</li>
+</ol>
+<h3 id="linux-privilege-escalation-3-notes">Linux Privilege Escalation — 3 notes</h3>
+<ol start="7">
+<li><strong><a href="linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a></strong> — the core mental model: local privilege boundaries, what fails after a foothold, how enumeration becomes ranked hypotheses.</li>
+<li><strong><a href="linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a></strong> — the breadth-first inventory that turns "I have a shell" into "I have a ranked list of paths upward".</li>
+<li><strong><a href="linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a></strong> — by frequency, the #1 real-world Linux privesc path. Teaches the "trust delegation" pattern that recurs everywhere else.</li>
+</ol>
+<h3 id="security-playbooks-3-notes">Security Playbooks — 3 notes</h3>
+<ol start="10">
+<li><strong><a href="security-playbooks/index.html">Security Playbooks Index</a></strong> — read this first to see the playbook template and the catalogue.</li>
+<li><strong><a href="security-playbooks/exploit-idor.html">Exploit IDOR</a></strong> — read one offense playbook end-to-end to see how concept becomes procedure. IDOR is the right one because it is the most common real-world web finding.</li>
+<li><strong><a href="security-playbooks/run-scan-pipeline.html">Run External Recon Scan Pipeline</a></strong> — the engagement-level recon playbook that ties Phases 1–3 together. Read this last because it depends on everything else.</li>
+</ol>
+<p><strong>Stop here on first pass.</strong> With these 12 notes you have a working operator loop and can execute a basic external recon engagement on an authorized target end-to-end.</p>
+<hr />
+<h2 id="extended-reading-12-more-notes-depth-on-top-of-first-pass">Extended reading (12 more notes, depth on top of first-pass)</h2>
+<p>Read as need-driven, by branch, when your engagement actually requires it.</p>
+<h3 id="attack-surface-mapping-depth-4-notes">Attack Surface Mapping depth — 4 notes</h3>
+<ul>
+<li><strong><a href="attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a></strong> — when web/API surface dominates the engagement.</li>
+<li><strong><a href="attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a></strong> — the high-impact subset of endpoint discovery.</li>
+<li><strong><a href="attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a></strong> — the canonical dangling-DNS bug class; high-impact and findable.</li>
+<li><strong><a href="attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a></strong> — supply-chain attack surface; often the largest unmanaged component of an organization's posture.</li>
+</ul>
+<h3 id="osint-depth-3-notes">OSINT depth — 3 notes</h3>
+<ul>
+<li><strong><a href="osint/company-osint.html">Company OSINT</a></strong> — organization-level mapping when the engagement is corporate-scoped.</li>
+<li><strong><a href="osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a></strong> — credential exposure as a primary recon source.</li>
+<li><strong><a href="osint/osint-reporting.html">OSINT Reporting</a></strong> — turning evidence into structured findings that survive review.</li>
+</ul>
+<h3 id="linux-privesc-depth-3-notes">Linux Privesc depth — 3 notes</h3>
+<ul>
+<li><strong><a href="linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID/SGID Misconfigurations</a></strong> — the second most common privesc class in real-world findings.</li>
+<li><strong><a href="linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a></strong> — the modern replacement for SUID and a common source of subtle privesc.</li>
+<li><strong><a href="linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a></strong> — the practical tooling layer that converts theory into a 60-second enumeration pass.</li>
+</ul>
+<h3 id="playbooks-depth-2-notes">Playbooks depth — 2 notes</h3>
+<ul>
+<li><strong><a href="security-playbooks/exploit-sqli.html">Exploit SQL Injection</a></strong> — the canonical injection playbook; transfers to command injection, NoSQL injection, etc.</li>
+<li><strong><a href="security-playbooks/investigate-ssrf.html">Investigate SSRF</a></strong> — the most-impactful cloud-era web finding; the playbook teaches the metadata-endpoint chain that turns SSRF into compromise.</li>
+</ul>
+<hr />
+<h2 id="how-phase-3-connects-back-to-phase-0-1-2">How Phase 3 connects back to Phase 0 / 1 / 2</h2>
+<p>Phase 3 is where the earlier phases pay off. Use them as lenses:</p>
+<ul>
+<li><strong>From Phase 0:</strong> Every operator finding gets named with its <a href="foundations/cia-triad-and-what-it-actually-decides.html">CIA property</a> before reporting. Every workflow gets a <a href="foundations/threat-modeling-quickstart.html">threat-model</a> pass before execution. Every offensive move is paired with its <a href="foundations/attacker-defender-duality-as-a-learning-tool.html">defensive counterpart</a> before claiming it succeeded.</li>
+<li><strong>From Phase 1:</strong> Networking and Web Security substrate is what makes attack-surface mapping intelligible; Cryptography correctness is what makes "the JWT validates" claims credible.</li>
+<li><strong>From Phase 2:</strong> Every Phase 3 playbook has a Phase 2 detection counterpart. The senior operator runs the offensive playbook <em>and</em> knows what the SOC saw.</li>
+</ul>
+<hr />
+<h2 id="what-to-skip-on-first-pass">What to skip on first pass</h2>
+<p>Phase 3 has 41 notes; the first-pass 12 + extended 12 = 24. The other 17 are depth:</p>
+<ul>
+<li><strong>OSINT specialty notes</strong> (email-and-phone-osint, image-and-location-osint, social-media-osint, historical-internet-artifacts) — workflow-specific; return when the engagement type demands them.</li>
+<li><strong>Attack Surface Mapping specialty</strong> (deprecated-api-versions, exposed-storage, internal-attack-surface) — return when the engagement has those surface types.</li>
+<li><strong>Linux Privesc specialty</strong> (path-hijacking, kernel-exploit-triage, cron-and-timer-abuse) — return after sudo and SUID basics are reflex.</li>
+<li><strong>Niche playbooks</strong> (test-client-ip-spoofing, test-cors-behavior, test-path-traversal, inspect-session-handling, etc.) — return when the engagement scope includes them.</li>
+</ul>
+<p>This list is not a value judgment. It is operator-prioritization for someone who wants to execute one authorized engagement end-to-end before specializing.</p>
+<hr />
+<h2 id="what-first-pass-complete-means-in-phase-3">What "first-pass complete" means in Phase 3</h2>
+<p>You have completed first-pass Phase 3 when you can:</p>
+<ol>
+<li><strong>Walk the loop</strong> from attack surface mapping → OSINT → privesc-after-foothold → playbook execution against an authorized target without an external recipe.</li>
+<li><strong>Triage findings</strong> — given 100 services, name which 10 deserve immediate attention and why.</li>
+<li><strong>Execute one playbook from memory</strong> — pick one of <a href="security-playbooks/exploit-idor.html">exploit-idor</a>, <a href="security-playbooks/run-scan-pipeline.html">run-scan-pipeline</a>, or <a href="security-playbooks/exploit-sqli.html">exploit-sqli</a> and run it from start to "validated finding or negative result" without reading the page.</li>
+<li><strong>Write the report</strong> — turn the run into a finding with reproduction steps, CIA property, blast radius, and remediation, in under a page.</li>
+</ol>
+<p>These four steps are the unit of operator capability. Phase 4 specialization is built on top of this unit.</p>
+<hr />
+<h2 id="whats-next">What's next</h2>
+<p>After Phase 3 first-pass, you choose Phase 4 specialty tracks based on your job:</p>
+<ul>
+<li><strong>API Security</strong> if you build or test APIs.</li>
+<li><strong>Cloud Security</strong> if your systems run in cloud.</li>
+<li><strong>DevSecOps</strong> if you own a build/release pipeline.</li>
+<li><strong>Wireless Security</strong> if you work with Wi-Fi networks.</li>
+</ul>
+<p>A future <code>phase-4-specialty.md</code> will surface the right starting notes for each. Until then, the <a href="api-security/index.html">API Security</a>, <a href="cloud-security/index.html">Cloud Security</a>, <a href="devsecops/index.html">DevSecOps</a>, and <a href="wireless-security/index.html">Wireless Security</a> indexes carry their own ordered reading lists.</p>
+<p>The Always-on parallel discipline of <a href="privacy-anonymity-opsec/index.html">Privacy, Anonymity &amp; OPSEC</a> becomes professionally relevant in Phase 3 — every engagement leaves operator-side artifacts that need OPSEC discipline.</p>
+<hr />
+<h2 id="related-navigation">Related navigation</h2>
+<ul>
+<li><a href="start-here.html">Start Here</a> — persona-driven triage page.</li>
+<li><a href="phase-1-substrate.html">Phase 1 — Substrate</a> — previous phase entry.</li>
+<li><a href="phase-2-offense-defense.html">Phase 2 — Offense / Defense</a> — previous phase entry.</li>
+<li><a href="foundations/index.html">Phase 0 — Foundations</a> — the mental models Phase 3 operationalizes.</li>
+<li><a href="attack-surface-mapping/index.html">Attack Surface Mapping Index</a> — full branch.</li>
+<li><a href="osint/index.html">OSINT Index</a> — full branch.</li>
+<li><a href="linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a> — full branch.</li>
+<li><a href="security-playbooks/index.html">Security Playbooks Index</a> — full branch.</li>
+<li><a href="must-know-30.html">Must-Know 30</a> — cross-branch must-know list.</li>
+<li><a href="index.html">Cybersecurity Index</a> — full vault roadmap.</li>
+</ul>
+<section class="related-notes" aria-label="Explore nearby notes">
+<h2>Explore nearby notes</h2>
+<div class="related-grid">
+<a class="related-card" href="phase-1-substrate.html"><span>Cybersecurity</span><strong>Phase 1 — Substrate (How Things Actually Work)</strong><small>You have finished Phase 0 — Foundations and have the four mental models: *cybersecurity is not a tool list*, *CIA as a decision tool*, *threat modeling as a...</small></a>
+<a class="related-card" href="phase-2-offense-defense.html"><span>Cybersecurity</span><strong>Phase 2 — Offense / Defense (Paired)</strong><small>You have a working substrate model from Phase 1. Phase 2 is where most cybersecurity learners plateau, because they pick a side — offense *or* defense — and read...</small></a>
+<a class="related-card" href="phase-4-specialty.html"><span>Cybersecurity</span><strong>Phase 4 — Specialty Tracks (Pick What Your Job Demands)</strong><small>Phase 4 is the **only phase you do not read linearly**. By design, it is job-context-chosen: you pick the specialty your role actually requires, learn it deeply...</small></a>
+<a class="related-card" href="privacy-anonymity-opsec/account-correlation.html"><span>Privacy, Anonymity &amp; OPSEC</span><strong>Account Correlation</strong><small>Account correlation is the process of linking separate activities or personas through shared accounts, recovery data, identifiers, devices, or repeated usage...</small></a>
+<a class="related-card" href="offensive-security/active-recon.html"><span>Offensive Security / Recon</span><strong>Active Recon</strong><small>Active recon is information gathering that directly interacts with target infrastructure, services, or applications to validate or extend what passive recon...</small></a>
+<a class="related-card" href="attack-surface-mapping/admin-interface-discovery.html"><span>Attack Surface Mapping</span><strong>Admin Interface Discovery</strong><small>Admin interface discovery is the process of identifying management, control-plane, support, diagnostic, or privileged interfaces that should be restricted but may...</small></a>
+</div></section>
+</article>
+</main>
+<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
+<a class="toc-level-2" href="#the-phase-3-loop">The Phase 3 loop</a>
+<a class="toc-level-2" href="#first-pass-reading-order-12-notes-2-weeks">First-pass reading order (12 notes, ~2 weeks)</a>
+<a class="toc-level-3" href="#attack-surface-mapping-3-notes">Attack Surface Mapping — 3 notes</a>
+<a class="toc-level-3" href="#osint-3-notes">OSINT — 3 notes</a>
+<a class="toc-level-3" href="#linux-privilege-escalation-3-notes">Linux Privilege Escalation — 3 notes</a>
+<a class="toc-level-3" href="#security-playbooks-3-notes">Security Playbooks — 3 notes</a>
+<a class="toc-level-2" href="#extended-reading-12-more-notes-depth-on-top-of-first-pass">Extended reading (12 more notes, depth on top of first-pass)</a>
+<a class="toc-level-3" href="#attack-surface-mapping-depth-4-notes">Attack Surface Mapping depth — 4 notes</a>
+<a class="toc-level-3" href="#osint-depth-3-notes">OSINT depth — 3 notes</a>
+<a class="toc-level-3" href="#linux-privesc-depth-3-notes">Linux Privesc depth — 3 notes</a>
+<a class="toc-level-3" href="#playbooks-depth-2-notes">Playbooks depth — 2 notes</a>
+<a class="toc-level-2" href="#how-phase-3-connects-back-to-phase-0-1-2">How Phase 3 connects back to Phase 0 / 1 / 2</a>
+<a class="toc-level-2" href="#what-to-skip-on-first-pass">What to skip on first pass</a>
+<a class="toc-level-2" href="#what-first-pass-complete-means-in-phase-3">What &quot;first-pass complete&quot; means in Phase 3</a>
+<a class="toc-level-2" href="#whats-next">What&#x27;s next</a>
+<a class="toc-level-2" href="#related-navigation">Related navigation</a>
+<a class="back-to-top" href="#top">Back to top</a></div></aside>
+</div>
+<script src="../assets/search.js"></script>
+</body>
+</html>

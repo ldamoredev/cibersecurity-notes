@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JWT Cryptographic Correctness - Cryptography | ldamoredev Security Atlas</title>
+<meta name="description" content="A JWT (RFC 7519) is a base64url-encoded header.payload.signature triple where the signature is either an HMAC tag (JWS HS*) or an asymmetric digital signature (JWS...">
+<meta name="author" content="ldamoredev">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Cryptography, JWT Cryptographic Correctness, jwt, jose, tokens">
+<meta name="theme-color" content="#256d85">
+<link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/jwt-cryptographic-correctness.html">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Cryptography">
+<meta property="og:title" content="JWT Cryptographic Correctness - Cryptography | ldamoredev Security Atlas">
+<meta property="og:description" content="A JWT (RFC 7519) is a base64url-encoded header.payload.signature triple where the signature is either an HMAC tag (JWS HS*) or an asymmetric digital signature (JWS...">
+<meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/jwt-cryptographic-correctness.html">
+<meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JWT Cryptographic Correctness - Cryptography | ldamoredev Security Atlas">
+<meta name="twitter:description" content="A JWT (RFC 7519) is a base64url-encoded header.payload.signature triple where the signature is either an HMAC tag (JWS HS*) or an asymmetric digital signature (JWS...">
+<meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"JWT Cryptographic Correctness - Cryptography | ldamoredev Security Atlas","headline":"JWT Cryptographic Correctness","description":"A JWT (RFC 7519) is a base64url-encoded header.payload.signature triple where the signature is either an HMAC tag (JWS HS*) or an asymmetric digital signature (JWS...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/jwt-cryptographic-correctness.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/jwt-cryptographic-correctness.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Cryptography","JWT Cryptographic Correctness","jwt","jose","tokens"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Cryptography","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/index.html"},{"@type":"ListItem","position":4,"name":"JWT Cryptographic Correctness","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/jwt-cryptographic-correctness.html"}]}]</script>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body id="top" data-root="../..">
+<header class="topbar">
+  <button id="sidebar-toggle" title="Toggle navigation" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html"><span>ldamoredev</span><small>security atlas</small></a>
+  <div class="search-shell">
+    <input id="search" type="search" placeholder="Search notes..." autocomplete="off">
+    <kbd>/</kbd>
+  </div>
+  <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout with-toc">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Atlas Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="sidebar-link kind-index" href="../index.html">Cybersecurity Index</a>
+<a class="sidebar-link kind-concept" href="../start-here.html">Start Here — Cybersecurity Vault Triage</a>
+<a class="sidebar-link kind-concept" href="../must-know-30.html">Must-Know 30 — The Minimum Viable Security Literacy</a>
+<a class="sidebar-link kind-concept" href="../phase-1-substrate.html">Phase 1 — Substrate (How Things Actually Work)</a>
+<a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
+<a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
+<a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<div class="sidebar-group-label">Orientation</div>
+<details class="branch branch-amber"><summary><span>Foundations</span><small>5</small></summary>
+<p class="sidebar-summary">Phase 0 mental models — what cybersecurity is, the CIA triad as a decision tool, threat-modeling quickstart, and the attacker-defender duality.</p>
+<a class="sidebar-link kind-index" href="../foundations/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality as a Learning Tool</a>
+<a class="sidebar-link kind-concept" href="../foundations/cia-triad-and-what-it-actually-decides.html">CIA Triad — What It Actually Decides</a>
+<a class="sidebar-link kind-concept" href="../foundations/threat-modeling-quickstart.html">Threat Modeling Quickstart</a>
+<a class="sidebar-link kind-concept" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html">What Is Cybersecurity, and Why It Is Not a Tool List</a>
+</details>
+<div class="sidebar-group-label">Substrate</div>
+<details class="branch branch-emerald" open><summary><span>Cryptography</span><small>15</small></summary>
+<p class="sidebar-summary">Hashes, encryption, signatures, key exchange, TLS/PKI, password storage, and token correctness.</p>
+<a class="sidebar-link kind-index" href="index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="aead-and-nonce-misuse.html">AEAD and Nonce Misuse</a>
+<a class="sidebar-link kind-concept" href="asymmetric-encryption-and-key-exchange.html">Asymmetric Encryption and Key Exchange</a>
+<a class="sidebar-link kind-concept" href="certificate-validation-and-pinning.html">Certificate Validation and Pinning</a>
+<a class="sidebar-link kind-concept" href="digital-signatures.html">Digital Signatures</a>
+<a class="sidebar-link kind-concept" href="hashing-vs-encryption-vs-signing.html">Hashing vs Encryption vs Signing</a>
+<a class="sidebar-link kind-concept active" href="jwt-cryptographic-correctness.html">JWT Cryptographic Correctness</a>
+<a class="sidebar-link kind-concept" href="kdf-and-key-stretching.html">KDF and Key Stretching</a>
+<a class="sidebar-link kind-concept" href="mac-and-hmac.html">MAC and HMAC</a>
+<a class="sidebar-link kind-concept" href="password-hashing.html">Password Hashing</a>
+<a class="sidebar-link kind-concept" href="post-quantum-awareness.html">Post-Quantum Awareness</a>
+<a class="sidebar-link kind-concept" href="random-and-csprng-pitfalls.html">Random and CSPRNG Pitfalls</a>
+<a class="sidebar-link kind-concept" href="roll-your-own-crypto-failures.html">Roll Your Own Crypto Failures</a>
+<a class="sidebar-link kind-concept" href="symmetric-encryption-modes.html">Symmetric Encryption Modes</a>
+<a class="sidebar-link kind-concept" href="tls-handshake-and-pki.html">TLS Handshake and PKI</a>
+</details>
+<details class="branch branch-sky"><summary><span>Networking</span><small>23</small></summary>
+<p class="sidebar-summary">Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p>
+<a class="sidebar-link kind-index" href="../networking/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="sidebar-link kind-concept" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="sidebar-link kind-concept" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="sidebar-link kind-concept" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="sidebar-link kind-concept" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-security.html">DNS Security</a>
+<a class="sidebar-link kind-concept" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../networking/header-trust-in-node-express.html">Header Trust in Node Express</a>
+<a class="sidebar-link kind-concept" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="sidebar-link kind-concept" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="sidebar-link kind-concept" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="sidebar-link kind-concept" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="sidebar-link kind-concept" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="sidebar-link kind-concept" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="sidebar-link kind-concept" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="sidebar-link kind-concept" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="sidebar-link kind-concept" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="sidebar-link kind-concept" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="sidebar-link kind-concept" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="sidebar-link kind-concept" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details class="branch branch-blue"><summary><span>Web Security</span><small>27</small></summary>
+<p class="sidebar-summary">Browser behavior, sessions, access control, and server-side exploit patterns.</p>
+<a class="sidebar-link kind-index" href="../web-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../web-security/bot-detection-signals.html">Bot Detection Signals</a>
+<a class="sidebar-link kind-concept" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="sidebar-link kind-concept" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="sidebar-link kind-concept" href="../web-security/clickjacking.html">Clickjacking</a>
+<a class="sidebar-link kind-concept" href="../web-security/command-injection.html">Command Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="sidebar-link kind-concept" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="sidebar-link kind-concept" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="sidebar-link kind-concept" href="../web-security/evilginx-and-reverse-proxy-phishing.html">Evilginx and Reverse Proxy Phishing</a>
+<a class="sidebar-link kind-concept" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="sidebar-link kind-concept" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="sidebar-link kind-concept" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="sidebar-link kind-concept" href="../web-security/mfa-phishing-resistance.html">MFA Phishing Resistance</a>
+<a class="sidebar-link kind-concept" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="sidebar-link kind-concept" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="sidebar-link kind-concept" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="sidebar-link kind-concept" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="sidebar-link kind-concept" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="sidebar-link kind-concept" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/session-management.html">Session Management</a>
+<a class="sidebar-link kind-concept" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/xxe.html">XXE</a>
+</details>
+<div class="sidebar-group-label">Paired</div>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>18</small></summary>
+<p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
+<a class="sidebar-link kind-index" href="../offensive-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/cloaking-and-security-evasion.html">Cloaking and Security Evasion</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/nmap-timing-and-evasion.html">Nmap Timing and Evasion</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/recon.html">Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/rustscan-and-nse-pipeline.html">RustScan and NSE Pipeline</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Detection Engineering</span><small>12</small></summary>
+<p class="sidebar-summary">Telemetry, behavioral analytics, correlation, and detection tradeoffs.</p>
+<a class="sidebar-link kind-index" href="../detection-engineering/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation and Kill Chain Observability</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral Detection vs Signature Detection</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/detection-evasion-myths-and-modern-limitations.html">Detection Evasion Myths and Modern Limitations</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/edr-network-observability-and-process-correlation.html">EDR Network Observability and Process Correlation</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html">Encrypted Traffic Analysis and Metadata Leakage</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html">False Positives, False Negatives, and Detection Tradeoffs</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html">IDS/IPS and Behavioral Detection Pipelines</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/network-telemetry-sources-and-visibility.html">Network Telemetry Sources and Visibility</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Scan Anomaly Detection and Fingerprint Analysis</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/telemetry-normalization-correlation-and-enrichment.html">Telemetry Normalization, Correlation, and Enrichment</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html">Zeek, Suricata, and NetFlow Analysis</a>
+</details>
+<div class="sidebar-group-label">Operator</div>
+<details class="branch branch-amber"><summary><span>Attack Surface Mapping</span><small>11</small></summary>
+<p class="sidebar-summary">What is exposed, reachable, discoverable, and drifting from intended design.</p>
+<a class="sidebar-link kind-index" href="../attack-surface-mapping/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details class="branch branch-violet"><summary><span>OSINT</span><small>11</small></summary>
+<p class="sidebar-summary">Public-source collection, evidence quality, and ethical handling of clues.</p>
+<a class="sidebar-link kind-index" href="../osint/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="sidebar-link kind-concept" href="../osint/company-osint.html">Company OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="sidebar-link kind-concept" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint.html">OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="sidebar-link kind-concept" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="sidebar-link kind-concept" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details class="branch branch-orange"><summary><span>Linux Privilege Escalation</span><small>10</small></summary>
+<p class="sidebar-summary">Local boundary failures, enumeration, and safe escalation hypothesis testing.</p>
+<a class="sidebar-link kind-index" href="../linux-privilege-escalation/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>13</small></summary>
+<p class="sidebar-summary">Repeatable procedures for turning concepts into practical tests.</p>
+<a class="sidebar-link kind-index" href="../security-playbooks/index.html">Overview</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/run-scan-pipeline.html">Run External Recon Scan Pipeline</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/trace-metadata-endpoint-reachability.html">Trace Metadata Endpoint Reachability</a>
+</details>
+<div class="sidebar-group-label">Specialty</div>
+<details class="branch branch-teal"><summary><span>Wireless Security</span><small>11</small></summary>
+<p class="sidebar-summary">Wi-Fi frames, handshakes, rogue access points, and local-network MITM.</p>
+<a class="sidebar-link kind-index" href="../wireless-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+<details class="branch branch-indigo"><summary><span>API Security</span><small>15</small></summary>
+<p class="sidebar-summary">Authorization, token trust, inventory drift, and machine-readable abuse.</p>
+<a class="sidebar-link kind-index" href="../api-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="sidebar-link kind-concept" href="../api-security/authorization.html">Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="sidebar-link kind-concept" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="sidebar-link kind-concept" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="sidebar-link kind-concept" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="sidebar-link kind-concept" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Cloud Security</span><small>11</small></summary>
+<p class="sidebar-summary">IAM, metadata, storage, network boundaries, secrets, and logging controls.</p>
+<a class="sidebar-link kind-index" href="../cloud-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details class="branch branch-green"><summary><span>DevSecOps</span><small>13</small></summary>
+<p class="sidebar-summary">Secure delivery, CI/CD hardening, supply chain, secrets, and release trust.</p>
+<a class="sidebar-link kind-index" href="../devsecops/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="sidebar-link kind-concept" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="sidebar-link kind-concept" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="sidebar-link kind-concept" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="sidebar-link kind-concept" href="../devsecops/container-security.html">Container Security</a>
+<a class="sidebar-link kind-concept" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="sidebar-link kind-concept" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="sidebar-link kind-concept" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="sidebar-link kind-concept" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="sidebar-link kind-concept" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details class="branch branch-red"><summary><span>Identity &amp; Active Directory</span><small>5</small></summary>
+<p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
+<a class="sidebar-link kind-index" href="../identity-and-active-directory/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/as-rep-roasting.html">AS-REP Roasting</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound and Attack Path Analysis</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a>
+<a class="sidebar-link kind-concept" href="../identity-and-active-directory/kerberoasting.html">Kerberoasting</a>
+</details>
+<div class="sidebar-group-label">Always-on</div>
+<details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
+<p class="sidebar-summary">VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.</p>
+<a class="sidebar-link kind-index" href="../privacy-anonymity-opsec/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/account-correlation.html">Account Correlation</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/anonymity-threat-models.html">Anonymity Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/browser-fingerprinting.html">Browser Fingerprinting</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html">Corporate VPNs vs Consumer VPNs</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/deanonymization-failures.html">Deanonymization Failures</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/end-to-end-encryption.html">End-to-End Encryption</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/file-metadata-removal.html">File Metadata Removal</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/metadata-and-identity-leakage.html">Metadata and Identity Leakage</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/opsec-failure-chains.html">OPSEC Failure Chains</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/pgp-encryption-and-signatures.html">PGP Encryption and Signatures</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/privacy-vs-anonymity-vs-confidentiality.html">Privacy vs Anonymity vs Confidentiality</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/private-email-threat-models.html">Private Email Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/qubes-compartmentalization.html">Qubes Compartmentalization</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/secure-deletion-and-storage-wiping.html">Secure Deletion and Storage Wiping</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/secure-file-sharing.html">Secure File Sharing</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tails-operational-model.html">Tails Operational Model</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/temporary-email-risks.html">Temporary Email Risks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-and-onion-services.html">Tor and Onion Services</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-bridges-and-pluggable-transports.html">Tor Bridges and Pluggable Transports</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-browser-security-settings.html">Tor Browser Security Settings</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/traffic-correlation.html">Traffic Correlation</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-dns-and-ipv6-leaks.html">VPN DNS and IPv6 Leaks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-fingerprinting-limitations.html">VPN Fingerprinting Limitations</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-kill-switches.html">VPN Kill Switches</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-leakage-risks.html">VPN Leakage Risks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-logging-and-trust.html">VPN Logging and Trust</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-protocols.html">VPN Protocols</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-threat-models.html">VPN Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-vs-tor.html">VPN vs Tor</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-with-tor.html">VPN with Tor</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/whonix-gateway.html">Whonix Gateway</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/xmpp-and-private-messaging.html">XMPP and Private Messaging</a>
+</details>
+<details class="registry-group"><summary>Reference System <span>16</span></summary>
+<a class="sidebar-link kind-registry" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-detection-engineering.html">Reference Registry - Detection Engineering</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-privacy-anonymity-opsec.html">Reference Registry - Privacy, Anonymity &amp; OPSEC</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-api-security.html">Reference Registry — API Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cryptography.html">Reference Registry — Cryptography</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-identity-and-active-directory.html">Reference Registry — Identity and Active Directory</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-networking.html">Reference Registry — Networking</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-offensive-security.html">Reference Registry — Offensive Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-playbooks.html">Reference Registry — Playbooks</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-web-security.html">Reference Registry — Web Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Cryptography</a><span>/</span><span>JWT Cryptographic Correctness</span></nav>
+<header class="page-hero">
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-emerald">Cryptography</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#cryptography</span><span class="meta-chip tag">#jwt</span><span class="meta-chip tag">#jose</span><span class="meta-chip tag">#tokens</span></div>
+</header>
+<article class="article-note">
+<h1 id="jwt-cryptographic-correctness">JWT Cryptographic Correctness</h1>
+<h2 id="definition">Definition</h2>
+<p>A JWT (RFC 7519) is a base64url-encoded <code>header.payload.signature</code> triple where the signature is either an HMAC tag (JWS HS<em>) or an asymmetric digital signature (JWS RS</em>, ES<em>, PS</em>, EdDSA). "JWT cryptographic correctness" means the verifier authenticates the signature with the <em>expected algorithm and key</em>, validates registered claims, and never trusts the header to choose the verification path.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>JWTs are the most commonly mis-implemented authentication primitive in modern web stacks. The header carries an <code>alg</code> field that suggests how to verify the signature — and historically many libraries did exactly what the header asked, including <code>alg: none</code>, <code>alg: HS256</code> with a public RSA key as the secret, or <code>kid</code>/<code>jku</code>/<code>jwk</code> headers that pointed at attacker-controlled keys. Each of these turns the token into an unauthenticated cookie that the attacker writes themselves. Reading JWT failures correctly is also a prerequisite for SAML/OIDC reasoning, API-token systems, and signed-cookie patterns.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>The structure:</p>
+<div class="codehilite"><pre><span></span><code>header.payload.signature
+header  = base64url({&quot;alg&quot;:&quot;RS256&quot;,&quot;kid&quot;:&quot;abc&quot;,&quot;typ&quot;:&quot;JWT&quot;})
+payload = base64url({&quot;sub&quot;:&quot;u-1&quot;,&quot;exp&quot;:1735689600,&quot;iss&quot;:&quot;https://idp&quot;})
+signature = sign(alg, key, header || &quot;.&quot; || payload)
+</code></pre></div>
+
+<p>The 5 verification steps that must all be enforced:</p>
+<ol>
+<li><strong>Decide the algorithm before parsing the token.</strong> The verifier must know whether it expects HS256, RS256, ES256, EdDSA, etc. — based on configuration, not the token. Reading <code>header.alg</code> and trusting it is the original "alg confusion" bug.</li>
+<li><strong>Resolve the key for that algorithm.</strong> For HS<em>, a server-side secret. For RS</em>/ES<em>/PS</em>/EdDSA, a public key from a trusted JWKS endpoint or an embedded set.</li>
+<li><strong>Verify the signature with the chosen <code>(alg, key)</code>.</strong> Use a library that takes the algorithm as input, <em>not</em> one that reads it from the header.</li>
+<li><strong>Validate the registered claims.</strong> <code>exp</code> (expiration), <code>nbf</code> (not before), <code>iat</code> (issued at), <code>iss</code> (issuer), <code>aud</code> (audience), and any custom claims the application requires.</li>
+<li><strong>Pin the token's purpose.</strong> If the token is for API A, do not accept it for API B. Audience-mismatch is a common bug when one IdP issues tokens for many resource servers.</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>expected_alg = config[&quot;alg&quot;]                  # NOT header.alg
+key          = lookup(expected_alg, header.kid_if_safe)
+verify(token, key, expected_alg)              # exact alg match
+require(payload.exp &gt; now and payload.iss == &quot;https://idp&quot; and aud_check)
+</code></pre></div>
+
+<p>The bug is not "JWT is broken"; it is "the verifier let the token decide which key and algorithm to use." Cryptographically, JWT is fine. Operationally, the JOSE flexibility (alg, kid, jku, jwk, x5u, x5c) is a footgun unless every dynamic field is constrained by configuration.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>The reasoning model when reviewing JWT-using code:</p>
+<ul>
+<li><strong>What does the verifier expect for <code>alg</code>?</strong> Hard-coded? Read from the token? "Whatever the library decides"?</li>
+<li><strong>Where does the key come from?</strong> Static config? JWKS URL? Header-driven (<code>jku</code>, <code>jwk</code>, <code>kid</code> lookup)?</li>
+<li><strong>What claims are validated?</strong> <code>exp</code>, <code>nbf</code>, <code>iss</code>, <code>aud</code>, custom?</li>
+<li><strong>Is there a clock skew?</strong> A small positive skew (≤ 60s) is fine; large skews defeat <code>exp</code>.</li>
+<li><strong>Is the token bound to a session, channel, or origin?</strong> JWT alone is bearer; pair with channel binding (DPoP, mTLS) or short lifetime + refresh for high-value flows.</li>
+<li><strong>Probe pattern in code review:</strong> grep for <code>jwt.decode</code>, <code>jwt.verify</code>, <code>verify_options</code>, <code>algorithms=</code>, <code>verify=False</code>, <code>alg</code>, <code>kid</code>, <code>jku</code>, <code>jwk</code>, <code>x5u</code>, <code>x5c</code>. Each occurrence is a place where the verifier might be over-flexible.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>The 7 historical (and current) JWT exploit shapes worth recognizing:</p>
+<h3 id="alg-none"><code>alg: none</code></h3>
+<p>The original bug. The token is <code>header.payload.</code> with no signature, header <code>{"alg":"none"}</code>. Libraries that follow the header treated this as "no signature required" and accepted the token. Modern libraries refuse <code>none</code> by default, but configuration ("accept <code>none</code> if no key is configured") still appears in the wild.</p>
+<h3 id="algorithm-confusion-rs256-hs256">Algorithm confusion (RS256 → HS256)</h3>
+<p>The verifier expects RS256 (asymmetric: verify with the public key). The attacker changes the header to <code>HS256</code> and signs the token using the <em>server's RSA public key</em> as the HMAC secret. A library that reads <code>alg</code> from the header and calls <code>HS256_verify(public_key, token)</code> will accept it because the attacker computed an HMAC with that exact key. Fix: hard-code the expected algorithm; reject if the header disagrees.</p>
+<h3 id="weak-hmac-secrets">Weak HMAC secrets</h3>
+<p>HS256 with a guessable secret (<code>"secret"</code>, the company name, a URL slug). Offline brute force on the signature recovers the secret in seconds. Fix: 256-bit random secret minimum; rotate; prefer asymmetric for cross-org tokens.</p>
+<h3 id="kid-injection"><code>kid</code> injection</h3>
+<p>The <code>kid</code> header points at a key in a server-side store. A path-traversal <code>kid</code> (<code>../../etc/passwd</code>), a SQL-injectable <code>kid</code>, or a <code>kid</code> that addresses a known-content file (<code>/dev/null</code> to make the secret empty) lets the attacker control which "key" verifies the signature. Fix: treat <code>kid</code> as an opaque ID, validate against an allowlist, never use it as a path or query fragment.</p>
+<h3 id="jku-jwk-x5u-x5c-injection"><code>jku</code> / <code>jwk</code> / <code>x5u</code> / <code>x5c</code> injection</h3>
+<p>The JOSE header can carry a URL or inline key for verification. A verifier that fetches <code>jku</code> and trusts the returned JWKS allows the attacker to host their own key set and sign tokens themselves. Fix: never honor <code>jku</code>, <code>jwk</code>, <code>x5u</code>, or <code>x5c</code> from token headers in production verification; resolve keys only from the IdP's known JWKS URL.</p>
+<h3 id="missing-or-wrong-claim-validation">Missing or wrong claim validation</h3>
+<p>Tokens that are syntactically valid but have an expired <code>exp</code>, wrong <code>iss</code>, or wrong <code>aud</code> are accepted because the verifier only checked the signature. Fix: claim validation is part of "verify"; libraries usually require explicit <code>audience=</code> and <code>issuer=</code> parameters.</p>
+<h3 id="bearer-replay-stolen-jwt">Bearer-replay / stolen JWT</h3>
+<p>JWTs are bearer tokens by default. Anyone with the encoded string is the user. Fix: short lifetime, refresh tokens, channel binding (DPoP per RFC 9449, mTLS-bound tokens per RFC 8705), or sender-constrained access tokens.</p>
+<h3 id="jwe-confusion">JWE confusion</h3>
+<p>JWE tokens (encrypted) and JWS tokens (signed) share the JOSE structure. A naive verifier that "just decodes" a token and trusts the payload may treat a JWE as a JWS, or vice versa. Fix: decide the format up front; reject the wrong shape.</p>
+<h2 id="impact">Impact</h2>
+<ul>
+<li><strong><code>alg: none</code> accepted:</strong> total auth bypass; attacker mints any token.</li>
+<li><strong>Algorithm confusion:</strong> total auth bypass when the public key is recoverable (which it usually is — JWKS is public).</li>
+<li><strong>Weak HMAC secret:</strong> offline secret recovery → total auth bypass.</li>
+<li><strong><code>kid</code>/<code>jku</code>/<code>jwk</code> injection:</strong> verifier-controlled key → attacker-signed tokens accepted.</li>
+<li><strong>Missing <code>aud</code> validation:</strong> cross-API token replay; a token meant for service A is accepted by service B.</li>
+<li><strong>Missing <code>exp</code>/<code>nbf</code>:</strong> tokens never expire or are valid before they should be; revocation becomes operationally impossible.</li>
+<li><strong>Stolen bearer:</strong> valid until expiry; if no short lifetime + refresh, exposure is hours to days.</li>
+</ul>
+<p>Severity scales with token scope — root admin tokens, payment tokens, and tokens accepted by multiple resource servers are the highest-impact targets.</p>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>Ordered by what works:</p>
+<ol>
+<li>
+<p><strong>Hard-code the expected algorithm; reject if the header disagrees.</strong>
+   <code>verify(token, key, algorithms=["RS256"])</code> (or <code>["EdDSA"]</code>). Never <code>algorithms=token.header.alg</code>. Never accept <code>none</code>.</p>
+</li>
+<li>
+<p><strong>Use asymmetric signatures for tokens crossing trust boundaries; HMAC only inside a single trust boundary.</strong>
+   RS256, PS256, ES256, or EdDSA between an IdP and resource servers. HS256 only if both sides are the same service or share a single secrets store. A breached resource server should not be able to mint tokens for other resources.</p>
+</li>
+<li>
+<p><strong>Resolve keys from the configured JWKS URL only; ignore header <code>jku</code>, <code>jwk</code>, <code>x5u</code>, <code>x5c</code>.</strong>
+   <code>kid</code> is acceptable as an opaque key index against the IdP's JWKS, but treat it as untrusted input — allowlist, never use as a path/query.</p>
+</li>
+<li>
+<p><strong>Validate registered claims explicitly.</strong>
+   <code>exp</code> must be in the future; <code>iat</code>/<code>nbf</code> must be sane; <code>iss</code> must match the expected issuer; <code>aud</code> must match the expected audience. Use the library's claim-validation parameters; do not write your own.</p>
+</li>
+<li>
+<p><strong>Keep tokens short-lived; pair with refresh tokens or sender-constrained tokens.</strong>
+   Access tokens of 5–15 minutes plus a refresh flow; or DPoP/mTLS-bound tokens for high-value APIs. Refresh tokens themselves should rotate and be one-time-use.</p>
+</li>
+<li>
+<p><strong>Reject tokens you do not intend to verify.</strong>
+   If your service expects RS256 from <code>https://idp.example/.well-known/jwks.json</code> for <code>aud=api.example</code>, anything else is rejected. No "fall back to local secret" path.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>"We use JWT, so we are secure."</strong> The JWT format does not make a system secure; correct verifier configuration does.</li>
+<li><strong>"We trust <code>header.alg</code>."</strong> That is exactly the alg-confusion bug. Use a hard-coded algorithm.</li>
+<li><strong>"Our HMAC secret is <code>our-app-name-2026</code>."</strong> Brute-forceable. Use a 256-bit CSPRNG-generated secret stored in a secrets manager.</li>
+<li><strong>"<code>exp</code> is far enough in the future that revocation does not matter."</strong> Long-lived bearer tokens are the worst of both worlds — same exposure as a session cookie without the easy revocation. Use short tokens + refresh.</li>
+<li><strong>"We pass <code>verify=False</code> only in tests."</strong> Tests that disable verification routinely escape into production via shared config helpers. Use explicit test fixtures that mint valid tokens, not unverified-decode helpers.</li>
+<li><strong>"We can use the same JWT for many APIs to make integration easier."</strong> That is exactly an audience-mismatch attack vector. Per-audience tokens, even if it costs a refresh round trip.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<h3 id="mint-and-verify-a-jwt-correctly">Mint and verify a JWT correctly</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># pip install pyjwt cryptography</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jwt</span><span class="o">,</span><span class="w"> </span><span class="nn">datetime</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cryptography.hazmat.primitives.asymmetric.ed25519</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ed25519PrivateKey</span>
+<span class="n">sk</span> <span class="o">=</span> <span class="n">Ed25519PrivateKey</span><span class="o">.</span><span class="n">generate</span><span class="p">()</span>
+<span class="n">pk</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">public_key</span><span class="p">()</span>
+<span class="n">sk_pem</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">private_bytes_raw</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span>  <span class="c1"># for demo only</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;sub&quot;</span><span class="p">:</span><span class="s2">&quot;u-1&quot;</span><span class="p">,</span><span class="s2">&quot;iss&quot;</span><span class="p">:</span><span class="s2">&quot;https://idp.example&quot;</span><span class="p">,</span><span class="s2">&quot;aud&quot;</span><span class="p">:</span><span class="s2">&quot;api.example&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;iat&quot;</span><span class="p">:</span> <span class="n">now</span><span class="p">,</span> <span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="n">now</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">10</span><span class="p">)},</span>
+    <span class="n">sk</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;EdDSA&quot;</span>
+<span class="p">)</span>
+<span class="n">decoded</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">pk</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;EdDSA&quot;</span><span class="p">],</span> <span class="n">audience</span><span class="o">=</span><span class="s2">&quot;api.example&quot;</span><span class="p">,</span> <span class="n">issuer</span><span class="o">=</span><span class="s2">&quot;https://idp.example&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">decoded</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Result: a correct verifier rejects mismatched algorithm, wrong audience, wrong issuer, or expired tokens.</p>
+<h3 id="reproduce-alg-none-on-a-vulnerable-verifier">Reproduce <code>alg: none</code> on a vulnerable verifier</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span>
+<span class="n">header</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;alg&quot;</span><span class="p">:</span><span class="s2">&quot;none&quot;</span><span class="p">,</span><span class="s2">&quot;typ&quot;</span><span class="p">:</span><span class="s2">&quot;JWT&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;=&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;sub&quot;</span><span class="p">:</span><span class="s2">&quot;admin&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;=&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="n">token</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">header</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">payload</span><span class="si">}</span><span class="s2">.&quot;</span>
+<span class="c1"># Send this to a verifier that trusts header.alg and observe whether it accepts the token</span>
+</code></pre></div>
+
+<p>Result: a correctly configured verifier (<code>algorithms=["RS256"]</code>) rejects this immediately. A library or wrapper that reads <code>alg</code> from the header may accept it. The presence or absence of acceptance is the test.</p>
+<h3 id="reproduce-algorithm-confusion-rs-hs">Reproduce algorithm confusion (RS → HS)</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">jwt</span>
+<span class="n">public_pem</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;idp_public.pem&quot;</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="c1"># Attacker signs with HS256 using the IdP&#39;s PUBLIC key as the HMAC secret</span>
+<span class="n">forged</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">({</span><span class="s2">&quot;sub&quot;</span><span class="p">:</span><span class="s2">&quot;admin&quot;</span><span class="p">},</span> <span class="n">public_pem</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;HS256&quot;</span><span class="p">)</span>
+<span class="c1"># A vulnerable verifier that calls `decode(forged, public_pem)` without locking algorithms</span>
+<span class="c1"># will try HS256 and succeed.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">forged</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Result: the test target accepts the forged token only if the verifier reads <code>alg</code> from the header. This lab is the canonical demonstration of "always pin algorithms".</p>
+<h3 id="detect-over-flexible-verifier-configuration-in-code">Detect over-flexible verifier configuration in code</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Sniff Python/Node/Java code for JWT misuse patterns</span>
+rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;jwt\.decode\(|jwt\.verify\(|verify\(.*algorithms\s*=\s*\[&quot;</span><span class="w"> </span>.
+rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;algorithms\s*=\s*token\.header|header\[.alg.\]&quot;</span><span class="w"> </span>.
+rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;alg.*none|verify_signature\s*=\s*False&quot;</span><span class="w"> </span>.
+</code></pre></div>
+
+<p>Result: every occurrence is a review point. Confirm the algorithm is hard-coded and <code>none</code> is rejected.</p>
+<h3 id="jwks-rotation-lab">JWKS rotation lab</h3>
+<div class="codehilite"><pre><span></span><code>1. Stand up an IdP with two RSA key pairs (current + next), publish both at /.well-known/jwks.json.
+2. Mint tokens with kid=current.
+3. Rotate: mint with kid=next, keep current published for the legacy refresh window.
+4. Confirm the resource server resolves keys via JWKS and accepts both during the overlap.
+</code></pre></div>
+
+<p>Result: a working rotation playbook proves your verifier can survive key rotation without downtime, which is the prerequisite for short-lived signing keys.</p>
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li>A microservice imports <code>jsonwebtoken</code> and calls <code>verify(token, key)</code> with no <code>algorithms</code> option. A penetration test demonstrates RS→HS confusion. Fix: pin <code>algorithms: ['RS256']</code>.</li>
+<li>An admin tool issues HS256 tokens with secret <code>admin-prod-2026</code>. The secret leaks via a public commit. Fix: rotate, switch to RS256/EdDSA from a KMS-managed key.</li>
+<li>A multi-API gateway accepts any JWT signed by the corporate IdP. A token issued for the test API is replayed against the production billing API. Fix: enforce <code>aud=billing.example</code> on the billing API.</li>
+<li>A mobile app decodes the JWT locally to "extract the user id" and trusts the payload. Local decode is acceptable for display; never make a security decision on decoded-but-unverified payloads.</li>
+<li>A new service implements its own JWT library because "the standard one is too heavy". The custom verifier accidentally treats <code>alg: HS256</code> and <code>alg: RS256</code> interchangeably. Replace with a vetted library; delete the custom code.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="hashing-vs-encryption-vs-signing.html">hashing-vs-encryption-vs-signing</a></li>
+<li><a href="mac-and-hmac.html">mac-and-hmac</a></li>
+<li><a href="digital-signatures.html">digital-signatures</a></li>
+<li><a href="asymmetric-encryption-and-key-exchange.html">asymmetric-encryption-and-key-exchange</a></li>
+<li><a href="random-and-csprng-pitfalls.html">random-and-csprng-pitfalls</a></li>
+<li><a href="../api-security/jwt-attacks.html">JWT Attacks</a></li>
+<li><a href="../api-security/token-lifecycle.html">Token Lifecycle</a></li>
+<li><a href="../web-security/auth-flaws.html">Auth Flaws</a></li>
+<li><a href="../web-security/oauth-security.html">OAuth Security</a></li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="unresolved-link" title="Unpublished or unresolved: oidc-deep-dive">oidc-deep-dive</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: dpop-and-sender-constrained-tokens">dpop-and-sender-constrained-tokens</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: mtls-bound-tokens-rfc-8705">mtls-bound-tokens-rfc-8705</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: jwks-rotation-and-kid-handling">jwks-rotation-and-kid-handling</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: paseto-and-jwt-alternatives">paseto-and-jwt-alternatives</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: jwt-claim-validation-pitfalls">jwt-claim-validation-pitfalls</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Foundational:</strong> OWASP JSON Web Token for Java Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html</li>
+<li><strong>Standard / RFC:</strong> RFC 7519 JSON Web Token (JWT) — https://www.rfc-editor.org/rfc/rfc7519</li>
+<li><strong>Testing / Lab:</strong> PortSwigger JWT attacks — https://portswigger.net/web-security/jwt</li>
+<li><strong>Research / Deep Dive:</strong> Auth0 JWT handbook — https://auth0.com/resources/ebooks/jwt-handbook</li>
+</ul>
+<section class="related-notes" aria-label="Explore nearby notes">
+<h2>Explore nearby notes</h2>
+<div class="related-grid">
+<a class="related-card" href="aead-and-nonce-misuse.html"><span>Cryptography</span><strong>AEAD and Nonce Misuse</strong><small>Authenticated Encryption with Associated Data (AEAD) encrypts plaintext and authenticates both ciphertext and optional associated data. Nonce misuse happens when...</small></a>
+<a class="related-card" href="asymmetric-encryption-and-key-exchange.html"><span>Cryptography</span><strong>Asymmetric Encryption and Key Exchange</strong><small>Asymmetric encryption and key exchange use different key roles so two parties can establish secrecy without first sharing a symmetric key. In practice, public-key...</small></a>
+<a class="related-card" href="certificate-validation-and-pinning.html"><span>Cryptography</span><strong>Certificate Validation and Pinning</strong><small>Certificate validation is the process of deciding whether a presented certificate chain proves the peer&#x27;s identity for the name being contacted. Certificate...</small></a>
+<a class="related-card" href="digital-signatures.html"><span>Cryptography</span><strong>Digital Signatures</strong><small>A digital signature is an asymmetric proof that a specific private key approved a specific message. Anyone with the matching public key can verify the signature...</small></a>
+<a class="related-card" href="hashing-vs-encryption-vs-signing.html"><span>Cryptography</span><strong>Hashing vs Encryption vs Signing</strong><small>Hashing, encryption, and signing are three different cryptographic primitives that solve three different problems: hashing produces a fixed-size, one-way...</small></a>
+<a class="related-card" href="kdf-and-key-stretching.html"><span>Cryptography</span><strong>KDF and Key Stretching</strong><small>A Key Derivation Function (KDF) turns one secret into one or more purpose-bound cryptographic keys. Key stretching is a related use case where a low-entropy...</small></a>
+</div></section>
+</article>
+</main>
+<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
+<a class="toc-level-2" href="#definition">Definition</a>
+<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
+<a class="toc-level-2" href="#how-it-works">How it works</a>
+<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
+<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
+<a class="toc-level-3" href="#alg-none">alg: none</a>
+<a class="toc-level-3" href="#algorithm-confusion-rs256-hs256">Algorithm confusion (RS256 → HS256)</a>
+<a class="toc-level-3" href="#weak-hmac-secrets">Weak HMAC secrets</a>
+<a class="toc-level-3" href="#kid-injection">kid  injection</a>
+<a class="toc-level-3" href="#jku-jwk-x5u-x5c-injection">jku  /  jwk  /  x5u  /  x5c  injection</a>
+<a class="toc-level-3" href="#missing-or-wrong-claim-validation">Missing or wrong claim validation</a>
+<a class="toc-level-3" href="#bearer-replay-stolen-jwt">Bearer-replay / stolen JWT</a>
+<a class="toc-level-3" href="#jwe-confusion">JWE confusion</a>
+<a class="toc-level-2" href="#impact">Impact</a>
+<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
+<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
+<a class="toc-level-2" href="#practical-labs">Practical labs</a>
+<a class="toc-level-3" href="#mint-and-verify-a-jwt-correctly">Mint and verify a JWT correctly</a>
+<a class="back-to-top" href="#top">Back to top</a></div></aside>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>
