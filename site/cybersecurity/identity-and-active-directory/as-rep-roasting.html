@@ -292,13 +292,17 @@
 <a class="sidebar-link kind-concept" href="../devsecops/secure-by-design.html">Secure by Design</a>
 <a class="sidebar-link kind-concept" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
-<details class="branch branch-red" open><summary><span>Identity &amp; Active Directory</span><small>5</small></summary>
+<details class="branch branch-red" open><summary><span>Identity &amp; Active Directory</span><small>9</small></summary>
 <p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
 <a class="sidebar-link kind-index" href="index.html">Overview</a>
 <a class="sidebar-link kind-concept active" href="as-rep-roasting.html">AS-REP Roasting</a>
 <a class="sidebar-link kind-concept" href="bloodhound-attack-path-analysis.html">BloodHound and Attack Path Analysis</a>
 <a class="sidebar-link kind-concept" href="dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a>
+<a class="sidebar-link kind-concept" href="gmsa-and-modern-service-account-hardening.html">gMSA and Modern Service Account Hardening</a>
+<a class="sidebar-link kind-concept" href="golden-ticket-and-krbtgt-compromise.html">Golden Ticket and KRBTGT Compromise</a>
 <a class="sidebar-link kind-concept" href="kerberoasting.html">Kerberoasting</a>
+<a class="sidebar-link kind-concept" href="krbtgt-rotation-and-tier-zero-recovery.html">KRBTGT Rotation and Tier Zero Recovery</a>
+<a class="sidebar-link kind-concept" href="silver-ticket-and-service-account-persistence.html">Silver Ticket and Service Account Persistence</a>
 </details>
 <div class="sidebar-group-label">Always-on</div>
 <details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
@@ -514,6 +518,7 @@ hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">18200</
 <h2 id="related-notes">Related notes</h2>
 <ul>
 <li><a href="kerberoasting.html">kerberoasting</a> — the sister attack; same offline-cracking economics, different protocol step, different precondition (needs a credential).</li>
+<li><a href="silver-ticket-and-service-account-persistence.html">silver-ticket-and-service-account-persistence</a> — one downstream use of recovered service-account key material when a roasted account owns SPNs.</li>
 <li><a href="../cryptography/password-hashing.html">Password hashing</a> — the KDF strength is what determines crack cost on both AS-REP and TGS hashes.</li>
 <li><a href="../cryptography/symmetric-encryption-modes.html">Symmetric encryption modes</a> — RC4 vs AES in the Kerberos context.</li>
 <li><a href="../cryptography/kdf-and-key-stretching.html">KDF and key stretching</a> — offline cracking economics 101.</li>
@@ -541,11 +546,11 @@ hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">18200</
 <h2>Explore nearby notes</h2>
 <div class="related-grid">
 <a class="related-card" href="kerberoasting.html"><span>Identity &amp; Active Directory</span><strong>Kerberoasting</strong><small>Kerberoasting is an Active Directory credential attack where an authenticated domain user requests **TGS service tickets** for accounts that have a Service...</small></a>
+<a class="related-card" href="golden-ticket-and-krbtgt-compromise.html"><span>Identity &amp; Active Directory</span><strong>Golden Ticket and KRBTGT Compromise</strong><small>A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain&#x27;s krbtgt account. It is not...</small></a>
+<a class="related-card" href="silver-ticket-and-service-account-persistence.html"><span>Identity &amp; Active Directory</span><strong>Silver Ticket and Service Account Persistence</strong><small>A Silver Ticket is a forged Kerberos **service ticket** (TGS) created with a compromised service account key rather than the domain-wide krbtgt key. It is...</small></a>
 <a class="related-card" href="bloodhound-attack-path-analysis.html"><span>Identity &amp; Active Directory</span><strong>BloodHound and Attack Path Analysis</strong><small>BloodHound is an open-source graph-analysis tool that models **Active Directory as a directed graph of principals** (users, groups, computers, GPOs, OUs, domains)...</small></a>
 <a class="related-card" href="dcsync-and-ntdsdit-extraction.html"><span>Identity &amp; Active Directory</span><strong>DCSync and ntds.dit Extraction</strong><small>DCSync is an AD credential-extraction attack where the attacker abuses the **DS-Replication-Get-Changes-All** and related directory-replication rights to make...</small></a>
-<a class="related-card" href="../offensive-security/active-recon.html"><span>Offensive Security / Recon</span><strong>Active Recon</strong><small>Active recon is information gathering that directly interacts with target infrastructure, services, or applications to validate or extend what passive recon...</small></a>
-<a class="related-card" href="../offensive-security/cloaking-and-security-evasion.html"><span>Offensive Security / Recon</span><strong>Cloaking and Security Evasion</strong><small>Cloaking is the practice of showing different behavior to different visitors based on signals such as IP, geography, ASN, reverse DNS, User-Agent, browser...</small></a>
-<a class="related-card" href="../offensive-security/company-mapping.html"><span>Offensive Security / Recon</span><strong>Company Mapping</strong><small>Company mapping is the process of connecting domains, brands, subsidiaries, acquisitions, vendors, public identities, products, and infrastructure clues into a...</small></a>
+<a class="related-card" href="gmsa-and-modern-service-account-hardening.html"><span>Identity &amp; Active Directory</span><strong>gMSA and Modern Service Account Hardening</strong><small>A group Managed Service Account (gMSA) is an Active Directory-managed service identity whose password is long, random, automatically rotated, and retrievable only...</small></a>
 </div></section>
 </article>
 </main>

@@ -291,13 +291,17 @@
 <a class="sidebar-link kind-concept" href="devsecops/secure-by-design.html">Secure by Design</a>
 <a class="sidebar-link kind-concept" href="devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
-<details class="branch branch-red"><summary><span>Identity &amp; Active Directory</span><small>5</small></summary>
+<details class="branch branch-red"><summary><span>Identity &amp; Active Directory</span><small>9</small></summary>
 <p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
 <a class="sidebar-link kind-index" href="identity-and-active-directory/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="identity-and-active-directory/as-rep-roasting.html">AS-REP Roasting</a>
 <a class="sidebar-link kind-concept" href="identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound and Attack Path Analysis</a>
 <a class="sidebar-link kind-concept" href="identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a>
+<a class="sidebar-link kind-concept" href="identity-and-active-directory/gmsa-and-modern-service-account-hardening.html">gMSA and Modern Service Account Hardening</a>
+<a class="sidebar-link kind-concept" href="identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">Golden Ticket and KRBTGT Compromise</a>
 <a class="sidebar-link kind-concept" href="identity-and-active-directory/kerberoasting.html">Kerberoasting</a>
+<a class="sidebar-link kind-concept" href="identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">KRBTGT Rotation and Tier Zero Recovery</a>
+<a class="sidebar-link kind-concept" href="identity-and-active-directory/silver-ticket-and-service-account-persistence.html">Silver Ticket and Service Account Persistence</a>
 </details>
 <div class="sidebar-group-label">Always-on</div>
 <details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
@@ -416,6 +420,30 @@
 - <strong>Foundational:</strong> MITRE ATT&amp;CK T1003.006 — OS Credential Dumping: DCSync — https://attack.mitre.org/techniques/T1003/006/
 - <strong>Research / Deep Dive:</strong> Sean Metcalf (ADSecurity.org) — Mimikatz DCSync Usage, Exploitation, and Detection — https://adsecurity.org/?p=1729
 - <strong>Foundational:</strong> Microsoft — AD DS replication permissions documentation — https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/ad-replication-event-id-1864</p>
+<h2 id="golden-ticket-and-krbtgt-compromise">golden-ticket-and-krbtgt-compromise</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> MITRE ATT&amp;CK T1558.001 — Golden Ticket — https://attack.mitre.org/techniques/T1558/001/
+- <strong>Detection:</strong> MITRE ATT&amp;CK DET0144 — Detect Forged Kerberos Golden Tickets — https://attack.mitre.org/detectionstrategies/DET0144/
+- <strong>Recovery:</strong> Microsoft Learn — AD Forest Recovery: Reset the krbtgt password — https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-reset-the-krbtgt-password
+- <strong>Research / Deep Dive:</strong> Sean Metcalf (ADSecurity.org) — Mimikatz Golden Ticket Usage, Exploitation, and Detection — https://adsecurity.org/?p=1515</p>
+<h2 id="silver-ticket-and-service-account-persistence">silver-ticket-and-service-account-persistence</h2>
+<p>Preferred references:
+- <strong>Foundational:</strong> MITRE ATT&amp;CK T1558.002 — Silver Ticket — https://attack.mitre.org/techniques/T1558/002/
+- <strong>Research / Deep Dive:</strong> Sean Metcalf (ADSecurity.org) — How Attackers Use Kerberos Silver Tickets to Exploit Systems — https://adsecurity.org/?p=2011
+- <strong>Foundational:</strong> Microsoft Learn — Kerberos authentication overview — https://learn.microsoft.com/en-us/windows-server/security/kerberos/kerberos-authentication-overview
+- <strong>Hardening:</strong> Microsoft Learn — Group Managed Service Accounts overview — https://learn.microsoft.com/en-us/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview</p>
+<h2 id="gmsa-and-modern-service-account-hardening">gmsa-and-modern-service-account-hardening</h2>
+<p>Preferred references:
+- <strong>Hardening:</strong> Microsoft Learn — Group Managed Service Accounts overview — https://learn.microsoft.com/en-us/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview
+- <strong>Hardening:</strong> Microsoft Learn — Get started with group Managed Service Accounts — https://learn.microsoft.com/en-us/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts
+- <strong>Foundational:</strong> MITRE ATT&amp;CK T1558.003 — Kerberoasting — https://attack.mitre.org/techniques/T1558/003/
+- <strong>Research / Deep Dive:</strong> Sean Metcalf (ADSecurity.org) — Active Directory Security Tip #14: Group Managed Service Accounts (GMSAs) — https://adsecurity.org/?p=4904</p>
+<h2 id="krbtgt-rotation-and-tier-zero-recovery">krbtgt-rotation-and-tier-zero-recovery</h2>
+<p>Preferred references:
+- <strong>Recovery:</strong> Microsoft Learn — AD Forest Recovery: Reset the krbtgt password — https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-reset-the-krbtgt-password
+- <strong>Recovery:</strong> Microsoft Learn — AD Forest Recovery Guide — https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-guide
+- <strong>Foundational:</strong> MITRE ATT&amp;CK T1558.001 — Golden Ticket — https://attack.mitre.org/techniques/T1558/001/
+- <strong>Recovery:</strong> Microsoft Security Blog — KRBTGT Account Password Reset Scripts now available for customers — https://www.microsoft.com/en-us/security/blog/2015/02/11/krbtgt-account-password-reset-scripts-now-available-for-customers/</p>
 <hr />
 <h2 id="registry-usage-rules">Registry usage rules</h2>
 <ul>
@@ -436,6 +464,10 @@
 <a class="toc-level-2" href="#as-rep-roasting">as-rep-roasting</a>
 <a class="toc-level-2" href="#bloodhound-attack-path-analysis">bloodhound-attack-path-analysis</a>
 <a class="toc-level-2" href="#dcsync-and-ntdsdit-extraction">dcsync-and-ntdsdit-extraction</a>
+<a class="toc-level-2" href="#golden-ticket-and-krbtgt-compromise">golden-ticket-and-krbtgt-compromise</a>
+<a class="toc-level-2" href="#silver-ticket-and-service-account-persistence">silver-ticket-and-service-account-persistence</a>
+<a class="toc-level-2" href="#gmsa-and-modern-service-account-hardening">gmsa-and-modern-service-account-hardening</a>
+<a class="toc-level-2" href="#krbtgt-rotation-and-tier-zero-recovery">krbtgt-rotation-and-tier-zero-recovery</a>
 <a class="toc-level-2" href="#registry-usage-rules">Registry usage rules</a>
 <a class="back-to-top" href="#top">Back to top</a></div></aside>
 </div>

@@ -292,13 +292,17 @@
 <a class="sidebar-link kind-concept" href="../devsecops/secure-by-design.html">Secure by Design</a>
 <a class="sidebar-link kind-concept" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
-<details class="branch branch-red" open><summary><span>Identity &amp; Active Directory</span><small>5</small></summary>
+<details class="branch branch-red" open><summary><span>Identity &amp; Active Directory</span><small>9</small></summary>
 <p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
 <a class="sidebar-link kind-index" href="index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="as-rep-roasting.html">AS-REP Roasting</a>
 <a class="sidebar-link kind-concept" href="bloodhound-attack-path-analysis.html">BloodHound and Attack Path Analysis</a>
 <a class="sidebar-link kind-concept active" href="dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a>
+<a class="sidebar-link kind-concept" href="gmsa-and-modern-service-account-hardening.html">gMSA and Modern Service Account Hardening</a>
+<a class="sidebar-link kind-concept" href="golden-ticket-and-krbtgt-compromise.html">Golden Ticket and KRBTGT Compromise</a>
 <a class="sidebar-link kind-concept" href="kerberoasting.html">Kerberoasting</a>
+<a class="sidebar-link kind-concept" href="krbtgt-rotation-and-tier-zero-recovery.html">KRBTGT Rotation and Tier Zero Recovery</a>
+<a class="sidebar-link kind-concept" href="silver-ticket-and-service-account-persistence.html">Silver Ticket and Service Account Persistence</a>
 </details>
 <div class="sidebar-group-label">Always-on</div>
 <details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
@@ -421,10 +425,10 @@ impacket-secretsdump<span class="w"> </span>LAB.LOCAL/svc_replication:<span clas
 <h2 id="impact">Impact</h2>
 <p>Ordered by typical real-world severity:</p>
 <ul>
-<li><strong>Permanent domain compromise via Golden Ticket.</strong> The defining impact. Recovered <code>krbtgt</code> hash allows the attacker to forge TGTs valid for any principal in any group, default lifetime 10 years, with the TGT itself accepted offline by any KDC in the domain.</li>
+<li><strong>Permanent domain compromise via Golden Ticket.</strong> The defining impact. Recovered <code>krbtgt</code> hash allows the attacker to forge TGTs valid for any principal in any group, default lifetime 10 years, with the TGT itself accepted offline by any KDC in the domain. See <a href="golden-ticket-and-krbtgt-compromise.html">Golden Ticket and KRBTGT Compromise</a> for the trust-root abuse model.</li>
 <li><strong>Forest-wide compromise via cross-domain trusts.</strong> If the compromised domain is in a forest with a trusted root domain, Golden Tickets in the child domain often impersonate enterprise-admin-equivalent identities forest-wide.</li>
 <li><strong>Pass-the-Hash lateral movement to every endpoint.</strong> Recovered NTLM hashes work directly with SMB, WinRM, RDP (via restricted-admin), MSSQL, and any service that trusts NTLM. The attacker can effectively log in as any user without ever knowing a plaintext password.</li>
-<li><strong>Silver Tickets for stealthy service-specific persistence.</strong> Service account hash → service-scoped TGS forgery. No DC contact required after the initial DCSync, so persistence survives even if the original DCSync principal is remediated.</li>
+<li><strong>Silver Tickets for stealthy service-specific persistence.</strong> Service account hash → <a href="silver-ticket-and-service-account-persistence.html">service-scoped TGS forgery</a>. No DC contact required after the initial DCSync, so persistence survives even if the original DCSync principal is remediated.</li>
 <li><strong>Total loss of forensic ground truth.</strong> Once <code>krbtgt</code> is compromised, every authentication event in the domain is forensically suspect. Incident response must assume any user could be impersonated and any session forged.</li>
 </ul>
 <h2 id="detection-and-defense">Detection and defense</h2>
@@ -530,6 +534,9 @@ impacket-psexec<span class="w"> </span>LAB.LOCAL/Administrator@DC01.lab.local<sp
 <li><a href="kerberoasting.html">kerberoasting</a> — the typical <em>predecessor</em> attack: Kerberoasting frequently yields a service account with DCSync rights.</li>
 <li><a href="as-rep-roasting.html">as-rep-roasting</a> — same family, alternative path to a credential that may have replication rights.</li>
 <li><a href="bloodhound-attack-path-analysis.html">bloodhound-attack-path-analysis</a> — the targeting tool; its pre-built "Principals with DCSync Rights" query is the canonical enumeration step.</li>
+<li><a href="golden-ticket-and-krbtgt-compromise.html">golden-ticket-and-krbtgt-compromise</a> — the natural post-DCSync Kerberos trust-root abuse path after <code>krbtgt</code> material is recovered.</li>
+<li><a href="krbtgt-rotation-and-tier-zero-recovery.html">krbtgt-rotation-and-tier-zero-recovery</a> — the recovery operation required when DCSync may have exposed <code>krbtgt</code>.</li>
+<li><a href="silver-ticket-and-service-account-persistence.html">silver-ticket-and-service-account-persistence</a> — the service-account ticket-forgery path when DCSync recovers service keys rather than only <code>krbtgt</code>.</li>
 <li><a href="../foundations/cia-triad-and-what-it-actually-decides.html">CIA triad</a> — DCSync is a confidentiality breach (mass hash exposure) followed by integrity + authenticity breach (forged tickets impersonating any principal).</li>
 <li><a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality</a> — the same <code>MATCH (n)-[:DCSync]-&gt;(:Domain)</code> Cypher query is used by both attackers (find targets) and defenders (find findings).</li>
 <li><a href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral vs signature detection</a> — DCSync detection is purely behavioral (legitimate replication vs anomalous replication source).</li>
@@ -537,11 +544,8 @@ impacket-psexec<span class="w"> </span>LAB.LOCAL/Administrator@DC01.lab.local<sp
 </ul>
 <h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: golden-ticket-and-krbtgt-compromise">golden-ticket-and-krbtgt-compromise</span> — the natural next note: what to do with a DCSync'd krbtgt hash. (Already seeded from <a href="kerberoasting.html">kerberoasting</a>.)</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: silver-ticket-and-service-account-persistence">silver-ticket-and-service-account-persistence</span> — service-account ticket forgery. (Already seeded from <a href="kerberoasting.html">kerberoasting</a>.)</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: pass-the-hash-and-ntlm-credential-reuse">pass-the-hash-and-ntlm-credential-reuse</span> — what to do with the user hashes DCSync extracts.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: dcshadow-and-rogue-dc-attacks">dcshadow-and-rogue-dc-attacks</span> — the stealthy DCSync sibling.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: krbtgt-rotation-and-tier-zero-recovery">krbtgt-rotation-and-tier-zero-recovery</span> — the canonical recovery procedure after suspected compromise.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: exchange-ad-permission-legacy-issues">exchange-ad-permission-legacy-issues</span> — the recurring source of misconfigured replication rights.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: detect-dcsync-and-ntdsdit-access">detect-dcsync-and-ntdsdit-access</span> — defender-side playbook pair.</li>
 </ul>
@@ -556,10 +560,10 @@ impacket-psexec<span class="w"> </span>LAB.LOCAL/Administrator@DC01.lab.local<sp
 <div class="related-grid">
 <a class="related-card" href="as-rep-roasting.html"><span>Identity &amp; Active Directory</span><strong>AS-REP Roasting</strong><small>AS-REP Roasting is an Active Directory credential attack where an attacker exploits accounts with **Kerberos pre-authentication disabled** by sending an AS-REQ...</small></a>
 <a class="related-card" href="bloodhound-attack-path-analysis.html"><span>Identity &amp; Active Directory</span><strong>BloodHound and Attack Path Analysis</strong><small>BloodHound is an open-source graph-analysis tool that models **Active Directory as a directed graph of principals** (users, groups, computers, GPOs, OUs, domains)...</small></a>
+<a class="related-card" href="golden-ticket-and-krbtgt-compromise.html"><span>Identity &amp; Active Directory</span><strong>Golden Ticket and KRBTGT Compromise</strong><small>A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain&#x27;s krbtgt account. It is not...</small></a>
 <a class="related-card" href="kerberoasting.html"><span>Identity &amp; Active Directory</span><strong>Kerberoasting</strong><small>Kerberoasting is an Active Directory credential attack where an authenticated domain user requests **TGS service tickets** for accounts that have a Service...</small></a>
-<a class="related-card" href="../offensive-security/active-recon.html"><span>Offensive Security / Recon</span><strong>Active Recon</strong><small>Active recon is information gathering that directly interacts with target infrastructure, services, or applications to validate or extend what passive recon...</small></a>
-<a class="related-card" href="../offensive-security/cloaking-and-security-evasion.html"><span>Offensive Security / Recon</span><strong>Cloaking and Security Evasion</strong><small>Cloaking is the practice of showing different behavior to different visitors based on signals such as IP, geography, ASN, reverse DNS, User-Agent, browser...</small></a>
-<a class="related-card" href="../offensive-security/company-mapping.html"><span>Offensive Security / Recon</span><strong>Company Mapping</strong><small>Company mapping is the process of connecting domains, brands, subsidiaries, acquisitions, vendors, public identities, products, and infrastructure clues into a...</small></a>
+<a class="related-card" href="silver-ticket-and-service-account-persistence.html"><span>Identity &amp; Active Directory</span><strong>Silver Ticket and Service Account Persistence</strong><small>A Silver Ticket is a forged Kerberos **service ticket** (TGS) created with a compromised service account key rather than the domain-wide krbtgt key. It is...</small></a>
+<a class="related-card" href="gmsa-and-modern-service-account-hardening.html"><span>Identity &amp; Active Directory</span><strong>gMSA and Modern Service Account Hardening</strong><small>A group Managed Service Account (gMSA) is an Active Directory-managed service identity whose password is long, random, automatically rotated, and retrievable only...</small></a>
 </div></section>
 </article>
 </main>

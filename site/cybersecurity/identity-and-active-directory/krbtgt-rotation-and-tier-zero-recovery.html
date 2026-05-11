@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KRBTGT Rotation and Tier Zero Recovery - Identity &amp; Active Directory | ldamoredev Security Atlas</title>
+<meta name="description" content="KRBTGT rotation is the controlled reset of the domain&#x27;s krbtgt account password material so previously stolen Kerberos ticket-signing keys can no longer validate...">
+<meta name="author" content="ldamoredev">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Identity &amp; Active Directory, KRBTGT Rotation and Tier Zero Recovery, active-directory, kerberos, krbtgt, incident-response, tier-zero">
+<meta name="theme-color" content="#256d85">
+<link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:type" content="article">
+<meta property="article:section" content="Identity &amp; Active Directory">
+<meta property="og:title" content="KRBTGT Rotation and Tier Zero Recovery - Identity &amp; Active Directory | ldamoredev Security Atlas">
+<meta property="og:description" content="KRBTGT rotation is the controlled reset of the domain&#x27;s krbtgt account password material so previously stolen Kerberos ticket-signing keys can no longer validate...">
+<meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">
+<meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KRBTGT Rotation and Tier Zero Recovery - Identity &amp; Active Directory | ldamoredev Security Atlas">
+<meta name="twitter:description" content="KRBTGT rotation is the controlled reset of the domain&#x27;s krbtgt account password material so previously stolen Kerberos ticket-signing keys can no longer validate...">
+<meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"KRBTGT Rotation and Tier Zero Recovery - Identity & Active Directory | ldamoredev Security Atlas","headline":"KRBTGT Rotation and Tier Zero Recovery","description":"KRBTGT rotation is the controlled reset of the domain's krbtgt account password material so previously stolen Kerberos ticket-signing keys can no longer validate...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identity & Active Directory","KRBTGT Rotation and Tier Zero Recovery","active-directory","kerberos","krbtgt","incident-response","tier-zero"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identity & Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"KRBTGT Rotation and Tier Zero Recovery","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html"}]}]</script>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body id="top" data-root="../..">
+<header class="topbar">
+  <button id="sidebar-toggle" title="Toggle navigation" aria-label="Toggle navigation">☰</button>
+  <a class="brand" href="../../index.html"><span>ldamoredev</span><small>security atlas</small></a>
+  <div class="search-shell">
+    <input id="search" type="search" placeholder="Search notes..." autocomplete="off">
+    <kbd>/</kbd>
+  </div>
+  <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+<div id="search-results" hidden></div>
+<div class="layout with-toc">
+<nav class="sidebar">
+<a class="sidebar-home" href="../../index.html">Atlas Home</a>
+<div class="sidebar-section"><h3>Cybersecurity</h3>
+<a class="sidebar-link kind-index" href="../index.html">Cybersecurity Index</a>
+<a class="sidebar-link kind-concept" href="../start-here.html">Start Here — Cybersecurity Vault Triage</a>
+<a class="sidebar-link kind-concept" href="../must-know-30.html">Must-Know 30 — The Minimum Viable Security Literacy</a>
+<a class="sidebar-link kind-concept" href="../phase-1-substrate.html">Phase 1 — Substrate (How Things Actually Work)</a>
+<a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
+<a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
+<a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<div class="sidebar-group-label">Orientation</div>
+<details class="branch branch-amber"><summary><span>Foundations</span><small>5</small></summary>
+<p class="sidebar-summary">Phase 0 mental models — what cybersecurity is, the CIA triad as a decision tool, threat-modeling quickstart, and the attacker-defender duality.</p>
+<a class="sidebar-link kind-index" href="../foundations/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality as a Learning Tool</a>
+<a class="sidebar-link kind-concept" href="../foundations/cia-triad-and-what-it-actually-decides.html">CIA Triad — What It Actually Decides</a>
+<a class="sidebar-link kind-concept" href="../foundations/threat-modeling-quickstart.html">Threat Modeling Quickstart</a>
+<a class="sidebar-link kind-concept" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html">What Is Cybersecurity, and Why It Is Not a Tool List</a>
+</details>
+<div class="sidebar-group-label">Substrate</div>
+<details class="branch branch-emerald"><summary><span>Cryptography</span><small>15</small></summary>
+<p class="sidebar-summary">Hashes, encryption, signatures, key exchange, TLS/PKI, password storage, and token correctness.</p>
+<a class="sidebar-link kind-index" href="../cryptography/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../cryptography/aead-and-nonce-misuse.html">AEAD and Nonce Misuse</a>
+<a class="sidebar-link kind-concept" href="../cryptography/asymmetric-encryption-and-key-exchange.html">Asymmetric Encryption and Key Exchange</a>
+<a class="sidebar-link kind-concept" href="../cryptography/certificate-validation-and-pinning.html">Certificate Validation and Pinning</a>
+<a class="sidebar-link kind-concept" href="../cryptography/digital-signatures.html">Digital Signatures</a>
+<a class="sidebar-link kind-concept" href="../cryptography/hashing-vs-encryption-vs-signing.html">Hashing vs Encryption vs Signing</a>
+<a class="sidebar-link kind-concept" href="../cryptography/jwt-cryptographic-correctness.html">JWT Cryptographic Correctness</a>
+<a class="sidebar-link kind-concept" href="../cryptography/kdf-and-key-stretching.html">KDF and Key Stretching</a>
+<a class="sidebar-link kind-concept" href="../cryptography/mac-and-hmac.html">MAC and HMAC</a>
+<a class="sidebar-link kind-concept" href="../cryptography/password-hashing.html">Password Hashing</a>
+<a class="sidebar-link kind-concept" href="../cryptography/post-quantum-awareness.html">Post-Quantum Awareness</a>
+<a class="sidebar-link kind-concept" href="../cryptography/random-and-csprng-pitfalls.html">Random and CSPRNG Pitfalls</a>
+<a class="sidebar-link kind-concept" href="../cryptography/roll-your-own-crypto-failures.html">Roll Your Own Crypto Failures</a>
+<a class="sidebar-link kind-concept" href="../cryptography/symmetric-encryption-modes.html">Symmetric Encryption Modes</a>
+<a class="sidebar-link kind-concept" href="../cryptography/tls-handshake-and-pki.html">TLS Handshake and PKI</a>
+</details>
+<details class="branch branch-sky"><summary><span>Networking</span><small>23</small></summary>
+<p class="sidebar-summary">Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p>
+<a class="sidebar-link kind-index" href="../networking/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/caching-and-security.html">Caching and Security</a>
+<a class="sidebar-link kind-concept" href="../networking/client-ip-trust.html">Client IP Trust</a>
+<a class="sidebar-link kind-concept" href="../networking/metadata-endpoints.html">Cloud Instance Metadata Endpoints</a>
+<a class="sidebar-link kind-concept" href="../networking/cookies-and-sessions.html">Cookies and Sessions</a>
+<a class="sidebar-link kind-concept" href="../networking/dangling-dns-records.html">Dangling DNS Records</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-resolution.html">DNS Resolution</a>
+<a class="sidebar-link kind-concept" href="../networking/dns-security.html">DNS Security</a>
+<a class="sidebar-link kind-concept" href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../networking/header-trust-in-node-express.html">Header Trust in Node Express</a>
+<a class="sidebar-link kind-concept" href="../networking/http-headers.html">HTTP Headers</a>
+<a class="sidebar-link kind-concept" href="../networking/http-messages.html">HTTP Messages</a>
+<a class="sidebar-link kind-concept" href="../networking/http-overview.html">HTTP Overview</a>
+<a class="sidebar-link kind-concept" href="../networking/load-balancers.html">Load Balancers</a>
+<a class="sidebar-link kind-concept" href="../networking/nat-and-private-networks.html">NAT and Private Networks</a>
+<a class="sidebar-link kind-concept" href="../networking/nmap-scanning.html">Nmap Scanning</a>
+<a class="sidebar-link kind-concept" href="../networking/packet-analysis.html">Packet Analysis</a>
+<a class="sidebar-link kind-concept" href="../networking/ports-and-services.html">Ports and Services</a>
+<a class="sidebar-link kind-concept" href="../networking/reverse-proxies.html">Reverse Proxies</a>
+<a class="sidebar-link kind-concept" href="../networking/service-enumeration.html">Service Enumeration</a>
+<a class="sidebar-link kind-concept" href="../networking/tcp-ip-basics.html">TCP/IP Basics</a>
+<a class="sidebar-link kind-concept" href="../networking/tls-https.html">TLS and HTTPS</a>
+<a class="sidebar-link kind-concept" href="../networking/wireshark-workflows.html">Wireshark Workflows</a>
+</details>
+<details class="branch branch-blue"><summary><span>Web Security</span><small>27</small></summary>
+<p class="sidebar-summary">Browser behavior, sessions, access control, and server-side exploit patterns.</p>
+<a class="sidebar-link kind-index" href="../web-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../web-security/auth-flaws.html">Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../web-security/bot-detection-signals.html">Bot Detection Signals</a>
+<a class="sidebar-link kind-concept" href="../web-security/broken-access-control.html">Broken Access Control</a>
+<a class="sidebar-link kind-concept" href="../web-security/business-logic-vulnerabilities.html">Business Logic Vulnerabilities</a>
+<a class="sidebar-link kind-concept" href="../web-security/clickjacking.html">Clickjacking</a>
+<a class="sidebar-link kind-concept" href="../web-security/command-injection.html">Command Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/content-security-policy.html">Content Security Policy</a>
+<a class="sidebar-link kind-concept" href="../web-security/cors-misconfiguration.html">CORS Misconfiguration</a>
+<a class="sidebar-link kind-concept" href="../web-security/csrf.html">Cross-Site Request Forgery (CSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/xss.html">Cross-Site Scripting (XSS)</a>
+<a class="sidebar-link kind-concept" href="../web-security/evilginx-and-reverse-proxy-phishing.html">Evilginx and Reverse Proxy Phishing</a>
+<a class="sidebar-link kind-concept" href="../web-security/file-upload-abuse.html">File Upload Abuse</a>
+<a class="sidebar-link kind-concept" href="../web-security/gadget-chains.html">Gadget Chains</a>
+<a class="sidebar-link kind-concept" href="../web-security/deserialization.html">Insecure Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/idor.html">Insecure Direct Object Reference (IDOR)</a>
+<a class="sidebar-link kind-concept" href="../web-security/mfa-phishing-resistance.html">MFA Phishing Resistance</a>
+<a class="sidebar-link kind-concept" href="../web-security/oauth-security.html">OAuth Security</a>
+<a class="sidebar-link kind-concept" href="../web-security/open-redirect.html">Open Redirect</a>
+<a class="sidebar-link kind-concept" href="../web-security/owasp-top-10.html">OWASP Top 10</a>
+<a class="sidebar-link kind-concept" href="../web-security/path-traversal.html">Path Traversal</a>
+<a class="sidebar-link kind-concept" href="../web-security/phar-deserialization.html">PHAR Deserialization</a>
+<a class="sidebar-link kind-concept" href="../web-security/request-smuggling.html">Request Smuggling</a>
+<a class="sidebar-link kind-concept" href="../web-security/ssrf.html">Server-Side Request Forgery (SSRF)</a>
+<a class="sidebar-link kind-concept" href="../web-security/session-management.html">Session Management</a>
+<a class="sidebar-link kind-concept" href="../web-security/sql-injection.html">SQL Injection</a>
+<a class="sidebar-link kind-concept" href="../web-security/xxe.html">XXE</a>
+</details>
+<div class="sidebar-group-label">Paired</div>
+<details class="branch branch-rose"><summary><span>Offensive Security / Recon</span><small>18</small></summary>
+<p class="sidebar-summary">Discovery, validation, and handoff from recon into concrete testing.</p>
+<a class="sidebar-link kind-index" href="../offensive-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/active-recon.html">Active Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/cloaking-and-security-evasion.html">Cloaking and Security Evasion</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/company-mapping.html">Company Mapping</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/enumeration.html">Enumeration</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/nmap-timing-and-evasion.html">Nmap Timing and Evasion</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/passive-recon.html">Passive Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/public-asset-discovery.html">Public Asset Discovery</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/recon.html">Recon</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/rustscan-and-nse-pipeline.html">RustScan and NSE Pipeline</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/scope-validation.html">Scope Validation</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/service-validation.html">Service Validation</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
+<a class="sidebar-link kind-concept" href="../offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Detection Engineering</span><small>12</small></summary>
+<p class="sidebar-summary">Telemetry, behavioral analytics, correlation, and detection tradeoffs.</p>
+<a class="sidebar-link kind-index" href="../detection-engineering/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation and Kill Chain Observability</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral Detection vs Signature Detection</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/detection-evasion-myths-and-modern-limitations.html">Detection Evasion Myths and Modern Limitations</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/edr-network-observability-and-process-correlation.html">EDR Network Observability and Process Correlation</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html">Encrypted Traffic Analysis and Metadata Leakage</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html">False Positives, False Negatives, and Detection Tradeoffs</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html">IDS/IPS and Behavioral Detection Pipelines</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/network-telemetry-sources-and-visibility.html">Network Telemetry Sources and Visibility</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Scan Anomaly Detection and Fingerprint Analysis</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/telemetry-normalization-correlation-and-enrichment.html">Telemetry Normalization, Correlation, and Enrichment</a>
+<a class="sidebar-link kind-concept" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html">Zeek, Suricata, and NetFlow Analysis</a>
+</details>
+<div class="sidebar-group-label">Operator</div>
+<details class="branch branch-amber"><summary><span>Attack Surface Mapping</span><small>11</small></summary>
+<p class="sidebar-summary">What is exposed, reachable, discoverable, and drifting from intended design.</p>
+<a class="sidebar-link kind-index" href="../attack-surface-mapping/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/admin-interface-discovery.html">Admin Interface Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/attack-surface-mapping.html">Attack Surface Mapping</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/deprecated-api-versions.html">Deprecated API Versions</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/endpoint-discovery.html">Endpoint Discovery</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-service-triage.html">Exposed Service Triage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/exposed-storage.html">Exposed Storage</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/internal-attack-surface.html">Internal Attack Surface</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a>
+<a class="sidebar-link kind-concept" href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a>
+</details>
+<details class="branch branch-violet"><summary><span>OSINT</span><small>11</small></summary>
+<p class="sidebar-summary">Public-source collection, evidence quality, and ethical handling of clues.</p>
+<a class="sidebar-link kind-index" href="../osint/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../osint/breach-and-leak-intelligence.html">Breach and Leak Intelligence</a>
+<a class="sidebar-link kind-concept" href="../osint/company-osint.html">Company OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/email-and-phone-osint.html">Email and Phone OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/google-dorking.html">Google Dorking</a>
+<a class="sidebar-link kind-concept" href="../osint/image-and-location-osint.html">Image and Location OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint.html">OSINT</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-reporting.html">OSINT Reporting</a>
+<a class="sidebar-link kind-concept" href="../osint/osint-triage.html">OSINT Triage</a>
+<a class="sidebar-link kind-concept" href="../osint/search-engine-operators.html">Search Engine Operators</a>
+<a class="sidebar-link kind-concept" href="../osint/social-media-osint.html">Social Media OSINT</a>
+</details>
+<details class="branch branch-orange"><summary><span>Linux Privilege Escalation</span><small>10</small></summary>
+<p class="sidebar-summary">Local boundary failures, enumeration, and safe escalation hypothesis testing.</p>
+<a class="sidebar-link kind-index" href="../linux-privilege-escalation/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/cron-and-timer-abuse.html">Cron and Timer Abuse</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/kernel-exploit-triage.html">Kernel Exploit Triage</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linpeas-workflow.html">LinPEAS Workflow</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-capabilities.html">Linux Capabilities</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-enumeration.html">Linux Enumeration</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/linux-privilege-escalation.html">Linux Privilege Escalation</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/path-hijacking.html">PATH Hijacking</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
+<a class="sidebar-link kind-concept" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
+</details>
+<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>13</small></summary>
+<p class="sidebar-summary">Repeatable procedures for turning concepts into practical tests.</p>
+<a class="sidebar-link kind-index" href="../security-playbooks/index.html">Overview</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-sqli.html">Exploit SQL Injection</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-file-upload-surface.html">Inspect File Upload Surface</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/inspect-session-handling.html">Inspect Session Handling</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/run-scan-pipeline.html">Run External Recon Scan Pipeline</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-client-ip-spoofing.html">Test Client IP Spoofing</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-cors-behavior.html">Test CORS Behavior</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/test-path-traversal.html">Test Path Traversal</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/trace-metadata-endpoint-reachability.html">Trace Metadata Endpoint Reachability</a>
+</details>
+<div class="sidebar-group-label">Specialty</div>
+<details class="branch branch-teal"><summary><span>Wireless Security</span><small>11</small></summary>
+<p class="sidebar-summary">Wi-Fi frames, handshakes, rogue access points, and local-network MITM.</p>
+<a class="sidebar-link kind-index" href="../wireless-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/arp-poisoning.html">ARP Poisoning</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/bettercap-workflows.html">Bettercap Workflows</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/evil-twin-access-points.html">Evil Twin Access Points</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/mitm-on-local-networks.html">MITM on Local Networks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wep-security.html">WEP Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-deauthentication.html">Wi-Fi Deauthentication</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-monitor-mode.html">Wi-Fi Monitor Mode</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wifi-wordlist-attacks.html">Wi-Fi Wordlist Attacks</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wireless-security.html">Wireless Security</a>
+<a class="sidebar-link kind-concept" href="../wireless-security/wpa-wpa2-handshakes.html">WPA/WPA2 Handshakes</a>
+</details>
+<details class="branch branch-indigo"><summary><span>API Security</span><small>15</small></summary>
+<p class="sidebar-summary">Authorization, token trust, inventory drift, and machine-readable abuse.</p>
+<a class="sidebar-link kind-index" href="../api-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-auth-flaws.html">API Authentication Flaws</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-inventory-management.html">API Inventory Management</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-rate-limiting.html">API Rate Limiting</a>
+<a class="sidebar-link kind-concept" href="../api-security/api-security-top-10.html">API Security Top 10</a>
+<a class="sidebar-link kind-concept" href="../api-security/authorization.html">Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-authentication.html">Broken Authentication</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-function-level-authorization.html">Broken Function Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-level-authorization.html">Broken Object Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/broken-object-property-level-authorization.html">Broken Object Property Level Authorization</a>
+<a class="sidebar-link kind-concept" href="../api-security/excessive-data-exposure.html">Excessive Data Exposure</a>
+<a class="sidebar-link kind-concept" href="../api-security/jwt-attacks.html">JWT Attacks</a>
+<a class="sidebar-link kind-concept" href="../api-security/mass-assignment.html">Mass Assignment</a>
+<a class="sidebar-link kind-concept" href="../api-security/polymorphic-deserialization.html">Polymorphic Deserialization</a>
+<a class="sidebar-link kind-concept" href="../api-security/token-lifecycle.html">Token Lifecycle</a>
+</details>
+<details class="branch branch-cyan"><summary><span>Cloud Security</span><small>11</small></summary>
+<p class="sidebar-summary">IAM, metadata, storage, network boundaries, secrets, and logging controls.</p>
+<a class="sidebar-link kind-index" href="../cloud-security/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-dns-and-certbot.html">Cloud DNS and Certbot</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-iam-boundaries.html">Cloud IAM Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-network-boundaries.html">Cloud Network Boundaries</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-secrets-management.html">Cloud Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/cloud-security-basics.html">Cloud Security Basics</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/public-cloud-storage-exposure.html">Public Cloud Storage Exposure</a>
+<a class="sidebar-link kind-concept" href="../cloud-security/ssh-access-to-cloud-hosts.html">SSH Access to Cloud Hosts</a>
+</details>
+<details class="branch branch-green"><summary><span>DevSecOps</span><small>13</small></summary>
+<p class="sidebar-summary">Secure delivery, CI/CD hardening, supply chain, secrets, and release trust.</p>
+<a class="sidebar-link kind-index" href="../devsecops/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../devsecops/artifact-integrity.html">Artifact Integrity</a>
+<a class="sidebar-link kind-concept" href="../devsecops/asvs-as-dev-process-input.html">ASVS as Dev Process Input</a>
+<a class="sidebar-link kind-concept" href="../devsecops/branch-protection-and-release-controls.html">Branch Protection and Release Controls</a>
+<a class="sidebar-link kind-concept" href="../devsecops/ci-cd-hardening.html">CI/CD Hardening</a>
+<a class="sidebar-link kind-concept" href="../devsecops/container-security.html">Container Security</a>
+<a class="sidebar-link kind-concept" href="../devsecops/dependency-risk.html">Dependency Risk</a>
+<a class="sidebar-link kind-concept" href="../devsecops/image-scanning.html">Image Scanning</a>
+<a class="sidebar-link kind-concept" href="../devsecops/nist-ssdf.html">NIST SSDF</a>
+<a class="sidebar-link kind-concept" href="../devsecops/sbom-and-provenance.html">SBOM and Provenance</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secrets-management.html">Secrets Management</a>
+<a class="sidebar-link kind-concept" href="../devsecops/secure-by-design.html">Secure by Design</a>
+<a class="sidebar-link kind-concept" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
+</details>
+<details class="branch branch-red" open><summary><span>Identity &amp; Active Directory</span><small>9</small></summary>
+<p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
+<a class="sidebar-link kind-index" href="index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="as-rep-roasting.html">AS-REP Roasting</a>
+<a class="sidebar-link kind-concept" href="bloodhound-attack-path-analysis.html">BloodHound and Attack Path Analysis</a>
+<a class="sidebar-link kind-concept" href="dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a>
+<a class="sidebar-link kind-concept" href="gmsa-and-modern-service-account-hardening.html">gMSA and Modern Service Account Hardening</a>
+<a class="sidebar-link kind-concept" href="golden-ticket-and-krbtgt-compromise.html">Golden Ticket and KRBTGT Compromise</a>
+<a class="sidebar-link kind-concept" href="kerberoasting.html">Kerberoasting</a>
+<a class="sidebar-link kind-concept active" href="krbtgt-rotation-and-tier-zero-recovery.html">KRBTGT Rotation and Tier Zero Recovery</a>
+<a class="sidebar-link kind-concept" href="silver-ticket-and-service-account-persistence.html">Silver Ticket and Service Account Persistence</a>
+</details>
+<div class="sidebar-group-label">Always-on</div>
+<details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
+<p class="sidebar-summary">VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.</p>
+<a class="sidebar-link kind-index" href="../privacy-anonymity-opsec/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/account-correlation.html">Account Correlation</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/anonymity-threat-models.html">Anonymity Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/browser-fingerprinting.html">Browser Fingerprinting</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html">Corporate VPNs vs Consumer VPNs</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/deanonymization-failures.html">Deanonymization Failures</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/end-to-end-encryption.html">End-to-End Encryption</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/file-metadata-removal.html">File Metadata Removal</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/metadata-and-identity-leakage.html">Metadata and Identity Leakage</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/opsec-failure-chains.html">OPSEC Failure Chains</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/pgp-encryption-and-signatures.html">PGP Encryption and Signatures</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/privacy-vs-anonymity-vs-confidentiality.html">Privacy vs Anonymity vs Confidentiality</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/private-email-threat-models.html">Private Email Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/qubes-compartmentalization.html">Qubes Compartmentalization</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/secure-deletion-and-storage-wiping.html">Secure Deletion and Storage Wiping</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/secure-file-sharing.html">Secure File Sharing</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tails-operational-model.html">Tails Operational Model</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/temporary-email-risks.html">Temporary Email Risks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-and-onion-services.html">Tor and Onion Services</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-bridges-and-pluggable-transports.html">Tor Bridges and Pluggable Transports</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/tor-browser-security-settings.html">Tor Browser Security Settings</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/traffic-correlation.html">Traffic Correlation</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-dns-and-ipv6-leaks.html">VPN DNS and IPv6 Leaks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-fingerprinting-limitations.html">VPN Fingerprinting Limitations</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-kill-switches.html">VPN Kill Switches</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-leakage-risks.html">VPN Leakage Risks</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-logging-and-trust.html">VPN Logging and Trust</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-protocols.html">VPN Protocols</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-threat-models.html">VPN Threat Models</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-vs-tor.html">VPN vs Tor</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/vpn-with-tor.html">VPN with Tor</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/whonix-gateway.html">Whonix Gateway</a>
+<a class="sidebar-link kind-concept" href="../privacy-anonymity-opsec/xmpp-and-private-messaging.html">XMPP and Private Messaging</a>
+</details>
+<details class="registry-group"><summary>Reference System <span>16</span></summary>
+<a class="sidebar-link kind-registry" href="../reference-registry.html">Cybersecurity Reference Registry</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-detection-engineering.html">Reference Registry - Detection Engineering</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-privacy-anonymity-opsec.html">Reference Registry - Privacy, Anonymity &amp; OPSEC</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-api-security.html">Reference Registry — API Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-cryptography.html">Reference Registry — Cryptography</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-devsecops.html">Reference Registry — DevSecOps</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-identity-and-active-directory.html">Reference Registry — Identity and Active Directory</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-linux-privilege-escalation.html">Reference Registry — Linux Privilege Escalation</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-networking.html">Reference Registry — Networking</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-offensive-security.html">Reference Registry — Offensive Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-osint.html">Reference Registry — OSINT</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-playbooks.html">Reference Registry — Playbooks</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-web-security.html">Reference Registry — Web Security</a>
+<a class="sidebar-link kind-registry" href="../reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
+</details>
+</div>
+</nav>
+<main class="content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Identity &amp; Active Directory</a><span>/</span><span>KRBTGT Rotation and Tier Zero Recovery</span></nav>
+<header class="page-hero">
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-red">Identity &amp; Active Directory</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#active-directory</span><span class="meta-chip tag">#kerberos</span><span class="meta-chip tag">#krbtgt</span><span class="meta-chip tag">#incident-response</span><span class="meta-chip tag">#tier-zero</span><span class="meta-chip tag">#recovery</span></div>
+</header>
+<article class="article-note">
+<h1 id="krbtgt-rotation-and-tier-zero-recovery">KRBTGT Rotation and Tier Zero Recovery</h1>
+<h2 id="definition">Definition</h2>
+<p>KRBTGT rotation is the controlled reset of the domain's <code>krbtgt</code> account password material so previously stolen Kerberos ticket-signing keys can no longer validate forged Ticket Granting Tickets. It is not a normal password reset. After suspected <code>krbtgt</code> compromise, it is a Tier 0 recovery operation that must account for ticket lifetimes, password history, domain controller replication, trust relationships, privileged access hygiene, and operational outage risk.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p><a href="golden-ticket-and-krbtgt-compromise.html">Golden Ticket</a> compromise turns AD recovery into a trust-restoration problem. If the attacker has the <code>krbtgt</code> key, they may not need any live user password to authenticate. They can present forged TGTs that appear to belong to real users. Rotating every administrator password while leaving <code>krbtgt</code> unchanged fixes the wrong secret.</p>
+<p>The recovery principle:</p>
+<div class="codehilite"><pre><span></span><code>If krbtgt is compromised, the domain cannot fully trust Kerberos TGTs
+until old krbtgt material is pushed out of validity and replication windows.
+</code></pre></div>
+
+<p>This makes recovery operationally delicate. Rotate too casually and forged tickets remain valid. Rotate too aggressively without replication and dependency planning and legitimate Kerberos authentication can break across the domain.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>KRBTGT recovery depends on <strong>6 mechanics</strong>:</p>
+<ol>
+<li><strong><code>krbtgt</code> signs and encrypts TGTs.</strong> The KDC uses <code>krbtgt</code> password-derived keys to protect TGTs. Services do not know the user's password; they trust Kerberos tickets.</li>
+<li><strong>Domain Controllers cache current and previous keys.</strong> AD keeps previous password material so existing tickets can continue working during normal rotation and replication.</li>
+<li><strong>One reset does not necessarily invalidate all forged tickets.</strong> A forged ticket made with the previous key can remain accepted until the second reset and ticket lifetime/replication windows expire.</li>
+<li><strong>Replication timing matters.</strong> Every DC must receive the new <code>krbtgt</code> password state before the next phase. A DC with stale material can continue validating old tickets or issue inconsistent responses.</li>
+<li><strong>Ticket lifetime matters.</strong> Existing TGTs and renewable tickets may continue until policy limits unless explicitly disrupted by key changes and operational controls.</li>
+<li><strong>Tier 0 containment must precede recovery.</strong> If attackers still control DCSync, DCs, Tier 0 admin sessions, or backups, they can simply steal the new key after rotation.</li>
+</ol>
+<p>The structural lesson is <em>KRBTGT rotation is a sequencing problem</em>. The reset command is small; the recovery operation around it is the work.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<ul>
+<li><strong>Contain before rotating.</strong> Remove or disable suspected DCSync principals, isolate compromised DCs, protect Tier 0 admin workstations, and stop active attacker access before changing the trust root.</li>
+<li><strong>Use the double-reset concept.</strong> First reset moves away from the known compromised key; second reset pushes the compromised key out of the previous-password slot. Wait for replication and ticket lifetimes between resets.</li>
+<li><strong>Validate replication between phases.</strong> Check DC convergence before the second reset. Multi-site domains and offline DCs are the classic failure points.</li>
+<li><strong>Assume backup exposure matters.</strong> If attackers accessed DC backups, snapshots, or <code>ntds.dit</code>, the recovery boundary includes backup protection and restoration paths.</li>
+<li><strong>Account for trusts.</strong> Forest trusts, child domains, external trusts, and SID filtering affect what forged tickets can access and which domains need recovery.</li>
+<li><strong>Separate admin identities.</strong> Use clean Tier 0 credentials from trusted PAWs. Do not perform recovery from a compromised workstation.</li>
+<li><strong>Monitor intensely during and after.</strong> Watch for replication requests, suspicious Kerberos failures, privileged logons, service outages, and old-ticket use.</li>
+<li><strong>Document rollback limits.</strong> Rolling back a DC snapshot after <code>krbtgt</code> rotation can reintroduce old secret material. Recovery plans need explicit anti-rollback controls.</li>
+</ul>
+<h2 id="variants-and-operational-scenarios">Variants and operational scenarios</h2>
+<p>KRBTGT recovery has <strong>5 common scenarios</strong>.</p>
+<h3 id="1-routine-hygiene-rotation">1. Routine hygiene rotation</h3>
+<p>Planned rotation with no known compromise. Lower urgency, still requires replication validation and helpdesk awareness. Useful to prove the process before a crisis.</p>
+<h3 id="2-suspected-krbtgt-exposure-from-dcsync">2. Suspected <code>krbtgt</code> exposure from DCSync</h3>
+<p>High confidence that <code>krbtgt</code> material was replicated or extracted. Requires containment, double reset, and monitoring for forged-ticket use.</p>
+<h3 id="3-domain-controller-compromise">3. Domain Controller compromise</h3>
+<p>More severe than one DCSync event. Assume attackers may have LSASS, NTDS, backup, and admin-session access. Rotation alone is insufficient until DC integrity is restored.</p>
+<h3 id="4-forest-or-multi-domain-compromise">4. Forest or multi-domain compromise</h3>
+<p>Each domain has its own <code>krbtgt</code>. Recovery must identify which domains are compromised and how trusts can propagate access.</p>
+<h3 id="5-legacy-fragile-environment">5. Legacy fragile environment</h3>
+<p>Old applications, RC4 dependencies, hard-coded SPNs, offline sites, and stale DCs can make rotation noisy. This is why routine rehearsal matters.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered by recovery significance:</p>
+<ul>
+<li><strong>Invalidates stolen TGT-signing material when sequenced correctly.</strong> This is the direct control against Golden Tickets.</li>
+<li><strong>Forces attackers back to live credentials or newly stolen keys.</strong> A completed recovery closes the old forged-ticket path.</li>
+<li><strong>Can disrupt authentication if rushed.</strong> Bad sequencing can break Kerberos for legitimate users and services.</li>
+<li><strong>Reveals Tier 0 dependency debt.</strong> Fragile trusts, stale DCs, and old service dependencies surface during rotation planning.</li>
+<li><strong>Raises incident-response maturity.</strong> A team that can rotate <code>krbtgt</code> safely has usually done the Tier 0 inventory work many organizations avoid.</li>
+</ul>
+<h2 id="detection-and-telemetry">Detection and telemetry</h2>
+<p>Monitor before, during, and after rotation:</p>
+<ol>
+<li>
+<p><strong>DCSync and replication abuse.</strong>
+   Watch <code>4662</code> with replication GUIDs and any non-DC replication behavior. Rotation is pointless if attackers still have DCSync.</p>
+</li>
+<li>
+<p><strong>Kerberos failures after reset.</strong>
+   Track spikes in <code>4768</code>, <code>4769</code>, <code>4771</code>, and <code>4776</code> failures by DC, site, account, and service. Some failure spike is expected; unexplained concentration points to replication or service dependency problems.</p>
+</li>
+<li>
+<p><strong>TGS activity with old behavioral patterns.</strong>
+   If the same suspicious account/source/service pattern continues after rotation, the attacker may have live credentials, new key access, or a missed persistence path.</p>
+</li>
+<li>
+<p><strong>Privileged logons and special privileges.</strong>
+   Monitor <code>4624</code>, <code>4672</code>, admin group changes, DC logons, and PAW usage. Recovery should narrow privileged activity, not create new ambiguous admin sessions.</p>
+</li>
+<li>
+<p><strong>Endpoint and process telemetry on DCs.</strong>
+   Watch LSASS access, <code>ntds.dit</code> reads, VSS operations, suspicious PowerShell, remote execution, and backup access.</p>
+</li>
+<li>
+<p><strong>Replication health.</strong>
+   DC convergence is a security signal here, not only operations hygiene. Stale DCs can undermine recovery.</p>
+</li>
+</ol>
+<h2 id="defensive-controls">Defensive controls</h2>
+<p>Ordered by recovery effectiveness:</p>
+<ol>
+<li>
+<p><strong>Tier 0 containment first.</strong>
+   Disable or isolate compromised Tier 0 principals, remove unexpected DCSync rights, secure DCs, protect backups, and use trusted admin workstations.</p>
+</li>
+<li>
+<p><strong>Double-reset <code>krbtgt</code> with validated wait periods.</strong>
+   Perform reset 1, validate replication and operational stability, wait through the ticket lifetime/replication window, then perform reset 2 and validate again.</p>
+</li>
+<li>
+<p><strong>Use vendor-supported scripts and procedures.</strong>
+   Microsoft publishes forest recovery guidance and KRBTGT reset tooling. Use supported procedures so replication and compatibility checks are not improvised under stress.</p>
+</li>
+<li>
+<p><strong>Validate every DC.</strong>
+   Confirm replication health, time synchronization, authentication behavior, and absence of offline/stale DCs before declaring recovery complete.</p>
+</li>
+<li>
+<p><strong>Rebuild trust in privileged access.</strong>
+   Reset admin credentials, rotate service secrets where relevant, clean PAWs, review delegation, and remove graph paths to DCSync.</p>
+</li>
+<li>
+<p><strong>Monitor post-recovery for old patterns.</strong>
+   A successful <code>krbtgt</code> rotation invalidates old Golden Tickets; it does not prove the adversary has no other persistence.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Rotating every human password but not <code>krbtgt</code>.</strong> Human credentials are not the secret that signs forged TGTs.</li>
+<li><strong>One <code>krbtgt</code> reset as a complete recovery.</strong> The previous key can remain accepted. The double-reset sequence exists for a reason.</li>
+<li><strong>Rotating while attackers still have DCSync.</strong> They can recover the new key and the rotation becomes theatre.</li>
+<li><strong>Running recovery from a compromised workstation.</strong> Tier 0 recovery requires clean administrative endpoints.</li>
+<li><strong>Assuming replication will catch up eventually.</strong> Eventual convergence is not a recovery guarantee. Validate it.</li>
+<li><strong>Snapshot rollback of DCs after rotation.</strong> Restoring old DC state can reintroduce old key material and break trust assumptions.</li>
+<li><strong>Treating Golden Ticket recovery as a SIEM rule.</strong> Detection helps; recovery requires changing the trust root and containing the path that exposed it.</li>
+</ul>
+<h2 id="operational-misconceptions">Operational misconceptions</h2>
+<ul>
+<li><strong>"KRBTGT is just another account."</strong> False. It is the domain Kerberos trust root.</li>
+<li><strong>"The reset command is the recovery."</strong> False. The command is one step in containment, replication, validation, and monitoring.</li>
+<li><strong>"If users can still log in, recovery worked."</strong> False. Availability is not the same as invalidating attacker-held key material.</li>
+<li><strong>"Only the compromised domain admin account matters."</strong> False. Replication rights, DCs, backups, and PAWs define the recovery boundary.</li>
+<li><strong>"Rotation is too risky to practice."</strong> Backwards. It is risky precisely because organizations do not rehearse it.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Run as tabletop or in an owned lab domain. Do not experiment with production <code>krbtgt</code> rotation without an approved change and recovery plan.</p>
+<div class="codehilite"><pre><span></span><code>Lab 1 — Tabletop the decision tree.
+Objective: decide when KRBTGT rotation is required.
+Inputs:
+  - DCSync confirmed? yes/no
+  - krbtgt material extracted? yes/no/unknown
+  - DC compromise? yes/no
+  - Tier 0 admin workstation compromise? yes/no
+  - backup exposure? yes/no
+Decision:
+  If krbtgt exposure is confirmed or reasonably suspected, plan double reset after containment.
+Misconception corrected: &quot;no Golden Ticket observed&quot; is not proof krbtgt is safe.
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c"># Lab 2 — Replication health pre-check in a lab.</span>
+<span class="n">repadmin</span> <span class="p">/</span><span class="n">replsummary</span>
+<span class="n">dcdiag</span> <span class="p">/</span><span class="n">test</span><span class="p">:</span><span class="n">replications</span>
+<span class="n">w32tm</span> <span class="p">/</span><span class="n">monitor</span>
+
+<span class="c"># Defender interpretation:</span>
+<span class="c"># - stale DCs and time drift are recovery blockers</span>
+<span class="c"># - replication health is part of the security control</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>Lab 3 — Simulated double-reset runbook.
+Objective: rehearse sequencing without touching production.
+Steps:
+  1. Announce change window and freeze Tier 0 admin activity.
+  2. Confirm DCSync paths removed.
+  3. Reset krbtgt once using supported tooling.
+  4. Validate replication to every DC.
+  5. Wait through the defined ticket lifetime/replication window.
+  6. Reset krbtgt a second time.
+  7. Validate authentication, replication, and monitoring.
+Expected telemetry:
+  - account password-set events for krbtgt
+  - Kerberos failure spikes if clients hold stale tickets
+  - replication traffic across DCs
+Limitations: tabletop cannot prove app compatibility; lab rotation should precede production playbook approval.
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c"># Lab 4 — Monitor Kerberos failures during a lab reset window.</span>
+<span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="p">@{</span><span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span><span class="p">;</span> <span class="n">ID</span><span class="p">=</span><span class="n">4768</span><span class="p">,</span><span class="n">4769</span><span class="p">,</span><span class="n">4771</span><span class="p">,</span><span class="n">4776</span><span class="p">}</span> <span class="n">-MaxEvents</span> <span class="n">500</span> <span class="p">|</span>
+  <span class="nb">Select-Object</span> <span class="n">TimeCreated</span><span class="p">,</span> <span class="n">Id</span><span class="p">,</span> <span class="n">ProviderName</span>
+
+<span class="c"># Analyst exercise:</span>
+<span class="c"># - group by DC and account</span>
+<span class="c"># - separate expected cache churn from persistent service breakage</span>
+<span class="c"># - identify services still using stale Kerberos material</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>Lab 5 — Post-recovery validation checklist.
+Validate:
+  - every DC replicated the new krbtgt password version
+  - no non-DC principal has DCSync rights
+  - privileged accounts were rotated from clean PAWs
+  - service accounts with high privilege were reviewed
+  - DC backups and snapshots are protected
+  - old suspicious TGS patterns stopped
+  - incident timeline records exact reset times
+</code></pre></div>
+
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li><strong>Single-reset incident gap.</strong> An IR team rotates Domain Admin passwords and resets <code>krbtgt</code> once. Forged tickets continue during the old-key window. The missing second reset leaves the domain partially untrusted.</li>
+<li><strong>Replication failure.</strong> One remote DC is offline during the rotation. It later returns with stale state and creates inconsistent authentication behavior. Recovery declaration was premature.</li>
+<li><strong>DCSync path not contained.</strong> The attacker still controls a service account with replication rights. They steal the new <code>krbtgt</code> key after reset. The organization changed the secret but not the path to the secret.</li>
+<li><strong>Practiced routine rotation.</strong> A team performs annual planned rotation with monitoring and rollback boundaries. During a real incident, the procedure is known and the risk is lower.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="golden-ticket-and-krbtgt-compromise.html">golden-ticket-and-krbtgt-compromise</a> — the compromise model this recovery operation addresses.</li>
+<li><a href="dcsync-and-ntdsdit-extraction.html">dcsync-and-ntdsdit-extraction</a> — the most common way <code>krbtgt</code> material is exposed.</li>
+<li><a href="bloodhound-attack-path-analysis.html">bloodhound-attack-path-analysis</a> — use graph analysis to remove paths to DCSync and Tier 0.</li>
+<li><a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation</a> — recovery monitoring is sequence-based.</li>
+<li><a href="../detection-engineering/telemetry-normalization-correlation-and-enrichment.html">Telemetry Normalization, Correlation, and Enrichment</a> — reset validation depends on normalized DC, endpoint, and identity telemetry.</li>
+<li><a href="../detection-engineering/edr-network-observability-and-process-correlation.html">EDR, Network Observability, and Process Correlation</a> — DC and PAW endpoint telemetry matter during containment.</li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="unresolved-link" title="Unpublished or unresolved: tier-zero-administration-and-paw">tier-zero-administration-and-paw</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: ad-forest-recovery">ad-forest-recovery</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: dc-backup-security">dc-backup-security</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: dcsync-containment-playbook">dcsync-containment-playbook</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: kerberos-ticket-lifetime-policy">kerberos-ticket-lifetime-policy</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Recovery:</strong> Microsoft Learn — Active Directory Forest Recovery: Reset the krbtgt password — https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-reset-the-krbtgt-password</li>
+<li><strong>Recovery:</strong> Microsoft Learn — AD Forest Recovery Guide — https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-guide</li>
+<li><strong>Foundational:</strong> MITRE ATT&amp;CK T1558.001 — Golden Ticket — https://attack.mitre.org/techniques/T1558/001/</li>
+<li><strong>Recovery:</strong> Microsoft Security Blog — KRBTGT Account Password Reset Scripts now available for customers — https://www.microsoft.com/en-us/security/blog/2015/02/11/krbtgt-account-password-reset-scripts-now-available-for-customers/</li>
+</ul>
+<section class="related-notes" aria-label="Explore nearby notes">
+<h2>Explore nearby notes</h2>
+<div class="related-grid">
+<a class="related-card" href="golden-ticket-and-krbtgt-compromise.html"><span>Identity &amp; Active Directory</span><strong>Golden Ticket and KRBTGT Compromise</strong><small>A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain&#x27;s krbtgt account. It is not...</small></a>
+<a class="related-card" href="gmsa-and-modern-service-account-hardening.html"><span>Identity &amp; Active Directory</span><strong>gMSA and Modern Service Account Hardening</strong><small>A group Managed Service Account (gMSA) is an Active Directory-managed service identity whose password is long, random, automatically rotated, and retrievable only...</small></a>
+<a class="related-card" href="as-rep-roasting.html"><span>Identity &amp; Active Directory</span><strong>AS-REP Roasting</strong><small>AS-REP Roasting is an Active Directory credential attack where an attacker exploits accounts with **Kerberos pre-authentication disabled** by sending an AS-REQ...</small></a>
+<a class="related-card" href="kerberoasting.html"><span>Identity &amp; Active Directory</span><strong>Kerberoasting</strong><small>Kerberoasting is an Active Directory credential attack where an authenticated domain user requests **TGS service tickets** for accounts that have a Service...</small></a>
+<a class="related-card" href="silver-ticket-and-service-account-persistence.html"><span>Identity &amp; Active Directory</span><strong>Silver Ticket and Service Account Persistence</strong><small>A Silver Ticket is a forged Kerberos **service ticket** (TGS) created with a compromised service account key rather than the domain-wide krbtgt key. It is...</small></a>
+<a class="related-card" href="bloodhound-attack-path-analysis.html"><span>Identity &amp; Active Directory</span><strong>BloodHound and Attack Path Analysis</strong><small>BloodHound is an open-source graph-analysis tool that models **Active Directory as a directed graph of principals** (users, groups, computers, GPOs, OUs, domains)...</small></a>
+</div></section>
+</article>
+</main>
+<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
+<a class="toc-level-2" href="#definition">Definition</a>
+<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
+<a class="toc-level-2" href="#how-it-works">How it works</a>
+<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
+<a class="toc-level-2" href="#variants-and-operational-scenarios">Variants and operational scenarios</a>
+<a class="toc-level-3" href="#1-routine-hygiene-rotation">1. Routine hygiene rotation</a>
+<a class="toc-level-3" href="#2-suspected-krbtgt-exposure-from-dcsync">2. Suspected  krbtgt  exposure from DCSync</a>
+<a class="toc-level-3" href="#3-domain-controller-compromise">3. Domain Controller compromise</a>
+<a class="toc-level-3" href="#4-forest-or-multi-domain-compromise">4. Forest or multi-domain compromise</a>
+<a class="toc-level-3" href="#5-legacy-fragile-environment">5. Legacy fragile environment</a>
+<a class="toc-level-2" href="#impact">Impact</a>
+<a class="toc-level-2" href="#detection-and-telemetry">Detection and telemetry</a>
+<a class="toc-level-2" href="#defensive-controls">Defensive controls</a>
+<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
+<a class="toc-level-2" href="#operational-misconceptions">Operational misconceptions</a>
+<a class="toc-level-2" href="#practical-labs">Practical labs</a>
+<a class="toc-level-2" href="#practical-examples">Practical examples</a>
+<a class="toc-level-2" href="#related-notes">Related notes</a>
+<a class="back-to-top" href="#top">Back to top</a></div></aside>
+</div>
+<script src="../../assets/search.js"></script>
+</body>
+</html>

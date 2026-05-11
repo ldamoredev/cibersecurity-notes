@@ -292,13 +292,17 @@
 <a class="sidebar-link kind-concept" href="../devsecops/secure-by-design.html">Secure by Design</a>
 <a class="sidebar-link kind-concept" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
-<details class="branch branch-red" open><summary><span>Identity &amp; Active Directory</span><small>5</small></summary>
+<details class="branch branch-red" open><summary><span>Identity &amp; Active Directory</span><small>9</small></summary>
 <p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
 <a class="sidebar-link kind-index active" href="index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="as-rep-roasting.html">AS-REP Roasting</a>
 <a class="sidebar-link kind-concept" href="bloodhound-attack-path-analysis.html">BloodHound and Attack Path Analysis</a>
 <a class="sidebar-link kind-concept" href="dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a>
+<a class="sidebar-link kind-concept" href="gmsa-and-modern-service-account-hardening.html">gMSA and Modern Service Account Hardening</a>
+<a class="sidebar-link kind-concept" href="golden-ticket-and-krbtgt-compromise.html">Golden Ticket and KRBTGT Compromise</a>
 <a class="sidebar-link kind-concept" href="kerberoasting.html">Kerberoasting</a>
+<a class="sidebar-link kind-concept" href="krbtgt-rotation-and-tier-zero-recovery.html">KRBTGT Rotation and Tier Zero Recovery</a>
+<a class="sidebar-link kind-concept" href="silver-ticket-and-service-account-persistence.html">Silver Ticket and Service Account Persistence</a>
 </details>
 <div class="sidebar-group-label">Always-on</div>
 <details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
@@ -380,21 +384,22 @@ Return to <a href="../index.html">Cybersecurity Index</a> for root navigation ac
 <p>This branch sits in Phase 4 — <strong>Specialty tracks</strong> — by roadmap-v2 classification: read it when AD is part of your job context (red-team operator, AD admin, IR analyst, identity-platform engineer). But it is also a deep Phase 2 case study because every note in this branch <em>is</em> an offense/defense pair. See <a href="../phase-4-specialty.html">Phase 4 — Specialty Tracks</a> for context.</p>
 <hr />
 <h2 id="recommended-learning-order">Recommended learning order</h2>
-<h3 id="first-pass-core-4-notes">First-pass core (4 notes)</h3>
+<h3 id="first-pass-core-8-notes">First-pass core (8 notes)</h3>
 <ol>
 <li><a href="bloodhound-attack-path-analysis.html">bloodhound-attack-path-analysis</a> — the visibility layer. Read first because it tells you which AD attacks are worth doing, which accounts are worth attacking, and which defensive paths to remediate first. The cleanest single-tool example of offense/defense duality in the entire vault.</li>
 <li><a href="as-rep-roasting.html">as-rep-roasting</a> — the <em>pre-foothold</em> attack. No credentials needed; only usernames and a single account with pre-authentication disabled. Often the first attack on a domain.</li>
 <li><a href="kerberoasting.html">kerberoasting</a> — the <em>post-foothold</em> attack. Requires any domain credential; targets accounts with SPNs. Frequently yields a service account with onward path to DCSync.</li>
 <li><a href="dcsync-and-ntdsdit-extraction.html">dcsync-and-ntdsdit-extraction</a> — the endgame. Recovers every hash in the domain including <code>krbtgt</code>. Enables Golden Tickets and total persistent domain compromise.</li>
+<li><a href="golden-ticket-and-krbtgt-compromise.html">golden-ticket-and-krbtgt-compromise</a> — the trust-root abuse step after <code>krbtgt</code> material is compromised. Read this before any recovery note so the recovery sequence is tied to the actual Kerberos trust model.</li>
+<li><a href="silver-ticket-and-service-account-persistence.html">silver-ticket-and-service-account-persistence</a> — service-scoped TGS forgery from service-account key material. Read this after Golden Ticket to keep the domain-wide vs service-scoped distinction sharp.</li>
+<li><a href="gmsa-and-modern-service-account-hardening.html">gmsa-and-modern-service-account-hardening</a> — the defensive service-account design pattern. Read after Silver Ticket so hardening decisions map to concrete abuse paths.</li>
+<li><a href="krbtgt-rotation-and-tier-zero-recovery.html">krbtgt-rotation-and-tier-zero-recovery</a> — the Tier 0 recovery operation after suspected <code>krbtgt</code> compromise. Read last because the procedure only makes sense after the trust-root abuse model is clear.</li>
 </ol>
-<p>Read in this order: the first note teaches you to <em>see</em> the graph; the next two teach you the most common ways to traverse edges; the fourth is the terminal node every interesting path eventually reaches.</p>
+<p>Read in this order: the first note teaches you to <em>see</em> the graph; the next two teach you the most common ways to traverse edges; the fourth reaches the credential-extraction endgame; the fifth explains why <code>krbtgt</code> compromise is not "another password" but domain authentication-root compromise; the sixth shows how service-account key compromise creates narrower but often quieter persistence; the seventh turns that offensive model into service-account engineering; the eighth closes the loop with trust restoration.</p>
 <h3 id="suggested-future-atomic-notes-seeded-across-the-branch">Suggested future atomic notes (seeded across the branch)</h3>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: golden-ticket-and-krbtgt-compromise">golden-ticket-and-krbtgt-compromise</span> — what you do with a DCSync'd <code>krbtgt</code> hash.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: silver-ticket-and-service-account-persistence">silver-ticket-and-service-account-persistence</span> — service-scoped TGS forgery from a Kerberoasted account.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: pass-the-hash-and-ntlm-credential-reuse">pass-the-hash-and-ntlm-credential-reuse</span> — what you do with the bulk NTLM hashes DCSync produces.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: dcshadow-and-rogue-dc-attacks">dcshadow-and-rogue-dc-attacks</span> — the stealthy DCSync sibling.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: krbtgt-rotation-and-tier-zero-recovery">krbtgt-rotation-and-tier-zero-recovery</span> — the canonical post-compromise recovery procedure.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: exchange-ad-permission-legacy-issues">exchange-ad-permission-legacy-issues</span> — the recurring source of misconfigured replication rights.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: username-enumeration-against-kerberos">username-enumeration-against-kerberos</span> — the prerequisite step for AS-REP Roasting.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: kerberos-preauth-and-encryption-types">kerberos-preauth-and-encryption-types</span> — why <code>DONT_REQ_PREAUTH</code> is structurally dangerous.</li>
@@ -402,7 +407,6 @@ Return to <a href="../index.html">Cybersecurity Index</a> for root navigation ac
 <li><span class="unresolved-link" title="Unpublished or unresolved: dcsync-and-genericall-acl-abuse">dcsync-and-genericall-acl-abuse</span> (alt of writedacl-and-genericall-acl-abuse) — high-leverage edge types in BloodHound.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: shadow-credentials-and-kerberos-pkinit">shadow-credentials-and-kerberos-pkinit</span> — modern AD-CS-based persistence path.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: tier-zero-administration-and-paw">tier-zero-administration-and-paw</span> — the structural defense BloodHound output usually motivates.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: gmsa-and-modern-service-account-hardening">gmsa-and-modern-service-account-hardening</span> — the defensive mirror for Kerberoasting.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: detect-kerberoasting-and-as-rep-roasting">detect-kerberoasting-and-as-rep-roasting</span> — defender-side playbook pair for both roasting attacks.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: detect-bloodhound-collection">detect-bloodhound-collection</span> — defender-side playbook for catching the enumeration phase.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: detect-dcsync-and-ntdsdit-access">detect-dcsync-and-ntdsdit-access</span> — defender-side playbook for the endgame attack.</li>
@@ -431,7 +435,7 @@ Return to <a href="../index.html">Cybersecurity Index</a> for root navigation ac
 <a class="toc-level-2" href="#purpose">Purpose</a>
 <a class="toc-level-2" href="#branch-positioning">Branch positioning</a>
 <a class="toc-level-2" href="#recommended-learning-order">Recommended learning order</a>
-<a class="toc-level-3" href="#first-pass-core-4-notes">First-pass core (4 notes)</a>
+<a class="toc-level-3" href="#first-pass-core-8-notes">First-pass core (8 notes)</a>
 <a class="toc-level-3" href="#suggested-future-atomic-notes-seeded-across-the-branch">Suggested future atomic notes (seeded across the branch)</a>
 <a class="toc-level-2" href="#cross-links-to-other-branches">Cross-links to other branches</a>
 <a class="toc-level-2" href="#branch-maintenance-notes">Branch maintenance notes</a>

@@ -292,13 +292,17 @@
 <a class="sidebar-link kind-concept" href="../devsecops/secure-by-design.html">Secure by Design</a>
 <a class="sidebar-link kind-concept" href="../devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
-<details class="branch branch-red" open><summary><span>Identity &amp; Active Directory</span><small>5</small></summary>
+<details class="branch branch-red" open><summary><span>Identity &amp; Active Directory</span><small>9</small></summary>
 <p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
 <a class="sidebar-link kind-index" href="index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="as-rep-roasting.html">AS-REP Roasting</a>
 <a class="sidebar-link kind-concept active" href="bloodhound-attack-path-analysis.html">BloodHound and Attack Path Analysis</a>
 <a class="sidebar-link kind-concept" href="dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a>
+<a class="sidebar-link kind-concept" href="gmsa-and-modern-service-account-hardening.html">gMSA and Modern Service Account Hardening</a>
+<a class="sidebar-link kind-concept" href="golden-ticket-and-krbtgt-compromise.html">Golden Ticket and KRBTGT Compromise</a>
 <a class="sidebar-link kind-concept" href="kerberoasting.html">Kerberoasting</a>
+<a class="sidebar-link kind-concept" href="krbtgt-rotation-and-tier-zero-recovery.html">KRBTGT Rotation and Tier Zero Recovery</a>
+<a class="sidebar-link kind-concept" href="silver-ticket-and-service-account-persistence.html">Silver Ticket and Service Account Persistence</a>
 </details>
 <div class="sidebar-group-label">Always-on</div>
 <details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
@@ -405,6 +409,7 @@ ORDER<span class="w"> </span>BY<span class="w"> </span>path_length<span class="w
 <li><strong>Cypher beats the pre-built queries for engagement scoping.</strong> Learn enough Cypher to write your own targeted queries — "users in Kerberoastable accounts who can reach DA in ≤ 3 hops" is far more useful than "all Kerberoastable users".</li>
 <li><strong><code>MarkOwned</code> your foothold immediately.</strong> The UI lets you mark principals as "owned" (compromised). Path queries from <code>(:User {owned: true})</code> to high-value targets show your <em>actual</em> path forward, not the theoretical one.</li>
 <li><strong>Look for <code>DCSync</code> rights early.</strong> Any principal with <code>DS-Replication-Get-Changes-All</code> or <code>GetChangesAll</code> can replicate the entire AD database including all password hashes. Query: <code>MATCH (n)-[:DCSync]-&gt;(d:Domain) RETURN n.name</code>. The hit list is usually short (Domain Controllers + a handful of misconfigured accounts) — every misconfigured one is an endgame.</li>
+<li><strong>Treat paths to DCSync as paths to Golden Ticket capability.</strong> If a graph path reaches a principal that can replicate <code>krbtgt</code>, it reaches <a href="golden-ticket-and-krbtgt-compromise.html">domain Kerberos trust-root compromise</a>, not just "hash dumping".</li>
 <li><strong>Pair with <a href="kerberoasting.html">Kerberoasting</a> and <a href="as-rep-roasting.html">AS-REP Roasting</a> outputs.</strong> BloodHound knows which accounts are Kerberoastable and AS-REP-roastable. After roasting, mark the cracked accounts as owned and re-run path queries — paths frequently shrink dramatically.</li>
 <li><strong>Defenders: run BloodHound <em>on your own AD</em>, monthly.</strong> The query "Shortest Paths to Domain Admins" is the same on both sides; the defender's job is to make those paths longer or eliminate them.</li>
 <li><strong>OPSEC: collection is loud.</strong> <code>bloodhound-python -c All</code> against a large domain issues thousands of LDAP queries and SMB session enumerations in minutes. Use scoped collection (<code>-c Group,Acl</code> only) when stealth matters.</li>
@@ -518,6 +523,9 @@ Get-WinEvent<span class="w"> </span>-FilterHashtable<span class="w"> </span>@<sp
 <ul>
 <li><a href="kerberoasting.html">kerberoasting</a> — BloodHound shows you which Kerberoastable accounts are worth roasting.</li>
 <li><a href="as-rep-roasting.html">as-rep-roasting</a> — BloodHound shows you which AS-REP-roastable accounts have onward paths.</li>
+<li><a href="golden-ticket-and-krbtgt-compromise.html">golden-ticket-and-krbtgt-compromise</a> — the downstream consequence of attack paths that reach DCSync of <code>krbtgt</code>.</li>
+<li><a href="gmsa-and-modern-service-account-hardening.html">gmsa-and-modern-service-account-hardening</a> — defensive graph review should include service-account privilege, retrieval scope, and delegation edges.</li>
+<li><a href="krbtgt-rotation-and-tier-zero-recovery.html">krbtgt-rotation-and-tier-zero-recovery</a> — Tier 0 recovery depends on removing graph paths back to DCSync before rotating <code>krbtgt</code>.</li>
 <li><a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality</a> — the cleanest single-tool example of the duality: same tool, both sides, just different queries.</li>
 <li><a href="../foundations/threat-modeling-quickstart.html">Threat Modeling Quickstart</a> — BloodHound is essentially "STRIDE for AD relationships", computed automatically.</li>
 <li><a href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral vs signature detection</a> — the right framing for catching BloodHound collection.</li>
@@ -530,9 +538,7 @@ Get-WinEvent<span class="w"> </span>-FilterHashtable<span class="w"> </span>@<sp
 <li><span class="unresolved-link" title="Unpublished or unresolved: writedacl-and-genericall-acl-abuse">writedacl-and-genericall-acl-abuse</span> — the high-leverage edge types and how to abuse them.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: shadow-credentials-and-kerberos-pkinit">shadow-credentials-and-kerberos-pkinit</span> — the modern AD-CS-based persistence path that BloodHound v4+ added edges for.</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: tier-zero-administration-and-paw">tier-zero-administration-and-paw</span> — the structural defense BloodHound output usually motivates.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: silver-ticket-and-service-account-persistence">silver-ticket-and-service-account-persistence</span> (already seeded from <a href="kerberoasting.html">kerberoasting</a>)</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: golden-ticket-and-krbtgt-compromise">golden-ticket-and-krbtgt-compromise</span> (already seeded from <a href="kerberoasting.html">kerberoasting</a>)</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: gmsa-and-modern-service-account-hardening">gmsa-and-modern-service-account-hardening</span> (already seeded from <a href="kerberoasting.html">kerberoasting</a>)</li>
+<li><a href="silver-ticket-and-service-account-persistence.html">silver-ticket-and-service-account-persistence</a> (already seeded from <a href="kerberoasting.html">kerberoasting</a>)</li>
 <li><span class="unresolved-link" title="Unpublished or unresolved: detect-bloodhound-collection">detect-bloodhound-collection</span> — the defender-side playbook pair.</li>
 </ul>
 <h2 id="references">References</h2>
@@ -546,10 +552,10 @@ Get-WinEvent<span class="w"> </span>-FilterHashtable<span class="w"> </span>@<sp
 <div class="related-grid">
 <a class="related-card" href="as-rep-roasting.html"><span>Identity &amp; Active Directory</span><strong>AS-REP Roasting</strong><small>AS-REP Roasting is an Active Directory credential attack where an attacker exploits accounts with **Kerberos pre-authentication disabled** by sending an AS-REQ...</small></a>
 <a class="related-card" href="dcsync-and-ntdsdit-extraction.html"><span>Identity &amp; Active Directory</span><strong>DCSync and ntds.dit Extraction</strong><small>DCSync is an AD credential-extraction attack where the attacker abuses the **DS-Replication-Get-Changes-All** and related directory-replication rights to make...</small></a>
+<a class="related-card" href="golden-ticket-and-krbtgt-compromise.html"><span>Identity &amp; Active Directory</span><strong>Golden Ticket and KRBTGT Compromise</strong><small>A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain&#x27;s krbtgt account. It is not...</small></a>
 <a class="related-card" href="kerberoasting.html"><span>Identity &amp; Active Directory</span><strong>Kerberoasting</strong><small>Kerberoasting is an Active Directory credential attack where an authenticated domain user requests **TGS service tickets** for accounts that have a Service...</small></a>
-<a class="related-card" href="../offensive-security/active-recon.html"><span>Offensive Security / Recon</span><strong>Active Recon</strong><small>Active recon is information gathering that directly interacts with target infrastructure, services, or applications to validate or extend what passive recon...</small></a>
-<a class="related-card" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html"><span>Detection Engineering</span><strong>Attack Path Correlation and Kill Chain Observability</strong><small>Attack path correlation is the detection and reconstruction of relationships between events across an adversary sequence, such as recon, exploitation, persistence...</small></a>
-<a class="related-card" href="../offensive-security/cloaking-and-security-evasion.html"><span>Offensive Security / Recon</span><strong>Cloaking and Security Evasion</strong><small>Cloaking is the practice of showing different behavior to different visitors based on signals such as IP, geography, ASN, reverse DNS, User-Agent, browser...</small></a>
+<a class="related-card" href="silver-ticket-and-service-account-persistence.html"><span>Identity &amp; Active Directory</span><strong>Silver Ticket and Service Account Persistence</strong><small>A Silver Ticket is a forged Kerberos **service ticket** (TGS) created with a compromised service account key rather than the domain-wide krbtgt key. It is...</small></a>
+<a class="related-card" href="gmsa-and-modern-service-account-hardening.html"><span>Identity &amp; Active Directory</span><strong>gMSA and Modern Service Account Hardening</strong><small>A group Managed Service Account (gMSA) is an Active Directory-managed service identity whose password is long, random, automatically rotated, and retrievable only...</small></a>
 </div></section>
 </article>
 </main>
