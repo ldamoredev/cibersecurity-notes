@@ -412,6 +412,16 @@ def build_sidebar_tree(notes: list[Note]) -> dict:
     return tree
 
 
+def branch_notes(subs: dict[str, list[Note]], slug: str) -> list[Note]:
+    """Return published notes for a branch, including its overview index page."""
+    return subs.get(slug, [])
+
+
+def branch_note_count(subs: dict[str, list[Note]], slug: str) -> int:
+    """Return the published branch count used by sidebar, homepage, and indexes."""
+    return len(branch_notes(subs, slug))
+
+
 def render_sidebar(tree: dict, current: Note | None) -> str:
     """Render sidebar HTML with collapsible subfolders."""
     lines: list[str] = ['<nav class="sidebar">']
@@ -473,13 +483,13 @@ def render_branch_details(subs: dict[str, list[Note]], sub: str, current: Note |
     open_attr = ""
     if current and current.rel_path.parts[0] == "cybersecurity" and branch_slug(current) == sub:
         open_attr = " open"
-    notes = subs[sub]
+    notes = branch_notes(subs, sub)
     index_note = next((n for n in notes if n.slug == "index"), None)
     summary = branch_summary(sub)
     accent = branch_accent(sub)
     lines.append(
         f'<details class="branch branch-{html.escape(accent)}"{open_attr}>'
-        f'<summary><span>{html.escape(branch_label(sub))}</span><small>{len(notes)}</small></summary>'
+        f'<summary><span>{html.escape(branch_label(sub))}</span><small>{branch_note_count(subs, sub)}</small></summary>'
     )
     if summary:
         lines.append(f'<p class="sidebar-summary">{html.escape(summary)}</p>')
@@ -1019,17 +1029,17 @@ def build_home(tree: dict, notes: list[Note]) -> str:
             continue
         lines.append(f'<section class="branch-section"><h2>{html.escape(group)}</h2><div class="branch-grid">')
         for slug in group_slugs:
-            notes_for_branch = subs[slug]
+            notes_for_branch = branch_notes(subs, slug)
             index_note = next((n for n in notes_for_branch if n.slug == "index"), notes_for_branch[0])
             href = index_note.url
             accent = branch_accent(slug)
-            concept_count = len([n for n in notes_for_branch if n.slug != "index"])
+            published_count = branch_note_count(subs, slug)
             lines.append(
                 f'<a class="branch-card accent-{html.escape(accent)}" href="{html.escape(href)}">'
                 f'<span class="card-kicker">{html.escape(group)}</span>'
                 f'<h3>{html.escape(branch_label(slug))}</h3>'
                 f'<p>{html.escape(branch_summary(slug))}</p>'
-                f'<span class="card-meta">{concept_count} notes</span>'
+                f'<span class="card-meta">{published_count} notes</span>'
                 '</a>'
             )
         lines.append('</div></section>')
