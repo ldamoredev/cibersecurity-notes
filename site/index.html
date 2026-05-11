@@ -157,7 +157,7 @@
 <a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
 </details>
-<details class="branch branch-cyan"><summary><span>Detection Engineering</span><small>12</small></summary>
+<details class="branch branch-cyan"><summary><span>Detection Engineering</span><small>13</small></summary>
 <p class="sidebar-summary">Telemetry, behavioral analytics, correlation, and detection tradeoffs.</p>
 <a class="sidebar-link kind-index" href="cybersecurity/detection-engineering/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation and Kill Chain Observability</a>
@@ -170,6 +170,7 @@
 <a class="sidebar-link kind-concept" href="cybersecurity/detection-engineering/network-telemetry-sources-and-visibility.html">Network Telemetry Sources and Visibility</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Scan Anomaly Detection and Fingerprint Analysis</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/detection-engineering/telemetry-normalization-correlation-and-enrichment.html">Telemetry Normalization, Correlation, and Enrichment</a>
+<a class="sidebar-link kind-concept" href="cybersecurity/detection-engineering/windows-event-logs.html">Windows Event Logs</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/detection-engineering/zeek-suricata-and-netflow-analysis.html">Zeek, Suricata, and NetFlow Analysis</a>
 </details>
 <div class="sidebar-group-label">Operator</div>
@@ -295,7 +296,7 @@
 <a class="sidebar-link kind-concept" href="cybersecurity/devsecops/secure-by-design.html">Secure by Design</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
-<details class="branch branch-red"><summary><span>Identity &amp; Active Directory</span><small>11</small></summary>
+<details class="branch branch-red"><summary><span>Identity &amp; Active Directory</span><small>12</small></summary>
 <p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
 <a class="sidebar-link kind-index" href="cybersecurity/identity-and-active-directory/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/identity-and-active-directory/as-rep-roasting.html">AS-REP Roasting</a>
@@ -308,6 +309,15 @@
 <a class="sidebar-link kind-concept" href="cybersecurity/identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash and NTLM Credential Reuse</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/identity-and-active-directory/silver-ticket-and-service-account-persistence.html">Silver Ticket and Service Account Persistence</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/identity-and-active-directory/tier-zero-administration-and-paw.html">Tier 0 Administration and Privileged Access Workstations</a>
+<a class="sidebar-link kind-concept" href="cybersecurity/identity-and-active-directory/windows-privilege-escalation.html">Windows Privilege Escalation</a>
+</details>
+<details class="branch branch-fuchsia"><summary><span>Binary Exploitation</span><small>5</small></summary>
+<p class="sidebar-summary">Memory corruption, stack and heap overflows, exploit mitigations, reverse engineering, and the modern exploitation arms race at the binary level.</p>
+<a class="sidebar-link kind-index" href="cybersecurity/binary-exploitation/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="cybersecurity/binary-exploitation/exploit-mitigations.html">Exploit Mitigations</a>
+<a class="sidebar-link kind-concept" href="cybersecurity/binary-exploitation/memory-corruption.html">Memory Corruption</a>
+<a class="sidebar-link kind-concept" href="cybersecurity/binary-exploitation/rop-and-ret2libc.html">ROP and ret2libc</a>
+<a class="sidebar-link kind-concept" href="cybersecurity/binary-exploitation/stack-buffer-overflow.html">Stack Buffer Overflow</a>
 </details>
 <div class="sidebar-group-label">Always-on</div>
 <details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
@@ -346,12 +356,13 @@
 <a class="sidebar-link kind-concept" href="cybersecurity/privacy-anonymity-opsec/whonix-gateway.html">Whonix Gateway</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/privacy-anonymity-opsec/xmpp-and-private-messaging.html">XMPP and Private Messaging</a>
 </details>
-<details class="registry-group"><summary>Reference System <span>16</span></summary>
+<details class="registry-group"><summary>Reference System <span>17</span></summary>
 <a class="sidebar-link kind-registry" href="cybersecurity/reference-registry.html">Cybersecurity Reference Registry</a>
 <a class="sidebar-link kind-registry" href="cybersecurity/reference-registry-detection-engineering.html">Reference Registry - Detection Engineering</a>
 <a class="sidebar-link kind-registry" href="cybersecurity/reference-registry-privacy-anonymity-opsec.html">Reference Registry - Privacy, Anonymity &amp; OPSEC</a>
 <a class="sidebar-link kind-registry" href="cybersecurity/reference-registry-api-security.html">Reference Registry — API Security</a>
 <a class="sidebar-link kind-registry" href="cybersecurity/reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping</a>
+<a class="sidebar-link kind-registry" href="cybersecurity/reference-registry-binary-exploitation.html">Reference Registry — Binary Exploitation</a>
 <a class="sidebar-link kind-registry" href="cybersecurity/reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
 <a class="sidebar-link kind-registry" href="cybersecurity/reference-registry-cryptography.html">Reference Registry — Cryptography</a>
 <a class="sidebar-link kind-registry" href="cybersecurity/reference-registry-devsecops.html">Reference Registry — DevSecOps</a>
@@ -377,9 +388,9 @@
 <h1>ldamoredev security atlas</h1>
 <p class="lede">A static snapshot of mature cybersecurity notes from the Obsidian vault: learning paths, atomic concepts, reference policy, and practical playbooks shaped for fast retrieval.</p>
 <div class="stat-row">
-<span><strong>266</strong> published notes</span>
-<span><strong>16</strong> branches</span>
-<span><strong>16</strong> reference registries</span>
+<span><strong>274</strong> published notes</span>
+<span><strong>17</strong> branches</span>
+<span><strong>17</strong> reference registries</span>
 </div>
 </section>
 <section class="start-panel" aria-labelledby="start-here">
@@ -406,7 +417,7 @@
 </div></section>
 <section class="branch-section"><h2>Paired</h2><div class="branch-grid">
 <a class="branch-card accent-rose" href="cybersecurity/offensive-security/index.html"><span class="card-kicker">Paired</span><h3>Offensive Security / Recon</h3><p>Discovery, validation, and handoff from recon into concrete testing.</p><span class="card-meta">20 notes</span></a>
-<a class="branch-card accent-cyan" href="cybersecurity/detection-engineering/index.html"><span class="card-kicker">Paired</span><h3>Detection Engineering</h3><p>Telemetry, behavioral analytics, correlation, and detection tradeoffs.</p><span class="card-meta">12 notes</span></a>
+<a class="branch-card accent-cyan" href="cybersecurity/detection-engineering/index.html"><span class="card-kicker">Paired</span><h3>Detection Engineering</h3><p>Telemetry, behavioral analytics, correlation, and detection tradeoffs.</p><span class="card-meta">13 notes</span></a>
 </div></section>
 <section class="branch-section"><h2>Operator</h2><div class="branch-grid">
 <a class="branch-card accent-amber" href="cybersecurity/attack-surface-mapping/index.html"><span class="card-kicker">Operator</span><h3>Attack Surface Mapping</h3><p>What is exposed, reachable, discoverable, and drifting from intended design.</p><span class="card-meta">11 notes</span></a>
@@ -419,7 +430,8 @@
 <a class="branch-card accent-indigo" href="cybersecurity/api-security/index.html"><span class="card-kicker">Specialty</span><h3>API Security</h3><p>Authorization, token trust, inventory drift, and machine-readable abuse.</p><span class="card-meta">15 notes</span></a>
 <a class="branch-card accent-cyan" href="cybersecurity/cloud-security/index.html"><span class="card-kicker">Specialty</span><h3>Cloud Security</h3><p>IAM, metadata, storage, network boundaries, secrets, and logging controls.</p><span class="card-meta">11 notes</span></a>
 <a class="branch-card accent-green" href="cybersecurity/devsecops/index.html"><span class="card-kicker">Specialty</span><h3>DevSecOps</h3><p>Secure delivery, CI/CD hardening, supply chain, secrets, and release trust.</p><span class="card-meta">13 notes</span></a>
-<a class="branch-card accent-red" href="cybersecurity/identity-and-active-directory/index.html"><span class="card-kicker">Specialty</span><h3>Identity &amp; Active Directory</h3><p>Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p><span class="card-meta">11 notes</span></a>
+<a class="branch-card accent-red" href="cybersecurity/identity-and-active-directory/index.html"><span class="card-kicker">Specialty</span><h3>Identity &amp; Active Directory</h3><p>Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p><span class="card-meta">12 notes</span></a>
+<a class="branch-card accent-fuchsia" href="cybersecurity/binary-exploitation/index.html"><span class="card-kicker">Specialty</span><h3>Binary Exploitation</h3><p>Memory corruption, stack and heap overflows, exploit mitigations, reverse engineering, and the modern exploitation arms race at the binary level.</p><span class="card-meta">5 notes</span></a>
 </div></section>
 <section class="branch-section"><h2>Always-on</h2><div class="branch-grid">
 <a class="branch-card accent-purple" href="cybersecurity/privacy-anonymity-opsec/index.html"><span class="card-kicker">Always-on</span><h3>Privacy, Anonymity &amp; OPSEC</h3><p>VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.</p><span class="card-meta">33 notes</span></a>
@@ -432,6 +444,7 @@
 <a href="cybersecurity/reference-registry-privacy-anonymity-opsec.html">Reference Registry - Privacy, Anonymity &amp; OPSEC</a>
 <a href="cybersecurity/reference-registry-api-security.html">Reference Registry — API Security</a>
 <a href="cybersecurity/reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping</a>
+<a href="cybersecurity/reference-registry-binary-exploitation.html">Reference Registry — Binary Exploitation</a>
 <a href="cybersecurity/reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
 <a href="cybersecurity/reference-registry-cryptography.html">Reference Registry — Cryptography</a>
 <a href="cybersecurity/reference-registry-devsecops.html">Reference Registry — DevSecOps</a>

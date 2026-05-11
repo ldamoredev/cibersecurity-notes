@@ -146,6 +146,12 @@ BRANCHES = {
         "summary": "Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.",
         "accent": "red",
     },
+    "binary-exploitation": {
+        "label": "Binary Exploitation",
+        "group": "Specialty",
+        "summary": "Memory corruption, stack and heap overflows, exploit mitigations, reverse engineering, and the modern exploitation arms race at the binary level.",
+        "accent": "fuchsia",
+    },
     "security-playbooks": {
         "label": "Security Playbooks",
         "group": "Operator",
@@ -173,6 +179,7 @@ MATURE_CYBERSECURITY_ROOT_FILES = {
     "reference-registry-devsecops.md",
     "reference-registry-detection-engineering.md",
     "reference-registry-identity-and-active-directory.md",
+    "reference-registry-binary-exploitation.md",
     "reference-registry-linux-privilege-escalation.md",
     "reference-registry-networking.md",
     "reference-registry-offensive-security.md",

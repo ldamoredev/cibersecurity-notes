@@ -157,7 +157,7 @@
 <a class="sidebar-link kind-concept" href="offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a>
 <a class="sidebar-link kind-concept" href="offensive-security/tech-stack-fingerprinting.html">Tech Stack Fingerprinting</a>
 </details>
-<details class="branch branch-cyan"><summary><span>Detection Engineering</span><small>12</small></summary>
+<details class="branch branch-cyan"><summary><span>Detection Engineering</span><small>13</small></summary>
 <p class="sidebar-summary">Telemetry, behavioral analytics, correlation, and detection tradeoffs.</p>
 <a class="sidebar-link kind-index" href="detection-engineering/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation and Kill Chain Observability</a>
@@ -170,6 +170,7 @@
 <a class="sidebar-link kind-concept" href="detection-engineering/network-telemetry-sources-and-visibility.html">Network Telemetry Sources and Visibility</a>
 <a class="sidebar-link kind-concept" href="detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Scan Anomaly Detection and Fingerprint Analysis</a>
 <a class="sidebar-link kind-concept" href="detection-engineering/telemetry-normalization-correlation-and-enrichment.html">Telemetry Normalization, Correlation, and Enrichment</a>
+<a class="sidebar-link kind-concept" href="detection-engineering/windows-event-logs.html">Windows Event Logs</a>
 <a class="sidebar-link kind-concept" href="detection-engineering/zeek-suricata-and-netflow-analysis.html">Zeek, Suricata, and NetFlow Analysis</a>
 </details>
 <div class="sidebar-group-label">Operator</div>
@@ -295,7 +296,7 @@
 <a class="sidebar-link kind-concept" href="devsecops/secure-by-design.html">Secure by Design</a>
 <a class="sidebar-link kind-concept" href="devsecops/supply-chain-security.html">Supply Chain Security</a>
 </details>
-<details class="branch branch-red"><summary><span>Identity &amp; Active Directory</span><small>11</small></summary>
+<details class="branch branch-red"><summary><span>Identity &amp; Active Directory</span><small>12</small></summary>
 <p class="sidebar-summary">Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p>
 <a class="sidebar-link kind-index" href="identity-and-active-directory/index.html">Overview</a>
 <a class="sidebar-link kind-concept" href="identity-and-active-directory/as-rep-roasting.html">AS-REP Roasting</a>
@@ -308,6 +309,15 @@
 <a class="sidebar-link kind-concept" href="identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash and NTLM Credential Reuse</a>
 <a class="sidebar-link kind-concept" href="identity-and-active-directory/silver-ticket-and-service-account-persistence.html">Silver Ticket and Service Account Persistence</a>
 <a class="sidebar-link kind-concept" href="identity-and-active-directory/tier-zero-administration-and-paw.html">Tier 0 Administration and Privileged Access Workstations</a>
+<a class="sidebar-link kind-concept" href="identity-and-active-directory/windows-privilege-escalation.html">Windows Privilege Escalation</a>
+</details>
+<details class="branch branch-fuchsia"><summary><span>Binary Exploitation</span><small>5</small></summary>
+<p class="sidebar-summary">Memory corruption, stack and heap overflows, exploit mitigations, reverse engineering, and the modern exploitation arms race at the binary level.</p>
+<a class="sidebar-link kind-index" href="binary-exploitation/index.html">Overview</a>
+<a class="sidebar-link kind-concept" href="binary-exploitation/exploit-mitigations.html">Exploit Mitigations</a>
+<a class="sidebar-link kind-concept" href="binary-exploitation/memory-corruption.html">Memory Corruption</a>
+<a class="sidebar-link kind-concept" href="binary-exploitation/rop-and-ret2libc.html">ROP and ret2libc</a>
+<a class="sidebar-link kind-concept" href="binary-exploitation/stack-buffer-overflow.html">Stack Buffer Overflow</a>
 </details>
 <div class="sidebar-group-label">Always-on</div>
 <details class="branch branch-purple"><summary><span>Privacy, Anonymity &amp; OPSEC</span><small>33</small></summary>
@@ -346,12 +356,13 @@
 <a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/whonix-gateway.html">Whonix Gateway</a>
 <a class="sidebar-link kind-concept" href="privacy-anonymity-opsec/xmpp-and-private-messaging.html">XMPP and Private Messaging</a>
 </details>
-<details class="registry-group"><summary>Reference System <span>16</span></summary>
+<details class="registry-group"><summary>Reference System <span>17</span></summary>
 <a class="sidebar-link kind-registry" href="reference-registry.html">Cybersecurity Reference Registry</a>
 <a class="sidebar-link kind-registry" href="reference-registry-detection-engineering.html">Reference Registry - Detection Engineering</a>
 <a class="sidebar-link kind-registry" href="reference-registry-privacy-anonymity-opsec.html">Reference Registry - Privacy, Anonymity &amp; OPSEC</a>
 <a class="sidebar-link kind-registry" href="reference-registry-api-security.html">Reference Registry — API Security</a>
 <a class="sidebar-link kind-registry" href="reference-registry-attack-surface-mapping.html">Reference Registry — Attack Surface Mapping</a>
+<a class="sidebar-link kind-registry" href="reference-registry-binary-exploitation.html">Reference Registry — Binary Exploitation</a>
 <a class="sidebar-link kind-registry" href="reference-registry-cloud-security.html">Reference Registry — Cloud Security</a>
 <a class="sidebar-link kind-registry" href="reference-registry-cryptography.html">Reference Registry — Cryptography</a>
 <a class="sidebar-link kind-registry" href="reference-registry-devsecops.html">Reference Registry — DevSecOps</a>
@@ -375,11 +386,11 @@
 <h1 id="phase-4-specialty-tracks-pick-what-your-job-demands">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</h1>
 <p>Phase 4 is the <strong>only phase you do not read linearly</strong>. By design, it is job-context-chosen: you pick the specialty your role actually requires, learn it deeply enough to be effective, and revisit the others only when your work expands into them.</p>
 <p>Generalists who try to read all four Phase 4 branches in parallel produce shallow knowledge of all four and depth in none. The specialist path is the right path here.</p>
-<p>Five tracks, each with its own persona, curated path, and entry conditions:</p>
+<p>Six tracks, each with its own persona, curated path, and entry conditions:</p>
 <blockquote>
-<p><strong>API Security · Cloud Security · DevSecOps · Wireless Security · Identity &amp; Active Directory</strong></p>
+<p><strong>API Security · Cloud Security · DevSecOps · Wireless Security · Identity &amp; Active Directory · Binary Exploitation</strong></p>
 </blockquote>
-<p>Each track assumes you have completed Phases 0–2 first-pass; some assume Phase 3 too. Track entry conditions are stated explicitly.</p>
+<p>Each track assumes you have completed Phases 0–2 first-pass; some assume Phase 3 too. Track entry conditions are stated explicitly. <strong>The Binary Exploitation track has the strongest non-vault prerequisites</strong> (C/C++ literacy, debugger fluency, x86-64 baseline) — see Track F.</p>
 <hr />
 <h2 id="track-a-api-security">Track A — API Security</h2>
 <p><strong>Pick this if:</strong> you build, test, or operate APIs (REST, GraphQL, gRPC). Most modern web/mobile/SaaS engineering touches this.</p>
@@ -466,6 +477,21 @@
 <p><strong>Extended (5 more):</strong> <a href="wireless-security/wifi-wordlist-attacks.html">Wi-Fi wordlist attacks</a>, <a href="wireless-security/wep-security.html">WEP security</a>, <a href="wireless-security/mitm-on-local-networks.html">MITM on local networks</a>, <a href="wireless-security/arp-poisoning.html">ARP poisoning</a>, <a href="wireless-security/bettercap-workflows.html">Bettercap workflows</a>.</p>
 <p><strong>You are done with first-pass Wireless when:</strong> you can capture a WPA2 handshake from an authorized test network, crack it against a controlled wordlist, and articulate why your corporate Wi-Fi <em>is or is not</em> vulnerable to the same workflow.</p>
 <hr />
+<h2 id="track-f-binary-exploitation">Track F — Binary Exploitation</h2>
+<p><strong>Pick this if:</strong> you do vulnerability research, exploit development, security engineering for low-level systems software (OS kernels, hypervisors, browsers, language runtimes), CTF pwn-category competition, security-tooling authorship, or you maintain memory-unsafe code in any production context. <strong>Strongest non-vault prerequisites of any track</strong> — this is the deepest technical specialty in the vault by ladder distance from source code.</p>
+<p><strong>Entry conditions:</strong>
+- Phase 1 first-pass complete.
+- <strong>C/C++ programming literacy</strong> — the branch assumes you can read C, have a working mental model of stack frames and heap allocation, and are comfortable with a debugger (<code>gdb</code> / <code>lldb</code> / WinDbg). If not, work through <em>Practical Binary Analysis</em> or OpenSecurityTraining x86 / OS-internals first.
+- <strong>Linux + x86-64 baseline.</strong> Most labs target Linux on x86-64. aarch64, macOS, and Windows specifics are called out per-note as they come up.
+- Phase 2 first-pass useful but not strictly required (exploit detection lives mostly inside the branch's own mitigation notes plus the <a href="detection-engineering/edr-network-observability-and-process-correlation.html">EDR / process correlation</a> cross-link).</p>
+<p><strong>First-pass path (2 notes, read in order):</strong></p>
+<ol>
+<li><strong><a href="binary-exploitation/memory-corruption.html">Memory Corruption</a></strong> — the root concept, the 6-class taxonomy (stack overflow / heap overflow / use-after-free / double-free / out-of-bounds read / integer overflow), and the chain from bug to exploit primitive to code execution.</li>
+<li><strong><a href="binary-exploitation/stack-buffer-overflow.html">Stack Buffer Overflow</a></strong> — the canonical worked example of class 1. The deep-dive that introduces stack layout, return-address control, the mitigation chain (canary → ASLR → DEP → CET → MTE → PAC), ROP-style reasoning, and the pwntools-shaped exploit-development workflow.</li>
+</ol>
+<p><strong>Extended (seeded future notes):</strong> Heap exploitation, use-after-free, double-free, info-leak primitives, ROP / ret2libc, ASLR / PIE leak chains, format-string bugs, exploit mitigations (the full landscape), stack canaries / shadow stacks / PAC, ARM MTE, CFI, ELF format, reverse-engineering loop, fuzzing with libFuzzer / AFL++, sanitizers (ASAN / MSAN / UBSan), symbolic execution with angr.</p>
+<p><strong>You are done with first-pass Binary Exploitation when:</strong> given a vulnerable C program, you can identify the bug class, locate the saved return address (or equivalent control-flow primitive), build a working exploit against an unmitigated build, articulate which mitigations defeat that simple exploit, and name at least two primitives you would chain to defeat them. The pwntools-shaped exploit script for a basic stack-overflow CTF challenge should be a 20-line task, not an afternoon.</p>
+<hr />
 <h2 id="how-phase-4-connects-back-to-earlier-phases">How Phase 4 connects back to earlier phases</h2>
 <table>
 <thead>
@@ -494,6 +520,10 @@
 <tr>
 <td>Identity &amp; Active Directory</td>
 <td>Password hashing + symmetric encryption modes (Phase 1 Crypto), behavioral-vs-signature detection (Phase 2), attacker-defender duality (Phase 0)</td>
+</tr>
+<tr>
+<td>Binary Exploitation</td>
+<td><strong>C/C++ literacy + debugger fluency + x86-64 baseline (non-vault prerequisites)</strong>, threat-modeling at the systems-software layer (Phase 0), EDR-side detection telemetry (Phase 2)</td>
 </tr>
 </tbody>
 </table>
@@ -540,6 +570,7 @@
 <a class="toc-level-2" href="#track-c-devsecops">Track C — DevSecOps</a>
 <a class="toc-level-2" href="#track-e-identity-and-active-directory">Track E — Identity and Active Directory</a>
 <a class="toc-level-2" href="#track-d-wireless-security">Track D — Wireless Security</a>
+<a class="toc-level-2" href="#track-f-binary-exploitation">Track F — Binary Exploitation</a>
 <a class="toc-level-2" href="#how-phase-4-connects-back-to-earlier-phases">How Phase 4 connects back to earlier phases</a>
 <a class="toc-level-2" href="#picking-more-than-one-track">Picking more than one track</a>
 <a class="toc-level-2" href="#whats-after-phase-4">What&#x27;s after Phase 4</a>
