@@ -8,24 +8,30 @@
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Cryptography, JWT Cryptographic Correctness, jwt, jose, tokens">
 <meta name="theme-color" content="#256d85">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/jwt-cryptographic-correctness.html">
 <link rel="icon" href="../../favicon.ico" sizes="any">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
+<meta property="article:section" content="Cryptography">
 <meta property="og:site_name" content="ldamoredev Security Atlas">
 <meta property="og:locale" content="en_US">
-<meta property="article:section" content="Cryptography">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JWT Cryptographic Correctness - Cryptography | ldamoredev Security Atlas">
 <meta property="og:description" content="A JWT (RFC 7519) is a base64url-encoded header.payload.signature triple where the signature is either an HMAC tag (JWS HS*) or an asymmetric digital signature (JWS...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/jwt-cryptographic-correctness.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="JWT Cryptographic Correctness - Cryptography | ldamoredev Security Atlas">
 <meta name="twitter:description" content="A JWT (RFC 7519) is a base64url-encoded header.payload.signature triple where the signature is either an HMAC tag (JWS HS*) or an asymmetric digital signature (JWS...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"JWT Cryptographic Correctness - Cryptography | ldamoredev Security Atlas","headline":"JWT Cryptographic Correctness","description":"A JWT (RFC 7519) is a base64url-encoded header.payload.signature triple where the signature is either an HMAC tag (JWS HS*) or an asymmetric digital signature (JWS...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/jwt-cryptographic-correctness.html","datePublished":"2026-05-01","dateModified":"2026-05-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/jwt-cryptographic-correctness.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Cryptography","JWT Cryptographic Correctness","jwt","jose","tokens"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Cryptography","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/index.html"},{"@type":"ListItem","position":4,"name":"JWT Cryptographic Correctness","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/jwt-cryptographic-correctness.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/jwt-cryptographic-correctness.html#article","name":"JWT Cryptographic Correctness - Cryptography | ldamoredev Security Atlas","headline":"JWT Cryptographic Correctness","description":"A JWT (RFC 7519) is a base64url-encoded header.payload.signature triple where the signature is either an HMAC tag (JWS HS*) or an asymmetric digital signature (JWS...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/jwt-cryptographic-correctness.html","inLanguage":"en","datePublished":"2026-05-01","dateModified":"2026-05-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/jwt-cryptographic-correctness.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Cryptography","JWT Cryptographic Correctness","jwt","jose","tokens"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Cryptography","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/index.html"},{"@type":"ListItem","position":4,"name":"JWT Cryptographic Correctness","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/jwt-cryptographic-correctness.html"}]}]</script>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="stylesheet" href="../../assets/style.css">
 <link rel="stylesheet" href="../../assets/pygments.css">
 </head>
@@ -382,7 +388,7 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Cryptography</a><span>/</span><span>JWT Cryptographic Correctness</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-emerald">Cryptography</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#cryptography</span><span class="meta-chip tag">#jwt</span><span class="meta-chip tag">#jose</span><span class="meta-chip tag">#tokens</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-emerald">Cryptography</span><span class="meta-chip meta-time" title="Estimated reading time">~8 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated May 01, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#cryptography</span><span class="meta-chip tag">#jwt</span><span class="meta-chip tag">#jose</span><span class="meta-chip tag">#tokens</span></div>
 </header>
 <article class="article-note">
 <h1 id="jwt-cryptographic-correctness">JWT Cryptographic Correctness</h1>
@@ -580,6 +586,7 @@ rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;alg.*
 <li><strong>Testing / Lab:</strong> PortSwigger JWT attacks — https://portswigger.net/web-security/jwt</li>
 <li><strong>Research / Deep Dive:</strong> Auth0 JWT handbook — https://auth0.com/resources/ebooks/jwt-handbook</li>
 </ul>
+<nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="hashing-vs-encryption-vs-signing.html"><span class="nav-dir">← Previous</span><strong>Hashing vs Encryption vs Signing</strong></a><a class="branch-nav-link next" href="kdf-and-key-stretching.html"><span class="nav-dir">Next →</span><strong>KDF and Key Stretching</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
 <h2>Explore nearby notes</h2>
 <div class="related-grid">

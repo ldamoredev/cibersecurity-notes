@@ -8,24 +8,30 @@
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Trace Metadata Endpoint Reachability, security-playbook, ssrf, cloud, metadata">
 <meta name="theme-color" content="#256d85">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/security-playbooks/trace-metadata-endpoint-reachability.html">
 <link rel="icon" href="../../favicon.ico" sizes="any">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
+<meta property="article:section" content="Security Playbooks">
 <meta property="og:site_name" content="ldamoredev Security Atlas">
 <meta property="og:locale" content="en_US">
-<meta property="article:section" content="Security Playbooks">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Trace Metadata Endpoint Reachability - Security Playbooks | ldamoredev Security Atlas">
 <meta property="og:description" content="Determine whether an application, host, container, or SSRF-capable feature can reach cloud instance metadata endpoints, and turn that result into a safe evidence...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/security-playbooks/trace-metadata-endpoint-reachability.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Trace Metadata Endpoint Reachability - Security Playbooks | ldamoredev Security Atlas">
 <meta name="twitter:description" content="Determine whether an application, host, container, or SSRF-capable feature can reach cloud instance metadata endpoints, and turn that result into a safe evidence...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"Trace Metadata Endpoint Reachability - Security Playbooks | ldamoredev Security Atlas","headline":"Trace Metadata Endpoint Reachability","description":"Determine whether an application, host, container, or SSRF-capable feature can reach cloud instance metadata endpoints, and turn that result into a safe evidence...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/security-playbooks/trace-metadata-endpoint-reachability.html","datePublished":"2026-04-30","dateModified":"2026-04-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/security-playbooks/trace-metadata-endpoint-reachability.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Trace Metadata Endpoint Reachability","security-playbook","ssrf","cloud","metadata"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Security Playbooks","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/security-playbooks/index.html"},{"@type":"ListItem","position":4,"name":"Trace Metadata Endpoint Reachability","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/security-playbooks/trace-metadata-endpoint-reachability.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/security-playbooks/trace-metadata-endpoint-reachability.html#article","name":"Trace Metadata Endpoint Reachability - Security Playbooks | ldamoredev Security Atlas","headline":"Trace Metadata Endpoint Reachability","description":"Determine whether an application, host, container, or SSRF-capable feature can reach cloud instance metadata endpoints, and turn that result into a safe evidence...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/security-playbooks/trace-metadata-endpoint-reachability.html","inLanguage":"en","datePublished":"2026-04-30","dateModified":"2026-04-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/security-playbooks/trace-metadata-endpoint-reachability.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Trace Metadata Endpoint Reachability","security-playbook","ssrf","cloud","metadata"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Security Playbooks","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/security-playbooks/index.html"},{"@type":"ListItem","position":4,"name":"Trace Metadata Endpoint Reachability","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/security-playbooks/trace-metadata-endpoint-reachability.html"}]}]</script>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="stylesheet" href="../../assets/style.css">
 <link rel="stylesheet" href="../../assets/pygments.css">
 </head>
@@ -382,7 +388,7 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Security Playbooks</a><span>/</span><span>Trace Metadata Endpoint Reachability</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">playbook</span><span class="meta-chip accent-slate">Security Playbooks</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#security-playbook</span><span class="meta-chip tag">#ssrf</span><span class="meta-chip tag">#cloud</span><span class="meta-chip tag">#metadata</span></div>
+<div class="page-meta"><span class="meta-chip">playbook</span><span class="meta-chip accent-slate">Security Playbooks</span><span class="meta-chip meta-time" title="Estimated reading time">~5 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated Apr 30, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#security-playbook</span><span class="meta-chip tag">#ssrf</span><span class="meta-chip tag">#cloud</span><span class="meta-chip tag">#metadata</span></div>
 </header>
 <article class="article-note">
 <h1 id="trace-metadata-endpoint-reachability">Trace Metadata Endpoint Reachability</h1>
@@ -593,6 +599,7 @@ kubectl<span class="w"> </span>get<span class="w"> </span>networkpolicy<span cla
 <li><strong>Foundational:</strong> OWASP SSRF Prevention Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html</li>
 <li><strong>Research / Deep Dive:</strong> AWS IMDS docs — https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html</li>
 </ul>
+<nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="test-path-traversal.html"><span class="nav-dir">← Previous</span><strong>Test Path Traversal</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
 <h2>Explore nearby notes</h2>
 <div class="related-grid">

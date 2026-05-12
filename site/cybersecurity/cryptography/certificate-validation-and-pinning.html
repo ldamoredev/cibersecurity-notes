@@ -8,24 +8,30 @@
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Cryptography, Certificate Validation and Pinning, tls, certificates, pinning">
 <meta name="theme-color" content="#256d85">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/certificate-validation-and-pinning.html">
 <link rel="icon" href="../../favicon.ico" sizes="any">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
+<meta property="article:section" content="Cryptography">
 <meta property="og:site_name" content="ldamoredev Security Atlas">
 <meta property="og:locale" content="en_US">
-<meta property="article:section" content="Cryptography">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Certificate Validation and Pinning - Cryptography | ldamoredev Security Atlas">
 <meta property="og:description" content="Certificate validation is the process of deciding whether a presented certificate chain proves the peer&#x27;s identity for the name being contacted. Certificate...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/certificate-validation-and-pinning.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Certificate Validation and Pinning - Cryptography | ldamoredev Security Atlas">
 <meta name="twitter:description" content="Certificate validation is the process of deciding whether a presented certificate chain proves the peer&#x27;s identity for the name being contacted. Certificate...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"Certificate Validation and Pinning - Cryptography | ldamoredev Security Atlas","headline":"Certificate Validation and Pinning","description":"Certificate validation is the process of deciding whether a presented certificate chain proves the peer's identity for the name being contacted. Certificate...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/certificate-validation-and-pinning.html","datePublished":"2026-05-01","dateModified":"2026-05-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/certificate-validation-and-pinning.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Cryptography","Certificate Validation and Pinning","tls","certificates","pinning"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Cryptography","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/index.html"},{"@type":"ListItem","position":4,"name":"Certificate Validation and Pinning","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/certificate-validation-and-pinning.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/certificate-validation-and-pinning.html#article","name":"Certificate Validation and Pinning - Cryptography | ldamoredev Security Atlas","headline":"Certificate Validation and Pinning","description":"Certificate validation is the process of deciding whether a presented certificate chain proves the peer's identity for the name being contacted. Certificate...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/certificate-validation-and-pinning.html","inLanguage":"en","datePublished":"2026-05-01","dateModified":"2026-05-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/certificate-validation-and-pinning.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Cryptography","Certificate Validation and Pinning","tls","certificates","pinning"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Cryptography","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/index.html"},{"@type":"ListItem","position":4,"name":"Certificate Validation and Pinning","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/certificate-validation-and-pinning.html"}]}]</script>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="stylesheet" href="../../assets/style.css">
 <link rel="stylesheet" href="../../assets/pygments.css">
 </head>
@@ -382,7 +388,7 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Cryptography</a><span>/</span><span>Certificate Validation and Pinning</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-emerald">Cryptography</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#cryptography</span><span class="meta-chip tag">#tls</span><span class="meta-chip tag">#certificates</span><span class="meta-chip tag">#pinning</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-emerald">Cryptography</span><span class="meta-chip meta-time" title="Estimated reading time">~4 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated May 01, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#cryptography</span><span class="meta-chip tag">#tls</span><span class="meta-chip tag">#certificates</span><span class="meta-chip tag">#pinning</span></div>
 </header>
 <article class="article-note">
 <h1 id="certificate-validation-and-pinning">Certificate Validation and Pinning</h1>
@@ -542,6 +548,7 @@ openssl<span class="w"> </span>s_client<span class="w"> </span>-connect<span cla
 <li><strong>Foundational:</strong> OWASP Pinning Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Pinning_Cheat_Sheet.html</li>
 <li><strong>Standard / RFC:</strong> RFC 6962: Certificate Transparency — https://www.rfc-editor.org/rfc/rfc6962</li>
 </ul>
+<nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="asymmetric-encryption-and-key-exchange.html"><span class="nav-dir">← Previous</span><strong>Asymmetric Encryption and Key Exchange</strong></a><a class="branch-nav-link next" href="digital-signatures.html"><span class="nav-dir">Next →</span><strong>Digital Signatures</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
 <h2>Explore nearby notes</h2>
 <div class="related-grid">

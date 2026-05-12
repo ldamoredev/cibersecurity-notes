@@ -19,6 +19,14 @@
     document.body.classList.toggle("nav-open");
   });
 
+  const activeLink = document.querySelector(".sidebar .sidebar-link.active");
+  if (activeLink) {
+    const rect = activeLink.getBoundingClientRect();
+    if (rect.top < 80 || rect.bottom > window.innerHeight - 40) {
+      activeLink.scrollIntoView({ block: "center" });
+    }
+  }
+
   document.addEventListener("keydown", (e) => {
     if (e.key === "/" && document.activeElement !== input) {
       e.preventDefault();
@@ -71,25 +79,58 @@
   }
 
   let debounce;
+  let activeIndex = -1;
+  let currentHits = [];
+
+  input.addEventListener("focus", () => { loadIndex(); });
   input.addEventListener("input", () => {
     clearTimeout(debounce);
     debounce = setTimeout(runSearch, 120);
   });
+  input.addEventListener("keydown", (e) => {
+    if (results.hidden || !currentHits.length) return;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      activeIndex = (activeIndex + 1) % currentHits.length;
+      updateActive();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      activeIndex = (activeIndex - 1 + currentHits.length) % currentHits.length;
+      updateActive();
+    } else if (e.key === "Enter" && activeIndex >= 0) {
+      const nodes = results.querySelectorAll(".hit");
+      if (nodes[activeIndex]) {
+        e.preventDefault();
+        window.location.href = nodes[activeIndex].href;
+      }
+    }
+  });
+
+  function updateActive() {
+    const nodes = results.querySelectorAll(".hit");
+    nodes.forEach((n, i) => n.classList.toggle("active", i === activeIndex));
+    if (activeIndex >= 0 && nodes[activeIndex]) {
+      nodes[activeIndex].scrollIntoView({ block: "nearest" });
+    }
+  }
 
   async function runSearch() {
     const q = input.value.trim().toLowerCase();
-    if (!q) { results.hidden = true; results.innerHTML = ""; return; }
-    const terms = q.split(/\s+/);
+    if (!q) { results.hidden = true; results.innerHTML = ""; currentHits = []; activeIndex = -1; return; }
+    const terms = q.split(/\s+/).filter(Boolean);
     const idx = await loadIndex();
     const hits = idx.map(e => ({ e, s: score(e, terms) }))
                     .filter(x => x.s > 0)
                     .sort((a, b) => b.s - a.s)
                     .slice(0, 20);
+    currentHits = hits;
+    activeIndex = hits.length ? 0 : -1;
     if (!hits.length) {
-      results.innerHTML = '<div class="empty">No matches</div>';
+      results.innerHTML = '<div class="empty">No matches for "' + escapeHtml(q) + '"</div>';
     } else {
-      results.innerHTML = hits.map(h =>
-        `<a class="hit" href="${root}/${h.e.url}"><div class="hit-title">${escapeHtml(h.e.title)}</div><div class="meta">${escapeHtml(h.e.branch)} · ${escapeHtml(h.e.kind)} · ${escapeHtml(h.e.url)}</div><p>${escapeHtml(h.e.description || "")}</p></a>`
+      const count = `<div class="results-meta">${hits.length} result${hits.length === 1 ? "" : "s"} · ↑↓ to navigate · ↵ to open</div>`;
+      results.innerHTML = count + hits.map((h, i) =>
+        `<a class="hit${i === 0 ? " active" : ""}" href="${root}/${h.e.url}"><div class="hit-title">${highlight(h.e.title, terms)}</div><div class="meta">${escapeHtml(h.e.branch)} · ${escapeHtml(h.e.kind)}</div><p>${highlight(h.e.description || "", terms)}</p></a>`
       ).join("");
     }
     results.hidden = false;
@@ -103,5 +144,15 @@
 
   function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  }
+
+  function highlight(text, terms) {
+    const safe = escapeHtml(text);
+    const pattern = terms
+      .map(t => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+      .filter(Boolean)
+      .join("|");
+    if (!pattern) return safe;
+    return safe.replace(new RegExp("(" + pattern + ")", "gi"), "<mark>$1</mark>");
   }
 })();

@@ -8,24 +8,30 @@
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, OSINT, OSINT Triage, triage">
 <meta name="theme-color" content="#256d85">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/osint/osint-triage.html">
 <link rel="icon" href="../../favicon.ico" sizes="any">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
+<meta property="article:section" content="OSINT">
 <meta property="og:site_name" content="ldamoredev Security Atlas">
 <meta property="og:locale" content="en_US">
-<meta property="article:section" content="OSINT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OSINT Triage - OSINT | ldamoredev Security Atlas">
 <meta property="og:description" content="OSINT triage is the process of turning raw public-source leads into one of five outcomes: a verified finding, a likely-but-uncorroborated claim, an uncertain lead...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/osint/osint-triage.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="OSINT Triage - OSINT | ldamoredev Security Atlas">
 <meta name="twitter:description" content="OSINT triage is the process of turning raw public-source leads into one of five outcomes: a verified finding, a likely-but-uncorroborated claim, an uncertain lead...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"OSINT Triage - OSINT | ldamoredev Security Atlas","headline":"OSINT Triage","description":"OSINT triage is the process of turning raw public-source leads into one of five outcomes: a verified finding, a likely-but-uncorroborated claim, an uncertain lead...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/osint/osint-triage.html","datePublished":"2026-04-29","dateModified":"2026-04-29","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/osint/osint-triage.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","OSINT","OSINT Triage","triage"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"OSINT","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/osint/index.html"},{"@type":"ListItem","position":4,"name":"OSINT Triage","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/osint/osint-triage.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/osint/osint-triage.html#article","name":"OSINT Triage - OSINT | ldamoredev Security Atlas","headline":"OSINT Triage","description":"OSINT triage is the process of turning raw public-source leads into one of five outcomes: a verified finding, a likely-but-uncorroborated claim, an uncertain lead...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/osint/osint-triage.html","inLanguage":"en","datePublished":"2026-04-29","dateModified":"2026-04-29","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/osint/osint-triage.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","OSINT","OSINT Triage","triage"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"OSINT","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/osint/index.html"},{"@type":"ListItem","position":4,"name":"OSINT Triage","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/osint/osint-triage.html"}]}]</script>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="stylesheet" href="../../assets/style.css">
 <link rel="stylesheet" href="../../assets/pygments.css">
 </head>
@@ -382,7 +388,7 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">OSINT</a><span>/</span><span>OSINT Triage</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-violet">OSINT</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#osint</span><span class="meta-chip tag">#triage</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-violet">OSINT</span><span class="meta-chip meta-time" title="Estimated reading time">~7 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated Apr 29, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#osint</span><span class="meta-chip tag">#triage</span></div>
 </header>
 <article class="article-note">
 <h1 id="osint-triage">OSINT Triage</h1>
@@ -554,6 +560,7 @@ Plaintext   | redact      | redacted  | escalate before storage
 <li><strong>Foundational:</strong> OSINT Framework — https://osintframework.com/</li>
 <li><strong>Foundational:</strong> OWASP WSTG information gathering — https://owasp.org/www-project-web-security-testing-guide/latest/</li>
 </ul>
+<nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="osint-reporting.html"><span class="nav-dir">← Previous</span><strong>OSINT Reporting</strong></a><a class="branch-nav-link next" href="search-engine-operators.html"><span class="nav-dir">Next →</span><strong>Search Engine Operators</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
 <h2>Explore nearby notes</h2>
 <div class="related-grid">

@@ -8,24 +8,30 @@
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Cryptography, Digital Signatures, digital-signatures, authenticity">
 <meta name="theme-color" content="#256d85">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/digital-signatures.html">
 <link rel="icon" href="../../favicon.ico" sizes="any">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
+<meta property="article:section" content="Cryptography">
 <meta property="og:site_name" content="ldamoredev Security Atlas">
 <meta property="og:locale" content="en_US">
-<meta property="article:section" content="Cryptography">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Digital Signatures - Cryptography | ldamoredev Security Atlas">
 <meta property="og:description" content="A digital signature is an asymmetric proof that a specific private key approved a specific message. Anyone with the matching public key can verify the signature...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/digital-signatures.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Digital Signatures - Cryptography | ldamoredev Security Atlas">
 <meta name="twitter:description" content="A digital signature is an asymmetric proof that a specific private key approved a specific message. Anyone with the matching public key can verify the signature...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"Digital Signatures - Cryptography | ldamoredev Security Atlas","headline":"Digital Signatures","description":"A digital signature is an asymmetric proof that a specific private key approved a specific message. Anyone with the matching public key can verify the signature...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/digital-signatures.html","datePublished":"2026-05-01","dateModified":"2026-05-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/digital-signatures.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Cryptography","Digital Signatures","digital-signatures","authenticity"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Cryptography","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/index.html"},{"@type":"ListItem","position":4,"name":"Digital Signatures","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/digital-signatures.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/digital-signatures.html#article","name":"Digital Signatures - Cryptography | ldamoredev Security Atlas","headline":"Digital Signatures","description":"A digital signature is an asymmetric proof that a specific private key approved a specific message. Anyone with the matching public key can verify the signature...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/digital-signatures.html","inLanguage":"en","datePublished":"2026-05-01","dateModified":"2026-05-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/digital-signatures.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Cryptography","Digital Signatures","digital-signatures","authenticity"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Cryptography","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/index.html"},{"@type":"ListItem","position":4,"name":"Digital Signatures","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/cryptography/digital-signatures.html"}]}]</script>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="stylesheet" href="../../assets/style.css">
 <link rel="stylesheet" href="../../assets/pygments.css">
 </head>
@@ -382,7 +388,7 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Cryptography</a><span>/</span><span>Digital Signatures</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-emerald">Cryptography</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#cryptography</span><span class="meta-chip tag">#digital-signatures</span><span class="meta-chip tag">#authenticity</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-emerald">Cryptography</span><span class="meta-chip meta-time" title="Estimated reading time">~5 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated May 01, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#cryptography</span><span class="meta-chip tag">#digital-signatures</span><span class="meta-chip tag">#authenticity</span></div>
 </header>
 <article class="article-note">
 <h1 id="digital-signatures">Digital Signatures</h1>
@@ -553,6 +559,7 @@ artifact.sha256.sig
 <li><strong>Standard / RFC:</strong> RFC 8032: Edwards-Curve Digital Signature Algorithm — https://www.rfc-editor.org/rfc/rfc8032</li>
 <li><strong>Standard / RFC:</strong> RFC 8017: PKCS #1 v2.2 RSA Cryptography Specifications — https://www.rfc-editor.org/rfc/rfc8017</li>
 </ul>
+<nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="certificate-validation-and-pinning.html"><span class="nav-dir">← Previous</span><strong>Certificate Validation and Pinning</strong></a><a class="branch-nav-link next" href="hashing-vs-encryption-vs-signing.html"><span class="nav-dir">Next →</span><strong>Hashing vs Encryption vs Signing</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
 <h2>Explore nearby notes</h2>
 <div class="related-grid">

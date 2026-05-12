@@ -8,24 +8,30 @@
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Offensive Security / Recon, Active Recon, offensive-security, active-recon">
 <meta name="theme-color" content="#256d85">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/active-recon.html">
 <link rel="icon" href="../../favicon.ico" sizes="any">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
+<meta property="article:section" content="Offensive Security / Recon">
 <meta property="og:site_name" content="ldamoredev Security Atlas">
 <meta property="og:locale" content="en_US">
-<meta property="article:section" content="Offensive Security / Recon">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Active Recon - Offensive Security / Recon | ldamoredev Security Atlas">
 <meta property="og:description" content="Active recon is information gathering that directly interacts with target infrastructure, services, or applications to validate or extend what passive recon...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/active-recon.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Active Recon - Offensive Security / Recon | ldamoredev Security Atlas">
 <meta name="twitter:description" content="Active recon is information gathering that directly interacts with target infrastructure, services, or applications to validate or extend what passive recon...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"Active Recon - Offensive Security / Recon | ldamoredev Security Atlas","headline":"Active Recon","description":"Active recon is information gathering that directly interacts with target infrastructure, services, or applications to validate or extend what passive recon...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/active-recon.html","datePublished":"2026-05-10","dateModified":"2026-05-10","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/active-recon.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Offensive Security / Recon","Active Recon","offensive-security","active-recon"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Offensive Security / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"Active Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/active-recon.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/active-recon.html#article","name":"Active Recon - Offensive Security / Recon | ldamoredev Security Atlas","headline":"Active Recon","description":"Active recon is information gathering that directly interacts with target infrastructure, services, or applications to validate or extend what passive recon...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/active-recon.html","inLanguage":"en","datePublished":"2026-05-10","dateModified":"2026-05-10","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/active-recon.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Offensive Security / Recon","Active Recon","offensive-security","active-recon"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Offensive Security / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"Active Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/active-recon.html"}]}]</script>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="stylesheet" href="../../assets/style.css">
 <link rel="stylesheet" href="../../assets/pygments.css">
 </head>
@@ -382,7 +388,7 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Offensive Security / Recon</a><span>/</span><span>Active Recon</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-rose">Offensive Security / Recon</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#active-recon</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-rose">Offensive Security / Recon</span><span class="meta-chip meta-time" title="Estimated reading time">~3 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated May 10, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#active-recon</span></div>
 </header>
 <article class="article-note">
 <h1 id="active-recon">Active Recon</h1>
@@ -549,6 +555,7 @@ Contact/escalation:
 <li><strong>Research / Deep Dive:</strong> ProjectDiscovery Reconnaissance 105 — https://projectdiscovery.io/blog/reconnaissance-series-5-additional-active-reconnaissance</li>
 <li><strong>Foundational:</strong> OWASP WSTG latest — https://owasp.org/www-project-web-security-testing-guide/latest/</li>
 </ul>
+<nav class="branch-nav" aria-label="Within this branch"><span class="branch-nav-spacer"></span><a class="branch-nav-link next" href="cloaking-and-security-evasion.html"><span class="nav-dir">Next →</span><strong>Cloaking and Security Evasion</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
 <h2>Explore nearby notes</h2>
 <div class="related-grid">

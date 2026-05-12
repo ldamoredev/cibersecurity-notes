@@ -542,11 +542,38 @@ def breadcrumb_html(note: Note) -> str:
     return '<nav class="breadcrumbs" aria-label="Breadcrumb">' + "<span>/</span>".join(parts) + "</nav>"
 
 
+def reading_time_minutes(note: Note) -> int:
+    if page_kind(note) in {"index", "registry"}:
+        return 0
+    text = FRONTMATTER_RE.sub("", note.body_md, count=1)
+    text = re.sub(r"```.*?```", " ", text, flags=re.DOTALL)
+    text = re.sub(r"`[^`]+`", " ", text)
+    text = re.sub(r"!\[[^\]]*\]\([^)]*\)", " ", text)
+    text = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", text)
+    text = WIKILINK_RE.sub(lambda m: m.group(2) or m.group(1).split("/")[-1], text)
+    words = len(re.findall(r"\w+", text))
+    return max(1, round(words / 220))
+
+
+def format_lastmod_human(iso_date: str) -> str:
+    try:
+        d = date.fromisoformat(iso_date)
+    except ValueError:
+        return iso_date
+    return d.strftime("%b %d, %Y")
+
+
 def page_meta_html(note: Note) -> str:
     branch = branch_slug(note)
     chips = [f'<span class="meta-chip">{html.escape(page_kind(note))}</span>']
     if branch:
         chips.append(f'<span class="meta-chip accent-{html.escape(branch_accent(branch))}">{html.escape(branch_label(branch))}</span>')
+    minutes = reading_time_minutes(note)
+    if minutes:
+        chips.append(f'<span class="meta-chip meta-time" title="Estimated reading time">~{minutes} min read</span>')
+    if page_kind(note) in {"concept", "playbook"}:
+        updated = format_lastmod_human(note_last_modified(note))
+        chips.append(f'<span class="meta-chip meta-updated" title="Last updated">Updated {html.escape(updated)}</span>')
     if note.tags:
         chips.extend(f'<span class="meta-chip tag">#{html.escape(t)}</span>' for t in note.tags)
     return f'<div class="page-meta">{"".join(chips)}</div>'
@@ -595,7 +622,7 @@ def note_last_modified(note: Note) -> str:
 
 def canonical_url(note: Note) -> str:
     if note.section == "" and note.rel_path == Path("index.md"):
-        return absolute_site_url("index.html")
+        return SITE_URL + "/"
     return absolute_site_url(note.url)
 
 
@@ -723,42 +750,50 @@ def json_ld_for(note: Note) -> str:
         ],
     }
 
+    site_ref = {"@type": "WebSite", "@id": SITE_URL + "/#website", "name": SITE_NAME, "url": SITE_URL + "/"}
+    author_ref = {"@type": "Person", "@id": SITE_URL + "/#author", "name": SITE_AUTHOR}
     if note.section == "" and note.rel_path == Path("index.md"):
         page = {
             "@context": "https://schema.org",
             "@type": "WebSite",
+            "@id": SITE_URL + "/#website",
             "name": SITE_NAME,
             "url": SITE_URL + "/",
             "description": SITE_DESCRIPTION,
-            "author": {"@type": "Person", "name": SITE_AUTHOR},
+            "inLanguage": "en",
+            "author": author_ref,
         }
     elif page_kind(note) == "index":
         last_modified = note_last_modified(note)
         page = {
             "@context": "https://schema.org",
             "@type": "CollectionPage",
+            "@id": canonical + "#page",
             "name": title,
             "headline": note_label(note),
             "description": description,
             "url": canonical,
+            "inLanguage": "en",
             "dateModified": last_modified,
-            "isPartOf": {"@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/"},
-            "author": {"@type": "Person", "name": SITE_AUTHOR},
+            "isPartOf": site_ref,
+            "author": author_ref,
         }
     else:
         last_modified = note_last_modified(note)
         page = {
             "@context": "https://schema.org",
             "@type": "TechArticle",
+            "@id": canonical + "#article",
             "name": title,
             "headline": note_label(note),
             "description": description,
             "url": canonical,
+            "inLanguage": "en",
             "datePublished": last_modified,
             "dateModified": last_modified,
             "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
-            "isPartOf": {"@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + "/"},
-            "author": {"@type": "Person", "name": SITE_AUTHOR},
+            "isPartOf": site_ref,
+            "author": author_ref,
             "keywords": page_keywords(note),
         }
     return json.dumps([page, breadcrumb], ensure_ascii=False, separators=(",", ":"))
@@ -776,6 +811,8 @@ def seo_head(note: Note, root_href: str) -> str:
         f'<meta name="author" content="{html.escape(SITE_AUTHOR)}">',
         f'<meta name="keywords" content="{html.escape(", ".join(page_keywords(note)))}">',
         f'<meta name="theme-color" content="{THEME_COLOR}">',
+        '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">',
+        '<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">',
         f'<link rel="canonical" href="{html.escape(canonical)}">',
         f'<link rel="icon" href="{html.escape(root_asset(root_href, "favicon.ico"))}" sizes="any">',
         f'<link rel="icon" href="{html.escape(root_asset(root_href, "favicon.svg"))}" type="image/svg+xml">',
@@ -788,6 +825,9 @@ def seo_head(note: Note, root_href: str) -> str:
         f'<meta property="og:description" content="{html.escape(description)}">',
         f'<meta property="og:url" content="{html.escape(canonical)}">',
         f'<meta property="og:image" content="{html.escape(og_image)}">',
+        '<meta property="og:image:width" content="1200">',
+        '<meta property="og:image:height" content="630">',
+        f'<meta property="og:image:alt" content="{html.escape(SITE_NAME)}">',
         '<meta name="twitter:card" content="summary_large_image">',
         f'<meta name="twitter:title" content="{html.escape(title)}">',
         f'<meta name="twitter:description" content="{html.escape(description)}">',
@@ -798,6 +838,54 @@ def seo_head(note: Note, root_href: str) -> str:
     if branch:
         lines.insert(12, f'<meta property="article:section" content="{html.escape(branch_label(branch))}">')
     return "\n".join(lines)
+
+
+def branch_nav_html(note: Note, all_notes: list[Note]) -> str:
+    if page_kind(note) not in {"concept", "playbook"}:
+        return ""
+    branch = branch_slug(note)
+    if not branch:
+        return ""
+    here = note.out_path.parent
+
+    siblings = sorted(
+        [
+            n for n in all_notes
+            if branch_slug(n) == branch and page_kind(n) in {"concept", "playbook"}
+        ],
+        key=lambda n: n.title.lower(),
+    )
+    try:
+        idx = next(i for i, n in enumerate(siblings) if n.rel_path == note.rel_path)
+    except StopIteration:
+        return ""
+
+    prev_note = siblings[idx - 1] if idx > 0 else None
+    next_note = siblings[idx + 1] if idx + 1 < len(siblings) else None
+    if not prev_note and not next_note:
+        return ""
+
+    parts = ['<nav class="branch-nav" aria-label="Within this branch">']
+    if prev_note:
+        href = os.path.relpath(prev_note.out_path, here)
+        parts.append(
+            f'<a class="branch-nav-link prev" href="{html.escape(href)}">'
+            '<span class="nav-dir">← Previous</span>'
+            f'<strong>{html.escape(note_label(prev_note))}</strong>'
+            '</a>'
+        )
+    else:
+        parts.append('<span class="branch-nav-spacer"></span>')
+    if next_note:
+        href = os.path.relpath(next_note.out_path, here)
+        parts.append(
+            f'<a class="branch-nav-link next" href="{html.escape(href)}">'
+            '<span class="nav-dir">Next →</span>'
+            f'<strong>{html.escape(note_label(next_note))}</strong>'
+            '</a>'
+        )
+    parts.append('</nav>')
+    return "".join(parts)
 
 
 def related_notes_html(note: Note, all_notes: list[Note]) -> str:
@@ -912,6 +1000,7 @@ PAGE_TEMPLATE = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 {seo_head}
+<script>(function(){{try{{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}}catch(e){{}}}})();</script>
 <link rel="stylesheet" href="{css_href}">
 <link rel="stylesheet" href="{pygments_href}">
 </head>
@@ -960,8 +1049,13 @@ def render_page(
     root_href = os.path.relpath(OUT, here) or "."
 
     toc_html = "" if note.section == "" else render_toc(html_body)
+    nav_html = branch_nav_html(note, all_notes or [])
     related_html = related_notes_html(note, all_notes or [])
-    article_body = html_body + ("\n" + related_html if related_html else "")
+    article_body = html_body
+    if nav_html:
+        article_body += "\n" + nav_html
+    if related_html:
+        article_body += "\n" + related_html
     return PAGE_TEMPLATE.format(
         seo_head=seo_head(note, root_href),
         css_href=html.escape(css_href),
@@ -1195,15 +1289,22 @@ html[data-theme="dark"] {
   --surface: #171b1d;
   --surface-soft: #1d2423;
   --fg: #e8ece8;
-  --muted: #a3ada8;
-  --muted-2: #7e8985;
-  --accent: #70c0d8;
-  --accent-soft: #143039;
-  --border: #2b3433;
-  --border-strong: #3a4745;
-  --code-bg: #202828;
-  --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+  --muted: #b8c0bb;
+  --muted-2: #8d9893;
+  --accent: #7cc8df;
+  --accent-soft: #16363f;
+  --border: #2f3938;
+  --border-strong: #455250;
+  --code-bg: #232c2c;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
 }
+html[data-theme="dark"] .home-hero {
+  background:
+    radial-gradient(120% 120% at 0% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 55%),
+    var(--surface);
+}
+html[data-theme="dark"] .content code { border: 1px solid var(--border); }
+::selection { background: color-mix(in srgb, var(--accent) 35%, transparent); color: var(--fg); }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
@@ -1284,10 +1385,26 @@ a:hover { text-decoration: underline; }
   box-shadow: var(--shadow);
 }
 #search-results .hit { display: block; padding: 0.75rem 0.85rem; border-radius: 8px; color: var(--fg); }
-#search-results .hit:hover { background: var(--surface-soft); text-decoration: none; }
+#search-results .hit:hover, #search-results .hit.active { background: var(--surface-soft); text-decoration: none; }
+#search-results .hit.active { background: var(--accent-soft); }
 #search-results .hit-title { font-weight: 700; }
 #search-results .meta { color: var(--muted); font-size: 0.84rem; margin-top: 0.12rem; }
 #search-results .empty { padding: 0.8rem; color: var(--muted); }
+#search-results .results-meta {
+  padding: 0.4rem 0.85rem 0.55rem;
+  color: var(--muted-2);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.25rem;
+}
+#search-results mark {
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
+  color: var(--fg);
+  padding: 0 1px;
+  border-radius: 2px;
+}
 
 .layout {
   display: grid;
@@ -1318,7 +1435,7 @@ a:hover { text-decoration: underline; }
 .sidebar-home:hover { text-decoration: none; border-color: var(--border-strong); }
 .sidebar-section h3, .sidebar-group-label {
   margin: 1rem 0 0.35rem;
-  padding: 0 0.55rem;
+  padding: 0.4rem 0.55rem;
   color: var(--muted-2);
   font-size: 0.74rem;
   font-weight: 760;
@@ -1326,7 +1443,19 @@ a:hover { text-decoration: underline; }
   letter-spacing: 0.08em;
 }
 .sidebar-section h3 { margin-top: 0; }
+.sidebar-group-label {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: color-mix(in srgb, var(--surface-soft) 92%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+}
 .sidebar details { margin: 0.18rem 0; border-radius: 8px; }
+.sidebar details.branch > summary {
+  border-left: 3px solid var(--accent);
+  padding-left: 0.65rem;
+}
 .sidebar summary {
   display: flex;
   align-items: center;
@@ -1334,11 +1463,12 @@ a:hover { text-decoration: underline; }
   gap: 0.7rem;
   cursor: pointer;
   padding: 0.42rem 0.55rem;
-  border-radius: 8px;
+  border-radius: 0 8px 8px 0;
   color: var(--fg);
   font-weight: 680;
 }
 .sidebar summary:hover { background: var(--surface); }
+.sidebar details[open] > summary { color: var(--accent); }
 .sidebar summary small, .sidebar summary span:last-child {
   color: var(--muted-2);
   font-size: 0.75rem;
@@ -1363,6 +1493,8 @@ a:hover { text-decoration: underline; }
   background: var(--accent-soft);
   color: var(--accent);
   font-weight: 740;
+  border-left: 2px solid var(--accent);
+  padding-left: calc(0.55rem - 2px);
 }
 .kind-registry { color: var(--muted); }
 .registry-group { margin-top: 1.2rem; border-top: 1px solid var(--border); padding-top: 0.75rem; }
@@ -1714,6 +1846,55 @@ html[data-theme="dark"] .unresolved-link { color: #ffb072; border-bottom-color: 
   line-height: 1.45;
 }
 
+.meta-chip.meta-time, .meta-chip.meta-updated {
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--surface-soft);
+  text-transform: none;
+}
+.meta-chip.accent-sky, .meta-chip.accent-teal, .meta-chip.accent-blue,
+.meta-chip.accent-indigo, .meta-chip.accent-cyan, .meta-chip.accent-amber,
+.meta-chip.accent-violet, .meta-chip.accent-rose, .meta-chip.accent-orange,
+.meta-chip.accent-green, .meta-chip.accent-slate, .meta-chip.accent-emerald,
+.meta-chip.accent-purple, .meta-chip.accent-red, .meta-chip.accent-fuchsia {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: transparent;
+}
+
+.branch-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin: 3rem 0 0;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--border);
+}
+.branch-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--fg);
+  line-height: 1.35;
+  transition: transform 100ms ease, border-color 120ms ease, box-shadow 140ms ease;
+}
+.branch-nav-link:hover { text-decoration: none; transform: translateY(-1px); border-color: var(--border-strong); box-shadow: var(--shadow); }
+.branch-nav-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.branch-nav-link.next { text-align: right; align-items: flex-end; }
+.branch-nav-link .nav-dir {
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 760;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.branch-nav-link strong { font-weight: 720; }
+.branch-nav-spacer { display: block; }
+
 @media (max-width: 1120px) {
   .layout { grid-template-columns: var(--sidebar-w) minmax(0, 1fr); }
   .toc { display: none; }
@@ -1723,6 +1904,8 @@ html[data-theme="dark"] .unresolved-link { color: #ffb072; border-bottom-color: 
   .path-grid, .related-grid { grid-template-columns: 1fr; }
   .howto-strip { grid-template-columns: 1fr; }
   .home-footer { flex-direction: column; }
+  .branch-nav { grid-template-columns: 1fr; }
+  .branch-nav-link.next { text-align: left; align-items: flex-start; }
 }
 @media (max-width: 780px) {
   :root { --topbar-h: 58px; }
@@ -1766,6 +1949,14 @@ SEARCH_JS = r"""
   sidebarToggle.addEventListener("click", () => {
     document.body.classList.toggle("nav-open");
   });
+
+  const activeLink = document.querySelector(".sidebar .sidebar-link.active");
+  if (activeLink) {
+    const rect = activeLink.getBoundingClientRect();
+    if (rect.top < 80 || rect.bottom > window.innerHeight - 40) {
+      activeLink.scrollIntoView({ block: "center" });
+    }
+  }
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "/" && document.activeElement !== input) {
@@ -1819,25 +2010,58 @@ SEARCH_JS = r"""
   }
 
   let debounce;
+  let activeIndex = -1;
+  let currentHits = [];
+
+  input.addEventListener("focus", () => { loadIndex(); });
   input.addEventListener("input", () => {
     clearTimeout(debounce);
     debounce = setTimeout(runSearch, 120);
   });
+  input.addEventListener("keydown", (e) => {
+    if (results.hidden || !currentHits.length) return;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      activeIndex = (activeIndex + 1) % currentHits.length;
+      updateActive();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      activeIndex = (activeIndex - 1 + currentHits.length) % currentHits.length;
+      updateActive();
+    } else if (e.key === "Enter" && activeIndex >= 0) {
+      const nodes = results.querySelectorAll(".hit");
+      if (nodes[activeIndex]) {
+        e.preventDefault();
+        window.location.href = nodes[activeIndex].href;
+      }
+    }
+  });
+
+  function updateActive() {
+    const nodes = results.querySelectorAll(".hit");
+    nodes.forEach((n, i) => n.classList.toggle("active", i === activeIndex));
+    if (activeIndex >= 0 && nodes[activeIndex]) {
+      nodes[activeIndex].scrollIntoView({ block: "nearest" });
+    }
+  }
 
   async function runSearch() {
     const q = input.value.trim().toLowerCase();
-    if (!q) { results.hidden = true; results.innerHTML = ""; return; }
-    const terms = q.split(/\s+/);
+    if (!q) { results.hidden = true; results.innerHTML = ""; currentHits = []; activeIndex = -1; return; }
+    const terms = q.split(/\s+/).filter(Boolean);
     const idx = await loadIndex();
     const hits = idx.map(e => ({ e, s: score(e, terms) }))
                     .filter(x => x.s > 0)
                     .sort((a, b) => b.s - a.s)
                     .slice(0, 20);
+    currentHits = hits;
+    activeIndex = hits.length ? 0 : -1;
     if (!hits.length) {
-      results.innerHTML = '<div class="empty">No matches</div>';
+      results.innerHTML = '<div class="empty">No matches for "' + escapeHtml(q) + '"</div>';
     } else {
-      results.innerHTML = hits.map(h =>
-        `<a class="hit" href="${root}/${h.e.url}"><div class="hit-title">${escapeHtml(h.e.title)}</div><div class="meta">${escapeHtml(h.e.branch)} · ${escapeHtml(h.e.kind)} · ${escapeHtml(h.e.url)}</div><p>${escapeHtml(h.e.description || "")}</p></a>`
+      const count = `<div class="results-meta">${hits.length} result${hits.length === 1 ? "" : "s"} · ↑↓ to navigate · ↵ to open</div>`;
+      results.innerHTML = count + hits.map((h, i) =>
+        `<a class="hit${i === 0 ? " active" : ""}" href="${root}/${h.e.url}"><div class="hit-title">${highlight(h.e.title, terms)}</div><div class="meta">${escapeHtml(h.e.branch)} · ${escapeHtml(h.e.kind)}</div><p>${highlight(h.e.description || "", terms)}</p></a>`
       ).join("");
     }
     results.hidden = false;
@@ -1851,6 +2075,16 @@ SEARCH_JS = r"""
 
   function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  }
+
+  function highlight(text, terms) {
+    const safe = escapeHtml(text);
+    const pattern = terms
+      .map(t => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+      .filter(Boolean)
+      .join("|");
+    if (!pattern) return safe;
+    return safe.replace(new RegExp("(" + pattern + ")", "gi"), "<mark>$1</mark>");
   }
 })();
 """

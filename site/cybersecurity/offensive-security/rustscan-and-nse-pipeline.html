@@ -8,24 +8,30 @@
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Offensive Security / Recon, RustScan and NSE Pipeline, offensive-security, rustscan, nmap, nse, pipeline">
 <meta name="theme-color" content="#256d85">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html">
 <link rel="icon" href="../../favicon.ico" sizes="any">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="manifest" href="../../site.webmanifest">
+<meta property="article:section" content="Offensive Security / Recon">
 <meta property="og:site_name" content="ldamoredev Security Atlas">
 <meta property="og:locale" content="en_US">
-<meta property="article:section" content="Offensive Security / Recon">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RustScan and NSE Pipeline - Offensive Security / Recon | ldamoredev Security Atlas">
 <meta property="og:description" content="The RustScan + NSE pipeline is a two-stage workflow in which RustScan performs fast asynchronous port discovery on a target and pipes the discovered port list...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="RustScan and NSE Pipeline - Offensive Security / Recon | ldamoredev Security Atlas">
 <meta name="twitter:description" content="The RustScan + NSE pipeline is a two-stage workflow in which RustScan performs fast asynchronous port discovery on a target and pipes the discovered port list...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","name":"RustScan and NSE Pipeline - Offensive Security / Recon | ldamoredev Security Atlas","headline":"RustScan and NSE Pipeline","description":"The RustScan + NSE pipeline is a two-stage workflow in which RustScan performs fast asynchronous port discovery on a target and pipes the discovered port list...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html"},"isPartOf":{"@type":"WebSite","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Offensive Security / Recon","RustScan and NSE Pipeline","offensive-security","rustscan","nmap","nse","pipeline"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Offensive Security / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"RustScan and NSE Pipeline","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html#article","name":"RustScan and NSE Pipeline - Offensive Security / Recon | ldamoredev Security Atlas","headline":"RustScan and NSE Pipeline","description":"The RustScan + NSE pipeline is a two-stage workflow in which RustScan performs fast asynchronous port discovery on a target and pipes the discovered port list...","url":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html","inLanguage":"en","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Offensive Security / Recon","RustScan and NSE Pipeline","offensive-security","rustscan","nmap","nse","pipeline"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/index.html"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Offensive Security / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"RustScan and NSE Pipeline","item":"https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html"}]}]</script>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="stylesheet" href="../../assets/style.css">
 <link rel="stylesheet" href="../../assets/pygments.css">
 </head>
@@ -382,7 +388,7 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Offensive Security / Recon</a><span>/</span><span>RustScan and NSE Pipeline</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-rose">Offensive Security / Recon</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#rustscan</span><span class="meta-chip tag">#nmap</span><span class="meta-chip tag">#nse</span><span class="meta-chip tag">#pipeline</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-rose">Offensive Security / Recon</span><span class="meta-chip meta-time" title="Estimated reading time">~5 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#rustscan</span><span class="meta-chip tag">#nmap</span><span class="meta-chip tag">#nse</span><span class="meta-chip tag">#pipeline</span></div>
 </header>
 <article class="article-note">
 <h1 id="rustscan-and-nse-pipeline">RustScan and NSE Pipeline</h1>
@@ -547,6 +553,7 @@ ls<span class="w"> </span><span class="k">$(</span>nmap<span class="w"> </span>-
 <li><strong>Official Tool Docs:</strong> Nmap Scripting Engine — https://nmap.org/book/nse.html</li>
 <li><strong>Research / Deep Dive:</strong> ProjectDiscovery Reconnaissance 103 — Host and Port Discovery — https://projectdiscovery.io/blog/reconnaissance-series-3-host-and-port-discovery</li>
 </ul>
+<nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="recon-to-testing-handoff.html"><span class="nav-dir">← Previous</span><strong>Recon to Testing Handoff</strong></a><a class="branch-nav-link next" href="scope-validation.html"><span class="nav-dir">Next →</span><strong>Scope Validation</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
 <h2>Explore nearby notes</h2>
 <div class="related-grid">
