@@ -938,7 +938,7 @@ def xml_escape(value: str) -> str:
 
 def write_sitemap(notes: list[Note]) -> None:
     today = date.today().isoformat()
-    entries: dict[str, str] = {absolute_site_url("index.html"): today}
+    entries: dict[str, str] = {SITE_URL + "/": today}
     for n in notes:
         entries[canonical_url(n)] = note_last_modified(n)
     lines = [
@@ -1225,6 +1225,7 @@ def main() -> int:
     (OUT / "assets" / "style.css").write_text(STYLE_CSS, encoding="utf-8")
     (OUT / "assets" / "search.js").write_text(SEARCH_JS, encoding="utf-8")
     copy_static_assets()
+    (OUT / ".nojekyll").write_text("", encoding="utf-8")
     write_manifest()
     write_sitemap(notes)
     write_robots()
