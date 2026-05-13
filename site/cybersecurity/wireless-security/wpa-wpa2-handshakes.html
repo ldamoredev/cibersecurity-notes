@@ -7,7 +7,7 @@
 <meta name="description" content="WPA/WPA2 handshakes are authentication exchanges that let a client and access point prove shared key material and derive session keys without sending the...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Wireless Security, WPA/WPA2 Handshakes, wireless-security">
-<meta name="theme-color" content="#256d85">
+<meta name="theme-color" content="#f0a040">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/cybersecurity/wireless-security/wpa-wpa2-handshakes.html">
@@ -37,13 +37,17 @@
 </head>
 <body id="top" data-root="../..">
 <header class="topbar">
-  <button id="sidebar-toggle" title="Toggle navigation" aria-label="Toggle navigation">☰</button>
-  <a class="brand" href="../../index.html"><span>ldamoredev</span><small>security atlas</small></a>
-  <div class="search-shell">
-    <input id="search" type="search" placeholder="Search notes..." autocomplete="off">
+  <a class="brand" href="../../index.html"><span class="brand-mark">⌬</span><span>ldamoredev<span class="brand-slash">/</span><span class="brand-sub">atlas</span></span></a>
+  <div class="topbar-search search-shell">
+    <svg class="search-ico" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="M11 11l3 3"/></svg>
+    <input id="search" type="search" placeholder="Search notes, jump anywhere..." autocomplete="off">
     <kbd>/</kbd>
   </div>
-  <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+  <div class="topbar-actions">
+    <button id="sidebar-toggle" class="icon-btn menu-toggle" title="Toggle navigation" aria-label="Toggle navigation"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg></button>
+    <button id="theme-toggle" class="icon-btn" title="Toggle theme" aria-label="Toggle theme"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1a7 7 0 100 14V1z"/></svg></button>
+    <a class="icon-btn github-link" href="https://github.com/ldamoredev/cibersecurity-notes" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38v-1.32C3.73 14.37 3.26 13 3.26 13c-.36-.92-.88-1.16-.88-1.16-.72-.49.06-.48.06-.48.79.06 1.21.81 1.21.81.71 1.21 1.86.86 2.31.66.07-.51.28-.86.5-1.06-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.35-1.02.08-2.13 0 0 .67-.21 2.2.82a7.6 7.6 0 014 0c1.53-1.03 2.2-.82 2.2-.82.43 1.11.16 1.93.08 2.13.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+  </div>
 </header>
 <div id="search-results" hidden></div>
 <div class="layout with-toc">
@@ -223,10 +227,11 @@
 <a class="sidebar-link kind-concept" href="../linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
 <a class="sidebar-link kind-concept" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
 </details>
-<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>15</small></summary>
+<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>16</small></summary>
 <p class="sidebar-summary">Repeatable procedures for turning concepts into practical tests.</p>
 <a class="sidebar-link kind-index" href="../security-playbooks/index.html">Overview</a>
 <a class="sidebar-link kind-playbook" href="../security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="sidebar-link kind-playbook" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html">Detect DCSync and ntds.dit Access</a>
 <a class="sidebar-link kind-playbook" href="../security-playbooks/detect-external-scan-pipeline.html">Detect External Recon Scan Pipeline</a>
 <a class="sidebar-link kind-playbook" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="sidebar-link kind-playbook" href="../security-playbooks/exploit-idor.html">Exploit IDOR</a>

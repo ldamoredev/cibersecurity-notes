@@ -7,7 +7,7 @@
 <meta name="description" content="A personal cybersecurity knowledge base for web security, API security, cloud security, offensive security, DevSecOps, and practical playbooks.">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, ldamoredev notes">
-<meta name="theme-color" content="#256d85">
+<meta name="theme-color" content="#f0a040">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/">
@@ -36,13 +36,17 @@
 </head>
 <body id="top" data-root=".">
 <header class="topbar">
-  <button id="sidebar-toggle" title="Toggle navigation" aria-label="Toggle navigation">☰</button>
-  <a class="brand" href="index.html"><span>ldamoredev</span><small>security atlas</small></a>
-  <div class="search-shell">
-    <input id="search" type="search" placeholder="Search notes..." autocomplete="off">
+  <a class="brand" href="index.html"><span class="brand-mark">⌬</span><span>ldamoredev<span class="brand-slash">/</span><span class="brand-sub">atlas</span></span></a>
+  <div class="topbar-search search-shell">
+    <svg class="search-ico" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="M11 11l3 3"/></svg>
+    <input id="search" type="search" placeholder="Search notes, jump anywhere..." autocomplete="off">
     <kbd>/</kbd>
   </div>
-  <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+  <div class="topbar-actions">
+    <button id="sidebar-toggle" class="icon-btn menu-toggle" title="Toggle navigation" aria-label="Toggle navigation"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg></button>
+    <button id="theme-toggle" class="icon-btn" title="Toggle theme" aria-label="Toggle theme"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1a7 7 0 100 14V1z"/></svg></button>
+    <a class="icon-btn github-link" href="https://github.com/ldamoredev/cibersecurity-notes" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38v-1.32C3.73 14.37 3.26 13 3.26 13c-.36-.92-.88-1.16-.88-1.16-.72-.49.06-.48.06-.48.79.06 1.21.81 1.21.81.71 1.21 1.86.86 2.31.66.07-.51.28-.86.5-1.06-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.35-1.02.08-2.13 0 0 .67-.21 2.2.82a7.6 7.6 0 014 0c1.53-1.03 2.2-.82 2.2-.82.43 1.11.16 1.93.08 2.13.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+  </div>
 </header>
 <div id="search-results" hidden></div>
 <div class="layout no-toc">
@@ -222,10 +226,11 @@
 <a class="sidebar-link kind-concept" href="cybersecurity/linux-privilege-escalation/sudo-misconfigurations.html">Sudo Misconfigurations</a>
 <a class="sidebar-link kind-concept" href="cybersecurity/linux-privilege-escalation/suid-sgid-misconfigurations.html">SUID and SGID Misconfigurations</a>
 </details>
-<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>15</small></summary>
+<details class="branch branch-slate"><summary><span>Security Playbooks</span><small>16</small></summary>
 <p class="sidebar-summary">Repeatable procedures for turning concepts into practical tests.</p>
 <a class="sidebar-link kind-index" href="cybersecurity/security-playbooks/index.html">Overview</a>
 <a class="sidebar-link kind-playbook" href="cybersecurity/security-playbooks/break-jwt-validation.html">Break JWT Validation</a>
+<a class="sidebar-link kind-playbook" href="cybersecurity/security-playbooks/detect-dcsync-and-ntdsdit-access.html">Detect DCSync and ntds.dit Access</a>
 <a class="sidebar-link kind-playbook" href="cybersecurity/security-playbooks/detect-external-scan-pipeline.html">Detect External Recon Scan Pipeline</a>
 <a class="sidebar-link kind-playbook" href="cybersecurity/security-playbooks/detect-kerberoasting-and-as-rep-roasting.html">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="sidebar-link kind-playbook" href="cybersecurity/security-playbooks/exploit-idor.html">Exploit IDOR</a>
@@ -390,60 +395,50 @@
 <div class="page-meta"><span class="meta-chip">index</span></div>
 </header>
 <article class="article-home">
-<section class="home-hero">
-<div class="hero-kicker" aria-hidden="true">
-<span>web</span><span>api</span><span>cloud</span><span>offense</span><span>defense</span><span>devsecops</span><span>opsec</span>
-</div>
-<h1>ldamoredev <span class="hero-accent">security atlas</span></h1>
-<p class="lede">A working cybersecurity reference. <strong>274 atomic notes</strong> across <strong>17 branches</strong> — structured for retrieval, not tutorials. Built from a personal Obsidian vault and kept honest by a reference-registry policy.</p>
-<div class="hero-ctas">
-<a class="btn btn-primary" href="#start-here">Start here →</a>
-<a class="btn btn-ghost" href="https://github.com/ldamoredev/cibersecurity-notes" rel="noopener" target="_blank">View on GitHub</a>
-</div>
-<div class="stat-row">
-<span><strong>274</strong> published notes</span>
-<span><strong>17</strong> branches</span>
-<span><strong>17</strong> reference registries</span>
+<section class="hero home-hero">
+<div class="hero-kicker">PERSONAL CYBERSECURITY REFERENCE · v2026.05</div>
+<h1>Notes from the <br class="mobile-break"><em>actual practice</em><br>of attacking and<br class="mobile-break"> defending systems.</h1>
+<p class="lede">An atomic, retrievable knowledge base — <strong>275 notes across 17 branches</strong>, structured around the path from <em>substrate</em> to <em>specialty</em>. Each entry is a single concept, with attacker/defender duality, references, and links to playbooks that turn it into action.</p>
+<div class="hero-stats">
+<div class="hero-stat"><div class="v">275</div><div class="l">Atomic notes</div></div>
+<div class="hero-stat"><div class="v">17</div><div class="l">Branches</div></div>
+<div class="hero-stat"><div class="v">16</div><div class="l">Playbooks</div></div>
+<div class="hero-stat"><div class="v">5<small>phases</small></div><div class="l">Learning path</div></div>
+<div class="hero-stat"><div class="v">17</div><div class="l">Registries</div></div>
 </div>
 </section>
-<section class="howto-strip" aria-label="How to use this wiki">
-<div class="howto-item"><strong>Search</strong><span>Press <kbd>/</kbd> to jump to any note by title, tag, or content.</span></div>
-<div class="howto-item"><strong>Browse</strong><span>Use the sidebar — grouped by phase, from substrate to specialty tracks.</span></div>
-<div class="howto-item"><strong>Follow a path</strong><span>Pick one of the learning routes below if you're not sure where to start.</span></div>
-</section>
-<section class="start-panel" aria-labelledby="start-here">
-<div>
-<p class="eyebrow">Suggested paths</p>
-<h2 id="start-here">Start with a path, not a folder</h2>
-<p>Pick the route that matches the skill you want to build, then use search when you need a specific concept.</p>
-</div>
-<div class="path-grid">
-<a class="path-card" href="cybersecurity/web-security/index.html"><span>01</span><strong>Web security fundamentals</strong><small>Browser trust, sessions, access control, and server-side bugs.</small></a>
-<a class="path-card" href="cybersecurity/api-security/index.html"><span>02</span><strong>API security fundamentals</strong><small>Authorization, token trust, inventory drift, and property-level abuse.</small></a>
-<a class="path-card" href="cybersecurity/offensive-security/index.html"><span>03</span><strong>Recon to testing</strong><small>Discovery, validation, scope control, and handoff into concrete tests.</small></a>
-<a class="path-card" href="cybersecurity/security-playbooks/index.html"><span>04</span><strong>Execution playbooks</strong><small>Repeatable workflows for turning concepts into practical checks.</small></a>
-</div>
-</section>
-<p class="home-index-link"><a href="cybersecurity/index.html">Open the full cybersecurity index</a></p>
-<section class="branch-section"><h2>Orientation</h2><div class="branch-grid">
+<a class="continue" href="cybersecurity/web-security/xss.html">
+<div class="continue-meta"><div class="continue-eyebrow"><span class="pulse"></span>Featured note · Web Security</div><div class="continue-title">Cross-Site Scripting (XSS)</div><div class="continue-progress"><span>Operational note</span><span class="bar"><i style="width:62%"></i></span><span>Contexts, payloads, defenses</span></div></div>
+<span class="continue-action">Open →</span>
+</a>
+<section class="path-section" id="start-here">
+<div class="section-head"><div><div class="section-eyebrow">START → CAPABLE</div><h2>The five-phase learning path</h2><p>Do not read folder-by-folder. Read in phases: each one is a prerequisite layer for the next. Pick where you are, then walk forward.</p></div><a href="cybersecurity/start-here.html" class="section-head-action">Open Start Here →</a></div>
+<div class="phase-grid">
+<a class="phase-card" href="cybersecurity/foundations/index.html"><span>00</span><strong>Orientation</strong><small>Mental models, CIA tradeoffs, and threat modeling.</small></a>
+<a class="phase-card" href="cybersecurity/phase-1-substrate.html"><span>01</span><strong>Substrate</strong><small>Networking, cryptography, browser trust, and system behavior.</small></a>
+<a class="phase-card" href="cybersecurity/phase-2-offense-defense.html"><span>02</span><strong>Offense / Defense</strong><small>Paired attack and detection thinking.</small></a>
+<a class="phase-card" href="cybersecurity/phase-3-operator.html"><span>03</span><strong>Operator Surface</strong><small>Recon, exposure, and practical execution workflows.</small></a>
+<a class="phase-card" href="cybersecurity/phase-4-specialty.html"><span>04</span><strong>Specialty Tracks</strong><small>Cloud, identity, DevSecOps, wireless, and binary exploitation.</small></a>
+</div></section>
+<section class="branch-section"><div class="section-head compact"><div><div class="section-eyebrow">Orientation</div><h2>Orientation branches</h2></div></div><div class="branch-grid">
 <a class="branch-card accent-amber" href="cybersecurity/foundations/index.html"><span class="card-kicker">Orientation</span><h3>Foundations</h3><p>Phase 0 mental models — what cybersecurity is, the CIA triad as a decision tool, threat-modeling quickstart, and the attacker-defender duality.</p><span class="card-meta">5 notes</span></a>
 </div></section>
-<section class="branch-section"><h2>Substrate</h2><div class="branch-grid">
+<section class="branch-section"><div class="section-head compact"><div><div class="section-eyebrow">Substrate</div><h2>Substrate branches</h2></div></div><div class="branch-grid">
 <a class="branch-card accent-emerald" href="cybersecurity/cryptography/index.html"><span class="card-kicker">Substrate</span><h3>Cryptography</h3><p>Hashes, encryption, signatures, key exchange, TLS/PKI, password storage, and token correctness.</p><span class="card-meta">15 notes</span></a>
 <a class="branch-card accent-sky" href="cybersecurity/networking/index.html"><span class="card-kicker">Substrate</span><h3>Networking</h3><p>Reachability, HTTP, proxies, DNS, TLS, and packet-level observation.</p><span class="card-meta">23 notes</span></a>
 <a class="branch-card accent-blue" href="cybersecurity/web-security/index.html"><span class="card-kicker">Substrate</span><h3>Web Security</h3><p>Browser behavior, sessions, access control, and server-side exploit patterns.</p><span class="card-meta">27 notes</span></a>
 </div></section>
-<section class="branch-section"><h2>Paired</h2><div class="branch-grid">
+<section class="branch-section"><div class="section-head compact"><div><div class="section-eyebrow">Paired</div><h2>Paired branches</h2></div></div><div class="branch-grid">
 <a class="branch-card accent-rose" href="cybersecurity/offensive-security/index.html"><span class="card-kicker">Paired</span><h3>Offensive Security / Recon</h3><p>Discovery, validation, and handoff from recon into concrete testing.</p><span class="card-meta">20 notes</span></a>
 <a class="branch-card accent-cyan" href="cybersecurity/detection-engineering/index.html"><span class="card-kicker">Paired</span><h3>Detection Engineering</h3><p>Telemetry, behavioral analytics, correlation, and detection tradeoffs.</p><span class="card-meta">13 notes</span></a>
 </div></section>
-<section class="branch-section"><h2>Operator</h2><div class="branch-grid">
+<section class="branch-section"><div class="section-head compact"><div><div class="section-eyebrow">Operator</div><h2>Operator branches</h2></div></div><div class="branch-grid">
 <a class="branch-card accent-amber" href="cybersecurity/attack-surface-mapping/index.html"><span class="card-kicker">Operator</span><h3>Attack Surface Mapping</h3><p>What is exposed, reachable, discoverable, and drifting from intended design.</p><span class="card-meta">11 notes</span></a>
 <a class="branch-card accent-violet" href="cybersecurity/osint/index.html"><span class="card-kicker">Operator</span><h3>OSINT</h3><p>Public-source collection, evidence quality, and ethical handling of clues.</p><span class="card-meta">11 notes</span></a>
 <a class="branch-card accent-orange" href="cybersecurity/linux-privilege-escalation/index.html"><span class="card-kicker">Operator</span><h3>Linux Privilege Escalation</h3><p>Local boundary failures, enumeration, and safe escalation hypothesis testing.</p><span class="card-meta">10 notes</span></a>
-<a class="branch-card accent-slate" href="cybersecurity/security-playbooks/index.html"><span class="card-kicker">Operator</span><h3>Security Playbooks</h3><p>Repeatable procedures for turning concepts into practical tests.</p><span class="card-meta">15 notes</span></a>
+<a class="branch-card accent-slate" href="cybersecurity/security-playbooks/index.html"><span class="card-kicker">Operator</span><h3>Security Playbooks</h3><p>Repeatable procedures for turning concepts into practical tests.</p><span class="card-meta">16 notes</span></a>
 </div></section>
-<section class="branch-section"><h2>Specialty</h2><div class="branch-grid">
+<section class="branch-section"><div class="section-head compact"><div><div class="section-eyebrow">Specialty</div><h2>Specialty branches</h2></div></div><div class="branch-grid">
 <a class="branch-card accent-teal" href="cybersecurity/wireless-security/index.html"><span class="card-kicker">Specialty</span><h3>Wireless Security</h3><p>Wi-Fi frames, handshakes, rogue access points, and local-network MITM.</p><span class="card-meta">11 notes</span></a>
 <a class="branch-card accent-indigo" href="cybersecurity/api-security/index.html"><span class="card-kicker">Specialty</span><h3>API Security</h3><p>Authorization, token trust, inventory drift, and machine-readable abuse.</p><span class="card-meta">15 notes</span></a>
 <a class="branch-card accent-cyan" href="cybersecurity/cloud-security/index.html"><span class="card-kicker">Specialty</span><h3>Cloud Security</h3><p>IAM, metadata, storage, network boundaries, secrets, and logging controls.</p><span class="card-meta">11 notes</span></a>
@@ -451,12 +446,10 @@
 <a class="branch-card accent-red" href="cybersecurity/identity-and-active-directory/index.html"><span class="card-kicker">Specialty</span><h3>Identity &amp; Active Directory</h3><p>Kerberos, BloodHound graph analysis, DCSync, and AD attack-path engineering across offense and defense.</p><span class="card-meta">12 notes</span></a>
 <a class="branch-card accent-fuchsia" href="cybersecurity/binary-exploitation/index.html"><span class="card-kicker">Specialty</span><h3>Binary Exploitation</h3><p>Memory corruption, stack and heap overflows, exploit mitigations, reverse engineering, and the modern exploitation arms race at the binary level.</p><span class="card-meta">5 notes</span></a>
 </div></section>
-<section class="branch-section"><h2>Always-on</h2><div class="branch-grid">
+<section class="branch-section"><div class="section-head compact"><div><div class="section-eyebrow">Always-on</div><h2>Always-on branches</h2></div></div><div class="branch-grid">
 <a class="branch-card accent-purple" href="cybersecurity/privacy-anonymity-opsec/index.html"><span class="card-kicker">Always-on</span><h3>Privacy, Anonymity &amp; OPSEC</h3><p>VPN threat models, Tor, metadata leakage, compartmentalization, and OPSEC failure modes.</p><span class="card-meta">33 notes</span></a>
 </div></section>
-<section class="reference-panel"><h2>Reference System</h2>
-<p>Reference registries stay published, but they sit behind the learning branches instead of competing with them in the primary path.</p>
-<div class="reference-list">
+<section class="reference-panel" id="registries"><div class="section-eyebrow">Reference system</div><h2>Reference registries</h2><p>The registries keep citations normalized behind the learning branches, so atomic notes stay compact and high-signal.</p><div class="reference-list">
 <a href="cybersecurity/reference-registry.html">Cybersecurity Reference Registry</a>
 <a href="cybersecurity/reference-registry-detection-engineering.html">Reference Registry - Detection Engineering</a>
 <a href="cybersecurity/reference-registry-privacy-anonymity-opsec.html">Reference Registry - Privacy, Anonymity &amp; OPSEC</a>
@@ -475,17 +468,11 @@
 <a href="cybersecurity/reference-registry-web-security.html">Reference Registry — Web Security</a>
 <a href="cybersecurity/reference-registry-wireless-security.html">Reference Registry — Wireless Security</a>
 </div></section>
-<footer class="home-footer">
-<div class="footer-about">
-<strong>ldamoredev security atlas</strong>
-<p>A personal cybersecurity knowledge base. Excerpts from a working Obsidian vault, published as a static reference.</p>
-</div>
-<div class="footer-links">
+<footer class="home-footer"><div class="footer-about"><strong>ldamoredev/atlas</strong><p>A personal cybersecurity knowledge base, published from an Obsidian vault as a static operator reference.</p></div><div class="footer-links">
 <a href="https://github.com/ldamoredev/cibersecurity-notes" rel="noopener" target="_blank">GitHub</a>
 <a href="cybersecurity/start-here.html">Start Here</a>
 <a href="cybersecurity/index.html">Full index</a>
-</div>
-</footer>
+</div></footer>
 </article>
 </main>
 
