@@ -951,14 +951,18 @@ def write_sitemap(notes: list[Note]) -> None:
         lines.append(f"    <lastmod>{entries[url]}</lastmod>")
         lines.append("  </url>")
     lines.append("</urlset>\n")
-    (OUT / "sitemap.xml").write_text("\n".join(lines), encoding="utf-8")
+    sitemap_body = "\n".join(lines)
+    (OUT / "sitemap.xml").write_text(sitemap_body, encoding="utf-8")
+    # Alternate filename for Search Console cache-busting on GitHub Pages.
+    (OUT / "sitemap-notes.xml").write_text(sitemap_body, encoding="utf-8")
 
 
 def write_robots() -> None:
     (OUT / "robots.txt").write_text(
         "User-agent: *\n"
         "Allow: /\n\n"
-        f"Sitemap: {absolute_site_url('sitemap.xml')}\n",
+        f"Sitemap: {absolute_site_url('sitemap.xml')}\n"
+        f"Sitemap: {absolute_site_url('sitemap-notes.xml')}\n",
         encoding="utf-8",
     )
 
