@@ -50,7 +50,8 @@ SITE_KEYWORDS = [
     "security playbooks",
 ]
 
-THEME_COLOR = "#f0a040"
+THEME_COLOR = "#16a34a"  # CyberSec Atlas green — sets the Android URL bar
+                           # tint, PWA splash, and <meta name="theme-color">.
 
 # Only publish mature cybersecurity branches and their reference registries.
 # Keep private/project execution notes, templates, tooling experiments, and
@@ -1061,7 +1062,7 @@ def write_manifest() -> None:
         "description": SITE_DESCRIPTION,
         "start_url": "./index.html",
         "display": "standalone",
-        "background_color": "#111416",
+        "background_color": "#0f1117",  # matches the new dark-mode --bg
         "theme_color": THEME_COLOR,
         "icons": [
             {"src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png"},
