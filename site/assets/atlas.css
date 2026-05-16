@@ -1526,8 +1526,24 @@ html[data-theme="dark"] .content :where(p, li, h1, h2, h3, h4, h5, h6, blockquot
 #search-results .sr-meta { color: var(--muted-2); font-family: var(--font-mono); font-size: 11px; margin-left: 6px; }
 
 /* ===================== RESPONSIVE ===================== */
+
+/* Default state: hamburger hidden on desktop, search at desktop size. */
+#sidebar-toggle { display: none; }
+.mobile-break { display: none; }
+
+/* ----- 1280px and below: laptop ----- */
+@media (max-width: 1280px) {
+  :root { --sidebar-w: 240px; }
+  .content { padding: 32px clamp(20px, 3vw, 36px) 56px; }
+}
+
+/* ----- 1100px and below: small laptop / large tablet landscape -----
+   - Branch grid drops to 2 columns
+   - Phase track collapses to 3 columns (dashed connector hidden)
+   - Right-side TOC hidden
+   - Phase section head: meta drops to its own row */
 @media (max-width: 1100px) {
-  .branch-grid { grid-template-columns: repeat(2, 1fr); }
+  .branch-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .layout { grid-template-columns: var(--sidebar-w) minmax(0, 1fr); }
   .toc, .right-rail, .page-toc { display: none; }
   .phase-track { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -1542,39 +1558,120 @@ html[data-theme="dark"] .content :where(p, li, h1, h2, h3, h4, h5, h6, blockquot
     padding-top: 10px;
     border-top: 1px dashed var(--border);
   }
+  .hero-title, .home-hero h1 { font-size: clamp(2rem, 4.6vw, 48px); }
 }
-@media (max-width: 780px) {
+
+/* ----- 900px and below: tablet portrait -----
+   Phase track to 2 columns, hero a touch smaller. */
+@media (max-width: 900px) {
+  .phase-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-title, .home-hero h1 { font-size: clamp(1.85rem, 5.5vw, 42px); }
+  .phase-section-head .phs-num { width: 48px; height: 48px; font-size: 18px; border-radius: 12px; }
+  .phase-section-head .phs-name { font-size: 22px; }
+}
+
+/* ----- 768px and below: phablet / mobile landscape -----
+   This is the big shift: sidebar collapses into a drawer,
+   topbar restructures to a 2-row layout, content takes the full viewport. */
+@media (max-width: 768px) {
+  /* Topbar: row 1 = [hamburger | brand | actions], row 2 = full-width search.
+     Brand is explicitly placed so it can never auto-flow into row 2. */
   .topbar {
-    grid-template-columns: auto minmax(0,1fr) auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
     height: auto; min-height: 56px;
-    padding: .55rem .85rem;
+    padding: .55rem .85rem .65rem;
+    row-gap: .55rem;
   }
-  .topbar #sidebar-toggle { display: grid !important; }
-  .topbar-actions { grid-column: 3; grid-row: 1; }
-  .topbar-search { grid-column: 1 / -1; grid-row: 2; width: 100%; max-width: none; }
-  .layout { grid-template-columns: 1fr; display: block; }
+  .topbar #sidebar-toggle { display: grid !important; grid-column: 1; grid-row: 1; }
+  .brand              { grid-column: 2; grid-row: 1; min-width: 0; overflow: hidden; }
+  .topbar-actions     { grid-column: 3; grid-row: 1; }
+  .topbar-search      { grid-column: 1 / -1; grid-row: 2; width: 100%; max-width: none; }
+  .search-shell       { max-width: none; }
+  .brand-sub          { display: none; }
+  /* Truncate "ldamoredev/" if it wouldn't fit the middle column. */
+  .brand > span:not(.brand-mark) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+  /* Hide the verbose GitHub label, leave the icon. */
+  .gh-label { display: none; }
+  .github-link { padding: 0; width: 36px; height: 36px; justify-content: center; }
+
+  /* Layout: sidebar becomes an offscreen drawer; main fills viewport. */
+  .layout { display: block; grid-template-columns: 1fr; }
   .sidebar {
     display: none;
     position: static;
+    width: 100%;
     height: auto;
+    max-height: none;
     border-right: 0;
     border-bottom: 1px solid var(--border);
   }
   body.nav-open .sidebar { display: flex; }
-  .content { padding: 24px 18px 40px; max-width: 100vw; }
-  .home-hero h1 { font-size: 40px; max-width: none; }
-  .branch-grid { grid-template-columns: 1fr; }
-  .hero-stats { gap: 16px; }
-  .cta-row .btn { flex: 1; justify-content: center; }
-  .continue, .featured-card { grid-template-columns: 1fr; padding: 22px; }
+
+  .content { padding: 24px 18px 48px; max-width: 100vw; width: 100%; }
+  .article-home, .article-note { max-width: none; }
+
+  /* Hero + featured */
+  .hero-title, .home-hero h1 { font-size: clamp(1.85rem, 7.5vw, 36px); max-width: none; }
+  .home-hero .lede, .hero-sub { font-size: 15.5px; }
+  .hero-stats { gap: 18px 22px; }
+  .cta-row { flex-direction: column; gap: 10px; }
+  .cta-row .btn { width: 100%; justify-content: center; }
+  .continue, .featured-card { grid-template-columns: 1fr; padding: 22px; gap: 16px; }
   .arrow-btn { justify-self: end; }
-  .phase-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .phase-section-head { grid-template-columns: auto 1fr; gap: 12px; }
+
+  /* Path UX */
+  .path-intro { padding: 20px; }
+  .phase-track { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .phase-step { padding: 12px; }
+  .phase-section-head {
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+  }
   .phase-section-head .phs-num { width: 44px; height: 44px; font-size: 16px; border-radius: 10px; }
   .phase-section-head .phs-name { font-size: 20px; }
-  .path-intro { padding: 20px; }
+  .phase-section-head .phs-intent { font-size: 13.5px; }
+
+  /* Branches: single column once we're under desktop */
+  .branch-grid { grid-template-columns: 1fr; gap: 14px; }
+  .branch-card { padding: 18px; }
+
+  .mobile-break { display: block; }
 }
 
-#sidebar-toggle { display: none; }
-.mobile-break { display: none; }
-@media (max-width: 780px) { .mobile-break { display: block; } }
+/* ----- 480px and below: small phones -----
+   Brand text drops, keeping only the shield mark. Hero compresses. */
+@media (max-width: 480px) {
+  .topbar { padding: .5rem .65rem .6rem; }
+  .brand > span:not(.brand-mark) { display: none; }
+  .topbar-actions { gap: .25rem; }
+  .icon-btn { width: 34px; height: 34px; }
+  .content { padding: 18px 14px 40px; }
+  .home-hero { margin-bottom: 36px; }
+  .hero-title, .home-hero h1 { font-size: clamp(1.6rem, 8vw, 30px); }
+  .home-hero .lede, .hero-sub { font-size: 14.5px; line-height: 1.5; }
+  .hero-stat .v { font-size: 16px; }
+  .hero-stat .l { font-size: 11.5px; }
+  .path-intro { padding: 16px; }
+  .path-intro-head h2 { font-size: 19px; }
+  .path-intro-head p { font-size: 13.5px; }
+  .path-intro-cta { padding: 10px 14px; font-size: 13px; }
+  .phase-track { grid-template-columns: 1fr; }
+  .phase-section { margin-bottom: 40px; }
+  .phase-section-head { padding-bottom: 12px; margin-bottom: 14px; }
+  .phase-section-head .phs-num { width: 40px; height: 40px; font-size: 15px; }
+  .phase-section-head .phs-name { font-size: 18px; }
+  .feat-title, .continue-title { font-size: 19px; }
+  .feat-desc { font-size: 13.5px; }
+  .branch-card { padding: 16px; gap: 12px; }
+  .branch-card .bc-icon { width: 40px; height: 40px; border-radius: 10px; }
+  .branch-card h3, .branch-card .bc-title { font-size: 15.5px; }
+  .home-footer { flex-direction: column; gap: 14px; padding-top: 18px; }
+}
