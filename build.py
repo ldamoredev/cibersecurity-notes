@@ -430,83 +430,170 @@ def branch_note_count(subs: dict[str, list[Note]], slug: str) -> int:
 
 
 def render_sidebar(tree: dict, current: Note | None) -> str:
-    """Render sidebar HTML with collapsible subfolders."""
+    """Render the design's sidebar: phase groups expand to reveal branch links."""
+    home_href = relpath_from(current, OUT / "index.html")
     lines: list[str] = ['<nav class="sidebar">']
-    lines.append('<a class="sidebar-home" href="{home}">Atlas Home</a>'.format(
-        home=relpath_from(current, OUT / "index.html")
-    ))
-    for section_key, section_label in SECTIONS:
-        subs = tree.get(section_key, {})
-        if not subs:
-            continue
-        lines.append(f'<div class="sidebar-section"><h3>{html.escape(section_label)}</h3>')
+    lines.append(
+        '<div class="sidebar-head">'
+        f'<a class="sidebar-brand" href="{html.escape(home_href)}">'
+        '<span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>'
+        '<span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Knowledge Base</span></span>'
+        '</a>'
+        '<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">'
+        '<span class="theme-label">'
+        '<span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span>'
+        '<span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span>'
+        '</span>'
+        '<span class="toggle-pill"></span>'
+        '</button>'
+        '</div>'
+    )
+    lines.append('<div class="sidebar-body">')
+    lines.append(f'<a class="sidebar-home" href="{html.escape(home_href)}">Atlas Home</a>')
 
-        # Root-level entry-layer pages: pedagogical order, not alphabetical.
-        root_order = {
-            "index": 0,
-            "start-here": 1,
-            "must-know-30": 2,
-            "phase-1-substrate": 3,
-            "phase-2-offense-defense": 4,
-            "phase-3-operator": 5,
-            "phase-4-specialty": 6,
-        }
-        root_notes = [n for n in subs.get("", []) if not n.slug.startswith("reference-registry")]
-        root_notes.sort(key=lambda n: (root_order.get(n.slug, 99), n.title.lower()))
+    subs = tree.get("cybersecurity", {})
+    current_branch = branch_slug(current) if current else ""
+    current_group = branch_group(current_branch) if current_branch else ""
+
+    # Entry-layer pages (start-here, must-know-30, phase pages, cybersecurity index).
+    root_order = {
+        "index": 0,
+        "start-here": 1,
+        "must-know-30": 2,
+        "phase-1-substrate": 3,
+        "phase-2-offense-defense": 4,
+        "phase-3-operator": 5,
+        "phase-4-specialty": 6,
+    }
+    root_notes = [n for n in subs.get("", []) if not n.slug.startswith("reference-registry")]
+    root_notes.sort(key=lambda n: (root_order.get(n.slug, 99), n.title.lower()))
+    if root_notes:
+        lines.append('<div class="sidebar-section"><h3>Entry layer</h3>')
         for n in root_notes:
-            # Only the actual `index.md` gets the legacy "Cybersecurity Index"
-            # label; entry-layer pages use their real title.
             label = "Cybersecurity Index" if n.slug == "index" else None
             lines.append(render_sidebar_link(n, current, label=label))
+        lines.append('</div>')
 
-        for group in BRANCH_GROUPS:
-            group_subs = [s for s in BRANCHES if s in subs and branch_group(s) == group]
-            if not group_subs:
-                continue
-            lines.append(f'<div class="sidebar-group-label">{html.escape(group)}</div>')
-            for sub in group_subs:
-                lines.append(render_branch_details(subs, sub, current))
-
-        other_subs = sorted(k for k in subs if k and k not in BRANCHES)
-        if other_subs:
-            lines.append('<div class="sidebar-group-label">Other</div>')
-        for sub in other_subs:
-            lines.append(render_branch_details(subs, sub, current))
-
-        registry_notes = [n for n in subs.get("", []) if n.slug.startswith("reference-registry")]
-        if registry_notes:
-            open_attr = " open" if current and page_kind(current) == "registry" else ""
-            lines.append(f'<details class="registry-group"{open_attr}><summary>Reference System <span>{len(registry_notes)}</span></summary>')
-            for n in registry_notes:
-                lines.append(render_sidebar_link(n, current))
-            lines.append("</details>")
-        lines.append("</div>")
-    lines.append("</nav>")
-    return "\n".join(lines)
-
-
-def render_branch_details(subs: dict[str, list[Note]], sub: str, current: Note | None) -> str:
-    lines: list[str] = []
-    open_attr = ""
-    if current and current.rel_path.parts[0] == "cybersecurity" and branch_slug(current) == sub:
-        open_attr = " open"
-    notes = branch_notes(subs, sub)
-    index_note = next((n for n in notes if n.slug == "index"), None)
-    summary = branch_summary(sub)
-    accent = branch_accent(sub)
-    lines.append(
-        f'<details class="branch branch-{html.escape(accent)}"{open_attr}>'
-        f'<summary><span>{html.escape(branch_label(sub))}</span><small>{branch_note_count(subs, sub)}</small></summary>'
-    )
-    if summary:
-        lines.append(f'<p class="sidebar-summary">{html.escape(summary)}</p>')
-    if index_note:
-        lines.append(render_sidebar_link(index_note, current, label="Overview"))
-    for n in notes:
-        if n.slug == "index":
+    # Phase groups → expand to branch leaves. Prefixed numbers make the path obvious.
+    phase_num_map = {
+        "Orientation": "00",
+        "Substrate":   "01",
+        "Paired":      "02",
+        "Operator":    "03",
+        "Specialty":   "04",
+        "Always-on":   "★",
+    }
+    lines.append('<div class="sidebar-section"><h3>Learning Path</h3>')
+    for group in BRANCH_GROUPS:
+        group_branches = [s for s in BRANCHES if s in subs and branch_group(s) == group]
+        if not group_branches:
             continue
-        lines.append(render_sidebar_link(n, current))
-    lines.append("</details>")
+        group_count = sum(branch_note_count(subs, s) for s in group_branches)
+        is_open = (group == current_group)
+        open_attr = " open" if is_open else ""
+        icon_paths = GROUP_ICONS.get(group, GROUP_ICONS["_default"])
+        phase_num = phase_num_map.get(group, "")
+        lines.append(
+            f'<details class="nav-group"{open_attr}>'
+            '<summary>'
+            '<span class="ns-left">'
+            f'<svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{icon_paths}</svg>'
+            f'<span class="ns-name"><span class="ns-num">{html.escape(phase_num)}</span>{html.escape(group)}</span>'
+            '</span>'
+            '<span class="ns-right">'
+            f'<span class="count">{group_count}</span>'
+            '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>'
+            '</span>'
+            '</summary>'
+            '<div class="nav-children">'
+        )
+        for sub in group_branches:
+            notes_for_branch = branch_notes(subs, sub)
+            index_note = next((n for n in notes_for_branch if n.slug == "index"), None)
+            note_leaves = [n for n in notes_for_branch if n.slug != "index"]
+            count = branch_note_count(subs, sub)
+            is_current_branch = (sub == current_branch)
+            branch_open = " open" if is_current_branch else ""
+            classes = ["nav-branch", f"accent-{branch_accent(sub)}"]
+            if is_current_branch:
+                classes.append("active")
+            b_icon = branch_icon_svg(sub)
+            # Branch row — summary acts as the disclosure trigger; "Overview"
+            # link below routes to the branch index (since <summary> can't be
+            # both a toggle and a nav link reliably across browsers).
+            lines.append(
+                f'<details class="{" ".join(classes)}"{branch_open}>'
+                '<summary>'
+                '<span class="nb-left">'
+                f'<svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{b_icon}</svg>'
+                f'<span class="nb-name">{html.escape(branch_label(sub))}</span>'
+                '</span>'
+                '<span class="nb-right">'
+                f'<span class="count">{count}</span>'
+                '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>'
+                '</span>'
+                '</summary>'
+                '<div class="nav-leaves">'
+            )
+            if index_note:
+                ovr_href = relpath_from(current, OUT / index_note.rel_path.with_suffix(".html"))
+                ovr_active = " active" if current and current.rel_path == index_note.rel_path else ""
+                lines.append(
+                    f'<a class="nav-leaf nav-leaf-overview{ovr_active}" href="{html.escape(ovr_href)}">Overview</a>'
+                )
+            for nt in note_leaves:
+                leaf_href = relpath_from(current, OUT / nt.rel_path.with_suffix(".html"))
+                leaf_active = " active" if current and current.rel_path == nt.rel_path else ""
+                leaf_label = note_label(nt)
+                if len(leaf_label) > 56:
+                    leaf_label = leaf_label[:53] + "…"
+                lines.append(
+                    f'<a class="nav-leaf{leaf_active}" href="{html.escape(leaf_href)}" title="{html.escape(note_label(nt))}">{html.escape(leaf_label)}</a>'
+                )
+            lines.append('</div></details>')
+    lines.append('</div>')
+
+    # Reference registries — collapsed group.
+    registry_notes = [n for n in subs.get("", []) if n.slug.startswith("reference-registry")]
+    if registry_notes:
+        open_attr = " open" if current and page_kind(current) == "registry" else ""
+        lines.append('<div class="sidebar-section"><h3>Reference system</h3>')
+        lines.append(
+            f'<details class="nav-group"{open_attr}>'
+            '<summary>'
+            '<span class="ns-left">'
+            '<svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>'
+            '<span class="ns-name">Registries</span>'
+            '</span>'
+            '<span class="ns-right">'
+            f'<span class="count">{len(registry_notes)}</span>'
+            '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>'
+            '</span>'
+            '</summary>'
+            '<div class="nav-children">'
+        )
+        for n in registry_notes:
+            href = relpath_from(current, OUT / n.rel_path.with_suffix(".html"))
+            active = " active" if current and current.rel_path == n.rel_path else ""
+            label = note_label(n)
+            lines.append(
+                f'<a class="nav-child{active}" href="{html.escape(href)}">'
+                '<span class="nc-left"><span class="nc-name">'
+                f'{html.escape(label if len(label) < 60 else label[:57] + "...")}'
+                '</span></span>'
+                '</a>'
+            )
+        lines.append('</div></details>')
+        lines.append('</div>')
+    lines.append("</div>")  # /sidebar-body
+    today = date.today().isoformat()
+    lines.append(
+        '<div class="sidebar-footer">'
+        f'<span>updated · {html.escape(today)}</span>'
+        '<span class="v">v2026.05</span>'
+        '</div>'
+    )
+    lines.append("</nav>")
     return "\n".join(lines)
 
 
@@ -1004,27 +1091,31 @@ PAGE_TEMPLATE = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 {seo_head}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){{try{{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}}catch(e){{}}}})();</script>
-<link rel="stylesheet" href="{css_href}">
-<link rel="stylesheet" href="{pygments_href}">
+<link rel="stylesheet" href="{css_href}?v={asset_ver}">
+<link rel="stylesheet" href="{pygments_href}?v={asset_ver}">
 </head>
 <body id="top" data-root="{root_href}">
+<div class="app {layout_class}">
+{sidebar}
+<div class="main-col">
 <header class="topbar">
-  <a class="brand" href="{home_href}"><span class="brand-mark">⌬</span><span>ldamoredev<span class="brand-slash">/</span><span class="brand-sub">atlas</span></span></a>
+  <button id="sidebar-toggle" class="icon-btn menu-toggle" title="Toggle navigation" aria-label="Toggle navigation"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg></button>
   <div class="topbar-search search-shell">
-    <svg class="search-ico" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="M11 11l3 3"/></svg>
-    <input id="search" type="search" placeholder="Search notes, jump anywhere..." autocomplete="off">
-    <kbd>/</kbd>
+    <svg class="search-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="search" type="search" placeholder="Search notes, playbooks, tags..." autocomplete="off">
+    <kbd>⌘K</kbd>
   </div>
   <div class="topbar-actions">
-    <button id="sidebar-toggle" class="icon-btn menu-toggle" title="Toggle navigation" aria-label="Toggle navigation"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg></button>
-    <button id="theme-toggle" class="icon-btn" title="Toggle theme" aria-label="Toggle theme"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1a7 7 0 100 14V1z"/></svg></button>
-    <a class="icon-btn github-link" href="https://github.com/ldamoredev/cibersecurity-notes" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38v-1.32C3.73 14.37 3.26 13 3.26 13c-.36-.92-.88-1.16-.88-1.16-.72-.49.06-.48.06-.48.79.06 1.21.81 1.21.81.71 1.21 1.86.86 2.31.66.07-.51.28-.86.5-1.06-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.35-1.02.08-2.13 0 0 .67-.21 2.2.82a7.6 7.6 0 014 0c1.53-1.03 2.2-.82 2.2-.82.43 1.11.16 1.93.08 2.13.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+    <button class="icon-btn" aria-label="Notifications" title="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></button>
+    <a class="github-link" href="https://github.com/ldamoredev/cibersecurity-notes" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.13v3.16c0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg><span class="gh-label">GitHub</span></a>
   </div>
 </header>
 <div id="search-results" hidden></div>
-<div class="layout {layout_class}">
-{sidebar}
+<div class="main-row">
 <main class="content">
 {breadcrumbs}
 <header class="page-hero">
@@ -1036,7 +1127,9 @@ PAGE_TEMPLATE = """<!doctype html>
 </main>
 {toc}
 </div>
-<script src="{search_js_href}"></script>
+</div>
+</div>
+<script src="{search_js_href}?v={asset_ver}"></script>
 </body>
 </html>
 """
@@ -1056,6 +1149,7 @@ def render_page(
     home_href = os.path.relpath(OUT / "index.html", here)
     root_href = os.path.relpath(OUT, here) or "."
 
+    is_home = note.section == "" and note.rel_path == Path("index.md")
     toc_html = "" if note.section == "" else render_toc(html_body)
     nav_html = branch_nav_html(note, all_notes or [])
     related_html = related_notes_html(note, all_notes or [])
@@ -1068,13 +1162,14 @@ def render_page(
         seo_head=seo_head(note, root_href),
         css_href=html.escape(css_href),
         pygments_href=html.escape(pyg_href),
+        asset_ver=ASSET_VER,
         search_js_href=html.escape(search_js),
         home_href=html.escape(home_href),
         root_href=html.escape(root_href),
         sidebar=sidebar_html,
         layout_class="no-toc" if not toc_html else "with-toc",
-        breadcrumbs=breadcrumb_html(note),
-        page_meta=page_meta_html(note),
+        breadcrumbs="" if is_home else breadcrumb_html(note),
+        page_meta="" if is_home else page_meta_html(note),
         article_class="article-home" if note.rel_path == Path("index.md") else "article-note",
         body=article_body,
         toc=toc_html,
@@ -1108,63 +1203,326 @@ def strip_html(s: str) -> str:
     return re.sub(r"<[^>]+>", " ", s)
 
 
+GROUP_ICONS = {
+    "Orientation": '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+    "Substrate":   '<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>',
+    "Paired":      '<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/>',
+    "Operator":    '<polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>',
+    "Specialty":   '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+    "Always-on":   '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',
+    "_default":    '<rect x="3" y="4" width="18" height="16" rx="2"/>',
+}
+
+BRANCH_ICON_MAP = {
+    "foundations": "shield",
+    "cryptography": "lock",
+    "networking": "globe",
+    "wireless-security": "wifi",
+    "web-security": "globe",
+    "api-security": "plug",
+    "cloud-security": "cloud",
+    "attack-surface-mapping": "target",
+    "osint": "search",
+    "offensive-security": "flag",
+    "linux-privilege-escalation": "terminal",
+    "privacy-anonymity-opsec": "eye",
+    "devsecops": "wrench",
+    "detection-engineering": "radar",
+    "identity-and-active-directory": "users",
+    "binary-exploitation": "bug",
+    "security-playbooks": "book",
+}
+
+BRANCH_ICON_SVG = {
+    "shield":   '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
+    "lock":     '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+    "globe":    '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+    "wifi":     '<path d="M5 12.55a11 11 0 0 1 14 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>',
+    "plug":     '<path d="M9 2v4"/><path d="M15 2v4"/><path d="M5 10h14v4a7 7 0 0 1-14 0z"/><path d="M12 18v4"/>',
+    "cloud":    '<path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>',
+    "target":   '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+    "search":   '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
+    "flag":     '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>',
+    "terminal": '<polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>',
+    "eye":      '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',
+    "wrench":   '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
+    "radar":    '<circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/>',
+    "users":    '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    "bug":      '<rect x="8" y="6" width="8" height="14" rx="4"/><path d="M19 7l-3 2"/><path d="M5 7l3 2"/><path d="M19 13h-3"/><path d="M8 13H5"/><path d="M19 19l-3-2"/><path d="M5 19l3-2"/><path d="M12 6V3"/>',
+    "book":     '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+}
+
+
+def branch_icon_svg(slug: str) -> str:
+    return BRANCH_ICON_SVG.get(BRANCH_ICON_MAP.get(slug, "shield"), BRANCH_ICON_SVG["shield"])
+
+
+def find_featured_note(notes: list[Note], by_path: dict | None = None) -> Note | None:
+    for slug in ("xss", "cross-site-scripting", "owasp-top-10"):
+        for n in notes:
+            if n.slug == slug and n.section == "cybersecurity":
+                return n
+    for n in notes:
+        if n.section == "cybersecurity" and branch_slug(n) == "web-security" and n.slug != "index":
+            return n
+    return None
+
+
 def build_home(tree: dict, notes: list[Note]) -> str:
     subs = tree.get("cybersecurity", {})
     published_notes = sum(len(v) for v in subs.values())
     registry_count = len([n for n in subs.get("", []) if n.slug.startswith("reference-registry")])
     playbook_count = branch_note_count(subs, "security-playbooks") if "security-playbooks" in subs else 0
     repo_url = "https://github.com/ldamoredev/cibersecurity-notes"
-    lines = [
-        '<section class="hero home-hero">',
-        '<div class="hero-kicker">PERSONAL CYBERSECURITY REFERENCE · v2026.05</div>',
-        '<h1>Notes from the <br class="mobile-break"><em>actual practice</em><br>of attacking and<br class="mobile-break"> defending systems.</h1>',
-        f'<p class="lede">An atomic, retrievable knowledge base — <strong>{published_notes} notes across {len(BRANCHES)} branches</strong>, structured around the path from <em>substrate</em> to <em>specialty</em>. Each entry is a single concept, with attacker/defender duality, references, and links to playbooks that turn it into action.</p>',
-        '<div class="hero-stats">',
-        f'<div class="hero-stat"><div class="v">{published_notes}</div><div class="l">Atomic notes</div></div>',
-        f'<div class="hero-stat"><div class="v">{len(BRANCHES)}</div><div class="l">Branches</div></div>',
-        f'<div class="hero-stat"><div class="v">{playbook_count}</div><div class="l">Playbooks</div></div>',
-        '<div class="hero-stat"><div class="v">5<small>phases</small></div><div class="l">Learning path</div></div>',
-        f'<div class="hero-stat"><div class="v">{registry_count}</div><div class="l">Registries</div></div>',
-        '</div>',
-        '</section>',
-        '<a class="continue" href="cybersecurity/web-security/xss.html">',
-        '<div class="continue-meta"><div class="continue-eyebrow"><span class="pulse"></span>Featured note · Web Security</div><div class="continue-title">Cross-Site Scripting (XSS)</div><div class="continue-progress"><span>Operational note</span><span class="bar"><i style="width:62%"></i></span><span>Contexts, payloads, defenses</span></div></div>',
-        '<span class="continue-action">Open →</span>',
-        '</a>',
-        '<section class="path-section" id="start-here">',
-        '<div class="section-head"><div><div class="section-eyebrow">START → CAPABLE</div><h2>The five-phase learning path</h2><p>Do not read folder-by-folder. Read in phases: each one is a prerequisite layer for the next. Pick where you are, then walk forward.</p></div><a href="cybersecurity/start-here.html" class="section-head-action">Open Start Here →</a></div>',
-        '<div class="phase-grid">',
-        '<a class="phase-card" href="cybersecurity/foundations/index.html"><span>00</span><strong>Orientation</strong><small>Mental models, CIA tradeoffs, and threat modeling.</small></a>',
-        '<a class="phase-card" href="cybersecurity/phase-1-substrate.html"><span>01</span><strong>Substrate</strong><small>Networking, cryptography, browser trust, and system behavior.</small></a>',
-        '<a class="phase-card" href="cybersecurity/phase-2-offense-defense.html"><span>02</span><strong>Offense / Defense</strong><small>Paired attack and detection thinking.</small></a>',
-        '<a class="phase-card" href="cybersecurity/phase-3-operator.html"><span>03</span><strong>Operator Surface</strong><small>Recon, exposure, and practical execution workflows.</small></a>',
-        '<a class="phase-card" href="cybersecurity/phase-4-specialty.html"><span>04</span><strong>Specialty Tracks</strong><small>Cloud, identity, DevSecOps, wireless, and binary exploitation.</small></a>',
-        '</div></section>',
+
+    lines: list[str] = []
+
+    # --- HERO ---
+    lines.append('<section class="hero home-hero">')
+    lines.append('<div class="hero-crumb">&gt;_ ~/cybersecurity-atlas<span class="blink"></span></div>')
+    lines.append('<h1 class="hero-title">Cybersecurity<br><span class="accent">Knowledge Base</span></h1>')
+    lines.append(
+        f'<p class="lede">A curated atlas of <strong>{published_notes} notes</strong> across <strong>{len(BRANCHES)} branches</strong> — organized by learning phase, from foundational substrate to specialty operations. Each note is atomic, with attacker/defender duality, references, and links to <em>playbooks</em> that turn it into action.</p>'
+    )
+    lines.append('<div class="cta-row">')
+    lines.append(
+        '<a class="btn btn-primary" href="cybersecurity/start-here.html">'
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>'
+        'Explore Notes</a>'
+    )
+    if playbook_count:
+        lines.append(
+            '<a class="btn btn-ghost" href="cybersecurity/security-playbooks/index.html">'
+            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>'
+            'View Playbooks</a>'
+        )
+    lines.append('</div>')
+    lines.append('<div class="hero-stats">')
+    stats = [
+        (published_notes, 'Notes', '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>'),
+        (len(BRANCHES), 'Branches', '<line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/>'),
+        (playbook_count, 'Playbooks', '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'),
     ]
+    if registry_count:
+        stats.append((registry_count, 'Registries', '<path d="M4 4h16v4H4z"/><path d="M4 10h16v4H4z"/><path d="M4 16h16v4H4z"/>'))
+    for value, label, svg_paths in stats:
+        lines.append(
+            '<div class="hero-stat">'
+            f'<div class="stat-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{svg_paths}</svg></div>'
+            f'<div><div class="v">{value}</div><div class="l">{html.escape(label)}</div></div>'
+            '</div>'
+        )
+    lines.append('</div>')
+    lines.append('</section>')
+
+    # --- LEARNING PATH ----------------------------------------------------
+    # Pedagogical metadata: numbered phases with intent + per-phase index/landing page.
+    phase_meta = {
+        "Orientation": {
+            "num":  "00",
+            "tag":  "Start here",
+            "intent": "Mental models, the CIA triad, and threat modeling — the language you'll use everywhere else.",
+            "href": "cybersecurity/start-here.html",
+        },
+        "Substrate": {
+            "num":  "01",
+            "tag":  "How things work",
+            "intent": "Networking, cryptography, browser trust, OS behavior. The substrate that every attack and defense touches.",
+            "href": "cybersecurity/phase-1-substrate.html",
+        },
+        "Paired": {
+            "num":  "02",
+            "tag":  "Offense ↔ Defense",
+            "intent": "Attack and detection as paired thinking. Every offensive primitive has a defensive signature; learn them together.",
+            "href": "cybersecurity/phase-2-offense-defense.html",
+        },
+        "Operator": {
+            "num":  "03",
+            "tag":  "Hands-on",
+            "intent": "Recon, exposure mapping, privilege escalation, and the practical workflows of an offensive operator.",
+            "href": "cybersecurity/phase-3-operator.html",
+        },
+        "Specialty": {
+            "num":  "04",
+            "tag":  "Go deep",
+            "intent": "Pick what your job demands: cloud, identity, DevSecOps, wireless, binary exploitation, API security.",
+            "href": "cybersecurity/phase-4-specialty.html",
+        },
+        "Always-on": {
+            "num":  "★",
+            "tag":  "Cross-cutting",
+            "intent": "Privacy, anonymity, OPSEC. Practice continuously — these aren't a phase, they're a posture.",
+            "href": "cybersecurity/start-here.html",
+        },
+    }
+
+    # Guidance band — explains the path in one sentence.
+    lines.append('<section class="path-intro">')
+    lines.append('<div class="path-intro-head"><div class="section-eyebrow">The learning path</div>'
+                 '<h2>Read it in order. Each phase is the prerequisite for the next.</h2>'
+                 '<p>Start at <strong>00 · Orientation</strong> for the vocabulary. Walk through Substrate → Paired → Operator → Specialty. <strong>★ Always-on</strong> (privacy, OPSEC) threads through everything.</p></div>')
+    lines.append('<a class="path-intro-cta" href="cybersecurity/start-here.html">'
+                 '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>'
+                 'Open the Start Here guide</a>')
+    lines.append('</section>')
+
+    # Phase track — numbered horizontal stepper (compact summary, then full sections below).
+    lines.append('<section class="phase-track" aria-label="Learning phases">')
     for group in BRANCH_GROUPS:
-        group_slugs = [slug for slug in BRANCHES if slug in subs and branch_group(slug) == group]
-        if not group_slugs:
+        meta = phase_meta.get(group)
+        if not meta:
             continue
-        lines.append(f'<section class="branch-section"><div class="section-head compact"><div><div class="section-eyebrow">{html.escape(group)}</div><h2>{html.escape(group)} branches</h2></div></div><div class="branch-grid">')
-        for slug in group_slugs:
+        group_branches = [s for s in BRANCHES if s in subs and branch_group(s) == group]
+        group_count = sum(branch_note_count(subs, s) for s in group_branches)
+        if not group_branches:
+            continue
+        anchor = "phase-" + group.lower().replace(" ", "-")
+        always_on = ' phase-step-always' if group == "Always-on" else ''
+        lines.append(
+            f'<a class="phase-step{always_on}" href="#{anchor}">'
+            f'<div class="ps-num">{html.escape(meta["num"])}</div>'
+            '<div class="ps-body">'
+            f'<div class="ps-tag">{html.escape(meta["tag"])}</div>'
+            f'<div class="ps-name">{html.escape(group)}</div>'
+            f'<div class="ps-meta">{len(group_branches)} branch{"" if len(group_branches)==1 else "es"} · {group_count} note{"" if group_count==1 else "s"}</div>'
+            '</div>'
+            '</a>'
+        )
+    lines.append('</section>')
+
+    # --- BRANCHES, ORGANIZED BY PHASE ------------------------------------
+    for group in BRANCH_GROUPS:
+        meta = phase_meta.get(group)
+        group_branches = [s for s in BRANCHES if s in subs and branch_group(s) == group]
+        if not group_branches or not meta:
+            continue
+        group_count = sum(branch_note_count(subs, s) for s in group_branches)
+        anchor = "phase-" + group.lower().replace(" ", "-")
+        always_on = ' phase-section-always' if group == "Always-on" else ''
+        lines.append(f'<section class="phase-section{always_on}" id="{anchor}">')
+        lines.append(
+            '<header class="phase-section-head">'
+            f'<div class="phs-num">{html.escape(meta["num"])}</div>'
+            '<div class="phs-titles">'
+            f'<div class="phs-eyebrow">Phase {html.escape(meta["num"])} · {html.escape(meta["tag"])}</div>'
+            f'<h2 class="phs-name">{html.escape(group)}</h2>'
+            f'<p class="phs-intent">{html.escape(meta["intent"])}</p>'
+            '</div>'
+            '<div class="phs-meta">'
+            f'<a class="phs-open" href="{html.escape(meta["href"])}">Phase overview '
+            '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>'
+            f'<div class="phs-count">{len(group_branches)} branch{"" if len(group_branches)==1 else "es"} · {group_count} note{"" if group_count==1 else "s"}</div>'
+            '</div>'
+            '</header>'
+        )
+        lines.append('<div class="branch-grid">')
+        for slug in group_branches:
             notes_for_branch = branch_notes(subs, slug)
             index_note = next((n for n in notes_for_branch if n.slug == "index"), notes_for_branch[0])
             href = index_note.url
             accent = branch_accent(slug)
             published_count = branch_note_count(subs, slug)
-            lines.append(f'<a class="branch-card accent-{html.escape(accent)}" href="{html.escape(href)}"><span class="card-kicker">{html.escape(group)}</span><h3>{html.escape(branch_label(slug))}</h3><p>{html.escape(branch_summary(slug))}</p><span class="card-meta">{published_count} notes</span></a>')
-        lines.append('</div></section>')
+            icon_paths = branch_icon_svg(slug)
+            lines.append(
+                f'<a class="branch-card accent-{html.escape(accent)}" href="{html.escape(href)}">'
+                '<div class="bc-head">'
+                f'<div class="bc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{icon_paths}</svg></div>'
+                f'<span class="bc-count">{published_count} notes</span>'
+                '</div>'
+                f'<h3 class="bc-title">{html.escape(branch_label(slug))}</h3>'
+                f'<p class="bc-desc">{html.escape(branch_summary(slug))}</p>'
+                '<span class="bc-link">Explore'
+                '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>'
+                '</span>'
+                '</a>'
+            )
+        lines.append('</div>')
+        lines.append('</section>')
+
+    # --- FEATURED NOTE (closing flourish) ---
+    featured = find_featured_note(notes)
+    if featured:
+        f_branch = branch_slug(featured) or "web-security"
+        f_branch_label = branch_label(f_branch)
+        f_minutes = max(3, reading_time_minutes(featured))
+        f_desc = note_description(featured)
+        f_tags = featured.tags[:4] if featured.tags else []
+        tags_html = "".join(
+            f'<span class="tag">#{html.escape(str(t).lstrip("#"))}</span>' for t in f_tags
+        )
+        lines.append('<section class="section">')
+        lines.append(
+            '<div class="feat-label">'
+            '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>'
+            'Featured Note</div>'
+        )
+        lines.append(f'<a class="featured-card" href="{html.escape(featured.url)}">')
+        lines.append('<div>')
+        lines.append('<div class="feat-meta">')
+        lines.append(f'<span class="pill green">{html.escape(f_branch_label)}</span>')
+        lines.append(
+            '<span class="pill-time">'
+            '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>'
+            f'{f_minutes} min read</span>'
+        )
+        lines.append('</div>')
+        lines.append(f'<h2 class="feat-title">{html.escape(note_label(featured))}</h2>')
+        lines.append(f'<p class="feat-desc">{html.escape(f_desc)}</p>')
+        if tags_html:
+            lines.append(f'<div class="tag-row">{tags_html}</div>')
+        lines.append('</div>')
+        lines.append(
+            '<div class="arrow-btn">'
+            '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>'
+            '</div>'
+        )
+        lines.append('</a>')
+        lines.append('</section>')
+
+    # --- REFERENCE REGISTRIES ---
     registry_notes = [n for n in subs.get("", []) if n.slug.startswith("reference-registry")]
     if registry_notes:
-        lines.append('<section class="reference-panel" id="registries"><div class="section-eyebrow">Reference system</div><h2>Reference registries</h2><p>The registries keep citations normalized behind the learning branches, so atomic notes stay compact and high-signal.</p><div class="reference-list">')
+        lines.append('<section class="reference-panel" id="registries">')
+        lines.append('<div class="section-eyebrow">Reference system</div>')
+        lines.append('<h2>Reference registries</h2>')
+        lines.append('<p>The registries keep citations normalized behind the learning branches, so atomic notes stay compact and high-signal.</p>')
+        lines.append('<div class="reference-list">')
         for n in registry_notes:
             lines.append(f'<a href="{html.escape(n.url)}">{html.escape(note_label(n))}</a>')
         lines.append('</div></section>')
-    lines.extend(['<footer class="home-footer"><div class="footer-about"><strong>ldamoredev/atlas</strong><p>A personal cybersecurity knowledge base, published from an Obsidian vault as a static operator reference.</p></div><div class="footer-links">', f'<a href="{repo_url}" rel="noopener" target="_blank">GitHub</a>', '<a href="cybersecurity/start-here.html">Start Here</a>', '<a href="cybersecurity/index.html">Full index</a>', '</div></footer>'])
+
+    # --- FOOTER ---
+    lines.append('<footer class="home-footer">')
+    lines.append('<div class="footer-about"><strong>ldamoredev/atlas</strong><p>A personal cybersecurity knowledge base, published from an Obsidian vault as a static operator reference.</p></div>')
+    lines.append('<div class="footer-links">')
+    lines.append(f'<a href="{repo_url}" rel="noopener" target="_blank">GitHub</a>')
+    lines.append('<a href="cybersecurity/start-here.html">Start Here</a>')
+    lines.append('<a href="cybersecurity/index.html">Full index</a>')
+    lines.append('</div></footer>')
+
     return "\n".join(lines)
 
 
+ASSET_VER = "0"  # populated by main() before any page renders
+
+
+def compute_asset_version() -> str:
+    """Hash of all rendered/static stylesheets + search.js. Each CSS edit
+    bumps the URL query param so returning visitors don't see a transitional
+    render against a stale cached stylesheet."""
+    import hashlib
+    h = hashlib.sha1()
+    h.update(STYLE_CSS.encode("utf-8"))
+    h.update(SEARCH_JS.encode("utf-8"))
+    atlas_path = STATIC / "assets" / "atlas.css"
+    if atlas_path.exists():
+        h.update(atlas_path.read_bytes())
+    return h.hexdigest()[:10]
+
+
 def main() -> int:
+    global ASSET_VER
+    ASSET_VER = compute_asset_version()
     if OUT.exists():
         shutil.rmtree(OUT)
     (OUT / "assets").mkdir(parents=True)
@@ -1241,72 +1599,46 @@ def main() -> int:
 STYLE_CSS = r"""
 @import url("atlas.css");
 
-/* Compatibility layer for generated Obsidian pages using the Atlas design. */
-.search-shell { position: relative; }
-.mobile-break { display: none; }
-.search-shell input { width: 100%; height: 36px; padding: 0 3rem 0 2.25rem; border: 1px solid var(--border); border-radius: 8px; background: var(--panel); color: var(--fg); font: inherit; outline: none; }
-.search-shell input::placeholder { color: var(--muted); }
-.search-shell input:focus { border-color: var(--accent-line); box-shadow: 0 0 0 3px var(--accent-soft); }
-.search-ico { position: absolute; left: .85rem; top: 50%; transform: translateY(-50%); color: var(--muted-2); pointer-events: none; }
-.search-shell kbd { position: absolute; right: .55rem; top: 50%; transform: translateY(-50%); font-family: var(--font-mono); font-size: .72rem; color: var(--muted); background: var(--panel-2); border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; }
-#sidebar-toggle { display: none; }
-.github-link:hover { text-decoration: none; }
-.article-home { max-width: 1180px; }
-.article-note, .page-hero, .breadcrumbs { max-width: 78ch; }
-.breadcrumbs { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; margin-bottom: .85rem; color: var(--muted); font: .8rem/1.4 var(--font-mono); }
-.breadcrumbs a { color: var(--muted); }
-.breadcrumbs span:last-child { color: var(--fg-soft); }
-.page-hero { margin-bottom: .8rem; }
-.page-meta { display: flex; flex-wrap: wrap; gap: .4rem; }
-.meta-chip { display: inline-flex; align-items: center; min-height: 24px; padding: .12rem .55rem; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); background: var(--panel); font: 600 .74rem/1.3 var(--font-mono); text-transform: capitalize; }
-.meta-chip.tag, .meta-chip[class*="accent-"] { color: var(--accent); background: var(--accent-soft); border-color: transparent; }
-.content h1 { margin: .35rem 0 1rem; font-size: clamp(2rem, 3.2vw, 3.15rem); line-height: 1.08; letter-spacing: 0; }
-.content h2 { margin-top: 2.35rem; padding-bottom: .32rem; border-bottom: 1px solid var(--border); font-size: 1.42rem; line-height: 1.25; }
-.content h3 { margin-top: 1.55rem; font-size: 1.06rem; }
-.content p { margin: 1rem 0; }
-.content p, .content li { color: var(--fg-soft); }
-.content ul, .content ol { padding-left: 1.35rem; }
-.content blockquote { border-left: 4px solid var(--accent); margin: 1.25rem 0; padding: .75rem 1rem; color: var(--muted); background: var(--panel-2); border-radius: 0 8px 8px 0; }
-.content code { background: var(--panel-2); padding: .1rem .36rem; border-radius: 5px; font-size: .9em; font-family: var(--font-mono); }
-.content pre { background: var(--panel-2); padding: 1rem; border: 1px solid var(--border); border-radius: 8px; overflow-x: auto; font-size: .88em; }
-.content pre code { background: transparent; padding: 0; }
-.content table { border-collapse: collapse; margin: 1.2rem 0; width: 100%; font-size: .94rem; }
-.content th, .content td { border: 1px solid var(--border); padding: .48rem .7rem; text-align: left; vertical-align: top; }
-.content th { background: var(--panel-2); color: var(--fg); }
-.sidebar-home { display: block; margin: 0 0 .55rem; padding: .45rem .55rem; border-radius: 7px; background: var(--panel-2); border: 1px solid var(--border); color: var(--fg); font-family: var(--font-mono); font-size: .78rem; font-weight: 600; }
-.sidebar-section h3, .sidebar-group-label { margin: .95rem 0 .35rem; padding: .4rem .55rem; color: var(--muted-2); font: 600 .68rem/1.2 var(--font-mono); text-transform: uppercase; letter-spacing: .1em; }
-.sidebar-section h3 { margin-top: 0; border-bottom: 1px solid var(--border); }
-.sidebar details.branch > summary { border-left: 3px solid var(--accent); }
-.sidebar summary { list-style: none; }
-.sidebar summary::-webkit-details-marker { display: none; }
-.sidebar-summary { margin: .2rem .55rem .45rem .75rem; color: var(--muted); font-size: .8rem; line-height: 1.4; }
-.sidebar-link { display: block; margin: .05rem 0 .05rem .78rem; padding: .31rem .55rem; border-radius: 6px; color: var(--muted); line-height: 1.35; }
-.sidebar-link:hover { background: var(--panel); color: var(--fg); text-decoration: none; }
-.sidebar-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 700; box-shadow: inset 2px 0 0 var(--accent); }
-.toc { padding: 2.4rem 1.2rem 2rem 0; }
-.toc-inner { position: sticky; top: calc(var(--topbar-h) + 1.2rem); max-height: calc(100vh - var(--topbar-h) - 2rem); overflow: auto; border-left: 1px solid var(--border); padding-left: 1rem; }
-.toc h2 { margin: 0 0 .65rem; color: var(--muted-2); font: 600 .72rem/1.2 var(--font-mono); text-transform: uppercase; letter-spacing: .1em; }
-.toc a { display: block; padding: .18rem 0; color: var(--muted); font-size: .84rem; line-height: 1.35; }
-.toc a:hover { color: var(--accent); text-decoration: none; }
-.path-section, .branch-section, .reference-panel { margin-top: 2.4rem; }
-.section-head { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; margin-bottom: 1rem; }
-.section-head.compact { margin-bottom: .75rem; }
-.phase-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .75rem; }
-.phase-card { display: grid; grid-template-rows: auto auto 1fr; gap: .4rem; min-height: 170px; padding: 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--panel); color: var(--fg); }
-.phase-card:hover { text-decoration: none; border-color: var(--border-strong); transform: translateY(-1px); box-shadow: var(--shadow-1); }
-.phase-card span { color: var(--accent); font: 700 .82rem/1 var(--font-mono); }
-.phase-card small { color: var(--muted); line-height: 1.45; }
-.continue-action { font-family: var(--font-mono); color: var(--accent); font-size: .85rem; white-space: nowrap; }
-.branch-card { transition: transform 100ms ease, border-color 120ms ease, box-shadow 140ms ease; }
-.related-notes { margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--border); }
-.related-grid, .branch-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .85rem; }
-.related-card, .branch-nav-link { border: 1px solid var(--border); border-radius: 8px; background: var(--panel); color: var(--fg); padding: .95rem 1rem; }
-.related-card:hover, .branch-nav-link:hover { text-decoration: none; border-color: var(--border-strong); box-shadow: var(--shadow-1); }
-.branch-nav { margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--border); }
+/* --- generated-page extras layered on top of atlas.css --- */
+.related-notes, .branch-nav {
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--border);
+}
+.related-grid, .branch-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .85rem;
+}
+.related-card, .branch-nav-link {
+  display: block;
+  padding: .95rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--fg);
+  box-shadow: var(--shadow-card);
+  transition: transform .12s, border-color .12s, box-shadow .12s;
+  text-decoration: none;
+}
+.related-card:hover, .branch-nav-link:hover {
+  transform: translateY(-1px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-hover);
+  text-decoration: none;
+}
 .branch-nav-link { display: flex; flex-direction: column; gap: .25rem; line-height: 1.35; }
 .branch-nav-link.next { text-align: right; align-items: flex-end; }
-.nav-dir, .related-card span { color: var(--accent); font: 700 .72rem/1.2 var(--font-mono); text-transform: uppercase; letter-spacing: .08em; }
-.unresolved-link { color: var(--crit); border-bottom: 1px dashed var(--crit); cursor: help; background: var(--crit-soft); border-radius: 4px; padding: 0 .12rem; }
+.nav-dir, .related-card span {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+/* search results dropdown — overrides the basic atlas.css version */
 #search-results {
   position: fixed;
   top: calc(var(--topbar-h) + 10px);
@@ -1318,46 +1650,60 @@ STYLE_CSS = r"""
   padding: .45rem;
   z-index: 60;
   background: var(--panel);
-  border: 1px solid var(--border-strong);
-  border-radius: 10px;
-  box-shadow: var(--shadow-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-hover);
 }
 #search-results[hidden] { display: none !important; }
 #search-results .results-meta {
-  padding: .45rem .85rem .6rem;
+  padding: .55rem .85rem .65rem;
   margin-bottom: .25rem;
   border-bottom: 1px solid var(--border);
   color: var(--muted-2);
-  font: 600 .74rem/1.2 var(--font-mono);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
 }
 #search-results .hit {
   display: block;
-  padding: .75rem .85rem;
+  padding: .7rem .85rem;
   border-radius: 8px;
   color: var(--fg);
+  text-decoration: none;
 }
 #search-results .hit:hover,
 #search-results .hit.active {
-  background: var(--panel-2);
+  background: var(--bg);
   text-decoration: none;
 }
 #search-results .hit.active { outline: 1px solid var(--accent-line); }
 #search-results .hit-title { color: var(--fg); font-weight: 700; }
-#search-results .meta { margin-top: .12rem; color: var(--muted); font-size: .82rem; }
+#search-results .meta {
+  margin-top: .15rem;
+  color: var(--muted);
+  font-size: .82rem;
+}
 #search-results .empty { padding: .8rem; color: var(--muted); }
 #search-results mark {
   background: var(--accent-soft);
-  color: var(--fg);
+  color: var(--accent-2);
   border-radius: 2px;
   padding: 0 1px;
 }
 #search-results .hit p { margin: .25rem 0 0; color: var(--muted); font-size: .86rem; line-height: 1.45; }
+
+.gh-label { display: inline; }
+@media (max-width: 860px) {
+  .related-grid, .branch-nav { grid-template-columns: 1fr; }
+  .branch-nav-link.next { text-align: left; align-items: flex-start; }
+  .gh-label { display: none; }
+  .github-link { padding: 0; width: 36px; justify-content: center; }
+}
 @media (max-width: 780px) {
   #search-results { top: 96px; width: calc(100vw - 1.5rem); max-height: 70vh; }
 }
-@media (max-width: 1180px) { .phase-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 860px) { .section-head { display: block; } .github-link { display: none; } .related-grid, .branch-nav { grid-template-columns: 1fr; } .branch-nav-link.next { text-align: left; align-items: flex-start; } }
-@media (max-width: 780px) { html, body { overflow-x: hidden; max-width: 100vw; } .topbar { grid-template-columns: auto minmax(0, 1fr) auto; height: auto; min-height: 56px; padding: .55rem .75rem; } #sidebar-toggle { display: grid; grid-column: 1; grid-row: 1; } .brand { grid-column: 2; grid-row: 1; min-width: 0; overflow: hidden; } .brand-sub { display: none; } .topbar-actions { grid-column: 3; grid-row: 1; } .topbar-search { grid-column: 1 / -1; grid-row: 2; width: 100%; } .layout { display: block; } .sidebar { display: none; position: static; height: auto; max-height: none; border-right: 0; border-bottom: 1px solid var(--border); } body.nav-open .sidebar { display: block; } .layout, .content, .article-home, .hero, .home-hero { max-width: 100vw !important; } .content { width: 100vw; padding: 1.25rem 1rem 3rem; overflow: visible; } .hero, .home-hero { padding-top: 1.1rem; } .hero h1, .home-hero h1 { width: 22rem !important; max-width: calc(100vw - 2rem) !important; font-size: 1.75rem; overflow-wrap: break-word; word-break: normal; } .mobile-break { display: block; } .hero .lede, .lede { width: 22rem; max-width: calc(100vw - 2rem) !important; overflow-wrap: break-word; } .hero-stats { grid-template-columns: 1fr; } .continue { align-items: flex-start; flex-direction: column; } .phase-grid { grid-template-columns: 1fr; } }
 """
 
 SEARCH_JS = r"""
@@ -1368,20 +1714,35 @@ SEARCH_JS = r"""
   const toggle = document.getElementById("theme-toggle");
   const sidebarToggle = document.getElementById("sidebar-toggle");
 
-  // Theme toggle.
+  // Theme toggle — null-guarded so a missing button can't kill the rest of the script.
   const saved = localStorage.getItem("theme");
   if (saved) document.documentElement.setAttribute("data-theme", saved);
-  toggle.addEventListener("click", () => {
-    const cur = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", cur);
-    localStorage.setItem("theme", cur);
-  });
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const cur = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", cur);
+      localStorage.setItem("theme", cur);
+    });
+  }
 
-  sidebarToggle.addEventListener("click", () => {
-    document.body.classList.toggle("nav-open");
-  });
+  if (sidebarToggle) {
+    sidebarToggle.addEventListener("click", () => {
+      document.body.classList.toggle("nav-open");
+    });
+    // Tap any nav link on mobile → close the drawer so the user lands on the page.
+    document.querySelectorAll(".sidebar a").forEach(a => {
+      a.addEventListener("click", () => {
+        if (window.matchMedia("(max-width: 780px)").matches) {
+          document.body.classList.remove("nav-open");
+        }
+      });
+    });
+  }
 
-  const activeLink = document.querySelector(".sidebar .sidebar-link.active");
+  // Scroll the current page's nav row into view if it's offscreen.
+  const activeLink = document.querySelector(
+    ".sidebar .nav-leaf.active, .sidebar .nav-child.active, .sidebar .sidebar-link.active"
+  );
   if (activeLink) {
     const rect = activeLink.getBoundingClientRect();
     if (rect.top < 80 || rect.bottom > window.innerHeight - 40) {
@@ -1517,6 +1878,7 @@ SEARCH_JS = r"""
     if (!pattern) return safe;
     return safe.replace(new RegExp("(" + pattern + ")", "gi"), "<mark>$1</mark>");
   }
+
 })();
 """
 

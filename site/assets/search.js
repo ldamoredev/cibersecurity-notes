@@ -6,20 +6,35 @@
   const toggle = document.getElementById("theme-toggle");
   const sidebarToggle = document.getElementById("sidebar-toggle");
 
-  // Theme toggle.
+  // Theme toggle — null-guarded so a missing button can't kill the rest of the script.
   const saved = localStorage.getItem("theme");
   if (saved) document.documentElement.setAttribute("data-theme", saved);
-  toggle.addEventListener("click", () => {
-    const cur = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", cur);
-    localStorage.setItem("theme", cur);
-  });
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const cur = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", cur);
+      localStorage.setItem("theme", cur);
+    });
+  }
 
-  sidebarToggle.addEventListener("click", () => {
-    document.body.classList.toggle("nav-open");
-  });
+  if (sidebarToggle) {
+    sidebarToggle.addEventListener("click", () => {
+      document.body.classList.toggle("nav-open");
+    });
+    // Tap any nav link on mobile → close the drawer so the user lands on the page.
+    document.querySelectorAll(".sidebar a").forEach(a => {
+      a.addEventListener("click", () => {
+        if (window.matchMedia("(max-width: 780px)").matches) {
+          document.body.classList.remove("nav-open");
+        }
+      });
+    });
+  }
 
-  const activeLink = document.querySelector(".sidebar .sidebar-link.active");
+  // Scroll the current page's nav row into view if it's offscreen.
+  const activeLink = document.querySelector(
+    ".sidebar .nav-leaf.active, .sidebar .nav-child.active, .sidebar .sidebar-link.active"
+  );
   if (activeLink) {
     const rect = activeLink.getBoundingClientRect();
     if (rect.top < 80 || rect.bottom > window.innerHeight - 40) {
@@ -155,4 +170,5 @@
     if (!pattern) return safe;
     return safe.replace(new RegExp("(" + pattern + ")", "gi"), "<mark>$1</mark>");
   }
+
 })();
