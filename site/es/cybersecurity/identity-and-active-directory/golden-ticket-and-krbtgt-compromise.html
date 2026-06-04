@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Golden Ticket and KRBTGT Compromise - Identidad y Active Directory | ldamoredev Security Atlas</title>
+<meta name="description" content="A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain&#x27;s krbtgt account. It is not...">
+<meta name="author" content="ldamoredev">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Identidad y Active Directory, Golden Ticket and KRBTGT Compromise, offensive-security, active-directory, kerberos, golden-ticket, krbtgt">
+<meta name="theme-color" content="#16a34a">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">
+<link rel="icon" href="../../../favicon.ico" sizes="any">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+<link rel="manifest" href="../../../site.webmanifest">
+<meta property="article:section" content="Identidad y Active Directory">
+<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golden Ticket and KRBTGT Compromise - Identidad y Active Directory | ldamoredev Security Atlas">
+<meta property="og:description" content="A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain&#x27;s krbtgt account. It is not...">
+<meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">
+<meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Golden Ticket and KRBTGT Compromise - Identidad y Active Directory | ldamoredev Security Atlas">
+<meta name="twitter:description" content="A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain&#x27;s krbtgt account. It is not...">
+<meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html#article","name":"Golden Ticket and KRBTGT Compromise - Identidad y Active Directory | ldamoredev Security Atlas","headline":"Golden Ticket and KRBTGT Compromise","description":"A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain's krbtgt account. It is not...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identidad y Active Directory","Golden Ticket and KRBTGT Compromise","offensive-security","active-directory","kerberos","golden-ticket","krbtgt"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identidad y Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"Golden Ticket and KRBTGT Compromise","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html"}]}]</script>
+<link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">
+<link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">
+<link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+</head>
+<body id="top" data-root="../../.." data-locale-root="../..">
+<div class="app with-toc">
+<nav class="sidebar">
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Base de Conocimiento</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-body">
+<a class="sidebar-home" href="../../index.html">Inicio del Atlas</a>
+<div class="sidebar-section"><h3>Capa de entrada</h3>
+<a class="sidebar-link kind-index" href="../index.html">Índice de Ciberseguridad</a>
+<a class="sidebar-link kind-concept" href="../start-here.html">Start Here — Cybersecurity Vault Triage</a>
+<a class="sidebar-link kind-concept" href="../must-know-30.html">Must-Know 30 — The Minimum Viable Security Literacy</a>
+<a class="sidebar-link kind-concept" href="../phase-1-substrate.html">Phase 1 — Substrate (How Things Actually Work)</a>
+<a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
+<a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
+<a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+</div>
+<div class="sidebar-section"><h3>Ruta de aprendizaje</h3>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Resumen</a>
+<a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="La dualidad atacante-defensor como herramienta de aprendizaje">La dualidad atacante-defensor como herramienta de apr…</a>
+<a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Las certificaciones como señales de validación">Las certificaciones como señales de validación</a>
+<a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="Tríada CIA — Qué decide en realidad">Tríada CIA — Qué decide en realidad</a>
+<a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Especialización por contexto de trabajo">Especialización por contexto de trabajo</a>
+<a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Alfabetización mínima viable en ciberseguridad">Alfabetización mínima viable en ciberseguridad</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Arranque rápido de modelado de amenazas">Arranque rápido de modelado de amenazas</a>
+<a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="Qué es la ciberseguridad, y por qué no es una lista de herramientas">Qué es la ciberseguridad, y por qué no es una lista d…</a>
+</div></details>
+</div></details>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Criptografía</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Resumen</a>
+<a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
+<a class="nav-leaf" href="../cryptography/asymmetric-encryption-and-key-exchange.html" title="Asymmetric Encryption and Key Exchange">Asymmetric Encryption and Key Exchange</a>
+<a class="nav-leaf" href="../cryptography/certificate-validation-and-pinning.html" title="Certificate Validation and Pinning">Certificate Validation and Pinning</a>
+<a class="nav-leaf" href="../cryptography/digital-signatures.html" title="Digital Signatures">Digital Signatures</a>
+<a class="nav-leaf" href="../cryptography/hashing-vs-encryption-vs-signing.html" title="Hashing vs Encryption vs Signing">Hashing vs Encryption vs Signing</a>
+<a class="nav-leaf" href="../cryptography/jwt-cryptographic-correctness.html" title="JWT Cryptographic Correctness">JWT Cryptographic Correctness</a>
+<a class="nav-leaf" href="../cryptography/kdf-and-key-stretching.html" title="KDF and Key Stretching">KDF and Key Stretching</a>
+<a class="nav-leaf" href="../cryptography/mac-and-hmac.html" title="MAC and HMAC">MAC and HMAC</a>
+<a class="nav-leaf" href="../cryptography/password-hashing.html" title="Password Hashing">Password Hashing</a>
+<a class="nav-leaf" href="../cryptography/post-quantum-awareness.html" title="Post-Quantum Awareness">Post-Quantum Awareness</a>
+<a class="nav-leaf" href="../cryptography/random-and-csprng-pitfalls.html" title="Random and CSPRNG Pitfalls">Random and CSPRNG Pitfalls</a>
+<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll Your Own Crypto Failures">Roll Your Own Crypto Failures</a>
+<a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
+<a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
+</div></details>
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Resumen</a>
+<a class="nav-leaf" href="../networking/caching-and-security.html" title="Caché y seguridad">Caché y seguridad</a>
+<a class="nav-leaf" href="../networking/client-ip-trust.html" title="Confianza en la IP del cliente">Confianza en la IP del cliente</a>
+<a class="nav-leaf" href="../networking/metadata-endpoints.html" title="Endpoints de metadata de instancias de nube">Endpoints de metadata de instancias de nube</a>
+<a class="nav-leaf" href="../networking/cookies-and-sessions.html" title="Cookies y sesiones">Cookies y sesiones</a>
+<a class="nav-leaf" href="../networking/dangling-dns-records.html" title="Registros DNS colgantes">Registros DNS colgantes</a>
+<a class="nav-leaf" href="../networking/dns-resolution.html" title="Resolución DNS">Resolución DNS</a>
+<a class="nav-leaf" href="../networking/dns-security.html" title="Seguridad de DNS">Seguridad de DNS</a>
+<a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls y fronteras de red">Firewalls y fronteras de red</a>
+<a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Confianza en headers en Node Express">Confianza en headers en Node Express</a>
+<a class="nav-leaf" href="../networking/http-headers.html" title="Headers HTTP">Headers HTTP</a>
+<a class="nav-leaf" href="../networking/http-messages.html" title="Mensajes HTTP">Mensajes HTTP</a>
+<a class="nav-leaf" href="../networking/http-overview.html" title="Panorama de HTTP">Panorama de HTTP</a>
+<a class="nav-leaf" href="../networking/load-balancers.html" title="Load balancers">Load balancers</a>
+<a class="nav-leaf" href="../networking/nat-and-private-networks.html" title="NAT y redes privadas">NAT y redes privadas</a>
+<a class="nav-leaf" href="../networking/nmap-scanning.html" title="Escaneo con Nmap">Escaneo con Nmap</a>
+<a class="nav-leaf" href="../networking/packet-analysis.html" title="Análisis de paquetes">Análisis de paquetes</a>
+<a class="nav-leaf" href="../networking/ports-and-services.html" title="Puertos y servicios">Puertos y servicios</a>
+<a class="nav-leaf" href="../networking/reverse-proxies.html" title="Reverse proxies">Reverse proxies</a>
+<a class="nav-leaf" href="../networking/service-enumeration.html" title="Enumeración de servicios">Enumeración de servicios</a>
+<a class="nav-leaf" href="../networking/tcp-ip-basics.html" title="Fundamentos de TCP/IP">Fundamentos de TCP/IP</a>
+<a class="nav-leaf" href="../networking/tls-https.html" title="TLS y HTTPS">TLS y HTTPS</a>
+<a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Flujos de trabajo con Wireshark">Flujos de trabajo con Wireshark</a>
+</div></details>
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Resumen</a>
+<a class="nav-leaf" href="../web-security/auth-flaws.html" title="Fallas de autenticación">Fallas de autenticación</a>
+<a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
+<a class="nav-leaf" href="../web-security/broken-access-control.html" title="Control de acceso roto">Control de acceso roto</a>
+<a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Fronteras de seguridad del navegador">Fronteras de seguridad del navegador</a>
+<a class="nav-leaf" href="../web-security/business-logic-vulnerabilities.html" title="Business Logic Vulnerabilities">Business Logic Vulnerabilities</a>
+<a class="nav-leaf" href="../web-security/clickjacking.html" title="Clickjacking">Clickjacking</a>
+<a class="nav-leaf" href="../web-security/command-injection.html" title="Inyección de comandos">Inyección de comandos</a>
+<a class="nav-leaf" href="../web-security/content-security-policy.html" title="Content Security Policy">Content Security Policy</a>
+<a class="nav-leaf" href="../web-security/cors-misconfiguration.html" title="CORS Misconfiguration">CORS Misconfiguration</a>
+<a class="nav-leaf" href="../web-security/csrf.html" title="Cross-Site Request Forgery (CSRF)">Cross-Site Request Forgery (CSRF)</a>
+<a class="nav-leaf" href="../web-security/xss.html" title="Cross-Site Scripting (XSS)">Cross-Site Scripting (XSS)</a>
+<a class="nav-leaf" href="../web-security/evilginx-and-reverse-proxy-phishing.html" title="Evilginx and Reverse Proxy Phishing">Evilginx and Reverse Proxy Phishing</a>
+<a class="nav-leaf" href="../web-security/file-upload-abuse.html" title="File Upload Abuse">File Upload Abuse</a>
+<a class="nav-leaf" href="../web-security/gadget-chains.html" title="Gadget Chains">Gadget Chains</a>
+<a class="nav-leaf" href="../web-security/deserialization.html" title="Insecure Deserialization">Insecure Deserialization</a>
+<a class="nav-leaf" href="../web-security/idor.html" title="Insecure Direct Object Reference (IDOR)">Insecure Direct Object Reference (IDOR)</a>
+<a class="nav-leaf" href="../web-security/mfa-phishing-resistance.html" title="Resistencia al phishing del MFA">Resistencia al phishing del MFA</a>
+<a class="nav-leaf" href="../web-security/oauth-security.html" title="OAuth Security">OAuth Security</a>
+<a class="nav-leaf" href="../web-security/open-redirect.html" title="Open Redirect">Open Redirect</a>
+<a class="nav-leaf" href="../web-security/owasp-top-10.html" title="OWASP Top 10">OWASP Top 10</a>
+<a class="nav-leaf" href="../web-security/path-traversal.html" title="Path traversal">Path traversal</a>
+<a class="nav-leaf" href="../web-security/phar-deserialization.html" title="PHAR Deserialization">PHAR Deserialization</a>
+<a class="nav-leaf" href="../web-security/request-smuggling.html" title="Request Smuggling">Request Smuggling</a>
+<a class="nav-leaf" href="../web-security/same-origin-policy.html" title="Política del mismo origen (SOP)">Política del mismo origen (SOP)</a>
+<a class="nav-leaf" href="../web-security/ssrf.html" title="Server-Side Request Forgery (SSRF)">Server-Side Request Forgery (SSRF)</a>
+<a class="nav-leaf" href="../web-security/session-management.html" title="Gestión de sesiones">Gestión de sesiones</a>
+<a class="nav-leaf" href="../web-security/sql-injection.html" title="Inyección SQL">Inyección SQL</a>
+<a class="nav-leaf" href="../web-security/web-cache-poisoning.html" title="Envenenamiento de caché web">Envenenamiento de caché web</a>
+<a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
+</div></details>
+</div></details>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Seguridad Ofensiva / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Resumen</a>
+<a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
+<a class="nav-leaf" href="../offensive-security/cloaking-and-security-evasion.html" title="Cloaking and Security Evasion">Cloaking and Security Evasion</a>
+<a class="nav-leaf" href="../offensive-security/company-mapping.html" title="Company Mapping">Company Mapping</a>
+<a class="nav-leaf" href="../offensive-security/enumeration.html" title="Enumeration">Enumeration</a>
+<a class="nav-leaf" href="../offensive-security/host-and-port-discovery.html" title="Host and Port Discovery">Host and Port Discovery</a>
+<a class="nav-leaf" href="../offensive-security/idle-scan-and-ipid-side-channels.html" title="Idle Scan and IPID Side Channels">Idle Scan and IPID Side Channels</a>
+<a class="nav-leaf" href="../offensive-security/masscan-internet-scale-scanning.html" title="Masscan Internet-Scale Scanning">Masscan Internet-Scale Scanning</a>
+<a class="nav-leaf" href="../offensive-security/nmap-timing-and-evasion.html" title="Nmap Timing and Evasion">Nmap Timing and Evasion</a>
+<a class="nav-leaf" href="../offensive-security/nse-vuln-category-audit.html" title="NSE `vuln` Category Audit">NSE `vuln` Category Audit</a>
+<a class="nav-leaf" href="../offensive-security/packet-fragmentation-and-decoy-scans.html" title="Packet Fragmentation and Decoy Scans">Packet Fragmentation and Decoy Scans</a>
+<a class="nav-leaf" href="../offensive-security/passive-recon.html" title="Passive Recon">Passive Recon</a>
+<a class="nav-leaf" href="../offensive-security/public-asset-discovery.html" title="Public Asset Discovery">Public Asset Discovery</a>
+<a class="nav-leaf" href="../offensive-security/recon.html" title="Recon">Recon</a>
+<a class="nav-leaf" href="../offensive-security/recon-to-testing-handoff.html" title="Recon to Testing Handoff">Recon to Testing Handoff</a>
+<a class="nav-leaf" href="../offensive-security/rustscan-and-nse-pipeline.html" title="RustScan and NSE Pipeline">RustScan and NSE Pipeline</a>
+<a class="nav-leaf" href="../offensive-security/scope-validation.html" title="Scope Validation">Scope Validation</a>
+<a class="nav-leaf" href="../offensive-security/service-validation.html" title="Service Validation">Service Validation</a>
+<a class="nav-leaf" href="../offensive-security/subdomain-enumeration.html" title="Subdomain Enumeration">Subdomain Enumeration</a>
+<a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
+<a class="nav-leaf" href="../offensive-security/operator-loop.html" title="El loop del operador">El loop del operador</a>
+</div></details>
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Resumen</a>
+<a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
+<a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
+<a class="nav-leaf" href="../detection-engineering/detection-evasion-myths-and-modern-limitations.html" title="Detection Evasion Myths and Modern Limitations">Detection Evasion Myths and Modern Limitations</a>
+<a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
+<a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
+<a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
+<a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Disciplina de Network Security Monitoring (NSM)">Disciplina de Network Security Monitoring (NSM)</a>
+<a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
+<a class="nav-leaf" href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html" title="Scan Anomaly Detection and Fingerprint Analysis">Scan Anomaly Detection and Fingerprint Analysis</a>
+<a class="nav-leaf" href="../detection-engineering/telemetry-normalization-correlation-and-enrichment.html" title="Telemetry Normalization, Correlation, and Enrichment">Telemetry Normalization, Correlation, and Enrichment</a>
+<a class="nav-leaf" href="../detection-engineering/windows-event-logs.html" title="Windows Event Logs">Windows Event Logs</a>
+<a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
+</div></details>
+</div></details>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Mapeo de Superficie de Ataque</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Resumen</a>
+<a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
+<a class="nav-leaf" href="../attack-surface-mapping/attack-surface-mapping.html" title="Attack Surface Mapping">Attack Surface Mapping</a>
+<a class="nav-leaf" href="../attack-surface-mapping/deprecated-api-versions.html" title="Deprecated API Versions">Deprecated API Versions</a>
+<a class="nav-leaf" href="../attack-surface-mapping/endpoint-discovery.html" title="Endpoint Discovery">Endpoint Discovery</a>
+<a class="nav-leaf" href="../attack-surface-mapping/exposed-service-triage.html" title="Exposed Service Triage">Exposed Service Triage</a>
+<a class="nav-leaf" href="../attack-surface-mapping/exposed-storage.html" title="Exposed Storage">Exposed Storage</a>
+<a class="nav-leaf" href="../attack-surface-mapping/external-attack-surface.html" title="External Attack Surface">External Attack Surface</a>
+<a class="nav-leaf" href="../attack-surface-mapping/internal-attack-surface.html" title="Internal Attack Surface">Internal Attack Surface</a>
+<a class="nav-leaf" href="../attack-surface-mapping/subdomain-takeover.html" title="Subdomain Takeover">Subdomain Takeover</a>
+<a class="nav-leaf" href="../attack-surface-mapping/third-party-exposure.html" title="Third-Party Exposure">Third-Party Exposure</a>
+</div></details>
+<details class="nav-branch accent-violet"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="nb-name">OSINT</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../osint/index.html">Resumen</a>
+<a class="nav-leaf" href="../osint/breach-and-leak-intelligence.html" title="Breach and Leak Intelligence">Breach and Leak Intelligence</a>
+<a class="nav-leaf" href="../osint/company-osint.html" title="Company OSINT">Company OSINT</a>
+<a class="nav-leaf" href="../osint/email-and-phone-osint.html" title="Email and Phone OSINT">Email and Phone OSINT</a>
+<a class="nav-leaf" href="../osint/google-dorking.html" title="Google Dorking">Google Dorking</a>
+<a class="nav-leaf" href="../osint/image-and-location-osint.html" title="Image and Location OSINT">Image and Location OSINT</a>
+<a class="nav-leaf" href="../osint/osint.html" title="OSINT">OSINT</a>
+<a class="nav-leaf" href="../osint/osint-reporting.html" title="OSINT Reporting">OSINT Reporting</a>
+<a class="nav-leaf" href="../osint/osint-triage.html" title="OSINT Triage">OSINT Triage</a>
+<a class="nav-leaf" href="../osint/search-engine-operators.html" title="Search Engine Operators">Search Engine Operators</a>
+<a class="nav-leaf" href="../osint/social-media-osint.html" title="Social Media OSINT">Social Media OSINT</a>
+</div></details>
+<details class="nav-branch accent-orange"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="nb-name">Escalada de Privilegios en Linux</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../linux-privilege-escalation/index.html">Resumen</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/cron-and-timer-abuse.html" title="Cron and Timer Abuse">Cron and Timer Abuse</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/kernel-exploit-triage.html" title="Kernel Exploit Triage">Kernel Exploit Triage</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/linpeas-workflow.html" title="LinPEAS Workflow">LinPEAS Workflow</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/linux-capabilities.html" title="Linux Capabilities">Linux Capabilities</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/linux-enumeration.html" title="Linux Enumeration">Linux Enumeration</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/linux-privilege-escalation.html" title="Linux Privilege Escalation">Linux Privilege Escalation</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/path-hijacking.html" title="PATH Hijacking">PATH Hijacking</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
+</div></details>
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Resumen</a>
+<a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
+<a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detectar la recolección de BloodHound">Detectar la recolección de BloodHound</a>
+<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detect DCSync and ntds.dit Access">Detect DCSync and ntds.dit Access</a>
+<a class="nav-leaf" href="../security-playbooks/detect-external-scan-pipeline.html" title="Detect External Recon Scan Pipeline">Detect External Recon Scan Pipeline</a>
+<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
+<a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
+<a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
+<a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
+<a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
+<a class="nav-leaf" href="../security-playbooks/reverse-proxy-misconfig-checklist.html" title="Reverse Proxy Misconfig Checklist">Reverse Proxy Misconfig Checklist</a>
+<a class="nav-leaf" href="../security-playbooks/run-scan-pipeline.html" title="Run External Recon Scan Pipeline">Run External Recon Scan Pipeline</a>
+<a class="nav-leaf" href="../security-playbooks/test-client-ip-spoofing.html" title="Test Client IP Spoofing">Test Client IP Spoofing</a>
+<a class="nav-leaf" href="../security-playbooks/test-cors-behavior.html" title="Test CORS Behavior">Test CORS Behavior</a>
+<a class="nav-leaf" href="../security-playbooks/test-path-traversal.html" title="Test Path Traversal">Test Path Traversal</a>
+<a class="nav-leaf" href="../security-playbooks/trace-metadata-endpoint-reachability.html" title="Trace Metadata Endpoint Reachability">Trace Metadata Endpoint Reachability</a>
+</div></details>
+</div></details>
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="ns-name"><span class="ns-num">04</span>Especialidad</span></span><span class="ns-right"><span class="count">71</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-teal"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg><span class="nb-name">Seguridad Inalámbrica</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../wireless-security/index.html">Resumen</a>
+<a class="nav-leaf" href="../wireless-security/arp-poisoning.html" title="ARP Poisoning">ARP Poisoning</a>
+<a class="nav-leaf" href="../wireless-security/bettercap-workflows.html" title="Bettercap Workflows">Bettercap Workflows</a>
+<a class="nav-leaf" href="../wireless-security/evil-twin-access-points.html" title="Evil Twin Access Points">Evil Twin Access Points</a>
+<a class="nav-leaf" href="../wireless-security/mitm-on-local-networks.html" title="MITM on Local Networks">MITM on Local Networks</a>
+<a class="nav-leaf" href="../wireless-security/wep-security.html" title="WEP Security">WEP Security</a>
+<a class="nav-leaf" href="../wireless-security/wifi-deauthentication.html" title="Wi-Fi Deauthentication">Wi-Fi Deauthentication</a>
+<a class="nav-leaf" href="../wireless-security/wifi-monitor-mode.html" title="Wi-Fi Monitor Mode">Wi-Fi Monitor Mode</a>
+<a class="nav-leaf" href="../wireless-security/wifi-wordlist-attacks.html" title="Wi-Fi Wordlist Attacks">Wi-Fi Wordlist Attacks</a>
+<a class="nav-leaf" href="../wireless-security/wireless-security.html" title="Wireless Security">Wireless Security</a>
+<a class="nav-leaf" href="../wireless-security/wpa-wpa2-handshakes.html" title="WPA/WPA2 Handshakes">WPA/WPA2 Handshakes</a>
+</div></details>
+<details class="nav-branch accent-indigo"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v4"/><path d="M15 2v4"/><path d="M5 10h14v4a7 7 0 0 1-14 0z"/><path d="M12 18v4"/></svg><span class="nb-name">Seguridad de APIs</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../api-security/index.html">Resumen</a>
+<a class="nav-leaf" href="../api-security/api-auth-flaws.html" title="API Authentication Flaws">API Authentication Flaws</a>
+<a class="nav-leaf" href="../api-security/api-inventory-management.html" title="API Inventory Management">API Inventory Management</a>
+<a class="nav-leaf" href="../api-security/api-rate-limiting.html" title="API Rate Limiting">API Rate Limiting</a>
+<a class="nav-leaf" href="../api-security/api-security-top-10.html" title="API Security Top 10">API Security Top 10</a>
+<a class="nav-leaf" href="../api-security/authorization.html" title="Authorization">Authorization</a>
+<a class="nav-leaf" href="../api-security/broken-authentication.html" title="Broken Authentication">Broken Authentication</a>
+<a class="nav-leaf" href="../api-security/broken-function-level-authorization.html" title="Broken Function Level Authorization">Broken Function Level Authorization</a>
+<a class="nav-leaf" href="../api-security/broken-object-level-authorization.html" title="Broken Object Level Authorization">Broken Object Level Authorization</a>
+<a class="nav-leaf" href="../api-security/broken-object-property-level-authorization.html" title="Broken Object Property Level Authorization">Broken Object Property Level Authorization</a>
+<a class="nav-leaf" href="../api-security/excessive-data-exposure.html" title="Excessive Data Exposure">Excessive Data Exposure</a>
+<a class="nav-leaf" href="../api-security/jwt-attacks.html" title="JWT Attacks">JWT Attacks</a>
+<a class="nav-leaf" href="../api-security/mass-assignment.html" title="Mass Assignment">Mass Assignment</a>
+<a class="nav-leaf" href="../api-security/polymorphic-deserialization.html" title="Polymorphic Deserialization">Polymorphic Deserialization</a>
+<a class="nav-leaf" href="../api-security/token-lifecycle.html" title="Token Lifecycle">Token Lifecycle</a>
+</div></details>
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg><span class="nb-name">Seguridad en la Nube</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../cloud-security/index.html">Resumen</a>
+<a class="nav-leaf" href="../cloud-security/cloud-dns-and-certbot.html" title="Cloud DNS and Certbot">Cloud DNS and Certbot</a>
+<a class="nav-leaf" href="../cloud-security/cloud-iam-boundaries.html" title="Cloud IAM Boundaries">Cloud IAM Boundaries</a>
+<a class="nav-leaf" href="../cloud-security/cloud-lab-infrastructure.html" title="Cloud Lab Infrastructure">Cloud Lab Infrastructure</a>
+<a class="nav-leaf" href="../cloud-security/cloud-logging-and-detection.html" title="Cloud Logging and Detection">Cloud Logging and Detection</a>
+<a class="nav-leaf" href="../cloud-security/cloud-metadata-security.html" title="Cloud Metadata Security">Cloud Metadata Security</a>
+<a class="nav-leaf" href="../cloud-security/cloud-network-boundaries.html" title="Cloud Network Boundaries">Cloud Network Boundaries</a>
+<a class="nav-leaf" href="../cloud-security/cloud-secrets-management.html" title="Cloud Secrets Management">Cloud Secrets Management</a>
+<a class="nav-leaf" href="../cloud-security/cloud-security-basics.html" title="Cloud Security Basics">Cloud Security Basics</a>
+<a class="nav-leaf" href="../cloud-security/public-cloud-storage-exposure.html" title="Public Cloud Storage Exposure">Public Cloud Storage Exposure</a>
+<a class="nav-leaf" href="../cloud-security/ssh-access-to-cloud-hosts.html" title="SSH Access to Cloud Hosts">SSH Access to Cloud Hosts</a>
+</div></details>
+<details class="nav-branch accent-green"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="nb-name">DevSecOps</span></span><span class="nb-right"><span class="count">13</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../devsecops/index.html">Resumen</a>
+<a class="nav-leaf" href="../devsecops/artifact-integrity.html" title="Artifact Integrity">Artifact Integrity</a>
+<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS as Dev Process Input">ASVS as Dev Process Input</a>
+<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Branch Protection and Release Controls">Branch Protection and Release Controls</a>
+<a class="nav-leaf" href="../devsecops/ci-cd-hardening.html" title="CI/CD Hardening">CI/CD Hardening</a>
+<a class="nav-leaf" href="../devsecops/container-security.html" title="Container Security">Container Security</a>
+<a class="nav-leaf" href="../devsecops/dependency-risk.html" title="Dependency Risk">Dependency Risk</a>
+<a class="nav-leaf" href="../devsecops/image-scanning.html" title="Image Scanning">Image Scanning</a>
+<a class="nav-leaf" href="../devsecops/nist-ssdf.html" title="NIST SSDF">NIST SSDF</a>
+<a class="nav-leaf" href="../devsecops/sbom-and-provenance.html" title="SBOM and Provenance">SBOM and Provenance</a>
+<a class="nav-leaf" href="../devsecops/secrets-management.html" title="Secrets Management">Secrets Management</a>
+<a class="nav-leaf" href="../devsecops/secure-by-design.html" title="Secure by Design">Secure by Design</a>
+<a class="nav-leaf" href="../devsecops/supply-chain-security.html" title="Supply Chain Security">Supply Chain Security</a>
+</div></details>
+<details class="nav-branch accent-red active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="nb-name">Identidad y Active Directory</span></span><span class="nb-right"><span class="count">13</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="index.html">Resumen</a>
+<a class="nav-leaf" href="as-rep-roasting.html" title="AS-REP Roasting">AS-REP Roasting</a>
+<a class="nav-leaf" href="bloodhound-attack-path-analysis.html" title="BloodHound and Attack Path Analysis">BloodHound and Attack Path Analysis</a>
+<a class="nav-leaf" href="dcsync-and-ntdsdit-extraction.html" title="DCSync and ntds.dit Extraction">DCSync and ntds.dit Extraction</a>
+<a class="nav-leaf" href="gmsa-and-modern-service-account-hardening.html" title="gMSA and Modern Service Account Hardening">gMSA and Modern Service Account Hardening</a>
+<a class="nav-leaf active" href="golden-ticket-and-krbtgt-compromise.html" title="Golden Ticket and KRBTGT Compromise">Golden Ticket and KRBTGT Compromise</a>
+<a class="nav-leaf" href="identity-attack-paths-across-idps.html" title="Rutas de ataque de identidad entre IdPs">Rutas de ataque de identidad entre IdPs</a>
+<a class="nav-leaf" href="kerberoasting.html" title="Kerberoasting">Kerberoasting</a>
+<a class="nav-leaf" href="krbtgt-rotation-and-tier-zero-recovery.html" title="KRBTGT Rotation and Tier Zero Recovery">KRBTGT Rotation and Tier Zero Recovery</a>
+<a class="nav-leaf" href="pass-the-hash-and-ntlm-credential-reuse.html" title="Pass-the-Hash and NTLM Credential Reuse">Pass-the-Hash and NTLM Credential Reuse</a>
+<a class="nav-leaf" href="silver-ticket-and-service-account-persistence.html" title="Silver Ticket and Service Account Persistence">Silver Ticket and Service Account Persistence</a>
+<a class="nav-leaf" href="tier-zero-administration-and-paw.html" title="Tier 0 Administration and Privileged Access Workstations">Tier 0 Administration and Privileged Access Workstations</a>
+<a class="nav-leaf" href="windows-privilege-escalation.html" title="Windows Privilege Escalation">Windows Privilege Escalation</a>
+</div></details>
+<details class="nav-branch accent-fuchsia"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="8" height="14" rx="4"/><path d="M19 7l-3 2"/><path d="M5 7l3 2"/><path d="M19 13h-3"/><path d="M8 13H5"/><path d="M19 19l-3-2"/><path d="M5 19l3-2"/><path d="M12 6V3"/></svg><span class="nb-name">Explotación de Binarios</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../binary-exploitation/index.html">Resumen</a>
+<a class="nav-leaf" href="../binary-exploitation/exploit-mitigations.html" title="Exploit Mitigations">Exploit Mitigations</a>
+<a class="nav-leaf" href="../binary-exploitation/format-string-vulnerabilities.html" title="Vulnerabilidades de format string">Vulnerabilidades de format string</a>
+<a class="nav-leaf" href="../binary-exploitation/heap-buffer-overflow-and-allocator-exploitation.html" title="Heap buffer overflow y explotación del allocator">Heap buffer overflow y explotación del allocator</a>
+<a class="nav-leaf" href="../binary-exploitation/memory-corruption.html" title="Memory Corruption">Memory Corruption</a>
+<a class="nav-leaf" href="../binary-exploitation/rop-and-ret2libc.html" title="ROP and ret2libc">ROP and ret2libc</a>
+<a class="nav-leaf" href="../binary-exploitation/stack-buffer-overflow.html" title="Stack Buffer Overflow">Stack Buffer Overflow</a>
+<a class="nav-leaf" href="../binary-exploitation/use-after-free-and-dangling-pointers.html" title="Use-After-Free y punteros colgantes">Use-After-Free y punteros colgantes</a>
+</div></details>
+</div></details>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span class="ns-name"><span class="ns-num">★</span>Siempre activo</span></span><span class="ns-right"><span class="count">33</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-purple"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span class="nb-name">Privacidad, Anonimato y OPSEC</span></span><span class="nb-right"><span class="count">33</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../privacy-anonymity-opsec/index.html">Resumen</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/account-correlation.html" title="Account Correlation">Account Correlation</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/anonymity-threat-models.html" title="Anonymity Threat Models">Anonymity Threat Models</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/browser-fingerprinting.html" title="Browser Fingerprinting">Browser Fingerprinting</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html" title="Corporate VPNs vs Consumer VPNs">Corporate VPNs vs Consumer VPNs</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/deanonymization-failures.html" title="Deanonymization Failures">Deanonymization Failures</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/end-to-end-encryption.html" title="End-to-End Encryption">End-to-End Encryption</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/file-metadata-removal.html" title="File Metadata Removal">File Metadata Removal</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/metadata-and-identity-leakage.html" title="Metadata and Identity Leakage">Metadata and Identity Leakage</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/opsec-failure-chains.html" title="OPSEC Failure Chains">OPSEC Failure Chains</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/pgp-encryption-and-signatures.html" title="PGP Encryption and Signatures">PGP Encryption and Signatures</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/privacy-vs-anonymity-vs-confidentiality.html" title="Privacy vs Anonymity vs Confidentiality">Privacy vs Anonymity vs Confidentiality</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/private-email-threat-models.html" title="Private Email Threat Models">Private Email Threat Models</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/qubes-compartmentalization.html" title="Qubes Compartmentalization">Qubes Compartmentalization</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/secure-deletion-and-storage-wiping.html" title="Secure Deletion and Storage Wiping">Secure Deletion and Storage Wiping</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/secure-file-sharing.html" title="Secure File Sharing">Secure File Sharing</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/tails-operational-model.html" title="Tails Operational Model">Tails Operational Model</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/temporary-email-risks.html" title="Temporary Email Risks">Temporary Email Risks</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/tor-and-onion-services.html" title="Tor and Onion Services">Tor and Onion Services</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/tor-bridges-and-pluggable-transports.html" title="Tor Bridges and Pluggable Transports">Tor Bridges and Pluggable Transports</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/tor-browser-security-settings.html" title="Tor Browser Security Settings">Tor Browser Security Settings</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/traffic-correlation.html" title="Traffic Correlation">Traffic Correlation</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-dns-and-ipv6-leaks.html" title="VPN DNS and IPv6 Leaks">VPN DNS and IPv6 Leaks</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-fingerprinting-limitations.html" title="VPN Fingerprinting Limitations">VPN Fingerprinting Limitations</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-kill-switches.html" title="VPN Kill Switches">VPN Kill Switches</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-leakage-risks.html" title="VPN Leakage Risks">VPN Leakage Risks</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-logging-and-trust.html" title="VPN Logging and Trust">VPN Logging and Trust</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-protocols.html" title="VPN Protocols">VPN Protocols</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-threat-models.html" title="VPN Threat Models">VPN Threat Models</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-vs-tor.html" title="VPN vs Tor">VPN vs Tor</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-with-tor.html" title="VPN with Tor">VPN with Tor</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/whonix-gateway.html" title="Whonix Gateway">Whonix Gateway</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/xmpp-and-private-messaging.html" title="XMPP and Private Messaging">XMPP and Private Messaging</a>
+</div></details>
+</div></details>
+</div>
+<div class="sidebar-section"><h3>Sistema de referencia</h3>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="ns-name">Registros</span></span><span class="ns-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<a class="nav-child" href="../reference-registry.html"><span class="nc-left"><span class="nc-name">Cybersecurity Reference Registry</span></span></a>
+<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Reference Registry - Detection Engineering</span></span></a>
+<a class="nav-child" href="../reference-registry-privacy-anonymity-opsec.html"><span class="nc-left"><span class="nc-name">Reference Registry - Privacy, Anonymity &amp; OPSEC</span></span></a>
+<a class="nav-child" href="../reference-registry-api-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — API Security</span></span></a>
+<a class="nav-child" href="../reference-registry-attack-surface-mapping.html"><span class="nc-left"><span class="nc-name">Reference Registry — Attack Surface Mapping</span></span></a>
+<a class="nav-child" href="../reference-registry-binary-exploitation.html"><span class="nc-left"><span class="nc-name">Reference Registry — Binary Exploitation</span></span></a>
+<a class="nav-child" href="../reference-registry-cloud-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — Cloud Security</span></span></a>
+<a class="nav-child" href="../reference-registry-cryptography.html"><span class="nc-left"><span class="nc-name">Reference Registry — Cryptography</span></span></a>
+<a class="nav-child" href="../reference-registry-devsecops.html"><span class="nc-left"><span class="nc-name">Reference Registry — DevSecOps</span></span></a>
+<a class="nav-child" href="../reference-registry-identity-and-active-directory.html"><span class="nc-left"><span class="nc-name">Reference Registry — Identity and Active Directory</span></span></a>
+<a class="nav-child" href="../reference-registry-linux-privilege-escalation.html"><span class="nc-left"><span class="nc-name">Reference Registry — Linux Privilege Escalation</span></span></a>
+<a class="nav-child" href="../reference-registry-networking.html"><span class="nc-left"><span class="nc-name">Reference Registry — Networking</span></span></a>
+<a class="nav-child" href="../reference-registry-offensive-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — Offensive Security</span></span></a>
+<a class="nav-child" href="../reference-registry-osint.html"><span class="nc-left"><span class="nc-name">Reference Registry — OSINT</span></span></a>
+<a class="nav-child" href="../reference-registry-playbooks.html"><span class="nc-left"><span class="nc-name">Reference Registry — Playbooks</span></span></a>
+<a class="nav-child" href="../reference-registry-web-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — Web Security</span></span></a>
+<a class="nav-child" href="../reference-registry-wireless-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — Wireless Security</span></span></a>
+</div></details>
+</div>
+</div>
+<div class="sidebar-footer"><span>actualizado · 2026-06-03</span><span class="v">v2026.05</span></div>
+</nav>
+<div class="main-col">
+<header class="topbar">
+  <button id="sidebar-toggle" class="icon-btn menu-toggle" title="Alternar navegación" aria-label="Alternar navegación"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg></button>
+  <div class="topbar-search search-shell">
+    <svg class="search-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="search" type="search" placeholder="Buscar notas, playbooks, tags..." autocomplete="off">
+    <kbd>⌘K</kbd>
+  </div>
+  <div class="topbar-actions">
+    <div class="lang-switch" role="group" aria-label="Idioma"><a class="lang-link" hreflang="en" href="../../../en/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html" aria-current="false">EN</a><a class="lang-link active" hreflang="es" href="golden-ticket-and-krbtgt-compromise.html" aria-current="page">ES</a></div>
+    <button class="icon-btn" aria-label="Notificaciones" title="Notificaciones"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></button>
+    <a class="github-link" href="https://github.com/ldamoredev/cibersecurity-notes" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.13v3.16c0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg><span class="gh-label">GitHub</span></a>
+  </div>
+</header>
+<div id="search-results" hidden></div>
+<div class="main-row">
+<main class="content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Identidad y Active Directory</a><span>/</span><span>Golden Ticket and KRBTGT Compromise</span></nav>
+<header class="page-hero">
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-red">Identidad y Active Directory</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~9 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#active-directory</span><span class="meta-chip tag">#kerberos</span><span class="meta-chip tag">#golden-ticket</span><span class="meta-chip tag">#krbtgt</span><span class="meta-chip tag">#tier-zero</span></div>
+</header>
+<article class="article-note">
+<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
+<h1 id="golden-ticket-and-krbtgt-compromise">Golden Ticket and KRBTGT Compromise</h1>
+<h2 id="definition">Definition</h2>
+<p>A Golden Ticket is a forged Kerberos <strong>Ticket Granting Ticket</strong> (TGT) created with the compromised long-term key material of the domain's <code>krbtgt</code> account. It is not a magic administrator password. It is abuse of the domain's Kerberos ticket-signing trust root: if an attacker can sign a TGT with a key the Key Distribution Center accepts as <code>krbtgt</code>, the attacker can mint authentication material for arbitrary domain principals and group memberships.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p><code>krbtgt</code> is Tier 0 because it is the cryptographic root of domain authentication. Domain Controllers use the <code>krbtgt</code> key to encrypt and sign TGTs. Services and KDCs do not start by asking "did this password login happen"; they ask "does this ticket validate under the domain trust model". A stolen <code>krbtgt</code> hash or AES key therefore moves the incident from credential theft into <strong>identity-system trust compromise</strong>.</p>
+<p>This is why <a href="dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit extraction</a> are endgame events. DCSync of ordinary users enables lateral movement; DCSync of <code>krbtgt</code> enables ticket forgery against the domain authentication fabric itself. Normal user password resets, even Domain Admin password resets, do not revoke a Golden Ticket forged with still-valid <code>krbtgt</code> material.</p>
+<p>The senior distinction is:</p>
+<ul>
+<li><strong>Password compromise:</strong> rotate the affected identity and investigate sessions.</li>
+<li><strong>Service-account compromise:</strong> rotate the service secret and inspect service access.</li>
+<li><strong><code>krbtgt</code> compromise:</strong> treat the domain's Kerberos signing root as untrusted until recovery sequencing proves otherwise.</li>
+</ul>
+<h2 id="how-it-works">How it works</h2>
+<p>Golden Ticket abuse reduces to <strong>5 protocol facts</strong>:</p>
+<ol>
+<li><strong>Kerberos separates authentication from service access.</strong> A user first receives a TGT from the KDC through AS exchange, then presents the TGT later to request TGS service tickets.</li>
+<li><strong>The TGT is protected by <code>krbtgt</code>.</strong> The ticket body is encrypted and signed with the <code>krbtgt</code> long-term key. The client cannot normally create a valid one.</li>
+<li><strong>DCSync can recover <code>krbtgt</code> material.</strong> A principal with replication rights can request the <code>krbtgt</code> NTLM hash and Kerberos AES keys from a DC. See <a href="dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a>.</li>
+<li><strong>A forged TGT can contain attacker-chosen identity claims.</strong> Tooling can choose username, RID, domain SID, group SIDs, SIDHistory, ticket lifetime, encryption type, and timestamps.</li>
+<li><strong>The KDC validates the signature, not the original login.</strong> When the forged TGT is later used for a TGS request, the KDC accepts it if the cryptographic material and fields are plausible under current policy.</li>
+</ol>
+<p>Conceptual authorized-lab flow:</p>
+<div class="codehilite"><pre><span></span><code>owned replication-right principal
+  -&gt; DCSync krbtgt hash/AES key
+  -&gt; obtain domain SID
+  -&gt; forge TGT for chosen user + group claims
+  -&gt; load ticket into a lab session
+  -&gt; request TGS for CIFS/LDAP/HTTP/MSSQL
+  -&gt; observe 4769/4624/4672-style telemetry
+</code></pre></div>
+
+<p>The structural bug is not "Kerberos is broken"; it is <em>if the domain ticket-signing account is compromised, the verifier can no longer distinguish real KDC-issued TGTs from attacker-signed TGTs without correlation and recovery</em>.</p>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<ul>
+<li><strong>DCSync to <code>krbtgt</code> is the common predecessor.</strong> Golden Tickets usually appear after DCSync, ntds.dit extraction, DC compromise, or backup compromise. The attack is downstream of Tier 0 access, not a first foothold.</li>
+<li><strong>Domain SID is required.</strong> The forged PAC needs the domain SID plus RIDs/group SIDs. Operators usually obtain it from LDAP, <code>whoami /user</code>, BloodHound data, or Impacket lookup. Wrong SID = unusable or anomalous ticket.</li>
+<li><strong>RID and group manipulation matter.</strong> Forging <code>Administrator</code> RID 500 is noisy. Mature operators may choose an existing user identity and inject privileged group SIDs. Defenders should compare observed group claims against directory membership.</li>
+<li><strong>SIDHistory can smuggle privilege.</strong> A forged PAC can include unexpected <code>SIDHistory</code> values, including historical or foreign-domain privileged SIDs. This is why SID filtering, trust configuration, and PAC inspection matter in multi-domain environments.</li>
+<li><strong>Lifetime anomalies are a detection surface.</strong> Old tooling defaulted to 10-year tickets. Modern operators tune lifetimes closer to domain policy, but mismatched <code>StartTime</code>, <code>EndTime</code>, <code>RenewTill</code>, and logon patterns still create correlation opportunities.</li>
+<li><strong>AES vs RC4 changes both crack and detection economics.</strong> RC4-HMAC tickets are suspicious in modern AES-capable domains and often indicate legacy settings or attacker preference. AES-forged tickets are less obviously anomalous but require AES key material, not only the NTLM hash.</li>
+<li><strong>Golden Tickets still need service access.</strong> A forged TGT usually has to obtain TGS tickets for services. That KDC interaction creates <code>4769</code> telemetry even when the original AS request never occurred.</li>
+<li><strong>Normal password resets do not revoke the trust root.</strong> Resetting the impersonated user changes the real user's password-derived keys, not the <code>krbtgt</code> key that validates the forged TGT.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>Golden Ticket usage has <strong>4 operational variants</strong> worth separating.</p>
+<h3 id="1-classic-high-privilege-golden-ticket">1. Classic high-privilege Golden Ticket</h3>
+<p>The attacker forges a TGT for a privileged identity such as <code>Administrator</code> with Domain Admin-like group SIDs. Easy to understand, high impact, high telemetry risk because privileged logons appear from unusual hosts and services.</p>
+<h3 id="2-low-noise-existing-user-impersonation">2. Low-noise existing-user impersonation</h3>
+<p>The attacker forges a TGT for an existing account whose normal access resembles the target action. The ticket may add only a narrow privileged SID or may rely on existing access. Harder to detect with username-only rules; correlation must compare group claims, host history, and ticket issuance sequence.</p>
+<h3 id="3-sidhistory-cross-domain-abuse">3. SIDHistory / cross-domain abuse</h3>
+<p>The forged PAC includes SIDHistory or trusted-domain SIDs to obtain access across trust boundaries. This depends heavily on trust configuration and SID filtering. It is most relevant in forests with legacy migrations or weak external trusts.</p>
+<h3 id="4-long-term-persistence-ticket">4. Long-term persistence ticket</h3>
+<p>The attacker forges tickets with extended lifetime and renew fields for persistence. This was historically common. It is now a strong detection signal in domains where Kerberos policy is centrally known and telemetry is normalized.</p>
+<h2 id="impact">Impact</h2>
+<p>Ordered by typical real-world severity:</p>
+<ul>
+<li><strong>Tier 0 authentication-root compromise.</strong> <code>krbtgt</code> material lets an attacker impersonate any domain principal from the Kerberos layer.</li>
+<li><strong>Persistence beyond ordinary account remediation.</strong> User, admin, and service account password resets do not invalidate tickets signed by an unchanged <code>krbtgt</code> key.</li>
+<li><strong>Domain-wide privilege fabrication.</strong> The forged PAC can claim privileged group membership even if the directory does not contain that membership.</li>
+<li><strong>Forensic ambiguity.</strong> Authentication logs may show a real username even though the real user's password was never used.</li>
+<li><strong>Attack-path completion.</strong> <a href="bloodhound-attack-path-analysis.html">BloodHound</a> paths that end in DCSync effectively become paths to Golden Ticket capability.</li>
+</ul>
+<h2 id="detection-and-telemetry">Detection and telemetry</h2>
+<p>Detection is correlational, not a single IOC. Useful signals include:</p>
+<ol>
+<li>
+<p><strong>TGS request without a plausible preceding AS request.</strong>
+   Event ID <code>4769</code> appears when a TGS is requested. If there is no corresponding <code>4768</code> TGT request for that account, host, and time window, the TGT may have been injected or forged. This requires timestamp-aligned DC telemetry, not one isolated log.</p>
+</li>
+<li>
+<p><strong>Ticket lifetime and renewal anomalies.</strong>
+   Compare observed ticket fields with domain Kerberos policy. Abnormally long <code>EndTime</code> or <code>RenewTill</code> values are useful, but modern attackers can tune them; treat lifetime as one feature, not the whole detection.</p>
+</li>
+<li>
+<p><strong>Unexpected encryption type.</strong>
+   <code>0x17</code> RC4-HMAC in a modern AES-only or AES-preferred environment is suspicious, especially for privileged accounts. AES usage is not proof of legitimacy.</p>
+</li>
+<li>
+<p><strong>PAC / group membership mismatch.</strong>
+   Privileged SIDs in logon events (<code>4624</code>, <code>4672</code>) that do not match current AD group membership are high-value signals. This requires enrichment from directory state.</p>
+</li>
+<li>
+<p><strong>Privileged account behavior from unusual hosts.</strong>
+   Golden Ticket use usually produces service access: SMB, LDAP, WinRM, MSSQL, HTTP. Correlate <code>4624</code>, <code>4672</code>, <code>4769</code>, EDR process ancestry, and host/service baselines.</p>
+</li>
+<li>
+<p><strong>Precursor telemetry.</strong>
+   Golden Ticket detection should start before the ticket: DCSync <code>4662</code> replication GUIDs, <code>ntds.dit</code> access, LSASS access, BloodHound collection, or abnormal replication-right use. See <a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation</a>.</p>
+</li>
+</ol>
+<p>Modern telemetry reality: a perfectly field-tuned Golden Ticket may not trip a standalone Kerberos rule. The stronger detection is the sequence: graph collection -&gt; replication abuse -&gt; ticket injection -&gt; privileged service access.</p>
+<h2 id="defensive-controls">Defensive controls</h2>
+<p>Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Prevent non-DC replication rights.</strong>
+   Audit <code>DS-Replication-Get-Changes*</code> and effective DCSync edges with <a href="bloodhound-attack-path-analysis.html">BloodHound</a>. If attackers cannot recover <code>krbtgt</code>, Golden Ticket risk collapses.</p>
+</li>
+<li>
+<p><strong>Treat <code>krbtgt</code> as Tier 0 secret material.</strong>
+   Include <code>krbtgt</code> in privileged-access review, domain compromise playbooks, backup-protection assumptions, and DC hardening. It is not a normal user account.</p>
+</li>
+<li>
+<p><strong>Rotate <code>krbtgt</code> twice after suspected compromise.</strong>
+   One reset is normally insufficient because the previous key remains usable during the password-history and ticket-lifetime window. Pair with <a href="krbtgt-rotation-and-tier-zero-recovery.html">KRBTGT Rotation and Tier Zero Recovery</a>.</p>
+</li>
+<li>
+<p><strong>Enforce AES and retire RC4 where operationally possible.</strong>
+   This reduces weak-key and legacy-detection ambiguity. It does not prevent Golden Tickets if AES <code>krbtgt</code> keys are stolen.</p>
+</li>
+<li>
+<p><strong>Normalize Kerberos, logon, EDR, and directory telemetry.</strong>
+   Golden Ticket detections depend on correlation keys: account, SID, client address, DC, service SPN, logon ID, process, host role, and group membership snapshot. See <a href="../detection-engineering/telemetry-normalization-correlation-and-enrichment.html">Telemetry Normalization, Correlation, and Enrichment</a>.</p>
+</li>
+<li>
+<p><strong>Tier 0 isolation and PAWs.</strong>
+   Prevent the credential-theft chain that leads to DCSync: Tier 0 admins should not log on to lower-tier systems where credentials can be harvested.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Resetting Domain Admin passwords.</strong> This does not change <code>krbtgt</code> and therefore does not invalidate forged TGTs signed with stolen <code>krbtgt</code> material.</li>
+<li><strong>Disabling or deleting the impersonated user.</strong> Some KDC/service validation paths may catch nonexistent users, but forged tickets can still abuse other identities. Recovery must address the signing key.</li>
+<li><strong>Blocking Mimikatz by filename.</strong> Golden Ticket creation exists in multiple tools and can be reimplemented. Detect the trust abuse and precursor behavior, not the brand name.</li>
+<li><strong>Relying on short ticket lifetime policy after compromise.</strong> Policy helps future legitimate tickets. It does not revoke stolen <code>krbtgt</code> keys by itself.</li>
+<li><strong>One <code>krbtgt</code> reset as incident closure.</strong> The old key can remain valid long enough for forged tickets to survive. Sequencing matters.</li>
+<li><strong>Assuming EDR sees everything.</strong> Ticket validation happens through Kerberos and service logons; endpoint process telemetry is necessary but insufficient without DC logs and directory context.</li>
+</ul>
+<h2 id="operational-misconceptions">Operational misconceptions</h2>
+<ul>
+<li><strong>"Golden Ticket equals Domain Admin password."</strong> False. It is stronger in some ways and narrower in others: it forges Kerberos authentication, not every protocol credential.</li>
+<li><strong>"If we see no 4768, there is no Kerberos activity."</strong> False. A forged TGT may appear first as <code>4769</code> TGS activity or as host logons.</li>
+<li><strong>"AES means safe."</strong> False. AES removes RC4 weakness; it does not help if the AES key itself was replicated.</li>
+<li><strong>"The attacker must use Administrator."</strong> False. Existing-user impersonation is usually better tradecraft and harder to detect.</li>
+<li><strong>"The ticket is invisible."</strong> False. The original AS request may be missing, but service access, logons, group claims, process ancestry, and network paths still leak behavior.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>Run only in a private AD lab, intentionally vulnerable range, or authorized assessment.</p>
+<div class="codehilite"><pre><span></span><code>Lab 1 — Map the Golden Ticket preconditions.
+Objective: prove that Golden Ticket is downstream of Tier 0 material, not a first-step exploit.
+Setup: one lab domain, one DC, one low-priv user, one admin user, BloodHound collection.
+Steps:
+  1. Run BloodHound against the lab.
+  2. Query principals with DCSync/GetChangesAll rights.
+  3. Record whether any non-DC/non-DA principal can reach DCSync.
+Expected telemetry: LDAP collection, possible 4662 object access depending audit policy.
+Defender interpretation: a path to DCSync is a path to krbtgt and Golden Ticket capability.
+Misconception corrected: &quot;Golden Ticket starts with a tool command&quot;; it starts with a trust-path failure.
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 2 — Conceptual authorized-lab Golden Ticket flow.</span>
+<span class="c1"># Preconditions: owned lab domain, explicit permission, lab krbtgt material from your own DC.</span>
+<span class="c1"># Do not run this against any third-party or production domain.</span>
+
+<span class="c1"># 1. Recover only the lab krbtgt material, as shown in the DCSync note.</span>
+impacket-secretsdump<span class="w"> </span>LAB.LOCAL/Administrator:<span class="s1">&#39;AdminPass!&#39;</span>@10.0.0.1<span class="w"> </span>-just-dc-user<span class="w"> </span>krbtgt
+
+<span class="c1"># 2. Obtain the lab domain SID.</span>
+impacket-lookupsid<span class="w"> </span>LAB.LOCAL/Administrator:<span class="s1">&#39;AdminPass!&#39;</span>@10.0.0.1
+
+<span class="c1"># 3. Forge a lab TGT with realistic lifetime settings.</span>
+impacket-ticketer<span class="w"> </span>-aesKey<span class="w"> </span>&lt;LAB_KRBTGT_AES256_KEY&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-domain-sid<span class="w"> </span>S-1-5-21-&lt;LAB-SID&gt;<span class="w"> </span>-domain<span class="w"> </span>LAB.LOCAL<span class="w"> </span>labuser
+
+<span class="c1"># 4. Use the ticket only against lab services and observe DC + host logs.</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">KRB5CCNAME</span><span class="o">=</span>labuser.ccache
+impacket-smbclient<span class="w"> </span>LAB.LOCAL/labuser@dc01.lab.local<span class="w"> </span>-k<span class="w"> </span>-no-pass
+</code></pre></div>
+
+<p>Expected defender view: <code>4769</code> for service ticket requests, <code>4624</code> on the target host, possible privileged <code>4672</code> if privileged SIDs were injected, and a missing or suspicious <code>4768</code> predecessor depending cache and sequence.</p>
+<div class="codehilite"><pre><span></span><code><span class="c"># Lab 3 — Detection reasoning over DC logs.</span>
+<span class="c"># Run on the lab DC after the authorized flow.</span>
+<span class="nv">$tgs</span> <span class="p">=</span> <span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="p">@{</span><span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span><span class="p">;</span> <span class="n">ID</span><span class="p">=</span><span class="n">4769</span><span class="p">}</span> <span class="n">-MaxEvents</span> <span class="n">200</span>
+<span class="nv">$as</span>  <span class="p">=</span> <span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="p">@{</span><span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span><span class="p">;</span> <span class="n">ID</span><span class="p">=</span><span class="n">4768</span><span class="p">}</span> <span class="n">-MaxEvents</span> <span class="n">200</span>
+
+<span class="c"># Analyst exercise:</span>
+<span class="c"># - group by AccountName + ClientAddress</span>
+<span class="c"># - look for TGS activity without nearby AS activity</span>
+<span class="c"># - compare encryption types against domain policy</span>
+<span class="c"># - inspect target SPNs reached by the forged identity</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>Lab 4 — Ticket-field anomaly table.
+Objective: learn which fields are features, not verdicts.
+Setup: export 4768/4769/4624 events from normal lab users and the authorized forged-ticket flow.
+Steps:
+  1. Compare account, client address, service name, ticket encryption type, time fields, and logon type.
+  2. Mark each field as normal, suspicious, or inconclusive.
+  3. Write a detection that requires at least two suspicious features.
+Limitations: a skilled operator can tune many fields. The value is correlation, not a single field.
+</code></pre></div>
+
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li><strong>DCSync-to-Golden-Ticket chain.</strong> Kerberoasting yields <code>svc_replication</code>, BloodHound shows DCSync rights, DCSync recovers <code>krbtgt</code>, and a forged TGT impersonates a privileged user. The real issue was the replication-right edge.</li>
+<li><strong>Post-incident false closure.</strong> IR resets all Domain Admin passwords but does not rotate <code>krbtgt</code>. The attacker continues using a previously forged TGT. The organization fixed users, not the trust root.</li>
+<li><strong>Modern tuned ticket.</strong> The attacker forges with AES, normal lifetimes, and a real username. Detection comes from TGS-without-AS correlation plus unusual service access and group-claim mismatch.</li>
+<li><strong>SIDHistory abuse in a legacy trust.</strong> A migration-era trust leaves SID filtering weak. Forged SIDHistory grants access that current group membership does not explain.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="dcsync-and-ntdsdit-extraction.html">dcsync-and-ntdsdit-extraction</a> — the most common way <code>krbtgt</code> material is recovered.</li>
+<li><a href="bloodhound-attack-path-analysis.html">bloodhound-attack-path-analysis</a> — graph paths to DCSync are graph paths to Golden Ticket capability.</li>
+<li><a href="kerberoasting.html">kerberoasting</a> — a common predecessor when cracked service accounts lead to replication rights.</li>
+<li><a href="silver-ticket-and-service-account-persistence.html">silver-ticket-and-service-account-persistence</a> — the service-scoped contrast case for forged Kerberos tickets.</li>
+<li><a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation</a> — Golden Ticket detection is strongest as a sequence, not a single event.</li>
+<li><a href="../detection-engineering/edr-network-observability-and-process-correlation.html">EDR, Network Observability, and Process Correlation</a> — endpoint telemetry explains ticket injection and service access context.</li>
+<li><a href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral vs Signature Detection</a> — Golden Ticket detection is behavioral and correlational.</li>
+<li><a href="krbtgt-rotation-and-tier-zero-recovery.html">krbtgt-rotation-and-tier-zero-recovery</a> — the recovery operation that invalidates stolen <code>krbtgt</code> material when sequenced correctly.</li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="unresolved-link" title="Unpublished or unresolved: kerberos-pac-validation">kerberos-pac-validation</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: sid-history-abuse-and-sid-filtering">sid-history-abuse-and-sid-filtering</span></li>
+<li><a href="tier-zero-administration-and-paw.html">tier-zero-administration-and-paw</a></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: detect-golden-ticket-and-silver-ticket">detect-golden-ticket-and-silver-ticket</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: ad-forest-trust-security">ad-forest-trust-security</span></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Foundational:</strong> MITRE ATT&amp;CK T1558.001 — Steal or Forge Kerberos Tickets: Golden Ticket — https://attack.mitre.org/techniques/T1558/001/</li>
+<li><strong>Detection:</strong> MITRE ATT&amp;CK DET0144 — Detect Forged Kerberos Golden Tickets — https://attack.mitre.org/detectionstrategies/DET0144/</li>
+<li><strong>Recovery:</strong> Microsoft Learn — Active Directory Forest Recovery: Reset the krbtgt password — https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-reset-the-krbtgt-password</li>
+<li><strong>Research / Deep Dive:</strong> Sean Metcalf (ADSecurity.org) — Mimikatz Golden Ticket Usage, Exploitation, and Detection — https://adsecurity.org/?p=1515</li>
+</ul>
+<nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="gmsa-and-modern-service-account-hardening.html"><span class="nav-dir">← Previous</span><strong>gMSA and Modern Service Account Hardening</strong></a><a class="branch-nav-link next" href="identity-attack-paths-across-idps.html"><span class="nav-dir">Next →</span><strong>Rutas de ataque de identidad entre IdPs</strong></a></nav>
+<section class="related-notes" aria-label="Explore nearby notes">
+<h2>Explore nearby notes</h2>
+<div class="related-grid">
+<a class="related-card" href="krbtgt-rotation-and-tier-zero-recovery.html"><span>Identidad y Active Directory</span><strong>KRBTGT Rotation and Tier Zero Recovery</strong><small>KRBTGT rotation is the controlled reset of the domain&#x27;s krbtgt account password material so previously stolen Kerberos ticket-signing keys can no longer validate...</small></a>
+<a class="related-card" href="as-rep-roasting.html"><span>Identidad y Active Directory</span><strong>AS-REP Roasting</strong><small>AS-REP Roasting is an Active Directory credential attack where an attacker exploits accounts with **Kerberos pre-authentication disabled** by sending an AS-REQ...</small></a>
+<a class="related-card" href="gmsa-and-modern-service-account-hardening.html"><span>Identidad y Active Directory</span><strong>gMSA and Modern Service Account Hardening</strong><small>A group Managed Service Account (gMSA) is an Active Directory-managed service identity whose password is long, random, automatically rotated, and retrievable only...</small></a>
+<a class="related-card" href="kerberoasting.html"><span>Identidad y Active Directory</span><strong>Kerberoasting</strong><small>Kerberoasting is an Active Directory credential attack where an authenticated domain user requests **TGS service tickets** for accounts that have a Service...</small></a>
+<a class="related-card" href="silver-ticket-and-service-account-persistence.html"><span>Identidad y Active Directory</span><strong>Silver Ticket and Service Account Persistence</strong><small>A Silver Ticket is a forged Kerberos **service ticket** (TGS) created with a compromised service account key rather than the domain-wide krbtgt key. It is...</small></a>
+<a class="related-card" href="bloodhound-attack-path-analysis.html"><span>Identidad y Active Directory</span><strong>BloodHound and Attack Path Analysis</strong><small>BloodHound is an open-source graph-analysis tool that models **Active Directory as a directed graph of principals** (users, groups, computers, GPOs, OUs, domains)...</small></a>
+</div></section>
+</article>
+</main>
+<aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
+<a class="toc-level-2" href="#definition">Definition</a>
+<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
+<a class="toc-level-2" href="#how-it-works">How it works</a>
+<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
+<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
+<a class="toc-level-3" href="#1-classic-high-privilege-golden-ticket">1. Classic high-privilege Golden Ticket</a>
+<a class="toc-level-3" href="#2-low-noise-existing-user-impersonation">2. Low-noise existing-user impersonation</a>
+<a class="toc-level-3" href="#3-sidhistory-cross-domain-abuse">3. SIDHistory / cross-domain abuse</a>
+<a class="toc-level-3" href="#4-long-term-persistence-ticket">4. Long-term persistence ticket</a>
+<a class="toc-level-2" href="#impact">Impact</a>
+<a class="toc-level-2" href="#detection-and-telemetry">Detection and telemetry</a>
+<a class="toc-level-2" href="#defensive-controls">Defensive controls</a>
+<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
+<a class="toc-level-2" href="#operational-misconceptions">Operational misconceptions</a>
+<a class="toc-level-2" href="#practical-labs">Practical labs</a>
+<a class="toc-level-2" href="#practical-examples">Practical examples</a>
+<a class="toc-level-2" href="#related-notes">Related notes</a>
+<a class="toc-level-3" href="#suggested-future-atomic-notes">Suggested future atomic notes</a>
+<a class="back-to-top" href="#top">Volver arriba</a></div></aside>
+</div>
+</div>
+</div>
+<script src="../../../assets/search.js?v=6d139dc885"></script>
+</body>
+</html>

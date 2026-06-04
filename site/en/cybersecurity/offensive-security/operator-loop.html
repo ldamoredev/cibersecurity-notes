@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Operator Loop - Offensive Security / Recon | ldamoredev Security Atlas</title>
+<meta name="description" content="The operator loop is the repeatable decision cycle a red-team operator (or a real intruder) runs from outside the perimeter to objective: **recon → initial access...">
+<meta name="author" content="ldamoredev">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Offensive Security / Recon, The Operator Loop, offensive-security, operator-loop, red-team, methodology, kill-chain">
+<meta name="theme-color" content="#16a34a">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/operator-loop.html">
+<link rel="icon" href="../../../favicon.ico" sizes="any">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+<link rel="manifest" href="../../../site.webmanifest">
+<meta property="article:section" content="Offensive Security / Recon">
+<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Operator Loop - Offensive Security / Recon | ldamoredev Security Atlas">
+<meta property="og:description" content="The operator loop is the repeatable decision cycle a red-team operator (or a real intruder) runs from outside the perimeter to objective: **recon → initial access...">
+<meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/operator-loop.html">
+<meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Operator Loop - Offensive Security / Recon | ldamoredev Security Atlas">
+<meta name="twitter:description" content="The operator loop is the repeatable decision cycle a red-team operator (or a real intruder) runs from outside the perimeter to objective: **recon → initial access...">
+<meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/operator-loop.html#article","name":"The Operator Loop - Offensive Security / Recon | ldamoredev Security Atlas","headline":"The Operator Loop","description":"The operator loop is the repeatable decision cycle a red-team operator (or a real intruder) runs from outside the perimeter to objective: **recon → initial access...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/operator-loop.html","inLanguage":"en","datePublished":"2026-06-03","dateModified":"2026-06-03","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/operator-loop.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Offensive Security / Recon","The Operator Loop","offensive-security","operator-loop","red-team","methodology","kill-chain"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Offensive Security / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"The Operator Loop","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/operator-loop.html"}]}]</script>
+<link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/operator-loop.html">
+<link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/operator-loop.html">
+<link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/operator-loop.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+</head>
+<body id="top" data-root="../../.." data-locale-root="../..">
+<div class="app with-toc">
+<nav class="sidebar">
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Knowledge Base</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-body">
+<a class="sidebar-home" href="../../index.html">Atlas Home</a>
+<div class="sidebar-section"><h3>Entry layer</h3>
+<a class="sidebar-link kind-index" href="../index.html">Cybersecurity Index</a>
+<a class="sidebar-link kind-concept" href="../start-here.html">Start Here — Cybersecurity Vault Triage</a>
+<a class="sidebar-link kind-concept" href="../must-know-30.html">Must-Know 30 — The Minimum Viable Security Literacy</a>
+<a class="sidebar-link kind-concept" href="../phase-1-substrate.html">Phase 1 — Substrate (How Things Actually Work)</a>
+<a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
+<a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
+<a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+</div>
+<div class="sidebar-section"><h3>Learning Path</h3>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Overview</a>
+<a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="Attacker-Defender Duality as a Learning Tool">Attacker-Defender Duality as a Learning Tool</a>
+<a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Certifications as Validation Signals">Certifications as Validation Signals</a>
+<a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="CIA Triad — What It Actually Decides">CIA Triad — What It Actually Decides</a>
+<a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Job Context Specialization">Job Context Specialization</a>
+<a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Minimum Viable Cybersecurity Literacy">Minimum Viable Cybersecurity Literacy</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Threat Modeling Quickstart">Threat Modeling Quickstart</a>
+<a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="What Is Cybersecurity, and Why It Is Not a Tool List">What Is Cybersecurity, and Why It Is Not a Tool List</a>
+</div></details>
+</div></details>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Cryptography</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Overview</a>
+<a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
+<a class="nav-leaf" href="../cryptography/asymmetric-encryption-and-key-exchange.html" title="Asymmetric Encryption and Key Exchange">Asymmetric Encryption and Key Exchange</a>
+<a class="nav-leaf" href="../cryptography/certificate-validation-and-pinning.html" title="Certificate Validation and Pinning">Certificate Validation and Pinning</a>
+<a class="nav-leaf" href="../cryptography/digital-signatures.html" title="Digital Signatures">Digital Signatures</a>
+<a class="nav-leaf" href="../cryptography/hashing-vs-encryption-vs-signing.html" title="Hashing vs Encryption vs Signing">Hashing vs Encryption vs Signing</a>
+<a class="nav-leaf" href="../cryptography/jwt-cryptographic-correctness.html" title="JWT Cryptographic Correctness">JWT Cryptographic Correctness</a>
+<a class="nav-leaf" href="../cryptography/kdf-and-key-stretching.html" title="KDF and Key Stretching">KDF and Key Stretching</a>
+<a class="nav-leaf" href="../cryptography/mac-and-hmac.html" title="MAC and HMAC">MAC and HMAC</a>
+<a class="nav-leaf" href="../cryptography/password-hashing.html" title="Password Hashing">Password Hashing</a>
+<a class="nav-leaf" href="../cryptography/post-quantum-awareness.html" title="Post-Quantum Awareness">Post-Quantum Awareness</a>
+<a class="nav-leaf" href="../cryptography/random-and-csprng-pitfalls.html" title="Random and CSPRNG Pitfalls">Random and CSPRNG Pitfalls</a>
+<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll Your Own Crypto Failures">Roll Your Own Crypto Failures</a>
+<a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
+<a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
+</div></details>
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Overview</a>
+<a class="nav-leaf" href="../networking/caching-and-security.html" title="Caching and Security">Caching and Security</a>
+<a class="nav-leaf" href="../networking/client-ip-trust.html" title="Client IP Trust">Client IP Trust</a>
+<a class="nav-leaf" href="../networking/metadata-endpoints.html" title="Cloud Instance Metadata Endpoints">Cloud Instance Metadata Endpoints</a>
+<a class="nav-leaf" href="../networking/cookies-and-sessions.html" title="Cookies and Sessions">Cookies and Sessions</a>
+<a class="nav-leaf" href="../networking/dangling-dns-records.html" title="Dangling DNS Records">Dangling DNS Records</a>
+<a class="nav-leaf" href="../networking/dns-resolution.html" title="DNS Resolution">DNS Resolution</a>
+<a class="nav-leaf" href="../networking/dns-security.html" title="DNS Security">DNS Security</a>
+<a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls and Network Boundaries">Firewalls and Network Boundaries</a>
+<a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Header Trust in Node Express">Header Trust in Node Express</a>
+<a class="nav-leaf" href="../networking/http-headers.html" title="HTTP Headers">HTTP Headers</a>
+<a class="nav-leaf" href="../networking/http-messages.html" title="HTTP Messages">HTTP Messages</a>
+<a class="nav-leaf" href="../networking/http-overview.html" title="HTTP Overview">HTTP Overview</a>
+<a class="nav-leaf" href="../networking/load-balancers.html" title="Load Balancers">Load Balancers</a>
+<a class="nav-leaf" href="../networking/nat-and-private-networks.html" title="NAT and Private Networks">NAT and Private Networks</a>
+<a class="nav-leaf" href="../networking/nmap-scanning.html" title="Nmap Scanning">Nmap Scanning</a>
+<a class="nav-leaf" href="../networking/packet-analysis.html" title="Packet Analysis">Packet Analysis</a>
+<a class="nav-leaf" href="../networking/ports-and-services.html" title="Ports and Services">Ports and Services</a>
+<a class="nav-leaf" href="../networking/reverse-proxies.html" title="Reverse Proxies">Reverse Proxies</a>
+<a class="nav-leaf" href="../networking/service-enumeration.html" title="Service Enumeration">Service Enumeration</a>
+<a class="nav-leaf" href="../networking/tcp-ip-basics.html" title="TCP/IP Basics">TCP/IP Basics</a>
+<a class="nav-leaf" href="../networking/tls-https.html" title="TLS and HTTPS">TLS and HTTPS</a>
+<a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Wireshark Workflows">Wireshark Workflows</a>
+</div></details>
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Overview</a>
+<a class="nav-leaf" href="../web-security/auth-flaws.html" title="Authentication Flaws">Authentication Flaws</a>
+<a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
+<a class="nav-leaf" href="../web-security/broken-access-control.html" title="Broken Access Control">Broken Access Control</a>
+<a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Browser Security Boundaries">Browser Security Boundaries</a>
+<a class="nav-leaf" href="../web-security/business-logic-vulnerabilities.html" title="Business Logic Vulnerabilities">Business Logic Vulnerabilities</a>
+<a class="nav-leaf" href="../web-security/clickjacking.html" title="Clickjacking">Clickjacking</a>
+<a class="nav-leaf" href="../web-security/command-injection.html" title="Command Injection">Command Injection</a>
+<a class="nav-leaf" href="../web-security/content-security-policy.html" title="Content Security Policy">Content Security Policy</a>
+<a class="nav-leaf" href="../web-security/cors-misconfiguration.html" title="CORS Misconfiguration">CORS Misconfiguration</a>
+<a class="nav-leaf" href="../web-security/csrf.html" title="Cross-Site Request Forgery (CSRF)">Cross-Site Request Forgery (CSRF)</a>
+<a class="nav-leaf" href="../web-security/xss.html" title="Cross-Site Scripting (XSS)">Cross-Site Scripting (XSS)</a>
+<a class="nav-leaf" href="../web-security/evilginx-and-reverse-proxy-phishing.html" title="Evilginx and Reverse Proxy Phishing">Evilginx and Reverse Proxy Phishing</a>
+<a class="nav-leaf" href="../web-security/file-upload-abuse.html" title="File Upload Abuse">File Upload Abuse</a>
+<a class="nav-leaf" href="../web-security/gadget-chains.html" title="Gadget Chains">Gadget Chains</a>
+<a class="nav-leaf" href="../web-security/deserialization.html" title="Insecure Deserialization">Insecure Deserialization</a>
+<a class="nav-leaf" href="../web-security/idor.html" title="Insecure Direct Object Reference (IDOR)">Insecure Direct Object Reference (IDOR)</a>
+<a class="nav-leaf" href="../web-security/mfa-phishing-resistance.html" title="MFA Phishing Resistance">MFA Phishing Resistance</a>
+<a class="nav-leaf" href="../web-security/oauth-security.html" title="OAuth Security">OAuth Security</a>
+<a class="nav-leaf" href="../web-security/open-redirect.html" title="Open Redirect">Open Redirect</a>
+<a class="nav-leaf" href="../web-security/owasp-top-10.html" title="OWASP Top 10">OWASP Top 10</a>
+<a class="nav-leaf" href="../web-security/path-traversal.html" title="Path Traversal">Path Traversal</a>
+<a class="nav-leaf" href="../web-security/phar-deserialization.html" title="PHAR Deserialization">PHAR Deserialization</a>
+<a class="nav-leaf" href="../web-security/request-smuggling.html" title="Request Smuggling">Request Smuggling</a>
+<a class="nav-leaf" href="../web-security/same-origin-policy.html" title="Same-Origin Policy">Same-Origin Policy</a>
+<a class="nav-leaf" href="../web-security/ssrf.html" title="Server-Side Request Forgery (SSRF)">Server-Side Request Forgery (SSRF)</a>
+<a class="nav-leaf" href="../web-security/session-management.html" title="Session Management">Session Management</a>
+<a class="nav-leaf" href="../web-security/sql-injection.html" title="SQL Injection">SQL Injection</a>
+<a class="nav-leaf" href="../web-security/web-cache-poisoning.html" title="Web Cache Poisoning">Web Cache Poisoning</a>
+<a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
+</div></details>
+</div></details>
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-rose active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Offensive Security / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="index.html">Overview</a>
+<a class="nav-leaf" href="active-recon.html" title="Active Recon">Active Recon</a>
+<a class="nav-leaf" href="cloaking-and-security-evasion.html" title="Cloaking and Security Evasion">Cloaking and Security Evasion</a>
+<a class="nav-leaf" href="company-mapping.html" title="Company Mapping">Company Mapping</a>
+<a class="nav-leaf" href="enumeration.html" title="Enumeration">Enumeration</a>
+<a class="nav-leaf" href="host-and-port-discovery.html" title="Host and Port Discovery">Host and Port Discovery</a>
+<a class="nav-leaf" href="idle-scan-and-ipid-side-channels.html" title="Idle Scan and IPID Side Channels">Idle Scan and IPID Side Channels</a>
+<a class="nav-leaf" href="masscan-internet-scale-scanning.html" title="Masscan Internet-Scale Scanning">Masscan Internet-Scale Scanning</a>
+<a class="nav-leaf" href="nmap-timing-and-evasion.html" title="Nmap Timing and Evasion">Nmap Timing and Evasion</a>
+<a class="nav-leaf" href="nse-vuln-category-audit.html" title="NSE `vuln` Category Audit">NSE `vuln` Category Audit</a>
+<a class="nav-leaf" href="packet-fragmentation-and-decoy-scans.html" title="Packet Fragmentation and Decoy Scans">Packet Fragmentation and Decoy Scans</a>
+<a class="nav-leaf" href="passive-recon.html" title="Passive Recon">Passive Recon</a>
+<a class="nav-leaf" href="public-asset-discovery.html" title="Public Asset Discovery">Public Asset Discovery</a>
+<a class="nav-leaf" href="recon.html" title="Recon">Recon</a>
+<a class="nav-leaf" href="recon-to-testing-handoff.html" title="Recon to Testing Handoff">Recon to Testing Handoff</a>
+<a class="nav-leaf" href="rustscan-and-nse-pipeline.html" title="RustScan and NSE Pipeline">RustScan and NSE Pipeline</a>
+<a class="nav-leaf" href="scope-validation.html" title="Scope Validation">Scope Validation</a>
+<a class="nav-leaf" href="service-validation.html" title="Service Validation">Service Validation</a>
+<a class="nav-leaf" href="subdomain-enumeration.html" title="Subdomain Enumeration">Subdomain Enumeration</a>
+<a class="nav-leaf" href="tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
+<a class="nav-leaf active" href="operator-loop.html" title="The Operator Loop">The Operator Loop</a>
+</div></details>
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Overview</a>
+<a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
+<a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
+<a class="nav-leaf" href="../detection-engineering/detection-evasion-myths-and-modern-limitations.html" title="Detection Evasion Myths and Modern Limitations">Detection Evasion Myths and Modern Limitations</a>
+<a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
+<a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
+<a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
+<a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Network Security Monitoring Discipline">Network Security Monitoring Discipline</a>
+<a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
+<a class="nav-leaf" href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html" title="Scan Anomaly Detection and Fingerprint Analysis">Scan Anomaly Detection and Fingerprint Analysis</a>
+<a class="nav-leaf" href="../detection-engineering/telemetry-normalization-correlation-and-enrichment.html" title="Telemetry Normalization, Correlation, and Enrichment">Telemetry Normalization, Correlation, and Enrichment</a>
+<a class="nav-leaf" href="../detection-engineering/windows-event-logs.html" title="Windows Event Logs">Windows Event Logs</a>
+<a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
+</div></details>
+</div></details>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Attack Surface Mapping</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Overview</a>
+<a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
+<a class="nav-leaf" href="../attack-surface-mapping/attack-surface-mapping.html" title="Attack Surface Mapping">Attack Surface Mapping</a>
+<a class="nav-leaf" href="../attack-surface-mapping/deprecated-api-versions.html" title="Deprecated API Versions">Deprecated API Versions</a>
+<a class="nav-leaf" href="../attack-surface-mapping/endpoint-discovery.html" title="Endpoint Discovery">Endpoint Discovery</a>
+<a class="nav-leaf" href="../attack-surface-mapping/exposed-service-triage.html" title="Exposed Service Triage">Exposed Service Triage</a>
+<a class="nav-leaf" href="../attack-surface-mapping/exposed-storage.html" title="Exposed Storage">Exposed Storage</a>
+<a class="nav-leaf" href="../attack-surface-mapping/external-attack-surface.html" title="External Attack Surface">External Attack Surface</a>
+<a class="nav-leaf" href="../attack-surface-mapping/internal-attack-surface.html" title="Internal Attack Surface">Internal Attack Surface</a>
+<a class="nav-leaf" href="../attack-surface-mapping/subdomain-takeover.html" title="Subdomain Takeover">Subdomain Takeover</a>
+<a class="nav-leaf" href="../attack-surface-mapping/third-party-exposure.html" title="Third-Party Exposure">Third-Party Exposure</a>
+</div></details>
+<details class="nav-branch accent-violet"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="nb-name">OSINT</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../osint/index.html">Overview</a>
+<a class="nav-leaf" href="../osint/breach-and-leak-intelligence.html" title="Breach and Leak Intelligence">Breach and Leak Intelligence</a>
+<a class="nav-leaf" href="../osint/company-osint.html" title="Company OSINT">Company OSINT</a>
+<a class="nav-leaf" href="../osint/email-and-phone-osint.html" title="Email and Phone OSINT">Email and Phone OSINT</a>
+<a class="nav-leaf" href="../osint/google-dorking.html" title="Google Dorking">Google Dorking</a>
+<a class="nav-leaf" href="../osint/image-and-location-osint.html" title="Image and Location OSINT">Image and Location OSINT</a>
+<a class="nav-leaf" href="../osint/osint.html" title="OSINT">OSINT</a>
+<a class="nav-leaf" href="../osint/osint-reporting.html" title="OSINT Reporting">OSINT Reporting</a>
+<a class="nav-leaf" href="../osint/osint-triage.html" title="OSINT Triage">OSINT Triage</a>
+<a class="nav-leaf" href="../osint/search-engine-operators.html" title="Search Engine Operators">Search Engine Operators</a>
+<a class="nav-leaf" href="../osint/social-media-osint.html" title="Social Media OSINT">Social Media OSINT</a>
+</div></details>
+<details class="nav-branch accent-orange"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="nb-name">Linux Privilege Escalation</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../linux-privilege-escalation/index.html">Overview</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/cron-and-timer-abuse.html" title="Cron and Timer Abuse">Cron and Timer Abuse</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/kernel-exploit-triage.html" title="Kernel Exploit Triage">Kernel Exploit Triage</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/linpeas-workflow.html" title="LinPEAS Workflow">LinPEAS Workflow</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/linux-capabilities.html" title="Linux Capabilities">Linux Capabilities</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/linux-enumeration.html" title="Linux Enumeration">Linux Enumeration</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/linux-privilege-escalation.html" title="Linux Privilege Escalation">Linux Privilege Escalation</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/path-hijacking.html" title="PATH Hijacking">PATH Hijacking</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
+</div></details>
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Overview</a>
+<a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
+<a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detect BloodHound Collection">Detect BloodHound Collection</a>
+<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detect DCSync and ntds.dit Access">Detect DCSync and ntds.dit Access</a>
+<a class="nav-leaf" href="../security-playbooks/detect-external-scan-pipeline.html" title="Detect External Recon Scan Pipeline">Detect External Recon Scan Pipeline</a>
+<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
+<a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
+<a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
+<a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
+<a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
+<a class="nav-leaf" href="../security-playbooks/reverse-proxy-misconfig-checklist.html" title="Reverse Proxy Misconfig Checklist">Reverse Proxy Misconfig Checklist</a>
+<a class="nav-leaf" href="../security-playbooks/run-scan-pipeline.html" title="Run External Recon Scan Pipeline">Run External Recon Scan Pipeline</a>
+<a class="nav-leaf" href="../security-playbooks/test-client-ip-spoofing.html" title="Test Client IP Spoofing">Test Client IP Spoofing</a>
+<a class="nav-leaf" href="../security-playbooks/test-cors-behavior.html" title="Test CORS Behavior">Test CORS Behavior</a>
+<a class="nav-leaf" href="../security-playbooks/test-path-traversal.html" title="Test Path Traversal">Test Path Traversal</a>
+<a class="nav-leaf" href="../security-playbooks/trace-metadata-endpoint-reachability.html" title="Trace Metadata Endpoint Reachability">Trace Metadata Endpoint Reachability</a>
+</div></details>
+</div></details>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="ns-name"><span class="ns-num">04</span>Specialty</span></span><span class="ns-right"><span class="count">71</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-teal"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg><span class="nb-name">Wireless Security</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../wireless-security/index.html">Overview</a>
+<a class="nav-leaf" href="../wireless-security/arp-poisoning.html" title="ARP Poisoning">ARP Poisoning</a>
+<a class="nav-leaf" href="../wireless-security/bettercap-workflows.html" title="Bettercap Workflows">Bettercap Workflows</a>
+<a class="nav-leaf" href="../wireless-security/evil-twin-access-points.html" title="Evil Twin Access Points">Evil Twin Access Points</a>
+<a class="nav-leaf" href="../wireless-security/mitm-on-local-networks.html" title="MITM on Local Networks">MITM on Local Networks</a>
+<a class="nav-leaf" href="../wireless-security/wep-security.html" title="WEP Security">WEP Security</a>
+<a class="nav-leaf" href="../wireless-security/wifi-deauthentication.html" title="Wi-Fi Deauthentication">Wi-Fi Deauthentication</a>
+<a class="nav-leaf" href="../wireless-security/wifi-monitor-mode.html" title="Wi-Fi Monitor Mode">Wi-Fi Monitor Mode</a>
+<a class="nav-leaf" href="../wireless-security/wifi-wordlist-attacks.html" title="Wi-Fi Wordlist Attacks">Wi-Fi Wordlist Attacks</a>
+<a class="nav-leaf" href="../wireless-security/wireless-security.html" title="Wireless Security">Wireless Security</a>
+<a class="nav-leaf" href="../wireless-security/wpa-wpa2-handshakes.html" title="WPA/WPA2 Handshakes">WPA/WPA2 Handshakes</a>
+</div></details>
+<details class="nav-branch accent-indigo"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v4"/><path d="M15 2v4"/><path d="M5 10h14v4a7 7 0 0 1-14 0z"/><path d="M12 18v4"/></svg><span class="nb-name">API Security</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../api-security/index.html">Overview</a>
+<a class="nav-leaf" href="../api-security/api-auth-flaws.html" title="API Authentication Flaws">API Authentication Flaws</a>
+<a class="nav-leaf" href="../api-security/api-inventory-management.html" title="API Inventory Management">API Inventory Management</a>
+<a class="nav-leaf" href="../api-security/api-rate-limiting.html" title="API Rate Limiting">API Rate Limiting</a>
+<a class="nav-leaf" href="../api-security/api-security-top-10.html" title="API Security Top 10">API Security Top 10</a>
+<a class="nav-leaf" href="../api-security/authorization.html" title="Authorization">Authorization</a>
+<a class="nav-leaf" href="../api-security/broken-authentication.html" title="Broken Authentication">Broken Authentication</a>
+<a class="nav-leaf" href="../api-security/broken-function-level-authorization.html" title="Broken Function Level Authorization">Broken Function Level Authorization</a>
+<a class="nav-leaf" href="../api-security/broken-object-level-authorization.html" title="Broken Object Level Authorization">Broken Object Level Authorization</a>
+<a class="nav-leaf" href="../api-security/broken-object-property-level-authorization.html" title="Broken Object Property Level Authorization">Broken Object Property Level Authorization</a>
+<a class="nav-leaf" href="../api-security/excessive-data-exposure.html" title="Excessive Data Exposure">Excessive Data Exposure</a>
+<a class="nav-leaf" href="../api-security/jwt-attacks.html" title="JWT Attacks">JWT Attacks</a>
+<a class="nav-leaf" href="../api-security/mass-assignment.html" title="Mass Assignment">Mass Assignment</a>
+<a class="nav-leaf" href="../api-security/polymorphic-deserialization.html" title="Polymorphic Deserialization">Polymorphic Deserialization</a>
+<a class="nav-leaf" href="../api-security/token-lifecycle.html" title="Token Lifecycle">Token Lifecycle</a>
+</div></details>
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg><span class="nb-name">Cloud Security</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../cloud-security/index.html">Overview</a>
+<a class="nav-leaf" href="../cloud-security/cloud-dns-and-certbot.html" title="Cloud DNS and Certbot">Cloud DNS and Certbot</a>
+<a class="nav-leaf" href="../cloud-security/cloud-iam-boundaries.html" title="Cloud IAM Boundaries">Cloud IAM Boundaries</a>
+<a class="nav-leaf" href="../cloud-security/cloud-lab-infrastructure.html" title="Cloud Lab Infrastructure">Cloud Lab Infrastructure</a>
+<a class="nav-leaf" href="../cloud-security/cloud-logging-and-detection.html" title="Cloud Logging and Detection">Cloud Logging and Detection</a>
+<a class="nav-leaf" href="../cloud-security/cloud-metadata-security.html" title="Cloud Metadata Security">Cloud Metadata Security</a>
+<a class="nav-leaf" href="../cloud-security/cloud-network-boundaries.html" title="Cloud Network Boundaries">Cloud Network Boundaries</a>
+<a class="nav-leaf" href="../cloud-security/cloud-secrets-management.html" title="Cloud Secrets Management">Cloud Secrets Management</a>
+<a class="nav-leaf" href="../cloud-security/cloud-security-basics.html" title="Cloud Security Basics">Cloud Security Basics</a>
+<a class="nav-leaf" href="../cloud-security/public-cloud-storage-exposure.html" title="Public Cloud Storage Exposure">Public Cloud Storage Exposure</a>
+<a class="nav-leaf" href="../cloud-security/ssh-access-to-cloud-hosts.html" title="SSH Access to Cloud Hosts">SSH Access to Cloud Hosts</a>
+</div></details>
+<details class="nav-branch accent-green"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="nb-name">DevSecOps</span></span><span class="nb-right"><span class="count">13</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../devsecops/index.html">Overview</a>
+<a class="nav-leaf" href="../devsecops/artifact-integrity.html" title="Artifact Integrity">Artifact Integrity</a>
+<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS as Dev Process Input">ASVS as Dev Process Input</a>
+<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Branch Protection and Release Controls">Branch Protection and Release Controls</a>
+<a class="nav-leaf" href="../devsecops/ci-cd-hardening.html" title="CI/CD Hardening">CI/CD Hardening</a>
+<a class="nav-leaf" href="../devsecops/container-security.html" title="Container Security">Container Security</a>
+<a class="nav-leaf" href="../devsecops/dependency-risk.html" title="Dependency Risk">Dependency Risk</a>
+<a class="nav-leaf" href="../devsecops/image-scanning.html" title="Image Scanning">Image Scanning</a>
+<a class="nav-leaf" href="../devsecops/nist-ssdf.html" title="NIST SSDF">NIST SSDF</a>
+<a class="nav-leaf" href="../devsecops/sbom-and-provenance.html" title="SBOM and Provenance">SBOM and Provenance</a>
+<a class="nav-leaf" href="../devsecops/secrets-management.html" title="Secrets Management">Secrets Management</a>
+<a class="nav-leaf" href="../devsecops/secure-by-design.html" title="Secure by Design">Secure by Design</a>
+<a class="nav-leaf" href="../devsecops/supply-chain-security.html" title="Supply Chain Security">Supply Chain Security</a>
+</div></details>
+<details class="nav-branch accent-red"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="nb-name">Identity &amp; Active Directory</span></span><span class="nb-right"><span class="count">13</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../identity-and-active-directory/index.html">Overview</a>
+<a class="nav-leaf" href="../identity-and-active-directory/as-rep-roasting.html" title="AS-REP Roasting">AS-REP Roasting</a>
+<a class="nav-leaf" href="../identity-and-active-directory/bloodhound-attack-path-analysis.html" title="BloodHound and Attack Path Analysis">BloodHound and Attack Path Analysis</a>
+<a class="nav-leaf" href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html" title="DCSync and ntds.dit Extraction">DCSync and ntds.dit Extraction</a>
+<a class="nav-leaf" href="../identity-and-active-directory/gmsa-and-modern-service-account-hardening.html" title="gMSA and Modern Service Account Hardening">gMSA and Modern Service Account Hardening</a>
+<a class="nav-leaf" href="../identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html" title="Golden Ticket and KRBTGT Compromise">Golden Ticket and KRBTGT Compromise</a>
+<a class="nav-leaf" href="../identity-and-active-directory/identity-attack-paths-across-idps.html" title="Identity Attack Paths Across IdPs">Identity Attack Paths Across IdPs</a>
+<a class="nav-leaf" href="../identity-and-active-directory/kerberoasting.html" title="Kerberoasting">Kerberoasting</a>
+<a class="nav-leaf" href="../identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html" title="KRBTGT Rotation and Tier Zero Recovery">KRBTGT Rotation and Tier Zero Recovery</a>
+<a class="nav-leaf" href="../identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html" title="Pass-the-Hash and NTLM Credential Reuse">Pass-the-Hash and NTLM Credential Reuse</a>
+<a class="nav-leaf" href="../identity-and-active-directory/silver-ticket-and-service-account-persistence.html" title="Silver Ticket and Service Account Persistence">Silver Ticket and Service Account Persistence</a>
+<a class="nav-leaf" href="../identity-and-active-directory/tier-zero-administration-and-paw.html" title="Tier 0 Administration and Privileged Access Workstations">Tier 0 Administration and Privileged Access Workstations</a>
+<a class="nav-leaf" href="../identity-and-active-directory/windows-privilege-escalation.html" title="Windows Privilege Escalation">Windows Privilege Escalation</a>
+</div></details>
+<details class="nav-branch accent-fuchsia"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="8" height="14" rx="4"/><path d="M19 7l-3 2"/><path d="M5 7l3 2"/><path d="M19 13h-3"/><path d="M8 13H5"/><path d="M19 19l-3-2"/><path d="M5 19l3-2"/><path d="M12 6V3"/></svg><span class="nb-name">Binary Exploitation</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../binary-exploitation/index.html">Overview</a>
+<a class="nav-leaf" href="../binary-exploitation/exploit-mitigations.html" title="Exploit Mitigations">Exploit Mitigations</a>
+<a class="nav-leaf" href="../binary-exploitation/format-string-vulnerabilities.html" title="Format String Vulnerabilities">Format String Vulnerabilities</a>
+<a class="nav-leaf" href="../binary-exploitation/heap-buffer-overflow-and-allocator-exploitation.html" title="Heap Buffer Overflow and Allocator Exploitation">Heap Buffer Overflow and Allocator Exploitation</a>
+<a class="nav-leaf" href="../binary-exploitation/memory-corruption.html" title="Memory Corruption">Memory Corruption</a>
+<a class="nav-leaf" href="../binary-exploitation/rop-and-ret2libc.html" title="ROP and ret2libc">ROP and ret2libc</a>
+<a class="nav-leaf" href="../binary-exploitation/stack-buffer-overflow.html" title="Stack Buffer Overflow">Stack Buffer Overflow</a>
+<a class="nav-leaf" href="../binary-exploitation/use-after-free-and-dangling-pointers.html" title="Use-After-Free and Dangling Pointers">Use-After-Free and Dangling Pointers</a>
+</div></details>
+</div></details>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span class="ns-name"><span class="ns-num">★</span>Always-on</span></span><span class="ns-right"><span class="count">33</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-purple"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span class="nb-name">Privacy, Anonymity &amp; OPSEC</span></span><span class="nb-right"><span class="count">33</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../privacy-anonymity-opsec/index.html">Overview</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/account-correlation.html" title="Account Correlation">Account Correlation</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/anonymity-threat-models.html" title="Anonymity Threat Models">Anonymity Threat Models</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/browser-fingerprinting.html" title="Browser Fingerprinting">Browser Fingerprinting</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html" title="Corporate VPNs vs Consumer VPNs">Corporate VPNs vs Consumer VPNs</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/deanonymization-failures.html" title="Deanonymization Failures">Deanonymization Failures</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/end-to-end-encryption.html" title="End-to-End Encryption">End-to-End Encryption</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/file-metadata-removal.html" title="File Metadata Removal">File Metadata Removal</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/metadata-and-identity-leakage.html" title="Metadata and Identity Leakage">Metadata and Identity Leakage</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/opsec-failure-chains.html" title="OPSEC Failure Chains">OPSEC Failure Chains</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/pgp-encryption-and-signatures.html" title="PGP Encryption and Signatures">PGP Encryption and Signatures</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/privacy-vs-anonymity-vs-confidentiality.html" title="Privacy vs Anonymity vs Confidentiality">Privacy vs Anonymity vs Confidentiality</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/private-email-threat-models.html" title="Private Email Threat Models">Private Email Threat Models</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/qubes-compartmentalization.html" title="Qubes Compartmentalization">Qubes Compartmentalization</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/secure-deletion-and-storage-wiping.html" title="Secure Deletion and Storage Wiping">Secure Deletion and Storage Wiping</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/secure-file-sharing.html" title="Secure File Sharing">Secure File Sharing</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/tails-operational-model.html" title="Tails Operational Model">Tails Operational Model</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/temporary-email-risks.html" title="Temporary Email Risks">Temporary Email Risks</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/tor-and-onion-services.html" title="Tor and Onion Services">Tor and Onion Services</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/tor-bridges-and-pluggable-transports.html" title="Tor Bridges and Pluggable Transports">Tor Bridges and Pluggable Transports</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/tor-browser-security-settings.html" title="Tor Browser Security Settings">Tor Browser Security Settings</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/traffic-correlation.html" title="Traffic Correlation">Traffic Correlation</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-dns-and-ipv6-leaks.html" title="VPN DNS and IPv6 Leaks">VPN DNS and IPv6 Leaks</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-fingerprinting-limitations.html" title="VPN Fingerprinting Limitations">VPN Fingerprinting Limitations</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-kill-switches.html" title="VPN Kill Switches">VPN Kill Switches</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-leakage-risks.html" title="VPN Leakage Risks">VPN Leakage Risks</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-logging-and-trust.html" title="VPN Logging and Trust">VPN Logging and Trust</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-protocols.html" title="VPN Protocols">VPN Protocols</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-threat-models.html" title="VPN Threat Models">VPN Threat Models</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-vs-tor.html" title="VPN vs Tor">VPN vs Tor</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-with-tor.html" title="VPN with Tor">VPN with Tor</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/whonix-gateway.html" title="Whonix Gateway">Whonix Gateway</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/xmpp-and-private-messaging.html" title="XMPP and Private Messaging">XMPP and Private Messaging</a>
+</div></details>
+</div></details>
+</div>
+<div class="sidebar-section"><h3>Reference system</h3>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="ns-name">Registries</span></span><span class="ns-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<a class="nav-child" href="../reference-registry.html"><span class="nc-left"><span class="nc-name">Cybersecurity Reference Registry</span></span></a>
+<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Reference Registry - Detection Engineering</span></span></a>
+<a class="nav-child" href="../reference-registry-privacy-anonymity-opsec.html"><span class="nc-left"><span class="nc-name">Reference Registry - Privacy, Anonymity &amp; OPSEC</span></span></a>
+<a class="nav-child" href="../reference-registry-api-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — API Security</span></span></a>
+<a class="nav-child" href="../reference-registry-attack-surface-mapping.html"><span class="nc-left"><span class="nc-name">Reference Registry — Attack Surface Mapping</span></span></a>
+<a class="nav-child" href="../reference-registry-binary-exploitation.html"><span class="nc-left"><span class="nc-name">Reference Registry — Binary Exploitation</span></span></a>
+<a class="nav-child" href="../reference-registry-cloud-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — Cloud Security</span></span></a>
+<a class="nav-child" href="../reference-registry-cryptography.html"><span class="nc-left"><span class="nc-name">Reference Registry — Cryptography</span></span></a>
+<a class="nav-child" href="../reference-registry-devsecops.html"><span class="nc-left"><span class="nc-name">Reference Registry — DevSecOps</span></span></a>
+<a class="nav-child" href="../reference-registry-identity-and-active-directory.html"><span class="nc-left"><span class="nc-name">Reference Registry — Identity and Active Directory</span></span></a>
+<a class="nav-child" href="../reference-registry-linux-privilege-escalation.html"><span class="nc-left"><span class="nc-name">Reference Registry — Linux Privilege Escalation</span></span></a>
+<a class="nav-child" href="../reference-registry-networking.html"><span class="nc-left"><span class="nc-name">Reference Registry — Networking</span></span></a>
+<a class="nav-child" href="../reference-registry-offensive-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — Offensive Security</span></span></a>
+<a class="nav-child" href="../reference-registry-osint.html"><span class="nc-left"><span class="nc-name">Reference Registry — OSINT</span></span></a>
+<a class="nav-child" href="../reference-registry-playbooks.html"><span class="nc-left"><span class="nc-name">Reference Registry — Playbooks</span></span></a>
+<a class="nav-child" href="../reference-registry-web-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — Web Security</span></span></a>
+<a class="nav-child" href="../reference-registry-wireless-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — Wireless Security</span></span></a>
+</div></details>
+</div>
+</div>
+<div class="sidebar-footer"><span>updated · 2026-06-03</span><span class="v">v2026.05</span></div>
+</nav>
+<div class="main-col">
+<header class="topbar">
+  <button id="sidebar-toggle" class="icon-btn menu-toggle" title="Toggle navigation" aria-label="Toggle navigation"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg></button>
+  <div class="topbar-search search-shell">
+    <svg class="search-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="search" type="search" placeholder="Search notes, playbooks, tags..." autocomplete="off">
+    <kbd>⌘K</kbd>
+  </div>
+  <div class="topbar-actions">
+    <div class="lang-switch" role="group" aria-label="Language"><a class="lang-link active" hreflang="en" href="operator-loop.html" aria-current="page">EN</a><a class="lang-link" hreflang="es" href="../../../es/cybersecurity/offensive-security/operator-loop.html" aria-current="false">ES</a></div>
+    <button class="icon-btn" aria-label="Notifications" title="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></button>
+    <a class="github-link" href="https://github.com/ldamoredev/cibersecurity-notes" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.13v3.16c0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg><span class="gh-label">GitHub</span></a>
+  </div>
+</header>
+<div id="search-results" hidden></div>
+<div class="main-row">
+<main class="content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Offensive Security / Recon</a><span>/</span><span>The Operator Loop</span></nav>
+<header class="page-hero">
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-rose">Offensive Security / Recon</span><span class="meta-chip meta-time" title="Estimated reading time">~8 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated Jun 03, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#operator-loop</span><span class="meta-chip tag">#red-team</span><span class="meta-chip tag">#methodology</span><span class="meta-chip tag">#kill-chain</span></div>
+</header>
+<article class="article-note">
+<h1 id="the-operator-loop">The Operator Loop</h1>
+<h2 id="definition">Definition</h2>
+<p>The operator loop is the repeatable decision cycle a red-team operator (or a real intruder) runs from outside the perimeter to objective: <strong>recon → initial access → enumerate → privilege-escalation → lateral movement → persistence → actions-on-objectives</strong>, with the middle stages <em>looping</em> on every newly acquired host or identity. It is the methodology spine that the branch's individual technique notes (recon, enumeration, privilege escalation, the detection playbooks) are <em>stages of</em>. Under 2026 EDR/identity-telemetry pressure the loop is governed less by "can I do this?" and more by <strong>"what does this cost me in telemetry, and can I undo it?"</strong></p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Individual techniques — Kerberoasting, SUID abuse, an SSRF to the metadata endpoint — are <em>moves</em>. The operator loop is the <em>game</em>. Operators who only collect techniques get caught sequencing them badly. Three transferable lessons:</p>
+<ul>
+<li><strong>The loop is a sequence of priced bets, not a checklist.</strong> Every stage is a choice weighed on two axes: <strong>reversible ↔ irreversible</strong> (can I undo the footprint?) and <strong>quiet ↔ loud</strong> (what telemetry does this emit?). A failed password spray is reversible and cheap; dumping LSASS or dropping an implant is irreversible and loud. Senior tradecraft front-loads reversible, quiet actions and defers irreversible ones until the objective forces them.</li>
+<li><strong>Telemetry collapses the decision space.</strong> In a well-instrumented 2026 enterprise, EDR process lineage, identity logs (LDAP recon, anomalous auth), and network metadata turn "many ways forward" into "a few quiet ways forward." The defender's visibility <em>is</em> the operator's constraint — which is why this note pairs tightly to the <a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">detection-engineering branch</a>.</li>
+<li><strong>It transfers across targets.</strong> The same seven-beat loop runs on Windows-AD, macOS, and cloud — but the <em>mechanics</em> of each stage differ completely (Kerberos vs TCC vs IAM). Holding the loop as the invariant lets you port the skill instead of relearning it per platform.</li>
+</ul>
+<p>This note is the offensive half of the <a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">attacker-defender duality</a>; the defender reads it as the kill chain to disrupt.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>The loop runs in <strong>7 stages</strong>, where stages 3–5 repeat on every new foothold:</p>
+<ol>
+<li><strong>Recon (external).</strong> OSINT + attack-surface mapping. Usually reversible and near-invisible to the target. → <a href="passive-recon.html">passive-recon</a>, <a href="active-recon.html">active-recon</a>.</li>
+<li><strong>Initial access.</strong> Phish, exploit, or valid credentials. The first meaningfully <em>loud</em> step — it produces an auth event or a payload execution.</li>
+<li><strong>Enumerate.</strong> Situational awareness from the foothold: local privileges, domain/cloud structure, reachable hosts and identities. High value, frequently the <em>noisiest</em> step (LDAP recon, cloud API enumeration). → <a href="enumeration.html">enumeration</a>.</li>
+<li><strong>Privilege escalation.</strong> Local user → admin/root/SYSTEM, or low-priv identity → high-priv role. → <a href="../identity-and-active-directory/windows-privilege-escalation.html">Windows privesc</a>, the Linux privesc branch.</li>
+<li><strong>Lateral movement.</strong> To the next host or identity using harvested credentials, tickets, or tokens.</li>
+<li><strong>Persistence.</strong> Survive reboot and credential rotation — a deliberately <em>deferred, irreversible</em> artifact, taken only when the foothold is worth keeping.</li>
+<li><strong>Actions on objectives.</strong> Collection, exfiltration, or impact — the goal, and the point of maximum risk.</li>
+</ol>
+<p><strong>The loop, not the line:</strong> stages 3→4→5 re-run on each acquired host/identity (enumerate the new context, escalate within it, move again), and internal recon re-seeds stage 1 from inside.</p>
+<p>A decision-branch at a fresh foothold makes the two axes concrete:</p>
+<div class="codehilite"><pre><span></span><code>Foothold: user shell on a Windows workstation, EDR present, AD domain-joined
+Need: domain situational awareness before any credential action
+├─ Option A  SharpHound, full collection ....... LOUD (LDAP-recon alert) · reversible
+├─ Option B  targeted LDAP, paged + throttled .. quieter · slower · reversible
+├─ Option C  dump LSASS for credentials ........ LOUD + IRREVERSIBLE (LSASS-access
+│                                                 telemetry + a credential artifact)
+└─ Operator rule: exhaust reversible+quiet enumeration (A/B) before any
+                  irreversible credential action (C). Spend irreversibility late.
+</code></pre></div>
+
+<p>The loop is not a checklist; it is an ordering problem. The skill is <em>sequencing</em> moves to reach the objective while spending as little telemetry and irreversibility as possible.</p>
+<blockquote>
+<p>Section adaptation: this is a methodology note. <em>How it works</em> describes a decision cycle rather than a single mechanism; <em>Variants and bypasses</em> below carries the per-target-world view; <em>Practical labs</em> are mapping/reasoning exercises plus one runnable range.</p>
+</blockquote>
+<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>How top operators actually run the loop:</p>
+<ul>
+<li><strong>Model the defender's view before each action.</strong> Ask "what does this look like in EDR / identity / network telemetry?" <em>before</em> doing it. The <a href="../detection-engineering/network-security-monitoring-discipline.html">monitoring discipline</a> note is the mirror of this question.</li>
+<li><strong>Front-load reversible and quiet; defer irreversible and loud.</strong> Recon and enumeration first; credential dumping and persistence last and only as needed. Irreversibility is a budget you spend, not a default.</li>
+<li><strong>Live off the land.</strong> Prefer built-in tooling whose telemetry blends with normal admin activity over noisy custom tools that trip behavioral detection.</li>
+<li><strong>Hold multiple independent footholds/identities.</strong> One burned access should not reset the engagement; redundancy is what makes a single loud mistake survivable.</li>
+<li><strong>Branch on telemetry, not habit.</strong> If a quiet path to the same outcome exists, take it; treat the loud path as a last resort, not the default.</li>
+<li><strong>Stay inside scope and time-box (authorized engagements).</strong> The loop runs under rules of engagement — <a href="scope-validation.html">scope-validation</a> and <a href="recon-to-testing-handoff.html">recon-to-testing-handoff</a> gate where it may go.</li>
+</ul>
+<h2 id="variants-and-bypasses">Variants and bypasses</h2>
+<p>The same loop, three target worlds — Q2's core comparison. The invariant is the seven stages; the <em>stage mechanics and telemetry</em> differ.</p>
+<h3 id="1-windows-active-directory">1. Windows + Active Directory</h3>
+<p>The canonical loop. Initial access → AD enumeration (<a href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound</a>) → Kerberos/credential attacks (Kerberoast, AS-REP) → lateral via pass-the-hash / tickets → DCSync / Golden Ticket → Domain Admin. <strong>Telemetry:</strong> Windows event logs, EDR, Defender for Identity — the <a href="../security-playbooks/detect-bloodhound-collection.html">AD-detection trio</a> lives here. The richest detection surface of the three.</p>
+<h3 id="2-macos">2. macOS</h3>
+<p>Initial access (phish/installer) → TCC and keychain enumeration → privesc via TCC bypass or local misconfig → lateral often via SSH or MDM → persistence via LaunchAgents/Daemons. <strong>Telemetry:</strong> Endpoint Security Framework (ESF) and Unified Logs. Fewer graph-style identity attacks; the loop is endpoint- and MDM-centric.</p>
+<h3 id="3-cloud-native">3. Cloud-native</h3>
+<p>Initial access via leaked keys, OAuth abuse, or SSRF-to-metadata → IAM enumeration → privesc via role/policy abuse (<code>iam:PassRole</code>, privilege-escalation policy paths) → lateral via assumed roles / cross-account trust → persistence via IAM users, access keys, or serverless triggers. <strong>Telemetry:</strong> CloudTrail / Azure Activity / GCP audit logs. The loop is <em>identity- and API-shaped</em>, not host-shaped — "lateral movement" is an <code>AssumeRole</code>, not an SMB session.</p>
+<p><strong>Hybrid is the 2026 reality:</strong> real loops chain on-prem AD → Entra ID → SaaS, crossing all three worlds in one engagement — the natural extension tracked in <a href="../identity-and-active-directory/identity-attack-paths-across-idps.html">identity-attack-paths-across-idps</a>.</p>
+<h2 id="impact">Impact</h2>
+<p>For a methodology note, "impact" is what loop <em>execution quality</em> produces:</p>
+<ul>
+<li><strong>Objective reached without detection (mature operator)</strong> vs <strong>early burn (sloppy sequencing).</strong> The difference is almost never technique knowledge — it is ordering and telemetry awareness.</li>
+<li><strong>Dwell time and blast radius.</strong> A patient loop yields weeks of undetected access and broad reach; a rushed one trips a stage-level detection and resets.</li>
+<li><strong>For the defender, the loop is the kill chain to break.</strong> Every stage the operator <em>must</em> pass through is a detection and disruption opportunity; stall any stage and the loop cannot close.</li>
+</ul>
+<h2 id="detection-and-defense">Detection and defense</h2>
+<p>The defender's pairing — how to break the loop. Ordered by effectiveness:</p>
+<ol>
+<li>
+<p><strong>Raise the cost of every stage (defense-in-depth).</strong>
+   Each mandatory stage is a detection opportunity. The goal is not a single wall but enough friction that the operator must take a loud or irreversible action — which you are watching for.</p>
+</li>
+<li>
+<p><strong>Collapse the decision space with broad telemetry.</strong>
+   EDR (process lineage, LSASS access), identity (LDAP recon, anomalous auth), and network (lateral auth, C2 beaconing) together remove the operator's quiet options. The richer and more correlated the telemetry, the fewer ways forward stay invisible — see <a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">attack-path correlation</a>.</p>
+</li>
+<li>
+<p><strong>Instrument the irreversible stages hardest.</strong>
+   Credential dumping, persistence installation, and privileged lateral auth leave durable artifacts and distinctive telemetry. Concentrate detection where the operator is forced to spend irreversibility.</p>
+</li>
+<li>
+<p><strong>Segment identity and protect Tier 0.</strong>
+   If privilege escalation and lateral movement structurally cannot reach the crown jewels, even a successful inner loop yields little — shrink the attack graph (<a href="../identity-and-active-directory/tier-zero-administration-and-paw.html">Tier 0</a>).</p>
+</li>
+<li>
+<p><strong>Assume breach and hunt the inner loop.</strong>
+   Detection must target stages 3–7, not just initial access. Perimeter prevention alone concedes the entire loop the moment one foothold lands.</p>
+</li>
+</ol>
+<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<ul>
+<li><strong>Perimeter-only / prevent-initial-access.</strong> The loop <em>assumes</em> breach. If your only control is stopping stage 2, stages 3–7 run unobserved once anyone gets in.</li>
+<li><strong>Detecting tools instead of behaviors.</strong> Operators rename, recompile, and reimplement tooling. The loop's <em>stages</em> persist; tool signatures do not.</li>
+<li><strong>Treating stages in isolation.</strong> A lone enumeration event looks benign; the kill chain is the <em>correlation</em> across stages. Single-stage rules miss the loop.</li>
+</ul>
+<h2 id="practical-labs">Practical labs</h2>
+<p>This is a methodology note, so the labs are mapping/reasoning exercises plus one runnable range. Run any hands-on work only against owned labs or authorized engagements.</p>
+<h3 id="map-an-engagement-onto-the-loop-and-its-axes">Map an engagement onto the loop and its axes</h3>
+<div class="codehilite"><pre><span></span><code>For your last authorized engagement (or a public APT report), fill the table:
+Stage                | Action taken            | Reversible? | Telemetry emitted
+initial-access       | ...                     | y/n         | ...
+enumerate            | ...                     | y/n         | ...
+privilege-escalation | ...                     | y/n         | ...
+lateral-movement     | ...                     | y/n         | ...
+The irreversible+loud rows are where the defender had the best shot.
+</code></pre></div>
+
+<h3 id="overlay-the-loop-on-mitre-attck">Overlay the loop on MITRE ATT&amp;CK</h3>
+<div class="codehilite"><pre><span></span><code>Open the ATT&amp;CK Navigator (https://mitre-attack.github.io/attack-navigator/)
+and color the tactics your loop touched: Reconnaissance, Initial Access,
+Discovery, Privilege Escalation, Lateral Movement, Persistence, Collection,
+Exfiltration, Impact. The colored path IS the operator loop for that engagement.
+</code></pre></div>
+
+<h3 id="run-one-stage-in-a-lab-and-watch-the-telemetry">Run one stage in a lab and watch the telemetry</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Stand up Game of Active Directory (GOAD) or DetectionLab, run BloodHound from a</span>
+<span class="c1"># foothold, and read what the defender sees (Windows 4662/4661, Defender for</span>
+<span class="c1"># Identity LDAP-recon alert). Owned lab only.</span>
+<span class="c1"># GOAD: https://github.com/Orange-Cyberdefense/GOAD</span>
+</code></pre></div>
+
+<p>The lesson is the <em>telemetry cost</em> of a single stage — the input to every branch decision above.</p>
+<h3 id="build-a-reversible-vs-irreversible-decision-tree">Build a reversible-vs-irreversible decision tree</h3>
+<div class="codehilite"><pre><span></span><code>For one foothold, enumerate the options to reach the next stage, label each
+reversible/irreversible and quiet/loud, and order them. Practicing the ordering
+is the methodology; the individual techniques are elsewhere in the branch.
+</code></pre></div>
+
+<h2 id="practical-examples">Practical examples</h2>
+<ul>
+<li><strong>Quiet-first AD engagement.</strong> Phish → SharpHound (paced) → Kerberoast → offline crack → pass-the-hash lateral → DCSync → Domain Admin, with LSASS dumping deferred until a specific credential was required. Objective reached; few irreversible actions spent.</li>
+<li><strong>Patient real-world intrusion.</strong> An APT runs the identical loop over <em>weeks</em>, pacing enumeration and lateral movement to stay under behavioral thresholds — the same stages, optimized for dwell time over speed.</li>
+<li><strong>Cloud loop.</strong> A leaked CI/CD key → IAM enumeration → <code>iam:PassRole</code> privesc to an admin role → cross-account <code>AssumeRole</code> → S3 exfiltration. No host shells anywhere; the whole loop is API calls in CloudTrail.</li>
+<li><strong>macOS loop.</strong> Phished installer → TCC/keychain enumeration → keychain credential theft → MDM-assisted lateral movement → LaunchAgent persistence.</li>
+<li><strong>Where the loop stalled.</strong> An operator dumped LSASS in the first hour to "save time," tripped the EDR LSASS-access detection, and lost the foothold — a textbook case of spending irreversibility and loudness too early.</li>
+</ul>
+<h2 id="related-notes">Related notes</h2>
+<ul>
+<li><a href="recon.html">recon</a> — stage 1; the external-recon entry to the loop.</li>
+<li><a href="enumeration.html">enumeration</a> — stage 3; the situational-awareness engine that re-runs each iteration.</li>
+<li><a href="recon-to-testing-handoff.html">recon-to-testing-handoff</a> — the engagement-discipline boundary the loop runs inside.</li>
+<li><a href="scope-validation.html">scope-validation</a> — the rules-of-engagement gate on where the loop may go.</li>
+<li><a href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound Attack Path Analysis</a> — the AD-world enumeration stage.</li>
+<li><a href="../identity-and-active-directory/tier-zero-administration-and-paw.html">Tier 0 Administration</a> — the structural defense that starves stages 4–5.</li>
+<li><a href="../security-playbooks/detect-bloodhound-collection.html">Detect BloodHound Collection</a> — the defender pair for the AD enumeration stage.</li>
+<li><a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation</a> — the defender stitching loop stages into one kill chain.</li>
+<li><a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality</a> — the meta-frame; the loop is the offensive half.</li>
+</ul>
+<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<ul>
+<li><span class="unresolved-link" title="Unpublished or unresolved: living-off-the-land-and-edr-evasion">living-off-the-land-and-edr-evasion</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: c2-and-command-and-control-tradecraft">c2-and-command-and-control-tradecraft</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: initial-access-techniques">initial-access-techniques</span></li>
+<li><a href="../identity-and-active-directory/identity-attack-paths-across-idps.html">identity-attack-paths-across-idps</a></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: detect-the-operator-loop">detect-the-operator-loop</span></li>
+</ul>
+<blockquote>
+<p>Future atomic notes are listed as <code>&lt;span class="unresolved-link" title="Unpublished or unresolved: wikilinks"&gt;wikilinks&lt;/span&gt;</code> even when the target file does not exist yet, so they register as forward-links in Obsidian.</p>
+</blockquote>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Foundational:</strong> MITRE ATT&amp;CK Enterprise Matrix (the tactic sequence underpinning the loop) — https://attack.mitre.org/matrices/enterprise/</li>
+<li><strong>Research / Deep Dive:</strong> Paul Pols — The Unified Kill Chain (end-to-end attack-phase synthesis) — https://www.unifiedkillchain.com/</li>
+<li><strong>Foundational:</strong> Lockheed Martin — Cyber Kill Chain — https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html</li>
+</ul>
+<nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="tech-stack-fingerprinting.html"><span class="nav-dir">← Previous</span><strong>Tech Stack Fingerprinting</strong></a></nav>
+<section class="related-notes" aria-label="Explore nearby notes">
+<h2>Explore nearby notes</h2>
+<div class="related-grid">
+<a class="related-card" href="active-recon.html"><span>Offensive Security / Recon</span><strong>Active Recon</strong><small>Active recon is information gathering that directly interacts with target infrastructure, services, or applications to validate or extend what passive recon...</small></a>
+<a class="related-card" href="cloaking-and-security-evasion.html"><span>Offensive Security / Recon</span><strong>Cloaking and Security Evasion</strong><small>Cloaking is the practice of showing different behavior to different visitors based on signals such as IP, geography, ASN, reverse DNS, User-Agent, browser...</small></a>
+<a class="related-card" href="company-mapping.html"><span>Offensive Security / Recon</span><strong>Company Mapping</strong><small>Company mapping is the process of connecting domains, brands, subsidiaries, acquisitions, vendors, public identities, products, and infrastructure clues into a...</small></a>
+<a class="related-card" href="enumeration.html"><span>Offensive Security / Recon</span><strong>Enumeration</strong><small>Enumeration is the focused, methodical expansion of discovered leads into concrete, validated knowledge about reachable services, routes, identities, parameters...</small></a>
+<a class="related-card" href="host-and-port-discovery.html"><span>Offensive Security / Recon</span><strong>Host and Port Discovery</strong><small>Host and port discovery is the process of finding live hosts and the reachable ports and services they expose within an authorized scope.</small></a>
+<a class="related-card" href="idle-scan-and-ipid-side-channels.html"><span>Offensive Security / Recon</span><strong>Idle Scan and IPID Side Channels</strong><small>An **idle scan** (nmap -sI zombie:port target) infers a target&#x27;s port state without sending a single packet from the attacker&#x27;s real IP. It works by exploiting a...</small></a>
+</div></section>
+</article>
+</main>
+<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
+<a class="toc-level-2" href="#definition">Definition</a>
+<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
+<a class="toc-level-2" href="#how-it-works">How it works</a>
+<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
+<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
+<a class="toc-level-3" href="#1-windows-active-directory">1. Windows + Active Directory</a>
+<a class="toc-level-3" href="#2-macos">2. macOS</a>
+<a class="toc-level-3" href="#3-cloud-native">3. Cloud-native</a>
+<a class="toc-level-2" href="#impact">Impact</a>
+<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
+<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
+<a class="toc-level-2" href="#practical-labs">Practical labs</a>
+<a class="toc-level-3" href="#map-an-engagement-onto-the-loop-and-its-axes">Map an engagement onto the loop and its axes</a>
+<a class="toc-level-3" href="#overlay-the-loop-on-mitre-attck">Overlay the loop on MITRE ATT&amp;CK</a>
+<a class="toc-level-3" href="#run-one-stage-in-a-lab-and-watch-the-telemetry">Run one stage in a lab and watch the telemetry</a>
+<a class="toc-level-3" href="#build-a-reversible-vs-irreversible-decision-tree">Build a reversible-vs-irreversible decision tree</a>
+<a class="toc-level-2" href="#practical-examples">Practical examples</a>
+<a class="toc-level-2" href="#related-notes">Related notes</a>
+<a class="back-to-top" href="#top">Back to top</a></div></aside>
+</div>
+</div>
+</div>
+<script src="../../../assets/search.js?v=6d139dc885"></script>
+</body>
+</html>

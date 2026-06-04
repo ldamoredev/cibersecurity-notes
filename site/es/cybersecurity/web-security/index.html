@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seguridad Web Notas | ldamoredev Security Atlas</title>
+<meta name="description" content="Notas de Seguridad Web: Comportamiento del navegador, sesiones, control de acceso y patrones de explotación del lado del servidor.">
+<meta name="author" content="ldamoredev">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Seguridad Web, Web Security Index, web-security, index">
+<meta name="theme-color" content="#16a34a">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/index.html">
+<link rel="icon" href="../../../favicon.ico" sizes="any">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+<link rel="manifest" href="../../../site.webmanifest">
+<meta property="article:section" content="Seguridad Web">
+<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Seguridad Web Notas | ldamoredev Security Atlas">
+<meta property="og:description" content="Notas de Seguridad Web: Comportamiento del navegador, sesiones, control de acceso y patrones de explotación del lado del servidor.">
+<meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/index.html">
+<meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Seguridad Web Notas | ldamoredev Security Atlas">
+<meta name="twitter:description" content="Notas de Seguridad Web: Comportamiento del navegador, sesiones, control de acceso y patrones de explotación del lado del servidor.">
+<meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"CollectionPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/index.html#page","name":"Seguridad Web Notas | ldamoredev Security Atlas","headline":"Web Security Index","description":"Notas de Seguridad Web: Comportamiento del navegador, sesiones, control de acceso y patrones de explotación del lado del servidor.","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/index.html","inLanguage":"es","dateModified":"2026-05-11","isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Web","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/index.html"},{"@type":"ListItem","position":4,"name":"Web Security Index","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/index.html"}]}]</script>
+<link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/index.html">
+<link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/index.html">
+<link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/index.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+</head>
+<body id="top" data-root="../../.." data-locale-root="../..">
+<div class="app with-toc">
+<nav class="sidebar">
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Base de Conocimiento</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-body">
+<a class="sidebar-home" href="../../index.html">Inicio del Atlas</a>
+<div class="sidebar-section"><h3>Capa de entrada</h3>
+<a class="sidebar-link kind-index" href="../index.html">Índice de Ciberseguridad</a>
+<a class="sidebar-link kind-concept" href="../start-here.html">Start Here — Cybersecurity Vault Triage</a>
+<a class="sidebar-link kind-concept" href="../must-know-30.html">Must-Know 30 — The Minimum Viable Security Literacy</a>
+<a class="sidebar-link kind-concept" href="../phase-1-substrate.html">Phase 1 — Substrate (How Things Actually Work)</a>
+<a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
+<a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
+<a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+</div>
+<div class="sidebar-section"><h3>Ruta de aprendizaje</h3>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Resumen</a>
+<a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="La dualidad atacante-defensor como herramienta de aprendizaje">La dualidad atacante-defensor como herramienta de apr…</a>
+<a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Las certificaciones como señales de validación">Las certificaciones como señales de validación</a>
+<a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="Tríada CIA — Qué decide en realidad">Tríada CIA — Qué decide en realidad</a>
+<a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Especialización por contexto de trabajo">Especialización por contexto de trabajo</a>
+<a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Alfabetización mínima viable en ciberseguridad">Alfabetización mínima viable en ciberseguridad</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Arranque rápido de modelado de amenazas">Arranque rápido de modelado de amenazas</a>
+<a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="Qué es la ciberseguridad, y por qué no es una lista de herramientas">Qué es la ciberseguridad, y por qué no es una lista d…</a>
+</div></details>
+</div></details>
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Criptografía</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Resumen</a>
+<a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
+<a class="nav-leaf" href="../cryptography/asymmetric-encryption-and-key-exchange.html" title="Asymmetric Encryption and Key Exchange">Asymmetric Encryption and Key Exchange</a>
+<a class="nav-leaf" href="../cryptography/certificate-validation-and-pinning.html" title="Certificate Validation and Pinning">Certificate Validation and Pinning</a>
+<a class="nav-leaf" href="../cryptography/digital-signatures.html" title="Digital Signatures">Digital Signatures</a>
+<a class="nav-leaf" href="../cryptography/hashing-vs-encryption-vs-signing.html" title="Hashing vs Encryption vs Signing">Hashing vs Encryption vs Signing</a>
+<a class="nav-leaf" href="../cryptography/jwt-cryptographic-correctness.html" title="JWT Cryptographic Correctness">JWT Cryptographic Correctness</a>
+<a class="nav-leaf" href="../cryptography/kdf-and-key-stretching.html" title="KDF and Key Stretching">KDF and Key Stretching</a>
+<a class="nav-leaf" href="../cryptography/mac-and-hmac.html" title="MAC and HMAC">MAC and HMAC</a>
+<a class="nav-leaf" href="../cryptography/password-hashing.html" title="Password Hashing">Password Hashing</a>
+<a class="nav-leaf" href="../cryptography/post-quantum-awareness.html" title="Post-Quantum Awareness">Post-Quantum Awareness</a>
+<a class="nav-leaf" href="../cryptography/random-and-csprng-pitfalls.html" title="Random and CSPRNG Pitfalls">Random and CSPRNG Pitfalls</a>
+<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll Your Own Crypto Failures">Roll Your Own Crypto Failures</a>
+<a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
+<a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
+</div></details>
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Resumen</a>
+<a class="nav-leaf" href="../networking/caching-and-security.html" title="Caché y seguridad">Caché y seguridad</a>
+<a class="nav-leaf" href="../networking/client-ip-trust.html" title="Confianza en la IP del cliente">Confianza en la IP del cliente</a>
+<a class="nav-leaf" href="../networking/metadata-endpoints.html" title="Endpoints de metadata de instancias de nube">Endpoints de metadata de instancias de nube</a>
+<a class="nav-leaf" href="../networking/cookies-and-sessions.html" title="Cookies y sesiones">Cookies y sesiones</a>
+<a class="nav-leaf" href="../networking/dangling-dns-records.html" title="Registros DNS colgantes">Registros DNS colgantes</a>
+<a class="nav-leaf" href="../networking/dns-resolution.html" title="Resolución DNS">Resolución DNS</a>
+<a class="nav-leaf" href="../networking/dns-security.html" title="Seguridad de DNS">Seguridad de DNS</a>
+<a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls y fronteras de red">Firewalls y fronteras de red</a>
+<a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Confianza en headers en Node Express">Confianza en headers en Node Express</a>
+<a class="nav-leaf" href="../networking/http-headers.html" title="Headers HTTP">Headers HTTP</a>
+<a class="nav-leaf" href="../networking/http-messages.html" title="Mensajes HTTP">Mensajes HTTP</a>
+<a class="nav-leaf" href="../networking/http-overview.html" title="Panorama de HTTP">Panorama de HTTP</a>
+<a class="nav-leaf" href="../networking/load-balancers.html" title="Load balancers">Load balancers</a>
+<a class="nav-leaf" href="../networking/nat-and-private-networks.html" title="NAT y redes privadas">NAT y redes privadas</a>
+<a class="nav-leaf" href="../networking/nmap-scanning.html" title="Escaneo con Nmap">Escaneo con Nmap</a>
+<a class="nav-leaf" href="../networking/packet-analysis.html" title="Análisis de paquetes">Análisis de paquetes</a>
+<a class="nav-leaf" href="../networking/ports-and-services.html" title="Puertos y servicios">Puertos y servicios</a>
+<a class="nav-leaf" href="../networking/reverse-proxies.html" title="Reverse proxies">Reverse proxies</a>
+<a class="nav-leaf" href="../networking/service-enumeration.html" title="Enumeración de servicios">Enumeración de servicios</a>
+<a class="nav-leaf" href="../networking/tcp-ip-basics.html" title="Fundamentos de TCP/IP">Fundamentos de TCP/IP</a>
+<a class="nav-leaf" href="../networking/tls-https.html" title="TLS y HTTPS">TLS y HTTPS</a>
+<a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Flujos de trabajo con Wireshark">Flujos de trabajo con Wireshark</a>
+</div></details>
+<details class="nav-branch accent-blue active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview active" href="index.html">Resumen</a>
+<a class="nav-leaf" href="auth-flaws.html" title="Fallas de autenticación">Fallas de autenticación</a>
+<a class="nav-leaf" href="bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
+<a class="nav-leaf" href="broken-access-control.html" title="Control de acceso roto">Control de acceso roto</a>
+<a class="nav-leaf" href="browser-security-boundaries.html" title="Fronteras de seguridad del navegador">Fronteras de seguridad del navegador</a>
+<a class="nav-leaf" href="business-logic-vulnerabilities.html" title="Business Logic Vulnerabilities">Business Logic Vulnerabilities</a>
+<a class="nav-leaf" href="clickjacking.html" title="Clickjacking">Clickjacking</a>
+<a class="nav-leaf" href="command-injection.html" title="Inyección de comandos">Inyección de comandos</a>
+<a class="nav-leaf" href="content-security-policy.html" title="Content Security Policy">Content Security Policy</a>
+<a class="nav-leaf" href="cors-misconfiguration.html" title="CORS Misconfiguration">CORS Misconfiguration</a>
+<a class="nav-leaf" href="csrf.html" title="Cross-Site Request Forgery (CSRF)">Cross-Site Request Forgery (CSRF)</a>
+<a class="nav-leaf" href="xss.html" title="Cross-Site Scripting (XSS)">Cross-Site Scripting (XSS)</a>
+<a class="nav-leaf" href="evilginx-and-reverse-proxy-phishing.html" title="Evilginx and Reverse Proxy Phishing">Evilginx and Reverse Proxy Phishing</a>
+<a class="nav-leaf" href="file-upload-abuse.html" title="File Upload Abuse">File Upload Abuse</a>
+<a class="nav-leaf" href="gadget-chains.html" title="Gadget Chains">Gadget Chains</a>
+<a class="nav-leaf" href="deserialization.html" title="Insecure Deserialization">Insecure Deserialization</a>
+<a class="nav-leaf" href="idor.html" title="Insecure Direct Object Reference (IDOR)">Insecure Direct Object Reference (IDOR)</a>
+<a class="nav-leaf" href="mfa-phishing-resistance.html" title="Resistencia al phishing del MFA">Resistencia al phishing del MFA</a>
+<a class="nav-leaf" href="oauth-security.html" title="OAuth Security">OAuth Security</a>
+<a class="nav-leaf" href="open-redirect.html" title="Open Redirect">Open Redirect</a>
+<a class="nav-leaf" href="owasp-top-10.html" title="OWASP Top 10">OWASP Top 10</a>
+<a class="nav-leaf" href="path-traversal.html" title="Path traversal">Path traversal</a>
+<a class="nav-leaf" href="phar-deserialization.html" title="PHAR Deserialization">PHAR Deserialization</a>
+<a class="nav-leaf" href="request-smuggling.html" title="Request Smuggling">Request Smuggling</a>
+<a class="nav-leaf" href="same-origin-policy.html" title="Política del mismo origen (SOP)">Política del mismo origen (SOP)</a>
+<a class="nav-leaf" href="ssrf.html" title="Server-Side Request Forgery (SSRF)">Server-Side Request Forgery (SSRF)</a>
+<a class="nav-leaf" href="session-management.html" title="Gestión de sesiones">Gestión de sesiones</a>
+<a class="nav-leaf" href="sql-injection.html" title="Inyección SQL">Inyección SQL</a>
+<a class="nav-leaf" href="web-cache-poisoning.html" title="Envenenamiento de caché web">Envenenamiento de caché web</a>
+<a class="nav-leaf" href="xxe.html" title="XXE">XXE</a>
+</div></details>
+</div></details>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Seguridad Ofensiva / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Resumen</a>
+<a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
+<a class="nav-leaf" href="../offensive-security/cloaking-and-security-evasion.html" title="Cloaking and Security Evasion">Cloaking and Security Evasion</a>
+<a class="nav-leaf" href="../offensive-security/company-mapping.html" title="Company Mapping">Company Mapping</a>
+<a class="nav-leaf" href="../offensive-security/enumeration.html" title="Enumeration">Enumeration</a>
+<a class="nav-leaf" href="../offensive-security/host-and-port-discovery.html" title="Host and Port Discovery">Host and Port Discovery</a>
+<a class="nav-leaf" href="../offensive-security/idle-scan-and-ipid-side-channels.html" title="Idle Scan and IPID Side Channels">Idle Scan and IPID Side Channels</a>
+<a class="nav-leaf" href="../offensive-security/masscan-internet-scale-scanning.html" title="Masscan Internet-Scale Scanning">Masscan Internet-Scale Scanning</a>
+<a class="nav-leaf" href="../offensive-security/nmap-timing-and-evasion.html" title="Nmap Timing and Evasion">Nmap Timing and Evasion</a>
+<a class="nav-leaf" href="../offensive-security/nse-vuln-category-audit.html" title="NSE `vuln` Category Audit">NSE `vuln` Category Audit</a>
+<a class="nav-leaf" href="../offensive-security/packet-fragmentation-and-decoy-scans.html" title="Packet Fragmentation and Decoy Scans">Packet Fragmentation and Decoy Scans</a>
+<a class="nav-leaf" href="../offensive-security/passive-recon.html" title="Passive Recon">Passive Recon</a>
+<a class="nav-leaf" href="../offensive-security/public-asset-discovery.html" title="Public Asset Discovery">Public Asset Discovery</a>
+<a class="nav-leaf" href="../offensive-security/recon.html" title="Recon">Recon</a>
+<a class="nav-leaf" href="../offensive-security/recon-to-testing-handoff.html" title="Recon to Testing Handoff">Recon to Testing Handoff</a>
+<a class="nav-leaf" href="../offensive-security/rustscan-and-nse-pipeline.html" title="RustScan and NSE Pipeline">RustScan and NSE Pipeline</a>
+<a class="nav-leaf" href="../offensive-security/scope-validation.html" title="Scope Validation">Scope Validation</a>
+<a class="nav-leaf" href="../offensive-security/service-validation.html" title="Service Validation">Service Validation</a>
+<a class="nav-leaf" href="../offensive-security/subdomain-enumeration.html" title="Subdomain Enumeration">Subdomain Enumeration</a>
+<a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
+<a class="nav-leaf" href="../offensive-security/operator-loop.html" title="El loop del operador">El loop del operador</a>
+</div></details>
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Resumen</a>
+<a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
+<a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
+<a class="nav-leaf" href="../detection-engineering/detection-evasion-myths-and-modern-limitations.html" title="Detection Evasion Myths and Modern Limitations">Detection Evasion Myths and Modern Limitations</a>
+<a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
+<a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
+<a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
+<a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Disciplina de Network Security Monitoring (NSM)">Disciplina de Network Security Monitoring (NSM)</a>
+<a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
+<a class="nav-leaf" href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html" title="Scan Anomaly Detection and Fingerprint Analysis">Scan Anomaly Detection and Fingerprint Analysis</a>
+<a class="nav-leaf" href="../detection-engineering/telemetry-normalization-correlation-and-enrichment.html" title="Telemetry Normalization, Correlation, and Enrichment">Telemetry Normalization, Correlation, and Enrichment</a>
+<a class="nav-leaf" href="../detection-engineering/windows-event-logs.html" title="Windows Event Logs">Windows Event Logs</a>
+<a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
+</div></details>
+</div></details>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Mapeo de Superficie de Ataque</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Resumen</a>
+<a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
+<a class="nav-leaf" href="../attack-surface-mapping/attack-surface-mapping.html" title="Attack Surface Mapping">Attack Surface Mapping</a>
+<a class="nav-leaf" href="../attack-surface-mapping/deprecated-api-versions.html" title="Deprecated API Versions">Deprecated API Versions</a>
+<a class="nav-leaf" href="../attack-surface-mapping/endpoint-discovery.html" title="Endpoint Discovery">Endpoint Discovery</a>
+<a class="nav-leaf" href="../attack-surface-mapping/exposed-service-triage.html" title="Exposed Service Triage">Exposed Service Triage</a>
+<a class="nav-leaf" href="../attack-surface-mapping/exposed-storage.html" title="Exposed Storage">Exposed Storage</a>
+<a class="nav-leaf" href="../attack-surface-mapping/external-attack-surface.html" title="External Attack Surface">External Attack Surface</a>
+<a class="nav-leaf" href="../attack-surface-mapping/internal-attack-surface.html" title="Internal Attack Surface">Internal Attack Surface</a>
+<a class="nav-leaf" href="../attack-surface-mapping/subdomain-takeover.html" title="Subdomain Takeover">Subdomain Takeover</a>
+<a class="nav-leaf" href="../attack-surface-mapping/third-party-exposure.html" title="Third-Party Exposure">Third-Party Exposure</a>
+</div></details>
+<details class="nav-branch accent-violet"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="nb-name">OSINT</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../osint/index.html">Resumen</a>
+<a class="nav-leaf" href="../osint/breach-and-leak-intelligence.html" title="Breach and Leak Intelligence">Breach and Leak Intelligence</a>
+<a class="nav-leaf" href="../osint/company-osint.html" title="Company OSINT">Company OSINT</a>
+<a class="nav-leaf" href="../osint/email-and-phone-osint.html" title="Email and Phone OSINT">Email and Phone OSINT</a>
+<a class="nav-leaf" href="../osint/google-dorking.html" title="Google Dorking">Google Dorking</a>
+<a class="nav-leaf" href="../osint/image-and-location-osint.html" title="Image and Location OSINT">Image and Location OSINT</a>
+<a class="nav-leaf" href="../osint/osint.html" title="OSINT">OSINT</a>
+<a class="nav-leaf" href="../osint/osint-reporting.html" title="OSINT Reporting">OSINT Reporting</a>
+<a class="nav-leaf" href="../osint/osint-triage.html" title="OSINT Triage">OSINT Triage</a>
+<a class="nav-leaf" href="../osint/search-engine-operators.html" title="Search Engine Operators">Search Engine Operators</a>
+<a class="nav-leaf" href="../osint/social-media-osint.html" title="Social Media OSINT">Social Media OSINT</a>
+</div></details>
+<details class="nav-branch accent-orange"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="nb-name">Escalada de Privilegios en Linux</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../linux-privilege-escalation/index.html">Resumen</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/cron-and-timer-abuse.html" title="Cron and Timer Abuse">Cron and Timer Abuse</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/kernel-exploit-triage.html" title="Kernel Exploit Triage">Kernel Exploit Triage</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/linpeas-workflow.html" title="LinPEAS Workflow">LinPEAS Workflow</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/linux-capabilities.html" title="Linux Capabilities">Linux Capabilities</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/linux-enumeration.html" title="Linux Enumeration">Linux Enumeration</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/linux-privilege-escalation.html" title="Linux Privilege Escalation">Linux Privilege Escalation</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/path-hijacking.html" title="PATH Hijacking">PATH Hijacking</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
+<a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
+</div></details>
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Resumen</a>
+<a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
+<a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detectar la recolección de BloodHound">Detectar la recolección de BloodHound</a>
+<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detect DCSync and ntds.dit Access">Detect DCSync and ntds.dit Access</a>
+<a class="nav-leaf" href="../security-playbooks/detect-external-scan-pipeline.html" title="Detect External Recon Scan Pipeline">Detect External Recon Scan Pipeline</a>
+<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
+<a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
+<a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
+<a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
+<a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
+<a class="nav-leaf" href="../security-playbooks/reverse-proxy-misconfig-checklist.html" title="Reverse Proxy Misconfig Checklist">Reverse Proxy Misconfig Checklist</a>
+<a class="nav-leaf" href="../security-playbooks/run-scan-pipeline.html" title="Run External Recon Scan Pipeline">Run External Recon Scan Pipeline</a>
+<a class="nav-leaf" href="../security-playbooks/test-client-ip-spoofing.html" title="Test Client IP Spoofing">Test Client IP Spoofing</a>
+<a class="nav-leaf" href="../security-playbooks/test-cors-behavior.html" title="Test CORS Behavior">Test CORS Behavior</a>
+<a class="nav-leaf" href="../security-playbooks/test-path-traversal.html" title="Test Path Traversal">Test Path Traversal</a>
+<a class="nav-leaf" href="../security-playbooks/trace-metadata-endpoint-reachability.html" title="Trace Metadata Endpoint Reachability">Trace Metadata Endpoint Reachability</a>
+</div></details>
+</div></details>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="ns-name"><span class="ns-num">04</span>Especialidad</span></span><span class="ns-right"><span class="count">71</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-teal"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg><span class="nb-name">Seguridad Inalámbrica</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../wireless-security/index.html">Resumen</a>
+<a class="nav-leaf" href="../wireless-security/arp-poisoning.html" title="ARP Poisoning">ARP Poisoning</a>
+<a class="nav-leaf" href="../wireless-security/bettercap-workflows.html" title="Bettercap Workflows">Bettercap Workflows</a>
+<a class="nav-leaf" href="../wireless-security/evil-twin-access-points.html" title="Evil Twin Access Points">Evil Twin Access Points</a>
+<a class="nav-leaf" href="../wireless-security/mitm-on-local-networks.html" title="MITM on Local Networks">MITM on Local Networks</a>
+<a class="nav-leaf" href="../wireless-security/wep-security.html" title="WEP Security">WEP Security</a>
+<a class="nav-leaf" href="../wireless-security/wifi-deauthentication.html" title="Wi-Fi Deauthentication">Wi-Fi Deauthentication</a>
+<a class="nav-leaf" href="../wireless-security/wifi-monitor-mode.html" title="Wi-Fi Monitor Mode">Wi-Fi Monitor Mode</a>
+<a class="nav-leaf" href="../wireless-security/wifi-wordlist-attacks.html" title="Wi-Fi Wordlist Attacks">Wi-Fi Wordlist Attacks</a>
+<a class="nav-leaf" href="../wireless-security/wireless-security.html" title="Wireless Security">Wireless Security</a>
+<a class="nav-leaf" href="../wireless-security/wpa-wpa2-handshakes.html" title="WPA/WPA2 Handshakes">WPA/WPA2 Handshakes</a>
+</div></details>
+<details class="nav-branch accent-indigo"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v4"/><path d="M15 2v4"/><path d="M5 10h14v4a7 7 0 0 1-14 0z"/><path d="M12 18v4"/></svg><span class="nb-name">Seguridad de APIs</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../api-security/index.html">Resumen</a>
+<a class="nav-leaf" href="../api-security/api-auth-flaws.html" title="API Authentication Flaws">API Authentication Flaws</a>
+<a class="nav-leaf" href="../api-security/api-inventory-management.html" title="API Inventory Management">API Inventory Management</a>
+<a class="nav-leaf" href="../api-security/api-rate-limiting.html" title="API Rate Limiting">API Rate Limiting</a>
+<a class="nav-leaf" href="../api-security/api-security-top-10.html" title="API Security Top 10">API Security Top 10</a>
+<a class="nav-leaf" href="../api-security/authorization.html" title="Authorization">Authorization</a>
+<a class="nav-leaf" href="../api-security/broken-authentication.html" title="Broken Authentication">Broken Authentication</a>
+<a class="nav-leaf" href="../api-security/broken-function-level-authorization.html" title="Broken Function Level Authorization">Broken Function Level Authorization</a>
+<a class="nav-leaf" href="../api-security/broken-object-level-authorization.html" title="Broken Object Level Authorization">Broken Object Level Authorization</a>
+<a class="nav-leaf" href="../api-security/broken-object-property-level-authorization.html" title="Broken Object Property Level Authorization">Broken Object Property Level Authorization</a>
+<a class="nav-leaf" href="../api-security/excessive-data-exposure.html" title="Excessive Data Exposure">Excessive Data Exposure</a>
+<a class="nav-leaf" href="../api-security/jwt-attacks.html" title="JWT Attacks">JWT Attacks</a>
+<a class="nav-leaf" href="../api-security/mass-assignment.html" title="Mass Assignment">Mass Assignment</a>
+<a class="nav-leaf" href="../api-security/polymorphic-deserialization.html" title="Polymorphic Deserialization">Polymorphic Deserialization</a>
+<a class="nav-leaf" href="../api-security/token-lifecycle.html" title="Token Lifecycle">Token Lifecycle</a>
+</div></details>
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg><span class="nb-name">Seguridad en la Nube</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../cloud-security/index.html">Resumen</a>
+<a class="nav-leaf" href="../cloud-security/cloud-dns-and-certbot.html" title="Cloud DNS and Certbot">Cloud DNS and Certbot</a>
+<a class="nav-leaf" href="../cloud-security/cloud-iam-boundaries.html" title="Cloud IAM Boundaries">Cloud IAM Boundaries</a>
+<a class="nav-leaf" href="../cloud-security/cloud-lab-infrastructure.html" title="Cloud Lab Infrastructure">Cloud Lab Infrastructure</a>
+<a class="nav-leaf" href="../cloud-security/cloud-logging-and-detection.html" title="Cloud Logging and Detection">Cloud Logging and Detection</a>
+<a class="nav-leaf" href="../cloud-security/cloud-metadata-security.html" title="Cloud Metadata Security">Cloud Metadata Security</a>
+<a class="nav-leaf" href="../cloud-security/cloud-network-boundaries.html" title="Cloud Network Boundaries">Cloud Network Boundaries</a>
+<a class="nav-leaf" href="../cloud-security/cloud-secrets-management.html" title="Cloud Secrets Management">Cloud Secrets Management</a>
+<a class="nav-leaf" href="../cloud-security/cloud-security-basics.html" title="Cloud Security Basics">Cloud Security Basics</a>
+<a class="nav-leaf" href="../cloud-security/public-cloud-storage-exposure.html" title="Public Cloud Storage Exposure">Public Cloud Storage Exposure</a>
+<a class="nav-leaf" href="../cloud-security/ssh-access-to-cloud-hosts.html" title="SSH Access to Cloud Hosts">SSH Access to Cloud Hosts</a>
+</div></details>
+<details class="nav-branch accent-green"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="nb-name">DevSecOps</span></span><span class="nb-right"><span class="count">13</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../devsecops/index.html">Resumen</a>
+<a class="nav-leaf" href="../devsecops/artifact-integrity.html" title="Artifact Integrity">Artifact Integrity</a>
+<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS as Dev Process Input">ASVS as Dev Process Input</a>
+<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Branch Protection and Release Controls">Branch Protection and Release Controls</a>
+<a class="nav-leaf" href="../devsecops/ci-cd-hardening.html" title="CI/CD Hardening">CI/CD Hardening</a>
+<a class="nav-leaf" href="../devsecops/container-security.html" title="Container Security">Container Security</a>
+<a class="nav-leaf" href="../devsecops/dependency-risk.html" title="Dependency Risk">Dependency Risk</a>
+<a class="nav-leaf" href="../devsecops/image-scanning.html" title="Image Scanning">Image Scanning</a>
+<a class="nav-leaf" href="../devsecops/nist-ssdf.html" title="NIST SSDF">NIST SSDF</a>
+<a class="nav-leaf" href="../devsecops/sbom-and-provenance.html" title="SBOM and Provenance">SBOM and Provenance</a>
+<a class="nav-leaf" href="../devsecops/secrets-management.html" title="Secrets Management">Secrets Management</a>
+<a class="nav-leaf" href="../devsecops/secure-by-design.html" title="Secure by Design">Secure by Design</a>
+<a class="nav-leaf" href="../devsecops/supply-chain-security.html" title="Supply Chain Security">Supply Chain Security</a>
+</div></details>
+<details class="nav-branch accent-red"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="nb-name">Identidad y Active Directory</span></span><span class="nb-right"><span class="count">13</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../identity-and-active-directory/index.html">Resumen</a>
+<a class="nav-leaf" href="../identity-and-active-directory/as-rep-roasting.html" title="AS-REP Roasting">AS-REP Roasting</a>
+<a class="nav-leaf" href="../identity-and-active-directory/bloodhound-attack-path-analysis.html" title="BloodHound and Attack Path Analysis">BloodHound and Attack Path Analysis</a>
+<a class="nav-leaf" href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html" title="DCSync and ntds.dit Extraction">DCSync and ntds.dit Extraction</a>
+<a class="nav-leaf" href="../identity-and-active-directory/gmsa-and-modern-service-account-hardening.html" title="gMSA and Modern Service Account Hardening">gMSA and Modern Service Account Hardening</a>
+<a class="nav-leaf" href="../identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html" title="Golden Ticket and KRBTGT Compromise">Golden Ticket and KRBTGT Compromise</a>
+<a class="nav-leaf" href="../identity-and-active-directory/identity-attack-paths-across-idps.html" title="Rutas de ataque de identidad entre IdPs">Rutas de ataque de identidad entre IdPs</a>
+<a class="nav-leaf" href="../identity-and-active-directory/kerberoasting.html" title="Kerberoasting">Kerberoasting</a>
+<a class="nav-leaf" href="../identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html" title="KRBTGT Rotation and Tier Zero Recovery">KRBTGT Rotation and Tier Zero Recovery</a>
+<a class="nav-leaf" href="../identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html" title="Pass-the-Hash and NTLM Credential Reuse">Pass-the-Hash and NTLM Credential Reuse</a>
+<a class="nav-leaf" href="../identity-and-active-directory/silver-ticket-and-service-account-persistence.html" title="Silver Ticket and Service Account Persistence">Silver Ticket and Service Account Persistence</a>
+<a class="nav-leaf" href="../identity-and-active-directory/tier-zero-administration-and-paw.html" title="Tier 0 Administration and Privileged Access Workstations">Tier 0 Administration and Privileged Access Workstations</a>
+<a class="nav-leaf" href="../identity-and-active-directory/windows-privilege-escalation.html" title="Windows Privilege Escalation">Windows Privilege Escalation</a>
+</div></details>
+<details class="nav-branch accent-fuchsia"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="8" height="14" rx="4"/><path d="M19 7l-3 2"/><path d="M5 7l3 2"/><path d="M19 13h-3"/><path d="M8 13H5"/><path d="M19 19l-3-2"/><path d="M5 19l3-2"/><path d="M12 6V3"/></svg><span class="nb-name">Explotación de Binarios</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../binary-exploitation/index.html">Resumen</a>
+<a class="nav-leaf" href="../binary-exploitation/exploit-mitigations.html" title="Exploit Mitigations">Exploit Mitigations</a>
+<a class="nav-leaf" href="../binary-exploitation/format-string-vulnerabilities.html" title="Vulnerabilidades de format string">Vulnerabilidades de format string</a>
+<a class="nav-leaf" href="../binary-exploitation/heap-buffer-overflow-and-allocator-exploitation.html" title="Heap buffer overflow y explotación del allocator">Heap buffer overflow y explotación del allocator</a>
+<a class="nav-leaf" href="../binary-exploitation/memory-corruption.html" title="Memory Corruption">Memory Corruption</a>
+<a class="nav-leaf" href="../binary-exploitation/rop-and-ret2libc.html" title="ROP and ret2libc">ROP and ret2libc</a>
+<a class="nav-leaf" href="../binary-exploitation/stack-buffer-overflow.html" title="Stack Buffer Overflow">Stack Buffer Overflow</a>
+<a class="nav-leaf" href="../binary-exploitation/use-after-free-and-dangling-pointers.html" title="Use-After-Free y punteros colgantes">Use-After-Free y punteros colgantes</a>
+</div></details>
+</div></details>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span class="ns-name"><span class="ns-num">★</span>Siempre activo</span></span><span class="ns-right"><span class="count">33</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-purple"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span class="nb-name">Privacidad, Anonimato y OPSEC</span></span><span class="nb-right"><span class="count">33</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<a class="nav-leaf nav-leaf-overview" href="../privacy-anonymity-opsec/index.html">Resumen</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/account-correlation.html" title="Account Correlation">Account Correlation</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/anonymity-threat-models.html" title="Anonymity Threat Models">Anonymity Threat Models</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/browser-fingerprinting.html" title="Browser Fingerprinting">Browser Fingerprinting</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/corporate-vpns-vs-consumer-vpns.html" title="Corporate VPNs vs Consumer VPNs">Corporate VPNs vs Consumer VPNs</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/deanonymization-failures.html" title="Deanonymization Failures">Deanonymization Failures</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/end-to-end-encryption.html" title="End-to-End Encryption">End-to-End Encryption</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/file-metadata-removal.html" title="File Metadata Removal">File Metadata Removal</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/metadata-and-identity-leakage.html" title="Metadata and Identity Leakage">Metadata and Identity Leakage</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/opsec-failure-chains.html" title="OPSEC Failure Chains">OPSEC Failure Chains</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/pgp-encryption-and-signatures.html" title="PGP Encryption and Signatures">PGP Encryption and Signatures</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/privacy-vs-anonymity-vs-confidentiality.html" title="Privacy vs Anonymity vs Confidentiality">Privacy vs Anonymity vs Confidentiality</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/private-email-threat-models.html" title="Private Email Threat Models">Private Email Threat Models</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/qubes-compartmentalization.html" title="Qubes Compartmentalization">Qubes Compartmentalization</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/secure-deletion-and-storage-wiping.html" title="Secure Deletion and Storage Wiping">Secure Deletion and Storage Wiping</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/secure-file-sharing.html" title="Secure File Sharing">Secure File Sharing</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/tails-operational-model.html" title="Tails Operational Model">Tails Operational Model</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/temporary-email-risks.html" title="Temporary Email Risks">Temporary Email Risks</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/tor-and-onion-services.html" title="Tor and Onion Services">Tor and Onion Services</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/tor-bridges-and-pluggable-transports.html" title="Tor Bridges and Pluggable Transports">Tor Bridges and Pluggable Transports</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/tor-browser-security-settings.html" title="Tor Browser Security Settings">Tor Browser Security Settings</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/traffic-correlation.html" title="Traffic Correlation">Traffic Correlation</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-dns-and-ipv6-leaks.html" title="VPN DNS and IPv6 Leaks">VPN DNS and IPv6 Leaks</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-fingerprinting-limitations.html" title="VPN Fingerprinting Limitations">VPN Fingerprinting Limitations</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-kill-switches.html" title="VPN Kill Switches">VPN Kill Switches</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-leakage-risks.html" title="VPN Leakage Risks">VPN Leakage Risks</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-logging-and-trust.html" title="VPN Logging and Trust">VPN Logging and Trust</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-protocols.html" title="VPN Protocols">VPN Protocols</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-threat-models.html" title="VPN Threat Models">VPN Threat Models</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-vs-tor.html" title="VPN vs Tor">VPN vs Tor</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/vpn-with-tor.html" title="VPN with Tor">VPN with Tor</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/whonix-gateway.html" title="Whonix Gateway">Whonix Gateway</a>
+<a class="nav-leaf" href="../privacy-anonymity-opsec/xmpp-and-private-messaging.html" title="XMPP and Private Messaging">XMPP and Private Messaging</a>
+</div></details>
+</div></details>
+</div>
+<div class="sidebar-section"><h3>Sistema de referencia</h3>
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="ns-name">Registros</span></span><span class="ns-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<a class="nav-child" href="../reference-registry.html"><span class="nc-left"><span class="nc-name">Cybersecurity Reference Registry</span></span></a>
+<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Reference Registry - Detection Engineering</span></span></a>
+<a class="nav-child" href="../reference-registry-privacy-anonymity-opsec.html"><span class="nc-left"><span class="nc-name">Reference Registry - Privacy, Anonymity &amp; OPSEC</span></span></a>
+<a class="nav-child" href="../reference-registry-api-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — API Security</span></span></a>
+<a class="nav-child" href="../reference-registry-attack-surface-mapping.html"><span class="nc-left"><span class="nc-name">Reference Registry — Attack Surface Mapping</span></span></a>
+<a class="nav-child" href="../reference-registry-binary-exploitation.html"><span class="nc-left"><span class="nc-name">Reference Registry — Binary Exploitation</span></span></a>
+<a class="nav-child" href="../reference-registry-cloud-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — Cloud Security</span></span></a>
+<a class="nav-child" href="../reference-registry-cryptography.html"><span class="nc-left"><span class="nc-name">Reference Registry — Cryptography</span></span></a>
+<a class="nav-child" href="../reference-registry-devsecops.html"><span class="nc-left"><span class="nc-name">Reference Registry — DevSecOps</span></span></a>
+<a class="nav-child" href="../reference-registry-identity-and-active-directory.html"><span class="nc-left"><span class="nc-name">Reference Registry — Identity and Active Directory</span></span></a>
+<a class="nav-child" href="../reference-registry-linux-privilege-escalation.html"><span class="nc-left"><span class="nc-name">Reference Registry — Linux Privilege Escalation</span></span></a>
+<a class="nav-child" href="../reference-registry-networking.html"><span class="nc-left"><span class="nc-name">Reference Registry — Networking</span></span></a>
+<a class="nav-child" href="../reference-registry-offensive-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — Offensive Security</span></span></a>
+<a class="nav-child" href="../reference-registry-osint.html"><span class="nc-left"><span class="nc-name">Reference Registry — OSINT</span></span></a>
+<a class="nav-child" href="../reference-registry-playbooks.html"><span class="nc-left"><span class="nc-name">Reference Registry — Playbooks</span></span></a>
+<a class="nav-child" href="../reference-registry-web-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — Web Security</span></span></a>
+<a class="nav-child" href="../reference-registry-wireless-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — Wireless Security</span></span></a>
+</div></details>
+</div>
+</div>
+<div class="sidebar-footer"><span>actualizado · 2026-06-03</span><span class="v">v2026.05</span></div>
+</nav>
+<div class="main-col">
+<header class="topbar">
+  <button id="sidebar-toggle" class="icon-btn menu-toggle" title="Alternar navegación" aria-label="Alternar navegación"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg></button>
+  <div class="topbar-search search-shell">
+    <svg class="search-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="search" type="search" placeholder="Buscar notas, playbooks, tags..." autocomplete="off">
+    <kbd>⌘K</kbd>
+  </div>
+  <div class="topbar-actions">
+    <div class="lang-switch" role="group" aria-label="Idioma"><a class="lang-link" hreflang="en" href="../../../en/cybersecurity/web-security/index.html" aria-current="false">EN</a><a class="lang-link active" hreflang="es" href="index.html" aria-current="page">ES</a></div>
+    <button class="icon-btn" aria-label="Notificaciones" title="Notificaciones"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></button>
+    <a class="github-link" href="https://github.com/ldamoredev/cibersecurity-notes" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.13v3.16c0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg><span class="gh-label">GitHub</span></a>
+  </div>
+</header>
+<div id="search-results" hidden></div>
+<div class="main-row">
+<main class="content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Seguridad Web</a><span>/</span><span>Web Security Index</span></nav>
+<header class="page-hero">
+<div class="page-meta"><span class="meta-chip">index</span><span class="meta-chip accent-blue">Seguridad Web</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#web-security</span><span class="meta-chip tag">#index</span></div>
+</header>
+<article class="article-note">
+<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
+<h1 id="web-security-index">Web Security Index</h1>
+<h2 id="purpose">Purpose</h2>
+<p>This index is the root entry point for the web-security branch of the cybersecurity vault.</p>
+<p>Use it to:
+- navigate the web-security notes
+- understand the order of study
+- connect networking concepts to application-layer vulnerabilities
+- expand into API security, attack surface mapping, and playbooks</p>
+<p>Use <a href="../reference-registry-web-security.html">Reference Registry — Web Security</a> as the source of truth for references in this branch.
+Return to <a href="../index.html">Cybersecurity Index</a> for root navigation across branches.</p>
+<blockquote>
+<p><em>Before this branch:</em>
+- <a href="../foundations/index.html">Foundations</a> (Phase 0).
+- <a href="../networking/tcp-ip-basics.html">TCP/IP basics</a>, <a href="../networking/http-overview.html">HTTP overview</a>, <a href="../networking/http-headers.html">HTTP headers</a>, <a href="../networking/cookies-and-sessions.html">Cookies and sessions</a>, <a href="../networking/tls-https.html">TLS/HTTPS</a>.</p>
+</blockquote>
+<hr />
+<h2 id="recommended-learning-order">Recommended learning order</h2>
+<h3 id="phase-1-core-mental-models">Phase 1 — Core mental models</h3>
+<ol>
+<li><a href="owasp-top-10.html">owasp-top-10</a></li>
+<li><a href="broken-access-control.html">broken-access-control</a></li>
+<li><a href="idor.html">idor</a></li>
+<li><a href="auth-flaws.html">auth-flaws</a></li>
+<li><a href="mfa-phishing-resistance.html">mfa-phishing-resistance</a></li>
+<li><a href="session-management.html">session-management</a></li>
+</ol>
+<h3 id="phase-2-input-and-client-side-attacks">Phase 2 — Input and client-side attacks</h3>
+<ol start="7">
+<li><a href="sql-injection.html">sql-injection</a></li>
+<li><a href="xss.html">xss</a></li>
+<li><a href="csrf.html">csrf</a></li>
+<li><a href="path-traversal.html">path-traversal</a></li>
+<li><a href="command-injection.html">command-injection</a></li>
+<li><a href="xxe.html">xxe</a></li>
+</ol>
+<h3 id="phase-3-server-side-and-proxy-aware-attacks">Phase 3 — Server-side and proxy-aware attacks</h3>
+<ol start="13">
+<li><a href="ssrf.html">ssrf</a></li>
+<li><a href="request-smuggling.html">request-smuggling</a></li>
+<li><a href="evilginx-and-reverse-proxy-phishing.html">evilginx-and-reverse-proxy-phishing</a></li>
+<li><a href="business-logic-vulnerabilities.html">business-logic-vulnerabilities</a></li>
+<li><a href="open-redirect.html">open-redirect</a></li>
+<li><a href="oauth-security.html">oauth-security</a></li>
+</ol>
+<h3 id="phase-4-supporting-context">Phase 4 — Supporting context</h3>
+<ol start="19">
+<li><a href="cors-misconfiguration.html">cors-misconfiguration</a></li>
+<li><a href="file-upload-abuse.html">file-upload-abuse</a></li>
+<li><a href="deserialization.html">deserialization</a></li>
+<li><a href="content-security-policy.html">content-security-policy</a></li>
+<li><a href="clickjacking.html">clickjacking</a></li>
+<li><a href="bot-detection-signals.html">bot-detection-signals</a></li>
+</ol>
+<hr />
+<h2 id="core-web-security-cluster">Core web-security cluster</h2>
+<h3 id="foundations">Foundations</h3>
+<ul>
+<li><a href="owasp-top-10.html">owasp-top-10</a></li>
+<li><a href="broken-access-control.html">broken-access-control</a></li>
+<li><a href="idor.html">idor</a></li>
+<li><a href="auth-flaws.html">auth-flaws</a></li>
+<li><a href="mfa-phishing-resistance.html">mfa-phishing-resistance</a></li>
+<li><a href="session-management.html">session-management</a></li>
+</ul>
+<h3 id="input-and-client-side-exploitation">Input and client-side exploitation</h3>
+<ul>
+<li><a href="sql-injection.html">sql-injection</a></li>
+<li><a href="xss.html">xss</a></li>
+<li><a href="csrf.html">csrf</a></li>
+<li><a href="path-traversal.html">path-traversal</a></li>
+<li><a href="command-injection.html">command-injection</a></li>
+<li><a href="xxe.html">xxe</a></li>
+<li><a href="open-redirect.html">open-redirect</a></li>
+</ul>
+<h3 id="server-side-exploitation">Server-side exploitation</h3>
+<ul>
+<li><a href="ssrf.html">ssrf</a></li>
+<li><a href="request-smuggling.html">request-smuggling</a></li>
+<li><a href="evilginx-and-reverse-proxy-phishing.html">evilginx-and-reverse-proxy-phishing</a></li>
+<li><a href="business-logic-vulnerabilities.html">business-logic-vulnerabilities</a></li>
+<li><a href="file-upload-abuse.html">file-upload-abuse</a></li>
+<li><a href="deserialization.html">deserialization</a></li>
+<li><a href="gadget-chains.html">gadget-chains</a></li>
+<li><a href="phar-deserialization.html">phar-deserialization</a></li>
+<li><a href="oauth-security.html">oauth-security</a></li>
+</ul>
+<h3 id="browser-and-policy-behavior">Browser and policy behavior</h3>
+<ul>
+<li><a href="cors-misconfiguration.html">cors-misconfiguration</a></li>
+<li><a href="content-security-policy.html">content-security-policy</a></li>
+<li><a href="clickjacking.html">clickjacking</a></li>
+<li><a href="bot-detection-signals.html">bot-detection-signals</a></li>
+</ul>
+<hr />
+<h2 id="cross-links-to-networking">Cross-links to networking</h2>
+<ul>
+<li><a href="../networking/http-overview.html">http-overview</a> → request/response model for all web exploits</li>
+<li><a href="../networking/http-messages.html">http-messages</a> → raw shape of requests, headers, bodies</li>
+<li><a href="../networking/http-headers.html">http-headers</a> → cookies, CSP, CORS, forwarding, caching</li>
+<li><a href="../networking/cookies-and-sessions.html">cookies-and-sessions</a> → state and session behavior</li>
+<li><a href="../networking/reverse-proxies.html">reverse-proxies</a> → trust boundaries and request parsing</li>
+<li><a href="../networking/client-ip-trust.html">client-ip-trust</a> → header-based trust abuse</li>
+<li><a href="../networking/tls-https.html">tls-https</a> → transport and cookie security</li>
+<li><a href="../networking/metadata-endpoints.html">metadata-endpoints</a> → SSRF impact amplification</li>
+</ul>
+<hr />
+<h2 id="suggested-future-notes">Suggested future notes</h2>
+<h3 id="next-atomic-notes">Next atomic notes</h3>
+<ul>
+<li><span class="unresolved-link" title="Unpublished or unresolved: secure-headers">secure-headers</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: html-injection">html-injection</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: http-trace-method">http-trace-method</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: hidden-parameters">hidden-parameters</span></li>
+<li><span class="unresolved-link" title="Unpublished or unresolved: bug-bounty-reporting">bug-bounty-reporting</span></li>
+</ul>
+<h3 id="connected-playbooks">Connected playbooks</h3>
+<ul>
+<li><a href="../security-playbooks/exploit-idor.html">exploit-idor</a></li>
+<li><a href="../security-playbooks/exploit-sqli.html">exploit-sqli</a></li>
+<li><a href="../security-playbooks/investigate-ssrf.html">investigate-ssrf</a></li>
+<li><a href="../security-playbooks/inspect-session-handling.html">inspect-session-handling</a></li>
+<li><a href="../security-playbooks/reverse-proxy-misconfig-checklist.html">reverse-proxy-misconfig-checklist</a></li>
+<li><a href="../security-playbooks/test-cors-behavior.html">test-cors-behavior</a></li>
+</ul>
+<hr />
+<h2 id="references">References</h2>
+<ul>
+<li><strong>Foundational:</strong> OWASP Top 10 — https://owasp.org/www-project-top-ten/</li>
+<li><strong>Foundational:</strong> OWASP WSTG Latest — https://owasp.org/www-project-web-security-testing-guide/latest/</li>
+<li><strong>Testing / Lab:</strong> PortSwigger Web Security Academy — https://portswigger.net/web-security</li>
+</ul>
+</article>
+</main>
+<aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
+<a class="toc-level-2" href="#purpose">Purpose</a>
+<a class="toc-level-2" href="#recommended-learning-order">Recommended learning order</a>
+<a class="toc-level-3" href="#phase-1-core-mental-models">Phase 1 — Core mental models</a>
+<a class="toc-level-3" href="#phase-2-input-and-client-side-attacks">Phase 2 — Input and client-side attacks</a>
+<a class="toc-level-3" href="#phase-3-server-side-and-proxy-aware-attacks">Phase 3 — Server-side and proxy-aware attacks</a>
+<a class="toc-level-3" href="#phase-4-supporting-context">Phase 4 — Supporting context</a>
+<a class="toc-level-2" href="#core-web-security-cluster">Core web-security cluster</a>
+<a class="toc-level-3" href="#foundations">Foundations</a>
+<a class="toc-level-3" href="#input-and-client-side-exploitation">Input and client-side exploitation</a>
+<a class="toc-level-3" href="#server-side-exploitation">Server-side exploitation</a>
+<a class="toc-level-3" href="#browser-and-policy-behavior">Browser and policy behavior</a>
+<a class="toc-level-2" href="#cross-links-to-networking">Cross-links to networking</a>
+<a class="toc-level-2" href="#suggested-future-notes">Suggested future notes</a>
+<a class="toc-level-3" href="#next-atomic-notes">Next atomic notes</a>
+<a class="toc-level-3" href="#connected-playbooks">Connected playbooks</a>
+<a class="toc-level-2" href="#references">References</a>
+<a class="back-to-top" href="#top">Volver arriba</a></div></aside>
+</div>
+</div>
+</div>
+<script src="../../../assets/search.js?v=6d139dc885"></script>
+</body>
+</html>

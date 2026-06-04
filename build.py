@@ -191,6 +191,149 @@ MATURE_CYBERSECURITY_ROOT_FILES = {
     "reference-registry-wireless-security.md",
 }
 
+# --- Internationalization (i18n) -------------------------------------------
+# The vault stays canonical English. Spanish is a WEB-ONLY overlay: translated
+# note bodies live in THIS repo under translations/es/<rel_path> (never in the
+# vault). UI chrome is translated via UI_STRINGS below. Pages are emitted per
+# locale under site/<locale>/, with hreflang alternates and a language switcher.
+LOCALES = ("en", "es")
+DEFAULT_LOCALE = "en"
+CURRENT_LOCALE = DEFAULT_LOCALE  # rebound per build pass in main()
+TRANSLATIONS_ROOT = Path(__file__).resolve().parent / "translations"
+OG_LOCALE = {"en": "en_US", "es": "es_ES"}
+LOCALE_LABEL = {"en": "EN", "es": "ES"}
+LOCALE_NAME = {"en": "English", "es": "Español"}
+
+# Spanish labels + summaries for branches (overlay on the English BRANCHES dict).
+BRANCHES_ES = {
+    "foundations": {"label": "Fundamentos", "summary": "Modelos mentales de la Fase 0 — qué es la ciberseguridad, la tríada CIA como herramienta de decisión, arranque de modelado de amenazas y la dualidad atacante-defensor."},
+    "cryptography": {"label": "Criptografía", "summary": "Hashes, cifrado, firmas, intercambio de claves, TLS/PKI, almacenamiento de contraseñas y corrección de tokens."},
+    "networking": {"label": "Redes", "summary": "Alcanzabilidad, HTTP, proxies, DNS, TLS y observación a nivel de paquete."},
+    "wireless-security": {"label": "Seguridad Inalámbrica", "summary": "Tramas Wi-Fi, handshakes, puntos de acceso falsos y MITM en la red local."},
+    "web-security": {"label": "Seguridad Web", "summary": "Comportamiento del navegador, sesiones, control de acceso y patrones de explotación del lado del servidor."},
+    "api-security": {"label": "Seguridad de APIs", "summary": "Autorización, confianza en tokens, deriva de inventario y abuso legible por máquina."},
+    "cloud-security": {"label": "Seguridad en la Nube", "summary": "IAM, metadata, almacenamiento, límites de red, secretos y controles de logging."},
+    "attack-surface-mapping": {"label": "Mapeo de Superficie de Ataque", "summary": "Qué está expuesto, alcanzable, descubrible y desviándose del diseño previsto."},
+    "osint": {"label": "OSINT", "summary": "Recolección de fuentes públicas, calidad de la evidencia y manejo ético de las pistas."},
+    "offensive-security": {"label": "Seguridad Ofensiva / Recon", "summary": "Descubrimiento, validación y traspaso del recon hacia pruebas concretas."},
+    "linux-privilege-escalation": {"label": "Escalada de Privilegios en Linux", "summary": "Fallas de límites locales, enumeración y prueba segura de hipótesis de escalada."},
+    "privacy-anonymity-opsec": {"label": "Privacidad, Anonimato y OPSEC", "summary": "Modelos de amenaza de VPN, Tor, fuga de metadata, compartimentación y modos de falla de OPSEC."},
+    "devsecops": {"label": "DevSecOps", "summary": "Entrega segura, hardening de CI/CD, cadena de suministro, secretos y confianza en releases."},
+    "detection-engineering": {"label": "Ingeniería de Detección", "summary": "Telemetría, analítica de comportamiento, correlación y trade-offs de detección."},
+    "identity-and-active-directory": {"label": "Identidad y Active Directory", "summary": "Kerberos, análisis de grafos con BloodHound, DCSync e ingeniería de rutas de ataque en AD entre ofensa y defensa."},
+    "binary-exploitation": {"label": "Explotación de Binarios", "summary": "Corrupción de memoria, desbordamientos de stack y heap, mitigaciones de exploits, ingeniería inversa y la carrera armamentista moderna de explotación a nivel binario."},
+    "security-playbooks": {"label": "Playbooks de Seguridad", "summary": "Procedimientos repetibles para convertir conceptos en pruebas prácticas."},
+}
+
+# Display names for phase groups (the internal group KEY stays English).
+GROUP_LABELS = {
+    "en": {g: g for g in BRANCH_GROUPS},
+    "es": {
+        "Orientation": "Orientación",
+        "Substrate": "Sustrato",
+        "Paired": "Ofensa-Defensa",
+        "Operator": "Operador",
+        "Specialty": "Especialidad",
+        "Always-on": "Siempre activo",
+    },
+}
+
+UI_STRINGS = {
+    "en": {
+        "brand_sub": "Knowledge Base", "theme_toggle": "Toggle theme",
+        "light_mode": "Light mode", "dark_mode": "Dark mode",
+        "atlas_home": "Atlas Home", "entry_layer": "Entry layer",
+        "cybersecurity_index": "Cybersecurity Index", "learning_path": "Learning Path",
+        "reference_system": "Reference system", "registries": "Registries",
+        "overview": "Overview", "updated_short": "updated",
+        "nav_toggle": "Toggle navigation", "search_placeholder": "Search notes, playbooks, tags...",
+        "notifications": "Notifications", "bc_home": "Home", "bc_cyber": "Cybersecurity",
+        "min_read": "min read", "reading_time_title": "Estimated reading time",
+        "updated": "Updated", "last_updated_title": "Last updated",
+        "on_this_page": "On This Page", "on_this_page_aria": "On this page",
+        "back_to_top": "Back to top", "previous": "Previous", "next": "Next",
+        "related_notes": "Related notes", "lang_switch_aria": "Language",
+        "translation_pending": "This note isn't translated yet — showing the English original.",
+        "search_no_matches": "No matches for", "search_result": "result",
+        "search_results": "results", "search_hint": "↑↓ to navigate · ↵ to open",
+        "home_title_1": "Cybersecurity", "home_title_2": "Knowledge Base",
+        "home_lede": "A curated atlas of <strong>{notes} notes</strong> across <strong>{branches} branches</strong> — organized by learning phase, from foundational substrate to specialty operations. Each note is atomic, with attacker/defender duality, references, and links to <em>playbooks</em> that turn it into action.",
+        "home_explore": "Explore Notes", "home_playbooks": "View Playbooks",
+        "stat_notes": "Notes", "stat_branches": "Branches", "stat_playbooks": "Playbooks", "stat_registries": "Registries",
+        "path_eyebrow": "The learning path",
+        "path_h2": "Read it in order. Each phase is the prerequisite for the next.",
+        "path_p": "Start at <strong>00 · Orientation</strong> for the vocabulary. Walk through Substrate → Paired → Operator → Specialty. <strong>★ Always-on</strong> (privacy, OPSEC) threads through everything.",
+        "path_cta": "Open the Start Here guide", "phase_label": "Phase", "phase_overview": "Phase overview",
+        "branch_singular": "branch", "branch_plural": "branches", "note_singular": "note", "note_plural": "notes",
+        "branch_explore": "Explore", "branch_notes_suffix": "notes", "featured_label": "Featured Note",
+        "ref_eyebrow": "Reference system", "ref_h2": "Reference registries",
+        "ref_p": "The registries keep citations normalized behind the learning branches, so atomic notes stay compact and high-signal.",
+        "footer_about": "A personal cybersecurity knowledge base, published from an Obsidian vault as a static operator reference.",
+        "footer_start": "Start Here", "footer_index": "Full index",
+        "landing_title": "Choose your language", "landing_sub": "ldamoredev Security Atlas",
+        "tag_Orientation": "Start here", "tag_Substrate": "How things work", "tag_Paired": "Offense ↔ Defense",
+        "tag_Operator": "Hands-on", "tag_Specialty": "Go deep", "tag_Always-on": "Cross-cutting",
+        "intent_Orientation": "Mental models, the CIA triad, and threat modeling — the language you'll use everywhere else.",
+        "intent_Substrate": "Networking, cryptography, browser trust, OS behavior. The substrate that every attack and defense touches.",
+        "intent_Paired": "Attack and detection as paired thinking. Every offensive primitive has a defensive signature; learn them together.",
+        "intent_Operator": "Recon, exposure mapping, privilege escalation, and the practical workflows of an offensive operator.",
+        "intent_Specialty": "Pick what your job demands: cloud, identity, DevSecOps, wireless, binary exploitation, API security.",
+        "intent_Always-on": "Privacy, anonymity, OPSEC. Practice continuously — these aren't a phase, they're a posture.",
+        "title_index": "Cybersecurity Notes Index", "title_notes": "Notes",
+    },
+    "es": {
+        "brand_sub": "Base de Conocimiento", "theme_toggle": "Cambiar tema",
+        "light_mode": "Modo claro", "dark_mode": "Modo oscuro",
+        "atlas_home": "Inicio del Atlas", "entry_layer": "Capa de entrada",
+        "cybersecurity_index": "Índice de Ciberseguridad", "learning_path": "Ruta de aprendizaje",
+        "reference_system": "Sistema de referencia", "registries": "Registros",
+        "overview": "Resumen", "updated_short": "actualizado",
+        "nav_toggle": "Alternar navegación", "search_placeholder": "Buscar notas, playbooks, tags...",
+        "notifications": "Notificaciones", "bc_home": "Inicio", "bc_cyber": "Ciberseguridad",
+        "min_read": "min de lectura", "reading_time_title": "Tiempo estimado de lectura",
+        "updated": "Actualizado", "last_updated_title": "Última actualización",
+        "on_this_page": "En esta página", "on_this_page_aria": "En esta página",
+        "back_to_top": "Volver arriba", "previous": "Anterior", "next": "Siguiente",
+        "related_notes": "Notas relacionadas", "lang_switch_aria": "Idioma",
+        "translation_pending": "Esta nota todavía no está traducida — se muestra el original en inglés.",
+        "search_no_matches": "Sin coincidencias para", "search_result": "resultado",
+        "search_results": "resultados", "search_hint": "↑↓ para navegar · ↵ para abrir",
+        "home_title_1": "Ciberseguridad", "home_title_2": "Base de Conocimiento",
+        "home_lede": "Un atlas curado de <strong>{notes} notas</strong> en <strong>{branches} ramas</strong> — organizado por fase de aprendizaje, desde el sustrato fundamental hasta operaciones de especialidad. Cada nota es atómica, con dualidad atacante/defensor, referencias y enlaces a <em>playbooks</em> que la convierten en acción.",
+        "home_explore": "Explorar notas", "home_playbooks": "Ver playbooks",
+        "stat_notes": "Notas", "stat_branches": "Ramas", "stat_playbooks": "Playbooks", "stat_registries": "Registros",
+        "path_eyebrow": "La ruta de aprendizaje",
+        "path_h2": "Leelo en orden. Cada fase es el prerrequisito de la siguiente.",
+        "path_p": "Empezá en <strong>00 · Orientación</strong> para el vocabulario. Recorré Sustrato → Ofensa-Defensa → Operador → Especialidad. <strong>★ Siempre activo</strong> (privacidad, OPSEC) atraviesa todo.",
+        "path_cta": "Abrir la guía Start Here", "phase_label": "Fase", "phase_overview": "Resumen de la fase",
+        "branch_singular": "rama", "branch_plural": "ramas", "note_singular": "nota", "note_plural": "notas",
+        "branch_explore": "Explorar", "branch_notes_suffix": "notas", "featured_label": "Nota destacada",
+        "ref_eyebrow": "Sistema de referencia", "ref_h2": "Registros de referencia",
+        "ref_p": "Los registros mantienen las citas normalizadas detrás de las ramas de aprendizaje, para que las notas atómicas queden compactas y de alta señal.",
+        "footer_about": "Una base de conocimiento personal de ciberseguridad, publicada desde un vault de Obsidian como referencia estática para operadores.",
+        "footer_start": "Empezar acá", "footer_index": "Índice completo",
+        "landing_title": "Elegí tu idioma", "landing_sub": "ldamoredev Security Atlas",
+        "tag_Orientation": "Empezá acá", "tag_Substrate": "Cómo funcionan las cosas", "tag_Paired": "Ofensa ↔ Defensa",
+        "tag_Operator": "Manos a la obra", "tag_Specialty": "Profundizar", "tag_Always-on": "Transversal",
+        "intent_Orientation": "Modelos mentales, la tríada CIA y el modelado de amenazas — el lenguaje que vas a usar en todo lo demás.",
+        "intent_Substrate": "Redes, criptografía, confianza del navegador, comportamiento del SO. El sustrato que toca cada ataque y cada defensa.",
+        "intent_Paired": "Ataque y detección como pensamiento emparejado. Cada primitiva ofensiva tiene una firma defensiva; aprendelas juntas.",
+        "intent_Operator": "Recon, mapeo de exposición, escalada de privilegios y los flujos prácticos de un operador ofensivo.",
+        "intent_Specialty": "Elegí lo que tu trabajo exige: nube, identidad, DevSecOps, inalámbrico, explotación de binarios, seguridad de APIs.",
+        "intent_Always-on": "Privacidad, anonimato, OPSEC. Practicá de forma continua — no son una fase, son una postura.",
+        "title_index": "Índice de Notas de Ciberseguridad", "title_notes": "Notas",
+    },
+}
+
+
+def t(key: str) -> str:
+    """Look up a UI string for the current locale, falling back to English."""
+    loc = UI_STRINGS.get(CURRENT_LOCALE, UI_STRINGS[DEFAULT_LOCALE])
+    if key in loc:
+        return loc[key]
+    return UI_STRINGS[DEFAULT_LOCALE].get(key, key)
+
+
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 WIKILINK_RE = re.compile(r"\[\[([^\]\|]+)(?:\|([^\]]+))?\]\]")
 MD_LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
@@ -209,7 +352,7 @@ class Note:
 
     @property
     def out_path(self) -> Path:
-        return OUT / self.rel_path.with_suffix(".html")
+        return OUT / CURRENT_LOCALE / self.rel_path.with_suffix(".html")
 
     @property
     def url(self) -> str:
@@ -232,11 +375,45 @@ def page_kind(note: Note) -> str:
     return "concept"
 
 
+_TITLE_CACHE: dict[str, dict[str, str]] = {}
+
+
+def localized_title(note: Note) -> str:
+    """Title for `note` in the current locale: the overlay's H1 if a translation
+    exists, else the canonical English title. Cached per locale so the sidebar,
+    related list, and prev/next links (which render OTHER notes' titles) stay cheap."""
+    base = note.title.replace(" Seed", "")
+    if CURRENT_LOCALE == DEFAULT_LOCALE:
+        return base
+    cache = _TITLE_CACHE.setdefault(CURRENT_LOCALE, {})
+    key = str(note.rel_path)
+    if key not in cache:
+        title = base
+        overlay = TRANSLATIONS_ROOT / CURRENT_LOCALE / note.rel_path
+        if overlay.exists():
+            try:
+                raw = overlay.read_text(encoding="utf-8")
+                m = FRONTMATTER_RE.match(raw)
+                if m:
+                    raw = raw[m.end():]
+                tm = re.search(r"^#\s+(.+)$", raw, re.MULTILINE)
+                if tm:
+                    title = tm.group(1).strip()
+            except OSError:
+                pass
+        cache[key] = title
+    return cache[key]
+
+
 def note_label(note: Note) -> str:
-    return note.title.replace(" Seed", "")
+    return localized_title(note)
 
 
 def branch_label(slug: str) -> str:
+    if CURRENT_LOCALE != DEFAULT_LOCALE:
+        loc = BRANCHES_ES.get(slug) if CURRENT_LOCALE == "es" else None
+        if loc and loc.get("label"):
+            return loc["label"]
     return BRANCHES.get(slug, {}).get("label", slug.replace("-", " ").title())
 
 
@@ -244,7 +421,16 @@ def branch_group(slug: str) -> str:
     return BRANCHES.get(slug, {}).get("group", "Other")
 
 
+def group_label(group: str) -> str:
+    """Display name for a phase group in the current locale (key stays English)."""
+    return GROUP_LABELS.get(CURRENT_LOCALE, GROUP_LABELS[DEFAULT_LOCALE]).get(group, group)
+
+
 def branch_summary(slug: str) -> str:
+    if CURRENT_LOCALE != DEFAULT_LOCALE:
+        loc = BRANCHES_ES.get(slug) if CURRENT_LOCALE == "es" else None
+        if loc and loc.get("summary"):
+            return loc["summary"]
     return BRANCHES.get(slug, {}).get("summary", "")
 
 
@@ -333,11 +519,11 @@ def build_slug_index(notes: list[Note]) -> tuple[dict[str, list[Note]], dict[str
 def rewrite_links(md_text: str, note: Note, by_slug: dict[str, list[Note]], by_path: dict[str, Note]) -> str:
     """Rewrite [[wikilinks]] and relative .md links to generated .html paths."""
     import os
-    here = (OUT / note.rel_path).parent
+    here = (loc_root() / note.rel_path).parent
     source_folder = "/".join(note.rel_path.parts[:-1])
 
     def rel_href(target: Note) -> str:
-        return os.path.relpath(OUT / target.rel_path.with_suffix(".html"), here)
+        return os.path.relpath(loc_root() / target.rel_path.with_suffix(".html"), here)
 
     def resolve(raw: str) -> Note | None:
         raw = raw.strip()
@@ -432,25 +618,25 @@ def branch_note_count(subs: dict[str, list[Note]], slug: str) -> int:
 
 def render_sidebar(tree: dict, current: Note | None) -> str:
     """Render the design's sidebar: phase groups expand to reveal branch links."""
-    home_href = relpath_from(current, OUT / "index.html")
+    home_href = relpath_from(current, loc_root() / "index.html")
     lines: list[str] = ['<nav class="sidebar">']
     lines.append(
         '<div class="sidebar-head">'
         f'<a class="sidebar-brand" href="{html.escape(home_href)}">'
         '<span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>'
-        '<span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Knowledge Base</span></span>'
+        f'<span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">{html.escape(t("brand_sub"))}</span></span>'
         '</a>'
-        '<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">'
+        f'<button class="theme-toggle" id="theme-toggle" type="button" aria-label="{html.escape(t("theme_toggle"))}">'
         '<span class="theme-label">'
-        '<span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span>'
-        '<span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span>'
+        f'<span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>{html.escape(t("light_mode"))}</span>'
+        f'<span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>{html.escape(t("dark_mode"))}</span>'
         '</span>'
         '<span class="toggle-pill"></span>'
         '</button>'
         '</div>'
     )
     lines.append('<div class="sidebar-body">')
-    lines.append(f'<a class="sidebar-home" href="{html.escape(home_href)}">Atlas Home</a>')
+    lines.append(f'<a class="sidebar-home" href="{html.escape(home_href)}">{html.escape(t("atlas_home"))}</a>')
 
     subs = tree.get("cybersecurity", {})
     current_branch = branch_slug(current) if current else ""
@@ -469,9 +655,9 @@ def render_sidebar(tree: dict, current: Note | None) -> str:
     root_notes = [n for n in subs.get("", []) if not n.slug.startswith("reference-registry")]
     root_notes.sort(key=lambda n: (root_order.get(n.slug, 99), n.title.lower()))
     if root_notes:
-        lines.append('<div class="sidebar-section"><h3>Entry layer</h3>')
+        lines.append(f'<div class="sidebar-section"><h3>{html.escape(t("entry_layer"))}</h3>')
         for n in root_notes:
-            label = "Cybersecurity Index" if n.slug == "index" else None
+            label = t("cybersecurity_index") if n.slug == "index" else None
             lines.append(render_sidebar_link(n, current, label=label))
         lines.append('</div>')
 
@@ -484,7 +670,7 @@ def render_sidebar(tree: dict, current: Note | None) -> str:
         "Specialty":   "04",
         "Always-on":   "★",
     }
-    lines.append('<div class="sidebar-section"><h3>Learning Path</h3>')
+    lines.append(f'<div class="sidebar-section"><h3>{html.escape(t("learning_path"))}</h3>')
     for group in BRANCH_GROUPS:
         group_branches = [s for s in BRANCHES if s in subs and branch_group(s) == group]
         if not group_branches:
@@ -499,7 +685,7 @@ def render_sidebar(tree: dict, current: Note | None) -> str:
             '<summary>'
             '<span class="ns-left">'
             f'<svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{icon_paths}</svg>'
-            f'<span class="ns-name"><span class="ns-num">{html.escape(phase_num)}</span>{html.escape(group)}</span>'
+            f'<span class="ns-name"><span class="ns-num">{html.escape(phase_num)}</span>{html.escape(group_label(group))}</span>'
             '</span>'
             '<span class="ns-right">'
             f'<span class="count">{group_count}</span>'
@@ -537,13 +723,13 @@ def render_sidebar(tree: dict, current: Note | None) -> str:
                 '<div class="nav-leaves">'
             )
             if index_note:
-                ovr_href = relpath_from(current, OUT / index_note.rel_path.with_suffix(".html"))
+                ovr_href = relpath_from(current, loc_root() / index_note.rel_path.with_suffix(".html"))
                 ovr_active = " active" if current and current.rel_path == index_note.rel_path else ""
                 lines.append(
-                    f'<a class="nav-leaf nav-leaf-overview{ovr_active}" href="{html.escape(ovr_href)}">Overview</a>'
+                    f'<a class="nav-leaf nav-leaf-overview{ovr_active}" href="{html.escape(ovr_href)}">{html.escape(t("overview"))}</a>'
                 )
             for nt in note_leaves:
-                leaf_href = relpath_from(current, OUT / nt.rel_path.with_suffix(".html"))
+                leaf_href = relpath_from(current, loc_root() / nt.rel_path.with_suffix(".html"))
                 leaf_active = " active" if current and current.rel_path == nt.rel_path else ""
                 leaf_label = note_label(nt)
                 if len(leaf_label) > 56:
@@ -552,19 +738,20 @@ def render_sidebar(tree: dict, current: Note | None) -> str:
                     f'<a class="nav-leaf{leaf_active}" href="{html.escape(leaf_href)}" title="{html.escape(note_label(nt))}">{html.escape(leaf_label)}</a>'
                 )
             lines.append('</div></details>')
+        lines.append('</div></details>')  # close this phase group's nav-children + nav-group
     lines.append('</div>')
 
     # Reference registries — collapsed group.
     registry_notes = [n for n in subs.get("", []) if n.slug.startswith("reference-registry")]
     if registry_notes:
         open_attr = " open" if current and page_kind(current) == "registry" else ""
-        lines.append('<div class="sidebar-section"><h3>Reference system</h3>')
+        lines.append(f'<div class="sidebar-section"><h3>{html.escape(t("reference_system"))}</h3>')
         lines.append(
             f'<details class="nav-group"{open_attr}>'
             '<summary>'
             '<span class="ns-left">'
             '<svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>'
-            '<span class="ns-name">Registries</span>'
+            f'<span class="ns-name">{html.escape(t("registries"))}</span>'
             '</span>'
             '<span class="ns-right">'
             f'<span class="count">{len(registry_notes)}</span>'
@@ -574,7 +761,7 @@ def render_sidebar(tree: dict, current: Note | None) -> str:
             '<div class="nav-children">'
         )
         for n in registry_notes:
-            href = relpath_from(current, OUT / n.rel_path.with_suffix(".html"))
+            href = relpath_from(current, loc_root() / n.rel_path.with_suffix(".html"))
             active = " active" if current and current.rel_path == n.rel_path else ""
             label = note_label(n)
             lines.append(
@@ -590,7 +777,7 @@ def render_sidebar(tree: dict, current: Note | None) -> str:
     today = date.today().isoformat()
     lines.append(
         '<div class="sidebar-footer">'
-        f'<span>updated · {html.escape(today)}</span>'
+        f'<span>{html.escape(t("updated_short"))} · {html.escape(today)}</span>'
         '<span class="v">v2026.05</span>'
         '</div>'
     )
@@ -599,8 +786,8 @@ def render_sidebar(tree: dict, current: Note | None) -> str:
 
 
 def render_sidebar_link(n: Note, current: Note | None, label: str | None = None) -> str:
-    target_html = OUT / n.rel_path.with_suffix(".html")
-    here = (OUT / current.rel_path).parent if current else OUT
+    target_html = loc_root() / n.rel_path.with_suffix(".html")
+    here = (loc_root() / current.rel_path).parent if current else loc_root()
     import os
     href = os.path.relpath(target_html, here)
     classes = ["sidebar-link", f"kind-{page_kind(n)}"]
@@ -611,20 +798,25 @@ def render_sidebar_link(n: Note, current: Note | None, label: str | None = None)
     return f'<a class="{" ".join(classes)}" href="{html.escape(href)}">{html.escape(visible_label)}</a>'
 
 
+def loc_root() -> Path:
+    """Output root for the current locale (e.g. site/en)."""
+    return OUT / CURRENT_LOCALE
+
+
 def relpath_from(note: Note | None, target: Path) -> str:
     import os
-    here = (OUT / note.rel_path).parent if note else OUT
+    here = (loc_root() / note.rel_path).parent if note else loc_root()
     return os.path.relpath(target, here)
 
 
 def breadcrumb_html(note: Note) -> str:
-    parts = [f'<a href="{html.escape(relpath_from(note, OUT / "index.html"))}">Home</a>']
+    parts = [f'<a href="{html.escape(relpath_from(note, loc_root() / "index.html"))}">{html.escape(t("bc_home"))}</a>']
     if note.rel_path.parts and note.rel_path.parts[0] == "cybersecurity":
-        cyber_index = OUT / "cybersecurity" / "index.html"
-        parts.append(f'<a href="{html.escape(relpath_from(note, cyber_index))}">Cybersecurity</a>')
+        cyber_index = loc_root() / "cybersecurity" / "index.html"
+        parts.append(f'<a href="{html.escape(relpath_from(note, cyber_index))}">{html.escape(t("bc_cyber"))}</a>')
     branch = branch_slug(note)
     if branch:
-        branch_index = OUT / "cybersecurity" / branch / "index.html"
+        branch_index = loc_root() / "cybersecurity" / branch / "index.html"
         parts.append(f'<a href="{html.escape(relpath_from(note, branch_index))}">{html.escape(branch_label(branch))}</a>')
     parts.append(f'<span>{html.escape(note_label(note))}</span>')
     return '<nav class="breadcrumbs" aria-label="Breadcrumb">' + "<span>/</span>".join(parts) + "</nav>"
@@ -658,10 +850,10 @@ def page_meta_html(note: Note) -> str:
         chips.append(f'<span class="meta-chip accent-{html.escape(branch_accent(branch))}">{html.escape(branch_label(branch))}</span>')
     minutes = reading_time_minutes(note)
     if minutes:
-        chips.append(f'<span class="meta-chip meta-time" title="Estimated reading time">~{minutes} min read</span>')
+        chips.append(f'<span class="meta-chip meta-time" title="{html.escape(t("reading_time_title"))}">~{minutes} {html.escape(t("min_read"))}</span>')
     if page_kind(note) in {"concept", "playbook"}:
         updated = format_lastmod_human(note_last_modified(note))
-        chips.append(f'<span class="meta-chip meta-updated" title="Last updated">Updated {html.escape(updated)}</span>')
+        chips.append(f'<span class="meta-chip meta-updated" title="{html.escape(t("last_updated_title"))}">{html.escape(t("updated"))} {html.escape(updated)}</span>')
     if note.tags:
         chips.extend(f'<span class="meta-chip tag">#{html.escape(t)}</span>' for t in note.tags)
     return f'<div class="page-meta">{"".join(chips)}</div>'
@@ -682,10 +874,10 @@ def render_toc(html_body: str) -> str:
     headings = extract_toc(html_body)
     if not headings:
         return ""
-    lines = ['<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>']
+    lines = [f'<aside class="toc" aria-label="{html.escape(t("on_this_page_aria"))}"><div class="toc-inner"><h2>{html.escape(t("on_this_page"))}</h2>']
     for level, anchor, label in headings[:18]:
         lines.append(f'<a class="toc-level-{level}" href="#{html.escape(anchor)}">{html.escape(label)}</a>')
-    lines.append('<a class="back-to-top" href="#top">Back to top</a></div></aside>')
+    lines.append(f'<a class="back-to-top" href="#top">{html.escape(t("back_to_top"))}</a></div></aside>')
     return "\n".join(lines)
 
 
@@ -708,10 +900,14 @@ def note_last_modified(note: Note) -> str:
     return date.fromtimestamp(ts).isoformat()
 
 
-def canonical_url(note: Note) -> str:
+def locale_url(note: Note, loc: str) -> str:
     if note.section == "" and note.rel_path == Path("index.md"):
-        return SITE_URL + "/"
-    return absolute_site_url(note.url)
+        return f"{SITE_URL}/{loc}/"
+    return f"{SITE_URL}/{loc}/{note.url}"
+
+
+def canonical_url(note: Note) -> str:
+    return locale_url(note, CURRENT_LOCALE)
 
 
 def page_title(note: Note) -> str:
@@ -719,9 +915,9 @@ def page_title(note: Note) -> str:
     branch = branch_slug(note)
 
     if note.section == "" and note.rel_path == Path("index.md"):
-        return f"Cybersecurity Notes Index | {SITE_NAME}"
+        return f"{t('title_index')} | {SITE_NAME}"
     if page_kind(note) == "index" and branch:
-        return f"{branch_label(branch)} Notes | {SITE_NAME}"
+        return f"{branch_label(branch)} {t('title_notes')} | {SITE_NAME}"
     if page_kind(note) == "registry":
         return f"{label} | {SITE_NAME}"
     if branch:
@@ -777,12 +973,18 @@ def note_description(note: Note) -> str:
 
     branch = branch_slug(note)
     if page_kind(note) == "index" and branch:
+        if CURRENT_LOCALE == "es":
+            return truncate_description(f"Notas de {branch_label(branch)}: {branch_summary(branch)}")
         return truncate_description(f"{branch_label(branch)} notes: {branch_summary(branch)}")
 
     para = first_content_paragraph(note.body_md)
     if para:
         return truncate_description(para)
     if branch:
+        if CURRENT_LOCALE == "es":
+            return truncate_description(
+                f"{note_label(note)} en la rama {branch_label(branch)} de la base de conocimiento de ciberseguridad de ldamoredev."
+            )
         return truncate_description(
             f"{note_label(note)} in the {branch_label(branch)} branch of the ldamoredev cybersecurity knowledge base."
         )
@@ -809,12 +1011,12 @@ def page_keywords(note: Note) -> list[str]:
 
 
 def breadcrumb_items(note: Note) -> list[tuple[str, str]]:
-    items: list[tuple[str, str]] = [("Home", absolute_site_url("index.html"))]
+    items: list[tuple[str, str]] = [(t("bc_home"), f"{SITE_URL}/{CURRENT_LOCALE}/")]
     if note.rel_path.parts and note.rel_path.parts[0] == "cybersecurity":
-        items.append(("Cybersecurity", absolute_site_url("cybersecurity/index.html")))
+        items.append((t("bc_cyber"), f"{SITE_URL}/{CURRENT_LOCALE}/cybersecurity/index.html"))
     branch = branch_slug(note)
     if branch:
-        items.append((branch_label(branch), absolute_site_url(f"cybersecurity/{branch}/index.html")))
+        items.append((branch_label(branch), f"{SITE_URL}/{CURRENT_LOCALE}/cybersecurity/{branch}/index.html"))
     if not (note.section == "" and note.rel_path == Path("index.md")):
         items.append((note_label(note), canonical_url(note)))
     return items
@@ -848,7 +1050,7 @@ def json_ld_for(note: Note) -> str:
             "name": SITE_NAME,
             "url": SITE_URL + "/",
             "description": SITE_DESCRIPTION,
-            "inLanguage": "en",
+            "inLanguage": CURRENT_LOCALE,
             "author": author_ref,
         }
     elif page_kind(note) == "index":
@@ -861,7 +1063,7 @@ def json_ld_for(note: Note) -> str:
             "headline": note_label(note),
             "description": description,
             "url": canonical,
-            "inLanguage": "en",
+            "inLanguage": CURRENT_LOCALE,
             "dateModified": last_modified,
             "isPartOf": site_ref,
             "author": author_ref,
@@ -876,7 +1078,7 @@ def json_ld_for(note: Note) -> str:
             "headline": note_label(note),
             "description": description,
             "url": canonical,
-            "inLanguage": "en",
+            "inLanguage": CURRENT_LOCALE,
             "datePublished": last_modified,
             "dateModified": last_modified,
             "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
@@ -907,7 +1109,8 @@ def seo_head(note: Note, root_href: str) -> str:
         f'<link rel="apple-touch-icon" href="{html.escape(root_asset(root_href, "apple-touch-icon.png"))}">',
         f'<link rel="manifest" href="{html.escape(root_asset(root_href, "site.webmanifest"))}">',
         f'<meta property="og:site_name" content="{html.escape(SITE_NAME)}">',
-        '<meta property="og:locale" content="en_US">',
+        f'<meta property="og:locale" content="{OG_LOCALE.get(CURRENT_LOCALE, "en_US")}">',
+        *[f'<meta property="og:locale:alternate" content="{OG_LOCALE[l]}">' for l in LOCALES if l != CURRENT_LOCALE],
         f'<meta property="og:type" content="{kind}">',
         f'<meta property="og:title" content="{html.escape(title)}">',
         f'<meta property="og:description" content="{html.escape(description)}">',
@@ -925,6 +1128,9 @@ def seo_head(note: Note, root_href: str) -> str:
     branch = branch_slug(note)
     if branch:
         lines.insert(12, f'<meta property="article:section" content="{html.escape(branch_label(branch))}">')
+    for loc in LOCALES:
+        lines.append(f'<link rel="alternate" hreflang="{loc}" href="{html.escape(locale_url(note, loc))}">')
+    lines.append(f'<link rel="alternate" hreflang="x-default" href="{html.escape(locale_url(note, DEFAULT_LOCALE))}">')
     return "\n".join(lines)
 
 
@@ -1026,18 +1232,36 @@ def xml_escape(value: str) -> str:
 
 def write_sitemap(notes: list[Note]) -> None:
     today = date.today().isoformat()
-    entries: dict[str, str] = {SITE_URL + "/": today}
-    for n in notes:
-        entries[canonical_url(n)] = note_last_modified(n)
+
+    def page_url(note: Note | None, loc: str) -> str:
+        return f"{SITE_URL}/{loc}/" if note is None else locale_url(note, loc)
+
+    def alt_links(note: Note | None) -> list[str]:
+        out = [
+            f'    <xhtml:link rel="alternate" hreflang="{loc}" href="{xml_escape(page_url(note, loc))}"/>'
+            for loc in LOCALES
+        ]
+        out.append(
+            f'    <xhtml:link rel="alternate" hreflang="x-default" href="{xml_escape(page_url(note, DEFAULT_LOCALE))}"/>'
+        )
+        return out
+
+    # One <url> per (page, locale), each carrying hreflang alternates. The home
+    # page is the None sentinel.
+    pages: list[tuple[Note | None, str]] = [(None, today)]
+    pages.extend((n, note_last_modified(n)) for n in notes)
+
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
     ]
-    for url in sorted(entries):
-        lines.append("  <url>")
-        lines.append(f"    <loc>{xml_escape(url)}</loc>")
-        lines.append(f"    <lastmod>{entries[url]}</lastmod>")
-        lines.append("  </url>")
+    for note, lastmod in pages:
+        for loc in LOCALES:
+            lines.append("  <url>")
+            lines.append(f"    <loc>{xml_escape(page_url(note, loc))}</loc>")
+            lines.append(f"    <lastmod>{lastmod}</lastmod>")
+            lines.extend(alt_links(note))
+            lines.append("  </url>")
     lines.append("</urlset>\n")
     sitemap_body = "\n".join(lines)
     (OUT / "sitemap.xml").write_text(sitemap_body, encoding="utf-8")
@@ -1087,7 +1311,7 @@ def copy_static_assets() -> None:
 
 
 PAGE_TEMPLATE = """<!doctype html>
-<html lang="en">
+<html lang="{lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -1099,19 +1323,20 @@ PAGE_TEMPLATE = """<!doctype html>
 <link rel="stylesheet" href="{css_href}?v={asset_ver}">
 <link rel="stylesheet" href="{pygments_href}?v={asset_ver}">
 </head>
-<body id="top" data-root="{root_href}">
+<body id="top" data-root="{root_href}" data-locale-root="{locale_root}">
 <div class="app {layout_class}">
 {sidebar}
 <div class="main-col">
 <header class="topbar">
-  <button id="sidebar-toggle" class="icon-btn menu-toggle" title="Toggle navigation" aria-label="Toggle navigation"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg></button>
+  <button id="sidebar-toggle" class="icon-btn menu-toggle" title="{nav_toggle}" aria-label="{nav_toggle}"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg></button>
   <div class="topbar-search search-shell">
     <svg class="search-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    <input id="search" type="search" placeholder="Search notes, playbooks, tags..." autocomplete="off">
+    <input id="search" type="search" placeholder="{search_placeholder}" autocomplete="off">
     <kbd>⌘K</kbd>
   </div>
   <div class="topbar-actions">
-    <button class="icon-btn" aria-label="Notifications" title="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></button>
+    {lang_switcher}
+    <button class="icon-btn" aria-label="{notifications}" title="{notifications}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></button>
     <a class="github-link" href="https://github.com/ldamoredev/cibersecurity-notes" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.13v3.16c0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg><span class="gh-label">GitHub</span></a>
   </div>
 </header>
@@ -1136,6 +1361,21 @@ PAGE_TEMPLATE = """<!doctype html>
 """
 
 
+def render_lang_switcher(note: Note, here: Path) -> str:
+    """Header control linking the current page to its other-locale equivalent."""
+    links = []
+    for loc in LOCALES:
+        target = OUT / loc / note.rel_path.with_suffix(".html")
+        href = os.path.relpath(target, here)
+        active = loc == CURRENT_LOCALE
+        cls = "lang-link active" if active else "lang-link"
+        links.append(
+            f'<a class="{cls}" hreflang="{loc}" href="{html.escape(href)}" '
+            f'aria-current="{"page" if active else "false"}">{html.escape(LOCALE_LABEL[loc])}</a>'
+        )
+    return f'<div class="lang-switch" role="group" aria-label="{html.escape(t("lang_switch_aria"))}">{"".join(links)}</div>'
+
+
 def render_page(
     note: Note,
     html_body: str,
@@ -1147,8 +1387,9 @@ def render_page(
     css_href = os.path.relpath(OUT / "assets" / "style.css", here)
     pyg_href = os.path.relpath(OUT / "assets" / "pygments.css", here)
     search_js = os.path.relpath(OUT / "assets" / "search.js", here)
-    home_href = os.path.relpath(OUT / "index.html", here)
+    home_href = os.path.relpath(loc_root() / "index.html", here)
     root_href = os.path.relpath(OUT, here) or "."
+    locale_root = os.path.relpath(loc_root(), here) or "."
 
     is_home = note.section == "" and note.rel_path == Path("index.md")
     toc_html = "" if note.section == "" else render_toc(html_body)
@@ -1167,6 +1408,12 @@ def render_page(
         search_js_href=html.escape(search_js),
         home_href=html.escape(home_href),
         root_href=html.escape(root_href),
+        locale_root=html.escape(locale_root),
+        lang=CURRENT_LOCALE,
+        lang_switcher=render_lang_switcher(note, here),
+        nav_toggle=html.escape(t("nav_toggle")),
+        search_placeholder=html.escape(t("search_placeholder")),
+        notifications=html.escape(t("notifications")),
         sidebar=sidebar_html,
         layout_class="no-toc" if not toc_html else "with-toc",
         breadcrumbs="" if is_home else breadcrumb_html(note),
@@ -1269,6 +1516,11 @@ def find_featured_note(notes: list[Note], by_path: dict | None = None) -> Note |
     return None
 
 
+def count_label(count: int, singular_key: str, plural_key: str) -> str:
+    """'3 notes' / '1 note' with locale-aware singular/plural."""
+    return f'{count} {t(singular_key) if count == 1 else t(plural_key)}'
+
+
 def build_home(tree: dict, notes: list[Note]) -> str:
     subs = tree.get("cybersecurity", {})
     published_notes = sum(len(v) for v in subs.values())
@@ -1281,31 +1533,31 @@ def build_home(tree: dict, notes: list[Note]) -> str:
     # --- HERO ---
     lines.append('<section class="hero home-hero">')
     lines.append('<div class="hero-crumb">&gt;_ ~/cybersecurity-atlas<span class="blink"></span></div>')
-    lines.append('<h1 class="hero-title">Cybersecurity<br><span class="accent">Knowledge Base</span></h1>')
+    lines.append(f'<h1 class="hero-title">{html.escape(t("home_title_1"))}<br><span class="accent">{html.escape(t("home_title_2"))}</span></h1>')
     lines.append(
-        f'<p class="lede">A curated atlas of <strong>{published_notes} notes</strong> across <strong>{len(BRANCHES)} branches</strong> — organized by learning phase, from foundational substrate to specialty operations. Each note is atomic, with attacker/defender duality, references, and links to <em>playbooks</em> that turn it into action.</p>'
+        f'<p class="lede">{t("home_lede").format(notes=published_notes, branches=len(BRANCHES))}</p>'
     )
     lines.append('<div class="cta-row">')
     lines.append(
         '<a class="btn btn-primary" href="cybersecurity/start-here.html">'
         '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>'
-        'Explore Notes</a>'
+        f'{html.escape(t("home_explore"))}</a>'
     )
     if playbook_count:
         lines.append(
             '<a class="btn btn-ghost" href="cybersecurity/security-playbooks/index.html">'
             '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>'
-            'View Playbooks</a>'
+            f'{html.escape(t("home_playbooks"))}</a>'
         )
     lines.append('</div>')
     lines.append('<div class="hero-stats">')
     stats = [
-        (published_notes, 'Notes', '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>'),
-        (len(BRANCHES), 'Branches', '<line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/>'),
-        (playbook_count, 'Playbooks', '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'),
+        (published_notes, t("stat_notes"), '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>'),
+        (len(BRANCHES), t("stat_branches"), '<line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/>'),
+        (playbook_count, t("stat_playbooks"), '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'),
     ]
     if registry_count:
-        stats.append((registry_count, 'Registries', '<path d="M4 4h16v4H4z"/><path d="M4 10h16v4H4z"/><path d="M4 16h16v4H4z"/>'))
+        stats.append((registry_count, t("stat_registries"), '<path d="M4 4h16v4H4z"/><path d="M4 10h16v4H4z"/><path d="M4 16h16v4H4z"/>'))
     for value, label, svg_paths in stats:
         lines.append(
             '<div class="hero-stat">'
@@ -1319,52 +1571,30 @@ def build_home(tree: dict, notes: list[Note]) -> str:
     # --- LEARNING PATH ----------------------------------------------------
     # Pedagogical metadata: numbered phases with intent + per-phase index/landing page.
     phase_meta = {
-        "Orientation": {
-            "num":  "00",
-            "tag":  "Start here",
-            "intent": "Mental models, the CIA triad, and threat modeling — the language you'll use everywhere else.",
-            "href": "cybersecurity/start-here.html",
-        },
-        "Substrate": {
-            "num":  "01",
-            "tag":  "How things work",
-            "intent": "Networking, cryptography, browser trust, OS behavior. The substrate that every attack and defense touches.",
-            "href": "cybersecurity/phase-1-substrate.html",
-        },
-        "Paired": {
-            "num":  "02",
-            "tag":  "Offense ↔ Defense",
-            "intent": "Attack and detection as paired thinking. Every offensive primitive has a defensive signature; learn them together.",
-            "href": "cybersecurity/phase-2-offense-defense.html",
-        },
-        "Operator": {
-            "num":  "03",
-            "tag":  "Hands-on",
-            "intent": "Recon, exposure mapping, privilege escalation, and the practical workflows of an offensive operator.",
-            "href": "cybersecurity/phase-3-operator.html",
-        },
-        "Specialty": {
-            "num":  "04",
-            "tag":  "Go deep",
-            "intent": "Pick what your job demands: cloud, identity, DevSecOps, wireless, binary exploitation, API security.",
-            "href": "cybersecurity/phase-4-specialty.html",
-        },
-        "Always-on": {
-            "num":  "★",
-            "tag":  "Cross-cutting",
-            "intent": "Privacy, anonymity, OPSEC. Practice continuously — these aren't a phase, they're a posture.",
-            "href": "cybersecurity/start-here.html",
-        },
+        group: {
+            "num": num,
+            "tag": t(f"tag_{group}"),
+            "intent": t(f"intent_{group}"),
+            "href": href,
+        }
+        for group, num, href in (
+            ("Orientation", "00", "cybersecurity/start-here.html"),
+            ("Substrate", "01", "cybersecurity/phase-1-substrate.html"),
+            ("Paired", "02", "cybersecurity/phase-2-offense-defense.html"),
+            ("Operator", "03", "cybersecurity/phase-3-operator.html"),
+            ("Specialty", "04", "cybersecurity/phase-4-specialty.html"),
+            ("Always-on", "★", "cybersecurity/start-here.html"),
+        )
     }
 
     # Guidance band — explains the path in one sentence.
     lines.append('<section class="path-intro">')
-    lines.append('<div class="path-intro-head"><div class="section-eyebrow">The learning path</div>'
-                 '<h2>Read it in order. Each phase is the prerequisite for the next.</h2>'
-                 '<p>Start at <strong>00 · Orientation</strong> for the vocabulary. Walk through Substrate → Paired → Operator → Specialty. <strong>★ Always-on</strong> (privacy, OPSEC) threads through everything.</p></div>')
+    lines.append(f'<div class="path-intro-head"><div class="section-eyebrow">{html.escape(t("path_eyebrow"))}</div>'
+                 f'<h2>{html.escape(t("path_h2"))}</h2>'
+                 f'<p>{t("path_p")}</p></div>')
     lines.append('<a class="path-intro-cta" href="cybersecurity/start-here.html">'
                  '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>'
-                 'Open the Start Here guide</a>')
+                 f'{html.escape(t("path_cta"))}</a>')
     lines.append('</section>')
 
     # Phase track — numbered horizontal stepper (compact summary, then full sections below).
@@ -1384,8 +1614,8 @@ def build_home(tree: dict, notes: list[Note]) -> str:
             f'<div class="ps-num">{html.escape(meta["num"])}</div>'
             '<div class="ps-body">'
             f'<div class="ps-tag">{html.escape(meta["tag"])}</div>'
-            f'<div class="ps-name">{html.escape(group)}</div>'
-            f'<div class="ps-meta">{len(group_branches)} branch{"" if len(group_branches)==1 else "es"} · {group_count} note{"" if group_count==1 else "s"}</div>'
+            f'<div class="ps-name">{html.escape(group_label(group))}</div>'
+            f'<div class="ps-meta">{count_label(len(group_branches), "branch_singular", "branch_plural")} · {count_label(group_count, "note_singular", "note_plural")}</div>'
             '</div>'
             '</a>'
         )
@@ -1405,14 +1635,14 @@ def build_home(tree: dict, notes: list[Note]) -> str:
             '<header class="phase-section-head">'
             f'<div class="phs-num">{html.escape(meta["num"])}</div>'
             '<div class="phs-titles">'
-            f'<div class="phs-eyebrow">Phase {html.escape(meta["num"])} · {html.escape(meta["tag"])}</div>'
-            f'<h2 class="phs-name">{html.escape(group)}</h2>'
+            f'<div class="phs-eyebrow">{html.escape(t("phase_label"))} {html.escape(meta["num"])} · {html.escape(meta["tag"])}</div>'
+            f'<h2 class="phs-name">{html.escape(group_label(group))}</h2>'
             f'<p class="phs-intent">{html.escape(meta["intent"])}</p>'
             '</div>'
             '<div class="phs-meta">'
-            f'<a class="phs-open" href="{html.escape(meta["href"])}">Phase overview '
+            f'<a class="phs-open" href="{html.escape(meta["href"])}">{html.escape(t("phase_overview"))} '
             '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>'
-            f'<div class="phs-count">{len(group_branches)} branch{"" if len(group_branches)==1 else "es"} · {group_count} note{"" if group_count==1 else "s"}</div>'
+            f'<div class="phs-count">{count_label(len(group_branches), "branch_singular", "branch_plural")} · {count_label(group_count, "note_singular", "note_plural")}</div>'
             '</div>'
             '</header>'
         )
@@ -1428,11 +1658,11 @@ def build_home(tree: dict, notes: list[Note]) -> str:
                 f'<a class="branch-card accent-{html.escape(accent)}" href="{html.escape(href)}">'
                 '<div class="bc-head">'
                 f'<div class="bc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{icon_paths}</svg></div>'
-                f'<span class="bc-count">{published_count} notes</span>'
+                f'<span class="bc-count">{published_count} {html.escape(t("branch_notes_suffix"))}</span>'
                 '</div>'
                 f'<h3 class="bc-title">{html.escape(branch_label(slug))}</h3>'
                 f'<p class="bc-desc">{html.escape(branch_summary(slug))}</p>'
-                '<span class="bc-link">Explore'
+                f'<span class="bc-link">{html.escape(t("branch_explore"))}'
                 '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>'
                 '</span>'
                 '</a>'
@@ -1455,7 +1685,7 @@ def build_home(tree: dict, notes: list[Note]) -> str:
         lines.append(
             '<div class="feat-label">'
             '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>'
-            'Featured Note</div>'
+            f'{html.escape(t("featured_label"))}</div>'
         )
         lines.append(f'<a class="featured-card" href="{html.escape(featured.url)}">')
         lines.append('<div>')
@@ -1464,7 +1694,7 @@ def build_home(tree: dict, notes: list[Note]) -> str:
         lines.append(
             '<span class="pill-time">'
             '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>'
-            f'{f_minutes} min read</span>'
+            f'{f_minutes} {html.escape(t("min_read"))}</span>'
         )
         lines.append('</div>')
         lines.append(f'<h2 class="feat-title">{html.escape(note_label(featured))}</h2>')
@@ -1484,9 +1714,9 @@ def build_home(tree: dict, notes: list[Note]) -> str:
     registry_notes = [n for n in subs.get("", []) if n.slug.startswith("reference-registry")]
     if registry_notes:
         lines.append('<section class="reference-panel" id="registries">')
-        lines.append('<div class="section-eyebrow">Reference system</div>')
-        lines.append('<h2>Reference registries</h2>')
-        lines.append('<p>The registries keep citations normalized behind the learning branches, so atomic notes stay compact and high-signal.</p>')
+        lines.append(f'<div class="section-eyebrow">{html.escape(t("ref_eyebrow"))}</div>')
+        lines.append(f'<h2>{html.escape(t("ref_h2"))}</h2>')
+        lines.append(f'<p>{html.escape(t("ref_p"))}</p>')
         lines.append('<div class="reference-list">')
         for n in registry_notes:
             lines.append(f'<a href="{html.escape(n.url)}">{html.escape(note_label(n))}</a>')
@@ -1494,11 +1724,11 @@ def build_home(tree: dict, notes: list[Note]) -> str:
 
     # --- FOOTER ---
     lines.append('<footer class="home-footer">')
-    lines.append('<div class="footer-about"><strong>ldamoredev/atlas</strong><p>A personal cybersecurity knowledge base, published from an Obsidian vault as a static operator reference.</p></div>')
+    lines.append(f'<div class="footer-about"><strong>ldamoredev/atlas</strong><p>{html.escape(t("footer_about"))}</p></div>')
     lines.append('<div class="footer-links">')
     lines.append(f'<a href="{repo_url}" rel="noopener" target="_blank">GitHub</a>')
-    lines.append('<a href="cybersecurity/start-here.html">Start Here</a>')
-    lines.append('<a href="cybersecurity/index.html">Full index</a>')
+    lines.append(f'<a href="cybersecurity/start-here.html">{html.escape(t("footer_start"))}</a>')
+    lines.append(f'<a href="cybersecurity/index.html">{html.escape(t("footer_index"))}</a>')
     lines.append('</div></footer>')
 
     return "\n".join(lines)
@@ -1521,14 +1751,138 @@ def compute_asset_version() -> str:
     return h.hexdigest()[:10]
 
 
+def localized_note(note: Note) -> tuple[Note, bool]:
+    """Return (note-for-current-locale, is_fallback).
+
+    English is canonical and comes straight from the vault. For other locales we
+    look for a WEB-ONLY overlay at translations/<locale>/<rel_path> in this repo.
+    If it's missing we fall back to the English body (is_fallback=True) so every
+    page still exists in every locale.
+    """
+    if CURRENT_LOCALE == DEFAULT_LOCALE:
+        return note, False
+    overlay = TRANSLATIONS_ROOT / CURRENT_LOCALE / note.rel_path
+    if not overlay.exists():
+        return note, True
+    raw = overlay.read_text(encoding="utf-8")
+    fm = dict(note.frontmatter)
+    m = FRONTMATTER_RE.match(raw)
+    if m:
+        try:
+            fm.update(yaml.safe_load(m.group(1)) or {})
+        except yaml.YAMLError:
+            pass
+        raw = raw[m.end():]
+    title_match = re.search(r"^#\s+(.+)$", raw, re.MULTILINE)
+    title = title_match.group(1).strip() if title_match else note.title
+    localized = Note(
+        section=note.section,
+        rel_path=note.rel_path,
+        title=title,
+        slug=note.slug,
+        body_md=raw,
+        tags=note.tags,
+        frontmatter=fm,
+    )
+    return localized, False
+
+
+def translation_pending_banner() -> str:
+    return f'<div class="translation-pending" role="note">{html.escape(t("translation_pending"))}</div>\n'
+
+
+def write_language_landing() -> None:
+    """Root /index.html: a tiny language chooser that auto-redirects by locale."""
+    links = "".join(
+        f'<a class="lang-choice" href="{loc}/" hreflang="{loc}">{html.escape(LOCALE_NAME[loc])}</a>'
+        for loc in LOCALES
+    )
+    alts = "".join(f'<link rel="alternate" hreflang="{loc}" href="{SITE_URL}/{loc}/">\n' for loc in LOCALES)
+    alts += f'<link rel="alternate" hreflang="x-default" href="{SITE_URL}/{DEFAULT_LOCALE}/">'
+    locale_list = ",".join(f'"{l}"' for l in LOCALES)
+
+    head = (
+        "<!doctype html>\n"
+        f'<html lang="{DEFAULT_LOCALE}">\n<head>\n'
+        '<meta charset="utf-8">\n'
+        '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
+        f"<title>{html.escape(SITE_NAME)}</title>\n"
+        f'<link rel="canonical" href="{SITE_URL}/">\n'
+        f"{alts}\n"
+        f'<meta name="theme-color" content="{THEME_COLOR}">\n'
+        '<link rel="icon" href="favicon.svg" type="image/svg+xml">\n'
+    )
+    # Plain (non-f) strings below so CSS/JS braces stay literal.
+    style = (
+        "<style>\n"
+        "html,body{height:100%;margin:0}\n"
+        "body{display:flex;flex-direction:column;align-items:center;justify-content:center;"
+        "gap:1.2rem;font-family:Inter,system-ui,sans-serif;background:#0f1117;color:#e6e8ee;"
+        "text-align:center;padding:2rem}\n"
+        ".landing-sub{color:#16a34a;font-weight:700;letter-spacing:.02em}\n"
+        "h1{margin:0;font-size:clamp(1.4rem,4vw,2.2rem)}\n"
+        ".lang-choices{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}\n"
+        ".lang-choice{padding:.7rem 1.6rem;border:1px solid #2a2f3a;border-radius:10px;"
+        "color:#e6e8ee;text-decoration:none;font-weight:600;background:#161a23}\n"
+        ".lang-choice:hover{border-color:#16a34a;color:#16a34a}\n"
+        "</style>\n"
+    )
+    script = (
+        "<script>\n(function(){\n"
+        f"  var locales=[{locale_list}];\n"
+        "  var saved=null;try{saved=localStorage.getItem('preferred-locale');}catch(e){}\n"
+        "  var nav=(navigator.language||'en').slice(0,2).toLowerCase();\n"
+        f"  var pick=(saved&&locales.indexOf(saved)>=0)?saved:(locales.indexOf(nav)>=0?nav:'{DEFAULT_LOCALE}');\n"
+        "  location.replace(pick+'/');\n})();\n</script>\n"
+    )
+    body = (
+        "</head>\n<body>\n"
+        f'<div class="landing-sub">{html.escape(t("landing_sub"))}</div>\n'
+        f"<h1>{html.escape(t('landing_title'))}</h1>\n"
+        f'<div class="lang-choices">{links}</div>\n'
+        "</body>\n</html>\n"
+    )
+    (OUT / "index.html").write_text(head + style + script + body, encoding="utf-8")
+
+
+def redirect_html(target: str) -> str:
+    """A noindex meta-refresh + JS redirect page pointing at `target`."""
+    attr = html.escape(target, quote=True)
+    js = json.dumps(target)
+    return (
+        '<!doctype html>\n<html lang="en"><head><meta charset="utf-8">\n'
+        "<title>Redirecting…</title>\n"
+        f'<link rel="canonical" href="{attr}">\n'
+        '<meta name="robots" content="noindex, follow">\n'
+        f'<meta http-equiv="refresh" content="0; url={attr}">\n'
+        f"<script>location.replace({js});</script>\n"
+        f'</head><body>Redirecting to <a href="{attr}">{attr}</a>.</body></html>\n'
+    )
+
+
+def write_redirect_stubs(notes: list[Note]) -> None:
+    """Preserve pre-i18n URLs: the old flat /<rel_path>.html paths now 301-style
+    redirect to their /<DEFAULT_LOCALE>/ equivalents so indexed links don't 404."""
+    count = 0
+    for n in notes:
+        old_path = OUT / n.rel_path.with_suffix(".html")
+        if old_path.exists():  # never clobber a real (locale) page
+            continue
+        target = f"{SITE_URL}/{DEFAULT_LOCALE}/{n.url}"
+        old_path.parent.mkdir(parents=True, exist_ok=True)
+        old_path.write_text(redirect_html(target), encoding="utf-8")
+        count += 1
+    print(f"Wrote {count} legacy-URL redirect stubs -> /{DEFAULT_LOCALE}/")
+
+
 def main() -> int:
-    global ASSET_VER
+    global ASSET_VER, CURRENT_LOCALE
     ASSET_VER = compute_asset_version()
     if OUT.exists():
         shutil.rmtree(OUT)
     (OUT / "assets").mkdir(parents=True)
 
-    # Load notes.
+    # Load notes once — the vault is the canonical English source.
     notes: list[Note] = []
     for section_key, _ in SECTIONS:
         root = VAULT / section_key
@@ -1544,46 +1898,60 @@ def main() -> int:
     by_slug, by_path = build_slug_index(notes)
     tree = build_sidebar_tree(notes)
 
-    # Search index: title + plain body text.
-    search_entries: list[dict] = []
-
+    total_pages = 0
     broken_total = 0
-    for n in notes:
-        rewritten = rewrite_links(n.body_md, n, by_slug, by_path)
-        broken_total += rewritten.count('class="unresolved-link"')
-        body_html = md_to_html(rewritten)
-        sidebar_html = render_sidebar(tree, n)
-        page = render_page(n, body_html, sidebar_html, tree, notes)
-        n.out_path.parent.mkdir(parents=True, exist_ok=True)
-        n.out_path.write_text(page, encoding="utf-8")
+    translated_total = 0
+    # Build the full site once per locale, into site/<locale>/.
+    for loc in LOCALES:
+        CURRENT_LOCALE = loc
+        search_entries: list[dict] = []
+        for n in notes:
+            render_note, is_fallback = localized_note(n)
+            if not is_fallback and loc != DEFAULT_LOCALE:
+                translated_total += 1
+            rewritten = rewrite_links(render_note.body_md, render_note, by_slug, by_path)
+            broken_total += rewritten.count('class="unresolved-link"')
+            body_html = md_to_html(rewritten)
+            if is_fallback and loc != DEFAULT_LOCALE:
+                body_html = translation_pending_banner() + body_html
+            sidebar_html = render_sidebar(tree, render_note)
+            page = render_page(render_note, body_html, sidebar_html, tree, notes)
+            render_note.out_path.parent.mkdir(parents=True, exist_ok=True)
+            render_note.out_path.write_text(page, encoding="utf-8")
 
-        search_entries.append({
-            "title": note_label(n),
-            "url": n.url,
-            "section": n.section,
-            "branch": branch_label(branch_slug(n)) if branch_slug(n) else "Cybersecurity",
-            "group": branch_group(branch_slug(n)) if branch_slug(n) else "Reference",
-            "kind": page_kind(n),
-            "tags": n.tags,
-            "description": note_description(n),
-            "keywords": page_keywords(n),
-            "text": strip_html(body_html)[:2000],
-        })
+            br = branch_slug(render_note)
+            search_entries.append({
+                "title": note_label(render_note),
+                "url": render_note.url,
+                "section": render_note.section,
+                "branch": branch_label(br) if br else t("bc_cyber"),
+                "group": group_label(branch_group(br)) if br else t("reference_system"),
+                "kind": page_kind(render_note),
+                "tags": render_note.tags,
+                "description": note_description(render_note),
+                "keywords": page_keywords(render_note),
+                "text": strip_html(body_html)[:2000],
+            })
 
-    # Home page.
-    home_note = Note(section="", rel_path=Path("index.md"), title="ldamoredev notes", slug="index", body_md="")
-    home_body = build_home(tree, notes)
-    sidebar_html = render_sidebar(tree, home_note)
-    (OUT / "index.html").write_text(
-        render_page(home_note, home_body, sidebar_html, tree, notes),
-        encoding="utf-8",
-    )
+        # Per-locale home page.
+        home_note = Note(section="", rel_path=Path("index.md"), title="ldamoredev notes", slug="index", body_md="")
+        home_body = build_home(tree, notes)
+        sidebar_html = render_sidebar(tree, home_note)
+        home_note.out_path.parent.mkdir(parents=True, exist_ok=True)
+        home_note.out_path.write_text(
+            render_page(home_note, home_body, sidebar_html, tree, notes),
+            encoding="utf-8",
+        )
 
-    # Search index + assets.
-    (OUT / "assets" / "search.json").write_text(
-        json.dumps(search_entries, ensure_ascii=False),
-        encoding="utf-8",
-    )
+        # Per-locale search index (titles + body text differ by language).
+        (loc_root() / "search.json").write_text(
+            json.dumps(search_entries, ensure_ascii=False),
+            encoding="utf-8",
+        )
+        total_pages += len(notes) + 1
+
+    # Shared, language-neutral assets (written once at site root).
+    CURRENT_LOCALE = DEFAULT_LOCALE
     write_pygments_css(OUT / "assets" / "pygments.css")
     (OUT / "assets" / "style.css").write_text(STYLE_CSS, encoding="utf-8")
     (OUT / "assets" / "search.js").write_text(SEARCH_JS, encoding="utf-8")
@@ -1592,13 +1960,25 @@ def main() -> int:
     write_manifest()
     write_sitemap(notes)
     write_robots()
+    write_language_landing()
+    write_redirect_stubs(notes)
 
-    print(f"Wrote {len(notes) + 1} pages to {OUT} (unresolved wikilinks: {broken_total})")
+    print(
+        f"Wrote {total_pages} pages across {len(LOCALES)} locales to {OUT} "
+        f"(unresolved wikilinks: {broken_total}; non-default translated notes: {translated_total})"
+    )
     return 0
 
 
 STYLE_CSS = r"""
 @import url("atlas.css");
+
+/* --- i18n: language switcher + translation-pending banner --- */
+.lang-switch { display: inline-flex; gap: 2px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.lang-switch .lang-link { padding: .32rem .6rem; font-size: .78rem; font-weight: 700; letter-spacing: .03em; color: var(--muted); text-decoration: none; line-height: 1; display: inline-flex; align-items: center; }
+.lang-switch .lang-link:hover { color: var(--fg); background: var(--panel); }
+.lang-switch .lang-link.active { color: var(--accent, #16a34a); background: var(--panel); }
+.translation-pending { margin: 0 0 1.2rem; padding: .7rem 1rem; border: 1px solid var(--border); border-left: 3px solid #d97706; border-radius: 8px; background: var(--panel); color: var(--muted); font-size: .9rem; }
 
 /* --- generated-page extras layered on top of atlas.css --- */
 .related-notes, .branch-nav {
@@ -1710,6 +2090,13 @@ STYLE_CSS = r"""
 SEARCH_JS = r"""
 (function () {
   const root = document.body.dataset.root || ".";
+  const localeRoot = document.body.dataset.localeRoot || ".";
+  const LANG = document.documentElement.lang || "en";
+  const I18N = {
+    en: { noMatches: "No matches for", result: "result", results: "results", hint: "↑↓ to navigate · ↵ to open" },
+    es: { noMatches: "Sin coincidencias para", result: "resultado", results: "resultados", hint: "↑↓ para navegar · ↵ para abrir" },
+  };
+  const S = I18N[LANG] || I18N.en;
   const input = document.getElementById("search");
   const results = document.getElementById("search-results");
   const toggle = document.getElementById("theme-toggle");
@@ -1766,7 +2153,7 @@ SEARCH_JS = r"""
   let index = null;
   async function loadIndex() {
     if (index) return index;
-    const res = await fetch(root + "/assets/search.json");
+    const res = await fetch(localeRoot + "/search.json");
     index = await res.json();
     return index;
   }
@@ -1850,11 +2237,11 @@ SEARCH_JS = r"""
     currentHits = hits;
     activeIndex = hits.length ? 0 : -1;
     if (!hits.length) {
-      results.innerHTML = '<div class="empty">No matches for "' + escapeHtml(q) + '"</div>';
+      results.innerHTML = '<div class="empty">' + S.noMatches + ' "' + escapeHtml(q) + '"</div>';
     } else {
-      const count = `<div class="results-meta">${hits.length} result${hits.length === 1 ? "" : "s"} · ↑↓ to navigate · ↵ to open</div>`;
+      const count = `<div class="results-meta">${hits.length} ${hits.length === 1 ? S.result : S.results} · ${S.hint}</div>`;
       results.innerHTML = count + hits.map((h, i) =>
-        `<a class="hit${i === 0 ? " active" : ""}" href="${root}/${h.e.url}"><div class="hit-title">${highlight(h.e.title, terms)}</div><div class="meta">${escapeHtml(h.e.branch)} · ${escapeHtml(h.e.kind)}</div><p>${highlight(h.e.description || "", terms)}</p></a>`
+        `<a class="hit${i === 0 ? " active" : ""}" href="${localeRoot}/${h.e.url}"><div class="hit-title">${highlight(h.e.title, terms)}</div><div class="meta">${escapeHtml(h.e.branch)} · ${escapeHtml(h.e.kind)}</div><p>${highlight(h.e.description || "", terms)}</p></a>`
       ).join("");
     }
     results.hidden = false;

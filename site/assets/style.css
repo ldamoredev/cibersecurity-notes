@@ -1,6 +1,13 @@
 
 @import url("atlas.css");
 
+/* --- i18n: language switcher + translation-pending banner --- */
+.lang-switch { display: inline-flex; gap: 2px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.lang-switch .lang-link { padding: .32rem .6rem; font-size: .78rem; font-weight: 700; letter-spacing: .03em; color: var(--muted); text-decoration: none; line-height: 1; display: inline-flex; align-items: center; }
+.lang-switch .lang-link:hover { color: var(--fg); background: var(--panel); }
+.lang-switch .lang-link.active { color: var(--accent, #16a34a); background: var(--panel); }
+.translation-pending { margin: 0 0 1.2rem; padding: .7rem 1rem; border: 1px solid var(--border); border-left: 3px solid #d97706; border-radius: 8px; background: var(--panel); color: var(--muted); font-size: .9rem; }
+
 /* --- generated-page extras layered on top of atlas.css --- */
 .related-notes, .branch-nav {
   margin-top: 3rem;

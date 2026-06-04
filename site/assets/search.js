@@ -1,6 +1,13 @@
 
 (function () {
   const root = document.body.dataset.root || ".";
+  const localeRoot = document.body.dataset.localeRoot || ".";
+  const LANG = document.documentElement.lang || "en";
+  const I18N = {
+    en: { noMatches: "No matches for", result: "result", results: "results", hint: "↑↓ to navigate · ↵ to open" },
+    es: { noMatches: "Sin coincidencias para", result: "resultado", results: "resultados", hint: "↑↓ para navegar · ↵ para abrir" },
+  };
+  const S = I18N[LANG] || I18N.en;
   const input = document.getElementById("search");
   const results = document.getElementById("search-results");
   const toggle = document.getElementById("theme-toggle");
@@ -57,7 +64,7 @@
   let index = null;
   async function loadIndex() {
     if (index) return index;
-    const res = await fetch(root + "/assets/search.json");
+    const res = await fetch(localeRoot + "/search.json");
     index = await res.json();
     return index;
   }
@@ -141,11 +148,11 @@
     currentHits = hits;
     activeIndex = hits.length ? 0 : -1;
     if (!hits.length) {
-      results.innerHTML = '<div class="empty">No matches for "' + escapeHtml(q) + '"</div>';
+      results.innerHTML = '<div class="empty">' + S.noMatches + ' "' + escapeHtml(q) + '"</div>';
     } else {
-      const count = `<div class="results-meta">${hits.length} result${hits.length === 1 ? "" : "s"} · ↑↓ to navigate · ↵ to open</div>`;
+      const count = `<div class="results-meta">${hits.length} ${hits.length === 1 ? S.result : S.results} · ${S.hint}</div>`;
       results.innerHTML = count + hits.map((h, i) =>
-        `<a class="hit${i === 0 ? " active" : ""}" href="${root}/${h.e.url}"><div class="hit-title">${highlight(h.e.title, terms)}</div><div class="meta">${escapeHtml(h.e.branch)} · ${escapeHtml(h.e.kind)}</div><p>${highlight(h.e.description || "", terms)}</p></a>`
+        `<a class="hit${i === 0 ? " active" : ""}" href="${localeRoot}/${h.e.url}"><div class="hit-title">${highlight(h.e.title, terms)}</div><div class="meta">${escapeHtml(h.e.branch)} · ${escapeHtml(h.e.kind)}</div><p>${highlight(h.e.description || "", terms)}</p></a>`
       ).join("");
     }
     results.hidden = false;
