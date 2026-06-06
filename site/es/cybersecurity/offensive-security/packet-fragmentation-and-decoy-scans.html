@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Packet Fragmentation and Decoy Scans - Seguridad Ofensiva / Recon | ldamoredev Security Atlas</title>
-<meta name="description" content="Packet fragmentation (-f, --mtu) and decoy scans (-D) are two Nmap evasion primitives that operate at different layers: fragmentation splits probe headers across...">
+<meta name="description" content="La fragmentación de paquetes (-f, --mtu) y los decoy scans (-D) son dos primitivas de evasión de Nmap que operan en capas diferentes: la fragmentación divide...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Seguridad Ofensiva / Recon, Packet Fragmentation and Decoy Scans, offensive-security, nmap, evasion, fragmentation, decoy">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Packet Fragmentation and Decoy Scans - Seguridad Ofensiva / Recon | ldamoredev Security Atlas">
-<meta property="og:description" content="Packet fragmentation (-f, --mtu) and decoy scans (-D) are two Nmap evasion primitives that operate at different layers: fragmentation splits probe headers across...">
+<meta property="og:description" content="La fragmentación de paquetes (-f, --mtu) y los decoy scans (-D) son dos primitivas de evasión de Nmap que operan en capas diferentes: la fragmentación divide...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/packet-fragmentation-and-decoy-scans.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Packet Fragmentation and Decoy Scans - Seguridad Ofensiva / Recon | ldamoredev Security Atlas">
-<meta name="twitter:description" content="Packet fragmentation (-f, --mtu) and decoy scans (-D) are two Nmap evasion primitives that operate at different layers: fragmentation splits probe headers across...">
+<meta name="twitter:description" content="La fragmentación de paquetes (-f, --mtu) y los decoy scans (-D) son dos primitivas de evasión de Nmap que operan en capas diferentes: la fragmentación divide...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/packet-fragmentation-and-decoy-scans.html#article","name":"Packet Fragmentation and Decoy Scans - Seguridad Ofensiva / Recon | ldamoredev Security Atlas","headline":"Packet Fragmentation and Decoy Scans","description":"Packet fragmentation (-f, --mtu) and decoy scans (-D) are two Nmap evasion primitives that operate at different layers: fragmentation splits probe headers across...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/packet-fragmentation-and-decoy-scans.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/packet-fragmentation-and-decoy-scans.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Ofensiva / Recon","Packet Fragmentation and Decoy Scans","offensive-security","nmap","evasion","fragmentation","decoy"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Ofensiva / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"Packet Fragmentation and Decoy Scans","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/packet-fragmentation-and-decoy-scans.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/packet-fragmentation-and-decoy-scans.html#article","name":"Packet Fragmentation and Decoy Scans - Seguridad Ofensiva / Recon | ldamoredev Security Atlas","headline":"Packet Fragmentation and Decoy Scans","description":"La fragmentación de paquetes (-f, --mtu) y los decoy scans (-D) son dos primitivas de evasión de Nmap que operan en capas diferentes: la fragmentación divide...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/packet-fragmentation-and-decoy-scans.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/packet-fragmentation-and-decoy-scans.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Ofensiva / Recon","Packet Fragmentation and Decoy Scans","offensive-security","nmap","evasion","fragmentation","decoy"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Ofensiva / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"Packet Fragmentation and Decoy Scans","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/packet-fragmentation-and-decoy-scans.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/packet-fragmentation-and-decoy-scans.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/packet-fragmentation-and-decoy-scans.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/packet-fragmentation-and-decoy-scans.html">
@@ -410,159 +410,131 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Seguridad Ofensiva / Recon</a><span>/</span><span>Packet Fragmentation and Decoy Scans</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Packet Fragmentation and Decoy Scans</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-rose">Seguridad Ofensiva / Recon</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~6 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#nmap</span><span class="meta-chip tag">#evasion</span><span class="meta-chip tag">#fragmentation</span><span class="meta-chip tag">#decoy</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="packet-fragmentation-and-decoy-scans">Packet Fragmentation and Decoy Scans</h1>
-<h2 id="definition">Definition</h2>
-<p>Packet fragmentation (<code>-f</code>, <code>--mtu</code>) and decoy scans (<code>-D</code>) are two Nmap evasion primitives that operate at different layers: fragmentation splits probe headers across the IP fragmentation boundary to defeat <em>packet-level</em> signature matching, while decoys flood target logs with additional fake source IPs to defeat <em>log-level</em> attribution.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>Both techniques are widely taught and widely misunderstood. They are not stealth — modern stateful inspection reassembles fragments and modern SIEMs cluster by behavior, not by source IP. Their real value is <em>diagnostic</em>: each primitive isolates one assumption in a middlebox or detection pipeline. Mapping which primitives still work against a given target is how a senior scan operator reads the inspection stack from the outside.</p>
-<p>Mistaking either for actual stealth is the textbook beginner error. Mistaking either for useless is the textbook intermediate error. The senior framing is that they answer the question "what does the target's inspection pipeline assume about packets and sources?".</p>
-<h2 id="how-it-works">How it works</h2>
-<h3 id="fragmentation">Fragmentation</h3>
+<h2 id="definicion">Definición</h2>
+<p>La fragmentación de paquetes (<code>-f</code>, <code>--mtu</code>) y los decoy scans (<code>-D</code>) son dos primitivas de evasión de Nmap que operan en capas diferentes: la fragmentación divide los headers de probe a través del límite de fragmentación IP para derrotar el matching de firmas <em>a nivel de paquete</em>, mientras que los decoys inundan los logs del objetivo con IPs fuente falsas adicionales para derrotar la atribución <em>a nivel de log</em>.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>Ambas técnicas son ampliamente enseñadas y ampliamente malentendidas. No son stealth — la inspección stateful moderna rearma fragmentos y los SIEMs modernos agrupan por comportamiento, no por IP fuente. Su valor real es <em>diagnóstico</em>: cada primitiva aísla un supuesto en un middlebox o pipeline de detección. Mapear qué primitivas todavía funcionan contra un objetivo dado es cómo un operador de scan senior lee el stack de inspección desde afuera.</p>
+<p>Confundir cualquiera de las dos con stealth real es el error clásico de principiante. Confundirlas con inútiles es el error clásico de nivel intermedio. El framing senior es que responden la pregunta &quot;¿qué asume el pipeline de inspección del objetivo sobre los paquetes y las fuentes?&quot;.</p>
+<h2 id="como-funciona">Cómo funciona</h2>
+<h3 id="fragmentacion">Fragmentación</h3>
 <ol>
-<li><code>-f</code> splits the TCP header across IP fragments of 8 bytes each. A normal TCP header is 20 bytes, so it ends up across 3 fragments.</li>
-<li><code>--mtu N</code> lets the operator pick the MTU (must be a multiple of 8). <code>--mtu 24</code> is the common variant.</li>
-<li>The IP reassembly happens at the destination OS — but middleboxes (firewalls, IDSes) may or may not reassemble before applying signatures.</li>
-<li>The bug being exploited: a signature engine that reads only the first fragment cannot see the TCP flags, source/dest port, or any of the L4 payload. If it does not reassemble, it cannot match.</li>
-<li>Modern Snort/Suricata/Zeek reassemble by default. Legacy stateless ACLs and some embedded device firewalls do not.</li>
+<li><code>-f</code> divide el header TCP en fragmentos IP de 8 bytes cada uno.</li>
+<li><code>--mtu N</code> permite al operador elegir el MTU (debe ser múltiplo de 8). <code>--mtu 24</code> es la variante común.</li>
+<li>El reensamblado IP ocurre en el OS destino — pero los middleboxes pueden o no rearmar antes de aplicar firmas.</li>
+<li>El error explotado: un motor de firmas que lee solo el primer fragmento no puede ver los flags TCP, el puerto fuente/destino ni el payload L4.</li>
+<li>Snort/Suricata/Zeek modernos rearman por defecto. Las ACLs stateless legacy y algunos firewalls de dispositivos embebidos no.</li>
 </ol>
 <h3 id="decoys">Decoys</h3>
 <ol>
-<li><code>-D decoy1,decoy2,ME,decoy4</code> injects scan packets with spoofed source IPs alongside the real one. <code>ME</code> marks the real source position (defaults to randomized).</li>
-<li><code>-D RND:10</code> generates 10 random IPs each scan iteration.</li>
-<li>The target sees 11 sources hitting it. From the <em>target log</em>, the real scanner is one entry among many.</li>
-<li>Decoy packets have spoofed source IPs but the same scan fingerprint, same timing, same probe types as the real ones.</li>
-<li>Returns go to the spoofed IPs, not the scanner. Decoys are useful only for SYN-scan-like flows where the scanner does not need the SYN-ACK reply to that decoy (the real source still gets its own replies).</li>
+<li><code>-D decoy1,decoy2,ME,decoy4</code> inyecta paquetes de scan con IPs fuente spoofed junto a la real. <code>ME</code> marca la posición de la fuente real.</li>
+<li><code>-D RND:10</code> genera 10 IPs aleatorias por iteración de scan.</li>
+<li>El objetivo ve 11 fuentes golpeándolo. Desde el <em>log del objetivo</em>, el scanner real es una entrada entre muchas.</li>
+<li>Los paquetes decoy tienen IPs fuente spoofed pero el mismo fingerprint de scan, mismo timing, mismos tipos de probe que los reales.</li>
+<li>Los returns van a las IPs spoofed, no al scanner. Los decoys son útiles solo para flujos tipo SYN-scan donde el scanner no necesita la reply SYN-ACK para ese decoy.</li>
 </ol>
-<p>The bug is not "fragments are hidden" or "decoys are anonymous"; the bug is "the target's defense assumes whole packets and one-IP-one-actor — primitive checks make the inspection layer reveal which assumption it uses."</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
 <ul>
-<li><strong>Two-pass diagnostic.</strong> Run identical port list with and without <code>-f</code>. Ports only <code>open</code> in the fragmented run reveal that one middlebox does not reassemble.</li>
-<li><strong><code>-D ME</code> placement matters.</strong> Decoys before/after <code>ME</code> change which packet hits the target first; some IDSes alert on the <em>first</em> source seen, which then becomes the "real" attribution from their viewpoint.</li>
-<li><strong>Decoys must be reachable IPs.</strong> Decoy IPs that are unrouteable get dropped at the first hop and never reach the target — your "10 decoys" might be effectively zero.</li>
-<li><strong>Combine with <code>--data-length</code>.</strong> Without random payload, fragmented probes still have a constant probe-length fingerprint per scan type. <code>--data-length 200</code> adds entropy.</li>
-<li><strong><code>--ip-options</code></strong> (<code>R</code> record-route, <code>T</code> timestamp, <code>L</code> loose-source-route, <code>S</code> strict-source-route) — manipulates IP options. Most edge networks drop source-routed packets; if a target answers a loose-source-routed probe, you have just diagnosed a misconfigured router.</li>
-<li><strong>Never use real third-party IPs as decoys</strong> for production engagements. Abuse complaints against bystanders happen — random RFC 5737 documentation IPs (<code>192.0.2.0/24</code>, <code>198.51.100.0/24</code>, <code>203.0.113.0/24</code>) are operationally safer than <code>RND:N</code>.</li>
+<li><strong>Diagnóstico de dos pasadas.</strong> Correr lista de puertos idéntica con y sin <code>-f</code>. Los puertos solo <code>open</code> en la corrida fragmentada revelan que un middlebox no rearma.</li>
+<li><strong>La posición de <code>-D ME</code> importa.</strong> Los decoys antes/después de <code>ME</code> cambian qué paquete golpea primero al objetivo; algunos IDSes alertan en la <em>primera</em> fuente vista.</li>
+<li><strong>Los decoys deben ser IPs alcanzables.</strong> Las IPs de decoy que no son enrutables se dropean en el primer salto y nunca llegan al objetivo.</li>
+<li><strong>Combinar con <code>--data-length</code>.</strong> Sin payload aleatorio, los probes fragmentados todavía tienen un fingerprint de longitud de probe constante.</li>
+<li><strong>Nunca usar IPs de terceros reales como decoys</strong> en engagements de producción. Las quejas de abuso contra terceros ajenos ocurren — los rangos de documentación RFC 5737 (<code>192.0.2.0/24</code>, <code>198.51.100.0/24</code>, <code>203.0.113.0/24</code>) son operacionalmente más seguros que <code>RND:N</code>.</li>
 </ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<h3 id="fragmentation-variants">Fragmentation variants</h3>
-<h4 id="tiny-fragments-f">Tiny fragments (<code>-f</code>)</h4>
-<p>8-byte fragments. Defeats only signature engines that read the first fragment only. Almost all modern IDSes reassemble.</p>
-<h4 id="custom-mtu-mtu-n">Custom MTU (<code>--mtu N</code>)</h4>
-<p>N must be a multiple of 8. <code>--mtu 16</code> produces fragments large enough to include the TCP header in the first fragment but small enough to split the payload — useful against engines that reassemble payload separately from header.</p>
-<h4 id="overlapping-fragments">Overlapping fragments</h4>
-<p>Crafted by hand (Scapy), not Nmap. Different OSes use different reassembly policies (first-wins BSD, last-wins Windows, RFC 1122 Linux). An attacker who knows the target's policy can craft fragments such that the IDS reconstructs one TCP segment and the target reconstructs another — the <em>target-vs-IDS</em> desync attack.</p>
-<h3 id="decoy-variants">Decoy variants</h3>
-<h4 id="random-decoys-d-rndn">Random decoys (<code>-D RND:N</code>)</h4>
-<p>Cheapest, noisiest, most likely to involve unrouteable or unrelated IPs. Default tutorial recipe.</p>
-<h4 id="curated-decoys">Curated decoys</h4>
-<p>Hand-picked decoy IPs from the target's own AS, partner networks, or known scanners (Censys, Shodan, internet-measurement projects). Buries the real source in expected noise — significantly more effective against analyst review.</p>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<h3 id="variantes-de-fragmentacion">Variantes de fragmentación</h3>
+<h4 id="fragmentos-tiny-f">Fragmentos tiny (<code>-f</code>)</h4>
+<p>Fragmentos de 8 bytes. Derrota solo motores de firmas que leen el primer fragmento únicamente. Casi todos los IDSes modernos rearman.</p>
+<h4 id="mtu-custom-mtu-n">MTU custom (<code>--mtu N</code>)</h4>
+<p>N debe ser múltiplo de 8. <code>--mtu 16</code> produce fragmentos suficientemente grandes como para incluir el header TCP en el primer fragmento pero suficientemente pequeños como para dividir el payload.</p>
+<h4 id="fragmentos-superpuestos">Fragmentos superpuestos</h4>
+<p>Elaborados a mano (Scapy), no por Nmap. Los distintos OS usan diferentes políticas de reensamblado (first-wins BSD, last-wins Windows, RFC 1122 Linux). El ataque de desync target-vs-IDS.</p>
+<h3 id="variantes-de-decoy">Variantes de decoy</h3>
+<h4 id="decoys-aleatorios-d-rnd-n">Decoys aleatorios (<code>-D RND:N</code>)</h4>
+<p>Los más baratos, más ruidosos, más probables de involucrar IPs no enrutables. La receta tutorial por defecto.</p>
+<h4 id="decoys-curados">Decoys curados</h4>
+<p>IPs de decoy elegidas a mano del AS del objetivo, redes de partners o scanners conocidos (Censys, Shodan, proyectos de medición de internet). Entierra la fuente real en ruido esperado.</p>
 <h4 id="idle-scan-si">Idle scan (<code>-sI</code>)</h4>
-<p>Not strictly a decoy but the same family — uses a third-party "zombie" host's incrementing IPID counter to infer port state. Scanner's IP never appears in target logs at all. The only true source-attribution-evading scan Nmap supports.</p>
-<h2 id="impact">Impact</h2>
+<p>No es estrictamente un decoy pero de la misma familia: usa el contador IPID incremental de un host &quot;zombie&quot; de terceros para inferir el estado del puerto. La IP del scanner nunca aparece en los logs del objetivo.</p>
+<h2 id="impacto">Impacto</h2>
 <ul>
-<li><strong>False reduction in source-IP detection rate</strong> when log triage is naive.</li>
-<li><strong>Diagnostic disclosure</strong> — fragmentation differences and decoy effectiveness reveal the inspection stack to the operator, which on a red team is itself valuable intel.</li>
-<li><strong>Operational risk</strong> — random decoys against critical infrastructure can trigger abuse complaints against unrelated third parties. RFC 5737 documentation ranges or test-net IPs avoid this.</li>
-<li><strong>Misattribution within the target SOC</strong> — analysts who do not realize decoys are in play may chase one of the decoy IPs as the "real" attacker, wasting engagement time.</li>
+<li><strong>Reducción falsa de la tasa de detección por IP fuente</strong> cuando el triage de logs es ingenuo.</li>
+<li><strong>Divulgación diagnóstica</strong> — las diferencias de fragmentación y la efectividad de los decoys revelan el stack de inspección al operador.</li>
+<li><strong>Riesgo operacional</strong> — los decoys aleatorios contra infraestructura crítica pueden desencadenar quejas de abuso contra terceros no relacionados.</li>
+<li><strong>Mala atribución dentro del SOC del objetivo</strong> — los analistas que no se dan cuenta de que hay decoys pueden perseguir una de las IPs de decoy como el &quot;verdadero&quot; atacante.</li>
 </ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
 <ol>
-<li>
-<p><strong>Reassemble at the IDS.</strong>
-   Default Snort/Suricata/Zeek behavior. Defeats fragmentation entirely. The defense is <em>configuration audit</em>, not buying a new product — the feature is in every modern engine, but operators sometimes disable it for throughput.</p>
-</li>
-<li>
-<p><strong>Cluster log entries by behavior, not source IP.</strong>
-   If 11 IPs send identical probe sequences within milliseconds, they are one actor with decoys. Modern SIEM correlation rules express this as "alert when N distinct source IPs hit the same dst:port within W seconds with identical TCP fingerprint."</p>
-</li>
-<li>
-<p><strong>Drop source-routed and timestamp-option packets at the edge.</strong>
-   <code>--ip-options</code> games stop working if the perimeter drops IP options unconditionally. Most modern routers do this by default but legacy core/distribution layers may not.</p>
-</li>
-<li>
-<p><strong>Per-source-IP rate limit combined with TCP fingerprinting (p0f-style).</strong>
-   Even with decoys, the scanner's OS leaks (TTL, window size, options order, MSS) appear identically across all decoy packets — the fingerprint <em>is</em> the cluster key.</p>
-</li>
+<li><strong>Rearmar en el IDS.</strong><br>
+Comportamiento por defecto de Snort/Suricata/Zeek. Derrota la fragmentación completamente. La defensa es <em>auditoría de configuración</em>, no comprar un producto nuevo.</li>
+<li><strong>Agrupar entradas de log por comportamiento, no por IP fuente.</strong><br>
+Si 11 IPs envían secuencias de probe idénticas en milisegundos, son un actor con decoys. Las reglas de correlación SIEM modernas expresan esto como &quot;alertar cuando N IPs fuente distintas golpean el mismo dst:port dentro de W segundos con fingerprint TCP idéntico.&quot;</li>
+<li><strong>Dropear paquetes con source-routed y con opción timestamp en el edge.</strong><br>
+Los juegos con <code>--ip-options</code> dejan de funcionar si el perímetro dropea opciones IP incondicionalmente.</li>
+<li><strong>Rate limit por IP fuente combinado con TCP fingerprinting (tipo p0f).</strong><br>
+Incluso con decoys, el OS del scanner se filtra (TTL, tamaño de ventana, orden de opciones, MSS) aparece idénticamente en todos los paquetes decoy — el fingerprint <em>es</em> la clave de cluster.</li>
 </ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li><strong>Blocking ICMP</strong> in the belief it will stop scans — Nmap defaults to TCP probes; this slows nothing and gives a false sense of security.</li>
-<li><strong>Hoping the IDS sees through <code>-f</code></strong> without auditing reassembly settings — reassembly is configurable, and "default on" varies by vendor and rule pack.</li>
-<li><strong>Geo-blocking the obvious decoy IPs</strong> — random IP ranges defeat geo filtering trivially; the right control is behavioral clustering, not geography.</li>
+<li><strong>Bloquear ICMP</strong> creyendo que va a parar los scans.</li>
+<li><strong>Esperar que el IDS vea a través de <code>-f</code></strong> sin auditar los ajustes de reensamblado.</li>
+<li><strong>Geo-bloquear las IPs de decoy obvias</strong> — los rangos de IPs aleatorios derrotan el filtrado geo trivialmente.</li>
 </ul>
-<h2 id="practical-labs">Practical labs</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 1 — fragmentation diagnostic on an authorized lab IDS.</span>
-sudo<span class="w"> </span>nmap<span class="w"> </span>-Pn<span class="w"> </span>-sS<span class="w"> </span>-p<span class="w"> </span><span class="m">22</span>,80,443<span class="w"> </span>LAB<span class="w"> </span>&gt;<span class="w"> </span>normal.out
-sudo<span class="w"> </span>nmap<span class="w"> </span>-Pn<span class="w"> </span>-sS<span class="w"> </span>-p<span class="w"> </span><span class="m">22</span>,80,443<span class="w"> </span>-f<span class="w"> </span>&gt;<span class="w"> </span>frag.out
-sudo<span class="w"> </span>nmap<span class="w"> </span>-Pn<span class="w"> </span>-sS<span class="w"> </span>-p<span class="w"> </span><span class="m">22</span>,80,443<span class="w"> </span>--mtu<span class="w"> </span><span class="m">24</span><span class="w"> </span>&gt;<span class="w"> </span>mtu24.out
-diff<span class="w"> </span>normal.out<span class="w"> </span>frag.out<span class="p">;</span><span class="w"> </span>diff<span class="w"> </span>frag.out<span class="w"> </span>mtu24.out
-<span class="c1"># Ports open in frag.out/mtu24.out but missing in normal.out reveal a non-reassembling middlebox.</span>
+<h2 id="labs-practicos">Labs prácticos</h2>
+<div class="codehilite"><pre><span></span><code># Lab 1 — fragmentation diagnostic on an authorized lab IDS.
+sudo nmap -Pn -sS -p 22,80,443 LAB &gt; normal.out
+sudo nmap -Pn -sS -p 22,80,443 -f &gt; frag.out
+sudo nmap -Pn -sS -p 22,80,443 --mtu 24 &gt; mtu24.out
+diff normal.out frag.out; diff frag.out mtu24.out
+# Ports open in frag.out/mtu24.out but missing in normal.out reveal a non-reassembling middlebox.
 </code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 2 — decoy attribution test on an authorized lab IDS.</span>
-sudo<span class="w"> </span>nmap<span class="w"> </span>-Pn<span class="w"> </span>-sS<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>-D<span class="w"> </span><span class="m">192</span>.0.2.10,192.0.2.20,ME,192.0.2.30<span class="w"> </span>LAB
-<span class="c1"># Then check the IDS console: does it cluster the 4 sources as one actor, or alert 4 times?</span>
-<span class="c1"># That distinguishes a modern SIEM from a per-IP alert engine.</span>
+<div class="codehilite"><pre><span></span><code># Lab 2 — decoy attribution test on an authorized lab IDS.
+sudo nmap -Pn -sS -p 80 -D 192.0.2.10,192.0.2.20,ME,192.0.2.30 LAB
+# Then check the IDS console: does it cluster the 4 sources as one actor, or alert 4 times?
 </code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 3 — TCP fingerprint persists across decoys.</span>
-sudo<span class="w"> </span>nmap<span class="w"> </span>-Pn<span class="w"> </span>-sS<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>-D<span class="w"> </span>RND:10<span class="w"> </span>LAB
-<span class="c1"># In a Wireshark capture from the IDS sensor, all 11 source IPs carry identical</span>
-<span class="c1"># TTL, window size, MSS, and TCP options. That is the fingerprint that beats decoys.</span>
-sudo<span class="w"> </span>tshark<span class="w"> </span>-i<span class="w"> </span>any<span class="w"> </span>-f<span class="w"> </span><span class="s1">&#39;host LAB and tcp port 80&#39;</span><span class="w"> </span>-T<span class="w"> </span>fields<span class="w"> </span>-e<span class="w"> </span>ip.src<span class="w"> </span>-e<span class="w"> </span>ip.ttl<span class="w"> </span>-e<span class="w"> </span>tcp.window_size_value
+<div class="codehilite"><pre><span></span><code># Lab 3 — TCP fingerprint persists across decoys.
+sudo nmap -Pn -sS -p 80 -D RND:10 LAB
+# In a Wireshark capture from the IDS sensor, all 11 source IPs carry identical
+# TTL, window size, MSS, and TCP options. That is the fingerprint that beats decoys.
+sudo tshark -i any -f &#x27;host LAB and tcp port 80&#x27; -T fields -e ip.src -e ip.ttl -e tcp.window_size_value
 </code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 4 — idle scan when a zombie exists.</span>
-sudo<span class="w"> </span>nmap<span class="w"> </span>-O<span class="w"> </span>ZOMBIE<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;IP ID Sequence&quot;</span><span class="w">        </span><span class="c1"># need &quot;Incremental&quot;</span>
-sudo<span class="w"> </span>nmap<span class="w"> </span>-Pn<span class="w"> </span>-sI<span class="w"> </span>ZOMBIE:80<span class="w"> </span>-p<span class="w"> </span><span class="m">22</span>,80,443,3389<span class="w"> </span>LAB
-<span class="c1"># Target logs will show ZOMBIE, never your scanner IP. Only ethical against owned labs.</span>
+<div class="codehilite"><pre><span></span><code># Lab 4 — idle scan when a zombie exists.
+sudo nmap -O ZOMBIE | grep &quot;IP ID Sequence&quot;        # need &quot;Incremental&quot;
+sudo nmap -Pn -sI ZOMBIE:80 -p 22,80,443,3389 LAB
 </code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 5 — IP options probe.</span>
-sudo<span class="w"> </span>nmap<span class="w"> </span>-Pn<span class="w"> </span>--ip-options<span class="w"> </span><span class="s2">&quot;L 192.0.2.1&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>LAB
-<span class="c1"># Replies indicate the path tolerates loose source routing, which is a routing misconfiguration finding.</span>
+<div class="codehilite"><pre><span></span><code># Lab 5 — IP options probe.
+sudo nmap -Pn --ip-options &quot;L 192.0.2.1&quot; -p 80 LAB
+# Replies indicate the path tolerates loose source routing, which is a routing misconfiguration finding.
 </code></pre></div>
-
-<h2 id="practical-examples">Practical examples</h2>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
-<li><strong>Hardened cloud target.</strong> Fragmentation produces zero new <code>open</code> ports — the cloud provider's edge reassembles. Useful negative result: rules out that evasion class for the next phase.</li>
-<li><strong>Legacy industrial network.</strong> <code>-f</code> reveals ports invisible to the default scan because the inline appliance is a 2008-era stateless firewall.</li>
-<li><strong>Red-team engagement against a SIEM team.</strong> Curated decoys from the target's own AS test whether SIEM clusters by behavior or by source IP — the answer drives the next phase's noise budget.</li>
-<li><strong>Bug bounty scope with strict per-IP rate limiting.</strong> Decoys are useless (rate limit applies to your IP regardless of fakes); switch to <code>--scan-delay</code> instead. Recognizing this saves hours.</li>
-<li><strong>Forensic exercise.</strong> Given a packet capture with <code>-D RND:10</code> traffic, reconstruct the real scanner IP by comparing TTL distance and TCP fingerprint across sources — the senior defensive skill that mirrors the offensive primitive.</li>
+<li><strong>Objetivo cloud hardened.</strong> La fragmentación no produce puertos <code>open</code> nuevos — el edge del proveedor cloud rearma. Resultado negativo útil: descarta esa clase de evasión para la próxima fase.</li>
+<li><strong>Red industrial legacy.</strong> <code>-f</code> revela puertos invisibles para el scan por defecto porque el appliance inline es un firewall stateless del año 2008.</li>
+<li><strong>Engagement red team contra equipo SIEM.</strong> Los decoys curados del AS del objetivo mismo prueban si el SIEM agrupa por comportamiento o por IP fuente.</li>
+<li><strong>Bug bounty scope con rate limiting estricto por IP.</strong> Los decoys son inútiles (el rate limit aplica a tu IP sin importar los falsos); cambiar a <code>--scan-delay</code> en su lugar.</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
-<li><a href="nmap-timing-and-evasion.html">nmap-timing-and-evasion</a></li>
+<li><a href="nmap-timing-and-evasion.html">Nmap Timing and Evasion</a></li>
 <li><a href="../networking/nmap-scanning.html">Nmap Scanning</a></li>
-<li><a href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a></li>
-<li><a href="../networking/packet-analysis.html">Packet Analysis</a></li>
+<li><a href="../networking/firewalls-and-network-boundaries.html">Firewalls y Límites de Red</a></li>
+<li><a href="../networking/packet-analysis.html">Análisis de Paquetes</a></li>
 <li><a href="../networking/wireshark-workflows.html">Wireshark Workflows</a></li>
-<li><a href="host-and-port-discovery.html">Host and Port Discovery</a></li>
+<li><a href="host-and-port-discovery.html">Descubrimiento de Hosts y Puertos</a></li>
 <li><a href="cloaking-and-security-evasion.html">Cloaking and Security Evasion</a></li>
-<li><a href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Scan Anomaly Detection and Fingerprint Analysis</a></li>
-<li><a href="../detection-engineering/network-telemetry-sources-and-visibility.html">Network Telemetry Sources and Visibility</a></li>
-<li><a href="../detection-engineering/detection-evasion-myths-and-modern-limitations.html">Detection Evasion Myths and Modern Limitations</a></li>
-<li><a href="masscan-internet-scale-scanning.html">masscan-internet-scale-scanning</a></li>
+<li><a href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Detección de Anomalías de Scan y Análisis de Fingerprint</a></li>
+<li><a href="masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a></li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: ids-evasion-fundamentals">ids-evasion-fundamentals</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: fragmentation-reassembly-policies">fragmentation-reassembly-policies</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: scan-fingerprinting-defense">scan-fingerprinting-defense</span></li>
-<li><a href="idle-scan-and-ipid-side-channels.html">idle-scan-and-ipid-side-channels</a></li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Official Tool Docs:</strong> Nmap Reference Guide — Firewall/IDS Evasion and Spoofing — https://nmap.org/book/man-bypass-firewalls-ids.html</li>
-<li><strong>Research / Deep Dive:</strong> Ptacek &amp; Newsham — Insertion, Evasion, and Denial of Service (1998), foundational fragmentation-evasion paper — https://insecure.org/stf/secnet_ids/secnet_ids.pdf</li>
-<li><strong>Research / Deep Dive:</strong> ProjectDiscovery Reconnaissance 103 — Host and Port Discovery — https://projectdiscovery.io/blog/reconnaissance-series-3-host-and-port-discovery</li>
+<li><strong>Docs Oficiales:</strong> Nmap Reference Guide — Firewall/IDS Evasion and Spoofing — https://nmap.org/book/man-bypass-firewalls-ids.html</li>
+<li><strong>Investigación / Deep Dive:</strong> Ptacek &amp; Newsham — Insertion, Evasion, and Denial of Service (1998) — https://insecure.org/stf/secnet_ids/secnet_ids.pdf</li>
+<li><strong>Investigación / Deep Dive:</strong> ProjectDiscovery Reconnaissance 103 — https://projectdiscovery.io/blog/reconnaissance-series-3-host-and-port-discovery</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="nse-vuln-category-audit.html"><span class="nav-dir">← Previous</span><strong>NSE `vuln` Category Audit</strong></a><a class="branch-nav-link next" href="passive-recon.html"><span class="nav-dir">Next →</span><strong>Passive Recon</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -578,23 +550,22 @@ sudo<span class="w"> </span>nmap<span class="w"> </span>-Pn<span class="w"> </sp
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-3" href="#fragmentation">Fragmentation</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-3" href="#fragmentacion">Fragmentación</a>
 <a class="toc-level-3" href="#decoys">Decoys</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#fragmentation-variants">Fragmentation variants</a>
-<a class="toc-level-3" href="#decoy-variants">Decoy variants</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-2" href="#practical-examples">Practical examples</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-3" href="#suggested-future-atomic-notes">Suggested future atomic notes</a>
-<a class="toc-level-2" href="#references">References</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
+<a class="toc-level-3" href="#variantes-de-fragmentacion">Variantes de fragmentación</a>
+<a class="toc-level-3" href="#variantes-de-decoy">Variantes de decoy</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
+<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

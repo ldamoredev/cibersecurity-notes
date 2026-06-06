@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Idle Scan and IPID Side Channels - Seguridad Ofensiva / Recon | ldamoredev Security Atlas</title>
-<meta name="description" content="An **idle scan** (nmap -sI zombie:port target) infers a target&#x27;s port state without sending a single packet from the attacker&#x27;s real IP. It works by exploiting a...">
+<meta name="description" content="Un idle scan (nmap -sI zombie:port target) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona exp...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Seguridad Ofensiva / Recon, Idle Scan and IPID Side Channels, offensive-security, nmap, idle-scan, ipid, side-channel">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Idle Scan and IPID Side Channels - Seguridad Ofensiva / Recon | ldamoredev Security Atlas">
-<meta property="og:description" content="An **idle scan** (nmap -sI zombie:port target) infers a target&#x27;s port state without sending a single packet from the attacker&#x27;s real IP. It works by exploiting a...">
+<meta property="og:description" content="Un idle scan (nmap -sI zombie:port target) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona exp...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Idle Scan and IPID Side Channels - Seguridad Ofensiva / Recon | ldamoredev Security Atlas">
-<meta name="twitter:description" content="An **idle scan** (nmap -sI zombie:port target) infers a target&#x27;s port state without sending a single packet from the attacker&#x27;s real IP. It works by exploiting a...">
+<meta name="twitter:description" content="Un idle scan (nmap -sI zombie:port target) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona exp...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html#article","name":"Idle Scan and IPID Side Channels - Seguridad Ofensiva / Recon | ldamoredev Security Atlas","headline":"Idle Scan and IPID Side Channels","description":"An **idle scan** (nmap -sI zombie:port target) infers a target's port state without sending a single packet from the attacker's real IP. It works by exploiting a...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Ofensiva / Recon","Idle Scan and IPID Side Channels","offensive-security","nmap","idle-scan","ipid","side-channel"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Ofensiva / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"Idle Scan and IPID Side Channels","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html#article","name":"Idle Scan and IPID Side Channels - Seguridad Ofensiva / Recon | ldamoredev Security Atlas","headline":"Idle Scan and IPID Side Channels","description":"Un idle scan (nmap -sI zombie:port target) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona exp...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Ofensiva / Recon","Idle Scan and IPID Side Channels","offensive-security","nmap","idle-scan","ipid","side-channel"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Ofensiva / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"Idle Scan and IPID Side Channels","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html">
@@ -410,180 +410,152 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Seguridad Ofensiva / Recon</a><span>/</span><span>Idle Scan and IPID Side Channels</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Idle Scan and IPID Side Channels</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-rose">Seguridad Ofensiva / Recon</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~10 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#nmap</span><span class="meta-chip tag">#idle-scan</span><span class="meta-chip tag">#ipid</span><span class="meta-chip tag">#side-channel</span><span class="meta-chip tag">#evasion</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="idle-scan-and-ipid-side-channels">Idle Scan and IPID Side Channels</h1>
-<h2 id="definition">Definition</h2>
-<p>An <strong>idle scan</strong> (<code>nmap -sI zombie:port target</code>) infers a target's port state without sending a single packet from the attacker's real IP. It works by exploiting a <strong>predictable IPID counter</strong> on a third-party "zombie" host: the attacker probes the zombie's current IPID, sends a spoofed SYN to the target <em>as if from the zombie</em>, then re-probes the zombie's IPID. The delta reveals whether the target replied — and to whom. <strong>IPID side channels</strong> is the broader family of inference attacks that use any host's IP identifier field as an observable counter to derive information the attacker cannot see directly.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>Idle scan is the only Nmap scan where the scanner's IP <strong>never appears in the target's logs</strong>. Every other scan — even <code>-sN</code>, <code>-sF</code>, <code>-D RND:10</code> — emits packets from the real source. The decoys raise noise; the source is still there. Idle scan is structurally different: the target only ever sees traffic from the zombie. For source-attribution evasion this is unique.</p>
-<p>It also matters as a teaching note because it teaches <strong>three transferable senior ideas</strong>:</p>
+<h2 id="definicion">Definición</h2>
+<p>Un <strong>idle scan</strong> (<code>nmap -sI zombie:port target</code>) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona explotando un <strong>contador IPID predecible</strong> en un host &quot;zombie&quot; de terceros: el atacante sondea el IPID actual del zombie, envía un SYN spoofed al objetivo <em>como si viniera del zombie</em>, y luego vuelve a sondear el IPID del zombie. El delta revela si el objetivo respondió — y a quién. Los <strong>IPID side channels</strong> son la familia más amplia de ataques de inferencia que usan el campo de identificador IP de cualquier host como contador observable para derivar información que el atacante no puede ver directamente.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>El idle scan es el único scan de Nmap donde la IP del scanner <strong>nunca aparece en los logs del objetivo</strong>. Todos los demás scans — incluso <code>-sN</code>, <code>-sF</code>, <code>-D RND:10</code> — emiten paquetes desde la fuente real. Los decoys aumentan el ruido; la fuente sigue estando. El idle scan es estructuralmente diferente: el objetivo solo ve tráfico del zombie. Para la evasión de atribución de fuente esto es único.</p>
+<p>También importa como nota educativa porque enseña <strong>tres ideas transferibles de nivel senior</strong>:</p>
 <ul>
-<li><strong>Predictable counters leak information.</strong> Any globally incrementing counter (IPID, TCP ISN under weak RNGs, certain SNMP counters) is a side-channel oracle. The vulnerability is the predictability, not the protocol.</li>
-<li><strong>Trust assumptions stack.</strong> Idle scan assumes (a) the zombie answers consistently, (b) the target trusts the zombie's source IP, (c) the zombie is otherwise quiet enough for delta inference to be reliable. Each assumption is its own attack surface.</li>
-<li><strong>Defenses are protocol-spec changes.</strong> RFC-level guidance to randomize IPID neutralized classic idle scan on every major OS. Senior thinking treats the <em>protocol field</em> as the attack surface, not the tool.</li>
+<li><strong>Los contadores predecibles filtran información.</strong> Cualquier contador que se incrementa globalmente (IPID, TCP ISN con RNGs débiles, ciertos contadores SNMP) es un oráculo de side channel. La vulnerabilidad es la predecibilidad, no el protocolo.</li>
+<li><strong>Los supuestos de confianza se apilan.</strong> El idle scan asume (a) que el zombie responde consistentemente, (b) que el objetivo confía en la IP fuente del zombie, (c) que el zombie está suficientemente quieto para que la inferencia por delta sea confiable. Cada supuesto es su propia superficie de ataque.</li>
+<li><strong>Las defensas son cambios en la especificación del protocolo.</strong> La guía a nivel RFC para randomizar IPID neutralizó el idle scan clásico en todos los sistemas operativos principales. El pensamiento senior trata el <em>campo del protocolo</em> como la superficie de ataque, no la herramienta.</li>
 </ul>
-<p>Idle scan today is mostly <strong>diagnostic</strong> rather than operational — modern OS IPID randomization defeats it on Linux, OpenBSD, modern Windows, and most cloud workloads. But IoT devices, legacy embedded systems, and misconfigured NAT gateways still ship globally-incrementing IPID generators, and the technique remains a clean way to <em>prove</em> an environment is older than its operators claim.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>Idle scan reduces to <strong>3 round-trips</strong> and <strong>a one-bit observation</strong>:</p>
+<p>El idle scan hoy es principalmente <strong>diagnóstico</strong> en lugar de operacional — la randomización de IPID en OS modernos lo derrota en Linux, OpenBSD, Windows moderno y la mayoría de workloads cloud. Pero los dispositivos IoT, sistemas embebidos legacy y gateways NAT mal configurados todavía incluyen generadores de IPID que se incrementan globalmente, y la técnica sigue siendo una forma limpia de <em>probar</em> que un entorno es más viejo de lo que sus operadores afirman.</p>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>El idle scan se reduce a <strong>3 round-trips</strong> y <strong>una observación de un bit</strong>:</p>
 <ol>
-<li><strong>Probe the zombie's current IPID.</strong> Attacker sends an unsolicited SYN-ACK to the zombie. Zombie replies with RST, carrying IPID = N.</li>
-<li><strong>Spoof a SYN to the target from the zombie's IP.</strong> Target receives a SYN that looks like it came from zombie.
-   - If the target port is <strong>open</strong>: target replies SYN-ACK to the zombie. Zombie was not expecting this, so it replies with RST — <em>and increments its IPID</em>. Zombie IPID is now N+1.
-   - If the target port is <strong>closed</strong>: target replies RST to the zombie. Zombie drops the unsolicited RST and does <em>not</em> send any packet. Zombie IPID stays at N.</li>
-<li><strong>Re-probe the zombie's IPID.</strong> Attacker sends another unsolicited SYN-ACK. Zombie replies with RST, carrying its current IPID:
-   - <strong>N+2</strong> (started at N, incremented once during step 2, incremented once now) → port was <strong>open</strong>.
-   - <strong>N+1</strong> (no step-2 increment, only this probe) → port was <strong>closed</strong>.</li>
+<li><strong>Sondear el IPID actual del zombie.</strong> El atacante envía un SYN-ACK no solicitado al zombie. El zombie responde con RST, portando IPID = N.</li>
+<li><strong>Spoof de un SYN al objetivo desde la IP del zombie.</strong> El objetivo recibe un SYN que parece venir del zombie.</li>
+<li>Si el puerto objetivo está <strong>abierto</strong>: el objetivo responde SYN-ACK al zombie. El zombie no esperaba esto, así que responde con RST — <em>e incrementa su IPID</em>. El IPID del zombie es ahora N+1.</li>
+<li>Si el puerto objetivo está <strong>cerrado</strong>: el objetivo responde RST al zombie. El zombie descarta el RST no solicitado y <em>no envía ningún paquete</em>. El IPID del zombie se queda en N.</li>
+<li><strong>Volver a sondear el IPID del zombie.</strong> El atacante envía otro SYN-ACK no solicitado. El zombie responde con RST, portando su IPID actual:</li>
+<li><strong>N+2</strong> (empezó en N, se incrementó una vez en el paso 2, se incrementó ahora) → el puerto estaba <strong>abierto</strong>.</li>
+<li><strong>N+1</strong> (sin incremento del paso 2, solo este probe) → el puerto estaba <strong>cerrado</strong>.</li>
 </ol>
-<p>A representative invocation:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 1) Find a candidate zombie — must have INCREMENTAL IPID.</span>
-sudo<span class="w"> </span>nmap<span class="w"> </span>-O<span class="w"> </span>ZOMBIE_CANDIDATE<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;ip id sequence&#39;</span>
-<span class="c1"># Look for: &quot;IP ID Sequence Generation: Incremental&quot;</span>
+<p>Una invocación representativa:</p>
+<div class="codehilite"><pre><span></span><code># 1) Find a candidate zombie — must have INCREMENTAL IPID.
+sudo nmap -O ZOMBIE_CANDIDATE | grep -i &#x27;ip id sequence&#x27;
+# Look for: &quot;IP ID Sequence Generation: Incremental&quot;
 
-<span class="c1"># 2) Run the idle scan.</span>
-sudo<span class="w"> </span>nmap<span class="w"> </span>-Pn<span class="w"> </span>-sI<span class="w"> </span>ZOMBIE:80<span class="w"> </span>-p<span class="w"> </span><span class="m">22</span>,80,443,3389<span class="w"> </span>TARGET
-<span class="c1"># Target sees traffic from ZOMBIE only. Your IP appears nowhere in the target&#39;s logs.</span>
+# 2) Run the idle scan.
+sudo nmap -Pn -sI ZOMBIE:80 -p 22,80,443,3389 TARGET
+# Target sees traffic from ZOMBIE only. Your IP appears nowhere in the target&#x27;s logs.
 </code></pre></div>
-
-<p>The bug is not "Nmap can spoof source IPs" (that has always been possible); the bug is <em>the third-party host's IPID counter is a measurable side channel that leaks the target's response — and is observable to anyone who can probe the third party</em>.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>El error no es &quot;Nmap puede hacer spoof de IPs fuente&quot; (eso siempre fue posible); el error es <em>el contador IPID del host de terceros es un side channel medible que filtra la response del objetivo — y es observable para cualquiera que pueda sondear al tercero</em>.</p>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
 <ul>
-<li><strong>Zombie selection is the entire engagement.</strong> A good zombie has: (a) <code>IP ID Sequence Generation: Incremental</code> per <code>nmap -O</code>, (b) low traffic so the IPID delta is exactly +2 or +1 (busy zombies advance multiple times between probes, producing noise), (c) network reachability to the target on the relevant ports.</li>
-<li><strong>Verify the zombie's IPID generation before scanning.</strong> <code>nmap -O</code> is the first move; if the result is <code>Random</code> or <code>Randomized</code>, that zombie is useless. <code>Broken little-endian incremental</code> (Windows 95-era) is workable but rare in 2026.</li>
-<li><strong>Modern IoT and printers are the typical zombie source.</strong> Embedded network stacks frequently still use global incremental IPID. Network printers, KVM switches, video doorbells, industrial controllers, and out-of-band management interfaces are recurring candidates.</li>
-<li><strong>Idle scan is slow.</strong> Each port requires multiple round-trips. Practical for confirming exposure on a handful of high-value ports; impractical for <code>-p-</code> full-range scans.</li>
-<li><strong>The <code>--proxies</code> flag is not the same thing.</strong> <code>nmap --proxies</code> chains HTTP/SOCKS proxies and rewrites the source at the proxy layer — useful for reachability, useless for evasion (the proxy still logs you). Idle scan removes the source from the <em>target's</em> logs.</li>
-<li><strong>OPSEC: detection lives at the zombie, not the target.</strong> A defender who controls the zombie can correlate three things — IPID jumps that don't match outbound traffic, unsolicited SYN-ACKs from your IP, and unsolicited responses arriving from the target. The technique evades target-side detection by design; defender response is "watch your own infrastructure for being used as a zombie".</li>
+<li><strong>La selección del zombie es todo el engagement.</strong> Un buen zombie tiene: (a) <code>IP ID Sequence Generation: Incremental</code> según <code>nmap -O</code>, (b) bajo tráfico para que el delta IPID sea exactamente +2 o +1 (los zombies ocupados avanzan múltiples veces entre probes, produciendo ruido), (c) alcanzabilidad de red al objetivo en los puertos relevantes.</li>
+<li><strong>Verificá el comportamiento IPID del zombie antes de escanear.</strong> <code>nmap -O</code> es el primer movimiento; si el resultado es <code>Random</code> o <code>Randomized</code>, ese zombie es inútil.</li>
+<li><strong>El IoT moderno y las impresoras son la fuente típica de zombie.</strong> Los stacks de red embebidos frecuentemente todavía usan IPID incremental global. Impresoras de red, switches KVM, timbres inteligentes, controladores industriales e interfaces de gestión fuera de banda son candidatos recurrentes.</li>
+<li><strong>El idle scan es lento.</strong> Cada puerto requiere múltiples round-trips. Práctico para confirmar exposición en unos pocos puertos de alto valor; impráctico para scans de rango completo <code>-p-</code>.</li>
+<li><strong><code>--proxies</code> no es lo mismo.</strong> <code>nmap --proxies</code> encadena proxies HTTP/SOCKS y reescribe la fuente en la capa del proxy — útil para alcanzabilidad, inútil para evasión (el proxy igual te registra). El idle scan elimina la fuente de los <em>logs del objetivo</em>.</li>
+<li><strong>OPSEC: la detección vive en el zombie, no en el objetivo.</strong> Un defensor que controla el zombie puede correlacionar tres cosas: saltos de IPID que no coinciden con el tráfico saliente, SYN-ACKs no solicitados desde tu IP, y responses no solicitadas llegando desde el objetivo.</li>
 </ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>The IPID-side-channel family has <strong>4 important variants</strong>.</p>
-<h3 id="1-classic-idle-scan-nmap-si">1. Classic idle scan (Nmap <code>-sI</code>)</h3>
-<p>The flow described above. Requires an incremental-IPID zombie reachable from both the attacker and the target. The textbook variant, increasingly hard to land against modern OSes.</p>
-<h3 id="2-per-destination-ipid-idle-scan">2. Per-destination IPID idle scan</h3>
-<p>Linux (since 2014) uses a <em>per-destination-pair</em> IPID counter rather than a global one. Classic idle scan does not work directly, but a refined variant uses the <em>zombie-to-target</em> pair's IPID as the oracle by ensuring the zombie's first interaction with the target is the probe-induced reply. Brittle but documented in academic literature.</p>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<p>La familia de IPID side channel tiene <strong>4 variantes importantes</strong>.</p>
+<h3 id="1-idle-scan-clasico-nmap-si">1. Idle scan clásico (Nmap <code>-sI</code>)</h3>
+<p>El flujo descrito arriba. Requiere un zombie con IPID incremental alcanzable tanto desde el atacante como desde el objetivo. La variante del libro de texto, cada vez más difícil de ejecutar contra OS modernos.</p>
+<h3 id="2-idle-scan-por-destino-ipid">2. Idle scan por destino IPID</h3>
+<p>Linux (desde 2014) usa un contador IPID <em>por par de destinos</em> en lugar de uno global. El idle scan clásico no funciona directamente, pero una variante refinada usa el IPID del par <em>zombie-a-objetivo</em> como oráculo. Frágil pero documentado en literatura académica.</p>
 <h3 id="3-tcp-shared-state-side-channels">3. TCP shared-state side channels</h3>
-<p>Beyond IPID, certain TCP fields (ISN under weak RNGs, challenge ACK counters, packet-count-based rate-limit state) can leak target state to a third-party observer. <strong>Ensafi et al. (USENIX 2015)</strong> demonstrated detecting intentional packet drops on the internet using these primitives — censorship detection from outside the censored network entirely.</p>
-<h3 id="4-nat-mapping-inference-via-ipid">4. NAT-mapping inference via IPID</h3>
-<p>A NAT gateway that translates many internal hosts to one external IP frequently shares a single IPID counter across them. Probing the external IPID and watching the rate of advance reveals approximately how many internal hosts are active — an unintended census attack against the perimeter. Defeated by NAT implementations that randomize IPID per outbound flow.</p>
-<h2 id="impact">Impact</h2>
-<p>Ordered by typical real-world severity:</p>
+<p>Más allá del IPID, ciertos campos TCP (ISN bajo RNGs débiles, contadores de challenge ACK, estado de rate limit basado en conteo de paquetes) pueden filtrar el estado del objetivo a un observador tercero. <strong>Ensafi et al. (USENIX 2015)</strong> demostró detección de drops intencionales de paquetes en internet usando estas primitivas.</p>
+<h3 id="4-inferencia-de-mapeo-nat-via-ipid">4. Inferencia de mapeo NAT vía IPID</h3>
+<p>Un gateway NAT que traduce muchos hosts internos a una IP externa frecuentemente comparte un único contador IPID entre ellos. Sondear el IPID externo y observar la tasa de avance revela aproximadamente cuántos hosts internos están activos.</p>
+<h2 id="impacto">Impacto</h2>
+<p>Ordenado por severidad real típica:</p>
 <ul>
-<li><strong>Source-attribution evasion that survives forensic review.</strong> The target's packet captures and logs contain only the zombie. Investigations chase the zombie owner first; the real attacker is invisible unless the zombie itself is captured and its own logs analyzed.</li>
-<li><strong>Trust-relationship inference.</strong> If the zombie is <em>trusted</em> by the target (firewall ACL allows ZOMBIE → TARGET:N but blocks the internet at large), idle scan reveals exposure that no direct scan from the internet would surface. Diagnostic of legacy "allow from this management host" ACLs.</li>
-<li><strong>NAT-population estimation.</strong> Census-style intelligence about an organization's internal scale, leaked through perimeter IPID counters. Useful for sizing follow-up engagements.</li>
-<li><strong>False-confidence in defender visibility.</strong> Defenders who say "we monitor every connection" are correct about the target; they miss idle scans entirely if their telemetry is target-side only.</li>
-<li><strong>Limited operational use today.</strong> Most production OSes randomize IPID. The technique is <em>educational</em> and <em>legacy-target-specific</em> rather than a standard operator move in 2026.</li>
+<li><strong>Evasión de atribución de fuente que sobrevive la revisión forense.</strong> Los packet captures y logs del objetivo contienen solo el zombie. Las investigaciones persiguen primero al dueño del zombie; el atacante real es invisible a menos que el zombie mismo sea capturado y sus propios logs analizados.</li>
+<li><strong>Inferencia de relaciones de confianza.</strong> Si el zombie es <em>confiable</em> para el objetivo (ACL de firewall permite ZOMBIE → TARGET:N pero bloquea internet en general), el idle scan revela exposición que ningún scan directo desde internet encontraría.</li>
+<li><strong>Estimación de población NAT.</strong> Inteligencia tipo censo sobre la escala interna de una organización, filtrada a través de contadores IPID del perímetro.</li>
+<li><strong>Falsa confianza en la visibilidad del defensor.</strong> Los defensores que dicen &quot;monitoreamos cada conexión&quot; tienen razón sobre el objetivo; se pierden los idle scans completamente si su telemetría es solo del lado del objetivo.</li>
+<li><strong>Uso operacional limitado hoy.</strong> La mayoría de OS de producción randomiza IPID. La técnica es <em>educativa</em> y <em>específica para objetivos legacy</em>.</li>
 </ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
-<p>Ordered by effectiveness:</p>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<p>Ordenado por efectividad:</p>
 <ol>
-<li>
-<p><strong>Use a kernel that randomizes IPID per destination or per packet.</strong>
-   Linux 4.1+, modern macOS, FreeBSD, OpenBSD, Windows 10/Server 2016+ all do this by default. The structural fix that ends classic idle scan as a useful attack against modern OSes. Audit any host advertising as a router, gateway, printer, IoT device, or out-of-band management interface — these are the lingering incremental-IPID candidates.</p>
-</li>
-<li>
-<p><strong>Egress filtering and source-address verification (BCP 38).</strong>
-   Idle scan requires the attacker to spoof the zombie's source IP. Networks that enforce ingress filtering (the <em>attacker's</em> upstream drops packets whose source IP is not in the attacker's address space) make the spoof impossible. RFC 2827 / BCP 38 was specified in 2000 and is still inconsistently deployed.</p>
-</li>
-<li>
-<p><strong>Behavioral detection at the zombie side.</strong>
-   The zombie sees three anomalies: (a) unsolicited SYN-ACKs from the attacker, (b) unsolicited RST or SYN-ACK responses from the target, (c) its own IPID advancing without matching outbound application traffic. Any single anomaly is weak; the combination is high-confidence. Defenders should monitor their own infrastructure for being recruited as zombies.</p>
-</li>
-<li>
-<p><strong>Per-destination IPID for any custom network stack.</strong>
-   IoT device manufacturers, embedded systems, and custom network stacks frequently inherit the same incremental-IPID bug because the developers do not know it is an attack surface. Secure-by-default guidance for new TCP/IP implementations should include IPID randomization.</p>
-</li>
-<li>
-<p><strong>Network-level flow monitoring at the perimeter.</strong>
-   Detection on the perimeter (the target's edge router) catches a different signature: the spoofed SYN arrives from a source that does not normally communicate with the target on that port. NetFlow / IPFIX correlation with known communication baselines catches the anomaly even though target host logs miss it.</p>
-</li>
+<li><strong>Usá un kernel que randomiza IPID por destino o por paquete.</strong><br>
+Linux 4.1+, macOS moderno, FreeBSD, OpenBSD, Windows 10/Server 2016+ lo hacen por defecto. El arreglo estructural que termina con el idle scan clásico como ataque útil contra OS modernos.</li>
+<li><strong>Egress filtering y verificación de dirección fuente (BCP 38).</strong><br>
+El idle scan requiere que el atacante haga spoof de la IP fuente del zombie. Las redes que aplican filtrado de ingreso hacen el spoof imposible. RFC 2827 / BCP 38 fue especificado en 2000 y todavía se despliega inconsistentemente.</li>
+<li><strong>Detección conductual del lado del zombie.</strong><br>
+El zombie ve tres anomalías: (a) SYN-ACKs no solicitados desde el atacante, (b) responses RST o SYN-ACK no solicitadas desde el objetivo, (c) su propio IPID avanzando sin coincidir con tráfico saliente de aplicaciones.</li>
+<li><strong>IPID por destino para cualquier stack de red custom.</strong><br>
+Los fabricantes de dispositivos IoT, sistemas embebidos y stacks de red custom frecuentemente heredan el mismo bug de IPID incremental.</li>
+<li><strong>Monitoreo de flujo de red a nivel de red en el perímetro.</strong><br>
+La detección en el perímetro captura una firma diferente: el SYN spoofed llega desde una fuente que normalmente no se comunica con el objetivo en ese puerto.</li>
 </ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li><strong>Target-host logging alone.</strong> Idle scan was designed to defeat this. The target sees a clean session that came from a trusted source IP (the zombie).</li>
-<li><strong>Firewall rules that block "scan-like" patterns.</strong> Idle scan is one SYN per port, spread across whatever pace the attacker chooses. No volumetric signature on the target side.</li>
-<li><strong>TLS / encryption.</strong> Idle scan operates at L3/L4. TLS is irrelevant.</li>
-<li><strong>Geo-blocking the zombie's country.</strong> If the zombie is in-network or near-network, geo-blocking either blocks legitimate traffic or fails to apply.</li>
+<li><strong>Solo logging del host objetivo.</strong> El idle scan fue diseñado para derrotar esto.</li>
+<li><strong>Reglas de firewall que bloquean patrones &quot;tipo scan&quot;.</strong> El idle scan es un SYN por puerto, distribuido al ritmo que elija el atacante.</li>
+<li><strong>TLS / cifrado.</strong> El idle scan opera en L3/L4. TLS es irrelevante.</li>
+<li><strong>Geo-blocking del país del zombie.</strong> Si el zombie está en red o cerca de ella, el geo-blocking bloquea tráfico legítimo o falla en aplicarse.</li>
 </ul>
-<h2 id="practical-labs">Practical labs</h2>
-<p>Run <strong>only</strong> against owned lab environments or authorized engagements. Idle scan against arbitrary internet hosts uses third-party IP addresses without their consent — operationally and legally hazardous outside authorized scope.</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 1 — Find a candidate zombie in a lab subnet.</span>
-sudo<span class="w"> </span>nmap<span class="w"> </span>-O<span class="w"> </span><span class="m">10</span>.0.0.0/24<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
-<span class="w">    </span>awk<span class="w"> </span><span class="s1">&#39;/Nmap scan report/{ip=$NF} /IP ID Sequence Generation: Incremental/{print ip}&#39;</span>
-<span class="c1"># Output: every host with incremental IPID is a candidate zombie.</span>
+<h2 id="labs-practicos">Labs prácticos</h2>
+<p>Corré <strong>únicamente</strong> contra entornos de lab propios o engagements autorizados.</p>
+<div class="codehilite"><pre><span></span><code># Lab 1 — Find a candidate zombie in a lab subnet.
+sudo nmap -O 10.0.0.0/24 2&gt;/dev/null |
+    awk &#x27;/Nmap scan report/{ip=$NF} /IP ID Sequence Generation: Incremental/{print ip}&#x27;
+# Output: every host with incremental IPID is a candidate zombie.
 </code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 2 — Verify a specific zombie&#39;s IPID behavior in detail.</span>
-sudo<span class="w"> </span>nmap<span class="w"> </span>-O<span class="w"> </span>ZOMBIE<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A1<span class="w"> </span><span class="s2">&quot;IP ID Sequence&quot;</span>
-<span class="c1"># Expected: &quot;IP ID Sequence Generation: Incremental&quot;</span>
-<span class="c1"># If you see &quot;Random&quot; or &quot;Randomized&quot;, this zombie cannot be used.</span>
+<div class="codehilite"><pre><span></span><code># Lab 2 — Verify a specific zombie&#x27;s IPID behavior in detail.
+sudo nmap -O ZOMBIE | grep -A1 &quot;IP ID Sequence&quot;
+# Expected: &quot;IP ID Sequence Generation: Incremental&quot;
+# If you see &quot;Random&quot; or &quot;Randomized&quot;, this zombie cannot be used.
 </code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 3 — Run an idle scan against an authorized lab target.</span>
-sudo<span class="w"> </span>nmap<span class="w"> </span>-Pn<span class="w"> </span>-sI<span class="w"> </span>ZOMBIE:80<span class="w"> </span>-p<span class="w"> </span><span class="m">21</span>,22,80,443,3389,8080<span class="w"> </span>TARGET
-<span class="c1"># The target&#39;s packet capture will show ZOMBIE as the source.</span>
-<span class="c1"># Verify by running tcpdump on TARGET during the scan.</span>
+<div class="codehilite"><pre><span></span><code># Lab 3 — Run an idle scan against an authorized lab target.
+sudo nmap -Pn -sI ZOMBIE:80 -p 21,22,80,443,3389,8080 TARGET
+# The target&#x27;s packet capture will show ZOMBIE as the source.
+# Verify by running tcpdump on TARGET during the scan.
 </code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 4 — Confirm the source-attribution property from TARGET&#39;s perspective.</span>
-<span class="c1"># On TARGET:</span>
-sudo<span class="w"> </span>tcpdump<span class="w"> </span>-i<span class="w"> </span>any<span class="w"> </span>-nn<span class="w"> </span><span class="s2">&quot;host ATTACKER_REAL_IP or host ZOMBIE&quot;</span><span class="w"> </span>-c<span class="w"> </span><span class="m">50</span>
-<span class="c1"># Expected: zero packets to/from ATTACKER_REAL_IP, many packets to/from ZOMBIE.</span>
+<div class="codehilite"><pre><span></span><code># Lab 4 — Confirm the source-attribution property from TARGET&#x27;s perspective.
+# On TARGET:
+sudo tcpdump -i any -nn &quot;host ATTACKER_REAL_IP or host ZOMBIE&quot; -c 50
+# Expected: zero packets to/from ATTACKER_REAL_IP, many packets to/from ZOMBIE.
 </code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 5 — Defender lab: detect being used as a zombie.</span>
-<span class="c1"># On the ZOMBIE host:</span>
-sudo<span class="w"> </span>tcpdump<span class="w"> </span>-i<span class="w"> </span>any<span class="w"> </span>-nn<span class="w"> </span><span class="s1">&#39;tcp and ((tcp[tcpflags] &amp; tcp-syn != 0 and tcp[tcpflags] &amp; tcp-ack != 0) or (tcp[tcpflags] &amp; tcp-rst != 0))&#39;</span><span class="w"> </span>-c<span class="w"> </span><span class="m">200</span>
-<span class="c1"># Look for: SYN-ACK or RST packets arriving from the TARGET that do not correspond</span>
-<span class="c1"># to any outbound connection your host initiated. That is the zombie-side signature.</span>
+<div class="codehilite"><pre><span></span><code># Lab 5 — Defender lab: detect being used as a zombie.
+# On the ZOMBIE host:
+sudo tcpdump -i any -nn &#x27;tcp and ((tcp[tcpflags] &amp; tcp-syn != 0 and tcp[tcpflags] &amp; tcp-ack != 0) or (tcp[tcpflags] &amp; tcp-rst != 0))&#x27; -c 200
+# Look for: SYN-ACK or RST packets arriving from the TARGET that do not correspond
+# to any outbound connection your host initiated. That is the zombie-side signature.
 </code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 6 — IPID-based NAT-population inference (educational, against owned NAT).</span>
-<span class="c1"># Probe the NAT external IP repeatedly and watch IPID advance.</span>
-<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>seq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">20</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span>sudo<span class="w"> </span>hping3<span class="w"> </span>-c1<span class="w"> </span>-S<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>NAT_EXTERNAL_IP<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
-<span class="w">      </span>grep<span class="w"> </span>-oP<span class="w"> </span><span class="s1">&#39;id=\K\d+&#39;</span>
-<span class="w">  </span>sleep<span class="w"> </span><span class="m">1</span>
-<span class="k">done</span>
-<span class="c1"># If IPID advances by more than ~1 between samples, the NAT is sharing the counter</span>
-<span class="c1"># across multiple internal hosts — the rate of advance approximates the active host count.</span>
+<div class="codehilite"><pre><span></span><code># Lab 6 — IPID-based NAT-population inference (educational, against owned NAT).
+# Probe the NAT external IP repeatedly and watch IPID advance.
+for i in $(seq 1 20); do
+  sudo hping3 -c1 -S -p 80 NAT_EXTERNAL_IP 2&gt;/dev/null |
+      grep -oP &#x27;id=\K\d+&#x27;
+  sleep 1
+done
+# If IPID advances by more than ~1 between samples, the NAT is sharing the counter
+# across multiple internal hosts — the rate of advance approximates the active host count.
 </code></pre></div>
-
-<h2 id="practical-examples">Practical examples</h2>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
-<li><strong>Engagement against legacy industrial network.</strong> Target perimeter has strict ACLs but trusts a 2010-era network printer in the same subnet. Idle scan with the printer as zombie reveals ports the direct internet scan reports as <code>filtered</code>. The printer's incremental IPID makes it the only viable path for source-attribution-evading reconnaissance.</li>
-<li><strong>Forensic exercise after a perimeter scan.</strong> Defender team sees scan traffic apparently from <code>printer-3F-001</code>. Investigation reveals the printer's IPID advanced inconsistently with its outbound traffic during the scan window — confirming idle scan and pointing to the real attacker via NetFlow at the printer's egress.</li>
-<li><strong>Modern Linux target — idle scan fails.</strong> Same engagement, but the target is a Linux 5.x host. The per-destination IPID generator means the classic technique does not work; operator falls back to ordinary <code>-sS</code> and accepts the attribution cost.</li>
-<li><strong>NAT census during pre-engagement recon.</strong> Probing an organization's perimeter IP reveals the IPID counter advancing at roughly 50 units per minute, suggesting ~30-50 active internal hosts at the time of measurement. Sized the follow-up internal engagement accordingly.</li>
-<li><strong>Honey-zombie defender win.</strong> Defender deploys an obviously-attractive host (named <code>mgmt-jump-01</code>) with incremental IPID and monitors it for unsolicited SYN-ACKs from the internet. Six months later, an external scan attempt against the corporate IP space generates the expected pattern — caught the operator mid-recon.</li>
+<li><strong>Engagement contra red industrial legacy.</strong> El perímetro tiene ACLs estrictas pero confía en una impresora de red del año 2010 en la misma subred. El idle scan con la impresora como zombie revela puertos que el scan directo desde internet reporta como <code>filtered</code>.</li>
+<li><strong>Ejercicio forense posterior a un scan de perímetro.</strong> El equipo defensor ve tráfico de scan aparentemente desde <code>printer-3F-001</code>. La investigación revela que el IPID de la impresora avanzó inconsistentemente con su tráfico saliente durante la ventana de scan.</li>
+<li><strong>Objetivo Linux moderno — el idle scan falla.</strong> Mismo engagement, pero el objetivo es un host Linux 5.x. El generador IPID por destino significa que la técnica clásica no funciona; el operador cae en <code>-sS</code> ordinario y acepta el costo de atribución.</li>
+<li><strong>Censo NAT durante pre-engagement recon.</strong> Sondear la IP de perímetro de una organización revela que el contador IPID avanza aproximadamente 50 unidades por minuto, sugiriendo ~30-50 hosts internos activos en el momento de la medición.</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
-<li><a href="nmap-timing-and-evasion.html">nmap-timing-and-evasion</a> — broader timing/evasion primitives; idle scan is the deepest case of the attribution-evasion question.</li>
-<li><a href="packet-fragmentation-and-decoy-scans.html">packet-fragmentation-and-decoy-scans</a> — sibling evasion family; decoys obscure attribution by noise, idle scan eliminates it by mechanism.</li>
-<li><a href="../networking/tcp-ip-basics.html">TCP/IP basics</a> — the IP identifier field this attack uses.</li>
-<li><a href="../networking/nmap-scanning.html">Nmap Scanning</a> — broader scan strategy this fits inside.</li>
-<li><a href="../networking/packet-analysis.html">Packet Analysis</a> — the right tool to verify the zombie/target packet flow during a lab.</li>
-<li><a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality</a> — idle scan is a clean example of an attack whose defenses are protocol-spec changes, not perimeter rules.</li>
-<li><a href="../detection-engineering/network-telemetry-sources-and-visibility.html">Network telemetry sources and visibility</a> — explains why target-side telemetry alone misses this.</li>
+<li><a href="nmap-timing-and-evasion.html">Nmap Timing and Evasion</a> — primitivas más amplias de timing/evasión; el idle scan es el caso más profundo de la pregunta de evasión de atribución.</li>
+<li><a href="packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a> — familia hermana de evasión; los decoys oscurecen la atribución por ruido, el idle scan la elimina por mecanismo.</li>
+<li><a href="../networking/tcp-ip-basics.html">Fundamentos de TCP/IP</a> — el campo de identificador IP que usa este ataque.</li>
+<li><a href="../networking/nmap-scanning.html">Nmap Scanning</a> — estrategia de scan más amplia en la que encaja.</li>
+<li><a href="../networking/packet-analysis.html">Análisis de Paquetes</a> — la herramienta correcta para verificar el flujo de paquetes zombie/objetivo durante un lab.</li>
+<li><a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Dualidad Atacante-Defensor como Herramienta de Aprendizaje</a> — el idle scan es un ejemplo limpio de un ataque cuyas defensas son cambios en la especificación del protocolo, no reglas perimetrales.</li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: ipid-randomization-policies-by-os">ipid-randomization-policies-by-os</span> — comparative table of Linux / macOS / Windows / OpenBSD / BSD-derivative / IoT-stack IPID behavior.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: tcp-ip-side-channels-beyond-ipid">tcp-ip-side-channels-beyond-ipid</span> — ISN inference, challenge-ACK counters, packet-count rate limits.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: nat-population-inference-attacks">nat-population-inference-attacks</span> — the census variant; defense via per-flow IPID randomization at the NAT.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: bcp38-egress-filtering-and-spoofing-defense">bcp38-egress-filtering-and-spoofing-defense</span> — the structural anti-spoofing defense at the attacker's upstream.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: detect-idle-scan-at-zombie-side">detect-idle-scan-at-zombie-side</span> — defender-side playbook pair for catching being used as a zombie.</li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Official Tool Docs:</strong> Nmap Reference Guide — Idle Scan — https://nmap.org/book/idlescan.html</li>
-<li><strong>Research / Deep Dive:</strong> Antirez (Salvatore Sanfilippo) — Dumb scan / new TCP scan method (original 1998 disclosure on Bugtraq) — https://seclists.org/bugtraq/1998/Dec/79</li>
-<li><strong>Research / Deep Dive:</strong> Ensafi et al. — Detecting Intentional Packet Drops on the Internet via TCP/IP Side Channels (USENIX Security 2015) — https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/ensafi</li>
+<li><strong>Docs Oficiales:</strong> Nmap Reference Guide — Idle Scan — https://nmap.org/book/idlescan.html</li>
+<li><strong>Investigación / Deep Dive:</strong> Antirez (Salvatore Sanfilippo) — Dumb scan / new TCP scan method (disclosure original de 1998 en Bugtraq) — https://seclists.org/bugtraq/1998/Dec/79</li>
+<li><strong>Investigación / Deep Dive:</strong> Ensafi et al. — Detecting Intentional Packet Drops on the Internet via TCP/IP Side Channels (USENIX Security 2015) — https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/ensafi</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="host-and-port-discovery.html"><span class="nav-dir">← Previous</span><strong>Host and Port Discovery</strong></a><a class="branch-nav-link next" href="masscan-internet-scale-scanning.html"><span class="nav-dir">Next →</span><strong>Masscan Internet-Scale Scanning</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -599,23 +571,22 @@ sudo<span class="w"> </span>tcpdump<span class="w"> </span>-i<span class="w"> </
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-classic-idle-scan-nmap-si">1. Classic idle scan (Nmap  -sI )</a>
-<a class="toc-level-3" href="#2-per-destination-ipid-idle-scan">2. Per-destination IPID idle scan</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
+<a class="toc-level-3" href="#1-idle-scan-clasico-nmap-si">1. Idle scan clásico (Nmap -sI )</a>
+<a class="toc-level-3" href="#2-idle-scan-por-destino-ipid">2. Idle scan por destino IPID</a>
 <a class="toc-level-3" href="#3-tcp-shared-state-side-channels">3. TCP shared-state side channels</a>
-<a class="toc-level-3" href="#4-nat-mapping-inference-via-ipid">4. NAT-mapping inference via IPID</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-2" href="#practical-examples">Practical examples</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-3" href="#suggested-future-atomic-notes">Suggested future atomic notes</a>
-<a class="toc-level-2" href="#references">References</a>
+<a class="toc-level-3" href="#4-inferencia-de-mapeo-nat-via-ipid">4. Inferencia de mapeo NAT vía IPID</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
+<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

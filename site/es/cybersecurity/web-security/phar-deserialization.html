@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PHAR Deserialization - Seguridad Web | ldamoredev Security Atlas</title>
-<meta name="description" content="PHAR deserialization is a PHP-specific exploitation technique where deserialization is triggered not by an explicit unserialize() call, but as a side effect of any...">
+<meta name="description" content="La deserialización PHAR es una clase de vulnerabilidad específica de PHP donde cualquier operación del sistema de archivos que acepte un stream phar:// implí...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Seguridad Web, PHAR Deserialization, web-security, deserialization, php, rce">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHAR Deserialization - Seguridad Web | ldamoredev Security Atlas">
-<meta property="og:description" content="PHAR deserialization is a PHP-specific exploitation technique where deserialization is triggered not by an explicit unserialize() call, but as a side effect of any...">
+<meta property="og:description" content="La deserialización PHAR es una clase de vulnerabilidad específica de PHP donde cualquier operación del sistema de archivos que acepte un stream phar:// implí...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="PHAR Deserialization - Seguridad Web | ldamoredev Security Atlas">
-<meta name="twitter:description" content="PHAR deserialization is a PHP-specific exploitation technique where deserialization is triggered not by an explicit unserialize() call, but as a side effect of any...">
+<meta name="twitter:description" content="La deserialización PHAR es una clase de vulnerabilidad específica de PHP donde cualquier operación del sistema de archivos que acepte un stream phar:// implí...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html#article","name":"PHAR Deserialization - Seguridad Web | ldamoredev Security Atlas","headline":"PHAR Deserialization","description":"PHAR deserialization is a PHP-specific exploitation technique where deserialization is triggered not by an explicit unserialize() call, but as a side effect of any...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html","inLanguage":"es","datePublished":"2026-04-26","dateModified":"2026-04-26","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Web","PHAR Deserialization","web-security","deserialization","php","rce"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Web","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/index.html"},{"@type":"ListItem","position":4,"name":"PHAR Deserialization","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html#article","name":"PHAR Deserialization - Seguridad Web | ldamoredev Security Atlas","headline":"PHAR Deserialization","description":"La deserialización PHAR es una clase de vulnerabilidad específica de PHP donde cualquier operación del sistema de archivos que acepte un stream phar:// implí...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html","inLanguage":"es","datePublished":"2026-04-26","dateModified":"2026-04-26","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Web","PHAR Deserialization","web-security","deserialization","php","rce"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Web","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/index.html"},{"@type":"ListItem","position":4,"name":"PHAR Deserialization","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/phar-deserialization.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/phar-deserialization.html">
@@ -410,139 +410,125 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Seguridad Web</a><span>/</span><span>PHAR Deserialization</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>PHAR Deserialization</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-blue">Seguridad Web</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~8 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado Apr 26, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#web-security</span><span class="meta-chip tag">#deserialization</span><span class="meta-chip tag">#php</span><span class="meta-chip tag">#rce</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="phar-deserialization">PHAR Deserialization</h1>
-<h2 id="definition">Definition</h2>
-<p>PHAR deserialization is a PHP-specific exploitation technique where deserialization is triggered not by an explicit <code>unserialize()</code> call, but as a side effect of any filesystem operation performed on a <code>phar://</code> stream URI. PHAR (PHP Archive) files contain serialized metadata, and the moment PHP reads a file via the <code>phar://</code> wrapper, that metadata is implicitly deserialized — invoking the magic methods of any class encoded inside.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>PHAR deserialization changes the threat model for an entire category of code that defenders previously considered inert.</p>
+<h2 id="definicion">Definición</h2>
+<p>La deserialización PHAR es una clase de vulnerabilidad específica de PHP donde cualquier operación del sistema de archivos que acepte un stream <code>phar://</code> implícitamente deserializa los metadatos del archivo PHAR — invocando métodos mágicos (<code>__wakeup</code>, <code>__destruct</code>) en cualquier objeto almacenado en esos metadatos, sin ninguna llamada a <code>unserialize()</code>.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>Este es el vector de deserialización más subestimado en PHP porque la cadena de explotación no parece una deserialización:</p>
 <ul>
-<li><strong>The trigger is not <code>unserialize</code>.</strong> A code review searching for <code>unserialize($_*)</code> will miss PHAR-driven RCE entirely. The trigger is <code>file_exists</code>, <code>fopen</code>, <code>getimagesize</code>, <code>is_dir</code>, <code>filesize</code>, <code>stat</code>, <code>md5_file</code>, <code>imagecreatefromjpeg</code> — over fifty PHP functions, plus anything in third-party image / archive libraries that internally calls them.</li>
-<li><strong>It weaponizes file uploads that are otherwise considered safe.</strong> An "image upload" endpoint that strictly validates extension, MIME type, and even re-encodes through GD becomes a deserialization sink the moment another endpoint touches the file by path through <code>phar://</code>.</li>
-<li><strong>It teaches that stream wrappers are silent execution surfaces.</strong> PHP's stream wrapper architecture is shared by <code>phar://</code>, <code>zip://</code>, <code>data://</code>, <code>expect://</code>, <code>phar://</code>, and any user-registered wrapper. The same lesson applies: filesystem APIs operate on attacker-influenceable URIs.</li>
-<li><strong>Sam Thomas's 2018 disclosure changed how many auditors model file-handling code.</strong> It made the Black Hat USA 2018 Top 10 web hacking techniques list and remains the canonical demonstration that "trigger surface" can be much wider than "obvious sink."</li>
+<li>La &quot;subida&quot; y la &quot;operación del sistema de archivos&quot; son primitivos de funcionalidades separados que muchos threat models tratan como aislados.</li>
+<li>El trigger puede estar completamente en código de librería de terceros — la aplicación propia no llama a nada relacionado con serialización.</li>
+<li>Más de 50 funciones PHP nativas pueden actuar como triggers, muchas de las cuales se usan en comprobaciones de validación de entrada completamente inócuas (<code>file_exists</code>, <code>getimagesize</code>).</li>
+<li>La divulgación de Sam Thomas en Black Hat USA 2018 cambió el threat model de &quot;subida de archivo&quot; de forma permanente. Antes de ella, el consenso era que una subida sin ejecución directa estaba contenida. Después de ella, cualquier ruta de código que toca archivos subidos es potencialmente un trigger de deserialización.</li>
 </ul>
-<h2 id="how-it-works">How it works</h2>
-<p>The mechanism in five steps:</p>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>PHP Archive (PHAR) es un formato de empaquetado de PHP (análogo a JAR de Java). Un archivo PHAR contiene:</p>
 <ol>
-<li><strong>Build a polyglot PHAR.</strong> A PHAR file consists of a stub (PHP code), a manifest (serialized metadata), file contents, and a signature. The stub can be prefixed with arbitrary bytes — including a valid JPG/GIF/PNG/PDF header. The result is a single file that passes as both an image and a working PHAR.</li>
-<li><strong>Embed the payload in the manifest.</strong> The manifest stores serialized PHP objects representing the archive's metadata. Attacker replaces this metadata with a serialized object whose class has dangerous magic methods (<code>__wakeup</code>, <code>__destruct</code>) that kick off a <a href="gadget-chains.html">gadget chain</a> when called.</li>
-<li><strong>Upload via a file-upload endpoint.</strong> Validation typically checks: file extension (.jpg/.png), MIME type sniff, image-dimension parse via <code>getimagesize()</code>, sometimes re-encoding through GD or Imagick. A polyglot defeats extension checks (rename <code>.phar</code> → <code>.jpg</code>), MIME sniffing (image header is real), and dimension parsing (the JPG part is valid).</li>
-<li><strong>Trigger any filesystem call through <code>phar://</code>.</strong> The attacker now needs to make the application read its own uploaded file via <code>phar://path/to/upload.jpg</code> instead of a plain path. Common primitives:
-   - A second endpoint that takes a path parameter (thumbnail rendering, file metadata viewer, attachment download).
-   - A path-traversal in another feature that accepts <code>phar://</code> as a scheme.
-   - An LFI that lets the attacker prefix the path with <code>phar://</code>.</li>
-<li><strong>Magic methods fire.</strong> PHP parses the PHAR manifest, deserializes the embedded object, and calls <code>__wakeup()</code> immediately. If the object has a <code>__destruct()</code>, that runs when the request finishes. Either way, the gadget chain executes.</li>
+<li>Un stub (código PHP ejecutable con <code>&lt;?php ... __HALT_COMPILER();</code>)</li>
+<li>Un manifiesto (metadatos serializados con PHP)</li>
+<li>Los archivos contenidos</li>
+<li>Una firma opcional</li>
 </ol>
-<p>The bug is not the upload. The bug is not the deserialization (no <code>unserialize()</code> is in the source). The bug is that <strong>filesystem APIs operating on attacker-influenceable URIs are deserialization sinks</strong>.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
-<p>What attackers look at and how they probe:</p>
-<ul>
-<li><strong>Map every code path that takes a path-like parameter</strong> and trace it to PHP functions in the trigger surface (see Variants below). Any concatenation <code>"$prefix/$user_input"</code> reaching one of those functions is a candidate.</li>
-<li><strong>Look for image-handling features</strong> that go beyond dimension parsing — thumbnailing, EXIF extraction, watermarking, format conversion. Image libraries (GD, Imagick) call internal filesystem APIs that all honor stream wrappers.</li>
-<li><strong>Look for indirect path access</strong> — RSS importers, XML SYSTEM entity resolvers, plugin loaders, file-existence checks before reading. Any of these may accept <code>phar://</code> as a scheme.</li>
-<li><strong>Build the polyglot with <code>phar.phar</code> or <code>phpggc --phar</code></strong>. PHPGGC supports <code>--phar tar</code> / <code>--phar zip</code> / <code>--phar phar</code> modes that bundle a chosen gadget chain into a polyglot of the chosen archive type — and tar/zip-mode polyglots evade <code>phar://</code> allowlists when the application happens to also support those wrappers.</li>
-<li><strong>Bypass <code>phar.readonly</code>.</strong> This php.ini directive prevents <em>creation</em> of PHAR files via PHP code; it does not prevent <em>reading</em> attacker-uploaded ones. Defenders frequently misconfigure this hoping it will block the attack.</li>
-</ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<h3 id="polyglot-file-types">Polyglot file types</h3>
-<p>The PHAR manifest has flexibility about where it sits in the file. Common polyglots:
-- <strong>PHAR + JPG</strong> — JPG header (FFD8FFE0), then PHAR stub, then manifest.
-- <strong>PHAR + GIF</strong> — <code>GIF89a</code> magic + PHAR.
-- <strong>PHAR + PDF</strong> — <code>%PDF-</code> header + PHAR.
-- <strong>PHAR + ZIP / TAR</strong> — PHP supports <code>phar://</code> wrappers over zip- and tar-format archives, which can avoid signature checks specific to the PHAR format.</p>
-<h3 id="trigger-surface-selected-high-traffic-php-functions">Trigger surface (selected high-traffic PHP functions)</h3>
-<p>Any of these on a <code>phar://</code> URI implicitly deserializes the manifest:
-- File existence: <code>file_exists</code>, <code>is_file</code>, <code>is_dir</code>, <code>is_readable</code>, <code>is_writable</code>, <code>is_executable</code>.
-- File reads: <code>fopen</code>, <code>file_get_contents</code>, <code>file</code>, <code>readfile</code>, <code>fread</code>, <code>include</code>, <code>require</code> (also code execution via the stub).
-- File metadata: <code>stat</code>, <code>lstat</code>, <code>filesize</code>, <code>filemtime</code>, <code>fileatime</code>, <code>filectime</code>, <code>fileowner</code>, <code>filegroup</code>.
-- Image processing: <code>getimagesize</code>, <code>imagecreatefromjpeg</code>, <code>imagecreatefrompng</code>, <code>exif_read_data</code>.
-- Hashing: <code>md5_file</code>, <code>sha1_file</code>, <code>hash_file</code>, <code>crc32_file</code>.
-- Path manipulation: <code>realpath</code>, <code>dirname</code>, <code>basename</code>, <code>pathinfo</code> — most of these do not actually deserialize, but they propagate the <code>phar://</code> URI to downstream calls that do.</p>
-<h3 id="indirect-triggers-via-libraries">Indirect triggers via libraries</h3>
-<p>Image processing libraries (GD, Imagick), archive libraries (<code>ZipArchive</code>, <code>Phar</code> itself), template engines that resolve include paths, and frameworks that auto-load assets all eventually call functions in the trigger surface. A "thumbnail generator" that accepts a user-controlled path can therefore deserialize without any obvious sink in the application source.</p>
-<h3 id="auth-context-elevation">Auth context elevation</h3>
-<p>PHAR deserialization runs in the PHP-FPM worker process, which often has higher privilege than the user-facing role suggests — access to <code>.env</code> files, database credentials, Redis sockets. The first stage of post-exploit is usually credential harvesting from the worker's filesystem context.</p>
-<h3 id="pharreadonly-confusion"><code>phar.readonly</code> confusion</h3>
-<p>This php.ini directive prevents PHP code from <em>writing</em> PHAR files (e.g., via <code>Phar::setStub</code>). It does not affect <em>reading</em> PHAR files. Defenders frequently set <code>phar.readonly=On</code> and assume the attack is blocked. It is not.</p>
-<h2 id="impact">Impact</h2>
-<ul>
-<li><strong>Remote code execution</strong> via the embedded gadget chain — the default ceiling.</li>
-<li><strong>Local file read / SSRF</strong> — chain sinks can be narrower than RCE; sometimes the practical primitive is "read <code>/etc/passwd</code>" or "make an outbound request to attacker."</li>
-<li><strong>Authentication context theft</strong> — chain reads server-side credentials from filesystem (<code>.env</code>, <code>auth.json</code>, AWS instance metadata cache files).</li>
-<li><strong>Persistence</strong> — chain writes a webshell to the document root, converting one-shot deserialization into long-term access.</li>
-</ul>
-<p>The blast radius is amplified by PHAR's stealth: incident responders looking for malicious uploaded files see a JPG. Logs show file_exists() calls. The exploitation surface is invisible without explicit knowledge of the technique.</p>
-<h2 id="detection-and-defense">Detection and defense</h2>
-<p>Ordered by effectiveness:</p>
+<p>El manifiesto se <strong>deserializa</strong> (usando <code>unserialize</code> internamente) cada vez que PHP abre el archivo a través del wrapper de stream <code>phar://</code>. No importa qué función PHP realiza la apertura.</p>
+<p>Cualquier objeto en el manifiesto cuyos métodos mágicos hagan algo peligroso con sus propiedades serializadas actúa como kick-off de gadget chain — exactamente igual que si <code>unserialize()</code> se hubiera llamado explícitamente.</p>
+<p>Cadena de explotación completa:</p>
 <ol>
-<li>
-<p><strong>Disable the <code>phar://</code> stream wrapper entirely.</strong>
-   <code>stream_wrapper_unregister('phar')</code> at application bootstrap is the cleanest fix when no legitimate PHAR usage exists. This is the default posture for any application that does not deliberately distribute itself as a PHAR. The line is one statement in <code>bootstrap.php</code> or equivalent.</p>
-</li>
-<li>
-<p><strong>Use PHP 8.0+ where the manifest signature check is enforced.</strong>
-   Modern PHP refuses to read PHAR files whose signature does not match. This raises the bar but does not eliminate the attack — attackers control the signature too, since they author the polyglot. Treat this as defense-in-depth, not a primary fix.</p>
-</li>
-<li>
-<p><strong>Allowlist stream wrappers your code actually needs.</strong>
-   <code>stream_get_wrappers()</code> lists the registered wrappers; remove every one your app does not use. PHAR, <code>data://</code>, <code>expect://</code>, <code>php://filter</code> are the dangerous defaults; few applications need them in production. Combine with file-handling code that explicitly rejects URIs containing <code>://</code>.</p>
-</li>
-<li>
-<p><strong>Validate that path inputs are filesystem paths, not URIs.</strong>
-   At the boundary, reject any path containing <code>://</code>. Use <code>realpath()</code> early and verify the result starts with the expected base directory. Combined with allowlisting, this defeats the entire stream-wrapper-injection vector even if PHAR remains enabled.</p>
-</li>
-<li>
-<p><strong>Replace serialized PHAR-style metadata with signed JSON.</strong>
-   If the app legitimately distributes itself as a PHAR, the safe pattern is a JSON manifest with an HMAC verified before any deserialization. The serialized-PHP-object manifest is the vulnerable component.</p>
-</li>
-<li>
-<p><strong>Treat file uploads as untyped bytes.</strong>
-   Re-encode uploaded images through a strict pipeline that produces a normalized output (e.g., <code>imagecreatefromjpeg</code> followed by <code>imagejpeg</code> to a fresh buffer). Polyglots survive byte-preserving validation; they do not survive lossy re-encoding through a strict format. Combine with random server-chosen filenames so attacker cannot predict the path needed for <code>phar://</code> triggers.</p>
-</li>
+<li><strong>Construir</strong> un PHAR con un manifiesto que contenga un objeto de gadget chain serializado (usando PHPGGC u objetos artesanales).</li>
+<li><strong>Disfrazar</strong> el PHAR como un tipo de archivo aceptado (JPEG, GIF, PDF, ZIP) para pasar la validación de subidas — los archivos PHAR políglotas comienzan con bytes mágicos válidos del formato objetivo.</li>
+<li><strong>Subir</strong> el polígloita vía cualquier funcionalidad de subida de archivo que no desnaturalice el contenido.</li>
+<li><strong>Disparar</strong> cualquier ruta de código que llame a una función sensible al sistema de archivos en el path del archivo con un stream <code>phar://</code>.</li>
 </ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<p>El trigger no requiere que la aplicación &quot;ejecute&quot; el archivo. Solo requiere que la aplicación <em>mencione el archivo</em> en una llamada a función PHP que soporte wrappers de stream.</p>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
+<h3 id="identificar-la-superficie-de-trigger">Identificar la superficie de trigger</h3>
+<p>El primer paso es identificar dónde el código de la aplicación llama a funciones del sistema de archivos con input derivado del usuario (IDs de upload, nombres de archivo en base de datos, paths en parámetros de query):</p>
+<div class="codehilite"><pre><span></span><code>file_exists($path)
+is_file($path)
+file_get_contents($path)
+fopen($path, &#x27;r&#x27;)
+getimagesize($path)
+imagecreatefromjpeg($path)
+</code></pre></div>
+<p>Más de 50 funciones nativas PHP soportan wrappers de stream. Una búsqueda de grep para <code>file_exists\|fopen\|getimagesize\|imagecreatefrom</code> en rutas de código que usan input del sistema de archivos encontrará los candidatos.</p>
+<h3 id="construir-el-poligloita-phar">Construir el polígloita PHAR</h3>
+<p>Las herramientas automatizan esto:</p>
 <ul>
-<li><strong>Blocking <code>.phar</code> in upload allowlists.</strong> Polyglots survive any extension check. The file's extension is whatever the attacker says it is.</li>
-<li><strong>MIME-type sniffing.</strong> A polyglot's leading bytes are a real image header. <code>mime_content_type</code> and <code>finfo</code> both report <code>image/jpeg</code>.</li>
-<li><strong><code>getimagesize()</code> validation.</strong> Returns valid dimensions for a polyglot — that is the entire point of the polyglot.</li>
-<li><strong>Setting <code>phar.readonly=On</code>.</strong> This blocks PHAR <em>creation</em>, not PHAR <em>reading</em>. Stops the attacker from generating PHARs server-side; does nothing to stop them uploading one and triggering it.</li>
-<li><strong>WAF signature blocking on <code>phar://</code>.</strong> Trivially bypassed by URL-encoding (<code>phar%3a%2f%2f</code>), case variation, or by injection through fields the WAF does not inspect (form-data filenames, SOAP bodies, GraphQL variables).</li>
-<li><strong>Validating upload content-only.</strong> The bug is on the <em>trigger</em> path, not the upload path. The most robust fix lives at the filesystem-API boundary, not at the upload boundary.</li>
+<li><strong>PHPGGC</strong> — genera objetos de gadget chain serializados apropiados para el framework de la aplicación, con soporte integrado para generación de archivos PHAR y políglotas (JPEG, GIF, PNG, PDF, ZIP).</li>
 </ul>
-<h2 id="practical-examples">Practical examples</h2>
+<p>Construcción manual: el archivo debe comenzar con los magic bytes del formato objetivo (por ejemplo, <code>FFD8FF</code> para JPEG) antes de cualquier stub PHAR, para que tanto el parser de imagen como el wrapper PHAR lo acepten.</p>
+<h3 id="disparar-la-deserializacion">Disparar la deserialización</h3>
+<p>El trigger más común en aplicaciones del mundo real es una ruta de procesamiento de imágenes:</p>
+<div class="codehilite"><pre><span></span><code>// Validación de &quot;seguridad&quot; que es en sí misma el trigger
+if (getimagesize(&quot;uploads/&quot; . $filename)) {
+    // ...
+}
+</code></pre></div>
+<p>Pasar <code>phar://uploads/avatar.jpg</code> (o controlar el valor de <code>$filename</code> hacia <code>phar://...</code>) dispara la deserialización durante la llamada a <code>getimagesize</code>.</p>
+<p>En aplicaciones donde el path viene de la base de datos o de otro almacenamiento, el atacante puede no controlar directamente el argumento del stream. El vector secundario son las funcionalidades de &quot;preview&quot; o &quot;thumbnail&quot; que leen archivos subidos usando el ID como parte del path.</p>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<h3 id="confusion-de-phar-readonly">Confusión de <code>phar.readonly</code></h3>
+<p>La INI <code>phar.readonly = On</code> (valor por defecto) previene <strong>crear</strong> archivos PHAR con <code>PharData</code> — pero no previene <strong>leer</strong> o <strong>disparar</strong> archivos PHAR existentes vía el wrapper de stream <code>phar://</code>. Los equipos a veces asumen que <code>phar.readonly</code> mitiga los ataques PHAR; no lo hace.</p>
+<h3 id="phar-como-jpeg-gif-pdf-zip-poligloita">PHAR como JPEG / GIF / PDF / ZIP polígloita</h3>
+<p>Los formatos de imagen/documento más comunes tienen firmas de cabecera o áreas de comentarios que pueden coexistir con el stub PHAR:</p>
 <ul>
-<li>A forum's avatar upload accepts JPG. A separate "view profile" page calls <code>getimagesize($avatar_path)</code> to render dimensions. Attacker uploads polyglot, then visits a profile URL with <code>?avatar=phar://../uploads/123.jpg</code> — RCE.</li>
-<li>A CMS's plugin loader checks <code>file_exists("$plugin_dir/$slug/info.json")</code>. The slug is user-controlled. Attacker sets slug to <code>phar://uploads/payload.jpg/</code>. PHAR deserialization fires from the existence check.</li>
-<li>A document-management system's "preview" feature calls <code>imagecreatefromjpeg</code> on user-supplied paths. PHAR deserialization through the GD library's internal filesystem call.</li>
-<li>An RSS feed importer that fetches a URL and stores it locally, then calls <code>md5_file()</code> on the cached path. Attacker controls the cache path through a header injection — <code>phar://</code> schemes the cache.</li>
+<li><strong>GIF</strong> — <code>GIF89a</code> seguido del stub PHAR antes del fin de cabecera es la variante más confiable.</li>
+<li><strong>JPEG</strong> — los datos JFIF permiten datos arbitrarios después de los magic bytes iniciales.</li>
+<li><strong>PDF</strong> — el <code>%PDF-1.x</code> puede preceder al stub en muchos parsers.</li>
+<li><strong>ZIP</strong> — dado que PHAR puede empaquetarse como ZIP, los PHARs legítimos basados en ZIP tienen firmas de ZIP.</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h3 id="trigger-a-traves-de-librerias-de-terceros">Trigger a través de librerías de terceros</h3>
+<p>La cadena <code>file_exists → phar deserialize</code> puede estar enteramente dentro de una librería de terceros (un SDK de procesamiento de imágenes, un wrapper de almacenamiento de archivos, un ORM que valida adjuntos). La aplicación ni siquiera necesita llamar a funciones del sistema de archivos directamente.</p>
+<h3 id="inyeccion-de-wrapper-de-stream">Inyección de wrapper de stream</h3>
+<p>En algunos casos, el atacante puede controlar el prefijo del path o el wrapper de stream completo a través de path traversal, manipulación de configuración, o configuración insegura (por ejemplo, <code>allow_url_fopen</code>).</p>
+<h3 id="eludir-streamwrapperunregister">Eludir <code>stream_wrapper_unregister</code></h3>
+<p>Las aplicaciones que intentan desregistrar el wrapper <code>phar://</code> como defensa a veces solo lo hacen al inicio, y las librerías o plugins pueden volver a registrarlo. La unregistration también falla si se ejecuta después de que cualquier carga de clase de autoloader haya resuelto archivos usando el wrapper.</p>
+<h2 id="impacto">Impacto</h2>
 <ul>
-<li><a href="deserialization.html">deserialization</a> — parent concept; PHAR is one trigger mechanism for the kick-off gadget.</li>
-<li><a href="gadget-chains.html">gadget-chains</a> — the chain still has to exist and reach a sink; PHAR provides only the trigger.</li>
-<li><a href="file-upload-abuse.html">file-upload-abuse</a> — primary delivery mechanism; the polyglot is what defeats upload validation.</li>
-<li><a href="path-traversal.html">path-traversal</a> — frequent companion vulnerability; LFI plus PHAR is a common chain into RCE.</li>
-<li><a href="ssrf.html">ssrf</a> — <code>phar://</code> paired with SSRF lets the attacker make the <em>server</em> fetch a remote PHAR via <code>phar://https://...</code> in some configurations.</li>
+<li><strong>Ejecución remota de código</strong> — el gadget sink alcanza <code>exec</code>/<code>eval</code>/<code>proc_open</code>/equivalente. Techo por defecto cuando hay una gadget chain viable en el framework de la aplicación.</li>
+<li><strong>Lectura / escritura arbitraria de archivos</strong> — los sinks de gadget chain que no alcanzan RCE completo aún pueden alcanzar ops de filesystem.</li>
+<li><strong>SSRF</strong> — gadget chains con sinks de network request (Guzzle, Curl wrappers).</li>
+<li><strong>Escalada de privilegios / bypass de auth</strong> — gadget chains que modifican estado de sesión o permisos.</li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<p>El daño directo de la sola subida sin trigger de sistema de archivos es cero. El impacto viene del trigger.</p>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<p>Ordenado por efectividad:</p>
+<p>1. <strong>Nunca pasar paths controlados por el usuario directamente a funciones del sistema de archivos.</strong> Si el path que llega a <code>file_exists</code>, <code>getimagesize</code>, <code>fopen</code>, etc. puede ser influenciado por el atacante (directamente o vía IDs almacenados en base de datos derivados de input del usuario), esa es la vulnerabilidad. Canonicalizar y validar contra una allowlist de directorio base antes de cualquier llamada al sistema de archivos.</p>
+<p>2. <strong>Re-encodear o desnaturalizar archivos subidos en el momento de la subida.</strong> Re-encodear imágenes a través de la librería de imágenes (GD, Imagick en modo de re-renderizado) descarta los bytes del stub PHAR y destruye cualquier polígloita. Hacer esto durante la subida, antes de que el archivo alcance almacenamiento permanente. No re-encodear después del almacenamiento — el trigger puede ocurrir antes del procesamiento.</p>
+<p>3. <strong>Validar con magia de bytes y parseo, no con extensión.</strong> Verificar que el contenido real del archivo coincide con el tipo declarado usando parseo real (no solo lectura de los primeros bytes, sino decodificación completa). Un JPEG válido que se decodifica como imagen no contiene un stub PHAR viable.</p>
+<p>4. <strong>Desregistrar el wrapper de stream <code>phar://</code> si la aplicación no usa PHARs.</strong> <code>stream_wrapper_unregister(&#x27;phar&#x27;)</code> al inicio del ciclo de request previene que cualquier ruta de código en el request use wrappers PHAR. Hacer esto temprano, antes de cargar plugins o librerías que puedan re-registrarlo. Esta es una defensa en profundidad útil, no una defensa primaria.</p>
+<p>5. <strong>Almacenar archivos subidos en una ubicación sin path traversal al código de la aplicación.</strong> Usar un bucket de storage separado, filesystem, o prefijo de directorio que no pueda resolverse de vuelta al árbol fuente de la app o al almacenamiento de configuración.</p>
+<p>6. <strong>Auditar paths de archivos que llegan a funciones PHP del sistema de archivos.</strong> Instrumentar o revisar estáticamente todas las rutas de código donde el input del usuario (incluyendo IDs almacenados en base de datos) puede influenciar argumentos de funciones del sistema de archivos. Esta es la superficie de ataque real — no los endpoints de subida.</p>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: php-stream-wrappers">php-stream-wrappers</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: polyglot-files">polyglot-files</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: sam-thomas-phar-deserialization">sam-thomas-phar-deserialization</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: lfi-to-rce-chains">lfi-to-rce-chains</span></li>
+<li><strong><code>phar.readonly = On</code></strong> — previene crear PHARs, no disparar PHARs existentes vía stream.</li>
+<li><strong>Validación de extensión solamente</strong> — los polígloitas pasan la validación de extensión por diseño.</li>
+<li><strong>Verificación de MIME/Content-Type solamente</strong> — el Content-Type es controlado por el atacante; el MIME detectado por magic bytes puede confundirse con el inicio del archivo que es válido para el tipo objetivo.</li>
+<li><strong>Solo almacenar fuera del webroot</strong> — el trigger no requiere ejecución HTTP directa. Requiere cualquier llamada al sistema de archivos PHP en el path del archivo.</li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
-<li><strong>Foundational:</strong> OWASP Deserialization Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html</li>
-<li><strong>Testing / Lab:</strong> PortSwigger Exploiting insecure deserialization — https://portswigger.net/web-security/deserialization/exploiting</li>
-<li><strong>Research / Deep Dive:</strong> Sam Thomas, "It's a PHP unserialization vulnerability Jim, but not as we know it" (Black Hat USA 2018) — https://i.blackhat.com/us-18/Thu-August-9/us-18-Thomas-Its-A-PHP-Unserialization-Vulnerability-Jim-But-Not-As-We-Know-It.pdf</li>
-<li><strong>Official Tool Docs:</strong> PHPGGC <code>--phar</code> mode — https://github.com/ambionics/phpggc#phar-archives</li>
+<li>Un campo de avatar acepta JPEGs; la app llama a <code>getimagesize(&quot;uploads/&quot; . $id)</code> para generar thumbnails. El atacante sube un PHAR polígloita disfrazado de JPEG. El ID queda en la base de datos. La próxima vez que se llame a <code>getimagesize</code> en ese path, la gadget chain del manifiesto PHAR se deserializa y el <code>__destruct</code> de Monolog alcanza <code>proc_open</code>.</li>
+<li>Una app de gestión de documentos almacena paths de archivo en la base de datos y los pasa a <code>file_exists</code> para validación. La ruta puede comenzar con <code>phar://</code> si el almacenamiento de la base de datos no normaliza los valores. El atacante modifica su path almacenado (vía IDOR o SQLi) para apuntar al archivo subido con un prefijo <code>phar://</code>.</li>
+<li>Un plugin de WordPress acepta subidas de ZIP para instalación de temas. El plugin llama a <code>file_exists</code> en las entradas del archivo durante la extracción. El ZIP es a su vez un PHAR válido con un manifiesto malicioso.</li>
+</ul>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
+<ul>
+<li><a href="deserialization.html">deserialization</a> — el mecanismo subyacente; la deserialización PHAR es un trigger alternativo del mismo bug de deserialización.</li>
+<li><a href="gadget-chains.html">gadget-chains</a> — las cadenas que se ejecutan una vez que el PHAR dispara el kick-off son cadenas de gadgets estándar.</li>
+<li><a href="file-upload-abuse.html">file-upload-abuse</a> — mecanismo de entrega primario; el threat model de subida de archivo debe incluir el trigger PHAR.</li>
+<li><a href="path-traversal.html">path-traversal</a> — el control del path que llega a funciones del sistema de archivos es la condición previa de explotación.</li>
+</ul>
+<h2 id="referencias">Referencias</h2>
+<ul>
+<li><strong>Investigación / Deep Dive:</strong> Sam Thomas, &quot;It&#x27;s a PHP unserialization vulnerability Jim, but not as we know it&quot; (Black Hat USA 2018) — https://i.blackhat.com/us-18/Thu-August-9/us-18-Thomas-Its-A-PHP-Unserialization-Vulnerability-Jim-But-Not-As-We-Know-It.pdf</li>
+<li><strong>Docs Oficiales:</strong> PHPGGC — https://github.com/ambionics/phpggc</li>
+<li><strong>Testing / Lab:</strong> PortSwigger Insecure deserialization — https://portswigger.net/web-security/deserialization</li>
+<li><strong>Fundamental:</strong> OWASP Deserialization Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="path-traversal.html"><span class="nav-dir">← Previous</span><strong>Path traversal</strong></a><a class="branch-nav-link next" href="request-smuggling.html"><span class="nav-dir">Next →</span><strong>Request Smuggling</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -558,23 +544,25 @@
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#polyglot-file-types">Polyglot file types</a>
-<a class="toc-level-3" href="#trigger-surface-selected-high-traffic-php-functions">Trigger surface (selected high-traffic PHP functions)</a>
-<a class="toc-level-3" href="#indirect-triggers-via-libraries">Indirect triggers via libraries</a>
-<a class="toc-level-3" href="#auth-context-elevation">Auth context elevation</a>
-<a class="toc-level-3" href="#pharreadonly-confusion">phar.readonly  confusion</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-examples">Practical examples</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-3" href="#suggested-future-atomic-notes">Suggested future atomic notes</a>
-<a class="toc-level-2" href="#references">References</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-3" href="#identificar-la-superficie-de-trigger">Identificar la superficie de trigger</a>
+<a class="toc-level-3" href="#construir-el-poligloita-phar">Construir el polígloita PHAR</a>
+<a class="toc-level-3" href="#disparar-la-deserializacion">Disparar la deserialización</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
+<a class="toc-level-3" href="#confusion-de-phar-readonly">Confusión de phar.readonly</a>
+<a class="toc-level-3" href="#phar-como-jpeg-gif-pdf-zip-poligloita">PHAR como JPEG / GIF / PDF / ZIP polígloita</a>
+<a class="toc-level-3" href="#trigger-a-traves-de-librerias-de-terceros">Trigger a través de librerías de terceros</a>
+<a class="toc-level-3" href="#inyeccion-de-wrapper-de-stream">Inyección de wrapper de stream</a>
+<a class="toc-level-3" href="#eludir-streamwrapperunregister">Eludir stream_wrapper_unregister</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

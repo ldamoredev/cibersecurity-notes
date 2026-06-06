@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>JWT Cryptographic Correctness - Criptografía | ldamoredev Security Atlas</title>
-<meta name="description" content="A JWT (RFC 7519) is a base64url-encoded header.payload.signature triple where the signature is either an HMAC tag (JWS HS*) or an asymmetric digital signature (JWS...">
+<meta name="description" content="Un JSON Web Token (JWT) es un formato de token compacto para transmitir afirmaciones entre partes. Un JWT consiste en un header, un payload, y una firma o ta...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Criptografía, JWT Cryptographic Correctness, cryptography, jwt, jose, tokens">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JWT Cryptographic Correctness - Criptografía | ldamoredev Security Atlas">
-<meta property="og:description" content="A JWT (RFC 7519) is a base64url-encoded header.payload.signature triple where the signature is either an HMAC tag (JWS HS*) or an asymmetric digital signature (JWS...">
+<meta property="og:description" content="Un JSON Web Token (JWT) es un formato de token compacto para transmitir afirmaciones entre partes. Un JWT consiste en un header, un payload, y una firma o ta...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/jwt-cryptographic-correctness.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="JWT Cryptographic Correctness - Criptografía | ldamoredev Security Atlas">
-<meta name="twitter:description" content="A JWT (RFC 7519) is a base64url-encoded header.payload.signature triple where the signature is either an HMAC tag (JWS HS*) or an asymmetric digital signature (JWS...">
+<meta name="twitter:description" content="Un JSON Web Token (JWT) es un formato de token compacto para transmitir afirmaciones entre partes. Un JWT consiste en un header, un payload, y una firma o ta...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/jwt-cryptographic-correctness.html#article","name":"JWT Cryptographic Correctness - Criptografía | ldamoredev Security Atlas","headline":"JWT Cryptographic Correctness","description":"A JWT (RFC 7519) is a base64url-encoded header.payload.signature triple where the signature is either an HMAC tag (JWS HS*) or an asymmetric digital signature (JWS...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/jwt-cryptographic-correctness.html","inLanguage":"es","datePublished":"2026-05-01","dateModified":"2026-05-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/jwt-cryptographic-correctness.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Criptografía","JWT Cryptographic Correctness","cryptography","jwt","jose","tokens"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Criptografía","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/index.html"},{"@type":"ListItem","position":4,"name":"JWT Cryptographic Correctness","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/jwt-cryptographic-correctness.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/jwt-cryptographic-correctness.html#article","name":"JWT Cryptographic Correctness - Criptografía | ldamoredev Security Atlas","headline":"JWT Cryptographic Correctness","description":"Un JSON Web Token (JWT) es un formato de token compacto para transmitir afirmaciones entre partes. Un JWT consiste en un header, un payload, y una firma o ta...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/jwt-cryptographic-correctness.html","inLanguage":"es","datePublished":"2026-05-01","dateModified":"2026-05-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/jwt-cryptographic-correctness.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Criptografía","JWT Cryptographic Correctness","cryptography","jwt","jose","tokens"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Criptografía","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/index.html"},{"@type":"ListItem","position":4,"name":"JWT Cryptographic Correctness","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/jwt-cryptographic-correctness.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/cryptography/jwt-cryptographic-correctness.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/jwt-cryptographic-correctness.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/cryptography/jwt-cryptographic-correctness.html">
@@ -410,206 +410,143 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Criptografía</a><span>/</span><span>JWT Cryptographic Correctness</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>JWT Cryptographic Correctness</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-emerald">Criptografía</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~8 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 01, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#cryptography</span><span class="meta-chip tag">#jwt</span><span class="meta-chip tag">#jose</span><span class="meta-chip tag">#tokens</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="jwt-cryptographic-correctness">JWT Cryptographic Correctness</h1>
-<h2 id="definition">Definition</h2>
-<p>A JWT (RFC 7519) is a base64url-encoded <code>header.payload.signature</code> triple where the signature is either an HMAC tag (JWS HS<em>) or an asymmetric digital signature (JWS RS</em>, ES<em>, PS</em>, EdDSA). "JWT cryptographic correctness" means the verifier authenticates the signature with the <em>expected algorithm and key</em>, validates registered claims, and never trusts the header to choose the verification path.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>JWTs are the most commonly mis-implemented authentication primitive in modern web stacks. The header carries an <code>alg</code> field that suggests how to verify the signature — and historically many libraries did exactly what the header asked, including <code>alg: none</code>, <code>alg: HS256</code> with a public RSA key as the secret, or <code>kid</code>/<code>jku</code>/<code>jwk</code> headers that pointed at attacker-controlled keys. Each of these turns the token into an unauthenticated cookie that the attacker writes themselves. Reading JWT failures correctly is also a prerequisite for SAML/OIDC reasoning, API-token systems, and signed-cookie patterns.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>The structure:</p>
-<div class="codehilite"><pre><span></span><code>header.payload.signature
-header  = base64url({&quot;alg&quot;:&quot;RS256&quot;,&quot;kid&quot;:&quot;abc&quot;,&quot;typ&quot;:&quot;JWT&quot;})
-payload = base64url({&quot;sub&quot;:&quot;u-1&quot;,&quot;exp&quot;:1735689600,&quot;iss&quot;:&quot;https://idp&quot;})
-signature = sign(alg, key, header || &quot;.&quot; || payload)
-</code></pre></div>
+<h2 id="definicion">Definición</h2>
+<p>Un JSON Web Token (JWT) es un formato de token compacto para transmitir afirmaciones entre partes. Un JWT consiste en un header, un payload, y una firma o tag de autenticación, cada uno codificado en Base64url y separado por puntos: <code>header.payload.signature</code>. La corrección criptográfica del JWT es el subconjunto de preocupaciones sobre qué tan bien la librería y el código de la aplicación validan la firma, las afirmaciones, y el uso intendido.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>Los JWTs son omnipresentes pero tienen múltiples vectores de ataque bien documentados, todos los cuales existen porque la librería o la aplicación tomaron una decisión de confianza incorrecta antes de aceptar el token. Las explotaciones siguen un patrón: &quot;la librería aceptó el algoritmo o clave del token antes de que el verificador lo inspeccionara.&quot; El resultado es falsificación de token completa a pesar de que la firma es técnicamente válida para la secuencia de bytes incorrecta.</p>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>La verificación JWT tiene <strong>5 pasos obligatorios</strong>:</p>
+<p>1. <strong>Decidir el algoritmo antes de parsear el token.</strong> El verificador debe tener una lista permitida fija — <code>HS256</code>, <code>RS256</code>, <code>ES256</code>, etc. — no derivarla del header del token.</p>
+<p>2. <strong>Resolver la clave usando identidad confiable.</strong> Mapear a partir de configuración, no del campo <code>kid</code> del token sin sanitizar. Si se usa un endpoint <code>jku</code>/<code>jwks_uri</code>, ese endpoint debe estar en una lista permitida fija.</p>
+<p>3. <strong>Verificar la firma con el algoritmo y la clave elegidos.</strong> La librería verifica el HMAC o la firma asimétrica sobre <code>base64url(header) || &#x27;.&#x27; || base64url(payload)</code>.</p>
+<p>4. <strong>Validar las afirmaciones de payload.</strong> Verificar <code>iss</code>, <code>aud</code>, <code>exp</code>, <code>nbf</code>, y cualquier afirmación personalizada de la aplicación.</p>
+<p>5. <strong>Pinar el propósito del token.</strong> Un token de reset de contraseña no debe ser aceptado donde se espera un token de sesión. Usar <code>aud</code> o una afirmación de propósito personalizada.</p>
+<div class="codehilite"><pre><span></span><code># Mal: deja que el header controle el algoritmo
+jwt.decode(token, key=public_key)  # vulnerable a alg:none, RS256→HS256
 
-<p>The 5 verification steps that must all be enforced:</p>
-<ol>
-<li><strong>Decide the algorithm before parsing the token.</strong> The verifier must know whether it expects HS256, RS256, ES256, EdDSA, etc. — based on configuration, not the token. Reading <code>header.alg</code> and trusting it is the original "alg confusion" bug.</li>
-<li><strong>Resolve the key for that algorithm.</strong> For HS<em>, a server-side secret. For RS</em>/ES<em>/PS</em>/EdDSA, a public key from a trusted JWKS endpoint or an embedded set.</li>
-<li><strong>Verify the signature with the chosen <code>(alg, key)</code>.</strong> Use a library that takes the algorithm as input, <em>not</em> one that reads it from the header.</li>
-<li><strong>Validate the registered claims.</strong> <code>exp</code> (expiration), <code>nbf</code> (not before), <code>iat</code> (issued at), <code>iss</code> (issuer), <code>aud</code> (audience), and any custom claims the application requires.</li>
-<li><strong>Pin the token's purpose.</strong> If the token is for API A, do not accept it for API B. Audience-mismatch is a common bug when one IdP issues tokens for many resource servers.</li>
-</ol>
-<div class="codehilite"><pre><span></span><code>expected_alg = config[&quot;alg&quot;]                  # NOT header.alg
-key          = lookup(expected_alg, header.kid_if_safe)
-verify(token, key, expected_alg)              # exact alg match
-require(payload.exp &gt; now and payload.iss == &quot;https://idp&quot; and aud_check)
+# Bien: fija el algoritmo del lado del verificador
+jwt.decode(token, key=public_key, algorithms=[&quot;RS256&quot;])
 </code></pre></div>
-
-<p>The bug is not "JWT is broken"; it is "the verifier let the token decide which key and algorithm to use." Cryptographically, JWT is fine. Operationally, the JOSE flexibility (alg, kid, jku, jwk, x5u, x5c) is a footgun unless every dynamic field is constrained by configuration.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
-<p>The reasoning model when reviewing JWT-using code:</p>
+<p>El bug no es &quot;JWT es inseguro.&quot; El bug es &quot;el verificador trusts el token en sí para elegir su propio algoritmo o clave.&quot;</p>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
 <ul>
-<li><strong>What does the verifier expect for <code>alg</code>?</strong> Hard-coded? Read from the token? "Whatever the library decides"?</li>
-<li><strong>Where does the key come from?</strong> Static config? JWKS URL? Header-driven (<code>jku</code>, <code>jwk</code>, <code>kid</code> lookup)?</li>
-<li><strong>What claims are validated?</strong> <code>exp</code>, <code>nbf</code>, <code>iss</code>, <code>aud</code>, custom?</li>
-<li><strong>Is there a clock skew?</strong> A small positive skew (≤ 60s) is fine; large skews defeat <code>exp</code>.</li>
-<li><strong>Is the token bound to a session, channel, or origin?</strong> JWT alone is bearer; pair with channel binding (DPoP, mTLS) or short lifetime + refresh for high-value flows.</li>
-<li><strong>Probe pattern in code review:</strong> grep for <code>jwt.decode</code>, <code>jwt.verify</code>, <code>verify_options</code>, <code>algorithms=</code>, <code>verify=False</code>, <code>alg</code>, <code>kid</code>, <code>jku</code>, <code>jwk</code>, <code>x5u</code>, <code>x5c</code>. Each occurrence is a place where the verifier might be over-flexible.</li>
+<li>Buscar <code>algorithms=None</code>, <code>algorithm=None</code>, <code>options={&quot;verify_signature&quot;: False}</code>, <code>ignoreExpiration</code>, <code>complete=True</code> sin verificación, y omisión explícita de cualquier verificación de afirmación.</li>
+<li>Verificar si <code>kid</code> se usa directamente en lookups de base de datos, filesystem, o URL sin validación.</li>
+<li>Verificar si se siguen endpoints <code>jku</code>/<code>jwks_uri</code> dinámicamente o si están fijos en configuración.</li>
+<li>Buscar el mismo secreto HMAC para múltiples propósitos de token.</li>
+<li>Verificar si <code>alg: &quot;none&quot;</code> es rechazado explícitamente por la configuración de la librería.</li>
+<li>Verificar los tipos de token: los tokens de sesión no deben ser aceptados para reset de contraseña, invite, o cualquier otro camino de alta seguridad.</li>
 </ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>The 7 historical (and current) JWT exploit shapes worth recognizing:</p>
-<h3 id="alg-none"><code>alg: none</code></h3>
-<p>The original bug. The token is <code>header.payload.</code> with no signature, header <code>{"alg":"none"}</code>. Libraries that follow the header treated this as "no signature required" and accepted the token. Modern libraries refuse <code>none</code> by default, but configuration ("accept <code>none</code> if no key is configured") still appears in the wild.</p>
-<h3 id="algorithm-confusion-rs256-hs256">Algorithm confusion (RS256 → HS256)</h3>
-<p>The verifier expects RS256 (asymmetric: verify with the public key). The attacker changes the header to <code>HS256</code> and signs the token using the <em>server's RSA public key</em> as the HMAC secret. A library that reads <code>alg</code> from the header and calls <code>HS256_verify(public_key, token)</code> will accept it because the attacker computed an HMAC with that exact key. Fix: hard-code the expected algorithm; reject if the header disagrees.</p>
-<h3 id="weak-hmac-secrets">Weak HMAC secrets</h3>
-<p>HS256 with a guessable secret (<code>"secret"</code>, the company name, a URL slug). Offline brute force on the signature recovers the secret in seconds. Fix: 256-bit random secret minimum; rotate; prefer asymmetric for cross-org tokens.</p>
-<h3 id="kid-injection"><code>kid</code> injection</h3>
-<p>The <code>kid</code> header points at a key in a server-side store. A path-traversal <code>kid</code> (<code>../../etc/passwd</code>), a SQL-injectable <code>kid</code>, or a <code>kid</code> that addresses a known-content file (<code>/dev/null</code> to make the secret empty) lets the attacker control which "key" verifies the signature. Fix: treat <code>kid</code> as an opaque ID, validate against an allowlist, never use it as a path or query fragment.</p>
-<h3 id="jku-jwk-x5u-x5c-injection"><code>jku</code> / <code>jwk</code> / <code>x5u</code> / <code>x5c</code> injection</h3>
-<p>The JOSE header can carry a URL or inline key for verification. A verifier that fetches <code>jku</code> and trusts the returned JWKS allows the attacker to host their own key set and sign tokens themselves. Fix: never honor <code>jku</code>, <code>jwk</code>, <code>x5u</code>, or <code>x5c</code> from token headers in production verification; resolve keys only from the IdP's known JWKS URL.</p>
-<h3 id="missing-or-wrong-claim-validation">Missing or wrong claim validation</h3>
-<p>Tokens that are syntactically valid but have an expired <code>exp</code>, wrong <code>iss</code>, or wrong <code>aud</code> are accepted because the verifier only checked the signature. Fix: claim validation is part of "verify"; libraries usually require explicit <code>audience=</code> and <code>issuer=</code> parameters.</p>
-<h3 id="bearer-replay-stolen-jwt">Bearer-replay / stolen JWT</h3>
-<p>JWTs are bearer tokens by default. Anyone with the encoded string is the user. Fix: short lifetime, refresh tokens, channel binding (DPoP per RFC 9449, mTLS-bound tokens per RFC 8705), or sender-constrained access tokens.</p>
-<h3 id="jwe-confusion">JWE confusion</h3>
-<p>JWE tokens (encrypted) and JWS tokens (signed) share the JOSE structure. A naive verifier that "just decodes" a token and trusts the payload may treat a JWE as a JWS, or vice versa. Fix: decide the format up front; reject the wrong shape.</p>
-<h2 id="impact">Impact</h2>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<p>Las 7 formas de exploit del JWT, ordenadas del más al menos frecuente en la práctica.</p>
+<h3 id="1-alg-none">1. <code>alg: &quot;none&quot;</code></h3>
+<p>El token afirma que no se requiere firma. Algunas librerías lo aceptaron por defecto. La defensa: la lista permitida de algoritmos debe incluir solo algoritmos que produzcan firmas reales.</p>
+<h3 id="2-confusion-rs256-hs256">2. Confusión RS256 → HS256</h3>
+<p>Un token firmado con una clave pública RSA como secreto HMAC. Si la librería acepta tanto RS256 como HS256 y usa la misma clave para ambos, el atacante firma el token usando la clave pública conocida como secreto HMAC. La defensa: fijar el algoritmo antes del tiempo de verificación, no inferirlo del header.</p>
+<h3 id="3-secretos-hmac-debiles">3. Secretos HMAC débiles</h3>
+<p>Los tokens <code>HS256</code> con secretos cortos o predecibles son brute-forceables offline. La defensa: los secretos HMAC deben tener al menos 256 bits de entropía, nunca ser contraseñas o defaults.</p>
+<h3 id="4-inyeccion-kid">4. Inyección <code>kid</code></h3>
+<p>El header del token incluye un campo <code>kid</code> que la aplicación usa para seleccionar una clave. Si <code>kid</code> se usa en un lookup de base de datos o filesystem sin sanitización, puede convertirse en SQL injection o path traversal para forzar el uso de una clave controlada por el atacante. La defensa: mapear <code>kid</code> a claves en una estructura de datos en memoria, nunca construir queries o paths desde él.</p>
+<h3 id="5-endpoints-jku-jwk-x5u-x5c-dinamicos">5. Endpoints <code>jku</code>/<code>jwk</code>/<code>x5u</code>/<code>x5c</code> dinámicos</h3>
+<p>Si la librería sigue <code>jku</code> o <code>jwks_uri</code> del header del token para recuperar la clave de verificación, el atacante puede apuntar a un servidor propio y servir su propia clave pública. La defensa: los endpoints JWKS deben estar fijos en configuración del lado del servidor.</p>
+<h3 id="6-afirmaciones-faltantes-incorrectas-o-no-verificadas">6. Afirmaciones faltantes, incorrectas, o no verificadas</h3>
+<p>Un token que no valida <code>exp</code> puede ser reutilizado indefinidamente. Un token que no valida <code>iss</code> puede ser emitido por cualquier parte. Un token que no valida <code>aud</code> puede ser un token de un servicio diferente. La defensa: verificar explícitamente cada afirmación relevante.</p>
+<h3 id="7-confusion-jwe-token-bearer-replay">7. Confusión JWE / token bearer-replay</h3>
+<p>JWE cifra el payload pero no prueba la identidad del emisor — la encryption no es autenticación. Los bearer tokens sin vinculación al contexto del cliente (IP, DPoP, certificado TLS) son usables por cualquiera que los intercepte. La defensa: usar DPoP o mTLS sender-constraint para tokens de alto valor; usar períodos de validez cortos y revocación.</p>
+<h2 id="impacto">Impacto</h2>
+<p>Ordenado aproximadamente por severidad:</p>
 <ul>
-<li><strong><code>alg: none</code> accepted:</strong> total auth bypass; attacker mints any token.</li>
-<li><strong>Algorithm confusion:</strong> total auth bypass when the public key is recoverable (which it usually is — JWKS is public).</li>
-<li><strong>Weak HMAC secret:</strong> offline secret recovery → total auth bypass.</li>
-<li><strong><code>kid</code>/<code>jku</code>/<code>jwk</code> injection:</strong> verifier-controlled key → attacker-signed tokens accepted.</li>
-<li><strong>Missing <code>aud</code> validation:</strong> cross-API token replay; a token meant for service A is accepted by service B.</li>
-<li><strong>Missing <code>exp</code>/<code>nbf</code>:</strong> tokens never expire or are valid before they should be; revocation becomes operationally impossible.</li>
-<li><strong>Stolen bearer:</strong> valid until expiry; if no short lifetime + refresh, exposure is hours to days.</li>
+<li><strong>Falsificación completa de token.</strong> Los exploits <code>alg:none</code> y RS256→HS256 permiten la creación de tokens con cualquier payload, incluyendo roles de admin.</li>
+<li><strong>Toma de sesión.</strong>  Los tokens de larga duración interceptados o robados son utilizables por atacantes.</li>
+<li><strong>Escalada de privilegios.</strong> Las afirmaciones no verificadas o los tokens de propósito cruzado permiten el acceso a funciones no previstas.</li>
+<li><strong>Inyección de clave.</strong> La inyección <code>kid</code> puede llevar a SQL injection o path traversal más allá de la semántica del token.</li>
+<li><strong>Replay persistente.</strong> Los tokens sin verificación <code>exp</code> o sin lista de revocación pueden ser reutilizados indefinidamente.</li>
 </ul>
-<p>Severity scales with token scope — root admin tokens, payment tokens, and tokens accepted by multiple resource servers are the highest-impact targets.</p>
-<h2 id="detection-and-defense">Detection and defense</h2>
-<p>Ordered by what works:</p>
-<ol>
-<li>
-<p><strong>Hard-code the expected algorithm; reject if the header disagrees.</strong>
-   <code>verify(token, key, algorithms=["RS256"])</code> (or <code>["EdDSA"]</code>). Never <code>algorithms=token.header.alg</code>. Never accept <code>none</code>.</p>
-</li>
-<li>
-<p><strong>Use asymmetric signatures for tokens crossing trust boundaries; HMAC only inside a single trust boundary.</strong>
-   RS256, PS256, ES256, or EdDSA between an IdP and resource servers. HS256 only if both sides are the same service or share a single secrets store. A breached resource server should not be able to mint tokens for other resources.</p>
-</li>
-<li>
-<p><strong>Resolve keys from the configured JWKS URL only; ignore header <code>jku</code>, <code>jwk</code>, <code>x5u</code>, <code>x5c</code>.</strong>
-   <code>kid</code> is acceptable as an opaque key index against the IdP's JWKS, but treat it as untrusted input — allowlist, never use as a path/query.</p>
-</li>
-<li>
-<p><strong>Validate registered claims explicitly.</strong>
-   <code>exp</code> must be in the future; <code>iat</code>/<code>nbf</code> must be sane; <code>iss</code> must match the expected issuer; <code>aud</code> must match the expected audience. Use the library's claim-validation parameters; do not write your own.</p>
-</li>
-<li>
-<p><strong>Keep tokens short-lived; pair with refresh tokens or sender-constrained tokens.</strong>
-   Access tokens of 5–15 minutes plus a refresh flow; or DPoP/mTLS-bound tokens for high-value APIs. Refresh tokens themselves should rotate and be one-time-use.</p>
-</li>
-<li>
-<p><strong>Reject tokens you do not intend to verify.</strong>
-   If your service expects RS256 from <code>https://idp.example/.well-known/jwks.json</code> for <code>aud=api.example</code>, anything else is rejected. No "fall back to local secret" path.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<p>Ordenado por efectividad:</p>
+<p>1. <strong>Fijar la lista de algoritmos permitidos en el verificador, nunca desde el header del token.</strong> Cada librería tiene un parámetro para esto. Incluir solo lo que realmente se usa: <code>[&quot;RS256&quot;]</code> o <code>[&quot;HS256&quot;]</code>, nunca <code>[&quot;RS256&quot;, &quot;HS256&quot;]</code> en la misma base de código si un subconjunto de claves es válido para ambos.</p>
+<p>2. <strong>Nunca confiar en <code>kid</code>, <code>jku</code>, <code>jwk</code>, <code>x5u</code>, o <code>x5c</code> para selección dinámica de claves sin lista de permitidos fija.</strong> Poner las claves de verificación en configuración o un key store. Mapear desde nombres de clave limpios y predefinidos.</p>
+<p>3. <strong>Verificar todas las afirmaciones estándar: <code>exp</code>, <code>nbf</code>, <code>iss</code>, <code>aud</code>, y afirmaciones personalizadas de propósito.</strong> No confiar en los defaults de la librería para <code>aud</code>/<code>iss</code> — confirmar que la librería los verifica activamente, no los ignora silenciosamente.</p>
+<p>4. <strong>Usar tokens de alta entropía y corta duración para propósitos sensibles.</strong> Los access tokens deben expirar en minutos; los refresh tokens en horas o días con capacidad de revocación. Secretos HMAC de 256 bits mínimo.</p>
+<p>5. <strong>Usar diferentes secretos o pares de clave para diferentes propósitos de token.</strong> Un token de reset de contraseña verificado con el mismo secreto que los tokens de sesión es un vector de falsificación cruzada.</p>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li><strong>"We use JWT, so we are secure."</strong> The JWT format does not make a system secure; correct verifier configuration does.</li>
-<li><strong>"We trust <code>header.alg</code>."</strong> That is exactly the alg-confusion bug. Use a hard-coded algorithm.</li>
-<li><strong>"Our HMAC secret is <code>our-app-name-2026</code>."</strong> Brute-forceable. Use a 256-bit CSPRNG-generated secret stored in a secrets manager.</li>
-<li><strong>"<code>exp</code> is far enough in the future that revocation does not matter."</strong> Long-lived bearer tokens are the worst of both worlds — same exposure as a session cookie without the easy revocation. Use short tokens + refresh.</li>
-<li><strong>"We pass <code>verify=False</code> only in tests."</strong> Tests that disable verification routinely escape into production via shared config helpers. Use explicit test fixtures that mint valid tokens, not unverified-decode helpers.</li>
-<li><strong>"We can use the same JWT for many APIs to make integration easier."</strong> That is exactly an audience-mismatch attack vector. Per-audience tokens, even if it costs a refresh round trip.</li>
+<li><strong>&quot;Usamos HTTPS, así que los tokens están protegidos en tránsito.&quot;</strong> Las vulnerabilidades de JWT son del lado del servidor en el verificador — HTTPS no previene la falsificación de tokens.</li>
+<li><strong>&quot;El payload está cifrado (JWE).&quot;</strong> El cifrado no es autenticación del emisor.</li>
+<li><strong>&quot;La librería se encarga de la validación.&quot;</strong> Muchas librerías JWT tienen defaults permisivos para compatibilidad con versiones anteriores. Verificar la configuración explícitamente.</li>
+<li><strong>&quot;Usamos una clave larga.&quot;</strong> Una clave larga no protege contra confusión de algoritmo o endpoints de clave mal fijados.</li>
+<li><strong>&quot;Ponemos la expiración en el payload.&quot;</strong> La expiración debe verificarse, no solo estar presente.</li>
 </ul>
-<h2 id="practical-labs">Practical labs</h2>
-<h3 id="mint-and-verify-a-jwt-correctly">Mint and verify a JWT correctly</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># pip install pyjwt cryptography</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">jwt</span><span class="o">,</span><span class="w"> </span><span class="nn">datetime</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">cryptography.hazmat.primitives.asymmetric.ed25519</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ed25519PrivateKey</span>
-<span class="n">sk</span> <span class="o">=</span> <span class="n">Ed25519PrivateKey</span><span class="o">.</span><span class="n">generate</span><span class="p">()</span>
-<span class="n">pk</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">public_key</span><span class="p">()</span>
-<span class="n">sk_pem</span> <span class="o">=</span> <span class="n">sk</span><span class="o">.</span><span class="n">private_bytes_raw</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span>  <span class="c1"># for demo only</span>
-<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="p">{</span><span class="s2">&quot;sub&quot;</span><span class="p">:</span><span class="s2">&quot;u-1&quot;</span><span class="p">,</span><span class="s2">&quot;iss&quot;</span><span class="p">:</span><span class="s2">&quot;https://idp.example&quot;</span><span class="p">,</span><span class="s2">&quot;aud&quot;</span><span class="p">:</span><span class="s2">&quot;api.example&quot;</span><span class="p">,</span>
-     <span class="s2">&quot;iat&quot;</span><span class="p">:</span> <span class="n">now</span><span class="p">,</span> <span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="n">now</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">10</span><span class="p">)},</span>
-    <span class="n">sk</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;EdDSA&quot;</span>
-<span class="p">)</span>
-<span class="n">decoded</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">pk</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;EdDSA&quot;</span><span class="p">],</span> <span class="n">audience</span><span class="o">=</span><span class="s2">&quot;api.example&quot;</span><span class="p">,</span> <span class="n">issuer</span><span class="o">=</span><span class="s2">&quot;https://idp.example&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">decoded</span><span class="p">)</span>
+<h2 id="labs-practicos">Labs prácticos</h2>
+<h3 id="verificar-jwt-con-lista-de-algoritmos-explicita-en-python">Verificar JWT con lista de algoritmos explícita en Python</h3>
+<div class="codehilite"><pre><span></span><code>pip install pyjwt cryptography
 </code></pre></div>
+<div class="codehilite"><pre><span></span><code>import jwt
 
-<p>Result: a correct verifier rejects mismatched algorithm, wrong audience, wrong issuer, or expired tokens.</p>
-<h3 id="reproduce-alg-none-on-a-vulnerable-verifier">Reproduce <code>alg: none</code> on a vulnerable verifier</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span>
-<span class="n">header</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;alg&quot;</span><span class="p">:</span><span class="s2">&quot;none&quot;</span><span class="p">,</span><span class="s2">&quot;typ&quot;</span><span class="p">:</span><span class="s2">&quot;JWT&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;=&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;sub&quot;</span><span class="p">:</span><span class="s2">&quot;admin&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;=&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-<span class="n">token</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">header</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">payload</span><span class="si">}</span><span class="s2">.&quot;</span>
-<span class="c1"># Send this to a verifier that trusts header.alg and observe whether it accepts the token</span>
+# Bien: algoritmo fijo, verificación completa
+payload = jwt.decode(
+    token,
+    public_key,
+    algorithms=[&quot;RS256&quot;],
+    audience=&quot;api.example.com&quot;,
+    issuer=&quot;auth.example.com&quot;,
+)
+
+# Mal: permite cualquier algoritmo del header
+payload = jwt.decode(token, public_key)  # vulnerable
 </code></pre></div>
+<h3 id="demostrar-falsificacion-alg-none">Demostrar falsificación <code>alg:none</code></h3>
+<div class="codehilite"><pre><span></span><code>import base64, json
 
-<p>Result: a correctly configured verifier (<code>algorithms=["RS256"]</code>) rejects this immediately. A library or wrapper that reads <code>alg</code> from the header may accept it. The presence or absence of acceptance is the test.</p>
-<h3 id="reproduce-algorithm-confusion-rs-hs">Reproduce algorithm confusion (RS → HS)</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">jwt</span>
-<span class="n">public_pem</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;idp_public.pem&quot;</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="c1"># Attacker signs with HS256 using the IdP&#39;s PUBLIC key as the HMAC secret</span>
-<span class="n">forged</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">({</span><span class="s2">&quot;sub&quot;</span><span class="p">:</span><span class="s2">&quot;admin&quot;</span><span class="p">},</span> <span class="n">public_pem</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;HS256&quot;</span><span class="p">)</span>
-<span class="c1"># A vulnerable verifier that calls `decode(forged, public_pem)` without locking algorithms</span>
-<span class="c1"># will try HS256 and succeed.</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">forged</span><span class="p">)</span>
+def b64url(data):
+    return base64.urlsafe_b64encode(
+        data if isinstance(data, bytes) else data.encode()
+    ).rstrip(b&quot;=&quot;).decode()
+
+header  = b64url(json.dumps({&quot;alg&quot;:&quot;none&quot;,&quot;typ&quot;:&quot;JWT&quot;}))
+payload = b64url(json.dumps({&quot;sub&quot;:&quot;admin&quot;,&quot;exp&quot;:9999999999}))
+forged  = f&quot;{header}.{payload}.&quot;
+
+# Si la librería acepta esto sin error, está mal configurada
+try:
+    jwt.decode(forged, options={&quot;verify_signature&quot;: False})
+    print(&quot;VULNERABLE: alg:none aceptado&quot;)
+except Exception:
+    print(&quot;OK: alg:none rechazado&quot;)
 </code></pre></div>
-
-<p>Result: the test target accepts the forged token only if the verifier reads <code>alg</code> from the header. This lab is the canonical demonstration of "always pin algorithms".</p>
-<h3 id="detect-over-flexible-verifier-configuration-in-code">Detect over-flexible verifier configuration in code</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Sniff Python/Node/Java code for JWT misuse patterns</span>
-rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;jwt\.decode\(|jwt\.verify\(|verify\(.*algorithms\s*=\s*\[&quot;</span><span class="w"> </span>.
-rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;algorithms\s*=\s*token\.header|header\[.alg.\]&quot;</span><span class="w"> </span>.
-rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;alg.*none|verify_signature\s*=\s*False&quot;</span><span class="w"> </span>.
+<h3 id="auditar-jwt-en-un-codebase">Auditar JWT en un codebase</h3>
+<div class="codehilite"><pre><span></span><code>rg -n &quot;algorithms=\[\]|algorithms=None|verify_signature.*False|ignoreExpiration|complete=True&quot; .
+rg -n &quot;jwt\.decode\(&quot; . | grep -v &quot;algorithms=&quot;
 </code></pre></div>
-
-<p>Result: every occurrence is a review point. Confirm the algorithm is hard-coded and <code>none</code> is rejected.</p>
-<h3 id="jwks-rotation-lab">JWKS rotation lab</h3>
-<div class="codehilite"><pre><span></span><code>1. Stand up an IdP with two RSA key pairs (current + next), publish both at /.well-known/jwks.json.
-2. Mint tokens with kid=current.
-3. Rotate: mint with kid=next, keep current published for the legacy refresh window.
-4. Confirm the resource server resolves keys via JWKS and accepts both during the overlap.
-</code></pre></div>
-
-<p>Result: a working rotation playbook proves your verifier can survive key rotation without downtime, which is the prerequisite for short-lived signing keys.</p>
-<h2 id="practical-examples">Practical examples</h2>
+<p>Cada match es una posible verificación de algoritmo mal configurada.</p>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
-<li>A microservice imports <code>jsonwebtoken</code> and calls <code>verify(token, key)</code> with no <code>algorithms</code> option. A penetration test demonstrates RS→HS confusion. Fix: pin <code>algorithms: ['RS256']</code>.</li>
-<li>An admin tool issues HS256 tokens with secret <code>admin-prod-2026</code>. The secret leaks via a public commit. Fix: rotate, switch to RS256/EdDSA from a KMS-managed key.</li>
-<li>A multi-API gateway accepts any JWT signed by the corporate IdP. A token issued for the test API is replayed against the production billing API. Fix: enforce <code>aud=billing.example</code> on the billing API.</li>
-<li>A mobile app decodes the JWT locally to "extract the user id" and trusts the payload. Local decode is acceptable for display; never make a security decision on decoded-but-unverified payloads.</li>
-<li>A new service implements its own JWT library because "the standard one is too heavy". The custom verifier accidentally treats <code>alg: HS256</code> and <code>alg: RS256</code> interchangeably. Replace with a vetted library; delete the custom code.</li>
+<li>Una API acepta <code>RS256</code> y <code>HS256</code>. El atacante firma un token con la clave pública RSA como secreto HMAC. La API acepta el token como válido y el atacante gana acceso como admin.</li>
+<li>Una app Node.js usa <code>jwt.verify(token, secret)</code> sin el parámetro <code>algorithms</code>. La librería tiene un default de &quot;todos los algoritmos.&quot; Un token <code>alg:none</code> es aceptado.</li>
+<li>Un endpoint de reset de contraseña acepta tokens de sesión normales porque ambos usan el mismo secreto HMAC. Un atacante con un token de sesión robado puede resetear contraseñas.</li>
+<li>El campo <code>kid</code> del token se usa en <code>SELECT key FROM keys WHERE id = ?</code> sin validación; el atacante inyecta <code>&#x27; OR &#x27;1&#x27;=&#x27;1</code>.</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
 <li><a href="hashing-vs-encryption-vs-signing.html">hashing-vs-encryption-vs-signing</a></li>
 <li><a href="mac-and-hmac.html">mac-and-hmac</a></li>
 <li><a href="digital-signatures.html">digital-signatures</a></li>
 <li><a href="asymmetric-encryption-and-key-exchange.html">asymmetric-encryption-and-key-exchange</a></li>
 <li><a href="random-and-csprng-pitfalls.html">random-and-csprng-pitfalls</a></li>
-<li><a href="../api-security/jwt-attacks.html">JWT Attacks</a></li>
-<li><a href="../api-security/token-lifecycle.html">Token Lifecycle</a></li>
 <li><a href="../web-security/auth-flaws.html">Auth Flaws</a></li>
-<li><a href="../web-security/oauth-security.html">OAuth Security</a></li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: oidc-deep-dive">oidc-deep-dive</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: dpop-and-sender-constrained-tokens">dpop-and-sender-constrained-tokens</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: mtls-bound-tokens-rfc-8705">mtls-bound-tokens-rfc-8705</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: jwks-rotation-and-kid-handling">jwks-rotation-and-kid-handling</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: paseto-and-jwt-alternatives">paseto-and-jwt-alternatives</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: jwt-claim-validation-pitfalls">jwt-claim-validation-pitfalls</span></li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Foundational:</strong> OWASP JSON Web Token for Java Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html</li>
-<li><strong>Standard / RFC:</strong> RFC 7519 JSON Web Token (JWT) — https://www.rfc-editor.org/rfc/rfc7519</li>
-<li><strong>Testing / Lab:</strong> PortSwigger JWT attacks — https://portswigger.net/web-security/jwt</li>
-<li><strong>Research / Deep Dive:</strong> Auth0 JWT handbook — https://auth0.com/resources/ebooks/jwt-handbook</li>
+<li><strong>Estándar / RFC:</strong> RFC 7519 JSON Web Token (JWT) — https://www.rfc-editor.org/rfc/rfc7519</li>
+<li><strong>Estándar / RFC:</strong> RFC 7515 JSON Web Signature (JWS) — https://www.rfc-editor.org/rfc/rfc7515</li>
+<li><strong>Fundamental:</strong> PortSwigger JWT Attacks — https://portswigger.net/web-security/jwt</li>
+<li><strong>Investigación / Deep Dive:</strong> &quot;Critical Vulnerabilities in JWT&quot; — https://auth0.com/blog/critical-vulnerabilities-in-json-web-token-libraries/</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="hashing-vs-encryption-vs-signing.html"><span class="nav-dir">← Previous</span><strong>Hashing vs Encryption vs Signing</strong></a><a class="branch-nav-link next" href="kdf-and-key-stretching.html"><span class="nav-dir">Next →</span><strong>KDF and Key Stretching</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -625,24 +562,28 @@ rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;alg.*
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#alg-none">alg: none</a>
-<a class="toc-level-3" href="#algorithm-confusion-rs256-hs256">Algorithm confusion (RS256 → HS256)</a>
-<a class="toc-level-3" href="#weak-hmac-secrets">Weak HMAC secrets</a>
-<a class="toc-level-3" href="#kid-injection">kid  injection</a>
-<a class="toc-level-3" href="#jku-jwk-x5u-x5c-injection">jku  /  jwk  /  x5u  /  x5c  injection</a>
-<a class="toc-level-3" href="#missing-or-wrong-claim-validation">Missing or wrong claim validation</a>
-<a class="toc-level-3" href="#bearer-replay-stolen-jwt">Bearer-replay / stolen JWT</a>
-<a class="toc-level-3" href="#jwe-confusion">JWE confusion</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-3" href="#mint-and-verify-a-jwt-correctly">Mint and verify a JWT correctly</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
+<a class="toc-level-3" href="#1-alg-none">1. alg: &quot;none&quot;</a>
+<a class="toc-level-3" href="#2-confusion-rs256-hs256">2. Confusión RS256 → HS256</a>
+<a class="toc-level-3" href="#3-secretos-hmac-debiles">3. Secretos HMAC débiles</a>
+<a class="toc-level-3" href="#4-inyeccion-kid">4. Inyección kid</a>
+<a class="toc-level-3" href="#5-endpoints-jku-jwk-x5u-x5c-dinamicos">5. Endpoints jku / jwk / x5u / x5c dinámicos</a>
+<a class="toc-level-3" href="#6-afirmaciones-faltantes-incorrectas-o-no-verificadas">6. Afirmaciones faltantes, incorrectas, o no verificadas</a>
+<a class="toc-level-3" href="#7-confusion-jwe-token-bearer-replay">7. Confusión JWE / token bearer-replay</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
+<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
+<a class="toc-level-3" href="#verificar-jwt-con-lista-de-algoritmos-explicita-en-python">Verificar JWT con lista de algoritmos explícita en Python</a>
+<a class="toc-level-3" href="#demostrar-falsificacion-alg-none">Demostrar falsificación alg:none</a>
+<a class="toc-level-3" href="#auditar-jwt-en-un-codebase">Auditar JWT en un codebase</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

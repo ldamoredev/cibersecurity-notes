@@ -410,7 +410,7 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Redes</a><span>/</span><span>Caché y seguridad</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Caché y seguridad</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-sky">Redes</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~7 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado Apr 29, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#networking</span><span class="meta-chip tag">#caching</span><span class="meta-chip tag">#http</span></div>
 </header>
@@ -430,20 +430,18 @@
 <li><strong>¿Cuándo se reusa o invalida?</strong> TTL, <code>max-age</code>, <code>s-maxage</code>, <code>ETag</code>, <code>Last-Modified</code>, APIs de purge y la revalidación deciden la vida útil.</li>
 </ol>
 <p>Response sensible de ejemplo:</p>
-<div class="codehilite"><pre><span></span><code><span class="nf">GET</span> <span class="nn">/account</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="o">:</span> <span class="l">app.example.com</span>
-<span class="na">Cookie</span><span class="o">:</span> <span class="l">__Host-session=alice</span>
-<span class="na">Accept-Language</span><span class="o">:</span> <span class="l">en</span>
+<div class="codehilite"><pre><span></span><code>GET /account HTTP/1.1
+Host: app.example.com
+Cookie: __Host-session=alice
+Accept-Language: en
 </code></pre></div>
+<div class="codehilite"><pre><span></span><code>HTTP/1.1 200 OK
+Cache-Control: public, max-age=600
+Content-Type: text/html
 
-<div class="codehilite"><pre><span></span><code><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Cache-Control</span><span class="o">:</span> <span class="l">public, max-age=600</span>
-<span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/html</span>
-
-Alice&#39;s billing dashboard
+Alice&#x27;s billing dashboard
 </code></pre></div>
-
-<p>Si un CDN compartido almacena esa response bajo solo <code>Host + path</code>, el próximo usuario que pida <code>/account</code> puede recibir la página de Alice. El bug no es "existe un CDN"; el bug es dejar que contenido personalizado entre a un caché compartido sin una clave segura o <code>no-store</code>.</p>
+<p>Si un CDN compartido almacena esa response bajo solo <code>Host + path</code>, el próximo usuario que pida <code>/account</code> puede recibir la página de Alice. El bug no es &quot;existe un CDN&quot;; el bug es dejar que contenido personalizado entre a un caché compartido sin una clave segura o <code>no-store</code>.</p>
 <h2 id="tecnicas-patrones">Técnicas / patrones</h2>
 <p>Atacantes y defensores inspeccionan:</p>
 <ul>
@@ -483,34 +481,20 @@ Alice&#39;s billing dashboard
 <h2 id="deteccion-y-defensa">Detección y defensa</h2>
 <p>Ordenado por efectividad:</p>
 <ol>
-<li>
-<p><strong>Marcá las responses sensibles con <code>Cache-Control: no-store</code>.</strong>
-   Las responses de cuenta, facturación, admin, que cargan sesión, que cargan tokens y las de API específicas del usuario no deberían entrar a cachés compartidos ni del navegador. <code>no-store</code> es la directiva más clara porque les dice a los cachés que no retengan la response en absoluto.</p>
-</li>
-<li>
-<p><strong>Hacé las claves de caché explícitas y revisadas.</strong>
-   Documentá por qué hace clave cada capa de caché: host, path, query string, headers seleccionados, cookies, encoding, dispositivo, locale. Cualquier señal que el origin lea y que esté ausente de la clave es un candidato a poisoning.</p>
-</li>
-<li>
-<p><strong>Deshabilitá el caché compartido para el tráfico autenticado por defecto.</strong>
-   <code>Authorization</code> y <code>Cookie</code> normalmente deberían empujar las responses fuera del caché compartido salvo que la ruta sea deliberadamente pública y la política de clave esté probadamente segura.</p>
-</li>
-<li>
-<p><strong>Usá <code>Vary</code> solo cuando el caché realmente lo honra.</strong>
-   <code>Vary: Origin</code>, <code>Vary: Accept-Language</code> o <code>Vary: Cookie</code> pueden ser correctos, pero solo si cada intermediario relevante lo respeta. Las reglas del CDN a menudo sobrescriben o comprimen el comportamiento de <code>Vary</code>.</p>
-</li>
-<li>
-<p><strong>Normalizá en el edge y el origin de forma consistente.</strong>
-   La decodificación de path, las barras finales, los puntos y comas, el casing, la normalización de query y el manejo de extensiones de archivo deberían coincidir. La cache deception y el poisoning a menudo vienen de normalización desajustada.</p>
-</li>
-<li>
-<p><strong>Purgá por surrogate keys o identificadores precisos.</strong>
-   La invalidación sensible no debería depender de purges amplios con wildcard ni de esperar a que expiren los TTLs. Usá surrogate keys de ruta/objeto donde el CDN los soporte.</p>
-</li>
-<li>
-<p><strong>Logueá el estado de caché con contexto de seguridad.</strong>
-   Registrá HIT/MISS/BYPASS, los inputs de la clave de caché, el estado autenticado vs anónimo y los headers seleccionados. Sin visibilidad del caché, las fugas parecen bugs de autorización aleatorios.</p>
-</li>
+<li><strong>Marcá las responses sensibles con <code>Cache-Control: no-store</code>.</strong><br>
+Las responses de cuenta, facturación, admin, que cargan sesión, que cargan tokens y las de API específicas del usuario no deberían entrar a cachés compartidos ni del navegador. <code>no-store</code> es la directiva más clara porque les dice a los cachés que no retengan la response en absoluto.</li>
+<li><strong>Hacé las claves de caché explícitas y revisadas.</strong><br>
+Documentá por qué hace clave cada capa de caché: host, path, query string, headers seleccionados, cookies, encoding, dispositivo, locale. Cualquier señal que el origin lea y que esté ausente de la clave es un candidato a poisoning.</li>
+<li><strong>Deshabilitá el caché compartido para el tráfico autenticado por defecto.</strong><br>
+<code>Authorization</code> y <code>Cookie</code> normalmente deberían empujar las responses fuera del caché compartido salvo que la ruta sea deliberadamente pública y la política de clave esté probadamente segura.</li>
+<li><strong>Usá <code>Vary</code> solo cuando el caché realmente lo honra.</strong><br>
+<code>Vary: Origin</code>, <code>Vary: Accept-Language</code> o <code>Vary: Cookie</code> pueden ser correctos, pero solo si cada intermediario relevante lo respeta. Las reglas del CDN a menudo sobrescriben o comprimen el comportamiento de <code>Vary</code>.</li>
+<li><strong>Normalizá en el edge y el origin de forma consistente.</strong><br>
+La decodificación de path, las barras finales, los puntos y comas, el casing, la normalización de query y el manejo de extensiones de archivo deberían coincidir. La cache deception y el poisoning a menudo vienen de normalización desajustada.</li>
+<li><strong>Purgá por surrogate keys o identificadores precisos.</strong><br>
+La invalidación sensible no debería depender de purges amplios con wildcard ni de esperar a que expiren los TTLs. Usá surrogate keys de ruta/objeto donde el CDN los soporte.</li>
+<li><strong>Logueá el estado de caché con contexto de seguridad.</strong><br>
+Registrá HIT/MISS/BYPASS, los inputs de la clave de caché, el estado autenticado vs anónimo y los headers seleccionados. Sin visibilidad del caché, las fugas parecen bugs de autorización aleatorios.</li>
 </ol>
 <h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
@@ -523,52 +507,46 @@ Alice&#39;s billing dashboard
 <h2 id="labs-practicos">Labs prácticos</h2>
 <p>Corré solo contra sistemas que sean tuyos o que estés autorizado a testear.</p>
 <h3 id="inventariar-los-headers-relacionados-con-cache">Inventariar los headers relacionados con caché</h3>
-<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-skI<span class="w"> </span>https://app.example.com/<span class="w"> </span><span class="p">|</span><span class="w"> </span>rg<span class="w"> </span>-i<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;^(cache-control|pragma|expires|age|etag|last-modified|vary|x-cache|cf-cache-status|x-served-by):&#39;</span>
+<div class="codehilite"><pre><span></span><code>curl -skI https://app.example.com/ | rg -i \
+  &#x27;^(cache-control|pragma|expires|age|etag|last-modified|vary|x-cache|cf-cache-status|x-served-by):&#x27;
 </code></pre></div>
-
 <p>Registrá si la response es public, private, no-store, revalidada o servida por CDN.</p>
 <h3 id="comparar-responses-anonimas-y-autenticadas">Comparar responses anónimas y autenticadas</h3>
-<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-skI<span class="w"> </span>https://app.example.com/account<span class="w"> </span><span class="p">|</span><span class="w"> </span>rg<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;^(cache-control|vary|x-cache|cf-cache-status):&#39;</span>
-curl<span class="w"> </span>-skI<span class="w"> </span>-b<span class="w"> </span>/tmp/app.cookies<span class="w"> </span>https://app.example.com/account<span class="w"> </span><span class="p">|</span><span class="w"> </span>rg<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;^(cache-control|vary|x-cache|cf-cache-status):&#39;</span>
+<div class="codehilite"><pre><span></span><code>curl -skI https://app.example.com/account | rg -i &#x27;^(cache-control|vary|x-cache|cf-cache-status):&#x27;
+curl -skI -b /tmp/app.cookies https://app.example.com/account | rg -i &#x27;^(cache-control|vary|x-cache|cf-cache-status):&#x27;
 </code></pre></div>
-
 <p>Las responses autenticadas no deberían ser almacenadas por cachés compartidos salvo que estén explícitamente diseñadas y con clave segura.</p>
 <h3 id="sondear-el-reflejo-de-headers-sin-clave">Sondear el reflejo de headers sin clave</h3>
-<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-sk<span class="w"> </span>https://app.example.com/<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;X-Forwarded-Host: poison.example&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;X-Original-URL: /poison-probe&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="p">|</span><span class="w"> </span>rg<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;poison.example|poison-probe&#39;</span>
+<div class="codehilite"><pre><span></span><code>curl -sk https://app.example.com/ \
+  -H &#x27;X-Forwarded-Host: poison.example&#x27; \
+  -H &#x27;X-Original-URL: /poison-probe&#x27; \
+  | rg -i &#x27;poison.example|poison-probe&#x27;
 </code></pre></div>
-
 <p>Si la response refleja el header, chequeá si la clave de caché incluye ese header antes de considerar el impacto.</p>
 <h3 id="testear-una-forma-de-poisoning-de-dos-requests">Testear una forma de poisoning de dos requests</h3>
-<div class="codehilite"><pre><span></span><code><span class="nv">url</span><span class="o">=</span><span class="s1">&#39;https://app.example.com/?cache_probe=1&#39;</span>
+<div class="codehilite"><pre><span></span><code>url=&#x27;https://app.example.com/?cache_probe=1&#x27;
 
-curl<span class="w"> </span>-skI<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$url</span><span class="s2">&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;X-Forwarded-Host: poison.example&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>rg<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;x-cache|cf-cache-status|age&#39;</span>
-curl<span class="w"> </span>-sk<span class="w">  </span><span class="s2">&quot;</span><span class="nv">$url</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>rg<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;poison.example|x-cache|cf-cache-status|age&#39;</span>
+curl -skI &quot;$url&quot; -H &#x27;X-Forwarded-Host: poison.example&#x27; | rg -i &#x27;x-cache|cf-cache-status|age&#x27;
+curl -sk  &quot;$url&quot; | rg -i &#x27;poison.example|x-cache|cf-cache-status|age&#x27;
 </code></pre></div>
-
 <p>La primera request intenta almacenar; la segunda chequea si una request con forma de víctima sin modificar recibe contenido influido por el atacante.</p>
 <h3 id="chequear-candidatos-a-cache-deception">Chequear candidatos a cache deception</h3>
-<div class="codehilite"><pre><span></span><code><span class="k">for</span><span class="w"> </span>suffix<span class="w"> </span><span class="k">in</span><span class="w"> </span>profile.css<span class="w"> </span>account.js<span class="w"> </span>settings.png<span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span>curl<span class="w"> </span>-skI<span class="w"> </span><span class="s2">&quot;https://app.example.com/account/</span><span class="nv">$suffix</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>rg<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;http/|content-type|cache-control|x-cache|cf-cache-status&#39;</span>
-<span class="k">done</span>
+<div class="codehilite"><pre><span></span><code>for suffix in profile.css account.js settings.png; do
+  curl -skI &quot;https://app.example.com/account/$suffix&quot; | rg -i &#x27;http/|content-type|cache-control|x-cache|cf-cache-status&#x27;
+done
 </code></pre></div>
-
 <p>Vigilá contenido dinámico servido bajo paths de apariencia estática con headers cacheables.</p>
 <h3 id="inspeccionar-el-comportamiento-de-invalidacion">Inspeccionar el comportamiento de invalidación</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Fetch, cambiar el objeto subyacente a través de la app, después fetch de nuevo.</span>
-curl<span class="w"> </span>-skI<span class="w"> </span>https://app.example.com/resource/123<span class="w"> </span><span class="p">|</span><span class="w"> </span>rg<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;etag|last-modified|cache-control|x-cache|age&#39;</span>
+<div class="codehilite"><pre><span></span><code># Fetch, cambiar el objeto subyacente a través de la app, después fetch de nuevo.
+curl -skI https://app.example.com/resource/123 | rg -i &#x27;etag|last-modified|cache-control|x-cache|age&#x27;
 </code></pre></div>
-
 <p>El punto es comparar la frescura esperada con el reuso real del caché, no solo los headers en aislamiento.</p>
 <h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
 <li><code>/account</code> devuelve <code>Cache-Control: public, max-age=600</code>, y un CDN le sirve el dashboard de un usuario a otro.</li>
 <li>El origin refleja <code>X-Forwarded-Host</code> en los links canónicos, pero el CDN solo usa la URL como clave, creando web cache poisoning.</li>
 <li><code>/profile/avatar/../../settings.css</code> es normalizado distinto por el caché y el origin, causando que datos dinámicos de la cuenta se cacheen como CSS.</li>
-<li>Un logout revoca la sesión pero el botón "atrás" del navegador muestra datos de facturación cacheados.</li>
+<li>Un logout revoca la sesión pero el botón &quot;atrás&quot; del navegador muestra datos de facturación cacheados.</li>
 <li>Un redirect de <code>/login</code> a un dominio específico de tenant se cachea y se reusa entre tenants.</li>
 </ul>
 <h2 id="notas-relacionadas">Notas relacionadas</h2>
@@ -584,18 +562,18 @@ curl<span class="w"> </span>-skI<span class="w"> </span>https://app.example.com/
 <h3 id="notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</h3>
 <ul>
 <li><a href="../web-security/web-cache-poisoning.html">Web cache poisoning</a></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: cache-deception">Cache deception</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: cache-control-semantics">Semántica de Cache-Control</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: vary-header">El header Vary</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: surrogate-keys">Surrogate keys</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: cdn-cache-key-design">Diseño de clave de caché de CDN</span></li>
+<li><span class="unresolved-link">Cache deception</span></li>
+<li><span class="unresolved-link">Semántica de Cache-Control</span></li>
+<li><span class="unresolved-link">El header Vary</span></li>
+<li><span class="unresolved-link">Surrogate keys</span></li>
+<li><span class="unresolved-link">Diseño de clave de caché de CDN</span></li>
 </ul>
 <h2 id="referencias">Referencias</h2>
 <ul>
 <li><strong>Foundational:</strong> MDN HTTP caching — https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching</li>
 <li><strong>Foundational:</strong> MDN Cache-Control — https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</li>
 <li><strong>Testing / Lab:</strong> PortSwigger Web Cache Poisoning — https://portswigger.net/web-security/web-cache-poisoning</li>
-<li><strong>Research / Deep Dive:</strong> James Kettle, "Practical Web Cache Poisoning" — https://portswigger.net/research/practical-web-cache-poisoning</li>
+<li><strong>Research / Deep Dive:</strong> James Kettle, &quot;Practical Web Cache Poisoning&quot; — https://portswigger.net/research/practical-web-cache-poisoning</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><span class="branch-nav-spacer"></span><a class="branch-nav-link next" href="client-ip-trust.html"><span class="nav-dir">Next →</span><strong>Confianza en la IP del cliente</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -629,6 +607,13 @@ curl<span class="w"> </span>-skI<span class="w"> </span>https://app.example.com/
 <a class="toc-level-3" href="#inventariar-los-headers-relacionados-con-cache">Inventariar los headers relacionados con caché</a>
 <a class="toc-level-3" href="#comparar-responses-anonimas-y-autenticadas">Comparar responses anónimas y autenticadas</a>
 <a class="toc-level-3" href="#sondear-el-reflejo-de-headers-sin-clave">Sondear el reflejo de headers sin clave</a>
+<a class="toc-level-3" href="#testear-una-forma-de-poisoning-de-dos-requests">Testear una forma de poisoning de dos requests</a>
+<a class="toc-level-3" href="#chequear-candidatos-a-cache-deception">Chequear candidatos a cache deception</a>
+<a class="toc-level-3" href="#inspeccionar-el-comportamiento-de-invalidacion">Inspeccionar el comportamiento de invalidación</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-3" href="#notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

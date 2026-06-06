@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AEAD and Nonce Misuse - Criptografía | ldamoredev Security Atlas</title>
-<meta name="description" content="Authenticated Encryption with Associated Data (AEAD) encrypts plaintext and authenticates both ciphertext and optional associated data. Nonce misuse happens when...">
+<meta name="description" content="AEAD (Authenticated Encryption with Associated Data) es un modo de cifrado que provee confidencialidad e integridad en una sola operación. Cualquier manipula...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Criptografía, AEAD and Nonce Misuse, cryptography, aead, nonce">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AEAD and Nonce Misuse - Criptografía | ldamoredev Security Atlas">
-<meta property="og:description" content="Authenticated Encryption with Associated Data (AEAD) encrypts plaintext and authenticates both ciphertext and optional associated data. Nonce misuse happens when...">
+<meta property="og:description" content="AEAD (Authenticated Encryption with Associated Data) es un modo de cifrado que provee confidencialidad e integridad en una sola operación. Cualquier manipula...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/aead-and-nonce-misuse.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AEAD and Nonce Misuse - Criptografía | ldamoredev Security Atlas">
-<meta name="twitter:description" content="Authenticated Encryption with Associated Data (AEAD) encrypts plaintext and authenticates both ciphertext and optional associated data. Nonce misuse happens when...">
+<meta name="twitter:description" content="AEAD (Authenticated Encryption with Associated Data) es un modo de cifrado que provee confidencialidad e integridad en una sola operación. Cualquier manipula...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/aead-and-nonce-misuse.html#article","name":"AEAD and Nonce Misuse - Criptografía | ldamoredev Security Atlas","headline":"AEAD and Nonce Misuse","description":"Authenticated Encryption with Associated Data (AEAD) encrypts plaintext and authenticates both ciphertext and optional associated data. Nonce misuse happens when...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/aead-and-nonce-misuse.html","inLanguage":"es","datePublished":"2026-05-01","dateModified":"2026-05-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/aead-and-nonce-misuse.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Criptografía","AEAD and Nonce Misuse","cryptography","aead","nonce"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Criptografía","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/index.html"},{"@type":"ListItem","position":4,"name":"AEAD and Nonce Misuse","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/aead-and-nonce-misuse.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/aead-and-nonce-misuse.html#article","name":"AEAD and Nonce Misuse - Criptografía | ldamoredev Security Atlas","headline":"AEAD and Nonce Misuse","description":"AEAD (Authenticated Encryption with Associated Data) es un modo de cifrado que provee confidencialidad e integridad en una sola operación. Cualquier manipula...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/aead-and-nonce-misuse.html","inLanguage":"es","datePublished":"2026-05-01","dateModified":"2026-05-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/aead-and-nonce-misuse.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Criptografía","AEAD and Nonce Misuse","cryptography","aead","nonce"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Criptografía","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/index.html"},{"@type":"ListItem","position":4,"name":"AEAD and Nonce Misuse","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/aead-and-nonce-misuse.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/cryptography/aead-and-nonce-misuse.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/aead-and-nonce-misuse.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/cryptography/aead-and-nonce-misuse.html">
@@ -410,175 +410,139 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Criptografía</a><span>/</span><span>AEAD and Nonce Misuse</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>AEAD and Nonce Misuse</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-emerald">Criptografía</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~4 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 01, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#cryptography</span><span class="meta-chip tag">#aead</span><span class="meta-chip tag">#nonce</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="aead-and-nonce-misuse">AEAD and Nonce Misuse</h1>
-<h2 id="definition">Definition</h2>
-<p>Authenticated Encryption with Associated Data (AEAD) encrypts plaintext and authenticates both ciphertext and optional associated data. Nonce misuse happens when the same nonce is reused with the same key, or when nonce generation rules do not match the AEAD mode's security assumptions.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>AEAD is the modern default for encryption because it binds confidentiality and integrity. But modes like AES-GCM and ChaCha20-Poly1305 have a sharp edge: nonce reuse under the same key can break confidentiality and may break authenticity. This is one of the places where "we used the right algorithm" is not enough; the operational state around nonce generation is part of the cryptosystem.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>AEAD protects <strong>3 inputs</strong>:</p>
-<ol>
-<li>
-<p><strong>Plaintext</strong>
-   The secret data to encrypt.</p>
-</li>
-<li>
-<p><strong>Nonce</strong>
-   A value that must be unique for the key. It is usually public but must not repeat.</p>
-</li>
-<li>
-<p><strong>Associated data</strong>
-   Public metadata that is authenticated but not encrypted, such as key id, protocol version, tenant id, or record type.</p>
-</li>
-</ol>
+<h2 id="definicion">Definición</h2>
+<p>AEAD (Authenticated Encryption with Associated Data) es un modo de cifrado que provee confidencialidad e integridad en una sola operación. Cualquier manipulación del ciphertext, el tag, o los associated data hace que el descifrado falle. El nonce misuse ocurre cuando el nonce requerido por el cipher se repite bajo la misma clave, lo cual puede destruir la confidencialidad, la integridad, o ambas.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>AEAD es la primitiva correcta para la mayoría de las necesidades de encryption. Pero &quot;usar AEAD&quot; no es suficiente — el nonce necesita ser único bajo la clave. AES-GCM, la suite AEAD más desplegada, es especialmente sensible: un único reuso de nonce bajo la misma clave puede exponer el plaintext e incluso la clave de autenticación. La propiedad correcta de nonce (unicidad, no secreto) es diferente a la propiedad correcta de clave (secreto, no necesariamente único), y confundirlas es el error más común en el uso de AEAD.</p>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>AEAD toma <strong>3 inputs</strong> y produce 2 outputs:</p>
 <div class="codehilite"><pre><span></span><code>ciphertext, tag = AEAD_Encrypt(key, nonce, plaintext, aad)
-plaintext = AEAD_Decrypt(key, nonce, ciphertext, aad, tag)
+plaintext        = AEAD_Decrypt(key, nonce, ciphertext, tag, aad)
+                   // falla si tag es inválido
 </code></pre></div>
-
-<p>If decryption succeeds, the receiver learns that ciphertext and AAD were not modified under that key/nonce pair.</p>
-<p>The bug is not "the nonce is visible." Nonces are often public. The bug is reusing a nonce with the same key or failing to authenticate the metadata the application trusts.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
 <ul>
-<li>Identify AEAD modes: AES-GCM, ChaCha20-Poly1305, AES-GCM-SIV, XChaCha20-Poly1305.</li>
-<li>Check nonce source. Random 96-bit nonces, counters, persisted sequence numbers, or library-managed nonces all have different failure modes.</li>
-<li>Check restart behavior. Counters reset after deploys, crashes, VM snapshots, or process restarts unless persisted.</li>
-<li>Check key scope. Nonce uniqueness is per key; rotating keys resets the nonce space.</li>
-<li>Check AAD. Authenticate key id, tenant, protocol, content type, and version if the app relies on them.</li>
-<li>Check decryption error handling. Invalid tags should fail closed and avoid oracle-like detail.</li>
+<li><strong>key</strong>: secreto de larga duración. Nunca debe repetirse con datos sin sentido diferente.</li>
+<li><strong>nonce</strong> (number used once): único por (clave, mensaje). En AES-GCM es 12 bytes; en ChaCha20-Poly1305 también es 12 bytes. No necesita ser secreto, pero DEBE ser único bajo la misma clave.</li>
+<li><strong>plaintext</strong>: los datos a proteger.</li>
+<li><strong>aad</strong> (associated data): datos autenticados pero no cifrados. El tag cubre tanto el ciphertext como el aad.</li>
 </ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>AEAD misuse appears in <strong>5 families</strong>.</p>
-<h3 id="1-random-nonce-collision">1. Random nonce collision</h3>
-<p>Random nonces can collide if too short or used at massive scale. AES-GCM's common 96-bit nonce is large enough for normal use, but high-volume systems still need design limits.</p>
-<h3 id="2-counter-reset">2. Counter reset</h3>
-<p>Counter nonces are safe only if they never repeat under a key. Restarts, snapshots, failover, and multi-writer deployments can reset or fork counter state.</p>
-<h3 id="3-deterministic-nonce-from-low-entropy-fields">3. Deterministic nonce from low-entropy fields</h3>
-<p>Using timestamp, user id, filename, or record id can collide across tenants or updates. Deterministic nonces need a uniqueness proof.</p>
-<h3 id="4-missing-aad">4. Missing AAD</h3>
-<p>The ciphertext is authenticated, but metadata that controls interpretation is not. Attackers may move ciphertext between tenants, versions, or record types.</p>
-<h3 id="5-nonce-misuse-in-gcm-specifically">5. Nonce misuse in GCM specifically</h3>
-<p>GCM nonce reuse can expose XOR relationships between plaintexts and can enable authentication forgeries. This is why GCM has a reputation for being fast and sharp.</p>
-<h2 id="impact">Impact</h2>
-<p>Ordered roughly by severity:</p>
+<p>El esquema de verificación:</p>
+<div class="codehilite"><pre><span></span><code>recibir: nonce, ciphertext, tag, aad
+1. calcular tag&#x27; = GHASH(key_auth, aad, ciphertext, nonce)
+2. comparar tag&#x27; con tag en tiempo constante
+3. si difieren → rechazar, no descifrar
+4. descifrar con keystream derivado de (key, nonce)
+</code></pre></div>
+<p>El bug de nonce misuse más conocido: en AES-GCM, si <code>nonce_1 == nonce_2</code> bajo la misma clave, entonces <code>keystream_1 == keystream_2</code>. XOR de los dos ciphertexts cancela el keystream y expone la relación entre plaintexts. Además, la clave de autenticación GCM puede recuperarse, permitiendo la falsificación de tags.</p>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
 <ul>
-<li><strong>Plaintext recovery.</strong> Reused stream-derived keystreams reveal relationships and known-plaintext can recover the other plaintext.</li>
-<li><strong>Authentication forgery.</strong> In some modes, repeated nonces let attackers forge valid tags.</li>
-<li><strong>Cross-tenant data mixup.</strong> Missing AAD allows ciphertext to be replayed in the wrong context.</li>
-<li><strong>Silent corruption rejection failure.</strong> Applications that ignore tag failures process unauthenticated data.</li>
-<li><strong>Fleet-wide failures.</strong> Distributed systems can repeat nonces after snapshot or counter split-brain.</li>
+<li>Verificar cómo se generan los nonces: ¿aleatorio, contador, o derivado de datos de aplicación?</li>
+<li>Verificar si el estado del contador persiste entre reinicios si se usa un nonce basado en contador.</li>
+<li>Verificar si la misma clave se usa a través de múltiples nodos o procesos con nonces aleatorios independientes.</li>
+<li>Verificar si los associated data cubren todos los campos que deben estar vinculados al ciphertext (ej: version bytes, tenant id, expiration, purpose).</li>
+<li>Buscar <code>nonce = os.urandom(12)</code> o equivalente — la mayoría de los lenguajes no tienen un contador global de nonce; la generación aleatoria es el default habitual.</li>
+<li>En escenarios de alta concurrencia o multi-nodo, verificar si la probabilidad de colisión de nonce aleatorio es aceptable para el número esperado de mensajes.</li>
 </ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
-<p>Ordered by effectiveness:</p>
-<ol>
-<li>
-<p><strong>Use high-level AEAD APIs.</strong>
-   Prefer libraries that generate nonces, package them with ciphertext, and fail closed on invalid tags.</p>
-</li>
-<li>
-<p><strong>Choose nonce strategy deliberately.</strong>
-   Random nonces are simple for moderate volume; counters need persistence and single-writer guarantees; misuse-resistant modes help when uniqueness is hard.</p>
-</li>
-<li>
-<p><strong>Authenticate context with AAD.</strong>
-   Include key id, tenant id, protocol version, record type, and direction when those fields affect security decisions.</p>
-</li>
-<li>
-<p><strong>Rotate keys before nonce space gets risky.</strong>
-   Set volume limits per key and make rotation observable.</p>
-</li>
-<li>
-<p><strong>Consider misuse-resistant AEAD for dangerous environments.</strong>
-   AES-GCM-SIV or XChaCha20-Poly1305 can reduce nonce-management risk, though they do not remove the need to understand mode semantics.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<p>Las 5 familias de misuse de AEAD/nonce.</p>
+<h3 id="1-colision-de-nonce-aleatorio">1. Colisión de nonce aleatorio</h3>
+<p>Los nonces de 12 bytes dan aproximadamente 2^96 espacio. Después de ~2^32 mensajes bajo la misma clave, la probabilidad de colisión se vuelve no trivial (paradoja del cumpleaños). La defensa: rotar claves antes de 2^32 operaciones o usar modos de cipher con nonces de 192 bits como XChaCha20-Poly1305.</p>
+<h3 id="2-reset-del-contador-de-nonce">2. Reset del contador de nonce</h3>
+<p>Un nonce basado en contador persiste solo en memoria. Un reinicio del proceso vuelve el contador a cero. Si la clave no rotó, los nonces se repiten. La defensa: almacenar el estado del contador de forma durable, o usar un CSPRNG si el almacenamiento durable no está disponible.</p>
+<h3 id="3-nonce-deterministico-de-campos-de-baja-entropia">3. Nonce determinístico de campos de baja entropía</h3>
+<p>Un nonce derivado de timestamp + user_id puede colisionar si dos operaciones ocurren en el mismo segundo para el mismo usuario, o en sistemas con concurrencia alta. La defensa: si se usan nonces determinísticos, asegurarse de que el tuple (key, nonce) sea globalmente único, no solo localmente único.</p>
+<h3 id="4-associated-data-faltante">4. Associated data faltante</h3>
+<p>El ciphertext no está vinculado a su contexto. Un atacante puede mover un ciphertext de un contexto a otro (diferente tenant, diferente versión de protocolo, diferente propósito) y el descifrado tiene éxito porque el tag solo cubre el ciphertext, no el contexto. La defensa: siempre incluir en los associated data cualquier campo que deba estar vinculado al mensaje.</p>
+<h3 id="5-reuso-de-nonce-en-aes-gcm-especificamente">5. Reuso de nonce en AES-GCM específicamente</h3>
+<p>AES-GCM tiene nonce-misuse-sensitivity más alta que ChaCha20-Poly1305 porque la clave de autenticación GCM se puede recuperar con un solo par de nonce repetido. La defensa: preferir AES-GCM-SIV o XChaCha20-Poly1305 cuando el riesgo de reuso de nonce es operacionalmente real.</p>
+<h2 id="impacto">Impacto</h2>
+<p>Ordenado aproximadamente por severidad:</p>
 <ul>
-<li><strong>Keeping the nonce secret.</strong> Secrecy is not the requirement; uniqueness is.</li>
-<li><strong>Hashing a repeated nonce.</strong> Deterministically transforming repeats still repeats.</li>
-<li><strong>Ignoring authentication tag failures.</strong> A failed tag means "do not trust this plaintext."</li>
-<li><strong>Using AES-GCM with a resettable counter.</strong> Counter nonces need persistence and coordination.</li>
-<li><strong>Encrypting metadata separately instead of authenticating it.</strong> If metadata controls interpretation, bind it as AAD or include it in plaintext.</li>
+<li><strong>Reuso de nonce en AES-GCM:</strong> exposición del plaintext XOR + recuperación de la clave de autenticación → falsificación de tag → pérdida total de confidencialidad e integridad.</li>
+<li><strong>Reuso de nonce en otros modos AEAD:</strong> exposición del plaintext XOR, puede o no recuperar clave de autenticación según el modo.</li>
+<li><strong>Associated data faltante:</strong> el ciphertext puede ser movido a un contexto diferente — escalada de privilegios, confusión de tenant, downgrade de protocolo.</li>
+<li><strong>Nonce predecible:</strong> si el nonce es predecible y hay un oráculo de descifrado, puede ser explotable para ataques elegidos.</li>
 </ul>
-<h2 id="practical-labs">Practical labs</h2>
-<h3 id="demonstrate-nonce-reuse-intuition-with-xor">Demonstrate nonce reuse intuition with XOR</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">urandom</span>
-
-<span class="n">m1</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;attack at dawn!!!!&quot;</span>
-<span class="n">m2</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;defend at dusk!!!!&quot;</span>
-<span class="n">keystream</span> <span class="o">=</span> <span class="n">urandom</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m1</span><span class="p">))</span>
-<span class="n">c1</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">keystream</span><span class="p">))</span>
-<span class="n">c2</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">m2</span><span class="p">,</span> <span class="n">keystream</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">)))</span>
-</code></pre></div>
-
-<p>Reusing stream-like keystream reveals the XOR of plaintexts.</p>
-<h3 id="authenticate-associated-data">Authenticate associated data</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">cryptography.hazmat.primitives.ciphers.aead</span><span class="w"> </span><span class="kn">import</span> <span class="n">AESGCM</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-
-<span class="n">key</span> <span class="o">=</span> <span class="n">AESGCM</span><span class="o">.</span><span class="n">generate_key</span><span class="p">(</span><span class="n">bit_length</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
-<span class="n">aead</span> <span class="o">=</span> <span class="n">AESGCM</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="n">nonce</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">aad</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;tenant=blue;type=session&quot;</span>
-<span class="n">ct</span> <span class="o">=</span> <span class="n">aead</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">nonce</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;user=123&quot;</span><span class="p">,</span> <span class="n">aad</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">aead</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">nonce</span><span class="p">,</span> <span class="n">ct</span><span class="p">,</span> <span class="n">aad</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">aead</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">nonce</span><span class="p">,</span> <span class="n">ct</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;tenant=red;type=session&quot;</span><span class="p">))</span>
-</code></pre></div>
-
-<p>The second decrypt should fail because AAD is authenticated.</p>
-<h3 id="search-for-manual-nonce-construction">Search for manual nonce construction</h3>
-<div class="codehilite"><pre><span></span><code>rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;nonce|iv|initialization vector|counter|GCM|ChaCha20Poly1305|AESGCM&quot;</span><span class="w"> </span>.
-</code></pre></div>
-
-<p>Manual nonce construction in encryption code deserves careful review.</p>
-<h3 id="design-a-ciphertext-envelope">Design a ciphertext envelope</h3>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;alg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AES-256-GCM&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;kid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;kms-key-v3&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;nonce&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;base64url...&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;aad&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tenant=blue;record=invoice;version=2&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;ciphertext&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;base64url...&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;base64url...&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>The envelope should make key id, nonce, and authenticated context explicit.</p>
-<h2 id="practical-examples">Practical examples</h2>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<p>Ordenado por efectividad:</p>
+<p>1. <strong>Usar un cipher con nonce sintético o misuse-resistant cuando el riesgo de reuso es real.</strong> AES-GCM-SIV (RFC 8452) o XChaCha20-Poly1305 son opciones. AES-GCM-SIV es seguro incluso si un nonce se repite (degrada graciosamente en lugar de romperse catastróficamente).</p>
+<p>2. <strong>Incluir context en los associated data para cada propósito de cipher.</strong> Los AAD deben incluir version, tenant, purpose, y cualquier campo que deba estar vinculado al ciphertext. &quot;Ciphertext sin contexto&quot; es un objetivo de cortar-y-pegar.</p>
+<p>3. <strong>Usar nonces aleatorios con rotación de clave antes de 2^32 mensajes.</strong> Para AES-GCM con nonces de 12 bytes, el límite de seguridad es 2^32 mensajes por clave. Rotar claves automáticamente, no manualmente.</p>
+<p>4. <strong>Si se usan contadores de nonce, hacer el estado del contador durable.</strong> Un contador que vive solo en memoria se resetea con el proceso. Persistir el estado del contador o usar un esquema de generación de nonce que no dependa de estado persistente.</p>
+<p>5. <strong>Diseñar un ciphertext envelope estándar para el sistema.</strong> Un envelope como <code>version(1B) | nonce(12B) | aad_len(2B) | aad | ciphertext | tag(16B)</code> hace que la generación y el parseo de nonce sean consistentes en todo el código.</p>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li>A service uses <code>Date.now()</code> as a GCM nonce and handles concurrent requests in the same millisecond.</li>
-<li>A counter nonce resets when a pod restarts, producing repeats under the same key.</li>
-<li>A database encrypts rows but does not authenticate table name or tenant id, enabling ciphertext swapping.</li>
-<li>A library returns plaintext before verifying the tag and callers process it incorrectly.</li>
-<li>A backup format uses one key for years with random nonces but no volume limits or collision monitoring.</li>
+<li><strong>&quot;Usamos AEAD, así que estamos bien.&quot;</strong> AEAD sin manejo correcto de nonce puede ser catastrófico.</li>
+<li><strong>&quot;Los nonces son probablemente únicos.&quot;</strong> &quot;Probablemente&quot; no es una propiedad de seguridad para confidencialidad.</li>
+<li><strong>&quot;El nonce está incluido en el mensaje así que el receptor puede verificar la unicidad.&quot;</strong> Los receptores generalmente no mantienen estado de todos los nonces pasados. El emisor debe garantizar la unicidad.</li>
+<li><strong>&quot;Usamos nonces más largos así que las colisiones son más raras.&quot;</strong> Los nonces más largos ayudan con la seguridad estadística de la generación aleatoria, pero el riesgo fundamental del reuso de nonce no desaparece.</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="labs-practicos">Labs prácticos</h2>
+<h3 id="demo-de-xor-de-nonce-repetido">Demo de XOR de nonce repetido</h3>
+<div class="codehilite"><pre><span></span><code>python3 - &lt;&lt;&#x27;PY&#x27;
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+import os
+
+key = AESGCM.generate_key(bit_length=128)
+aead = AESGCM(key)
+
+nonce = os.urandom(12)  # mismo nonce, dos mensajes
+m1 = b&quot;mensaje secreto A&quot;
+m2 = b&quot;mensaje secreto B&quot;
+ct1 = aead.encrypt(nonce, m1, b&quot;&quot;)
+ct2 = aead.encrypt(nonce, m2, b&quot;&quot;)
+
+# Remover tag (últimos 16 bytes) para comparar keystrams
+ks1 = bytes(a ^ b for a, b in zip(m1, ct1[:len(m1)]))
+ks2 = bytes(a ^ b for a, b in zip(m2, ct2[:len(m2)]))
+print(&quot;keystreams iguales:&quot;, ks1 == ks2)  # True — nonce misuse
+PY
+</code></pre></div>
+<h3 id="diseno-de-envelope-aead">Diseño de envelope AEAD</h3>
+<div class="codehilite"><pre><span></span><code>python3 - &lt;&lt;&#x27;PY&#x27;
+import struct, os
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
+def seal(key_bytes: bytes, plaintext: bytes, aad: bytes) -&gt; bytes:
+    nonce = os.urandom(12)
+    tag_included_ct = AESGCM(key_bytes).encrypt(nonce, plaintext, aad)
+    return nonce + tag_included_ct
+
+def open_sealed(key_bytes: bytes, envelope: bytes, aad: bytes) -&gt; bytes:
+    nonce, ciphertext = envelope[:12], envelope[12:]
+    return AESGCM(key_bytes).decrypt(nonce, ciphertext, aad)
+
+key = AESGCM.generate_key(bit_length=256)
+env = seal(key, b&quot;datos sensibles&quot;, b&quot;tenant:acme:v1&quot;)
+print(open_sealed(key, env, b&quot;tenant:acme:v1&quot;))
+PY
+</code></pre></div>
+<p>Los AAD están vinculados al ciphertext; cambiar los AAD hace que el descifrado falle.</p>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
+<ul>
+<li>Un servicio de logging cifra eventos con AES-GCM. Cada evento incluye un nonce aleatorio de 12 bytes. Después de 4.3 mil millones de eventos bajo la misma clave, la probabilidad de colisión de nonce supera el 50%. La solución: rotación de clave programada automáticamente.</li>
+<li>Un sistema de almacenamiento en la nube usa nonce = sha256(path) para que cada path tenga un nonce determinístico. Si dos versiones del mismo archivo se cifran con la misma clave y path, los nonces se repiten. La solución: incluir un número de versión en el nonce o en los AAD.</li>
+<li>Un servicio de cache cifra valores sin AAD. Un atacante que puede escribir en el cache mueve el ciphertext de un usuario a otro. La solución: incluir user_id y propósito en los AAD.</li>
+</ul>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
 <li><a href="symmetric-encryption-modes.html">symmetric-encryption-modes</a></li>
 <li><a href="random-and-csprng-pitfalls.html">random-and-csprng-pitfalls</a></li>
-<li><a href="kdf-and-key-stretching.html">kdf-and-key-stretching</a></li>
 <li><a href="mac-and-hmac.html">mac-and-hmac</a></li>
 <li><a href="roll-your-own-crypto-failures.html">roll-your-own-crypto-failures</a></li>
-<li><a href="../devsecops/secrets-management.html">Secrets Management</a></li>
+<li><a href="kdf-and-key-stretching.html">kdf-and-key-stretching</a></li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: aes-gcm-siv-and-misuse-resistance">aes-gcm-siv-and-misuse-resistance</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: xchacha20-poly1305">xchacha20-poly1305</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: ciphertext-envelope-design">ciphertext-envelope-design</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: nonce-generation-patterns">nonce-generation-patterns</span></li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Standard / RFC:</strong> NIST SP 800-38D: GCM and GMAC — https://csrc.nist.gov/publications/detail/sp/800-38d/final</li>
-<li><strong>Standard / RFC:</strong> RFC 8439: ChaCha20 and Poly1305 — https://www.rfc-editor.org/rfc/rfc8439</li>
-<li><strong>Research / Deep Dive:</strong> Antoine Joux, Authentication Failures in GCM — https://csrc.nist.rip/groups/ST/toolkit/BCM/documents/comments/800-38_Series-Drafts/GCM/Joux_comments.pdf</li>
+<li><strong>Estándar / RFC:</strong> RFC 5116: An Interface and Algorithms for Authenticated Encryption — https://www.rfc-editor.org/rfc/rfc5116</li>
+<li><strong>Estándar / RFC:</strong> RFC 8452: AES-GCM-SIV — https://www.rfc-editor.org/rfc/rfc8452</li>
+<li><strong>Investigación / Deep Dive:</strong> &quot;Nonce-Disrespecting Adversaries&quot; — https://eprint.iacr.org/2016/475.pdf</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><span class="branch-nav-spacer"></span><a class="branch-nav-link next" href="asymmetric-encryption-and-key-exchange.html"><span class="nav-dir">Next →</span><strong>Asymmetric Encryption and Key Exchange</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -594,24 +558,25 @@ plaintext = AEAD_Decrypt(key, nonce, ciphertext, aad, tag)
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-random-nonce-collision">1. Random nonce collision</a>
-<a class="toc-level-3" href="#2-counter-reset">2. Counter reset</a>
-<a class="toc-level-3" href="#3-deterministic-nonce-from-low-entropy-fields">3. Deterministic nonce from low-entropy fields</a>
-<a class="toc-level-3" href="#4-missing-aad">4. Missing AAD</a>
-<a class="toc-level-3" href="#5-nonce-misuse-in-gcm-specifically">5. Nonce misuse in GCM specifically</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-3" href="#demonstrate-nonce-reuse-intuition-with-xor">Demonstrate nonce reuse intuition with XOR</a>
-<a class="toc-level-3" href="#authenticate-associated-data">Authenticate associated data</a>
-<a class="toc-level-3" href="#search-for-manual-nonce-construction">Search for manual nonce construction</a>
-<a class="toc-level-3" href="#design-a-ciphertext-envelope">Design a ciphertext envelope</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
+<a class="toc-level-3" href="#1-colision-de-nonce-aleatorio">1. Colisión de nonce aleatorio</a>
+<a class="toc-level-3" href="#2-reset-del-contador-de-nonce">2. Reset del contador de nonce</a>
+<a class="toc-level-3" href="#3-nonce-deterministico-de-campos-de-baja-entropia">3. Nonce determinístico de campos de baja entropía</a>
+<a class="toc-level-3" href="#4-associated-data-faltante">4. Associated data faltante</a>
+<a class="toc-level-3" href="#5-reuso-de-nonce-en-aes-gcm-especificamente">5. Reuso de nonce en AES-GCM específicamente</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
+<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
+<a class="toc-level-3" href="#demo-de-xor-de-nonce-repetido">Demo de XOR de nonce repetido</a>
+<a class="toc-level-3" href="#diseno-de-envelope-aead">Diseño de envelope AEAD</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

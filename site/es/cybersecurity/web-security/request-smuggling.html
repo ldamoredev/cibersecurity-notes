@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Request Smuggling - Seguridad Web | ldamoredev Security Atlas</title>
-<meta name="description" content="Request smuggling happens when two components in the HTTP request chain parse the same request differently, allowing an attacker to desynchronize front-end and...">
+<meta name="description" content="Request smuggling ocurre cuando dos componentes en la cadena de requests HTTP parsean el mismo request de forma diferente, permitiendo a un atacante desincro...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Seguridad Web, Request Smuggling, web-security, request-smuggling, reverse-proxy">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Request Smuggling - Seguridad Web | ldamoredev Security Atlas">
-<meta property="og:description" content="Request smuggling happens when two components in the HTTP request chain parse the same request differently, allowing an attacker to desynchronize front-end and...">
+<meta property="og:description" content="Request smuggling ocurre cuando dos componentes en la cadena de requests HTTP parsean el mismo request de forma diferente, permitiendo a un atacante desincro...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/request-smuggling.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Request Smuggling - Seguridad Web | ldamoredev Security Atlas">
-<meta name="twitter:description" content="Request smuggling happens when two components in the HTTP request chain parse the same request differently, allowing an attacker to desynchronize front-end and...">
+<meta name="twitter:description" content="Request smuggling ocurre cuando dos componentes en la cadena de requests HTTP parsean el mismo request de forma diferente, permitiendo a un atacante desincro...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/request-smuggling.html#article","name":"Request Smuggling - Seguridad Web | ldamoredev Security Atlas","headline":"Request Smuggling","description":"Request smuggling happens when two components in the HTTP request chain parse the same request differently, allowing an attacker to desynchronize front-end and...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/request-smuggling.html","inLanguage":"es","datePublished":"2026-04-29","dateModified":"2026-04-29","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/request-smuggling.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Web","Request Smuggling","web-security","request-smuggling","reverse-proxy"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Web","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/index.html"},{"@type":"ListItem","position":4,"name":"Request Smuggling","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/request-smuggling.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/request-smuggling.html#article","name":"Request Smuggling - Seguridad Web | ldamoredev Security Atlas","headline":"Request Smuggling","description":"Request smuggling ocurre cuando dos componentes en la cadena de requests HTTP parsean el mismo request de forma diferente, permitiendo a un atacante desincro...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/request-smuggling.html","inLanguage":"es","datePublished":"2026-04-29","dateModified":"2026-04-29","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/request-smuggling.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Web","Request Smuggling","web-security","request-smuggling","reverse-proxy"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Web","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/index.html"},{"@type":"ListItem","position":4,"name":"Request Smuggling","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/request-smuggling.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/request-smuggling.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/request-smuggling.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/request-smuggling.html">
@@ -410,130 +410,109 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Seguridad Web</a><span>/</span><span>Request Smuggling</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Request Smuggling</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-blue">Seguridad Web</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~4 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado Apr 29, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#web-security</span><span class="meta-chip tag">#request-smuggling</span><span class="meta-chip tag">#reverse-proxy</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="request-smuggling">Request Smuggling</h1>
-<h2 id="definition">Definition</h2>
-<p>Request smuggling happens when two components in the HTTP request chain parse the same request differently, allowing an attacker to desynchronize front-end and back-end understanding of message boundaries.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>Request smuggling is one of the clearest examples of networking and web security colliding. It is not just an HTTP bug. It is a trust-boundary bug between intermediaries.</p>
-<p>This matters because the impact can include:
-- request hijacking
-- cache poisoning
-- authentication side effects
-- route confusion
-- access to hidden functionality
-- cross-user interference</p>
-<h2 id="how-it-works">How it works</h2>
-<p>The core mechanism is:
-1. an attacker sends an ambiguous HTTP request
-2. the front-end and back-end disagree about where that request ends
-3. leftover bytes are interpreted as a second request or as part of someone else’s request stream</p>
-<p>The most famous family involves disagreement between:
-- <code>Content-Length</code>
-- <code>Transfer-Encoding</code></p>
-<p>Minimal CL.TE skeleton (front-end uses <code>Content-Length</code>, back-end uses <code>Transfer-Encoding: chunked</code>):</p>
-<div class="codehilite"><pre><span></span><code><span class="nf">POST</span> <span class="nn">/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="o">:</span> <span class="l">vulnerable.example</span>
-<span class="na">Content-Length</span><span class="o">:</span> <span class="l">13</span>
-<span class="na">Transfer-Encoding</span><span class="o">:</span> <span class="l">chunked</span>
+<h2 id="definicion">Definición</h2>
+<p>Request smuggling ocurre cuando dos componentes en la cadena de requests HTTP parsean el mismo request de forma diferente, permitiendo a un atacante desincronizar el entendimiento del front-end y el back-end sobre los límites de los mensajes.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>Request smuggling es uno de los ejemplos más claros de la colisión entre redes y seguridad web. No es solo un bug de HTTP. Es un bug de límite de confianza entre intermediarios.</p>
+<p>Importa porque el impacto puede incluir:</p>
+<ul>
+<li>secuestro de requests</li>
+<li>envenenamiento de caché</li>
+<li>efectos secundarios de autenticación</li>
+<li>confusión de rutas</li>
+<li>acceso a funcionalidades ocultas</li>
+<li>interferencia entre usuarios</li>
+</ul>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>El mecanismo central es:</p>
+<ol>
+<li>un atacante envía un request HTTP ambiguo</li>
+<li>el front-end y el back-end no coinciden sobre dónde termina ese request</li>
+<li>los bytes sobrantes se interpretan como un segundo request o como parte del stream de request de otra persona</li>
+</ol>
+<p>La familia más famosa involucra desacuerdo entre:</p>
+<ul>
+<li><code>Content-Length</code></li>
+<li><code>Transfer-Encoding</code></li>
+</ul>
+<p>Esqueleto mínimo CL.TE (el front-end usa <code>Content-Length</code>, el back-end usa <code>Transfer-Encoding: chunked</code>):</p>
+<div class="codehilite"><pre><span></span><code>POST / HTTP/1.1
+Host: vulnerable.example
+Content-Length: 13
+Transfer-Encoding: chunked
 
 0
 
 SMUGGLED
 </code></pre></div>
-
-<p>The front-end forwards the full body because it trusts <code>Content-Length: 13</code>. The back-end stops at the <code>0\r\n\r\n</code> chunk terminator and treats <code>SMUGGLED</code> as the start of the next request on the keep-alive connection — which the next victim's request gets appended to.</p>
-<p>The vulnerability is not the headers themselves. It is the disagreement between two parsers sharing a connection.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
-<p>Attackers usually test:
-- CL.TE / TE.CL style ambiguities
-- front-end / back-end parser mismatch
-- unusual header combinations
-- chunked encoding edge cases
-- request queue poisoning
-- hidden path reachability through desync
-- interaction with caching and auth layers</p>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<h3 id="clte">CL.TE</h3>
-<p>Front-end trusts <code>Content-Length</code>, back-end trusts <code>Transfer-Encoding</code>.</p>
-<h3 id="tecl">TE.CL</h3>
-<p>Front-end trusts <code>Transfer-Encoding</code>, back-end trusts <code>Content-Length</code>.</p>
-<h3 id="tete-parser-differences">TE.TE / parser differences</h3>
-<p>Both parse transfer encoding, but differently.</p>
-<h3 id="header-normalization-and-edge-quirks">Header normalization and edge quirks</h3>
-<p>Different components may rewrite or accept malformed headers differently.</p>
-<h3 id="cache-and-auth-side-effects">Cache and auth side effects</h3>
-<p>The attack may show up as poisoning, routing confusion, or auth weirdness rather than obvious direct RCE-style effect.</p>
-<h2 id="impact">Impact</h2>
-<p>Typical impact:
-- interfere with another user’s request
-- reach hidden endpoints
-- bypass expected front-end protections
-- poison cache or request queue behavior
-- create confusing auth and routing side effects</p>
-<h2 id="detection-and-defense">Detection and defense</h2>
-<p>Ordered by effectiveness:</p>
-<ol>
-<li>
-<p><strong>Normalize or reject ambiguous requests</strong>
-   The edge should canonicalize messages before forwarding: reject requests that contain both <code>Content-Length</code> and <code>Transfer-Encoding</code>, reject malformed chunked encoding, and reject non-conforming whitespace or duplicate headers. If the edge cannot fix the message, fail closed.</p>
-</li>
-<li>
-<p><strong>Use HTTP/2 end-to-end where possible</strong>
-   HTTP/2 framing is length-prefixed and removes the textual ambiguity that drives most desync. Downgrades from HTTP/2 to HTTP/1.1 between proxy and origin reintroduce the same parser-mismatch surface — keep the back channel HTTP/2 if the front-end is HTTP/2.</p>
-</li>
-<li>
-<p><strong>Keep front-end and back-end behavior aligned</strong>
-   Use the same web server family, version, and parsing config on both sides where feasible. Most desync findings come from one side being more permissive than the other on the same input.</p>
-</li>
-<li>
-<p><strong>Understand the full chain</strong>
-   Map every hop: CDN, WAF, load balancer, ingress controller, app server. Each hop is a parser. Document the order so the team knows which component sees the request first and which one sees it last.</p>
-</li>
-<li>
-<p><strong>Reduce hidden trust in intermediaries</strong>
-   Do not let internal headers like <code>X-Forwarded-For</code>, <code>X-Original-URL</code>, or rewriter hints become trust boundaries the back-end relies on without re-validation. Smuggled requests can carry forged versions of these.</p>
-</li>
-<li>
-<p><strong>Monitor for desync indicators</strong>
-   Watch for: requests being attributed to the wrong user, unexpected <code>400 Bad Request</code> clusters from the back-end, cache entries with mismatched keys, and connection-reuse anomalies on the keep-alive layer.</p>
-</li>
-<li>
-<p><strong>Test the exact deployed chain</strong>
-   Lab parsers are not deployed parsers. Run smuggling probes against the staging chain that mirrors production hop-for-hop. PortSwigger's HTTP Request Smuggler and <code>smuggler.py</code> style probes are the practical tools.</p>
-</li>
-</ol>
-<h2 id="practical-examples">Practical examples</h2>
+<p>El front-end reenvía el cuerpo completo porque confía en <code>Content-Length: 13</code>. El back-end se detiene en el terminador de chunk <code>0\r\n\r\n</code> y trata <code>SMUGGLED</code> como el inicio del próximo request en la conexión keep-alive — al que se agrega el request de la siguiente víctima.</p>
+<p>La vulnerabilidad no son los headers en sí. Es el desacuerdo entre dos parsers que comparten una conexión.</p>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
+<p>Los atacantes generalmente testean:</p>
 <ul>
-<li>front-end and back-end disagree on where request body ends</li>
-<li>attacker poisons the queue so another user’s request is interpreted differently</li>
-<li>hidden admin path becomes reachable because the edge and origin disagree on request structure</li>
-<li>cache behavior changes because of desynchronized routing</li>
+<li>ambigüedades estilo CL.TE / TE.CL</li>
+<li>mismatch entre parsers del front-end / back-end</li>
+<li>combinaciones inusuales de headers</li>
+<li>edge cases de chunked encoding</li>
+<li>envenenamiento de la queue de requests</li>
+<li>accesibilidad de rutas ocultas a través de desync</li>
+<li>interacción con capas de caché y autenticación</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<h3 id="cl-te">CL.TE</h3>
+<p>El front-end confía en <code>Content-Length</code>, el back-end confía en <code>Transfer-Encoding</code>.</p>
+<h3 id="te-cl">TE.CL</h3>
+<p>El front-end confía en <code>Transfer-Encoding</code>, el back-end confía en <code>Content-Length</code>.</p>
+<h3 id="te-te-diferencias-de-parser">TE.TE / diferencias de parser</h3>
+<p>Ambos parsean transfer encoding, pero de forma diferente.</p>
+<h3 id="normalizacion-de-headers-y-quirks-de-edge">Normalización de headers y quirks de edge</h3>
+<p>Diferentes componentes pueden reescribir o aceptar headers malformados de forma diferente.</p>
+<h3 id="efectos-secundarios-de-cache-y-autenticacion">Efectos secundarios de caché y autenticación</h3>
+<p>El ataque puede manifestarse como envenenamiento, confusión de ruteo, o rarezas de autenticación en lugar de un efecto directo estilo RCE obvio.</p>
+<h2 id="impacto">Impacto</h2>
+<p>Impacto típico:</p>
+<ul>
+<li>interferir con el request de otro usuario</li>
+<li>alcanzar endpoints ocultos</li>
+<li>bypass de las protecciones esperadas del front-end</li>
+<li>envenenar el comportamiento de la caché o de la queue de requests</li>
+<li>crear efectos secundarios confusos de autenticación y ruteo</li>
+</ul>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<p>Ordenado por efectividad:</p>
+<p>1. <strong>Normalizar o rechazar requests ambiguos</strong> El edge debería canonicalizar los mensajes antes de reenviarlos: rechazar requests que contengan tanto <code>Content-Length</code> como <code>Transfer-Encoding</code>, rechazar chunked encoding malformado, y rechazar espacios en blanco no conformes o headers duplicados. Si el edge no puede arreglar el mensaje, fallar de forma cerrada.</p>
+<p>2. <strong>Usar HTTP/2 de extremo a extremo donde sea posible</strong> El framing de HTTP/2 está prefijado por longitud y elimina la ambigüedad textual que impulsa la mayor parte del desync. Las bajadas de HTTP/2 a HTTP/1.1 entre proxy y origen reintroducen la misma superficie de mismatch del parser — mantener el canal trasero en HTTP/2 si el front-end es HTTP/2.</p>
+<p>3. <strong>Mantener alineado el comportamiento del front-end y el back-end</strong> Usar la misma familia de servidor web, versión y configuración de parsing en ambos lados donde sea factible. La mayoría de los hallazgos de desync provienen de que un lado es más permisivo que el otro con el mismo input.</p>
+<p>4. <strong>Entender la cadena completa</strong> Mapear cada hop: CDN, WAF, load balancer, ingress controller, servidor de app. Cada hop es un parser. Documentar el orden para que el equipo sepa qué componente ve el request primero y cuál lo ve último.</p>
+<p>5. <strong>Reducir la confianza oculta en intermediarios</strong> No dejar que headers internos como <code>X-Forwarded-For</code>, <code>X-Original-URL</code>, o pistas de reescritura se conviertan en límites de confianza en los que el back-end depende sin re-validación. Los requests smuggled pueden llevar versiones falsificadas de estos.</p>
+<p>6. <strong>Monitorear indicadores de desync</strong> Estar atento a: requests atribuidos al usuario equivocado, clusters inesperados de <code>400 Bad Request</code> del back-end, entradas de caché con claves no coincidentes, y anomalías de reutilización de conexión en la capa keep-alive.</p>
+<p>7. <strong>Testear la cadena desplegada exacta</strong> Los parsers de lab no son los parsers desplegados. Ejecutar sondas de smuggling contra la cadena de staging que refleja la producción hop-por-hop. HTTP Request Smuggler de PortSwigger y las sondas estilo <code>smuggler.py</code> son las herramientas prácticas.</p>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
+<ul>
+<li>el front-end y el back-end no coinciden sobre dónde termina el cuerpo del request</li>
+<li>el atacante envenena la queue para que el request de otro usuario se interprete de forma diferente</li>
+<li>una ruta de admin oculta se vuelve accesible porque el edge y el origen no coinciden sobre la estructura del request</li>
+<li>el comportamiento de la caché cambia por el ruteo desincronizado</li>
+</ul>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
 <li><a href="../networking/http-messages.html">http-messages</a></li>
 <li><a href="../networking/reverse-proxies.html">reverse-proxies</a></li>
 <li><a href="../networking/caching-and-security.html">caching-and-security</a></li>
 <li><a href="../security-playbooks/reverse-proxy-misconfig-checklist.html">Reverse Proxy Misconfig Checklist</a></li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: cl-te-vs-te-cl">cl-te-vs-te-cl</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: http-desync-impact-patterns">http-desync-impact-patterns</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: http2-downgrade-desync">http2-downgrade-desync</span></li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Foundational:</strong> OWASP WSTG latest — https://owasp.org/www-project-web-security-testing-guide/latest/</li>
+<li><strong>Fundamental:</strong> OWASP WSTG latest — https://owasp.org/www-project-web-security-testing-guide/latest/</li>
 <li><strong>Testing / Lab:</strong> PortSwigger request smuggling topic — https://portswigger.net/web-security/request-smuggling</li>
-<li><strong>Research / Deep Dive:</strong> James Kettle, "HTTP Desync Attacks: Request Smuggling Reborn" — https://portswigger.net/research/http-desync-attacks-request-smuggling-reborn</li>
-<li><strong>Research / Deep Dive:</strong> James Kettle, "HTTP/2: The Sequel is Always Worse" — https://portswigger.net/research/http2</li>
+<li><strong>Investigación / Deep Dive:</strong> James Kettle, &quot;HTTP Desync Attacks: Request Smuggling Reborn&quot; — https://portswigger.net/research/http-desync-attacks-request-smuggling-reborn</li>
+<li><strong>Investigación / Deep Dive:</strong> James Kettle, &quot;HTTP/2: The Sequel is Always Worse&quot; — https://portswigger.net/research/http2</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="phar-deserialization.html"><span class="nav-dir">← Previous</span><strong>PHAR Deserialization</strong></a><a class="branch-nav-link next" href="same-origin-policy.html"><span class="nav-dir">Next →</span><strong>Política del mismo origen (SOP)</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -549,22 +528,21 @@ SMUGGLED
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#clte">CL.TE</a>
-<a class="toc-level-3" href="#tecl">TE.CL</a>
-<a class="toc-level-3" href="#tete-parser-differences">TE.TE / parser differences</a>
-<a class="toc-level-3" href="#header-normalization-and-edge-quirks">Header normalization and edge quirks</a>
-<a class="toc-level-3" href="#cache-and-auth-side-effects">Cache and auth side effects</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-2" href="#practical-examples">Practical examples</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-3" href="#suggested-future-atomic-notes">Suggested future atomic notes</a>
-<a class="toc-level-2" href="#references">References</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
+<a class="toc-level-3" href="#cl-te">CL.TE</a>
+<a class="toc-level-3" href="#te-cl">TE.CL</a>
+<a class="toc-level-3" href="#te-te-diferencias-de-parser">TE.TE / diferencias de parser</a>
+<a class="toc-level-3" href="#normalizacion-de-headers-y-quirks-de-edge">Normalización de headers y quirks de edge</a>
+<a class="toc-level-3" href="#efectos-secundarios-de-cache-y-autenticacion">Efectos secundarios de caché y autenticación</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

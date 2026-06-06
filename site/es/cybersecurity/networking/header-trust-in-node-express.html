@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Confianza en headers en Node Express - Redes | ldamoredev Security Atlas</title>
-<meta name="description" content="La confianza en headers en Node/Express es la decisión de si las APIs del framework como req.ip, req.ips, req.hostname y req.protocol deberían creerle a headers...">
+<meta name="description" content="La confianza en headers en Node/Express es la decisión de si las APIs del framework como req.ip, req.ips, req.hostname y req.protocol deberían creerle a head...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Redes, Confianza en headers en Node Express, networking, express, forwarded-headers, trust-boundary">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Confianza en headers en Node Express - Redes | ldamoredev Security Atlas">
-<meta property="og:description" content="La confianza en headers en Node/Express es la decisión de si las APIs del framework como req.ip, req.ips, req.hostname y req.protocol deberían creerle a headers...">
+<meta property="og:description" content="La confianza en headers en Node/Express es la decisión de si las APIs del framework como req.ip, req.ips, req.hostname y req.protocol deberían creerle a head...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/header-trust-in-node-express.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Confianza en headers en Node Express - Redes | ldamoredev Security Atlas">
-<meta name="twitter:description" content="La confianza en headers en Node/Express es la decisión de si las APIs del framework como req.ip, req.ips, req.hostname y req.protocol deberían creerle a headers...">
+<meta name="twitter:description" content="La confianza en headers en Node/Express es la decisión de si las APIs del framework como req.ip, req.ips, req.hostname y req.protocol deberían creerle a head...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/header-trust-in-node-express.html#article","name":"Confianza en headers en Node Express - Redes | ldamoredev Security Atlas","headline":"Confianza en headers en Node Express","description":"La confianza en headers en Node/Express es la decisión de si las APIs del framework como req.ip, req.ips, req.hostname y req.protocol deberían creerle a headers...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/header-trust-in-node-express.html","inLanguage":"es","datePublished":"2026-05-01","dateModified":"2026-05-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/header-trust-in-node-express.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Redes","Confianza en headers en Node Express","networking","express","forwarded-headers","trust-boundary"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Redes","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/index.html"},{"@type":"ListItem","position":4,"name":"Confianza en headers en Node Express","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/header-trust-in-node-express.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/header-trust-in-node-express.html#article","name":"Confianza en headers en Node Express - Redes | ldamoredev Security Atlas","headline":"Confianza en headers en Node Express","description":"La confianza en headers en Node/Express es la decisión de si las APIs del framework como req.ip, req.ips, req.hostname y req.protocol deberían creerle a head...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/header-trust-in-node-express.html","inLanguage":"es","datePublished":"2026-05-01","dateModified":"2026-05-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/header-trust-in-node-express.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Redes","Confianza en headers en Node Express","networking","express","forwarded-headers","trust-boundary"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Redes","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/index.html"},{"@type":"ListItem","position":4,"name":"Confianza en headers en Node Express","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/header-trust-in-node-express.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/header-trust-in-node-express.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/header-trust-in-node-express.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/header-trust-in-node-express.html">
@@ -410,7 +410,7 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Redes</a><span>/</span><span>Confianza en headers en Node Express</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Confianza en headers en Node Express</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-sky">Redes</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~6 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 01, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#networking</span><span class="meta-chip tag">#express</span><span class="meta-chip tag">#forwarded-headers</span><span class="meta-chip tag">#trust-boundary</span></div>
 </header>
@@ -424,47 +424,39 @@
 <h2 id="como-funciona">Cómo funciona</h2>
 <p>Express tiene <strong>3 capas de identidad</strong>:</p>
 <ol>
-<li>
-<p><strong>Identidad de socket</strong>
-   <code>req.socket.remoteAddress</code> es el peer de red conectado al proceso Node. Detrás de un proxy, esta suele ser la IP del proxy, no la del usuario.</p>
-</li>
-<li>
-<p><strong>Identidad de header forwarded</strong>
-   Headers como <code>X-Forwarded-For</code>, <code>X-Real-IP</code>, <code>CF-Connecting-IP</code> y el <code>Forwarded</code> de RFC 7239 afirman el cliente original o los hops anteriores. Estos son headers HTTP ordinarios hasta que una frontera de proxy confiable les da significado.</p>
-</li>
-<li>
-<p><strong>Identidad decidida por el framework</strong>
-   <code>req.ip</code>, <code>req.ips</code>, <code>req.hostname</code> y <code>req.protocol</code> pueden cambiar según la configuración <code>trust proxy</code> de Express. Este valor es conveniente, pero es solo tan correcto como el modelo de confianza del proxy.</p>
-</li>
+<li><strong>Identidad de socket</strong><br>
+<code>req.socket.remoteAddress</code> es el peer de red conectado al proceso Node. Detrás de un proxy, esta suele ser la IP del proxy, no la del usuario.</li>
+<li><strong>Identidad de header forwarded</strong><br>
+Headers como <code>X-Forwarded-For</code>, <code>X-Real-IP</code>, <code>CF-Connecting-IP</code> y el <code>Forwarded</code> de RFC 7239 afirman el cliente original o los hops anteriores. Estos son headers HTTP ordinarios hasta que una frontera de proxy confiable les da significado.</li>
+<li><strong>Identidad decidida por el framework</strong><br>
+<code>req.ip</code>, <code>req.ips</code>, <code>req.hostname</code> y <code>req.protocol</code> pueden cambiar según la configuración <code>trust proxy</code> de Express. Este valor es conveniente, pero es solo tan correcto como el modelo de confianza del proxy.</li>
 </ol>
 <p>Patrón inseguro:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">getClientIp</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s2">&quot;cf-connecting-ip&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">||</span>
-<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s2">&quot;x-forwarded-for&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">||</span>
-<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">socket</span><span class="p">.</span><span class="nx">remoteAddress</span><span class="w"> </span><span class="o">||</span>
-<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">ip</span>
-<span class="w">  </span><span class="p">);</span>
-<span class="p">}</span>
+<div class="codehilite"><pre><span></span><code>function getClientIp(req) {
+  return (
+    req.headers[&quot;cf-connecting-ip&quot;] ||
+    req.headers[&quot;x-forwarded-for&quot;] ||
+    req.socket.remoteAddress ||
+    req.ip
+  );
+}
 </code></pre></div>
-
 <p>Forma más segura:</p>
-<div class="codehilite"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;trust proxy&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;loopback, linklocal, uniquelocal&quot;</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code>app.set(&quot;trust proxy&quot;, &quot;loopback, linklocal, uniquelocal&quot;);
 
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">locals</span><span class="p">.</span><span class="nx">clientIp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">ip</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">locals</span><span class="p">.</span><span class="nx">tcpPeer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">socket</span><span class="p">.</span><span class="nx">remoteAddress</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">locals</span><span class="p">.</span><span class="nx">forwardedFor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;x-forwarded-for&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">next</span><span class="p">();</span>
-<span class="p">});</span>
+app.use((req, res, next) =&gt; {
+  res.locals.clientIp = req.ip;
+  res.locals.tcpPeer = req.socket.remoteAddress;
+  res.locals.forwardedFor = req.get(&quot;x-forwarded-for&quot;) || null;
+  next();
+});
 </code></pre></div>
-
 <p>El bug no es “usar <code>X-Forwarded-For</code>.” El bug es creerle a un header antes de probar qué hop de red lo produjo o normalizó.</p>
 <h2 id="tecnicas-patrones">Técnicas / patrones</h2>
 <ul>
-<li>Encontrá cada uso de <code>req.ip</code>, <code>req.ips</code>, <code>req.hostname</code>, <code>req.protocol</code>, <code>req.headers["x-forwarded-for"]</code>, <code>req.headers["x-real-ip"]</code>, <code>CF-Connecting-IP</code>, <code>True-Client-IP</code> y <code>Forwarded</code>.</li>
+<li>Encontrá cada uso de <code>req.ip</code>, <code>req.ips</code>, <code>req.hostname</code>, <code>req.protocol</code>, <code>req.headers[&quot;x-forwarded-for&quot;]</code>, <code>req.headers[&quot;x-real-ip&quot;]</code>, <code>CF-Connecting-IP</code>, <code>True-Client-IP</code> y <code>Forwarded</code>.</li>
 <li>Identificá la cadena de despliegue real: internet → CDN → load balancer → app proxy → Express.</li>
-<li>Chequeá <code>app.set("trust proxy", ...)</code> y si coincide con la cantidad real o el rango CIDR de hops de proxy confiables.</li>
+<li>Chequeá <code>app.set(&quot;trust proxy&quot;, ...)</code> y si coincide con la cantidad real o el rango CIDR de hops de proxy confiables.</li>
 <li>Compará los headers crudos, <code>req.socket.remoteAddress</code> y los valores decididos por Express en un endpoint local <code>/whoami</code>.</li>
 <li>Buscá decisiones de seguridad basadas en la IP del cliente: allowlists de admin, geo-blocking, scoring de fraude, rate limiting, throttling de reset de contraseña y logs de auditoría.</li>
 <li>Tratá la alcanzabilidad directa al origin como un test separado: si el origin es alcanzable sin el proxy previsto, la confianza en headers forwarded normalmente colapsa.</li>
@@ -472,7 +464,7 @@
 <h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
 <p>La confianza en headers en Express falla de <strong>5 formas comunes</strong>.</p>
 <h3 id="1-confianza-deshabilitada-pero-headers-crudos-leidos-a-mano">1. Confianza deshabilitada pero headers crudos leídos a mano</h3>
-<p>Express puede estar configurado de forma segura con <code>trust proxy</code> deshabilitado, pero el código de la aplicación bypassea el framework y lee <code>req.headers["x-forwarded-for"]</code> directamente. Esto recrea el bug bajo otro nombre.</p>
+<p>Express puede estar configurado de forma segura con <code>trust proxy</code> deshabilitado, pero el código de la aplicación bypassea el framework y lee <code>req.headers[&quot;x-forwarded-for&quot;]</code> directamente. Esto recrea el bug bajo otro nombre.</p>
 <h3 id="2-trust-proxy-true-booleano">2. <code>trust proxy: true</code> booleano</h3>
 <p>Un <code>true</code> booleano le dice a Express que confíe ampliamente en los headers de proxy. Si la app es alcanzable directamente, el valor de más a la izquierda de <code>X-Forwarded-For</code> puede volverse identidad controlada por el atacante.</p>
 <h3 id="3-conteo-de-hops-equivocado">3. Conteo de hops equivocado</h3>
@@ -494,30 +486,18 @@
 <h2 id="deteccion-y-defensa">Detección y defensa</h2>
 <p>Ordenado por efectividad:</p>
 <ol>
-<li>
-<p><strong>Modelá la cadena de proxy explícitamente</strong>
-   Escribí cada hop confiable y si sobrescribe o agrega headers de forwarding. La configuración de Express debería codificar ese modelo exacto, no un vago supuesto de “detrás de proxy”.</p>
-</li>
-<li>
-<p><strong>Usá el <code>trust proxy</code> de Express de forma angosta</strong>
-   Preferí conteos exactos de hops o rangos CIDR para proxies conocidos. El <code>true</code> booleano es seguro solo cuando el acceso directo es imposible y el último proxy quita/sobrescribe de forma confiable los headers de forwarding entrantes.</p>
-</li>
-<li>
-<p><strong>Dejá de leer headers de forwarding crudos para identidad</strong>
-   Centralizá la derivación de IP de cliente una sola vez, después de configurar la confianza de proxy de Express. Los headers crudos todavía pueden loguearse como afirmaciones, pero no deberían volverse identidad por sí solos.</p>
-</li>
-<li>
-<p><strong>Bloqueá la alcanzabilidad directa al origin</strong>
-   Si la app solo debería recibir tráfico de un proxy o load balancer, imponelo con reglas de firewall/security-group y rechazo a nivel de aplicación de peers TCP inesperados.</p>
-</li>
-<li>
-<p><strong>Logueá la identidad observada y la afirmada por separado</strong>
-   Guardá <code>tcp_peer</code>, <code>express_client_ip</code> y <code>forwarded_for_claim</code> como campos distintos. Esto preserva la verdad forense sin pretender que todos los valores tienen el mismo nivel de confianza.</p>
-</li>
-<li>
-<p><strong>Mantené el estado interno fuera de los headers de request</strong>
-   Usá <code>res.locals</code>, símbolos locales de la request, metadata tipada o subclases de error explícitas. Las señales de control interno no deberían reusar nombres de header HTTP.</p>
-</li>
+<li><strong>Modelá la cadena de proxy explícitamente</strong><br>
+Escribí cada hop confiable y si sobrescribe o agrega headers de forwarding. La configuración de Express debería codificar ese modelo exacto, no un vago supuesto de “detrás de proxy”.</li>
+<li><strong>Usá el <code>trust proxy</code> de Express de forma angosta</strong><br>
+Preferí conteos exactos de hops o rangos CIDR para proxies conocidos. El <code>true</code> booleano es seguro solo cuando el acceso directo es imposible y el último proxy quita/sobrescribe de forma confiable los headers de forwarding entrantes.</li>
+<li><strong>Dejá de leer headers de forwarding crudos para identidad</strong><br>
+Centralizá la derivación de IP de cliente una sola vez, después de configurar la confianza de proxy de Express. Los headers crudos todavía pueden loguearse como afirmaciones, pero no deberían volverse identidad por sí solos.</li>
+<li><strong>Bloqueá la alcanzabilidad directa al origin</strong><br>
+Si la app solo debería recibir tráfico de un proxy o load balancer, imponelo con reglas de firewall/security-group y rechazo a nivel de aplicación de peers TCP inesperados.</li>
+<li><strong>Logueá la identidad observada y la afirmada por separado</strong><br>
+Guardá <code>tcp_peer</code>, <code>express_client_ip</code> y <code>forwarded_for_claim</code> como campos distintos. Esto preserva la verdad forense sin pretender que todos los valores tienen el mismo nivel de confianza.</li>
+<li><strong>Mantené el estado interno fuera de los headers de request</strong><br>
+Usá <code>res.locals</code>, símbolos locales de la request, metadata tipada o subclases de error explícitas. Las señales de control interno no deberían reusar nombres de header HTTP.</li>
 </ol>
 <h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
@@ -529,38 +509,34 @@
 </ul>
 <h2 id="labs-practicos">Labs prácticos</h2>
 <h3 id="comparar-la-identidad-cruda-y-la-del-framework">Comparar la identidad cruda y la del framework</h3>
-<div class="codehilite"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/whoami&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span>
-<span class="w">    </span><span class="nx">socketRemoteAddress</span><span class="o">:</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">socket</span><span class="p">.</span><span class="nx">remoteAddress</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">expressIp</span><span class="o">:</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">ip</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">expressIps</span><span class="o">:</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">ips</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">xForwardedFor</span><span class="o">:</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;x-forwarded-for&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">forwarded</span><span class="o">:</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;forwarded&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">cfConnectingIp</span><span class="o">:</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;cf-connecting-ip&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="kc">null</span>
-<span class="w">  </span><span class="p">});</span>
-<span class="p">});</span>
+<div class="codehilite"><pre><span></span><code>app.get(&quot;/whoami&quot;, (req, res) =&gt; {
+  res.json({
+    socketRemoteAddress: req.socket.remoteAddress,
+    expressIp: req.ip,
+    expressIps: req.ips,
+    xForwardedFor: req.get(&quot;x-forwarded-for&quot;) || null,
+    forwarded: req.get(&quot;forwarded&quot;) || null,
+    cfConnectingIp: req.get(&quot;cf-connecting-ip&quot;) || null
+  });
+});
 </code></pre></div>
-
 <p>El resultado muestra qué valores son hechos de red observados y cuáles son afirmaciones provistas por el cliente.</p>
 <h3 id="testear-el-spoofing-directo-de-headers">Testear el spoofing directo de headers</h3>
-<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span>http://localhost:3000/whoami<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;X-Forwarded-For: 127.0.0.1&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;CF-Connecting-IP: 10.0.0.5&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
+<div class="codehilite"><pre><span></span><code>curl -s http://localhost:3000/whoami \
+  -H &quot;X-Forwarded-For: 127.0.0.1&quot; \
+  -H &quot;CF-Connecting-IP: 10.0.0.5&quot; | jq
 </code></pre></div>
-
 <p>Si una decisión de seguridad cambia solo con esto, la app está confiando en headers desde el camino equivocado.</p>
 <h3 id="comparar-modos-de-trust-proxy">Comparar modos de <code>trust proxy</code></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Correr la misma ruta /whoami con cada setting.</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;trust proxy&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;trust proxy&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;trust proxy&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;loopback, linklocal, uniquelocal&quot;</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code>// Correr la misma ruta /whoami con cada setting.
+app.set(&quot;trust proxy&quot;, false);
+app.set(&quot;trust proxy&quot;, 1);
+app.set(&quot;trust proxy&quot;, &quot;loopback, linklocal, uniquelocal&quot;);
 </code></pre></div>
-
 <p>La diferencia enseña por qué la confianza de proxy de Express es específica del despliegue.</p>
 <h3 id="buscar-confianza-en-headers-crudos-en-una-base-de-codigo">Buscar confianza en headers crudos en una base de código</h3>
-<div class="codehilite"><pre><span></span><code>rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;x-forwarded-for|x-real-ip|cf-connecting-ip|true-client-ip|forwarded|req\\.ip|trust proxy&quot;</span><span class="w"> </span>src
+<div class="codehilite"><pre><span></span><code>rg -n &quot;x-forwarded-for|x-real-ip|cf-connecting-ip|true-client-ip|forwarded|req\\.ip|trust proxy&quot; src
 </code></pre></div>
-
 <p>Cada match es derivación de identidad, telemetría o un candidato a bug; clasificalo antes de cambiar comportamiento.</p>
 <h3 id="guardar-las-afirmaciones-por-separado">Guardar las afirmaciones por separado</h3>
 <div class="codehilite"><pre><span></span><code>request_id:
@@ -570,15 +546,14 @@ forwarded_for_claim:
 trusted_proxy_config:
 security_decision:
 </code></pre></div>
-
 <p>Esta tarjeta de evidencia evita que los logs aplasten afirmaciones y hechos en un único campo engañoso.</p>
 <h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
-<li>Un limiter de login de Express usa <code>req.headers["x-forwarded-for"]</code> como clave para los intentos; los atacantes rotan ese header y bypassean el límite por-IP.</li>
-<li>Un dashboard chequea <code>req.ip === "127.0.0.1"</code> después de <code>trust proxy: true</code>; una request directa con <code>X-Forwarded-For: 127.0.0.1</code> alcanza comportamiento solo-admin.</li>
+<li>Un limiter de login de Express usa <code>req.headers[&quot;x-forwarded-for&quot;]</code> como clave para los intentos; los atacantes rotan ese header y bypassean el límite por-IP.</li>
+<li>Un dashboard chequea <code>req.ip === &quot;127.0.0.1&quot;</code> después de <code>trust proxy: true</code>; una request directa con <code>X-Forwarded-For: 127.0.0.1</code> alcanza comportamiento solo-admin.</li>
 <li>Un origin fronteado por Cloudflare filtra su IP directa; los atacantes se conectan directamente y envían <code>CF-Connecting-IP</code> a mano.</li>
 <li>Un middleware de geolocalización bloquea o redirige usuarios según una IP forwarded provista por el atacante.</li>
-<li>Un middleware setea <code>req.headers["x-blocked-user-agent-header"]</code> internamente; refactors posteriores hacen poco claro si ese flag es provisto por el cliente o propiedad del servidor.</li>
+<li>Un middleware setea <code>req.headers[&quot;x-blocked-user-agent-header&quot;]</code> internamente; refactors posteriores hacen poco claro si ese flag es provisto por el cliente o propiedad del servidor.</li>
 </ul>
 <h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
@@ -590,10 +565,10 @@ security_decision:
 </ul>
 <h3 id="notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</h3>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: trust-proxy-configuration">Configuración de trust proxy</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: forwarded-header-spec">Spec del header Forwarded</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: origin-ip-discovery">Descubrimiento de IP de origin</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: express-security-middleware">Middleware de seguridad de Express</span></li>
+<li><span class="unresolved-link">Configuración de trust proxy</span></li>
+<li><span class="unresolved-link">Spec del header Forwarded</span></li>
+<li><span class="unresolved-link">Descubrimiento de IP de origin</span></li>
+<li><span class="unresolved-link">Middleware de seguridad de Express</span></li>
 </ul>
 <h2 id="referencias">Referencias</h2>
 <ul>
@@ -621,7 +596,7 @@ security_decision:
 <a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
 <a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
 <a class="toc-level-3" href="#1-confianza-deshabilitada-pero-headers-crudos-leidos-a-mano">1. Confianza deshabilitada pero headers crudos leídos a mano</a>
-<a class="toc-level-3" href="#2-trust-proxy-true-booleano">2.  trust proxy: true  booleano</a>
+<a class="toc-level-3" href="#2-trust-proxy-true-booleano">2. trust proxy: true booleano</a>
 <a class="toc-level-3" href="#3-conteo-de-hops-equivocado">3. Conteo de hops equivocado</a>
 <a class="toc-level-3" href="#4-cerebro-dividido-de-nombre-de-header">4. Cerebro dividido de nombre de header</a>
 <a class="toc-level-3" href="#5-estado-interno-escondido-en-headers">5. Estado interno escondido en headers</a>
@@ -631,8 +606,13 @@ security_decision:
 <a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
 <a class="toc-level-3" href="#comparar-la-identidad-cruda-y-la-del-framework">Comparar la identidad cruda y la del framework</a>
 <a class="toc-level-3" href="#testear-el-spoofing-directo-de-headers">Testear el spoofing directo de headers</a>
-<a class="toc-level-3" href="#comparar-modos-de-trust-proxy">Comparar modos de  trust proxy</a>
+<a class="toc-level-3" href="#comparar-modos-de-trust-proxy">Comparar modos de trust proxy</a>
 <a class="toc-level-3" href="#buscar-confianza-en-headers-crudos-en-una-base-de-codigo">Buscar confianza en headers crudos en una base de código</a>
+<a class="toc-level-3" href="#guardar-las-afirmaciones-por-separado">Guardar las afirmaciones por separado</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-3" href="#notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

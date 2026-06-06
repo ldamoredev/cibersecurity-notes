@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Detectar la recolección de BloodHound - Playbooks de Seguridad | ldamoredev Security Atlas</title>
-<meta name="description" content="_Estructura de playbook (Objetivo / Supuestos / Prerrequisitos / Pasos de detección / Pistas de validación / Mitigación / Logging / Seguridad operativa)...">
+<meta name="description" content="Detectar la enumeración de Active Directory por colectores de la familia BloodHound (SharpHound / BloodHound-CE y sucesores como SOAPHound) lo suficientement...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Playbooks de Seguridad, Detectar la recolección de BloodHound">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Detectar la recolección de BloodHound - Playbooks de Seguridad | ldamoredev Security Atlas">
-<meta property="og:description" content="_Estructura de playbook (Objetivo / Supuestos / Prerrequisitos / Pasos de detección / Pistas de validación / Mitigación / Logging / Seguridad operativa)...">
+<meta property="og:description" content="Detectar la enumeración de Active Directory por colectores de la familia BloodHound (SharpHound / BloodHound-CE y sucesores como SOAPHound) lo suficientement...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-bloodhound-collection.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Detectar la recolección de BloodHound - Playbooks de Seguridad | ldamoredev Security Atlas">
-<meta name="twitter:description" content="_Estructura de playbook (Objetivo / Supuestos / Prerrequisitos / Pasos de detección / Pistas de validación / Mitigación / Logging / Seguridad operativa)...">
+<meta name="twitter:description" content="Detectar la enumeración de Active Directory por colectores de la familia BloodHound (SharpHound / BloodHound-CE y sucesores como SOAPHound) lo suficientement...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-bloodhound-collection.html#article","name":"Detectar la recolección de BloodHound - Playbooks de Seguridad | ldamoredev Security Atlas","headline":"Detectar la recolección de BloodHound","description":"_Estructura de playbook (Objetivo / Supuestos / Prerrequisitos / Pasos de detección / Pistas de validación / Mitigación / Logging / Seguridad operativa)...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-bloodhound-collection.html","inLanguage":"es","datePublished":"2026-06-03","dateModified":"2026-06-03","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-bloodhound-collection.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Playbooks de Seguridad","Detectar la recolección de BloodHound"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Playbooks de Seguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/index.html"},{"@type":"ListItem","position":4,"name":"Detectar la recolección de BloodHound","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-bloodhound-collection.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-bloodhound-collection.html#article","name":"Detectar la recolección de BloodHound - Playbooks de Seguridad | ldamoredev Security Atlas","headline":"Detectar la recolección de BloodHound","description":"Detectar la enumeración de Active Directory por colectores de la familia BloodHound (SharpHound / BloodHound-CE y sucesores como SOAPHound) lo suficientement...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-bloodhound-collection.html","inLanguage":"es","datePublished":"2026-06-03","dateModified":"2026-06-03","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-bloodhound-collection.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Playbooks de Seguridad","Detectar la recolección de BloodHound"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Playbooks de Seguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/index.html"},{"@type":"ListItem","position":4,"name":"Detectar la recolección de BloodHound","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-bloodhound-collection.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/security-playbooks/detect-bloodhound-collection.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-bloodhound-collection.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/security-playbooks/detect-bloodhound-collection.html">
@@ -410,14 +410,14 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Playbooks de Seguridad</a><span>/</span><span>Detectar la recolección de BloodHound</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Detectar la recolección de BloodHound</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">playbook</span><span class="meta-chip accent-slate">Playbooks de Seguridad</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~10 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado Jun 03, 2026</span></div>
 </header>
 <article class="article-note">
 <h1 id="detectar-la-recoleccion-de-bloodhound">Detectar la recolección de BloodHound</h1>
 <blockquote>
-<p><em>Estructura de playbook (Objetivo / Supuestos / Prerrequisitos / Pasos de detección / Pistas de validación / Mitigación / Logging / Seguridad operativa), matcheando a los hermanos del trío <a href="detect-kerberoasting-and-as-rep-roasting.html">Detectar Kerberoasting y AS-REP Roasting</a> y <a href="detect-dcsync-and-ntdsdit-access.html">Detectar DCSync y acceso a NTDS.dit</a> — no la plantilla de nota atómica de 11 secciones. Esta es la tercera de las tres notas del trío de detección de AD.</em></p>
+<p>_Estructura de playbook (Objetivo / Supuestos / Prerrequisitos / Pasos de detección / Pistas de validación / Mitigación / Logging / Seguridad operativa), matcheando a los hermanos del trío <a href="detect-kerberoasting-and-as-rep-roasting.html">Detectar Kerberoasting y AS-REP Roasting</a> y <a href="detect-dcsync-and-ntdsdit-access.html">Detectar DCSync y acceso a NTDS.dit</a> — no la plantilla de nota atómica de 11 secciones. Esta es la tercera de las tres notas del trío de detección de AD._</p>
 </blockquote>
 <h2 id="objetivo">Objetivo</h2>
 <p>Detectar la enumeración de Active Directory por colectores de la familia BloodHound (<a href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">SharpHound / BloodHound-CE</a> y sucesores como SOAPHound) lo suficientemente temprano como para identificar el <strong>host de origen, el principal de origen y el método de recolección</strong> antes de que el operador convierta el grafo de ataque resultante en una cadena Kerberoast → DCSync → Domain Admin — y con suficiente fidelidad como para sobrevivir a las evasiones realistas de 2026 (LDAP paginado/throttleado, recolección DCOnly, abuso de AD Web Services, colectores custom en memoria).</p>
@@ -438,7 +438,7 @@
 </ul>
 <h2 id="pasos-de-deteccion">Pasos de detección</h2>
 <blockquote>
-<p><em>Este playbook es el par defensivo de <a href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">Análisis de rutas de ataque con BloodHound</a>. Leé ofensa + defensa juntas según la <a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">disciplina de lectura emparejada</a>. La recolección de BloodHound es el <strong>recon</strong> que precede a las etapas de <a href="detect-kerberoasting-and-as-rep-roasting.html">roasting</a> y <a href="detect-dcsync-and-ntdsdit-access.html">DCSync</a> — correlacioná a través de las tres.</em></p>
+<p>_Este playbook es el par defensivo de <a href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">Análisis de rutas de ataque con BloodHound</a>. Leé ofensa + defensa juntas según la <a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">disciplina de lectura emparejada</a>. La recolección de BloodHound es el <strong>recon</strong> que precede a las etapas de <a href="detect-kerberoasting-and-as-rep-roasting.html">roasting</a> y <a href="detect-dcsync-and-ntdsdit-access.html">DCSync</a> — correlacioná a través de las tres._</p>
 </blockquote>
 <h3 id="fase-0-baseline-y-senuelos-hacelo-una-vez-refresca-trimestralmente">Fase 0 — Baseline y señuelos (hacelo una vez, refrescá trimestralmente)</h3>
 <ol>
@@ -493,7 +493,7 @@
 <li><strong>Bloquear <code>SharpHound.exe</code> / hashes conocidos.</strong> La recolección renombrada, recompilada, en-memoria, BOF y basada-en-<code>ldapsearch</code> lo derrotan todas. El comportamiento de lectura del directorio es la superficie, no el binario.</li>
 <li><strong>Bloquear LDAP.</strong> LDAP <em>es</em> cómo funciona AD; no podés bloquearlo. (Y SOAPHound de todos modos no usa el puerto 389.)</li>
 <li><strong>Umbrales solo-volumétricos.</strong> La recolección throttleada/con-jitter/low-and-slow se cuela bajo cualquier rate limit; la diversidad-de-objetos-leídos y los honeytokens son las señales durables.</li>
-<li><strong>Confiar en que "BloodHound necesita admin".</strong> No lo necesita — cualquier usuario de dominio autenticado puede correr la mayoría de los métodos de recolección. "Solo los admins pueden enumerar" es falso.</li>
+<li><strong>Confiar en que &quot;BloodHound necesita admin&quot;.</strong> No lo necesita — cualquier usuario de dominio autenticado puede correr la mayoría de los métodos de recolección. &quot;Solo los admins pueden enumerar&quot; es falso.</li>
 <li><strong>Prevenir la recolección del todo.</strong> Cualquier principal autenticado puede leer la mayoría del directorio por diseño. La postura realista es <em>detectar recolección + encoger el grafo</em>, no <em>prevenir lecturas</em>.</li>
 </ul>
 <h2 id="logging-forense">Logging / forense</h2>
@@ -507,7 +507,7 @@
 <ul>
 <li><strong>siempre</strong> mantené la allowlist de colectores-sancionados — sin ella, cada corrida legítima de BloodHound de IAM/blue-team es un falso positivo y la regla se deshabilita.</li>
 <li><strong>siempre</strong> validá las detecciones de honeytoken end-to-end en un lab antes de confiar en ellas; un señuelo que nadie monitorea no vale nada.</li>
-<li><strong>nunca</strong> trates "no se encontró SharpHound.exe" como "no ocurrió recolección" — asumí recolección fileless/custom y pivoteá a evidencia de comportamiento + honeytoken.</li>
+<li><strong>nunca</strong> trates &quot;no se encontró SharpHound.exe&quot; como &quot;no ocurrió recolección&quot; — asumí recolección fileless/custom y pivoteá a evidencia de comportamiento + honeytoken.</li>
 <li><strong>siempre</strong> testeá las detecciones contra las evasiones de la Fase 2 (DCOnly, throttleado, SOAPHound) en un lab interno autorizado — una regla que solo atrapa el SharpHound default es teatro contra un operador real.</li>
 <li><strong>nunca</strong> confíes en una sola regla; honeytoken + alerta de recon de Defender-for-Identity + conductual broad-LDAP juntas producen mucha más fidelidad que cualquiera sola.</li>
 </ul>

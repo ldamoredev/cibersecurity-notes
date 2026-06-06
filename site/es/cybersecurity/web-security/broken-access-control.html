@@ -410,7 +410,7 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Seguridad Web</a><span>/</span><span>Control de acceso roto</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Control de acceso roto</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-blue">Seguridad Web</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~2 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado Apr 29, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#web-security</span><span class="meta-chip tag">#access-control</span></div>
 </header>
@@ -419,36 +419,46 @@
 <h2 id="definicion">Definición</h2>
 <p>El control de acceso roto (broken access control) ocurre cuando una aplicación no logra imponer a qué puede acceder o qué puede hacer un llamante.</p>
 <h2 id="por-que-importa">Por qué importa</h2>
-<p>Esta es una de las clases de mayor impacto en aplicaciones reales porque a menudo lleva directamente a:
-- acceso no autorizado a datos
-- acciones no autorizadas
-- escalada de privilegios
-- abuso de workflow
-- exposición del plano de admin/control</p>
-<p>Es más amplia que cualquier subtipo individual. Es el área de riesgo paraguas que incluye:
-- fallas a nivel de objeto
-- fallas a nivel de función
-- fallas a nivel de propiedad
-- exposición de funciones ocultas
-- enforcement débil de tenant o de propiedad</p>
+<p>Esta es una de las clases de mayor impacto en aplicaciones reales porque a menudo lleva directamente a:</p>
+<ul>
+<li>acceso no autorizado a datos</li>
+<li>acciones no autorizadas</li>
+<li>escalada de privilegios</li>
+<li>abuso de workflow</li>
+<li>exposición del plano de admin/control</li>
+</ul>
+<p>Es más amplia que cualquier subtipo individual. Es el área de riesgo paraguas que incluye:</p>
+<ul>
+<li>fallas a nivel de objeto</li>
+<li>fallas a nivel de función</li>
+<li>fallas a nivel de propiedad</li>
+<li>exposición de funciones ocultas</li>
+<li>enforcement débil de tenant o de propiedad</li>
+</ul>
 <h2 id="como-funciona">Cómo funciona</h2>
-<p>El mecanismo es:
-1. la aplicación autentica a un llamante
-2. el sistema expone datos o funcionalidad
-3. el servidor no logra verificar si ese llamante tiene permitido acceder a ese recurso o acción en ese contexto</p>
-<p>La distinción importante es:
-- la autenticación responde quién sos
-- la autorización responde qué podés hacer / acceder</p>
+<p>El mecanismo es:</p>
+<ol>
+<li>la aplicación autentica a un llamante</li>
+<li>el sistema expone datos o funcionalidad</li>
+<li>el servidor no logra verificar si ese llamante tiene permitido acceder a ese recurso o acción en ese contexto</li>
+</ol>
+<p>La distinción importante es:</p>
+<ul>
+<li>la autenticación responde quién sos</li>
+<li>la autorización responde qué podés hacer / acceder</li>
+</ul>
 <h2 id="tecnicas-patrones">Técnicas / patrones</h2>
-<p>Los atacantes normalmente testean cambiando:
-- identificadores de objeto
-- rutas y familias de rutas
-- métodos
-- parámetros ocultos
-- roles y scopes
-- etapa / estado del workflow
-- superficies específicas del cliente
-- valores a nivel de campo que no deberían ser escribibles</p>
+<p>Los atacantes normalmente testean cambiando:</p>
+<ul>
+<li>identificadores de objeto</li>
+<li>rutas y familias de rutas</li>
+<li>métodos</li>
+<li>parámetros ocultos</li>
+<li>roles y scopes</li>
+<li>etapa / estado del workflow</li>
+<li>superficies específicas del cliente</li>
+<li>valores a nivel de campo que no deberían ser escribibles</li>
+</ul>
 <h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
 <h3 id="falla-de-autorizacion-a-nivel-de-objeto">Falla de autorización a nivel de objeto</h3>
 <p>Notas relacionadas: <a href="idor.html">IDOR</a>, <a href="../api-security/broken-object-level-authorization.html">Broken Object-Level Authorization</a></p>
@@ -463,13 +473,15 @@
 <h3 id="falla-de-frontera-de-tenant-propiedad">Falla de frontera de tenant / propiedad</h3>
 <p>El sistema confía en referencias o estado sin imponer correctamente la propiedad o la separación de tenants.</p>
 <h2 id="impacto">Impacto</h2>
-<p>Impacto típico:
-- leer los datos de otro usuario
-- modificar los recursos de otro usuario
-- invocar acciones solo-de-admin o solo-de-staff
-- cambiar el estado de un workflow protegido
-- colapso de la frontera multi-tenant
-- escalada de privilegios</p>
+<p>Impacto típico:</p>
+<ul>
+<li>leer los datos de otro usuario</li>
+<li>modificar los recursos de otro usuario</li>
+<li>invocar acciones solo-de-admin o solo-de-staff</li>
+<li>cambiar el estado de un workflow protegido</li>
+<li>colapso de la frontera multi-tenant</li>
+<li>escalada de privilegios</li>
+</ul>
 <h2 id="deteccion-y-defensa">Detección y defensa</h2>
 <p>Ordenado por efectividad:</p>
 <ol>
@@ -498,8 +510,8 @@
 </ul>
 <h3 id="notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</h3>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: tenant-boundary-failures">Fallas de frontera de tenant</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: authorization-drift-across-clients">Deriva de autorización entre clientes</span></li>
+<li><span class="unresolved-link">Fallas de frontera de tenant</span></li>
+<li><span class="unresolved-link">Deriva de autorización entre clientes</span></li>
 </ul>
 <h2 id="referencias">Referencias</h2>
 <ul>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Random and CSPRNG Pitfalls - Criptografía | ldamoredev Security Atlas</title>
-<meta name="description" content="A cryptographically secure pseudorandom number generator (CSPRNG) produces unpredictable bytes suitable for keys, nonces, session ids, CSRF tokens, salts, and...">
+<meta name="description" content="Un generador de números pseudoaleatorios criptográficamente seguro (CSPRNG) produce bytes impredecibles apropiados para claves, nonces, session ids, tokens C...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Criptografía, Random and CSPRNG Pitfalls, cryptography, randomness, csprng">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Random and CSPRNG Pitfalls - Criptografía | ldamoredev Security Atlas">
-<meta property="og:description" content="A cryptographically secure pseudorandom number generator (CSPRNG) produces unpredictable bytes suitable for keys, nonces, session ids, CSRF tokens, salts, and...">
+<meta property="og:description" content="Un generador de números pseudoaleatorios criptográficamente seguro (CSPRNG) produce bytes impredecibles apropiados para claves, nonces, session ids, tokens C...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/random-and-csprng-pitfalls.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Random and CSPRNG Pitfalls - Criptografía | ldamoredev Security Atlas">
-<meta name="twitter:description" content="A cryptographically secure pseudorandom number generator (CSPRNG) produces unpredictable bytes suitable for keys, nonces, session ids, CSRF tokens, salts, and...">
+<meta name="twitter:description" content="Un generador de números pseudoaleatorios criptográficamente seguro (CSPRNG) produce bytes impredecibles apropiados para claves, nonces, session ids, tokens C...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/random-and-csprng-pitfalls.html#article","name":"Random and CSPRNG Pitfalls - Criptografía | ldamoredev Security Atlas","headline":"Random and CSPRNG Pitfalls","description":"A cryptographically secure pseudorandom number generator (CSPRNG) produces unpredictable bytes suitable for keys, nonces, session ids, CSRF tokens, salts, and...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/random-and-csprng-pitfalls.html","inLanguage":"es","datePublished":"2026-05-01","dateModified":"2026-05-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/random-and-csprng-pitfalls.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Criptografía","Random and CSPRNG Pitfalls","cryptography","randomness","csprng"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Criptografía","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/index.html"},{"@type":"ListItem","position":4,"name":"Random and CSPRNG Pitfalls","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/random-and-csprng-pitfalls.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/random-and-csprng-pitfalls.html#article","name":"Random and CSPRNG Pitfalls - Criptografía | ldamoredev Security Atlas","headline":"Random and CSPRNG Pitfalls","description":"Un generador de números pseudoaleatorios criptográficamente seguro (CSPRNG) produce bytes impredecibles apropiados para claves, nonces, session ids, tokens C...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/random-and-csprng-pitfalls.html","inLanguage":"es","datePublished":"2026-05-01","dateModified":"2026-05-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/random-and-csprng-pitfalls.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Criptografía","Random and CSPRNG Pitfalls","cryptography","randomness","csprng"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Criptografía","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/index.html"},{"@type":"ListItem","position":4,"name":"Random and CSPRNG Pitfalls","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/random-and-csprng-pitfalls.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/cryptography/random-and-csprng-pitfalls.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cryptography/random-and-csprng-pitfalls.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/cryptography/random-and-csprng-pitfalls.html">
@@ -410,172 +410,127 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Criptografía</a><span>/</span><span>Random and CSPRNG Pitfalls</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Random and CSPRNG Pitfalls</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-emerald">Criptografía</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~5 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 01, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#cryptography</span><span class="meta-chip tag">#randomness</span><span class="meta-chip tag">#csprng</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="random-and-csprng-pitfalls">Random and CSPRNG Pitfalls</h1>
-<h2 id="definition">Definition</h2>
-<p>A cryptographically secure pseudorandom number generator (CSPRNG) produces unpredictable bytes suitable for keys, nonces, session ids, CSRF tokens, salts, and challenges. Randomness failures happen when security-critical values are generated with predictable, low-entropy, repeated, biased, or attacker-influenced sources.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>Many security controls reduce to "the attacker cannot guess this value before it expires." Session ids, password reset tokens, OAuth state, WebAuthn challenges, API keys, encryption keys, and nonces all depend on that assumption. If randomness is weak, the surrounding crypto can be mathematically correct and still fail completely. This is the quiet failure underneath broken sessions, repeated AES-GCM nonces, predictable reset links, and duplicated VM keys.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>Randomness for security has <strong>4 requirements</strong>:</p>
-<ol>
-<li>
-<p><strong>Enough entropy</strong>
-   The value must come from a source with enough uncertainty. A timestamp, PID, username, or counter is not entropy.</p>
-</li>
-<li>
-<p><strong>Unpredictability</strong>
-   Observing previous outputs should not let an attacker predict future outputs.</p>
-</li>
-<li>
-<p><strong>Uniqueness where required</strong>
-   Some values, such as nonces, need uniqueness under a key. They may not need secrecy, but repeats can be catastrophic.</p>
-</li>
-<li>
-<p><strong>Correct API use</strong>
-   The application must use OS-backed cryptographic APIs, not general-purpose PRNGs.</p>
-</li>
-</ol>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Good: Node CSPRNG</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">crypto</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;node:crypto&quot;</span><span class="p">;</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="mf">32</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="s2">&quot;base64url&quot;</span><span class="p">);</span>
+<h2 id="definicion">Definición</h2>
+<p>Un generador de números pseudoaleatorios criptográficamente seguro (CSPRNG) produce bytes impredecibles apropiados para claves, nonces, session ids, tokens CSRF, salts, y challenges. Las fallas de aleatoriedad ocurren cuando los valores críticos para la seguridad se generan con fuentes predecibles, de baja entropía, repetidas, sesgadas, o influenciadas por el atacante.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>Muchos controles de seguridad se reducen a &quot;el atacante no puede adivinar este valor antes de que expire.&quot; Los session ids, tokens de reset de contraseña, OAuth state, WebAuthn challenges, API keys, claves de encryption, y nonces dependen de ese supuesto. Si la aleatoriedad es débil, la cripto circundante puede ser matemáticamente correcta y aun así fallar completamente. Este es el fallo silencioso debajo de las sesiones rotas, los nonces AES-GCM repetidos, los links de reset predecibles, y las claves duplicadas de VMs.</p>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>La aleatoriedad para seguridad tiene <strong>4 requisitos</strong>:</p>
+<p>1. <strong>Suficiente entropía</strong> El valor debe provenir de una fuente con suficiente incertidumbre. Un timestamp, PID, nombre de usuario, o contador no es entropía.</p>
+<p>2. <strong>Impredecibilidad</strong> Observar outputs anteriores no debe permitirle a un atacante predecir outputs futuros.</p>
+<p>3. <strong>Unicidad donde se requiera</strong> Algunos valores, como los nonces, necesitan unicidad bajo una clave. Pueden no necesitar secreto, pero las repeticiones pueden ser catastróficas.</p>
+<p>4. <strong>Uso correcto de la API</strong> La aplicación debe usar APIs criptográficas respaldadas por el OS, no PRNGs de propósito general.</p>
+<div class="codehilite"><pre><span></span><code>// Bien: Node CSPRNG
+import crypto from &quot;node:crypto&quot;;
+const token = crypto.randomBytes(32).toString(&quot;base64url&quot;);
 
-<span class="c1">// Bad: predictable PRNG</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">token2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mf">36</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span>
+// Mal: PRNG predecible
+const token2 = Math.random().toString(36).slice(2);
 </code></pre></div>
-
-<p>The bug is not "randomness is hard." The bug is usually using a convenience random function where the design needs an attacker-resistant secret or unique value.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>El bug no es &quot;la aleatoriedad es difícil.&quot; El bug es usualmente usar una función de aleatorio conveniente donde el diseño necesita un secreto resistente al atacante o un valor único.</p>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
 <ul>
-<li>Search for <code>Math.random</code>, <code>random()</code>, <code>rand()</code>, <code>mt_rand</code>, <code>java.util.Random</code>, timestamps, counters, UUIDv1, or homegrown token generation.</li>
-<li>Check token length in bits, not characters. Encoding expands or changes representation; it does not create entropy.</li>
-<li>Check whether values need secrecy, uniqueness, or both. Keys need secrecy; AES-GCM nonces need uniqueness; session ids need unguessability.</li>
-<li>Check VM/container cloning. Systems cloned before entropy pools are ready can generate duplicate keys or tokens.</li>
-<li>Check test fixtures and defaults. "temporary" deterministic secrets often escape into production.</li>
-<li>Check modulo bias when mapping random bytes to characters or numbers.</li>
+<li>Buscar <code>Math.random</code>, <code>random()</code>, <code>rand()</code>, <code>mt_rand</code>, <code>java.util.Random</code>, timestamps, contadores, UUIDv1, o generación de token hecha a mano.</li>
+<li>Verificar la longitud del token en bits, no en caracteres. La codificación expande o cambia la representación; no crea entropía.</li>
+<li>Verificar si los valores necesitan secreto, unicidad, o ambos. Las claves necesitan secreto; los nonces AES-GCM necesitan unicidad; los session ids necesitan inimaginabilidad.</li>
+<li>Verificar la clonación de VM/container. Los sistemas clonados antes de que los pools de entropía estén listos pueden generar claves o tokens duplicados.</li>
+<li>Verificar fixtures de test y defaults. Los secretos determinísticos &quot;temporales&quot; frecuentemente escapan a producción.</li>
+<li>Verificar el bias de módulo al mapear bytes aleatorios a caracteres o números.</li>
 </ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>Randomness failures appear in <strong>5 common families</strong>.</p>
-<h3 id="1-general-purpose-prng-used-for-secrets">1. General-purpose PRNG used for secrets</h3>
-<p>Language PRNGs are often deterministic and optimized for simulation, not adversaries. If an attacker can infer seed state, outputs become predictable.</p>
-<h3 id="2-timestamp-or-counter-tokens">2. Timestamp or counter tokens</h3>
-<p>Tokens derived from time, user id, request count, or process id are searchable. Attackers can bracket the creation time and brute force the missing space.</p>
-<h3 id="3-insufficient-length">3. Insufficient length</h3>
-<p>A 6-digit numeric code has about 20 bits of space. That can be fine with tight online rate limits and short expiry, but not as a long-lived bearer secret.</p>
-<h3 id="4-nonce-reuse">4. Nonce reuse</h3>
-<p>Nonce reuse under the same key breaks stream ciphers and AEAD modes such as AES-GCM and ChaCha20-Poly1305. Reuse can expose plaintext relationships and sometimes authentication keys.</p>
-<h3 id="5-biased-mapping">5. Biased mapping</h3>
-<p>Using modulo arithmetic over random bytes to choose characters can make some outputs more likely than others. Bias becomes exploitable when the space is already small or many samples are visible.</p>
-<h2 id="impact">Impact</h2>
-<p>Ordered roughly by severity:</p>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<p>Las fallas de aleatoriedad aparecen en <strong>5 familias comunes</strong>.</p>
+<h3 id="1-prng-de-proposito-general-usado-para-secretos">1. PRNG de propósito general usado para secretos</h3>
+<p>Los PRNGs de lenguaje son frecuentemente determinísticos y optimizados para simulación, no para adversarios. Si un atacante puede inferir el estado de la semilla, los outputs se vuelven predecibles.</p>
+<h3 id="2-tokens-de-timestamp-o-contador">2. Tokens de timestamp o contador</h3>
+<p>Los tokens derivados del tiempo, user id, request count, o process id son buscables. Los atacantes pueden acotar el tiempo de creación y brute-forcear el espacio faltante.</p>
+<h3 id="3-longitud-insuficiente">3. Longitud insuficiente</h3>
+<p>Un código numérico de 6 dígitos tiene aproximadamente 20 bits de espacio. Puede estar bien con rate limits online estrictos y expiración corta, pero no como secreto bearer de larga duración.</p>
+<h3 id="4-reuso-de-nonce">4. Reuso de nonce</h3>
+<p>El reuso de nonce bajo la misma clave rompe los stream ciphers y modos AEAD como AES-GCM y ChaCha20-Poly1305. El reuso puede exponer relaciones del plaintext y a veces claves de autenticación.</p>
+<h3 id="5-mapeo-sesgado">5. Mapeo sesgado</h3>
+<p>Usar aritmética de módulo sobre bytes aleatorios para elegir caracteres puede hacer que algunos outputs sean más probables que otros. El sesgo se vuelve explotable cuando el espacio ya es pequeño o muchas muestras son visibles.</p>
+<h2 id="impacto">Impacto</h2>
+<p>Ordenado aproximadamente por severidad:</p>
 <ul>
-<li><strong>Session takeover.</strong> Predictable session ids or reset tokens become authentication bypass.</li>
-<li><strong>Key compromise.</strong> Weak key generation can make encrypted data brute-forceable.</li>
-<li><strong>AEAD failure.</strong> Repeated nonces can destroy confidentiality and integrity.</li>
-<li><strong>CSRF/OAuth bypass.</strong> Predictable state/challenge values allow request binding failures.</li>
-<li><strong>Fleet-wide duplicate secrets.</strong> VM images or containers cloned with seeded state generate repeated keys across systems.</li>
+<li><strong>Toma de sesión.</strong> Los session ids o tokens de reset predecibles se convierten en bypass de autenticación.</li>
+<li><strong>Compromiso de clave.</strong> La generación débil de claves puede hacer que los datos cifrados sean brute-forceables.</li>
+<li><strong>Fallo de AEAD.</strong> Los nonces repetidos pueden destruir la confidencialidad y la integridad.</li>
+<li><strong>Bypass de CSRF/OAuth.</strong> Los valores de state/challenge predecibles permiten fallas de vinculación de requests.</li>
+<li><strong>Secretos duplicados en toda la flota.</strong> Las imágenes de VM o containers clonados con estado sembrado generan claves repetidas en todos los sistemas.</li>
 </ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
-<p>Ordered by effectiveness:</p>
-<ol>
-<li>
-<p><strong>Use OS-backed CSPRNG APIs.</strong>
-   Use <code>crypto.randomBytes</code>, <code>crypto.getRandomValues</code>, <code>/dev/urandom</code> through vetted libraries, <code>secrets</code> in Python, <code>SecureRandom</code> correctly in Java, and equivalent platform APIs.</p>
-</li>
-<li>
-<p><strong>Design values by required property.</strong>
-   Keys need secrecy; nonces need uniqueness under a key; salts need uniqueness; challenges need unpredictability and freshness. Do not use one generator pattern for every case without naming the property.</p>
-</li>
-<li>
-<p><strong>Use adequate lengths.</strong>
-   Session ids, API keys, and reset tokens should generally use at least 128 bits of entropy; 192 or 256 bits is often cheap and boring.</p>
-</li>
-<li>
-<p><strong>Let AEAD libraries generate or manage nonces where possible.</strong>
-   If you must manage nonces, persist counters or use misuse-resistant modes such as AES-GCM-SIV when repeat risk is real.</p>
-</li>
-<li>
-<p><strong>Test for forbidden APIs in CI.</strong>
-   Static checks for <code>Math.random</code> or <code>rand()</code> in auth/crypto paths catch many avoidable mistakes.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<p>Ordenado por efectividad:</p>
+<p>1. <strong>Usar APIs CSPRNG respaldadas por el OS.</strong> Usar <code>crypto.randomBytes</code>, <code>crypto.getRandomValues</code>, <code>/dev/urandom</code> a través de librerías vetadas, <code>secrets</code> en Python, <code>SecureRandom</code> correctamente en Java, y APIs equivalentes de plataforma.</p>
+<p>2. <strong>Diseñar valores por la propiedad requerida.</strong> Las claves necesitan secreto; los nonces necesitan unicidad bajo una clave; los salts necesitan unicidad; los challenges necesitan impredecibilidad y frescura. No usar un patrón de generación para cada caso sin nombrar la propiedad.</p>
+<p>3. <strong>Usar longitudes adecuadas.</strong> Los session ids, API keys, y tokens de reset generalmente deben usar al menos 128 bits de entropía; 192 o 256 bits es frecuentemente barato y aburrido.</p>
+<p>4. <strong>Dejar que las librerías AEAD generen o gestionen los nonces donde sea posible.</strong> Si hay que gestionar nonces, persistir contadores o usar modos misuse-resistant como AES-GCM-SIV cuando el riesgo de repetición es real.</p>
+<p>5. <strong>Testear APIs prohibidas en CI.</strong> Las verificaciones estáticas de <code>Math.random</code> o <code>rand()</code> en paths de auth/cripto capturan muchos errores evitables.</p>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li><strong>Base64 or hex encoding.</strong> Encoding does not add entropy.</li>
-<li><strong>Hashing a timestamp.</strong> Hashing predictable input gives predictable output.</li>
-<li><strong>UUIDs without understanding version.</strong> UUIDv4 is random; UUIDv1 leaks time/MAC structure; UUIDs are not automatically secrets.</li>
-<li><strong>Short expiry alone.</strong> Expiry helps only if guessing is also rate-limited and the space is large enough.</li>
-<li><strong>"It is only internal."</strong> Internal tokens often cross logs, queues, browsers, and services.</li>
+<li><strong>Codificación Base64 o hex.</strong> La codificación no agrega entropía.</li>
+<li><strong>Hashear un timestamp.</strong> Hashear input predecible da output predecible.</li>
+<li><strong>UUIDs sin entender la versión.</strong> UUIDv4 es aleatorio; UUIDv1 filtra estructura de tiempo/MAC; los UUIDs no son automáticamente secretos.</li>
+<li><strong>Solo expiración corta.</strong> La expiración ayuda solo si el guessing también está rate-limited y el espacio es suficientemente grande.</li>
+<li><strong>&quot;Es solo interno.&quot;</strong> Los tokens internos frecuentemente cruzan logs, queues, browsers, y servicios.</li>
 </ul>
-<h2 id="practical-labs">Practical labs</h2>
-<h3 id="compare-predictable-and-secure-token-generation">Compare predictable and secure token generation</h3>
-<div class="codehilite"><pre><span></span><code>node<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;&#39;JS&#39;</span>
-<span class="s">const crypto = require(&quot;node:crypto&quot;);</span>
-<span class="s">for (let i = 0; i &lt; 3; i++) {</span>
-<span class="s">  console.log(&quot;bad-ish&quot;, Math.random().toString(36).slice(2));</span>
-<span class="s">  console.log(&quot;good&quot;, crypto.randomBytes(32).toString(&quot;base64url&quot;));</span>
-<span class="s">}</span>
-<span class="s">JS</span>
+<h2 id="labs-practicos">Labs prácticos</h2>
+<h3 id="comparar-generacion-de-token-predecible-y-segura">Comparar generación de token predecible y segura</h3>
+<div class="codehilite"><pre><span></span><code>node - &lt;&lt;&#x27;JS&#x27;
+const crypto = require(&quot;node:crypto&quot;);
+for (let i = 0; i &lt; 3; i++) {
+  console.log(&quot;malo&quot;, Math.random().toString(36).slice(2));
+  console.log(&quot;bueno&quot;, crypto.randomBytes(32).toString(&quot;base64url&quot;));
+}
+JS
 </code></pre></div>
-
-<p>The secure tokens are longer and backed by the OS CSPRNG; the point is API choice, not visual randomness.</p>
-<h3 id="estimate-brute-force-space">Estimate brute-force space</h3>
-<div class="codehilite"><pre><span></span><code>python3<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;&#39;PY&#39;</span>
-<span class="s">import math</span>
-<span class="s">for bits in [20, 32, 64, 128, 256]:</span>
-<span class="s">    print(bits, &quot;bits =&quot;, f&quot;{2**bits:.3e}&quot;, &quot;possibilities&quot;)</span>
-<span class="s">PY</span>
+<p>Los tokens seguros son más largos y están respaldados por el OS CSPRNG.</p>
+<h3 id="estimar-el-espacio-de-brute-force">Estimar el espacio de brute-force</h3>
+<div class="codehilite"><pre><span></span><code>python3 - &lt;&lt;&#x27;PY&#x27;
+import math
+for bits in [20, 32, 64, 128, 256]:
+    print(bits, &quot;bits =&quot;, f&quot;{2**bits:.3e}&quot;, &quot;posibilidades&quot;)
+PY
 </code></pre></div>
-
-<p>Short codes need rate limits because their search space is intentionally small.</p>
-<h3 id="detect-forbidden-random-apis">Detect forbidden random APIs</h3>
-<div class="codehilite"><pre><span></span><code>rg<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;Math\\.random|\\brand\\(|\\bmt_rand\\b|java\\.util\\.Random|new Random&quot;</span><span class="w"> </span>.
+<p>Los códigos cortos necesitan rate limits porque su espacio de búsqueda es intencionalmente pequeño.</p>
+<h3 id="detectar-apis-de-aleatorio-prohibidas">Detectar APIs de aleatorio prohibidas</h3>
+<div class="codehilite"><pre><span></span><code>rg -n &quot;Math\\.random|\\brand\\(|\\bmt_rand\\b|java\\.util\\.Random|new Random&quot; .
 </code></pre></div>
-
-<p>Every match in token, auth, password-reset, nonce, or key-generation code deserves review.</p>
-<h3 id="generate-a-256-bit-secret-safely">Generate a 256-bit secret safely</h3>
-<div class="codehilite"><pre><span></span><code>openssl<span class="w"> </span>rand<span class="w"> </span>-base64<span class="w"> </span><span class="m">32</span>
-python3<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;&#39;PY&#39;</span>
-<span class="s">import secrets</span>
-<span class="s">print(secrets.token_urlsafe(32))</span>
-<span class="s">PY</span>
+<p>Cada match en código de token, auth, reset de contraseña, nonce, o generación de clave merece revisión.</p>
+<h3 id="generar-un-secreto-de-256-bits-de-forma-segura">Generar un secreto de 256 bits de forma segura</h3>
+<div class="codehilite"><pre><span></span><code>openssl rand -base64 32
+python3 - &lt;&lt;&#x27;PY&#x27;
+import secrets
+print(secrets.token_urlsafe(32))
+PY
 </code></pre></div>
-
-<p>Use platform CSPRNG helpers instead of inventing token formats.</p>
-<h2 id="practical-examples">Practical examples</h2>
+<p>Usar helpers CSPRNG de plataforma en lugar de inventar formatos de token.</p>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
-<li>A password reset link uses <code>md5(user_id + timestamp)</code>, letting attackers brute force reset URLs for recently requested accounts.</li>
-<li>A service uses <code>Math.random()</code> for session ids. Process restart reseeds predictably and sessions become guessable.</li>
-<li>A VM image includes a generated SSH host key; every cloned VM has the same identity.</li>
-<li>An AES-GCM service uses a timestamp nonce and high request concurrency creates nonce collisions.</li>
-<li>OAuth state is a short counter; login CSRF becomes practical.</li>
+<li>Un link de reset de contraseña usa <code>md5(user_id + timestamp)</code>, dejando a los atacantes brute-forcear las URLs de reset para cuentas recientemente solicitadas.</li>
+<li>Un servicio usa <code>Math.random()</code> para session ids. El reinicio del proceso re-siembra predeciblemente y las sesiones se vuelven adivinables.</li>
+<li>Una imagen de VM incluye una clave SSH host generada; cada VM clonada tiene la misma identidad.</li>
+<li>Un servicio AES-GCM usa un nonce de timestamp y la alta concurrencia de requests crea colisiones de nonce.</li>
+<li>OAuth state es un contador corto; el CSRF de login se vuelve práctico.</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
 <li><a href="hashing-vs-encryption-vs-signing.html">hashing-vs-encryption-vs-signing</a></li>
 <li><a href="symmetric-encryption-modes.html">symmetric-encryption-modes</a></li>
 <li><a href="aead-and-nonce-misuse.html">aead-and-nonce-misuse</a></li>
 <li><a href="password-hashing.html">password-hashing</a></li>
 <li><a href="../web-security/session-management.html">Session Management</a></li>
-<li><a href="../api-security/token-lifecycle.html">Token Lifecycle</a></li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: token-entropy-review">token-entropy-review</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: uuid-security-properties">uuid-security-properties</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: nonce-generation-patterns">nonce-generation-patterns</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: vm-cloning-and-entropy">vm-cloning-and-entropy</span></li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Standard / RFC:</strong> NIST SP 800-90A Rev. 1: Random Bit Generation — https://csrc.nist.gov/publications/detail/sp/800-90a/rev-1/final</li>
-<li><strong>Standard / RFC:</strong> NIST SP 800-90B: Entropy Sources — https://csrc.nist.gov/publications/detail/sp/800-90b/final</li>
-<li><strong>Foundational:</strong> OWASP Cryptographic Storage Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html</li>
+<li><strong>Estándar / RFC:</strong> NIST SP 800-90A Rev. 1: Random Bit Generation — https://csrc.nist.gov/publications/detail/sp/800-90a/rev-1/final</li>
+<li><strong>Estándar / RFC:</strong> NIST SP 800-90B: Entropy Sources — https://csrc.nist.gov/publications/detail/sp/800-90b/final</li>
+<li><strong>Fundamental:</strong> OWASP Cryptographic Storage Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="post-quantum-awareness.html"><span class="nav-dir">← Previous</span><strong>Post-Quantum Awareness</strong></a><a class="branch-nav-link next" href="roll-your-own-crypto-failures.html"><span class="nav-dir">Next →</span><strong>Roll Your Own Crypto Failures</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -591,24 +546,27 @@ python3<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-general-purpose-prng-used-for-secrets">1. General-purpose PRNG used for secrets</a>
-<a class="toc-level-3" href="#2-timestamp-or-counter-tokens">2. Timestamp or counter tokens</a>
-<a class="toc-level-3" href="#3-insufficient-length">3. Insufficient length</a>
-<a class="toc-level-3" href="#4-nonce-reuse">4. Nonce reuse</a>
-<a class="toc-level-3" href="#5-biased-mapping">5. Biased mapping</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-3" href="#compare-predictable-and-secure-token-generation">Compare predictable and secure token generation</a>
-<a class="toc-level-3" href="#estimate-brute-force-space">Estimate brute-force space</a>
-<a class="toc-level-3" href="#detect-forbidden-random-apis">Detect forbidden random APIs</a>
-<a class="toc-level-3" href="#generate-a-256-bit-secret-safely">Generate a 256-bit secret safely</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
+<a class="toc-level-3" href="#1-prng-de-proposito-general-usado-para-secretos">1. PRNG de propósito general usado para secretos</a>
+<a class="toc-level-3" href="#2-tokens-de-timestamp-o-contador">2. Tokens de timestamp o contador</a>
+<a class="toc-level-3" href="#3-longitud-insuficiente">3. Longitud insuficiente</a>
+<a class="toc-level-3" href="#4-reuso-de-nonce">4. Reuso de nonce</a>
+<a class="toc-level-3" href="#5-mapeo-sesgado">5. Mapeo sesgado</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
+<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
+<a class="toc-level-3" href="#comparar-generacion-de-token-predecible-y-segura">Comparar generación de token predecible y segura</a>
+<a class="toc-level-3" href="#estimar-el-espacio-de-brute-force">Estimar el espacio de brute-force</a>
+<a class="toc-level-3" href="#detectar-apis-de-aleatorio-prohibidas">Detectar APIs de aleatorio prohibidas</a>
+<a class="toc-level-3" href="#generar-un-secreto-de-256-bits-de-forma-segura">Generar un secreto de 256 bits de forma segura</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

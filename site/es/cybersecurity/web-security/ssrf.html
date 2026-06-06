@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Server-Side Request Forgery (SSRF) - Seguridad Web | ldamoredev Security Atlas</title>
-<meta name="description" content="SSRF happens when an application can be induced to make a server-side request to an attacker-chosen destination. The key danger is that the server can often reach...">
+<meta name="description" content="SSRF ocurre cuando se puede inducir a una aplicación a hacer un request del lado del servidor hacia un destino elegido por el atacante. El peligro clave es q...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Seguridad Web, Server-Side Request Forgery (SSRF), web-security, ssrf">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Server-Side Request Forgery (SSRF) - Seguridad Web | ldamoredev Security Atlas">
-<meta property="og:description" content="SSRF happens when an application can be induced to make a server-side request to an attacker-chosen destination. The key danger is that the server can often reach...">
+<meta property="og:description" content="SSRF ocurre cuando se puede inducir a una aplicación a hacer un request del lado del servidor hacia un destino elegido por el atacante. El peligro clave es q...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/ssrf.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Server-Side Request Forgery (SSRF) - Seguridad Web | ldamoredev Security Atlas">
-<meta name="twitter:description" content="SSRF happens when an application can be induced to make a server-side request to an attacker-chosen destination. The key danger is that the server can often reach...">
+<meta name="twitter:description" content="SSRF ocurre cuando se puede inducir a una aplicación a hacer un request del lado del servidor hacia un destino elegido por el atacante. El peligro clave es q...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/ssrf.html#article","name":"Server-Side Request Forgery (SSRF) - Seguridad Web | ldamoredev Security Atlas","headline":"Server-Side Request Forgery (SSRF)","description":"SSRF happens when an application can be induced to make a server-side request to an attacker-chosen destination. The key danger is that the server can often reach...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/ssrf.html","inLanguage":"es","datePublished":"2026-04-29","dateModified":"2026-04-29","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/ssrf.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Web","Server-Side Request Forgery (SSRF)","web-security","ssrf"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Web","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/index.html"},{"@type":"ListItem","position":4,"name":"Server-Side Request Forgery (SSRF)","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/ssrf.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/ssrf.html#article","name":"Server-Side Request Forgery (SSRF) - Seguridad Web | ldamoredev Security Atlas","headline":"Server-Side Request Forgery (SSRF)","description":"SSRF ocurre cuando se puede inducir a una aplicación a hacer un request del lado del servidor hacia un destino elegido por el atacante. El peligro clave es q...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/ssrf.html","inLanguage":"es","datePublished":"2026-04-29","dateModified":"2026-04-29","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/ssrf.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Web","Server-Side Request Forgery (SSRF)","web-security","ssrf"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Web","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/index.html"},{"@type":"ListItem","position":4,"name":"Server-Side Request Forgery (SSRF)","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/ssrf.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/ssrf.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/ssrf.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/ssrf.html">
@@ -410,87 +410,94 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Seguridad Web</a><span>/</span><span>Server-Side Request Forgery (SSRF)</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Server-Side Request Forgery (SSRF)</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-blue">Seguridad Web</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~2 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado Apr 29, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#web-security</span><span class="meta-chip tag">#ssrf</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="server-side-request-forgery-ssrf">Server-Side Request Forgery (SSRF)</h1>
-<h2 id="definition">Definition</h2>
-<p>SSRF happens when an application can be induced to make a server-side request to an attacker-chosen destination. The key danger is that the server can often reach internal or privileged resources that the external attacker cannot directly access.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>SSRF is one of the clearest examples of why networking and web security must be learned together. It turns server-side network reachability into exploitable impact.</p>
-<p>Unlike many input bugs, the blast radius depends heavily on environment:
-- internal network reachability
-- metadata service exposure
-- proxy behavior
-- redirect handling
-- DNS behavior</p>
-<h2 id="how-it-works">How it works</h2>
-<p>The usual shape is:</p>
-<ol>
-<li>the application accepts a URL or remote resource reference</li>
-<li>the server performs the request on behalf of the user</li>
-<li>destination validation is weak, bypassable, or absent</li>
-<li>the attacker uses the server’s network position and trust to reach targets they cannot call directly</li>
-</ol>
-<p>Common SSRF entry points:
-- URL preview features
-- webhooks and callback testers
-- document or image fetchers
-- import/sync features
-- PDF/render pipelines
-- “fetch remote resource” helpers</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
-<p>Attackers usually test:
-- loopback and localhost targets
-- RFC1918/private ranges
-- metadata service addresses
-- alternate IP representations
-- domain vs direct IP behavior
-- redirect chains
-- DNS-based destination changes
-- protocol and scheme handling</p>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<h3 id="basic-internal-reachability">Basic internal reachability</h3>
-<p>The app can fetch internal services the attacker cannot reach directly.</p>
-<h3 id="metadata-targeting">Metadata targeting</h3>
-<p>The app can reach cloud metadata endpoints and expose credentials or instance context.</p>
-<h3 id="redirect-bypass">Redirect bypass</h3>
-<p>Validation happens only on the first URL, but redirects lead somewhere dangerous.</p>
-<h3 id="dns-rebinding-resolution-tricks">DNS rebinding / resolution tricks</h3>
-<p>Validation and connection do not treat hostname resolution consistently.</p>
-<h3 id="parser-url-normalization-quirks">Parser / URL normalization quirks</h3>
-<p>Different components disagree about the real destination.</p>
-<h3 id="blind-ssrf">Blind SSRF</h3>
-<p>The attacker cannot read the response directly, but can still infer reachability from timing, side effects, or out-of-band callbacks.</p>
-<h2 id="impact">Impact</h2>
-<p>Typical impact:
-- internal API access
-- metadata credential exposure
-- internal admin surface reachability
-- trust-boundary bypass into private services
-- pivoting into wider infrastructure compromise</p>
-<p>The same SSRF sink can be low-severity in one environment and critical in another.</p>
-<h2 id="detection-and-defense">Detection and defense</h2>
-<p>Ordered by effectiveness:</p>
-<ol>
-<li><strong>Restrict where server-side requests can go</strong></li>
-<li><strong>Validate and normalize destinations carefully</strong></li>
-<li><strong>Be explicit about redirects, DNS, and IP handling</strong></li>
-<li><strong>Segment networks so app servers cannot casually reach sensitive internals</strong></li>
-<li><strong>Protect metadata access explicitly</strong></li>
-<li><strong>Monitor outbound requests from application tiers</strong></li>
-</ol>
-<h2 id="practical-examples">Practical examples</h2>
+<h2 id="definicion">Definición</h2>
+<p>SSRF ocurre cuando se puede inducir a una aplicación a hacer un request del lado del servidor hacia un destino elegido por el atacante. El peligro clave es que el servidor frecuentemente puede alcanzar recursos internos o privilegiados a los que el atacante externo no puede acceder directamente.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>SSRF es uno de los ejemplos más claros de por qué redes y seguridad web deben aprenderse juntas. Convierte la accesibilidad de red del lado del servidor en impacto explotable.</p>
+<p>A diferencia de muchos bugs de input, el radio de explosión depende fuertemente del entorno:</p>
 <ul>
-<li>a URL preview feature fetches arbitrary addresses</li>
-<li>a backend can reach <code>169.254.169.254</code> and expose cloud metadata</li>
-<li>an internal-only service becomes reachable through a public app’s fetch capability</li>
-<li>a redirect chain bypasses an allowlist that only checks the first host</li>
+<li>accesibilidad a la red interna</li>
+<li>exposición del servicio de metadatos</li>
+<li>comportamiento del proxy</li>
+<li>manejo de redirecciones</li>
+<li>comportamiento del DNS</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>La forma habitual es:</p>
+<ol>
+<li>la aplicación acepta una URL o referencia a recurso remoto</li>
+<li>el servidor realiza el request en nombre del usuario</li>
+<li>la validación del destino es débil, bypasseable o inexistente</li>
+<li>el atacante usa la posición de red y la confianza del servidor para alcanzar objetivos que no puede llamar directamente</li>
+</ol>
+<p>Puntos de entrada comunes de SSRF:</p>
+<ul>
+<li>funcionalidades de preview de URL</li>
+<li>webhooks y testers de callback</li>
+<li>fetchers de documentos o imágenes</li>
+<li>funcionalidades de importación/sincronización</li>
+<li>pipelines de PDF/renderizado</li>
+<li>helpers de &quot;obtener recurso remoto&quot;</li>
+</ul>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
+<p>Los atacantes generalmente testean:</p>
+<ul>
+<li>objetivos de loopback y localhost</li>
+<li>rangos RFC1918/privados</li>
+<li>direcciones del servicio de metadatos</li>
+<li>representaciones alternativas de IP</li>
+<li>comportamiento de dominio vs IP directa</li>
+<li>cadenas de redirección</li>
+<li>cambios de destino basados en DNS</li>
+<li>manejo de protocolos y esquemas</li>
+</ul>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<h3 id="accesibilidad-interna-basica">Accesibilidad interna básica</h3>
+<p>La app puede hacer fetch de servicios internos a los que el atacante no puede acceder directamente.</p>
+<h3 id="targeting-de-metadatos">Targeting de metadatos</h3>
+<p>La app puede alcanzar endpoints de metadatos de la nube y exponer credenciales o contexto de la instancia.</p>
+<h3 id="bypass-por-redireccion">Bypass por redirección</h3>
+<p>La validación ocurre solo en la primera URL, pero las redirecciones llevan a algún lugar peligroso.</p>
+<h3 id="trucos-de-dns-rebinding-resolucion">Trucos de DNS rebinding / resolución</h3>
+<p>La validación y la conexión no tratan la resolución del hostname de forma consistente.</p>
+<h3 id="quirks-del-parser-normalizacion-de-url">Quirks del parser / normalización de URL</h3>
+<p>Diferentes componentes no coinciden sobre el destino real.</p>
+<h3 id="ssrf-ciego">SSRF ciego</h3>
+<p>El atacante no puede leer la respuesta directamente, pero puede inferir la accesibilidad a partir del timing, efectos secundarios o callbacks out-of-band.</p>
+<h2 id="impacto">Impacto</h2>
+<p>Impacto típico:</p>
+<ul>
+<li>acceso a APIs internas</li>
+<li>exposición de credenciales de metadatos</li>
+<li>accesibilidad a superficies de admin internas</li>
+<li>bypass de límites de confianza hacia servicios privados</li>
+<li>pivoting hacia un compromiso más amplio de la infraestructura</li>
+</ul>
+<p>El mismo sink SSRF puede ser de baja severidad en un entorno y crítico en otro.</p>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<p>Ordenado por efectividad:</p>
+<ol>
+<li><strong>Restringir adónde pueden ir los requests del lado del servidor</strong></li>
+<li><strong>Validar y normalizar los destinos cuidadosamente</strong></li>
+<li><strong>Ser explícito sobre el manejo de redirecciones, DNS e IP</strong></li>
+<li><strong>Segmentar las redes para que los servidores de app no puedan acceder casualmente a los internos sensibles</strong></li>
+<li><strong>Proteger el acceso a metadatos explícitamente</strong></li>
+<li><strong>Monitorear los requests salientes de los niveles de aplicación</strong></li>
+</ol>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
+<ul>
+<li>una funcionalidad de preview de URL hace fetch de direcciones arbitrarias</li>
+<li>un backend puede alcanzar <code>169.254.169.254</code> y exponer metadatos de la nube</li>
+<li>un servicio solo-interno se vuelve accesible a través de la capacidad de fetch de una app pública</li>
+<li>una cadena de redirección bypass una allowlist que solo verifica el primer host</li>
+</ul>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
 <li><a href="../networking/nat-and-private-networks.html">NAT and Private Networks</a></li>
 <li><a href="../networking/metadata-endpoints.html">Metadata Endpoints</a></li>
@@ -498,11 +505,11 @@
 <li><a href="../networking/reverse-proxies.html">Reverse Proxies</a></li>
 <li><a href="../security-playbooks/investigate-ssrf.html">Investigate SSRF</a></li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><strong>Foundational:</strong> OWASP SSRF Prevention Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html</li>
+<li><strong>Fundamental:</strong> OWASP SSRF Prevention Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html</li>
 <li><strong>Testing / Lab:</strong> PortSwigger SSRF topic — https://portswigger.net/web-security/ssrf</li>
-<li><strong>Research / Deep Dive:</strong> AWS IMDS docs — https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html</li>
+<li><strong>Investigación / Deep Dive:</strong> AWS IMDS docs — https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="same-origin-policy.html"><span class="nav-dir">← Previous</span><strong>Política del mismo origen (SOP)</strong></a><a class="branch-nav-link next" href="session-management.html"><span class="nav-dir">Next →</span><strong>Gestión de sesiones</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -518,22 +525,22 @@
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#basic-internal-reachability">Basic internal reachability</a>
-<a class="toc-level-3" href="#metadata-targeting">Metadata targeting</a>
-<a class="toc-level-3" href="#redirect-bypass">Redirect bypass</a>
-<a class="toc-level-3" href="#dns-rebinding-resolution-tricks">DNS rebinding / resolution tricks</a>
-<a class="toc-level-3" href="#parser-url-normalization-quirks">Parser / URL normalization quirks</a>
-<a class="toc-level-3" href="#blind-ssrf">Blind SSRF</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-2" href="#practical-examples">Practical examples</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-2" href="#references">References</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
+<a class="toc-level-3" href="#accesibilidad-interna-basica">Accesibilidad interna básica</a>
+<a class="toc-level-3" href="#targeting-de-metadatos">Targeting de metadatos</a>
+<a class="toc-level-3" href="#bypass-por-redireccion">Bypass por redirección</a>
+<a class="toc-level-3" href="#trucos-de-dns-rebinding-resolucion">Trucos de DNS rebinding / resolución</a>
+<a class="toc-level-3" href="#quirks-del-parser-normalizacion-de-url">Quirks del parser / normalización de URL</a>
+<a class="toc-level-3" href="#ssrf-ciego">SSRF ciego</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>
