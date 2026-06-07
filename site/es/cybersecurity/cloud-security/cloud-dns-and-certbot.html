@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cloud DNS and Certbot - Seguridad en la Nube | ldamoredev Security Atlas</title>
-<meta name="description" content="Cloud DNS and Certbot is the operational pattern of pointing cloud-hosted domains at cloud resources and issuing TLS certificates for those services.">
+<meta name="description" content="El cloud DNS and Certbot es la disciplina de gestionar el ciclo de vida nombre-a-servicio en entornos cloud: adquirir un dominio, delegar zones DNS, crear re...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Seguridad en la Nube, Cloud DNS and Certbot, cloud-security">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cloud DNS and Certbot - Seguridad en la Nube | ldamoredev Security Atlas">
-<meta property="og:description" content="Cloud DNS and Certbot is the operational pattern of pointing cloud-hosted domains at cloud resources and issuing TLS certificates for those services.">
+<meta property="og:description" content="El cloud DNS and Certbot es la disciplina de gestionar el ciclo de vida nombre-a-servicio en entornos cloud: adquirir un dominio, delegar zones DNS, crear re...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cloud-security/cloud-dns-and-certbot.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cloud DNS and Certbot - Seguridad en la Nube | ldamoredev Security Atlas">
-<meta name="twitter:description" content="Cloud DNS and Certbot is the operational pattern of pointing cloud-hosted domains at cloud resources and issuing TLS certificates for those services.">
+<meta name="twitter:description" content="El cloud DNS and Certbot es la disciplina de gestionar el ciclo de vida nombre-a-servicio en entornos cloud: adquirir un dominio, delegar zones DNS, crear re...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cloud-security/cloud-dns-and-certbot.html#article","name":"Cloud DNS and Certbot - Seguridad en la Nube | ldamoredev Security Atlas","headline":"Cloud DNS and Certbot","description":"Cloud DNS and Certbot is the operational pattern of pointing cloud-hosted domains at cloud resources and issuing TLS certificates for those services.","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cloud-security/cloud-dns-and-certbot.html","inLanguage":"es","datePublished":"2026-04-30","dateModified":"2026-04-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cloud-security/cloud-dns-and-certbot.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad en la Nube","Cloud DNS and Certbot","cloud-security"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad en la Nube","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cloud-security/index.html"},{"@type":"ListItem","position":4,"name":"Cloud DNS and Certbot","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cloud-security/cloud-dns-and-certbot.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cloud-security/cloud-dns-and-certbot.html#article","name":"Cloud DNS and Certbot - Seguridad en la Nube | ldamoredev Security Atlas","headline":"Cloud DNS and Certbot","description":"El cloud DNS and Certbot es la disciplina de gestionar el ciclo de vida nombre-a-servicio en entornos cloud: adquirir un dominio, delegar zones DNS, crear re...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cloud-security/cloud-dns-and-certbot.html","inLanguage":"es","datePublished":"2026-04-30","dateModified":"2026-04-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cloud-security/cloud-dns-and-certbot.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad en la Nube","Cloud DNS and Certbot","cloud-security"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad en la Nube","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cloud-security/index.html"},{"@type":"ListItem","position":4,"name":"Cloud DNS and Certbot","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cloud-security/cloud-dns-and-certbot.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/cloud-security/cloud-dns-and-certbot.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/cloud-security/cloud-dns-and-certbot.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/cloud-security/cloud-dns-and-certbot.html">
@@ -410,175 +410,153 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Seguridad en la Nube</a><span>/</span><span>Cloud DNS and Certbot</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Cloud DNS and Certbot</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-cyan">Seguridad en la Nube</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~3 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado Apr 30, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#cloud-security</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="cloud-dns-and-certbot">Cloud DNS and Certbot</h1>
-<h2 id="definition">Definition</h2>
-<p>Cloud DNS and Certbot is the operational pattern of pointing cloud-hosted domains at cloud resources and issuing TLS certificates for those services.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>Cloud labs often move quickly from "I launched a VM" to "I exposed a domain with HTTPS." That path touches DNS ownership, public IPs, certificates, firewall rules, web server config, and renewal automation.</p>
-<p>The security lesson is that DNS and TLS are not decoration. They are ownership, reachability, and trust controls.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>Cloud DNS and certificate setup has <strong>6 steps</strong>:</p>
+<h2 id="definicion">Definición</h2>
+<p>El cloud DNS and Certbot es la disciplina de gestionar el ciclo de vida nombre-a-servicio en entornos cloud: adquirir un dominio, delegar zones DNS, crear registros, exponer puertos de validación, obtener certificados TLS via Certbot/ACME y automatizar la renovación.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>Para los labs cloud que necesitan HTTPS real, la cadena completa es: nombre de dominio → registros DNS → certificado TLS → renovación. Cada eslabón introduce superficies de seguridad: stale DNS apuntando a recursos eliminados, exposure temporal de validación, fallos de renovación y scope excesivo de certificados.</p>
+<p>La unidad de seguridad correcta no es &quot;el certificado&quot;, sino el ciclo de vida nombre-a-servicio completo.</p>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>El setup DNS y Certbot cloud tiene <strong>6 pasos</strong>:</p>
 <ol>
-<li><strong>Own or delegate a domain.</strong> Registrar and authoritative DNS decide control.</li>
-<li><strong>Create records.</strong> A/AAAA/CNAME records point names at cloud resources.</li>
-<li><strong>Expose service ports.</strong> HTTP/HTTPS must be reachable for validation and service.</li>
-<li><strong>Prove domain control.</strong> ACME validation uses HTTP or DNS challenges.</li>
-<li><strong>Install certificates.</strong> The service presents a valid cert for the name.</li>
-<li><strong>Automate renewal.</strong> Short-lived certs require reliable renewal and reload.</li>
+<li><strong>Poseer o delegar el dominio.</strong> El dominio apunta a un nameserver bajo tu control o al provider DNS del cloud.</li>
+<li><strong>Crear registros DNS.</strong> Los registros A, AAAA y CNAME conectan el nombre con la IP o el nombre del servicio.</li>
+<li><strong>Exponer los puertos de validación.</strong> El challenge HTTP-01 de ACME requiere port 80 alcanzable; el challenge DNS-01 requiere permisos de escritura en el zone.</li>
+<li><strong>Probar el control del dominio.</strong> Certbot/ACME verifica que quien solicita el certificado controla el dominio.</li>
+<li><strong>Instalar los certificados.</strong> Certbot escribe <code>fullchain.pem</code> y <code>privkey.pem</code>, usualmente en <code>/etc/letsencrypt/live/&lt;dominio&gt;/</code>.</li>
+<li><strong>Automatizar la renovación.</strong> Los certificados Let&#x27;s Encrypt vencen en 90 días; la renovación automática via cron o systemd timer es necesaria.</li>
 </ol>
-<p>The bug is not using Certbot. The bug is weak DNS ownership, stale records, broad exposure, or broken renewal assumptions.</p>
-<p>A worked example, certificate setup to exposure drift:</p>
-<div class="codehilite"><pre><span></span><code>Goal:
-  expose lab.example.test over HTTPS
+<p>El riesgo central de seguridad no es obtener el certificado inicial. Es el mantenimiento del nombre-a-servicio a lo largo del tiempo.</p>
+<p>Un ejemplo trabajado, ciclo de vida DNS completo:</p>
+<div class="codehilite"><pre><span></span><code>Dominio:
+  lab.example.com
 
-DNS:
-  A record points to static cloud IP
+Registro DNS:
+  A → 34.X.X.X (IP de la VM de lab)
 
-Validation:
-  HTTP-01 challenge required opening TCP/80
+Validación:
+  HTTP-01: port 80 abierto solo durante el challenge, no después
 
-After setup:
-  HTTPS works, but TCP/80 remains public and redirects to app
+Certificado:
+  /etc/letsencrypt/live/lab.example.com/{fullchain,privkey}.pem
 
-Teardown risk:
-  VM can be deleted while DNS still points at static IP or future reused address
+Renovación:
+  cron `certbot renew --quiet` corriendo cada día
 
-Decision:
-  track DNS record, static IP, firewall rule, certificate renewal, and teardown as one lifecycle unit
+Teardown:
+  eliminar registro DNS cuando la VM se elimina (para prevenir dangling DNS)
 </code></pre></div>
-
-<p>The security unit is the name-to-service lifecycle, not only the certificate command.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
-<p>Reviews look at:</p>
+<p>Los problemas más comunes de labs cloud no son el flujo de certificados sino el DNS que apunta a recursos eliminados.</p>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
+<p>Las revisiones analizan:</p>
 <ul>
-<li>registrar and DNS account protection</li>
-<li>A/AAAA/CNAME records pointing to current resources</li>
-<li>stale records after teardown</li>
-<li>HTTP validation paths and temporary firewall openings</li>
-<li>certificate name coverage and renewal timers</li>
-<li>TLS config and redirect behavior</li>
+<li>registros DNS &quot;colgantes&quot; (dangling) que apuntan a IPs eliminadas o recursos de cloud</li>
+<li>exposición de port 80 permanente cuando solo se necesita para validación</li>
+<li>fallos de renovación causados por cambios de IP o de security group</li>
+<li>scope excesivo de certificados (wildcard o múltiples dominios cuando uno es suficiente)</li>
+<li>clave privada del certificado con permisos de archivo sobre-amplios</li>
+<li>los secretos de delegación DNS (usados para el challenge DNS-01) sobre-permisivos</li>
 </ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>Cloud DNS/TLS risk has <strong>4 common shapes</strong>.</p>
-<h3 id="1-stale-dns-to-deleted-resources">1. Stale DNS to deleted resources</h3>
-<p>Records point at abandoned cloud services or IPs.</p>
-<h3 id="2-temporary-validation-exposure-left-open">2. Temporary validation exposure left open</h3>
-<p>HTTP or admin ports stay reachable after certificate setup.</p>
-<h3 id="3-renewal-failure">3. Renewal failure</h3>
-<p>Certificates expire because automation cannot reach the challenge path or reload the service.</p>
-<h3 id="4-wildcard-or-broad-certificate-scope">4. Wildcard or broad certificate scope</h3>
-<p>One certificate or DNS challenge path covers more names than expected.</p>
-<h2 id="impact">Impact</h2>
-<p>Ordered roughly by severity:</p>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<p>El riesgo cloud de DNS y certificados tiene <strong>4 formas comunes</strong>.</p>
+<h3 id="1-dns-obsoleto-a-recursos-eliminados">1. DNS obsoleto a recursos eliminados</h3>
+<p>Los registros DNS siguen apuntando a IPs o nombres de recursos que ya no existen o fueron reasignados.</p>
+<h3 id="2-exposicion-temporal-de-validacion-dejada-abierta">2. Exposición temporal de validación dejada abierta</h3>
+<p>El port 80 o la ruta <code>/.well-known/acme-challenge/</code> que se abrió para la validación nunca se cerró después.</p>
+<h3 id="3-fallo-de-renovacion">3. Fallo de renovación</h3>
+<p>El certificado vence porque la renovación automática falló silenciosamente (cambio de IP, security group actualizado, certbot roto).</p>
+<h3 id="4-scope-amplio-de-wildcard-o-multicertificado">4. Scope amplio de wildcard o multicertificado</h3>
+<p>Un wildcard o un cert con muchos SANs es conveniente pero amplía el blast radius si la clave privada se compromete.</p>
+<h2 id="impacto">Impacto</h2>
+<p>Ordenado aproximadamente por severidad:</p>
 <ul>
-<li><strong>Domain takeover path.</strong> Stale DNS may point at reclaimable cloud resources.</li>
-<li><strong>Service exposure.</strong> DNS makes lab services discoverable and memorable.</li>
-<li><strong>TLS trust failure.</strong> Expired or wrong certs train users to ignore warnings.</li>
-<li><strong>Credential exposure.</strong> Misconfigured HTTPS can leave login flows on HTTP.</li>
-<li><strong>Operational drift.</strong> Old records survive after the lab is gone.</li>
+<li><strong>Takeover de subdominio.</strong> Los registros DNS colgantes que apuntan a recursos cloud eliminados pueden ser reclamados por un atacante.</li>
+<li><strong>Expiración del certificado.</strong> Los usuarios ven errores TLS; el servicio puede ser interrumpido.</li>
+<li><strong>Filtración de clave privada.</strong> Un <code>privkey.pem</code> con permisos amplios o en un backup puede comprometer el certificado.</li>
+<li><strong>Exposición de validación.</strong> Los security groups de validación no removidos amplían la superficie de ataque.</li>
+<li><strong>Abuso de credenciales DNS.</strong> Las credenciales de escritura DNS sobre-permisivas usadas para el challenge DNS-01 pueden ser abusadas para spoofing DNS.</li>
 </ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
-<p>Ordered by effectiveness:</p>
-<ol>
-<li>
-<p><strong>Treat DNS as inventory.</strong>
-   Every record should map to an owner, resource, purpose, and teardown condition.</p>
-</li>
-<li>
-<p><strong>Protect registrar and DNS accounts.</strong>
-   Domain control is a high-impact administrative boundary.</p>
-</li>
-<li>
-<p><strong>Use least exposure for validation.</strong>
-   Open only the ports and paths required, then close what is no longer needed.</p>
-</li>
-<li>
-<p><strong>Monitor certificate renewal.</strong>
-   Renewal failures are predictable and should alert before expiry.</p>
-</li>
-<li>
-<p><strong>Clean records during teardown.</strong>
-   DNS cleanup is part of cloud resource cleanup.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<p>Ordenado por efectividad:</p>
+<p>1. <strong>Eliminá los registros DNS cuando elimines los recursos.</strong> Los registros DNS deberían estar en el checklist de teardown de cada lab.</p>
+<p>2. <strong>Cerrá el port 80 después de la validación si no es necesario para la aplicación.</strong> La validación HTTP-01 requiere port 80 solo durante el flujo de challenge.</p>
+<p>3. <strong>Monitoreá la renovación de certificados.</strong> Los logs de cron, alertas de vencimiento de certificados o herramientas de monitoreo externo deberían detectar fallos de renovación temprano.</p>
+<p>4. <strong>Protegé la clave privada del certificado.</strong> <code>/etc/letsencrypt/live/</code> debería ser accesible solo por root y el daemon que sirve TLS.</p>
+<p>5. <strong>Limitá el scope de las credenciales DNS para el challenge DNS-01.</strong> Las credenciales que pueden escribir en una zone DNS específica son más seguras que las credenciales de administración de DNS completo.</p>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li><strong>Assuming HTTPS means the host is safe.</strong> TLS proves name binding, not application security.</li>
-<li><strong>Leaving HTTP open because Certbot needed it once.</strong> Validation requirements do not justify permanent exposure.</li>
-<li><strong>Deleting a VM but leaving DNS.</strong> Stale records become future attack surface.</li>
-<li><strong>Ignoring DNS account security.</strong> DNS control can redirect all traffic.</li>
+<li><strong>Certificados auto-firmados en producción.</strong> Los clientes no los confían y son indicadores de configuración débil.</li>
+<li><strong>Ignorar las notificaciones de vencimiento de certificados.</strong> Let&#x27;s Encrypt envía emails de advertencia anticipada; actuar sobre ellos.</li>
+<li><strong>Tratar la clave privada como no sensible.</strong> Las claves privadas de TLS son tan sensibles como cualquier otro secreto cloud.</li>
+<li><strong>Wildcards para simplificar la gestión.</strong> Los wildcards son convenientes pero hacen la rotación y el scope más complejos.</li>
 </ul>
-<h2 id="practical-labs">Practical labs</h2>
-<p>Use a lab domain or subdomain.</p>
-<h3 id="map-dns-to-cloud-resources">Map DNS to cloud resources</h3>
-<div class="codehilite"><pre><span></span><code>Name:
-Record type:
-Target:
-Cloud resource:
-Owner:
-Expires:
-</code></pre></div>
+<h2 id="labs-practicos">Labs prácticos</h2>
+<p>Usá un dominio de lab dedicado, no el dominio principal.</p>
+<h3 id="obtene-un-certificado-con-certbot">Obtené un certificado con Certbot</h3>
+<div class="codehilite"><pre><span></span><code># HTTP-01 challenge (requiere port 80 abierto temporalmente)
+certbot certonly --standalone -d lab.example.com
 
-<p>Make DNS cleanup explicit.</p>
-<h3 id="check-certificate-posture">Check certificate posture</h3>
-<div class="codehilite"><pre><span></span><code>openssl<span class="w"> </span>s_client<span class="w"> </span>-connect<span class="w"> </span>example.com:443<span class="w"> </span>-servername<span class="w"> </span>example.com<span class="w"> </span>&lt;/dev/null
+# Verificar el certificado
+certbot certificates
 </code></pre></div>
+<h3 id="configura-la-renovacion-automatica">Configurá la renovación automática</h3>
+<div class="codehilite"><pre><span></span><code># Testear que la renovación funciona en dry-run
+certbot renew --dry-run
 
-<p>Record issuer, SANs, expiry, and chain status.</p>
-<h3 id="teardown-dns-safely">Teardown DNS safely</h3>
-<div class="codehilite"><pre><span></span><code>Resource deleted:
-DNS record removed:
-Certificate renewal disabled:
-Firewall rules closed:
-Verification date:
+# Verificar que el cron o timer de renovación existe
+systemctl status certbot.timer  # systemd
+# o
+crontab -l | grep certbot       # cron
 </code></pre></div>
+<h3 id="revisa-los-registros-dns-en-el-teardown">Revisá los registros DNS en el teardown</h3>
+<div class="codehilite"><pre><span></span><code># Listá los registros del dominio de lab
+dig lab.example.com A
+dig lab.example.com AAAA
 
-<p>Avoid leaving names pointed at abandoned infrastructure.</p>
-<h3 id="check-http-to-https-behavior">Check HTTP-to-HTTPS behavior</h3>
-<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-I<span class="w"> </span>http://lab.example.test/
-curl<span class="w"> </span>-I<span class="w"> </span>https://lab.example.test/
+# Si la IP ya no existe como recurso cloud, eliminá el registro
 </code></pre></div>
-
-<p>Certificate setup should not leave unexpected plaintext paths or admin redirects.</p>
-<h3 id="track-certificate-renewal-ownership">Track certificate renewal ownership</h3>
-<div class="codehilite"><pre><span></span><code>certificate name | renewal method | service reload | owner | alert before expiry | teardown condition
+<h3 id="verifica-la-fecha-de-vencimiento-del-certificado">Verificá la fecha de vencimiento del certificado</h3>
+<div class="codehilite"><pre><span></span><code>openssl x509 -in /etc/letsencrypt/live/lab.example.com/cert.pem \
+  -noout -dates
 </code></pre></div>
-
-<p>Short-lived certificates need operational ownership, not just initial issuance.</p>
-<h2 id="practical-examples">Practical examples</h2>
+<h3 id="audita-los-permisos-del-directorio-de-certificados">Auditá los permisos del directorio de certificados</h3>
+<div class="codehilite"><pre><span></span><code>ls -la /etc/letsencrypt/live/lab.example.com/
+# La clave privada debería tener permisos 600 y propietario root
+</code></pre></div>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
-<li>A Route 53 record points to a deleted load balancer.</li>
-<li>A lab VM opens HTTP for ACME validation and never closes it.</li>
-<li>A Certbot renewal fails after a firewall change.</li>
-<li>A wildcard cert is reused across unrelated lab services.</li>
-<li>A domain registrar account lacks MFA.</li>
+<li>Un registro DNS apunta a una IP que fue reasignada a otra cuenta después de eliminar la VM.</li>
+<li>El port 80 de validación queda abierto permanentemente en el security group.</li>
+<li>La renovación de Certbot falla silenciosamente porque la IP de la VM cambió.</li>
+<li>La clave privada TLS tiene permisos <code>644</code> en un servidor web.</li>
+<li>Las credenciales de escritura DNS para el challenge DNS-01 tienen scope de admin de zona completo.</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
 <li><a href="cloud-lab-infrastructure.html">cloud-lab-infrastructure</a></li>
 <li><a href="cloud-network-boundaries.html">cloud-network-boundaries</a></li>
+<li><a href="cloud-secrets-management.html">cloud-secrets-management</a></li>
 <li><a href="../networking/dns-resolution.html">DNS Resolution</a></li>
 <li><a href="../networking/tls-https.html">TLS and HTTPS</a></li>
-<li><a href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a></li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<h3 id="notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</h3>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: cloud-dns-takeover">cloud-dns-takeover</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: acme-dns-challenges">acme-dns-challenges</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: certificate-renewal-monitoring">certificate-renewal-monitoring</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: cloud-load-balancer-tls">cloud-load-balancer-tls</span></li>
+<li>subdomain-takeover</li>
+<li>certbot-automation-patterns</li>
+<li>dns-01-challenge-security</li>
+<li>certificate-lifecycle-management</li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><strong>Official Docs:</strong> AWS Route 53 Developer Guide — https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.html</li>
-<li><strong>Official Docs:</strong> Certbot documentation — https://eff-certbot.readthedocs.io/en/stable/</li>
-<li><strong>Official Docs:</strong> Let's Encrypt documentation — https://letsencrypt.org/docs/</li>
+<li><strong>Docs Oficiales:</strong> Certbot documentation — https://certbot.eff.org/docs/</li>
+<li><strong>Docs Oficiales:</strong> Let&#x27;s Encrypt documentation — https://letsencrypt.org/docs/</li>
+<li><strong>Docs Oficiales:</strong> AWS Route 53 — https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.html</li>
+<li><strong>Mitigación:</strong> Subdomain takeover prevention — https://cheatsheetseries.owasp.org/cheatsheets/DNS_Security_Cheat_Sheet.html</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><span class="branch-nav-spacer"></span><a class="branch-nav-link next" href="cloud-iam-boundaries.html"><span class="nav-dir">Next →</span><strong>Cloud IAM Boundaries</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -594,24 +572,28 @@ curl<span class="w"> </span>-I<span class="w"> </span>https://lab.example.test/
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-stale-dns-to-deleted-resources">1. Stale DNS to deleted resources</a>
-<a class="toc-level-3" href="#2-temporary-validation-exposure-left-open">2. Temporary validation exposure left open</a>
-<a class="toc-level-3" href="#3-renewal-failure">3. Renewal failure</a>
-<a class="toc-level-3" href="#4-wildcard-or-broad-certificate-scope">4. Wildcard or broad certificate scope</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-3" href="#map-dns-to-cloud-resources">Map DNS to cloud resources</a>
-<a class="toc-level-3" href="#check-certificate-posture">Check certificate posture</a>
-<a class="toc-level-3" href="#teardown-dns-safely">Teardown DNS safely</a>
-<a class="toc-level-3" href="#check-http-to-https-behavior">Check HTTP-to-HTTPS behavior</a>
-<a class="toc-level-3" href="#track-certificate-renewal-ownership">Track certificate renewal ownership</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
+<a class="toc-level-3" href="#1-dns-obsoleto-a-recursos-eliminados">1. DNS obsoleto a recursos eliminados</a>
+<a class="toc-level-3" href="#2-exposicion-temporal-de-validacion-dejada-abierta">2. Exposición temporal de validación dejada abierta</a>
+<a class="toc-level-3" href="#3-fallo-de-renovacion">3. Fallo de renovación</a>
+<a class="toc-level-3" href="#4-scope-amplio-de-wildcard-o-multicertificado">4. Scope amplio de wildcard o multicertificado</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
+<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
+<a class="toc-level-3" href="#obtene-un-certificado-con-certbot">Obtené un certificado con Certbot</a>
+<a class="toc-level-3" href="#configura-la-renovacion-automatica">Configurá la renovación automática</a>
+<a class="toc-level-3" href="#revisa-los-registros-dns-en-el-teardown">Revisá los registros DNS en el teardown</a>
+<a class="toc-level-3" href="#verifica-la-fecha-de-vencimiento-del-certificado">Verificá la fecha de vencimiento del certificado</a>
+<a class="toc-level-3" href="#audita-los-permisos-del-directorio-de-certificados">Auditá los permisos del directorio de certificados</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-3" href="#notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>
