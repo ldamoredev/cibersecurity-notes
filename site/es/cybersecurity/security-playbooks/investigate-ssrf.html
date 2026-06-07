@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Investigate SSRF - Playbooks de Seguridad | ldamoredev Security Atlas</title>
-<meta name="description" content="Determine whether server-side request functionality can be used to reach internal, privileged, or attacker-chosen destinations.">
+<meta name="description" content="Determinar si funcionalidad de requests server-side puede usarse para alcanzar destinos internos, privilegiados o elegidos por el atacante.">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Playbooks de Seguridad, Investigate SSRF">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Investigate SSRF - Playbooks de Seguridad | ldamoredev Security Atlas">
-<meta property="og:description" content="Determine whether server-side request functionality can be used to reach internal, privileged, or attacker-chosen destinations.">
+<meta property="og:description" content="Determinar si funcionalidad de requests server-side puede usarse para alcanzar destinos internos, privilegiados o elegidos por el atacante.">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/investigate-ssrf.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Investigate SSRF - Playbooks de Seguridad | ldamoredev Security Atlas">
-<meta name="twitter:description" content="Determine whether server-side request functionality can be used to reach internal, privileged, or attacker-chosen destinations.">
+<meta name="twitter:description" content="Determinar si funcionalidad de requests server-side puede usarse para alcanzar destinos internos, privilegiados o elegidos por el atacante.">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/investigate-ssrf.html#article","name":"Investigate SSRF - Playbooks de Seguridad | ldamoredev Security Atlas","headline":"Investigate SSRF","description":"Determine whether server-side request functionality can be used to reach internal, privileged, or attacker-chosen destinations.","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/investigate-ssrf.html","inLanguage":"es","datePublished":"2026-04-23","dateModified":"2026-04-23","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/investigate-ssrf.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Playbooks de Seguridad","Investigate SSRF"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Playbooks de Seguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/index.html"},{"@type":"ListItem","position":4,"name":"Investigate SSRF","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/investigate-ssrf.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/investigate-ssrf.html#article","name":"Investigate SSRF - Playbooks de Seguridad | ldamoredev Security Atlas","headline":"Investigate SSRF","description":"Determinar si funcionalidad de requests server-side puede usarse para alcanzar destinos internos, privilegiados o elegidos por el atacante.","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/investigate-ssrf.html","inLanguage":"es","datePublished":"2026-04-23","dateModified":"2026-04-23","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/investigate-ssrf.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Playbooks de Seguridad","Investigate SSRF"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Playbooks de Seguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/index.html"},{"@type":"ListItem","position":4,"name":"Investigate SSRF","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/investigate-ssrf.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/security-playbooks/investigate-ssrf.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/investigate-ssrf.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/security-playbooks/investigate-ssrf.html">
@@ -410,74 +410,73 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Playbooks de Seguridad</a><span>/</span><span>Investigate SSRF</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Investigate SSRF</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">playbook</span><span class="meta-chip accent-slate">Playbooks de Seguridad</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~1 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado Apr 23, 2026</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="investigate-ssrf">Investigate SSRF</h1>
-<h2 id="goal">Goal</h2>
-<p>Determine whether server-side request functionality can be used to reach internal, privileged, or attacker-chosen destinations.</p>
-<h2 id="assumptions">Assumptions</h2>
+<h2 id="objetivo">Objetivo</h2>
+<p>Determinar si funcionalidad de requests server-side puede usarse para alcanzar destinos internos, privilegiados o elegidos por el atacante.</p>
+<h2 id="supuestos">Supuestos</h2>
 <ul>
-<li>the app fetches URLs, files, previews, webhooks, or remote content</li>
-<li>internal reachability may differ from public reachability</li>
-<li>redirects and alternate representations may bypass naive validation</li>
+<li>la app fetchea URLs, archivos, previews, webhooks o contenido remoto</li>
+<li>la alcanzabilidad interna puede diferir de la alcanzabilidad pública</li>
+<li>redirects y representaciones alternativas pueden bypassear validación ingenua</li>
 </ul>
-<h2 id="prerequisites">Prerequisites</h2>
+<h2 id="prerrequisitos">Prerrequisitos</h2>
 <ul>
-<li>a feature that triggers server-side requests</li>
-<li>ability to observe responses, timing, or side effects</li>
-<li>knowledge of likely internal targets where ethically appropriate</li>
+<li>una feature que dispare requests server-side</li>
+<li>capacidad de observar responses, timing o efectos laterales</li>
+<li>conocimiento de posibles objetivos internos donde sea éticamente apropiado</li>
 </ul>
-<h2 id="recon-steps">Recon steps</h2>
+<h2 id="pasos-de-recon">Pasos de recon</h2>
 <ol>
-<li>Identify all features that accept URLs or remote resources.</li>
-<li>Observe how the server normalizes and fetches destinations.</li>
-<li>Note whether redirects, DNS changes, or alternate IP formats are followed.</li>
+<li>Identificá todas las features que aceptan URLs o recursos remotos.</li>
+<li>Observá cómo el servidor normaliza y fetchea destinos.</li>
+<li>Notá si sigue redirects, cambios DNS o formatos IP alternativos.</li>
 </ol>
-<h2 id="exploit-test-steps">Exploit / test steps</h2>
+<h2 id="pasos-de-exploit-testing">Pasos de exploit / testing</h2>
 <ol>
-<li>Confirm basic outbound request capability.</li>
-<li>Test loopback, private ranges, and metadata-style targets where authorized.</li>
-<li>Observe timing, status codes, header leakage, or indirect success signals.</li>
-<li>Check whether redirects bypass allowlists.</li>
-<li>Compare behavior for HTTP vs HTTPS and domain vs direct IP forms.</li>
+<li>Confirmá capacidad básica de request saliente.</li>
+<li>Testeá loopback, rangos privados y objetivos tipo metadata donde esté autorizado.</li>
+<li>Observá timing, status codes, fuga de headers o señales indirectas de éxito.</li>
+<li>Verificá si redirects bypassean allowlists.</li>
+<li>Compará comportamiento para HTTP vs HTTPS y formas domain vs IP directa.</li>
 </ol>
-<h2 id="validation-clues">Validation clues</h2>
+<h2 id="senales-de-validacion">Señales de validación</h2>
 <ul>
-<li>server can fetch attacker-controlled destinations</li>
-<li>internal or private targets produce distinguishable behavior</li>
-<li>metadata or internal admin paths are reachable</li>
-<li>URL validation blocks some forms but not equivalent alternatives</li>
+<li>el servidor puede fetchear destinos controlados por atacante</li>
+<li>objetivos internos o privados producen comportamiento distinguible</li>
+<li>metadata o paths admin internos son alcanzables</li>
+<li>la validación de URL bloquea algunas formas pero no alternativas equivalentes</li>
 </ul>
-<h2 id="mitigation">Mitigation</h2>
+<h2 id="mitigacion">Mitigación</h2>
 <ul>
-<li>restrict egress destinations tightly</li>
-<li>validate and normalize URLs carefully</li>
-<li>avoid generic fetchers where possible</li>
-<li>segment networks so app servers cannot casually reach sensitive systems</li>
-<li>protect metadata access explicitly</li>
+<li>restringir destinos de egress con precisión</li>
+<li>validar y normalizar URLs cuidadosamente</li>
+<li>evitar fetchers genéricos donde sea posible</li>
+<li>segmentar redes para que app servers no puedan alcanzar sistemas sensibles casualmente</li>
+<li>proteger explícitamente el acceso a metadata</li>
 </ul>
-<h2 id="logging-detection">Logging / detection</h2>
+<h2 id="logging-deteccion">Logging / detección</h2>
 <ul>
-<li>unusual outbound requests from app tier</li>
-<li>requests to loopback, RFC1918, or metadata-style addresses</li>
-<li>failed or repeated fetch attempts against internal targets</li>
+<li>requests salientes inusuales desde el app tier</li>
+<li>requests a loopback, RFC1918 o direcciones tipo metadata</li>
+<li>intentos de fetch fallidos o repetidos contra objetivos internos</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
-<li><a href="../web-security/ssrf.html">ssrf</a></li>
-<li><a href="../networking/nat-and-private-networks.html">nat-and-private-networks</a></li>
-<li><a href="../networking/metadata-endpoints.html">metadata-endpoints</a></li>
-<li><a href="../networking/dns-resolution.html">dns-resolution</a></li>
+<li><a href="../web-security/ssrf.html">SSRF</a></li>
+<li><a href="../networking/nat-and-private-networks.html">NAT y redes privadas</a></li>
+<li><a href="../networking/metadata-endpoints.html">Metadata endpoints</a></li>
+<li><a href="../networking/dns-resolution.html">Resolución DNS</a></li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="referencias">Referencias</h2>
 <ul>
 <li><strong>Testing / Lab:</strong> PortSwigger SSRF topic — https://portswigger.net/web-security/ssrf</li>
-<li><strong>Foundational:</strong> OWASP SSRF Prevention Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html</li>
-<li><strong>Research / Deep Dive:</strong> AWS IMDS docs — https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html</li>
+<li><strong>Fundamental:</strong> OWASP SSRF Prevention Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html</li>
+<li><strong>Investigación / Deep Dive:</strong> AWS IMDS docs — https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="inspect-session-handling.html"><span class="nav-dir">← Previous</span><strong>Inspect Session Handling</strong></a><a class="branch-nav-link next" href="reverse-proxy-misconfig-checklist.html"><span class="nav-dir">Next →</span><strong>Reverse Proxy Misconfig Checklist</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -493,16 +492,16 @@
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#goal">Goal</a>
-<a class="toc-level-2" href="#assumptions">Assumptions</a>
-<a class="toc-level-2" href="#prerequisites">Prerequisites</a>
-<a class="toc-level-2" href="#recon-steps">Recon steps</a>
-<a class="toc-level-2" href="#exploit-test-steps">Exploit / test steps</a>
-<a class="toc-level-2" href="#validation-clues">Validation clues</a>
-<a class="toc-level-2" href="#mitigation">Mitigation</a>
-<a class="toc-level-2" href="#logging-detection">Logging / detection</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-2" href="#references">References</a>
+<a class="toc-level-2" href="#objetivo">Objetivo</a>
+<a class="toc-level-2" href="#supuestos">Supuestos</a>
+<a class="toc-level-2" href="#prerrequisitos">Prerrequisitos</a>
+<a class="toc-level-2" href="#pasos-de-recon">Pasos de recon</a>
+<a class="toc-level-2" href="#pasos-de-exploit-testing">Pasos de exploit / testing</a>
+<a class="toc-level-2" href="#senales-de-validacion">Señales de validación</a>
+<a class="toc-level-2" href="#mitigacion">Mitigación</a>
+<a class="toc-level-2" href="#logging-deteccion">Logging / detección</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

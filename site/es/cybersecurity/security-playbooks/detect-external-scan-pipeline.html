@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Detect External Recon Scan Pipeline - Playbooks de Seguridad | ldamoredev Security Atlas</title>
-<meta name="description" content="Detect an external operator running a two-phase Masscan → Nmap-NSE recon pipeline (the offense playbook run-scan-pipeline) against your perimeter, with high enough...">
+<meta name="description" content="Detectar a un operador externo corriendo un pipeline de recon de dos fases Masscan → Nmap-NSE (el playbook ofensivo Run External Recon Scan Pipeline) contra ...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Playbooks de Seguridad, Detect External Recon Scan Pipeline">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Detect External Recon Scan Pipeline - Playbooks de Seguridad | ldamoredev Security Atlas">
-<meta property="og:description" content="Detect an external operator running a two-phase Masscan → Nmap-NSE recon pipeline (the offense playbook run-scan-pipeline) against your perimeter, with high enough...">
+<meta property="og:description" content="Detectar a un operador externo corriendo un pipeline de recon de dos fases Masscan → Nmap-NSE (el playbook ofensivo Run External Recon Scan Pipeline) contra ...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-external-scan-pipeline.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Detect External Recon Scan Pipeline - Playbooks de Seguridad | ldamoredev Security Atlas">
-<meta name="twitter:description" content="Detect an external operator running a two-phase Masscan → Nmap-NSE recon pipeline (the offense playbook run-scan-pipeline) against your perimeter, with high enough...">
+<meta name="twitter:description" content="Detectar a un operador externo corriendo un pipeline de recon de dos fases Masscan → Nmap-NSE (el playbook ofensivo Run External Recon Scan Pipeline) contra ...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-external-scan-pipeline.html#article","name":"Detect External Recon Scan Pipeline - Playbooks de Seguridad | ldamoredev Security Atlas","headline":"Detect External Recon Scan Pipeline","description":"Detect an external operator running a two-phase Masscan → Nmap-NSE recon pipeline (the offense playbook run-scan-pipeline) against your perimeter, with high enough...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-external-scan-pipeline.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-external-scan-pipeline.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Playbooks de Seguridad","Detect External Recon Scan Pipeline"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Playbooks de Seguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/index.html"},{"@type":"ListItem","position":4,"name":"Detect External Recon Scan Pipeline","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-external-scan-pipeline.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-external-scan-pipeline.html#article","name":"Detect External Recon Scan Pipeline - Playbooks de Seguridad | ldamoredev Security Atlas","headline":"Detect External Recon Scan Pipeline","description":"Detectar a un operador externo corriendo un pipeline de recon de dos fases Masscan → Nmap-NSE (el playbook ofensivo Run External Recon Scan Pipeline) contra ...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-external-scan-pipeline.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-external-scan-pipeline.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Playbooks de Seguridad","Detect External Recon Scan Pipeline"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Playbooks de Seguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/index.html"},{"@type":"ListItem","position":4,"name":"Detect External Recon Scan Pipeline","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-external-scan-pipeline.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/security-playbooks/detect-external-scan-pipeline.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-external-scan-pipeline.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/security-playbooks/detect-external-scan-pipeline.html">
@@ -410,149 +410,148 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Playbooks de Seguridad</a><span>/</span><span>Detect External Recon Scan Pipeline</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Detect External Recon Scan Pipeline</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">playbook</span><span class="meta-chip accent-slate">Playbooks de Seguridad</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~8 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="detect-external-recon-scan-pipeline">Detect External Recon Scan Pipeline</h1>
-<h2 id="goal">Goal</h2>
-<p>Detect an external operator running a two-phase Masscan → Nmap-NSE recon pipeline (the offense playbook <a href="run-scan-pipeline.html">run-scan-pipeline</a>) against your perimeter, with high enough fidelity to identify the source, scope, and intent within minutes — before the operator's depth-phase findings convert into follow-up exploitation.</p>
-<h2 id="assumptions">Assumptions</h2>
+<h2 id="objetivo">Objetivo</h2>
+<p>Detectar a un operador externo corriendo un pipeline de recon de dos fases Masscan → Nmap-NSE (el playbook ofensivo <a href="run-scan-pipeline.html">Run External Recon Scan Pipeline</a>) contra tu perímetro, con fidelidad suficiente para identificar fuente, scope e intención en minutos — antes de que los hallazgos de la fase de profundidad se conviertan en explotación posterior.</p>
+<h2 id="supuestos">Supuestos</h2>
 <ul>
-<li>you have <strong>at least one</strong> of: NetFlow/IPFIX collection at the perimeter, Suricata/Zeek/Snort on the perimeter span port, or perimeter firewall logs with per-source connection counts</li>
-<li>your perimeter rules block at least known-bad source IPs and you can hot-block a new source IP within minutes</li>
-<li>the goal is <strong>detect, identify, contain</strong> — not exploit-block; preventing the scan entirely is impossible against a determined operator with control of their own scan box</li>
+<li>tenés <strong>al menos uno</strong> de: recolección NetFlow/IPFIX en el perímetro, Suricata/Zeek/Snort en el span port perimetral o logs de firewall perimetral con conteos de conexión por fuente</li>
+<li>tus reglas perimetrales bloquean al menos IPs known-bad y podés hot-blockear una IP fuente nueva en minutos</li>
+<li>el objetivo es <strong>detectar, identificar, contener</strong> — no exploit-block; prevenir el scan por completo es imposible contra un operador determinado con control de su scan box</li>
 </ul>
-<h2 id="prerequisites">Prerequisites</h2>
+<h2 id="prerrequisitos">Prerrequisitos</h2>
 <ul>
-<li>NetFlow/IPFIX collector (nfdump, FastNetMon, Plixer, or SIEM-side processing of Cisco/Juniper/pfSense exports)</li>
-<li>IDS engine — Suricata or Zeek at the perimeter, with an updated community rule set</li>
-<li>A baseline of "normal" perimeter traffic: per-source connection rates, common destination ports, partner integrations that legitimately fan out</li>
-<li>An incident-response runbook with at least three contact paths (SOC analyst, network engineer, security on-call)</li>
-<li>Optional: honeyports / tarpits on never-used ports — asymmetric high-confidence detection; see the "Honeyports / tarpits" bullet under <strong>Mitigation / remediation</strong> below</li>
+<li>collector NetFlow/IPFIX (nfdump, FastNetMon, Plixer o procesamiento en SIEM de exports Cisco/Juniper/pfSense)</li>
+<li>motor IDS — Suricata o Zeek en el perímetro, con ruleset comunitario actualizado</li>
+<li>baseline de tráfico perimetral &quot;normal&quot;: tasas de conexión por fuente, puertos destino comunes, integraciones de partners que hacen fan-out legítimo</li>
+<li>runbook de incident response con al menos tres caminos de contacto (analista SOC, network engineer, security on-call)</li>
+<li>opcional: honeyports / tarpits en puertos nunca usados — detección asimétrica de alta confianza</li>
 </ul>
-<h2 id="detection-steps">Detection steps</h2>
+<h2 id="pasos-de-deteccion">Pasos de detección</h2>
 <blockquote>
-<p><em>This playbook is the defender-side mirror of <a href="run-scan-pipeline.html">run-scan-pipeline</a>. Each phase below pairs to the same-numbered phase in the offense playbook. Read both together.</em></p>
+<p><em>Este playbook es el espejo defender-side de <a href="run-scan-pipeline.html">Run External Recon Scan Pipeline</a>. Cada fase abajo se empareja con la fase del mismo número en el playbook ofensivo. Leelos juntos.</em></p>
 </blockquote>
-<h3 id="phase-0-baseline-do-once-refresh-quarterly">Phase 0 — Baseline (do once, refresh quarterly)</h3>
+<h3 id="fase-0-baseline-hacer-una-vez-refrescar-trimestralmente">Fase 0 — Baseline (hacer una vez, refrescar trimestralmente)</h3>
 <ol>
-<li>Capture a 7-day baseline of perimeter traffic. Record per-source flow rates, top 100 source IPs, distinct destination ports per source, common protocols.</li>
-<li>Identify legitimate fan-out sources: monitoring vendors, internet measurement projects (Censys, Shodan, BinaryEdge, internetdb), authorized partners, your own external scanning if you do continuous attack-surface monitoring.</li>
-<li>Allowlist legitimate fan-out sources in your alerting rules. Without this step, the baseline is poisoned by routine internet noise and every alert is a false positive.</li>
+<li>Capturá un baseline de 7 días de tráfico perimetral. Registrá tasas de flow por fuente, top 100 source IPs, puertos destino distintos por fuente, protocolos comunes.</li>
+<li>Identificá fuentes legítimas de fan-out: vendors de monitoreo, proyectos de medición de internet (Censys, Shodan, BinaryEdge, internetdb), partners autorizados, tu propio scanning externo si hacés monitoreo continuo de superficie.</li>
+<li>Allowlisteá fuentes legítimas de fan-out en tus reglas de alerta. Sin esto, el baseline queda envenenado por ruido rutinario de internet y cada alerta es un falso positivo.</li>
 </ol>
-<h3 id="phase-1-detect-breadth-phase-masscan-zmap-signature">Phase 1 — Detect breadth-phase (Masscan / Zmap signature)</h3>
-<p>Operator signature: <strong>one source IP issuing thousands of SYNs against many distinct destinations within seconds</strong>, typically with a non-default TCP fingerprint (Masscan's user-space stack ships specific window size + MSS + missing SACK).</p>
+<h3 id="fase-1-detectar-fase-de-amplitud-firma-masscan-zmap">Fase 1 — Detectar fase de amplitud (firma Masscan / Zmap)</h3>
+<p>Firma del operador: <strong>una IP fuente emite miles de SYNs contra muchos destinos distintos en segundos</strong>, normalmente con fingerprint TCP no-default.</p>
 <ol>
-<li><strong>NetFlow rule (highest sensitivity).</strong> Alert when a single source produces flows to ≥ 100 distinct destination IPs within 60 s. Tune the threshold to your baseline; some environments need 1000+.
-   <code>text
-   # nfdump example
-   nfdump -R /var/log/flow -t 2026-05-11/14:00:00-2026-05-11/14:01:00 \
-     -A srcip -O bytes -o "fmt:%sa %fl %byt" |
-     awk '$2 &gt; 100 {print}'</code></li>
-<li><strong>Suricata signature for SYN fan-out.</strong>
-   <code>text
-   alert tcp $EXTERNAL_NET any -&gt; $HOME_NET any \
-     (msg:"Mass SYN fan-out (Masscan-like)"; flow:to_server; flags:S;
-      threshold:type both, track by_src, count 100, seconds 60;
-      classtype:network-scan; sid:9000001; rev:1;)</code></li>
-<li><strong>TCP fingerprint correlation.</strong> If multiple alerts fire from "different" source IPs in the same time window, capture full packets and compare TCP fingerprints (window size, MSS, options order). Identical fingerprints across "different" sources confirm decoy-based attribution evasion (<a href="../offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a>) — cluster as one actor.</li>
+<li><strong>Regla NetFlow (mayor sensibilidad).</strong> Alertar cuando una fuente produce flows a ≥ 100 IPs destino distintas en 60 s. Tuneá el threshold a tu baseline; algunos entornos necesitan 1000+.<br>
+`text<br>
+# nfdump example<br>
+nfdump -R /var/log/flow -t 2026-05-11/14:00:00-2026-05-11/14:01:00 \<br>
+-A srcip -O bytes -o &quot;fmt:%sa %fl %byt&quot; |<br>
+awk &#x27;$2 &gt; 100 {print}&#x27;`</li>
+<li><strong>Firma Suricata para SYN fan-out.</strong><br>
+`text<br>
+alert tcp $EXTERNAL_NET any -&gt; $HOME_NET any \<br>
+(msg:&quot;Mass SYN fan-out (Masscan-like)&quot;; flow:to_server; flags:S;<br>
+threshold:type both, track by_src, count 100, seconds 60;<br>
+classtype:network-scan; sid:9000001; rev:1;)`</li>
+<li><strong>Correlación de fingerprint TCP.</strong> Si múltiples alertas disparan desde IPs &quot;distintas&quot; en la misma ventana, capturá paquetes completos y compará fingerprints TCP (window size, MSS, orden de options). Fingerprints idénticos a través de fuentes &quot;distintas&quot; confirman evasión de atribución basada en decoys (<a href="../offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a>) — clusterizá como un actor.</li>
 </ol>
-<h3 id="phase-2-detect-depth-phase-nmap-nse-signature">Phase 2 — Detect depth-phase (Nmap + NSE signature)</h3>
-<p>Operator signature: <strong>one source IP probing many distinct ports on one or a few hosts within ~60s</strong>, with NSE-specific probe payloads that match Suricata/Snort community rules.</p>
+<h3 id="fase-2-detectar-fase-de-profundidad-nmap-nse">Fase 2 — Detectar fase de profundidad (Nmap + NSE)</h3>
+<p>Firma del operador: <strong>una IP fuente prueba muchos puertos distintos en uno o pocos hosts en ~60 s</strong>, con payloads de probe específicos de NSE que matchean reglas comunitarias Suricata/Snort.</p>
 <ol>
-<li><strong>Per-host port fan-in alert.</strong> Alert when a single source touches ≥ 100 distinct ports on one destination within 60 s.</li>
-<li><strong>NSE probe signatures.</strong> Subscribe to the Emerging Threats or Suricata community rule set; both ship signatures for the most common NSE payloads (<code>http-shellshock</code>, <code>smb-vuln-ms17-010</code>, <code>ssl-poodle</code>, etc.). Update weekly.</li>
-<li><strong><code>-sV</code> banner-grab signature.</strong> Nmap's version detection sends a specific sequence of payloads against likely service ports. Suricata rule <code>2010493</code> (or equivalent in your ruleset) catches the canonical <code>-sV</code> probe sequence.</li>
-<li><strong>EDR network-to-process correlation.</strong> If you have EDR coverage on internet-facing hosts, alert when the same source IP that triggered Phase 1 alerts also issues per-port deep probes — and when the destination host's EDR shows the connection arriving but no application-level activity following. The combination is a high-confidence Nmap signature.</li>
+<li><strong>Alerta de port fan-in por host.</strong> Alertar cuando una fuente toca ≥ 100 puertos distintos en un destino dentro de 60 s.</li>
+<li><strong>Firmas de probes NSE.</strong> Suscribite a Emerging Threats o ruleset comunitario de Suricata; ambos traen firmas para payloads NSE comunes (<code>http-shellshock</code>, <code>smb-vuln-ms17-010</code>, <code>ssl-poodle</code>, etc.). Actualizá semanalmente.</li>
+<li><strong>Firma de banner grab <code>-sV</code>.</strong> Version detection de Nmap manda una secuencia específica de payloads. La regla Suricata <code>2010493</code> o equivalente detecta la secuencia canónica <code>-sV</code>.</li>
+<li><strong>Correlación EDR network-to-process.</strong> Si tenés EDR en hosts internet-facing, alertá cuando la misma fuente de Fase 1 también haga probes profundos por puerto y el EDR del host destino vea la conexión sin actividad app-level posterior. La combinación es una firma Nmap de alta confianza.</li>
 </ol>
-<h3 id="phase-3-detect-evasion-attempts">Phase 3 — Detect evasion attempts</h3>
-<p>Operator signature: <strong>fragmented probes, decoy traffic, source-port spoofing (<code>--source-port 53</code>), <code>--badsum</code> packets, or idle-scan attribution evasion</strong>.</p>
+<h3 id="fase-3-detectar-intentos-de-evasion">Fase 3 — Detectar intentos de evasión</h3>
+<p>Firma del operador: <strong>probes fragmentados, decoy traffic, source-port spoofing (<code>--source-port 53</code>), paquetes <code>--badsum</code> o evasión de atribución idle-scan</strong>.</p>
 <ol>
-<li><strong>Fragment reassembly alerts.</strong> Suricata/Zeek with <code>stream.reassembly</code> enabled will reassemble fragmented probes before signature matching; the fact that a probe arrived fragmented is itself an alert-worthy anomaly for external traffic.</li>
-<li><strong><code>--badsum</code> detection.</strong> Packets with invalid TCP/IP checksums sent to perimeter hosts. Real OSes drop these silently; any host on path that replies has self-identified as inline inspection — but the attacker's <code>--badsum</code> probe is also visible at the perimeter as malformed packets, which is anomalous.</li>
-<li><strong>Source-port spoofing.</strong> Alert on inbound traffic with source port 53 (DNS) or 88 (Kerberos) to non-DNS/non-Kerberos destination ports. Legacy stateless ACLs sometimes trust these source ports; modern attackers exploit that.</li>
-<li><strong>Idle-scan zombie-side detection.</strong> If your own hosts are being used as zombies for an idle scan (<a href="../offensive-security/idle-scan-and-ipid-side-channels.html">Idle Scan and IPID Side Channels</a>), the host shows: unsolicited SYN-ACKs from the operator + unsolicited responses from the target + IPID counter advancing without matching outbound application traffic. Monitor your own infrastructure for this pattern; you can detect being used as a zombie even when the actual scan target's logs show nothing.</li>
+<li><strong>Alertas de reassembly de fragmentos.</strong> Suricata/Zeek con <code>stream.reassembly</code> habilitado reensambla probes fragmentados antes del signature matching; el hecho de que un probe llegue fragmentado ya es una anomalía alertable para tráfico externo.</li>
+<li><strong>Detección <code>--badsum</code>.</strong> Paquetes con checksums TCP/IP inválidos enviados a hosts perimetrales. Los OS reales los dropean; el probe también es visible como paquete malformado en el perímetro.</li>
+<li><strong>Source-port spoofing.</strong> Alertar sobre tráfico entrante con puerto fuente 53 (DNS) u 88 (Kerberos) hacia puertos destino no-DNS/no-Kerberos. ACLs stateless legacy a veces confían en esos source ports.</li>
+<li><strong>Detección zombie-side de idle scan.</strong> Si tus hosts se usan como zombies para un idle scan, el host muestra SYN-ACKs no solicitados del operador + responses no solicitadas del objetivo + contador IPID avanzando sin tráfico app saliente correspondiente.</li>
 </ol>
-<h2 id="investigation-response-steps">Investigation / response steps</h2>
-<p>Once a Phase 1 or Phase 2 alert fires:</p>
+<h2 id="pasos-de-investigacion-respuesta">Pasos de investigación / respuesta</h2>
+<p>Cuando dispara una alerta de Fase 1 o 2:</p>
 <ol>
-<li><strong>Capture full packets from the source for 5 minutes.</strong>
-   <code>text
-   sudo tcpdump -i $PERIMETER_IFACE -w /tmp/scan-$(date +%s).pcap \
-       -s 0 'host SOURCE_IP' &amp;
-   sleep 300; sudo pkill -P $! tcpdump</code></li>
-<li><strong>Identify the operator footprint.</strong> Run <code>p0f</code> or Suricata's fingerprint logging against the capture to extract TCP fingerprint, TLS JA3/JA4, User-Agent (if HTTP banner-grab is in play).</li>
-<li><strong>WHOIS / ASN attribution.</strong> Identify the source's ASN and known scanner attribution (Censys, Shodan, internetdb). Allowlisted? Stop here. Unknown? Continue.</li>
-<li><strong>Hot-block at the perimeter</strong> if the source is unknown and not in an allowlist of legitimate scanners. Document the block for IR ticket.</li>
-<li><strong>Check correlated activity.</strong> Did the same source touch any administrative panels, login pages, or API endpoints in the last 24 hours? Pivot to web/API logs.</li>
-<li><strong>Open IR ticket</strong> with: source IP, ASN, scan signature, blocked-or-not status, full packet capture path, pivot findings.</li>
+<li><strong>Capturá paquetes completos de la fuente por 5 minutos.</strong><br>
+`text<br>
+sudo tcpdump -i $PERIMETER_IFACE -w /tmp/scan-$(date +%s).pcap \<br>
+-s 0 &#x27;host SOURCE_IP&#x27; &amp;<br>
+sleep 300; sudo pkill -P $! tcpdump`</li>
+<li><strong>Identificá la huella del operador.</strong> Corré <code>p0f</code> o fingerprint logging de Suricata contra la captura para extraer fingerprint TCP, JA3/JA4 TLS y User-Agent si hay HTTP banner-grab.</li>
+<li><strong>WHOIS / atribución ASN.</strong> Identificá ASN de la fuente y atribución conocida de scanner. ¿Allowlisted? Frená ahí. ¿Desconocido? Continuá.</li>
+<li><strong>Hot-block en el perímetro</strong> si la fuente es desconocida y no está en allowlist de scanners legítimos. Documentá el bloqueo en ticket IR.</li>
+<li><strong>Chequeá actividad correlacionada.</strong> ¿La misma fuente tocó admin panels, login pages o API endpoints en las últimas 24 horas? Pivot a web/API logs.</li>
+<li><strong>Abrí ticket IR</strong> con: IP fuente, ASN, firma de scan, estado bloqueado/no bloqueado, path de packet capture completo, hallazgos de pivots.</li>
 </ol>
-<h2 id="validation-clues">Validation clues</h2>
+<h2 id="senales-de-validacion">Señales de validación</h2>
 <ul>
-<li><strong>High-confidence scan:</strong> ≥ 100 distinct destinations or ports from one source in ≤ 60 s, with no prior baseline activity from that source.</li>
-<li><strong>Decoy attribution confirmed:</strong> identical TCP fingerprints across "different" source IPs in the same alert window.</li>
-<li><strong>Banner-grab follow-up confirmed:</strong> the same source that triggered Phase 1 also triggered Phase 2 against a small subset of "interesting" destinations — the operator's prioritization signal.</li>
-<li><strong>Idle scan against you as target:</strong> target host logs show clean session from a known third-party IP; capture full packets and check the third party's IPID advance rate during the scan window.</li>
-<li><strong>You as zombie confirmed:</strong> your host's IPID advanced by N units during a window where it issued only ~N/2 outbound flows.</li>
+<li><strong>Scan de alta confianza:</strong> ≥ 100 destinos o puertos distintos desde una fuente en ≤ 60 s, sin baseline previo de esa fuente.</li>
+<li><strong>Atribución por decoys confirmada:</strong> fingerprints TCP idénticos en IPs fuente &quot;distintas&quot; en la misma ventana.</li>
+<li><strong>Banner-grab follow-up confirmado:</strong> la misma fuente que disparó Fase 1 también disparó Fase 2 contra un subset de destinos interesantes.</li>
+<li><strong>Idle scan contra vos como objetivo:</strong> logs del host objetivo muestran sesión limpia desde una IP tercera conocida; capturá paquetes y chequeá avance IPID.</li>
+<li><strong>Vos como zombie confirmado:</strong> el IPID de tu host avanzó N unidades durante una ventana donde emitió solo ~N/2 outbound flows.</li>
 </ul>
-<h2 id="mitigation-remediation">Mitigation / remediation</h2>
-<p>On the defender side, these are durable controls (not per-alert fixes):</p>
+<h2 id="mitigacion-remediation">Mitigación / remediation</h2>
+<p>Controles durables del lado defensor:</p>
 <ul>
-<li><strong>Per-source-IP SYN-rate alerting</strong> at the perimeter — defeats Masscan in seconds. The single highest-leverage control.</li>
-<li><strong>Behavioral clustering</strong> (fan-out + TCP fingerprint) — defeats decoys. The senior version of the previous control.</li>
-<li><strong>IP fragment reassembly enabled at the IDS</strong> — defeats <code>-f</code>/<code>--mtu</code> evasion (<a href="../offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a>).</li>
-<li><strong>Per-destination IPID generation on every internet-facing host</strong> — defeats classic idle scan (<a href="../offensive-security/idle-scan-and-ipid-side-channels.html">Idle Scan and IPID Side Channels</a>).</li>
-<li><strong>Version-banner shaping</strong> — raises NSE <code>vuln</code> false-positive rate (<a href="../offensive-security/nse-vuln-category-audit.html">NSE vuln Category Audit</a>), lowers attacker signal asymmetrically.</li>
-<li><strong>Honeyports / tarpits on never-used ports</strong> (e.g., 4444, 31337) — every external connection is a high-confidence alert with near-zero false-positive rate.</li>
-<li><strong>Reduce real attack surface</strong> — alerting on scans is monitoring; the durable defense is reducing exposed services so there is less to find.</li>
+<li><strong>Alerting de tasa SYN por source-IP</strong> en el perímetro — derrota Masscan en segundos.</li>
+<li><strong>Clustering comportamental</strong> (fan-out + TCP fingerprint) — derrota decoys.</li>
+<li><strong>Reassembly de fragmentos IP habilitado en IDS</strong> — derrota evasión <code>-f</code>/<code>--mtu</code>.</li>
+<li><strong>Generación IPID per-destination en hosts internet-facing</strong> — derrota idle scan clásico.</li>
+<li><strong>Version-banner shaping</strong> — sube falsos positivos de NSE <code>vuln</code> y baja señal atacante.</li>
+<li><strong>Honeyports / tarpits en puertos nunca usados</strong> — toda conexión externa es alerta de alta confianza.</li>
+<li><strong>Reducir superficie real de ataque</strong> — alertar sobre scans es monitoreo; defensa durable es reducir servicios expuestos.</li>
 </ul>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li><strong>Blocking by source IP after the fact</strong> — Masscan finishes its sweep in seconds; the block is post-mortem.</li>
-<li><strong>Geo-blocking</strong> — operators rotate VPS in any country trivially.</li>
-<li><strong>Trusting "no alert" as evidence of safety</strong> — operators using <code>-T2</code> <code>--scan-delay</code>, idle scan, or selectively targeted Boolean queries fly under threshold-based rules.</li>
-<li><strong>Counting individual port hits as alerts</strong> — every internet-facing host receives constant port hits from internet noise. Alert on <em>fan-out</em> and <em>fan-in</em>, not on raw counts.</li>
+<li><strong>Bloquear por IP fuente después del hecho</strong> — Masscan termina su barrido en segundos.</li>
+<li><strong>Geo-blocking</strong> — los operadores rotan VPS en cualquier país trivialmente.</li>
+<li><strong>Confiar en &quot;sin alerta&quot; como evidencia de seguridad</strong> — <code>-T2</code>, <code>--scan-delay</code>, idle scan o queries selectivas pueden volar bajo reglas threshold-only.</li>
+<li><strong>Contar hits individuales de puertos como alertas</strong> — internet-facing hosts reciben hits constantes. Alertá sobre fan-out y fan-in, no conteos raw.</li>
 </ul>
 <h2 id="logging-forensics">Logging / forensics</h2>
 <ul>
-<li><strong>Retain perimeter flow logs for ≥ 90 days.</strong> Operators frequently scan, wait a week, then return to exploit. Without flow retention, the recon → exploit chain is invisible.</li>
-<li><strong>Retain full packet captures from any alert source for ≥ 30 days.</strong> Captures support post-mortem TCP fingerprint analysis, JA3/JA4 extraction, and decoy clustering.</li>
-<li><strong>Tag every alert with: source IP, source ASN, TCP fingerprint hash, JA3 hash if TLS in play, allowlist status, blocked status.</strong> These tags drive trend analysis across engagements.</li>
-<li><strong>Cross-reference with <a href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Scan Anomaly Detection</a></strong> for the conceptual framing of why fan-out clustering beats per-source rate limits.</li>
+<li><strong>Retener flow logs perimetrales ≥ 90 días.</strong> Los operadores suelen scanear, esperar una semana y volver a explotar.</li>
+<li><strong>Retener packet captures completos de cualquier fuente alertada ≥ 30 días.</strong> Soportan análisis de fingerprint TCP, JA3/JA4 y clustering de decoys.</li>
+<li><strong>Taggear cada alerta con:</strong> IP fuente, ASN fuente, hash de fingerprint TCP, JA3 si aplica, estado allowlist, estado bloqueado.</li>
+<li><strong>Cross-reference con <a href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Detección de anomalías de scan</a></strong> para el framing conceptual.</li>
 </ul>
-<h2 id="operational-safety">Operational safety</h2>
+<h2 id="seguridad-operacional">Seguridad operacional</h2>
 <ul>
-<li><strong>never</strong> auto-block a source whose ASN belongs to a known measurement / research organization without a manual review — false positives against Shodan / Censys / Project Sonar generate poor signal-to-noise and may violate measurement-research norms.</li>
-<li><strong>never</strong> rely on a single detection layer. Phase 1 alerts from NetFlow combined with Phase 2 alerts from IDS produce a much higher-fidelity finding than either alone.</li>
-<li><strong>always</strong> keep your IDS rule set updated weekly. NSE signatures evolve; stale rule sets produce false negatives.</li>
-<li><strong>always</strong> test your detection rules against an authorized internal lab running <a href="run-scan-pipeline.html">run-scan-pipeline</a> before relying on them. Untested rules are theater.</li>
-<li><strong>always</strong> baseline first. Alerting without a baseline produces noise; alerting on a deviation from a known baseline produces signal.</li>
+<li><strong>nunca</strong> auto-bloquees una fuente cuyo ASN pertenece a organizaciones conocidas de medición/research sin revisión manual</li>
+<li><strong>nunca</strong> dependas de una sola capa de detección</li>
+<li><strong>siempre</strong> mantené actualizado semanalmente el ruleset IDS</li>
+<li><strong>siempre</strong> testeá las reglas contra un lab interno autorizado corriendo <a href="run-scan-pipeline.html">Run External Recon Scan Pipeline</a></li>
+<li><strong>siempre</strong> baseliná primero</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
-<li><a href="run-scan-pipeline.html">run-scan-pipeline</a> — the offense playbook this one mirrors note-by-note.</li>
-<li><a href="../offensive-security/nmap-timing-and-evasion.html">Nmap Timing and Evasion</a> — the timing primitives this playbook is meant to detect.</li>
-<li><a href="../offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a> — the evasion family Phase 3 alerts target.</li>
-<li><a href="../offensive-security/masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a> — the breadth-phase tool whose signature drives Phase 1.</li>
-<li><a href="../offensive-security/rustscan-and-nse-pipeline.html">RustScan and NSE Pipeline</a> — the depth-phase tool whose signature drives Phase 2.</li>
-<li><a href="../offensive-security/idle-scan-and-ipid-side-channels.html">Idle Scan and IPID Side Channels</a> — the attribution-evading variant Phase 3 catches at the zombie side, not the target side.</li>
-<li><a href="../offensive-security/nse-vuln-category-audit.html">NSE vuln Category Audit</a> — why banner shaping is asymmetric defender leverage against NSE.</li>
-<li><a href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Scan Anomaly Detection and Fingerprint Analysis</a> — the conceptual framing this playbook operationalizes.</li>
-<li><a href="../detection-engineering/network-telemetry-sources-and-visibility.html">Network Telemetry Sources and Visibility</a> — what you can and cannot see at the perimeter; Phase 0 baseline material.</li>
-<li><a href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html">IDS/IPS and Behavioral Detection Pipelines</a> — the broader framing of the rule pipeline this playbook lives in.</li>
-<li><a href="../detection-engineering/zeek-suricata-and-netflow-analysis.html">Zeek, Suricata, and NetFlow Analysis</a> — the specific tools the rules in this playbook target.</li>
-<li><a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality</a> — the meta-principle this playbook pair operationalizes.</li>
+<li><a href="run-scan-pipeline.html">Run External Recon Scan Pipeline</a></li>
+<li><a href="../offensive-security/nmap-timing-and-evasion.html">Nmap Timing and Evasion</a></li>
+<li><a href="../offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a></li>
+<li><a href="../offensive-security/masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a></li>
+<li><a href="../offensive-security/rustscan-and-nse-pipeline.html">RustScan and NSE Pipeline</a></li>
+<li><a href="../offensive-security/idle-scan-and-ipid-side-channels.html">Idle Scan and IPID Side Channels</a></li>
+<li><a href="../offensive-security/nse-vuln-category-audit.html">NSE vuln Category Audit</a></li>
+<li><a href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Detección de anomalías de scan y análisis de fingerprint</a></li>
+<li><a href="../detection-engineering/network-telemetry-sources-and-visibility.html">Fuentes de telemetría de red y visibilidad</a></li>
+<li><a href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html">Pipelines de IDS/IPS y detección de comportamiento</a></li>
+<li><a href="../detection-engineering/zeek-suricata-and-netflow-analysis.html">Análisis con Zeek, Suricata y NetFlow</a></li>
+<li><a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Dualidad atacante-defensor</a></li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><strong>Foundational:</strong> MITRE ATT&amp;CK T1595 — Active Scanning — https://attack.mitre.org/techniques/T1595/</li>
-<li><strong>Foundational:</strong> MITRE D3FEND — Network Traffic Analysis — https://d3fend.mitre.org/technique/d3f:NetworkTrafficAnalysis/</li>
+<li><strong>Fundamental:</strong> MITRE ATT&amp;CK T1595 — Active Scanning — https://attack.mitre.org/techniques/T1595/</li>
+<li><strong>Fundamental:</strong> MITRE D3FEND — Network Traffic Analysis — https://d3fend.mitre.org/technique/d3f:NetworkTrafficAnalysis/</li>
 <li><strong>Official Tool Docs:</strong> Suricata rules documentation — https://docs.suricata.io/en/latest/rules/</li>
 <li><strong>Official Tool Docs:</strong> Zeek scan.log and notice framework — https://docs.zeek.io/en/master/scripts/policy/protocols/conn/known-services.zeek.html</li>
-<li><strong>Research / Deep Dive:</strong> David Bianco — The Pyramid of Pain (cost-asymmetry framing for which detection layers actually hurt attackers) — https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html</li>
+<li><strong>Investigación / Deep Dive:</strong> David Bianco — The Pyramid of Pain — https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="detect-dcsync-and-ntdsdit-access.html"><span class="nav-dir">← Previous</span><strong>Detect DCSync and ntds.dit Access</strong></a><a class="branch-nav-link next" href="detect-kerberoasting-and-as-rep-roasting.html"><span class="nav-dir">Next →</span><strong>Detect Kerberoasting and AS-REP Roasting</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -568,22 +567,22 @@
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#goal">Goal</a>
-<a class="toc-level-2" href="#assumptions">Assumptions</a>
-<a class="toc-level-2" href="#prerequisites">Prerequisites</a>
-<a class="toc-level-2" href="#detection-steps">Detection steps</a>
-<a class="toc-level-3" href="#phase-0-baseline-do-once-refresh-quarterly">Phase 0 — Baseline (do once, refresh quarterly)</a>
-<a class="toc-level-3" href="#phase-1-detect-breadth-phase-masscan-zmap-signature">Phase 1 — Detect breadth-phase (Masscan / Zmap signature)</a>
-<a class="toc-level-3" href="#phase-2-detect-depth-phase-nmap-nse-signature">Phase 2 — Detect depth-phase (Nmap + NSE signature)</a>
-<a class="toc-level-3" href="#phase-3-detect-evasion-attempts">Phase 3 — Detect evasion attempts</a>
-<a class="toc-level-2" href="#investigation-response-steps">Investigation / response steps</a>
-<a class="toc-level-2" href="#validation-clues">Validation clues</a>
-<a class="toc-level-2" href="#mitigation-remediation">Mitigation / remediation</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
+<a class="toc-level-2" href="#objetivo">Objetivo</a>
+<a class="toc-level-2" href="#supuestos">Supuestos</a>
+<a class="toc-level-2" href="#prerrequisitos">Prerrequisitos</a>
+<a class="toc-level-2" href="#pasos-de-deteccion">Pasos de detección</a>
+<a class="toc-level-3" href="#fase-0-baseline-hacer-una-vez-refrescar-trimestralmente">Fase 0 — Baseline (hacer una vez, refrescar trimestralmente)</a>
+<a class="toc-level-3" href="#fase-1-detectar-fase-de-amplitud-firma-masscan-zmap">Fase 1 — Detectar fase de amplitud (firma Masscan / Zmap)</a>
+<a class="toc-level-3" href="#fase-2-detectar-fase-de-profundidad-nmap-nse">Fase 2 — Detectar fase de profundidad (Nmap + NSE)</a>
+<a class="toc-level-3" href="#fase-3-detectar-intentos-de-evasion">Fase 3 — Detectar intentos de evasión</a>
+<a class="toc-level-2" href="#pasos-de-investigacion-respuesta">Pasos de investigación / respuesta</a>
+<a class="toc-level-2" href="#senales-de-validacion">Señales de validación</a>
+<a class="toc-level-2" href="#mitigacion-remediation">Mitigación / remediation</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
 <a class="toc-level-2" href="#logging-forensics">Logging / forensics</a>
-<a class="toc-level-2" href="#operational-safety">Operational safety</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-2" href="#references">References</a>
+<a class="toc-level-2" href="#seguridad-operacional">Seguridad operacional</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

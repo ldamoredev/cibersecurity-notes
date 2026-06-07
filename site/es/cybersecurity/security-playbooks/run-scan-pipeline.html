@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Run External Recon Scan Pipeline - Playbooks de Seguridad | ldamoredev Security Atlas</title>
-<meta name="description" content="Map the open ports, services, and version exposure of an authorized target (single host, subnet, or BGP AS) using a two-phase Masscan → RustScan/Nmap-NSE pipeline...">
+<meta name="description" content="Mapear puertos abiertos, servicios y exposición de versiones de un objetivo autorizado (host único, subnet o BGP AS) usando un pipeline de dos fases Masscan ...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Playbooks de Seguridad, Run External Recon Scan Pipeline">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Run External Recon Scan Pipeline - Playbooks de Seguridad | ldamoredev Security Atlas">
-<meta property="og:description" content="Map the open ports, services, and version exposure of an authorized target (single host, subnet, or BGP AS) using a two-phase Masscan → RustScan/Nmap-NSE pipeline...">
+<meta property="og:description" content="Mapear puertos abiertos, servicios y exposición de versiones de un objetivo autorizado (host único, subnet o BGP AS) usando un pipeline de dos fases Masscan ...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Run External Recon Scan Pipeline - Playbooks de Seguridad | ldamoredev Security Atlas">
-<meta name="twitter:description" content="Map the open ports, services, and version exposure of an authorized target (single host, subnet, or BGP AS) using a two-phase Masscan → RustScan/Nmap-NSE pipeline...">
+<meta name="twitter:description" content="Mapear puertos abiertos, servicios y exposición de versiones de un objetivo autorizado (host único, subnet o BGP AS) usando un pipeline de dos fases Masscan ...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html#article","name":"Run External Recon Scan Pipeline - Playbooks de Seguridad | ldamoredev Security Atlas","headline":"Run External Recon Scan Pipeline","description":"Map the open ports, services, and version exposure of an authorized target (single host, subnet, or BGP AS) using a two-phase Masscan → RustScan/Nmap-NSE pipeline...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Playbooks de Seguridad","Run External Recon Scan Pipeline"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Playbooks de Seguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/index.html"},{"@type":"ListItem","position":4,"name":"Run External Recon Scan Pipeline","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html#article","name":"Run External Recon Scan Pipeline - Playbooks de Seguridad | ldamoredev Security Atlas","headline":"Run External Recon Scan Pipeline","description":"Mapear puertos abiertos, servicios y exposición de versiones de un objetivo autorizado (host único, subnet o BGP AS) usando un pipeline de dos fases Masscan ...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Playbooks de Seguridad","Run External Recon Scan Pipeline"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Playbooks de Seguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/index.html"},{"@type":"ListItem","position":4,"name":"Run External Recon Scan Pipeline","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/security-playbooks/run-scan-pipeline.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/security-playbooks/run-scan-pipeline.html">
@@ -410,128 +410,130 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Playbooks de Seguridad</a><span>/</span><span>Run External Recon Scan Pipeline</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Run External Recon Scan Pipeline</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">playbook</span><span class="meta-chip accent-slate">Playbooks de Seguridad</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~4 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="run-external-recon-scan-pipeline">Run External Recon Scan Pipeline</h1>
-<h2 id="goal">Goal</h2>
-<p>Map the open ports, services, and version exposure of an authorized target (single host, subnet, or BGP AS) using a two-phase Masscan → RustScan/Nmap-NSE pipeline, with reproducible timing, an enforced exclude-list, and structured output that diffs cleanly across runs.</p>
-<h2 id="assumptions">Assumptions</h2>
+<h2 id="objetivo">Objetivo</h2>
+<p>Mapear puertos abiertos, servicios y exposición de versiones de un objetivo autorizado (host único, subnet o BGP AS) usando un pipeline de dos fases Masscan → RustScan/Nmap-NSE, con timing reproducible, exclude-list obligatorio y output estructurado que diffee limpio entre corridas.</p>
+<h2 id="supuestos">Supuestos</h2>
 <ul>
-<li>a written authorization (engagement scope, bug-bounty policy, or owned-asset list) exists and covers every IP/CIDR that will appear in the include list</li>
-<li>the scan box has a stable source IP and a clean upstream link (no shared NAT with sensitive workloads)</li>
-<li>the goal is breadth-then-depth recon, not exploitation; vulnerability validation happens in follow-up playbooks</li>
-<li>Nmap, Masscan, RustScan, <code>jq</code>, and <code>whois</code> are installed and current</li>
+<li>existe autorización escrita (scope de engagement, policy de bug bounty o lista de assets propios) y cubre cada IP/CIDR que aparecerá en include list</li>
+<li>la scan box tiene IP fuente estable y link upstream limpio</li>
+<li>el objetivo es recon de amplitud-luego-profundidad, no explotación</li>
+<li>Nmap, Masscan, RustScan, <code>jq</code> y <code>whois</code> están instalados y actualizados</li>
 </ul>
-<h2 id="prerequisites">Prerequisites</h2>
+<h2 id="prerrequisitos">Prerrequisitos</h2>
 <ul>
-<li><code>INCLUDE.txt</code> — authorized targets (one CIDR/IP/host per line)</li>
-<li><code>EXCLUDE.txt</code> — out-of-scope IPs, partner integrations, monitoring infra, RFC 5737 ranges if relevant</li>
-<li><code>--adapter-ip</code> value matching the scan box's actual routable source IP</li>
-<li><code>nmap --script-updatedb</code> run within the last 30 days</li>
-<li>shell <code>ulimit -n 65535</code> available (or use the RustScan Docker image)</li>
+<li><code>INCLUDE.txt</code> — objetivos autorizados (un CIDR/IP/host por línea)</li>
+<li><code>EXCLUDE.txt</code> — IPs fuera de scope, integraciones de partners, infra de monitoreo, rangos RFC 5737 si aplica</li>
+<li>valor <code>--adapter-ip</code> que coincide con la IP fuente enrutable real de la scan box</li>
+<li><code>nmap --script-updatedb</code> corrido en los últimos 30 días</li>
+<li>shell <code>ulimit -n 65535</code> disponible (o usar la imagen Docker de RustScan)</li>
 </ul>
-<h2 id="recon-steps">Recon steps</h2>
+<h2 id="pasos-de-recon">Pasos de recon</h2>
 <blockquote>
-<p><em>Runnable reference script:</em> <code>cybersecurity/security-playbooks/run-scan-pipeline.sh</code> packages Phases 1–2 below into one shell script. Use it with <code>INCLUDE_FILE</code>, <code>EXCLUDE_FILE</code>, and <code>ADAPTER_IP</code> env vars; the script refuses to run if <code>EXCLUDE_FILE</code> is empty and prompts for an explicit <code>YES</code> before scanning unless <code>--yes</code> is passed. Phase 0 (authorization gate) and Phase 3 (diagnostic packet-shape matrix) are kept as human-in-the-loop steps and are not automated.</p>
-<p><em>Defender pair:</em> <a href="detect-external-scan-pipeline.html">detect-external-scan-pipeline</a> is the note-by-note defender-side mirror of this playbook — read both together per <a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality</a>.</p>
+<p><em>Script runnable de referencia:</em> <code>cybersecurity/security-playbooks/run-scan-pipeline.sh</code> empaqueta las Fases 1–2 de abajo en un script shell. Usalo con env vars <code>INCLUDE_FILE</code>, <code>EXCLUDE_FILE</code> y <code>ADAPTER_IP</code>; el script se niega a correr si <code>EXCLUDE_FILE</code> está vacío y pide un <code>YES</code> explícito antes de escanear salvo que pases <code>--yes</code>. Fase 0 (gate de autorización) y Fase 3 (matriz diagnóstica de packet-shape) quedan como pasos human-in-the-loop y no se automatizan.</p>
+<p><em>Par defensor:</em> <a href="detect-external-scan-pipeline.html">Detectar pipeline de scan externo</a> es el espejo defender-side de este playbook — leé ambos juntos según <a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Dualidad atacante-defensor</a>.</p>
 </blockquote>
-<h3 id="phase-0-authorization-gate">Phase 0 — Authorization gate</h3>
+<h3 id="fase-0-gate-de-autorizacion">Fase 0 — Gate de autorización</h3>
 <ol>
-<li>Print the scope and exclude list verbatim and confirm against the engagement document.</li>
-<li><code>cat INCLUDE.txt EXCLUDE.txt</code> — visually verify before any packets go out.</li>
-<li>If targets are AS-level, expand the AS to prefixes first:
-   <code>bash
-   whois -h whois.radb.net -- "-i origin AS&lt;NUMBER&gt;" |
-     awk '/^route:/ {print $2}' | sort -u &gt; INCLUDE.txt</code></li>
+<li>Imprimí scope y exclude list textualmente y confirmá contra el documento del engagement.</li>
+<li><code>cat INCLUDE.txt EXCLUDE.txt</code> — verificá visualmente antes de que salga cualquier paquete.</li>
+<li>Si los objetivos son a nivel AS, expandí el AS a prefixes primero:<br>
+`bash<br>
+whois -h whois.radb.net -- &quot;-i origin AS&lt;NUMBER&gt;&quot; |<br>
+awk &#x27;/^route:/ {print $2}&#x27; | sort -u &gt; INCLUDE.txt`</li>
 </ol>
-<h3 id="phase-1-breadth-masscan">Phase 1 — Breadth (Masscan)</h3>
+<h3 id="fase-1-amplitud-masscan">Fase 1 — Amplitud (Masscan)</h3>
 <ol>
-<li>Echo-validate the Masscan config before scanning:
-   <code>bash
-   sudo masscan --excludefile EXCLUDE.txt -iL INCLUDE.txt \
-        -p1-65535 --rate 1000 --adapter-ip &lt;YOUR_IP&gt; --echo &gt; masscan.conf
-   less masscan.conf   # eyeball the merged include/exclude</code></li>
-<li>Calibrate <code>--rate</code> on a tiny slice first (<code>-p80</code> on one /24) and watch for ICMP-unreachable / loss spikes. Set the real rate to ~½ of the highest clean rate.</li>
-<li>Run the scan with binary output for lossless re-parsing:
-   <code>bash
-   sudo masscan -c masscan.conf -oB scan.bin</code></li>
-<li>Convert to JSON for downstream tooling:
-   <code>bash
-   sudo masscan --readscan scan.bin -oJ scan.json
-   jq -r '.[] | "\(.ip):\(.ports[0].port)"' scan.json | sort -u &gt; openports.txt</code></li>
-<li>If interrupted, resume with <code>sudo masscan --resume paused.conf</code> — never restart from zero.</li>
+<li>Echo-validá la config de Masscan antes de escanear:<br>
+`bash<br>
+sudo masscan --excludefile EXCLUDE.txt -iL INCLUDE.txt \<br>
+-p1-65535 --rate 1000 --adapter-ip &lt;YOUR_IP&gt; --echo &gt; masscan.conf<br>
+less masscan.conf   # eyeball the merged include/exclude`</li>
+<li>Calibrá <code>--rate</code> en una porción mínima primero (<code>-p80</code> en un /24) y observá ICMP-unreachable / spikes de pérdida. Seteá la tasa real a ~½ de la tasa limpia más alta.</li>
+<li>Corré el scan con output binario para re-parsing sin pérdida:<br>
+`bash<br>
+sudo masscan -c masscan.conf -oB scan.bin`</li>
+<li>Convertí a JSON para tooling downstream:<br>
+`bash<br>
+sudo masscan --readscan scan.bin -oJ scan.json<br>
+jq -r &#x27;.[] | &quot;\(.ip):\(.ports[0].port)&quot;&#x27; scan.json | sort -u &gt; openports.txt`</li>
+<li>Si se interrumpe, retomá con <code>sudo masscan --resume paused.conf</code> — nunca reinicies desde cero.</li>
 </ol>
-<h3 id="phase-2-depth-rustscan-nmap-nse">Phase 2 — Depth (RustScan → Nmap NSE)</h3>
+<h3 id="fase-2-profundidad-rustscan-nmap-nse">Fase 2 — Profundidad (RustScan → Nmap NSE)</h3>
 <ol>
-<li>Group Masscan output by host so Nmap runs once per host with that host's port list:
-   <code>bash
-   awk -F: '{ports[$1]=ports[$1]","$2} END {for (h in ports) print h, substr(ports[h],2)}' openports.txt &gt; hostports.txt</code></li>
-<li>Run Nmap with version detection and a conservative NSE category Boolean:
-   <code>bash
-   while read host ports; do
-     sudo nmap -Pn -sS -sV -sC \
-          --script "(default or vuln) and not (intrusive or dos or brute)" \
-          --min-rate 100 --max-rate 300 --max-retries 3 \
-          -p "$ports" -oA "nmap/$host" "$host"
-   done &lt; hostports.txt</code></li>
-<li>For single-host deep scans where Masscan-scale isn't needed, substitute RustScan as the discovery layer:
-   <code>bash
-   rustscan -a &lt;HOST&gt; --ulimit 5000 -- -sV -sC \
-       --script "(default or safe or vuln) and not (intrusive or dos or brute)" \
-       --min-rate 100</code></li>
-<li>If a target appears rate-limited (high <code>filtered</code> count at high rate, lower at low rate), pin <code>--min-rate 50 --max-rate 100</code> and re-run only that host.</li>
+<li>Agrupá output de Masscan por host para que Nmap corra una vez por host con la lista de puertos de ese host:<br>
+`bash<br>
+awk -F: &#x27;{ports[$1]=ports[$1]&quot;,&quot;$2} END {for (h in ports) print h, substr(ports[h],2)}&#x27; openports.txt &gt; hostports.txt`</li>
+<li>Corré Nmap con version detection y una categoría NSE conservadora:<br>
+`bash<br>
+while read host ports; do<br>
+sudo nmap -Pn -sS -sV -sC \<br>
+--script &quot;(default or vuln) and not (intrusive or dos or brute)&quot; \<br>
+--min-rate 100 --max-rate 300 --max-retries 3 \<br>
+-p &quot;$ports&quot; -oA &quot;nmap/$host&quot; &quot;$host&quot;<br>
+done &lt; hostports.txt`</li>
+<li>Para deep scans de host único donde no hace falta escala Masscan, sustituí RustScan como capa de discovery:<br>
+`bash<br>
+rustscan -a &lt;HOST&gt; --ulimit 5000 -- -sV -sC \<br>
+--script &quot;(default or safe or vuln) and not (intrusive or dos or brute)&quot; \<br>
+--min-rate 100`</li>
+<li>Si un objetivo parece rate-limited, fijá <code>--min-rate 50 --max-rate 100</code> y repetí solo ese host.</li>
 </ol>
-<h3 id="phase-3-diagnostic-packet-shape-matrix-optional">Phase 3 — Diagnostic packet-shape matrix (optional)</h3>
-<p>Run only when Phase 2 reports everything as <code>filtered</code> despite expected exposure. Pick one suspected-open port and probe with each evasion primitive separately to fingerprint the inspection layer:</p>
-<div class="codehilite"><pre><span></span><code><span class="nv">PORT</span><span class="o">=</span><span class="m">443</span><span class="p">;</span><span class="w"> </span><span class="nv">HOST</span><span class="o">=</span>&lt;TARGET&gt;
-<span class="k">for</span><span class="w"> </span>FLAG<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="s2">&quot;-f&quot;</span><span class="w"> </span><span class="s2">&quot;--mtu 24&quot;</span><span class="w"> </span><span class="s2">&quot;--data-length 200&quot;</span><span class="w"> </span><span class="s2">&quot;--badsum&quot;</span><span class="w"> </span><span class="s2">&quot;--source-port 53&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;===== </span><span class="nv">$FLAG</span><span class="s2">&quot;</span>
-<span class="w">  </span>sudo<span class="w"> </span>nmap<span class="w"> </span>-Pn<span class="w"> </span>-sS<span class="w"> </span>-p<span class="w"> </span><span class="nv">$PORT</span><span class="w"> </span><span class="nv">$FLAG</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOST</span><span class="s2">&quot;</span>
-<span class="k">done</span>
+<h3 id="fase-3-matriz-diagnostica-de-packet-shape-opcional">Fase 3 — Matriz diagnóstica de packet-shape (opcional)</h3>
+<p>Corré solo cuando Fase 2 reporta todo como <code>filtered</code> pese a exposición esperada. Elegí un puerto supuestamente abierto y probá cada primitiva de evasión por separado para fingerprinting de la capa de inspección:</p>
+<div class="codehilite"><pre><span></span><code>PORT=443; HOST=&lt;TARGET&gt;
+for FLAG in &quot;&quot; &quot;-f&quot; &quot;--mtu 24&quot; &quot;--data-length 200&quot; &quot;--badsum&quot; &quot;--source-port 53&quot;; do
+  echo &quot;===== $FLAG&quot;
+  sudo nmap -Pn -sS -p $PORT $FLAG &quot;$HOST&quot;
+done
 </code></pre></div>
-
-<p>Whichever invocation returns <code>open</code> reveals what the middlebox does and does not inspect — that intel guides the next phase.</p>
-<h2 id="exploit-test-steps">Exploit / test steps</h2>
-<p>This playbook intentionally stops at enumeration. Validated findings route to:
-- exploitation playbooks per service class (<code>exploit-sqli</code>, <code>break-jwt-validation</code>, <code>inspect-file-upload-surface</code>, etc.)
-- <code>cybersecurity/offensive-security/service-validation</code> for manual service inspection
-- <code>cybersecurity/offensive-security/recon-to-testing-handoff</code> for engagement handoff</p>
-<h2 id="validation-clues">Validation clues</h2>
+<p>La invocación que devuelva <code>open</code> revela qué inspecciona y qué no el middlebox; esa intel guía la fase siguiente.</p>
+<h2 id="pasos-de-exploit-testing">Pasos de exploit / testing</h2>
+<p>Este playbook se detiene intencionalmente en enumeración. Los hallazgos validados van a:</p>
 <ul>
-<li><code>open</code> ports appear identically across Masscan and Nmap runs (Masscan ground-truth on discovery, Nmap on protocol)</li>
-<li>Version banners are consistent across NSE scripts (<code>-sV</code>, <code>http-server-header</code>, <code>ssl-cert</code>) — divergence indicates a load balancer with mixed backends</li>
-<li><code>filtered</code> counts drop when <code>--min-rate</code> drops — confirms rate limiting, not firewall block</li>
-<li>A <code>--badsum</code> probe returning <code>RST/ACK</code> confirms an inline IDS not validating checksums (real OSes drop)</li>
-<li>Diff against the previous run shows new ports/services — the actual engagement output</li>
+<li>playbooks de explotación por clase de servicio (<code>exploit-sqli</code>, <code>break-jwt-validation</code>, <code>inspect-file-upload-surface</code>, etc.)</li>
+<li><code>cybersecurity/offensive-security/service-validation</code> para inspección manual de servicios</li>
+<li><code>cybersecurity/offensive-security/recon-to-testing-handoff</code> para handoff de engagement</li>
 </ul>
-<h2 id="mitigation">Mitigation</h2>
-<p>On the defender side, the right controls for the pipeline being run against you:
-- per-source-IP SYN-rate alerting at the perimeter (defeats Masscan in seconds)
-- IDS rules tied to fan-out behavior (one source → many destinations) and TCP fingerprint (defeats decoys)
-- IP fragment reassembly enabled at the IDS (defeats <code>-f</code>/<code>--mtu</code>)
-- honeyports/tarpits on never-used ports (asymmetric high-confidence detection)
-- version-banner shaping (raises NSE <code>vuln</code> false-positive rate, lowers attacker signal)</p>
-<h2 id="logging-detection">Logging / detection</h2>
+<h2 id="senales-de-validacion">Señales de validación</h2>
 <ul>
-<li>one source IP hitting &gt; N distinct destination IPs on a single port within 60 s — Masscan signature</li>
-<li>one source IP probing &gt; 100 distinct ports on one host within 60 s — RustScan/Nmap signature</li>
-<li>NSE-specific probe patterns in IDS rule packs (Snort/Suricata community sets)</li>
-<li>per-source TCP-fingerprint stability across "different" source IPs — decoy detection</li>
-<li>EDR process-network joins that tie scanner behavior to <code>nmap</code>, <code>masscan</code>, <code>rustscan</code>, <code>python</code>, <code>powershell</code>, or renamed binaries</li>
+<li>puertos <code>open</code> aparecen igual entre corridas Masscan y Nmap</li>
+<li>banners de versión son consistentes entre NSE scripts (<code>-sV</code>, <code>http-server-header</code>, <code>ssl-cert</code>)</li>
+<li>conteos <code>filtered</code> bajan cuando baja <code>--min-rate</code></li>
+<li>un probe <code>--badsum</code> que devuelve <code>RST/ACK</code> confirma IDS inline que no valida checksums</li>
+<li>diff contra la corrida previa muestra puertos/servicios nuevos</li>
 </ul>
-<h2 id="operational-safety">Operational safety</h2>
+<h2 id="mitigacion">Mitigación</h2>
+<p>Del lado defensor, controles correctos contra este pipeline:</p>
 <ul>
-<li><strong>never</strong> use real third-party IPs as <code>-D</code> decoys; prefer RFC 5737 ranges (<code>192.0.2.0/24</code>, <code>198.51.100.0/24</code>, <code>203.0.113.0/24</code>)</li>
-<li><strong>never</strong> scan above <code>--rate 1000</code> on a shared upstream link without measuring loss first</li>
-<li><strong>never</strong> run NSE <code>intrusive</code>, <code>exploit</code>, <code>dos</code>, or <code>brute</code> categories without explicit written authorization</li>
-<li><strong>always</strong> keep <code>EXCLUDE.txt</code> non-overridable — Masscan honors it before <code>INCLUDE.txt</code>, which is the safety property</li>
-<li><strong>always</strong> write binary output for any scan that takes more than five minutes — Ctrl-C survival matters</li>
+<li>alerting per-source-IP de tasa SYN en el perímetro</li>
+<li>reglas IDS atadas a fan-out y TCP fingerprint</li>
+<li>reassembly de fragmentos IP habilitado en IDS</li>
+<li>honeyports/tarpits en puertos nunca usados</li>
+<li>version-banner shaping</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="logging-deteccion">Logging / detección</h2>
+<ul>
+<li>una IP fuente golpeando &gt; N IPs destino distintas en un puerto dentro de 60 s</li>
+<li>una IP fuente probando &gt; 100 puertos distintos en un host dentro de 60 s</li>
+<li>patrones de probe específicos de NSE en rulesets IDS</li>
+<li>estabilidad de TCP fingerprint por fuente a través de IPs &quot;distintas&quot;</li>
+<li>joins proceso-red EDR que atan scanner behavior a <code>nmap</code>, <code>masscan</code>, <code>rustscan</code>, <code>python</code>, <code>powershell</code> o binarios renombrados</li>
+</ul>
+<h2 id="seguridad-operacional">Seguridad operacional</h2>
+<ul>
+<li><strong>nunca</strong> uses IPs reales de terceros como decoys <code>-D</code>; preferí rangos RFC 5737 (<code>192.0.2.0/24</code>, <code>198.51.100.0/24</code>, <code>203.0.113.0/24</code>)</li>
+<li><strong>nunca</strong> escanees por encima de <code>--rate 1000</code> en un link upstream compartido sin medir pérdida primero</li>
+<li><strong>nunca</strong> corras categorías NSE <code>intrusive</code>, <code>exploit</code>, <code>dos</code> o <code>brute</code> sin autorización escrita explícita</li>
+<li><strong>siempre</strong> mantené <code>EXCLUDE.txt</code> no-overridable</li>
+<li><strong>siempre</strong> escribí output binario para cualquier scan de más de cinco minutos</li>
+</ul>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
 <li><a href="../offensive-security/nmap-timing-and-evasion.html">Nmap Timing and Evasion</a></li>
 <li><a href="../offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a></li>
@@ -543,19 +545,19 @@
 <li><a href="../offensive-security/scope-validation.html">Scope Validation</a></li>
 <li><a href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a></li>
 <li><a href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a></li>
-<li><a href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Scan Anomaly Detection and Fingerprint Analysis</a></li>
-<li><a href="../detection-engineering/network-telemetry-sources-and-visibility.html">Network Telemetry Sources and Visibility</a></li>
-<li><a href="../detection-engineering/zeek-suricata-and-netflow-analysis.html">Zeek, Suricata, and NetFlow Analysis</a></li>
-<li><a href="../detection-engineering/edr-network-observability-and-process-correlation.html">EDR Network Observability and Process Correlation</a></li>
-<li><a href="../detection-engineering/detection-evasion-myths-and-modern-limitations.html">Detection Evasion Myths and Modern Limitations</a></li>
-<li><a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation and Kill Chain Observability</a></li>
+<li><a href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Detección de anomalías de scan y análisis de fingerprint</a></li>
+<li><a href="../detection-engineering/network-telemetry-sources-and-visibility.html">Fuentes de telemetría de red y visibilidad</a></li>
+<li><a href="../detection-engineering/zeek-suricata-and-netflow-analysis.html">Análisis con Zeek, Suricata y NetFlow</a></li>
+<li><a href="../detection-engineering/edr-network-observability-and-process-correlation.html">Observabilidad de red en EDR y correlación de procesos</a></li>
+<li><a href="../detection-engineering/detection-evasion-myths-and-modern-limitations.html">Mitos de evasión de detección y limitaciones modernas</a></li>
+<li><a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Correlación de attack paths y observabilidad de kill chain</a></li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="referencias">Referencias</h2>
 <ul>
 <li><strong>Official Tool Docs:</strong> Nmap Reference Guide — Timing and Performance — https://nmap.org/book/man-performance.html</li>
 <li><strong>Official Tool Docs:</strong> Masscan README — https://github.com/robertdavidgraham/masscan</li>
 <li><strong>Official Tool Docs:</strong> RustScan repository and docs — https://github.com/RustScan/RustScan</li>
-<li><strong>Research / Deep Dive:</strong> ProjectDiscovery Reconnaissance 103 — Host and Port Discovery — https://projectdiscovery.io/blog/reconnaissance-series-3-host-and-port-discovery</li>
+<li><strong>Investigación / Deep Dive:</strong> ProjectDiscovery Reconnaissance 103 — Host and Port Discovery — https://projectdiscovery.io/blog/reconnaissance-series-3-host-and-port-discovery</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="reverse-proxy-misconfig-checklist.html"><span class="nav-dir">← Previous</span><strong>Reverse Proxy Misconfig Checklist</strong></a><a class="branch-nav-link next" href="test-client-ip-spoofing.html"><span class="nav-dir">Next →</span><strong>Test Client IP Spoofing</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -571,21 +573,21 @@
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#goal">Goal</a>
-<a class="toc-level-2" href="#assumptions">Assumptions</a>
-<a class="toc-level-2" href="#prerequisites">Prerequisites</a>
-<a class="toc-level-2" href="#recon-steps">Recon steps</a>
-<a class="toc-level-3" href="#phase-0-authorization-gate">Phase 0 — Authorization gate</a>
-<a class="toc-level-3" href="#phase-1-breadth-masscan">Phase 1 — Breadth (Masscan)</a>
-<a class="toc-level-3" href="#phase-2-depth-rustscan-nmap-nse">Phase 2 — Depth (RustScan → Nmap NSE)</a>
-<a class="toc-level-3" href="#phase-3-diagnostic-packet-shape-matrix-optional">Phase 3 — Diagnostic packet-shape matrix (optional)</a>
-<a class="toc-level-2" href="#exploit-test-steps">Exploit / test steps</a>
-<a class="toc-level-2" href="#validation-clues">Validation clues</a>
-<a class="toc-level-2" href="#mitigation">Mitigation</a>
-<a class="toc-level-2" href="#logging-detection">Logging / detection</a>
-<a class="toc-level-2" href="#operational-safety">Operational safety</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-2" href="#references">References</a>
+<a class="toc-level-2" href="#objetivo">Objetivo</a>
+<a class="toc-level-2" href="#supuestos">Supuestos</a>
+<a class="toc-level-2" href="#prerrequisitos">Prerrequisitos</a>
+<a class="toc-level-2" href="#pasos-de-recon">Pasos de recon</a>
+<a class="toc-level-3" href="#fase-0-gate-de-autorizacion">Fase 0 — Gate de autorización</a>
+<a class="toc-level-3" href="#fase-1-amplitud-masscan">Fase 1 — Amplitud (Masscan)</a>
+<a class="toc-level-3" href="#fase-2-profundidad-rustscan-nmap-nse">Fase 2 — Profundidad (RustScan → Nmap NSE)</a>
+<a class="toc-level-3" href="#fase-3-matriz-diagnostica-de-packet-shape-opcional">Fase 3 — Matriz diagnóstica de packet-shape (opcional)</a>
+<a class="toc-level-2" href="#pasos-de-exploit-testing">Pasos de exploit / testing</a>
+<a class="toc-level-2" href="#senales-de-validacion">Señales de validación</a>
+<a class="toc-level-2" href="#mitigacion">Mitigación</a>
+<a class="toc-level-2" href="#logging-deteccion">Logging / detección</a>
+<a class="toc-level-2" href="#seguridad-operacional">Seguridad operacional</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

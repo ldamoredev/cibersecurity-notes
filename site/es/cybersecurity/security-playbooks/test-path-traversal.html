@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Test Path Traversal - Playbooks de Seguridad | ldamoredev Security Atlas</title>
-<meta name="description" content="Determine whether user input can escape the intended filesystem path boundary and access unexpected files or directories.">
+<meta name="description" content="Determinar si input de usuario puede escapar el límite de path de filesystem previsto y acceder a archivos o directorios inesperados.">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Playbooks de Seguridad, Test Path Traversal">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Test Path Traversal - Playbooks de Seguridad | ldamoredev Security Atlas">
-<meta property="og:description" content="Determine whether user input can escape the intended filesystem path boundary and access unexpected files or directories.">
+<meta property="og:description" content="Determinar si input de usuario puede escapar el límite de path de filesystem previsto y acceder a archivos o directorios inesperados.">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/test-path-traversal.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Test Path Traversal - Playbooks de Seguridad | ldamoredev Security Atlas">
-<meta name="twitter:description" content="Determine whether user input can escape the intended filesystem path boundary and access unexpected files or directories.">
+<meta name="twitter:description" content="Determinar si input de usuario puede escapar el límite de path de filesystem previsto y acceder a archivos o directorios inesperados.">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/test-path-traversal.html#article","name":"Test Path Traversal - Playbooks de Seguridad | ldamoredev Security Atlas","headline":"Test Path Traversal","description":"Determine whether user input can escape the intended filesystem path boundary and access unexpected files or directories.","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/test-path-traversal.html","inLanguage":"es","datePublished":"2026-04-23","dateModified":"2026-04-23","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/test-path-traversal.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Playbooks de Seguridad","Test Path Traversal"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Playbooks de Seguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/index.html"},{"@type":"ListItem","position":4,"name":"Test Path Traversal","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/test-path-traversal.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/test-path-traversal.html#article","name":"Test Path Traversal - Playbooks de Seguridad | ldamoredev Security Atlas","headline":"Test Path Traversal","description":"Determinar si input de usuario puede escapar el límite de path de filesystem previsto y acceder a archivos o directorios inesperados.","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/test-path-traversal.html","inLanguage":"es","datePublished":"2026-04-23","dateModified":"2026-04-23","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/test-path-traversal.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Playbooks de Seguridad","Test Path Traversal"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Playbooks de Seguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/index.html"},{"@type":"ListItem","position":4,"name":"Test Path Traversal","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/test-path-traversal.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/security-playbooks/test-path-traversal.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/test-path-traversal.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/security-playbooks/test-path-traversal.html">
@@ -410,70 +410,69 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Playbooks de Seguridad</a><span>/</span><span>Test Path Traversal</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Test Path Traversal</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">playbook</span><span class="meta-chip accent-slate">Playbooks de Seguridad</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~1 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado Apr 23, 2026</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="test-path-traversal">Test Path Traversal</h1>
-<h2 id="goal">Goal</h2>
-<p>Determine whether user input can escape the intended filesystem path boundary and access unexpected files or directories.</p>
-<h2 id="assumptions">Assumptions</h2>
+<h2 id="objetivo">Objetivo</h2>
+<p>Determinar si input de usuario puede escapar el límite de path de filesystem previsto y acceder a archivos o directorios inesperados.</p>
+<h2 id="supuestos">Supuestos</h2>
 <ul>
-<li>the app reads or writes files based on user-controlled identifiers</li>
-<li>path normalization may be incomplete</li>
-<li>platform-specific separators or encodings may matter</li>
+<li>la app lee o escribe archivos basados en identificadores controlados por usuario</li>
+<li>la normalización de path puede estar incompleta</li>
+<li>separadores o encodings específicos de plataforma pueden importar</li>
 </ul>
-<h2 id="prerequisites">Prerequisites</h2>
+<h2 id="prerrequisitos">Prerrequisitos</h2>
 <ul>
-<li>file-related endpoints or upload/extraction features</li>
-<li>ability to replay requests and compare responses</li>
+<li>endpoints relacionados con archivos o features de upload/extracción</li>
+<li>capacidad de hacer replay de requests y comparar responses</li>
 </ul>
-<h2 id="recon-steps">Recon steps</h2>
+<h2 id="pasos-de-recon">Pasos de recon</h2>
 <ol>
-<li>Identify download, preview, import, extraction, and template-related features.</li>
-<li>Map where path-like input appears in routes, params, or JSON.</li>
-<li>Note OS/platform behavior where relevant.</li>
+<li>Identificá features de download, preview, importación, extracción y templates.</li>
+<li>Mapeá dónde aparece input tipo path en rutas, params o JSON.</li>
+<li>Notá comportamiento de OS/plataforma donde sea relevante.</li>
 </ol>
-<h2 id="exploit-test-steps">Exploit / test steps</h2>
+<h2 id="pasos-de-exploit-testing">Pasos de exploit / testing</h2>
 <ol>
-<li>Try simple traversal sequences.</li>
-<li>Test encoded or alternate separator variants where appropriate.</li>
-<li>Compare behavior for read and write operations.</li>
-<li>Probe archive extraction or upload workflows for directory escape.</li>
-<li>Observe whether normalization happens before or after validation.</li>
+<li>Probá secuencias simples de traversal.</li>
+<li>Testeá variantes encoded o separadores alternativos cuando corresponda.</li>
+<li>Compará comportamiento para operaciones de lectura y escritura.</li>
+<li>Probá workflows de archive extraction o upload por escape de directorio.</li>
+<li>Observá si la normalización ocurre antes o después de la validación.</li>
 </ol>
-<h2 id="validation-clues">Validation clues</h2>
+<h2 id="senales-de-validacion">Señales de validación</h2>
 <ul>
-<li>access to unexpected files</li>
-<li>different errors when escaping intended directories</li>
-<li>writes or extractions landing outside controlled paths</li>
+<li>acceso a archivos inesperados</li>
+<li>errores distintos al escapar directorios previstos</li>
+<li>escrituras o extracciones caen fuera de paths controlados</li>
 </ul>
-<h2 id="mitigation">Mitigation</h2>
+<h2 id="mitigacion">Mitigación</h2>
 <ul>
-<li>avoid raw user-controlled filesystem paths</li>
-<li>use indirect references or strict allowlists</li>
-<li>canonicalize safely and verify final paths</li>
-<li>isolate processing and storage accounts/dirs</li>
+<li>evitar paths de filesystem raw controlados por usuario</li>
+<li>usar referencias indirectas o allowlists estrictas</li>
+<li>canonicalizar de forma segura y verificar paths finales</li>
+<li>aislar cuentas/directorios de processing y storage</li>
 </ul>
-<h2 id="logging-detection">Logging / detection</h2>
+<h2 id="logging-deteccion">Logging / detección</h2>
 <ul>
-<li>repeated traversal-like strings</li>
-<li>failed file access outside expected trees</li>
-<li>extraction or write attempts outside upload areas</li>
+<li>strings repetidos con forma de traversal</li>
+<li>accesos fallidos a archivos fuera de árboles esperados</li>
+<li>intentos de extracción o escritura fuera de áreas de upload</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
-<li><a href="../web-security/path-traversal.html">path-traversal</a></li>
-<li><a href="../web-security/file-upload-abuse.html">file-upload-abuse</a></li>
-<li><a href="../networking/http-messages.html">http-messages</a></li>
-<li><a href="../attack-surface-mapping/exposed-storage.html">exposed-storage</a></li>
+<li><a href="../web-security/path-traversal.html">Path Traversal</a></li>
+<li><a href="../web-security/file-upload-abuse.html">Abuso de file upload</a></li>
+<li><a href="../networking/http-messages.html">Mensajes HTTP</a></li>
+<li><a href="../attack-surface-mapping/exposed-storage.html">Storage expuesto</a></li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="referencias">Referencias</h2>
 <ul>
 <li><strong>Testing / Lab:</strong> PortSwigger path traversal topic — https://portswigger.net/web-security/file-path-traversal</li>
-<li><strong>Foundational:</strong> OWASP WSTG — https://owasp.org/www-project-web-security-testing-guide/latest/</li>
+<li><strong>Fundamental:</strong> OWASP WSTG — https://owasp.org/www-project-web-security-testing-guide/latest/</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="test-cors-behavior.html"><span class="nav-dir">← Previous</span><strong>Test CORS Behavior</strong></a><a class="branch-nav-link next" href="trace-metadata-endpoint-reachability.html"><span class="nav-dir">Next →</span><strong>Trace Metadata Endpoint Reachability</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -489,16 +488,16 @@
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#goal">Goal</a>
-<a class="toc-level-2" href="#assumptions">Assumptions</a>
-<a class="toc-level-2" href="#prerequisites">Prerequisites</a>
-<a class="toc-level-2" href="#recon-steps">Recon steps</a>
-<a class="toc-level-2" href="#exploit-test-steps">Exploit / test steps</a>
-<a class="toc-level-2" href="#validation-clues">Validation clues</a>
-<a class="toc-level-2" href="#mitigation">Mitigation</a>
-<a class="toc-level-2" href="#logging-detection">Logging / detection</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-2" href="#references">References</a>
+<a class="toc-level-2" href="#objetivo">Objetivo</a>
+<a class="toc-level-2" href="#supuestos">Supuestos</a>
+<a class="toc-level-2" href="#prerrequisitos">Prerrequisitos</a>
+<a class="toc-level-2" href="#pasos-de-recon">Pasos de recon</a>
+<a class="toc-level-2" href="#pasos-de-exploit-testing">Pasos de exploit / testing</a>
+<a class="toc-level-2" href="#senales-de-validacion">Señales de validación</a>
+<a class="toc-level-2" href="#mitigacion">Mitigación</a>
+<a class="toc-level-2" href="#logging-deteccion">Logging / detección</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

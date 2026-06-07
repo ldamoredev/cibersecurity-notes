@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Detect DCSync and ntds.dit Access - Playbooks de Seguridad | ldamoredev Security Atlas</title>
-<meta name="description" content="Detect both forms of bulk Active Directory credential extraction — **DCSync** (IDL_DRSGetNCChanges via the DRSUAPI RPC interface) and **offline ntds.dit...">
+<title>Detectar DCSync y acceso a ntds.dit - Playbooks de Seguridad | ldamoredev Security Atlas</title>
+<meta name="description" content="Detectar las dos formas de extracción masiva de credenciales de Active Directory — DCSync (IDLDRSGetNCChanges vía la interfaz RPC DRSUAPI) y extracción offli...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Playbooks de Seguridad, Detect DCSync and ntds.dit Access">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Detect DCSync and ntds.dit Access - Playbooks de Seguridad | ldamoredev Security Atlas">
-<meta property="og:description" content="Detect both forms of bulk Active Directory credential extraction — **DCSync** (IDL_DRSGetNCChanges via the DRSUAPI RPC interface) and **offline ntds.dit...">
+<meta property="og:description" content="Detectar las dos formas de extracción masiva de credenciales de Active Directory — DCSync (IDLDRSGetNCChanges vía la interfaz RPC DRSUAPI) y extracción offli...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-dcsync-and-ntdsdit-access.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Detect DCSync and ntds.dit Access - Playbooks de Seguridad | ldamoredev Security Atlas">
-<meta name="twitter:description" content="Detect both forms of bulk Active Directory credential extraction — **DCSync** (IDL_DRSGetNCChanges via the DRSUAPI RPC interface) and **offline ntds.dit...">
+<meta name="twitter:description" content="Detectar las dos formas de extracción masiva de credenciales de Active Directory — DCSync (IDLDRSGetNCChanges vía la interfaz RPC DRSUAPI) y extracción offli...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-dcsync-and-ntdsdit-access.html#article","name":"Detect DCSync and ntds.dit Access - Playbooks de Seguridad | ldamoredev Security Atlas","headline":"Detect DCSync and ntds.dit Access","description":"Detect both forms of bulk Active Directory credential extraction — **DCSync** (IDL_DRSGetNCChanges via the DRSUAPI RPC interface) and **offline ntds.dit...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-dcsync-and-ntdsdit-access.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-dcsync-and-ntdsdit-access.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Playbooks de Seguridad","Detect DCSync and ntds.dit Access"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Playbooks de Seguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/index.html"},{"@type":"ListItem","position":4,"name":"Detect DCSync and ntds.dit Access","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-dcsync-and-ntdsdit-access.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-dcsync-and-ntdsdit-access.html#article","name":"Detectar DCSync y acceso a ntds.dit - Playbooks de Seguridad | ldamoredev Security Atlas","headline":"Detectar DCSync y acceso a ntds.dit","description":"Detectar las dos formas de extracción masiva de credenciales de Active Directory — DCSync (IDLDRSGetNCChanges vía la interfaz RPC DRSUAPI) y extracción offli...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-dcsync-and-ntdsdit-access.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-dcsync-and-ntdsdit-access.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Playbooks de Seguridad","Detect DCSync and ntds.dit Access"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Playbooks de Seguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/index.html"},{"@type":"ListItem","position":4,"name":"Detectar DCSync y acceso a ntds.dit","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-dcsync-and-ntdsdit-access.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/security-playbooks/detect-dcsync-and-ntdsdit-access.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/detect-dcsync-and-ntdsdit-access.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/security-playbooks/detect-dcsync-and-ntdsdit-access.html">
@@ -410,182 +410,156 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Playbooks de Seguridad</a><span>/</span><span>Detect DCSync and ntds.dit Access</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Detectar DCSync y acceso a ntds.dit</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">playbook</span><span class="meta-chip accent-slate">Playbooks de Seguridad</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~10 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
-<h1 id="detect-dcsync-and-ntdsdit-access">Detect DCSync and ntds.dit Access</h1>
-<h2 id="goal">Goal</h2>
-<p>Detect both forms of bulk Active Directory credential extraction — <strong>DCSync</strong> (<code>IDL_DRSGetNCChanges</code> via the DRSUAPI RPC interface) and <strong>offline <code>ntds.dit</code> extraction</strong> (file-level access, VSS shadow-copy abuse, <code>ntdsutil</code> invocations) — with high enough fidelity to identify the source principal, the affected accounts, and the post-extraction window before forged tickets (<a href="../identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">Golden Ticket</a> or <a href="../identity-and-active-directory/silver-ticket-and-service-account-persistence.html">Silver Ticket</a>) can be used.</p>
-<h2 id="assumptions">Assumptions</h2>
+<h1 id="detectar-dcsync-y-acceso-a-ntds-dit">Detectar DCSync y acceso a ntds.dit</h1>
+<h2 id="objetivo">Objetivo</h2>
+<p>Detectar las dos formas de extracción masiva de credenciales de Active Directory — <strong>DCSync</strong> (<code>IDL_DRSGetNCChanges</code> vía la interfaz RPC DRSUAPI) y <strong>extracción offline de <code>ntds.dit</code></strong> (acceso a nivel archivo, abuso de shadow-copy VSS, invocaciones de <code>ntdsutil</code>) — con fidelidad suficiente para identificar el principal origen, las cuentas afectadas y la ventana posterior a la extracción antes de que puedan usarse tickets falsificados (<a href="../identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">Golden Ticket</a> o <a href="../identity-and-active-directory/silver-ticket-and-service-account-persistence.html">Silver Ticket</a>).</p>
+<h2 id="supuestos">Supuestos</h2>
 <ul>
-<li>you collect Windows Security event logs from <strong>all Domain Controllers</strong> into a SIEM with ≥ 90 days retention</li>
-<li>you have EDR coverage on every Domain Controller (Sysmon, Microsoft Defender for Identity, or equivalent)</li>
-<li>you maintain an authoritative list of principals with <code>DS-Replication-Get-Changes-All</code> and related replication rights (audited monthly via <a href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound</a>)</li>
-<li>you can hot-disable a compromised account and initiate the <strong>twice-in-sequence <code>krbtgt</code> rotation procedure</strong> within hours</li>
-<li>the goal is <strong>detect, contain, and recover</strong> — DCSync is the endgame attack; by the time it fires you are in incident-response mode</li>
+<li>recolectás Windows Security event logs de <strong>todos los Domain Controllers</strong> en un SIEM con retención de &gt;= 90 días</li>
+<li>tenés cobertura EDR en cada Domain Controller (Sysmon, Microsoft Defender for Identity o equivalente)</li>
+<li>mantenés una lista autoritativa de principals con <code>DS-Replication-Get-Changes-All</code> y derechos de replicación relacionados (auditada mensualmente con <a href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound</a>)</li>
+<li>podés deshabilitar en caliente una cuenta comprometida e iniciar el <strong>procedimiento de rotación de <code>krbtgt</code> dos veces en secuencia</strong> en cuestión de horas</li>
+<li>el objetivo es <strong>detectar, contener y recuperar</strong>; DCSync es el ataque de final de partida, cuando dispara ya estás en modo incident response</li>
 </ul>
-<h2 id="prerequisites">Prerequisites</h2>
+<h2 id="prerrequisitos">Prerrequisitos</h2>
 <ul>
-<li>DC audit policy: <code>Audit Directory Service Access: Success/Failure</code> enabled (this generates Event 4662 — <strong>not on by default</strong> on most Windows Server defaults)</li>
-<li>SIEM parsing for Event 4662 with the <code>Object &gt; Properties</code> field indexed so the replication-rights GUIDs are queryable</li>
-<li>Authoritative list of:</li>
-<li>Domain Controller computer accounts (the only principals that should legitimately perform DCSync)</li>
-<li>Principals with effective replication rights via <a href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound</a> Cypher query</li>
-<li>Allowlist of legitimate ntds.dit access sources (backup software, AD recovery tooling)</li>
-<li>Pre-staged <code>krbtgt</code> rotation script (Microsoft's <code>New-KrbtgtKeys.ps1</code> or equivalent) tested in a recovery exercise — runbook ready, not improvised under pressure</li>
-<li>Optional: honey-principal with replication rights and a strong unused password — any DCSync attempt against this principal is high-confidence adversary activity</li>
+<li>DC audit policy: <code>Audit Directory Service Access: Success/Failure</code> habilitado (esto genera Event 4662; <strong>no está activo por defecto</strong> en la mayoría de defaults de Windows Server)</li>
+<li>parsing en SIEM para Event 4662 con el campo <code>Object &gt; Properties</code> indexado para que los GUIDs de derechos de replicación sean consultables</li>
+<li>lista autoritativa de:</li>
+<li>cuentas de equipo de Domain Controllers (los únicos principals que deberían hacer DCSync legítimamente)</li>
+<li>principals con derechos efectivos de replicación vía query Cypher en <a href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound</a></li>
+<li>allowlist de fuentes legítimas de acceso a ntds.dit (software de backup, tooling de recuperación de AD)</li>
+<li>script de rotación de <code>krbtgt</code> prearmado (Microsoft <code>New-KrbtgtKeys.ps1</code> o equivalente) probado en un ejercicio de recuperación; runbook listo, no improvisado bajo presión</li>
+<li>opcional: honey-principal con derechos de replicación y contraseña fuerte sin uso; cualquier intento de DCSync contra este principal es actividad adversaria de alta confianza</li>
 </ul>
-<h2 id="detection-steps">Detection steps</h2>
+<h2 id="pasos-de-deteccion">Pasos de detección</h2>
 <blockquote>
-<p><em>This playbook pairs with <a href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a>. Read offense + defense as the <a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">paired-reading discipline</a> requires.</em></p>
+<p><em>Este playbook va en par con <a href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync y extracción de ntds.dit</a>. Leé offense + defense como exige la <a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">disciplina de lectura en pares</a>.</em></p>
 </blockquote>
-<h3 id="phase-0-baseline-do-once-refresh-monthly">Phase 0 — Baseline (do once, refresh monthly)</h3>
+<h3 id="fase-0-baseline-una-vez-refrescar-mensualmente">Fase 0 — Baseline (una vez, refrescar mensualmente)</h3>
 <ol>
-<li><strong>Enumerate effective replication rights.</strong> In <a href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound</a>:
-   <code>cypher
-   MATCH (n)-[r:DCSync|GetChanges|GetChangesAll]-&gt;(:Domain)
-   RETURN DISTINCT n.name AS principal, labels(n)[0] AS type</code>
-   Only Domain Controller computer accounts and explicit Tier 0 admins should appear. Anything else is a <strong>finding</strong> — remediate before relying on detection.</li>
-<li><strong>Inventory DC computer accounts.</strong> SIEM lookup table populated with the SAM accounts and source IPs of every DC. Detection rules join against this list.</li>
-<li><strong>Inventory legitimate <code>ntds.dit</code> access.</strong> Backup vendors (Veeam, Commvault, native Windows Backup), AD recovery tooling, and <em>nothing else</em> should ever touch the file. Document the allowlist.</li>
-<li><strong>Audit baseline <code>krbtgt</code> rotation cadence.</strong> If <code>krbtgt</code> was last rotated more than a year ago, schedule a <strong>single proactive rotation</strong> before relying on this playbook — the password-history window assumes the current <code>krbtgt</code> is the only valid key.</li>
+<li><strong>Enumerá derechos efectivos de replicación.</strong> En <a href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound</a>:<br>
+`cypher<br>
+MATCH (n)-[r:DCSync|GetChanges|GetChangesAll]-&gt;(:Domain)<br>
+RETURN DISTINCT n.name AS principal, labels(n)[0] AS type`<br>
+Solo deberían aparecer cuentas de equipo de Domain Controllers y admins Tier 0 explícitos. Cualquier otra cosa es un <strong>hallazgo</strong>; remedialo antes de apoyarte en la detección.</li>
+<li><strong>Inventariá cuentas de equipo DC.</strong> Tabla lookup del SIEM poblada con las cuentas SAM y source IPs de cada DC. Las reglas de detección hacen join contra esta lista.</li>
+<li><strong>Inventariá acceso legítimo a <code>ntds.dit</code>.</strong> Vendors de backup (Veeam, Commvault, Windows Backup nativo), tooling de recuperación de AD y <em>nada más</em> deberían tocar el archivo. Documentá la allowlist.</li>
+<li><strong>Auditá la cadencia baseline de rotación de <code>krbtgt</code>.</strong> Si <code>krbtgt</code> se rotó por última vez hace más de un año, programá una <strong>rotación proactiva simple</strong> antes de depender de este playbook; la ventana de password-history asume que el <code>krbtgt</code> actual es la única clave válida.</li>
 </ol>
-<h3 id="phase-1-detect-classic-dcsync-drsuapi">Phase 1 — Detect classic DCSync (DRSUAPI)</h3>
-<p>Operator signature: <strong>Event 4662 on a Domain Controller with <code>Properties</code> containing the replication GUIDs, where the <code>Subject</code> is <em>not</em> a DC computer account</strong>.</p>
-<ol>
-<li>
-<p><strong>Replication-rights GUID rule (highest fidelity).</strong> Alert when Event 4662 contains <em>any</em> of:
-   - <code>1131f6aa-9c07-11d1-f79f-00c04fc2dcd2</code> (DS-Replication-Get-Changes)
-   - <code>1131f6ad-9c07-11d1-f79f-00c04fc2dcd2</code> (DS-Replication-Get-Changes-All)
-   - <code>89e95b76-444d-4c62-991a-0facbeda640c</code> (DS-Replication-Get-Changes-In-Filtered-Set)
-   <code>text
-   index=wineventlog EventCode=4662
-   (Properties="*1131f6aa-9c07-11d1-f79f-00c04fc2dcd2*"
-     OR Properties="*1131f6ad-9c07-11d1-f79f-00c04fc2dcd2*"
-     OR Properties="*89e95b76-444d-4c62-991a-0facbeda640c*")
-   | lookup dc_computer_accounts SubjectUserSid AS legitimate_dc
-   | where isnull(legitimate_dc)</code>
-   Every match is an <strong>immediate high-severity alert</strong>. There are essentially zero legitimate false positives.</p>
-</li>
-<li>
-<p><strong>Per-account targeting profile.</strong> If multiple 4662 events for replication GUIDs fire from one source against many distinct target accounts, the operator is performing <code>-just-dc</code> (full dump) rather than <code>-just-dc-user krbtgt</code> (surgical). The full-dump variant is louder but more frequently used by less-careful operators; the surgical variant requires faster response because the goal is usually one account (<code>krbtgt</code>).</p>
-</li>
-<li>
-<p><strong>Source-host process correlation via EDR.</strong> Cross-reference the source IP from the 4662 event against EDR process telemetry on that host. Look for <code>secretsdump.py</code>, <code>mimikatz.exe</code>, <code>Rubeus.exe</code>, Impacket Python signatures, or unsigned binaries spawning during the alert window. A Windows host running <code>secretsdump.py</code> is a confirmed adversary; a Linux Impacket source is the canonical Kali/operator-host signature.</p>
-</li>
-</ol>
-<h3 id="phase-2-detect-ntdsdit-offline-extraction">Phase 2 — Detect ntds.dit offline extraction</h3>
-<p>Operator signature: <strong>direct access to <code>C:\Windows\NTDS\ntds.dit</code></strong> on a DC, or <strong>VSS shadow-copy creation</strong> followed by file access, or <strong><code>ntdsutil</code> invocation</strong> with <code>ifm</code> / <code>IFM</code> subcommands.</p>
-<ol>
-<li>
-<p><strong>Sysmon Event 11 (file create) on shadow-copy paths.</strong>
-   <code>text
-   index=sysmon EventCode=11
-   TargetFilename="\\GLOBALROOT\Device\HarddiskVolumeShadowCopy*\Windows\NTDS\ntds.dit"</code>
-   Any match is a <strong>high-fidelity alert</strong>. Legitimate backup software uses VSS but does <em>not</em> extract individual files this way.</p>
-</li>
-<li>
-<p><strong>Process creation: <code>ntdsutil</code>, <code>vssadmin create shadow</code>, <code>wbadmin start backup</code>.</strong>
-   <code>text
-   index=wineventlog EventCode=4688 (NewProcessName="*\\ntdsutil.exe" OR
-     (NewProcessName="*\\vssadmin.exe" AND CommandLine="*create shadow*") OR
-     (NewProcessName="*\\wbadmin.exe" AND CommandLine="*ntds*"))</code>
-   Alert with allowlist suppression for known-legitimate backup-software parent processes.</p>
-</li>
-<li>
-<p><strong>Sysmon Event 1 with <code>ntdsutil</code> + <code>IFM</code> argument pattern.</strong> <code>ntdsutil "ac i ntds" "ifm" "create full c:\extract" q q</code> is the canonical operator command. The argument string is recognizable; alert specifically on it.</p>
-</li>
-<li>
-<p><strong>EDR file-handle telemetry on <code>ntds.dit</code>.</strong> Modern EDR products (Defender for Endpoint, CrowdStrike, SentinelOne) emit file-handle-open events for sensitive AD database paths. Cross-reference with the legitimate-backup allowlist; everything else alerts.</p>
-</li>
-</ol>
-<h3 id="phase-3-detect-dcshadow-rogue-dc-registration">Phase 3 — Detect DCShadow (rogue-DC registration)</h3>
-<p>Operator signature: <strong>anomalous changes to AD configuration container objects</strong> — a non-DC host registering itself as a DC, then walking back the registration after pushing changes.</p>
-<ol>
-<li><strong>Event 4929 / 4928</strong> (replication source replica added/removed) outside the change-management window.</li>
-<li><strong>Event 5136</strong> (directory service object modified) on objects in <code>CN=Sites,CN=Configuration,...</code> with <code>SubjectUserSid</code> that is not a DC or scheduled-task service.</li>
-<li><strong>Sysmon network connections to TCP 135 (RPC) + dynamic high ports</strong> from a non-DC host with a target of a DC — the DRSUAPI inbound-replication signature when <em>the source is impersonating a DC</em>.</li>
-</ol>
-<p>DCShadow is rarer and stealthier than classic DCSync; detection often relies on Microsoft Defender for Identity's purpose-built rule rather than raw Event-Log queries.</p>
-<h3 id="phase-4-investigation-and-response">Phase 4 — Investigation and response</h3>
-<p>Once any Phase 1–3 alert fires:</p>
-<ol>
-<li><strong>Treat as a confirmed compromise until proven otherwise.</strong> False-positive rate on these rules is near zero; the response posture should reflect that.</li>
-<li><strong>Identify the source host and principal.</strong> Phase 1: pull <code>SubjectUserSid</code> and source IP from the 4662 event. Phase 2: pull the parent process tree from EDR. Build the operator timeline for the last 24 hours from that source.</li>
-<li><strong>Determine extraction scope.</strong>
-   - <code>-just-dc-user &lt;target&gt;</code> → only the named account's hash is compromised. Surgical response: rotate that account's password.
-   - <code>-just-dc</code> (full dump) → <strong>every account in the domain</strong> is compromised, including <code>krbtgt</code>. Full-domain response.
-   - ntds.dit + SYSTEM hive copied → same as full dump.</li>
-<li><strong>Initiate <code>krbtgt</code> rotation if <code>krbtgt</code> was in scope.</strong> Use Microsoft's <code>New-KrbtgtKeys.ps1</code> script. <strong>Twice in sequence</strong>, with ≥ 10 hours between rotations to let replication and the password-history window roll over. A single rotation is insufficient because the previous <code>krbtgt</code> hash remains valid.</li>
-<li><strong>Disable the source account.</strong> Force re-authentication for every Tier 0 admin (assume their credential may have enabled the attack chain). Audit every authentication event from the source IP in the past 30 days.</li>
-<li><strong>Audit Golden / Silver Ticket use.</strong> Any TGT or TGS for <code>krbtgt</code> or service accounts issued between the extraction time and the rotation completion is potentially forged. Cross-reference with <a href="detect-kerberoasting-and-as-rep-roasting.html">detect-kerberoasting-and-as-rep-roasting</a> alerts in the same window.</li>
-<li><strong>Open an IR ticket</strong> with: triggering event(s), source host + principal + IP, list of extracted accounts (if known), <code>krbtgt</code> rotation status, Golden/Silver Ticket audit findings, full BloodHound snapshot before and after the suspected extraction.</li>
-</ol>
-<h2 id="validation-clues">Validation clues</h2>
+<h3 id="fase-1-detectar-dcsync-clasico-drsuapi">Fase 1 — Detectar DCSync clásico (DRSUAPI)</h3>
+<p>Firma del operador: <strong>Event 4662 en un Domain Controller con <code>Properties</code> que contiene los GUIDs de replicación, donde el <code>Subject</code> <em>no</em> es una cuenta de equipo DC</strong>.</p>
+<p>1. <strong>Regla de GUIDs de derechos de replicación (máxima fidelidad).</strong> Alertá cuando Event 4662 contenga <em>cualquiera</em> de:</p>
 <ul>
-<li><strong>High-confidence DCSync:</strong> Event 4662 with replication GUIDs from a non-DC <code>SubjectUserSid</code>. Single event is sufficient.</li>
-<li><strong>High-confidence ntds.dit extraction:</strong> Sysmon Event 11 on a shadow-copy path ending in <code>ntds.dit</code>, or <code>ntdsutil</code> invocation with <code>IFM</code>/<code>ifm</code> arguments outside the change-management window.</li>
-<li><strong>Honey-principal fired:</strong> any DCSync attempt against the honey replication-rights principal. Near-zero false positive — investigate as confirmed adversary activity.</li>
-<li><strong>Chain evidence:</strong> the same source IP/principal that triggered a Kerberos alert (<a href="detect-kerberoasting-and-as-rep-roasting.html">detect-kerberoasting-and-as-rep-roasting</a>) in the previous hours, now performs DCSync. Confirms a Kerberoasting → cracked-service-account → DCSync chain — the canonical AD endgame.</li>
-<li><strong>Forged-ticket evidence post-rotation:</strong> Event 4769 (TGS issued) where the ticket's <code>krbtgt</code> encryption type does not match either the current or previous <code>krbtgt</code> key. Indicates a Golden Ticket forged with an old, leaked <code>krbtgt</code> hash still in use after a single (insufficient) rotation.</li>
+<li><code>1131f6aa-9c07-11d1-f79f-00c04fc2dcd2</code> (DS-Replication-Get-Changes)</li>
+<li><code>1131f6ad-9c07-11d1-f79f-00c04fc2dcd2</code> (DS-Replication-Get-Changes-All)</li>
+<li><code>89e95b76-444d-4c62-991a-0facbeda640c</code> (DS-Replication-Get-Changes-In-Filtered-Set)<br>
+`text<br>
+index=wineventlog EventCode=4662<br>
+(Properties=&quot;<em>1131f6aa-9c07-11d1-f79f-00c04fc2dcd2</em>&quot;<br>
+OR Properties=&quot;<em>1131f6ad-9c07-11d1-f79f-00c04fc2dcd2</em>&quot;<br>
+OR Properties=&quot;<em>89e95b76-444d-4c62-991a-0facbeda640c</em>&quot;)<br>
+| lookup dc_computer_accounts SubjectUserSid AS legitimate_dc<br>
+| where isnull(legitimate_dc)`<br>
+Cada match es una <strong>alerta inmediata de severidad alta</strong>. Prácticamente no hay falsos positivos legítimos.</li>
 </ul>
-<h2 id="mitigation-remediation">Mitigation / remediation</h2>
-<p>On the defender side, these are durable controls (not per-alert fixes):</p>
+<p>2. <strong>Perfil de targeting por cuenta.</strong> Si múltiples eventos 4662 con GUIDs de replicación disparan desde una fuente contra muchas cuentas objetivo distintas, el operador está haciendo <code>-just-dc</code> (dump completo) en vez de <code>-just-dc-user krbtgt</code> (quirúrgico). La variante full-dump es más ruidosa pero más usada por operadores menos cuidadosos; la variante quirúrgica exige respuesta más rápida porque el objetivo suele ser una sola cuenta (<code>krbtgt</code>).</p>
+<p>3. <strong>Correlación de procesos en host origen vía EDR.</strong> Cruzá la source IP del evento 4662 con telemetría EDR de procesos en ese host. Buscá <code>secretsdump.py</code>, <code>mimikatz.exe</code>, <code>Rubeus.exe</code>, firmas Python de Impacket o binarios unsigned ejecutándose durante la ventana de alerta. Un host Windows corriendo <code>secretsdump.py</code> es adversario confirmado; una fuente Linux con Impacket es la firma canónica de Kali/host de operador.</p>
+<h3 id="fase-2-detectar-extraccion-offline-de-ntds-dit">Fase 2 — Detectar extracción offline de ntds.dit</h3>
+<p>Firma del operador: <strong>acceso directo a <code>C:\Windows\NTDS\ntds.dit</code></strong> en un DC, o <strong>creación de shadow-copy VSS</strong> seguida de acceso al archivo, o <strong>invocación de <code>ntdsutil</code></strong> con subcomandos <code>ifm</code> / <code>IFM</code>.</p>
+<p>1. <strong>Sysmon Event 11 (file create) en rutas shadow-copy.</strong> <code>text index=sysmon EventCode=11 TargetFilename=&quot;\\GLOBALROOT\Device\HarddiskVolumeShadowCopy*\Windows\NTDS\ntds.dit&quot;</code> Cualquier match es una <strong>alerta de alta fidelidad</strong>. El software de backup legítimo usa VSS pero no extrae archivos individuales de esta manera.</p>
+<p>2. <strong>Creación de procesos: <code>ntdsutil</code>, <code>vssadmin create shadow</code>, <code>wbadmin start backup</code>.</strong> <code>text index=wineventlog EventCode=4688 (NewProcessName=&quot;*\\ntdsutil.exe&quot; OR (NewProcessName=&quot;*\\vssadmin.exe&quot; AND CommandLine=&quot;*create shadow*&quot;) OR (NewProcessName=&quot;*\\wbadmin.exe&quot; AND CommandLine=&quot;*ntds*&quot;))</code> Alertá con supresión por allowlist para parent processes conocidos de software de backup legítimo.</p>
+<p>3. <strong>Sysmon Event 1 con patrón de argumentos <code>ntdsutil</code> + <code>IFM</code>.</strong> <code>ntdsutil &quot;ac i ntds&quot; &quot;ifm&quot; &quot;create full c:\extract&quot; q q</code> es el comando canónico del operador. El string de argumentos es reconocible; alertá específicamente sobre eso.</p>
+<p>4. <strong>Telemetría EDR de file-handle sobre <code>ntds.dit</code>.</strong> Productos EDR modernos (Defender for Endpoint, CrowdStrike, SentinelOne) emiten eventos de apertura de file handles para rutas sensibles de la base AD. Cruzalo con la allowlist de backup legítimo; todo lo demás alerta.</p>
+<h3 id="fase-3-detectar-dcshadow-registro-de-dc-rogue">Fase 3 — Detectar DCShadow (registro de DC rogue)</h3>
+<p>Firma del operador: <strong>cambios anómalos a objetos del configuration container de AD</strong>; un host no-DC registrándose como DC y luego revirtiendo el registro después de empujar cambios.</p>
+<ol>
+<li><strong>Event 4929 / 4928</strong> (replication source replica agregada/removida) fuera de la ventana de change-management.</li>
+<li><strong>Event 5136</strong> (directory service object modified) sobre objetos en <code>CN=Sites,CN=Configuration,...</code> con <code>SubjectUserSid</code> que no es un DC ni servicio de scheduled task.</li>
+<li><strong>Conexiones de red Sysmon a TCP 135 (RPC) + puertos altos dinámicos</strong> desde un host no-DC hacia un DC; la firma de inbound replication DRSUAPI cuando <em>la fuente está impersonando un DC</em>.</li>
+</ol>
+<p>DCShadow es más raro y sigiloso que DCSync clásico; la detección suele depender de la regla específica de Microsoft Defender for Identity más que de queries raw de Event Log.</p>
+<h3 id="fase-4-investigacion-y-respuesta">Fase 4 — Investigación y respuesta</h3>
+<p>Cuando dispare cualquier alerta de Fase 1-3:</p>
+<ol>
+<li><strong>Tratala como compromiso confirmado hasta demostrar lo contrario.</strong> La tasa de falsos positivos de estas reglas es casi cero; la postura de respuesta debería reflejarlo.</li>
+<li><strong>Identificá el host y principal origen.</strong> Fase 1: extraé <code>SubjectUserSid</code> y source IP del evento 4662. Fase 2: extraé el parent process tree desde EDR. Construí la línea de tiempo del operador de las últimas 24 horas desde esa fuente.</li>
+<li><strong>Determiná el alcance de extracción.</strong></li>
+<li><code>-just-dc-user &lt;target&gt;</code> -&gt; solo el hash de la cuenta nombrada está comprometido. Respuesta quirúrgica: rotar la contraseña de esa cuenta.</li>
+<li><code>-just-dc</code> (dump completo) -&gt; <strong>todas las cuentas del domain</strong> están comprometidas, incluido <code>krbtgt</code>. Respuesta de domain completo.</li>
+<li>ntds.dit + hive SYSTEM copiados -&gt; igual que dump completo.</li>
+<li><strong>Iniciá rotación de <code>krbtgt</code> si <code>krbtgt</code> estuvo en alcance.</strong> Usá el script <code>New-KrbtgtKeys.ps1</code> de Microsoft. <strong>Dos veces en secuencia</strong>, con &gt;= 10 horas entre rotaciones para dejar que repliquen los cambios y avance la ventana de password-history. Una sola rotación es insuficiente porque el hash anterior de <code>krbtgt</code> sigue siendo válido.</li>
+<li><strong>Deshabilitá la cuenta origen.</strong> Forzá reautenticación para cada admin Tier 0 (asumí que sus credenciales pueden haber habilitado la cadena de ataque). Auditá cada evento de autenticación desde la source IP en los últimos 30 días.</li>
+<li><strong>Auditá uso de Golden / Silver Ticket.</strong> Cualquier TGT o TGS para <code>krbtgt</code> o cuentas de servicio emitido entre el momento de extracción y el fin de la rotación puede ser falsificado. Cruzalo con alertas de <a href="detect-kerberoasting-and-as-rep-roasting.html">detect-kerberoasting-and-as-rep-roasting</a> en la misma ventana.</li>
+<li><strong>Abrí un ticket IR</strong> con: eventos disparadores, host + principal + IP origen, lista de cuentas extraídas (si se conoce), estado de rotación de <code>krbtgt</code>, hallazgos de auditoría de Golden/Silver Ticket, snapshot completo de BloodHound antes y después de la extracción sospechada.</li>
+</ol>
+<h2 id="claves-de-validacion">Claves de validación</h2>
 <ul>
-<li><strong>Monthly BloodHound audit of effective replication rights.</strong> Query <code>MATCH (n)-[:DCSync|GetChanges|GetChangesAll]-&gt;(:Domain) RETURN n.name</code>. The healthy result is "only DCs and explicit Tier 0 admins". Anything else is a finding to remediate. See <a href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync</a> §Detection-and-defense item 1.</li>
-<li><strong>Quarterly proactive <code>krbtgt</code> rotation.</strong> Twice in sequence, on a quarterly cadence, even without suspected compromise. Shortens the worst-case Golden Ticket window from "decades" to "≤ 3 months".</li>
-<li><strong><a href="../identity-and-active-directory/tier-zero-administration-and-paw.html">Tier 0 administration</a> discipline.</strong> PAWs, Authentication Policies, Protected Users membership for all Tier 0 admins. The structural defense that prevents the credential-theft chain ending at DCSync.</li>
-<li><strong>Audit <code>Exchange Trusted Subsystem</code> and related Exchange-installed groups.</strong> Historical Exchange installations grant effective DCSync to multiple groups. Decommissioning Exchange does <em>not</em> automatically remove these grants — explicit audit-and-remove required.</li>
-<li><strong>Disable NTLMv1 domain-wide.</strong> NTLM-relay-to-DCSync chains exist; eliminating the relay surface forces operators into Kerberos-only paths that this playbook detects better.</li>
-<li><strong>Plant honey-principals.</strong> A fake account with <code>DS-Replication-Get-Changes-All</code> and a strong unused password is by definition adversary-only traffic when accessed.</li>
+<li><strong>DCSync de alta confianza:</strong> Event 4662 con GUIDs de replicación desde un <code>SubjectUserSid</code> no-DC. Un solo evento es suficiente.</li>
+<li><strong>Extracción de ntds.dit de alta confianza:</strong> Sysmon Event 11 en una ruta shadow-copy que termina en <code>ntds.dit</code>, o invocación de <code>ntdsutil</code> con argumentos <code>IFM</code>/<code>ifm</code> fuera de la ventana de change-management.</li>
+<li><strong>Honey-principal disparado:</strong> cualquier intento de DCSync contra el honey-principal con derechos de replicación. Falso positivo casi cero; investigalo como actividad adversaria confirmada.</li>
+<li><strong>Evidencia de cadena:</strong> la misma source IP/principal que disparó una alerta Kerberos (<a href="detect-kerberoasting-and-as-rep-roasting.html">detect-kerberoasting-and-as-rep-roasting</a>) en las horas previas ahora hace DCSync. Confirma una cadena Kerberoasting -&gt; cuenta de servicio crackeada -&gt; DCSync, el final de partida canónico en AD.</li>
+<li><strong>Evidencia de ticket falsificado post-rotación:</strong> Event 4769 (TGS issued) donde el tipo de cifrado del ticket <code>krbtgt</code> no coincide con la clave <code>krbtgt</code> actual ni anterior. Indica un Golden Ticket falsificado con un hash viejo filtrado de <code>krbtgt</code> todavía en uso después de una rotación simple insuficiente.</li>
 </ul>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h2 id="mitigacion-remediacion">Mitigación / remediación</h2>
+<p>Del lado defensor, estos son controles durables (no fixes por alerta):</p>
 <ul>
-<li><strong>Blocking DRSUAPI at the network level.</strong> DCs must replicate; blocking the protocol breaks the directory.</li>
-<li><strong>Trusting that "only DCs have replication rights".</strong> Verify with BloodHound. Exchange-installation legacy grants routinely produce surprise principals.</li>
-<li><strong>Single <code>krbtgt</code> rotation.</strong> Password history retains the previous hash; one rotation does not invalidate leaked material.</li>
-<li><strong>Trusting low alert volume.</strong> A <em>single</em> 4662 event with a replication GUID from a non-DC source is the signature. Volumetric thresholds miss the surgical operator.</li>
-<li><strong>Trusting EDR alone.</strong> Modern operators use signed Microsoft binaries (Impacket via Python, in-memory secretsdump variants) that bypass binary-name signatures. The Event-Log-side detection is structural; EDR is the corroboration layer.</li>
+<li><strong>Auditoría mensual de BloodHound sobre derechos efectivos de replicación.</strong> Query <code>MATCH (n)-[:DCSync|GetChanges|GetChangesAll]-&gt;(:Domain) RETURN n.name</code>. El resultado sano es &quot;solo DCs y admins Tier 0 explícitos&quot;. Cualquier otra cosa es un hallazgo a remediar. Ver <a href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync</a> §Detection-and-defense item 1.</li>
+<li><strong>Rotación proactiva trimestral de <code>krbtgt</code>.</strong> Dos veces en secuencia, con cadencia trimestral, incluso sin sospecha de compromiso. Acorta la peor ventana de Golden Ticket de &quot;décadas&quot; a &quot;&lt;= 3 meses&quot;.</li>
+<li><strong>Disciplina de <a href="../identity-and-active-directory/tier-zero-administration-and-paw.html">administración Tier 0</a>.</strong> PAWs, Authentication Policies, membresía Protected Users para todos los admins Tier 0. Es la defensa estructural que impide que la cadena de robo de credenciales termine en DCSync.</li>
+<li><strong>Auditá <code>Exchange Trusted Subsystem</code> y grupos relacionados instalados por Exchange.</strong> Instalaciones históricas de Exchange otorgan DCSync efectivo a múltiples grupos. Descomisionar Exchange no elimina automáticamente estos permisos; hace falta auditoría y remoción explícita.</li>
+<li><strong>Deshabilitá NTLMv1 en todo el domain.</strong> Existen cadenas NTLM-relay-to-DCSync; eliminar la superficie de relay fuerza a los operadores hacia caminos Kerberos-only que este playbook detecta mejor.</li>
+<li><strong>Plantá honey-principals.</strong> Una cuenta falsa con <code>DS-Replication-Get-Changes-All</code> y una contraseña fuerte sin uso es, por definición, tráfico adversario-only cuando se accede.</li>
+</ul>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
+<ul>
+<li><strong>Bloquear DRSUAPI a nivel red.</strong> Los DCs deben replicar; bloquear el protocolo rompe el directorio.</li>
+<li><strong>Confiar en que &quot;solo los DCs tienen derechos de replicación&quot;.</strong> Verificalo con BloodHound. Permisos legacy de instalaciones de Exchange suelen producir principals sorpresa.</li>
+<li><strong>Rotación simple de <code>krbtgt</code>.</strong> Password history conserva el hash previo; una rotación no invalida material filtrado.</li>
+<li><strong>Confiar en bajo volumen de alertas.</strong> Un <em>solo</em> evento 4662 con un GUID de replicación desde una fuente no-DC es la firma. Los umbrales volumétricos pierden al operador quirúrgico.</li>
+<li><strong>Confiar solo en EDR.</strong> Operadores modernos usan binarios Microsoft firmados (Impacket vía Python, variantes in-memory de secretsdump) que evaden firmas por nombre de binario. La detección del lado Event Log es estructural; EDR es la capa de corroboración.</li>
 </ul>
 <h2 id="logging-forensics">Logging / forensics</h2>
 <ul>
-<li><strong>Retain DC Security logs for ≥ 90 days.</strong> DCSync followed by Golden Ticket use often spans weeks; retention is the floor that supports forensic timeline reconstruction.</li>
-<li><strong>Tag every alert with:</strong> source IP, source <code>SubjectUserSid</code>, target account(s), replication GUID(s) used, allowlist status (was the source a legitimate DC?), <code>krbtgt</code> rotation status at time of alert, correlated Kerberoasting/AS-REP alerts in the prior 30 days.</li>
-<li><strong>Capture the full DRSUAPI RPC traffic from the source if possible.</strong> Network telemetry (Zeek <code>dce_rpc.log</code>, Sysmon Event 3) from the source IP during the alert window often reveals the operator's tool fingerprint (Impacket vs Mimikatz vs custom).</li>
-<li><strong>Snapshot BloodHound before <em>and</em> after the suspected compromise.</strong> Comparing graph states reveals whether the operator added DCSync rights to other principals post-compromise (a common persistence move).</li>
-<li><strong>Cross-reference with <a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">attack-path correlation</a>.</strong> A single DCSync alert is high-confidence; a DCSync alert preceded by Kerberoasting, BloodHound collection, and lateral SMB activity is a confirmed kill chain ready for incident-response handoff.</li>
+<li><strong>Retené DC Security logs por &gt;= 90 días.</strong> DCSync seguido de uso de Golden Ticket suele abarcar semanas; la retención es el piso para reconstrucción forense de línea de tiempo.</li>
+<li><strong>Etiquetá cada alerta con:</strong> source IP, <code>SubjectUserSid</code> origen, cuentas objetivo, GUIDs de replicación usados, estado de allowlist (¿la fuente era un DC legítimo?), estado de rotación de <code>krbtgt</code> al momento de la alerta, alertas Kerberoasting/AS-REP correlacionadas en los 30 días previos.</li>
+<li><strong>Capturá el tráfico RPC DRSUAPI completo desde la fuente si es posible.</strong> La telemetría de red (Zeek <code>dce_rpc.log</code>, Sysmon Event 3) desde la source IP durante la ventana de alerta suele revelar el fingerprint de herramienta del operador (Impacket vs Mimikatz vs custom).</li>
+<li><strong>Sacá snapshot de BloodHound antes <em>y</em> después del compromiso sospechado.</strong> Comparar estados del graph revela si el operador agregó derechos DCSync a otros principals post-compromise (movimiento común de persistencia).</li>
+<li><strong>Cruzalo con <a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">correlación de attack paths</a>.</strong> Una sola alerta DCSync es de alta confianza; una alerta DCSync precedida por Kerberoasting, collection de BloodHound y actividad SMB lateral es una kill chain confirmada lista para handoff a incident response.</li>
 </ul>
-<h2 id="operational-safety">Operational safety</h2>
+<h2 id="seguridad-operativa">Seguridad operativa</h2>
 <ul>
-<li><strong>never</strong> auto-disable replication on a DC computer account in response to an alert — the DC must replicate to remain in the directory.</li>
-<li><strong>never</strong> rotate <code>krbtgt</code> only once after suspected compromise; always twice in sequence with replication-wait between.</li>
-<li><strong>always</strong> maintain a documented allowlist of legitimate ntds.dit access sources (backup software, AD recovery tooling) before relying on Phase 2 detection rules.</li>
-<li><strong>always</strong> test the detection rules against an authorized internal lab running <a href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync</a> before relying on them in production. Untested rules are theater.</li>
-<li><strong>always</strong> treat a Phase 1 alert as a confirmed compromise until proven otherwise — the false-positive rate is near zero and the cost of slow response is total-domain compromise.</li>
+<li><strong>nunca</strong> autodeshabilites replicación en una cuenta de equipo DC como respuesta a una alerta; el DC debe replicar para mantenerse en el directorio.</li>
+<li><strong>nunca</strong> rotes <code>krbtgt</code> una sola vez después de sospecha de compromiso; siempre dos veces en secuencia con espera de replicación entre ambas.</li>
+<li><strong>siempre</strong> mantené una allowlist documentada de fuentes legítimas de acceso a ntds.dit (software de backup, tooling de recuperación de AD) antes de depender de las reglas de detección de Fase 2.</li>
+<li><strong>siempre</strong> probá las reglas de detección contra un lab interno autorizado ejecutando <a href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync</a> antes de depender de ellas en producción. Las reglas sin probar son teatro.</li>
+<li><strong>siempre</strong> tratá una alerta de Fase 1 como compromiso confirmado hasta demostrar lo contrario; la tasa de falsos positivos es casi cero y el costo de una respuesta lenta es compromiso total del domain.</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
-<li><a href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a> — the offense playbook this one mirrors.</li>
-<li><a href="../identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">Golden Ticket and krbtgt Compromise</a> — the immediate-next attack after DCSync; the reason <code>krbtgt</code> rotation is the response priority.</li>
-<li><a href="../identity-and-active-directory/silver-ticket-and-service-account-persistence.html">Silver Ticket and Service Account Persistence</a> — the service-account-scoped equivalent after DCSync recovers a service-account hash.</li>
-<li><a href="../identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">krbtgt Rotation and Tier 0 Recovery</a> — the canonical recovery procedure after suspected <code>krbtgt</code> compromise.</li>
-<li><a href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound</a> — the tool for both the offensive enumeration of replication rights and the defensive audit.</li>
-<li><a href="../identity-and-active-directory/tier-zero-administration-and-paw.html">Tier 0 Administration</a> — the structural defense that makes the chain to DCSync impossible.</li>
-<li><a href="detect-kerberoasting-and-as-rep-roasting.html">detect-kerberoasting-and-as-rep-roasting</a> — the upstream detection that frequently precedes a DCSync alert in the same chain.</li>
-<li><a href="../detection-engineering/windows-event-logs.html">Windows Event Logs</a> — Event 4662 + replication GUIDs reference; Event 4929 / 5136 (DCShadow indicators).</li>
-<li><a href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral vs Signature Detection</a> — the right framing for DCSync detection; no useful signature exists at the bug-class layer.</li>
-<li><a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation</a> — multi-stage correlation across recon + Kerberoast + DCSync + Golden Ticket.</li>
-<li><a href="run-scan-pipeline.html">run-scan-pipeline</a> / <a href="detect-external-scan-pipeline.html">detect-external-scan-pipeline</a> — the parallel offense/defense playbook pair pattern this playbook follows.</li>
-<li><a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality</a> — the meta-principle.</li>
+<li><a href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync y extracción de ntds.dit</a> — el playbook ofensivo que este replica.</li>
+<li><a href="../identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">Golden Ticket y compromiso de krbtgt</a> — el ataque inmediatamente posterior a DCSync; la razón por la que la rotación de <code>krbtgt</code> es prioridad de respuesta.</li>
+<li><a href="../identity-and-active-directory/silver-ticket-and-service-account-persistence.html">Silver Ticket y persistencia de cuenta de servicio</a> — el equivalente acotado a cuenta de servicio después de que DCSync recupera un hash de cuenta de servicio.</li>
+<li><a href="../identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">Rotación de krbtgt y recuperación Tier 0</a> — el procedimiento canónico de recuperación después de sospecha de compromiso de <code>krbtgt</code>.</li>
+<li><a href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound</a> — la herramienta tanto para enumeración ofensiva de derechos de replicación como para auditoría defensiva.</li>
+<li><a href="../identity-and-active-directory/tier-zero-administration-and-paw.html">Administración Tier 0</a> — la defensa estructural que vuelve imposible la cadena hacia DCSync.</li>
+<li><a href="detect-kerberoasting-and-as-rep-roasting.html">detect-kerberoasting-and-as-rep-roasting</a> — la detección upstream que frecuentemente precede una alerta DCSync en la misma cadena.</li>
+<li><a href="../detection-engineering/windows-event-logs.html">Windows Event Logs</a> — referencia de Event 4662 + GUIDs de replicación; Event 4929 / 5136 (indicadores DCShadow).</li>
+<li><a href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Detección behavioral vs detección por firmas</a> — el encuadre correcto para detección de DCSync; no existe una firma útil en la capa de clase de bug.</li>
+<li><a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Correlación de attack paths</a> — correlación multi-stage entre recon + Kerberoast + DCSync + Golden Ticket.</li>
+<li><a href="run-scan-pipeline.html">run-scan-pipeline</a> / <a href="detect-external-scan-pipeline.html">detect-external-scan-pipeline</a> — el patrón paralelo de playbooks offense/defense que este playbook sigue.</li>
+<li><a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Dualidad atacante-defensor</a> — el metaprincipio.</li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><strong>Foundational:</strong> MITRE ATT&amp;CK T1003.006 — OS Credential Dumping: DCSync — https://attack.mitre.org/techniques/T1003/006/</li>
+<li><strong>Fundacional:</strong> MITRE ATT&amp;CK T1003.006 — OS Credential Dumping: DCSync — https://attack.mitre.org/techniques/T1003/006/</li>
 <li><strong>Research / Deep Dive:</strong> Sean Metcalf (ADSecurity.org) — Mimikatz DCSync Usage, Exploitation, and Detection — https://adsecurity.org/?p=1729</li>
-<li><strong>Foundational:</strong> Microsoft Learn — AD DS replication permissions and audit guidance — https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/ad-replication-event-id-1864</li>
+<li><strong>Fundacional:</strong> Microsoft Learn — AD DS replication permissions and audit guidance — https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/ad-replication-event-id-1864</li>
 <li><strong>Recovery:</strong> Microsoft Security Blog — KRBTGT Account Password Reset Scripts — https://www.microsoft.com/en-us/security/blog/2015/02/11/krbtgt-account-password-reset-scripts-now-available-for-customers/</li>
 <li><strong>Research / Deep Dive:</strong> Microsoft Defender for Identity — DCSync attack detection — https://learn.microsoft.com/en-us/defender-for-identity/credential-access-alerts</li>
 </ul>
@@ -603,22 +577,22 @@
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#goal">Goal</a>
-<a class="toc-level-2" href="#assumptions">Assumptions</a>
-<a class="toc-level-2" href="#prerequisites">Prerequisites</a>
-<a class="toc-level-2" href="#detection-steps">Detection steps</a>
-<a class="toc-level-3" href="#phase-0-baseline-do-once-refresh-monthly">Phase 0 — Baseline (do once, refresh monthly)</a>
-<a class="toc-level-3" href="#phase-1-detect-classic-dcsync-drsuapi">Phase 1 — Detect classic DCSync (DRSUAPI)</a>
-<a class="toc-level-3" href="#phase-2-detect-ntdsdit-offline-extraction">Phase 2 — Detect ntds.dit offline extraction</a>
-<a class="toc-level-3" href="#phase-3-detect-dcshadow-rogue-dc-registration">Phase 3 — Detect DCShadow (rogue-DC registration)</a>
-<a class="toc-level-3" href="#phase-4-investigation-and-response">Phase 4 — Investigation and response</a>
-<a class="toc-level-2" href="#validation-clues">Validation clues</a>
-<a class="toc-level-2" href="#mitigation-remediation">Mitigation / remediation</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
+<a class="toc-level-2" href="#objetivo">Objetivo</a>
+<a class="toc-level-2" href="#supuestos">Supuestos</a>
+<a class="toc-level-2" href="#prerrequisitos">Prerrequisitos</a>
+<a class="toc-level-2" href="#pasos-de-deteccion">Pasos de detección</a>
+<a class="toc-level-3" href="#fase-0-baseline-una-vez-refrescar-mensualmente">Fase 0 — Baseline (una vez, refrescar mensualmente)</a>
+<a class="toc-level-3" href="#fase-1-detectar-dcsync-clasico-drsuapi">Fase 1 — Detectar DCSync clásico (DRSUAPI)</a>
+<a class="toc-level-3" href="#fase-2-detectar-extraccion-offline-de-ntds-dit">Fase 2 — Detectar extracción offline de ntds.dit</a>
+<a class="toc-level-3" href="#fase-3-detectar-dcshadow-registro-de-dc-rogue">Fase 3 — Detectar DCShadow (registro de DC rogue)</a>
+<a class="toc-level-3" href="#fase-4-investigacion-y-respuesta">Fase 4 — Investigación y respuesta</a>
+<a class="toc-level-2" href="#claves-de-validacion">Claves de validación</a>
+<a class="toc-level-2" href="#mitigacion-remediacion">Mitigación / remediación</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
 <a class="toc-level-2" href="#logging-forensics">Logging / forensics</a>
-<a class="toc-level-2" href="#operational-safety">Operational safety</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-2" href="#references">References</a>
+<a class="toc-level-2" href="#seguridad-operativa">Seguridad operativa</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>
