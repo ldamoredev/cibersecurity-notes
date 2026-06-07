@@ -12,6 +12,7 @@
   const results = document.getElementById("search-results");
   const toggle = document.getElementById("theme-toggle");
   const sidebarToggle = document.getElementById("sidebar-toggle");
+  const sidebar = document.querySelector(".sidebar");
 
   // Theme toggle — null-guarded so a missing button can't kill the rest of the script.
   const saved = localStorage.getItem("theme");
@@ -159,8 +160,13 @@
   }
 
   document.addEventListener("click", (e) => {
+    const toggleHit = sidebarToggle && sidebarToggle.contains(e.target);
+    const sidebarHit = sidebar && sidebar.contains(e.target);
+    if (document.body.classList.contains("nav-open") && !toggleHit && !sidebarHit) {
+      document.body.classList.remove("nav-open");
+    }
     if (e.target === input) return;
-    if (e.target === sidebarToggle) return;
+    if (toggleHit) return;
     if (!results.contains(e.target)) results.hidden = true;
   });
 

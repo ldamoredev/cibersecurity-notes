@@ -40,6 +40,11 @@ SITE_DESCRIPTION = (
     "cloud security, offensive security, DevSecOps, and practical playbooks."
 )
 
+SITE_DESCRIPTION_ES = (
+    "Una base personal de conocimiento de ciberseguridad sobre seguridad web, "
+    "seguridad de APIs, cloud security, offensive security, DevSecOps y playbooks prácticos."
+)
+
 SITE_KEYWORDS = [
     "cybersecurity",
     "web security",
@@ -969,7 +974,7 @@ def note_description(note: Note) -> str:
     if isinstance(fm_description, str) and fm_description.strip():
         return truncate_description(fm_description)
     if note.section == "" and note.rel_path == Path("index.md"):
-        return SITE_DESCRIPTION
+        return site_description()
 
     branch = branch_slug(note)
     if page_kind(note) == "index" and branch:
@@ -988,7 +993,11 @@ def note_description(note: Note) -> str:
         return truncate_description(
             f"{note_label(note)} in the {branch_label(branch)} branch of the ldamoredev cybersecurity knowledge base."
         )
-    return SITE_DESCRIPTION
+    return site_description()
+
+
+def site_description() -> str:
+    return SITE_DESCRIPTION_ES if CURRENT_LOCALE == "es" else SITE_DESCRIPTION
 
 
 def page_keywords(note: Note) -> list[str]:
@@ -1049,7 +1058,7 @@ def json_ld_for(note: Note) -> str:
             "@id": SITE_URL + "/#website",
             "name": SITE_NAME,
             "url": SITE_URL + "/",
-            "description": SITE_DESCRIPTION,
+            "description": site_description(),
             "inLanguage": CURRENT_LOCALE,
             "author": author_ref,
         }
@@ -1095,12 +1104,16 @@ def seo_head(note: Note, root_href: str) -> str:
     canonical = canonical_url(note)
     og_image = absolute_site_url("assets/og-image.png")
     kind = "article" if page_kind(note) in {"concept", "playbook", "registry"} else "website"
+    last_modified = note_last_modified(note)
     lines = [
         f'<title>{html.escape(title)}</title>',
         f'<meta name="description" content="{html.escape(description)}">',
         f'<meta name="author" content="{html.escape(SITE_AUTHOR)}">',
+        f'<meta name="application-name" content="{html.escape(SITE_SHORT_NAME)}">',
         f'<meta name="keywords" content="{html.escape(", ".join(page_keywords(note)))}">',
         f'<meta name="theme-color" content="{THEME_COLOR}">',
+        '<meta name="color-scheme" content="light dark">',
+        '<meta name="referrer" content="strict-origin-when-cross-origin">',
         '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">',
         '<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">',
         f'<link rel="canonical" href="{html.escape(canonical)}">',
@@ -1116,6 +1129,7 @@ def seo_head(note: Note, root_href: str) -> str:
         f'<meta property="og:description" content="{html.escape(description)}">',
         f'<meta property="og:url" content="{html.escape(canonical)}">',
         f'<meta property="og:image" content="{html.escape(og_image)}">',
+        '<meta property="og:image:type" content="image/png">',
         '<meta property="og:image:width" content="1200">',
         '<meta property="og:image:height" content="630">',
         f'<meta property="og:image:alt" content="{html.escape(SITE_NAME)}">',
@@ -1125,12 +1139,16 @@ def seo_head(note: Note, root_href: str) -> str:
         f'<meta name="twitter:image" content="{html.escape(og_image)}">',
         f'<script type="application/ld+json">{json_ld_for(note).replace("</", "<\\/")}</script>',
     ]
-    branch = branch_slug(note)
-    if branch:
-        lines.insert(12, f'<meta property="article:section" content="{html.escape(branch_label(branch))}">')
+    if kind == "article":
+        branch = branch_slug(note)
+        if branch:
+            lines.append(f'<meta property="article:section" content="{html.escape(branch_label(branch))}">')
+        lines.append(f'<meta property="article:published_time" content="{html.escape(last_modified)}">')
+        lines.append(f'<meta property="article:modified_time" content="{html.escape(last_modified)}">')
     for loc in LOCALES:
         lines.append(f'<link rel="alternate" hreflang="{loc}" href="{html.escape(locale_url(note, loc))}">')
-    lines.append(f'<link rel="alternate" hreflang="x-default" href="{html.escape(locale_url(note, DEFAULT_LOCALE))}">')
+    x_default = SITE_URL + "/" if note.section == "" and note.rel_path == Path("index.md") else locale_url(note, DEFAULT_LOCALE)
+    lines.append(f'<link rel="alternate" hreflang="x-default" href="{html.escape(x_default)}">')
     return "\n".join(lines)
 
 
@@ -1242,7 +1260,7 @@ def write_sitemap(notes: list[Note]) -> None:
             for loc in LOCALES
         ]
         out.append(
-            f'    <xhtml:link rel="alternate" hreflang="x-default" href="{xml_escape(page_url(note, DEFAULT_LOCALE))}"/>'
+            f'    <xhtml:link rel="alternate" hreflang="x-default" href="{xml_escape(SITE_URL + "/" if note is None else page_url(note, DEFAULT_LOCALE))}"/>'
         )
         return out
 
@@ -1254,6 +1272,15 @@ def write_sitemap(notes: list[Note]) -> None:
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+        "  <url>",
+        f"    <loc>{xml_escape(SITE_URL + '/')}</loc>",
+        f"    <lastmod>{today}</lastmod>",
+        f'    <xhtml:link rel="alternate" hreflang="x-default" href="{xml_escape(SITE_URL + "/")}"/>',
+        *[
+            f'    <xhtml:link rel="alternate" hreflang="{loc}" href="{xml_escape(page_url(None, loc))}"/>'
+            for loc in LOCALES
+        ],
+        "  </url>",
     ]
     for note, lastmod in pages:
         for loc in LOCALES:
@@ -1797,8 +1824,11 @@ def write_language_landing() -> None:
         f'<a class="lang-choice" href="{loc}/" hreflang="{loc}">{html.escape(LOCALE_NAME[loc])}</a>'
         for loc in LOCALES
     )
+    description = site_description()
+    og_locale = OG_LOCALE.get(DEFAULT_LOCALE, "en_US")
+    og_image = absolute_site_url("assets/og-image.png")
     alts = "".join(f'<link rel="alternate" hreflang="{loc}" href="{SITE_URL}/{loc}/">\n' for loc in LOCALES)
-    alts += f'<link rel="alternate" hreflang="x-default" href="{SITE_URL}/{DEFAULT_LOCALE}/">'
+    alts += f'<link rel="alternate" hreflang="x-default" href="{SITE_URL}/">'
     locale_list = ",".join(f'"{l}"' for l in LOCALES)
 
     head = (
@@ -1807,10 +1837,28 @@ def write_language_landing() -> None:
         '<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
         f"<title>{html.escape(SITE_NAME)}</title>\n"
+        f'<meta name="description" content="{html.escape(description)}">\n'
+        f'<meta name="author" content="{html.escape(SITE_AUTHOR)}">\n'
+        f'<meta name="application-name" content="{html.escape(SITE_SHORT_NAME)}">\n'
+        '<meta name="robots" content="index, follow">\n'
         f'<link rel="canonical" href="{SITE_URL}/">\n'
         f"{alts}\n"
         f'<meta name="theme-color" content="{THEME_COLOR}">\n'
+        '<meta name="color-scheme" content="dark light">\n'
+        f'<meta property="og:site_name" content="{html.escape(SITE_NAME)}">\n'
+        f'<meta property="og:locale" content="{og_locale}">\n'
+        '<meta property="og:type" content="website">\n'
+        f'<meta property="og:title" content="{html.escape(SITE_NAME)}">\n'
+        f'<meta property="og:description" content="{html.escape(description)}">\n'
+        f'<meta property="og:url" content="{SITE_URL}/">\n'
+        f'<meta property="og:image" content="{html.escape(og_image)}">\n'
+        '<meta property="og:image:type" content="image/png">\n'
+        '<meta name="twitter:card" content="summary_large_image">\n'
+        f'<meta name="twitter:title" content="{html.escape(SITE_NAME)}">\n'
+        f'<meta name="twitter:description" content="{html.escape(description)}">\n'
+        f'<meta name="twitter:image" content="{html.escape(og_image)}">\n'
         '<link rel="icon" href="favicon.svg" type="image/svg+xml">\n'
+        '<link rel="manifest" href="site.webmanifest">\n'
     )
     # Plain (non-f) strings below so CSS/JS braces stay literal.
     style = (
@@ -1878,9 +1926,6 @@ def write_redirect_stubs(notes: list[Note]) -> None:
 def main() -> int:
     global ASSET_VER, CURRENT_LOCALE
     ASSET_VER = compute_asset_version()
-    if OUT.exists():
-        shutil.rmtree(OUT)
-    (OUT / "assets").mkdir(parents=True)
 
     # Load notes once — the vault is the canonical English source.
     notes: list[Note] = []
@@ -1893,6 +1938,17 @@ def main() -> int:
             if not should_publish(section_key, p):
                 continue
             notes.append(load_note(section_key, p))
+
+    if not notes:
+        print(
+            f"[error] loaded 0 notes from {VAULT}; refusing to delete or rebuild {OUT}.",
+            file=sys.stderr,
+        )
+        return 1
+
+    if OUT.exists():
+        shutil.rmtree(OUT)
+    (OUT / "assets").mkdir(parents=True)
 
     print(f"Loaded {len(notes)} notes.")
     by_slug, by_path = build_slug_index(notes)
@@ -2101,6 +2157,7 @@ SEARCH_JS = r"""
   const results = document.getElementById("search-results");
   const toggle = document.getElementById("theme-toggle");
   const sidebarToggle = document.getElementById("sidebar-toggle");
+  const sidebar = document.querySelector(".sidebar");
 
   // Theme toggle — null-guarded so a missing button can't kill the rest of the script.
   const saved = localStorage.getItem("theme");
@@ -2248,8 +2305,13 @@ SEARCH_JS = r"""
   }
 
   document.addEventListener("click", (e) => {
+    const toggleHit = sidebarToggle && sidebarToggle.contains(e.target);
+    const sidebarHit = sidebar && sidebar.contains(e.target);
+    if (document.body.classList.contains("nav-open") && !toggleHit && !sidebarHit) {
+      document.body.classList.remove("nav-open");
+    }
     if (e.target === input) return;
-    if (e.target === sidebarToggle) return;
+    if (toggleHit) return;
     if (!results.contains(e.target)) results.hidden = true;
   });
 
