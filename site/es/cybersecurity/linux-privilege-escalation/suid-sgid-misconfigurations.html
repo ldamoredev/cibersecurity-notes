@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SUID and SGID Misconfigurations - Escalada de Privilegios en Linux | ldamoredev Security Atlas</title>
-<meta name="description" content="SUID and SGID misconfigurations occur when an executable runs with the file owner&#x27;s or group&#x27;s privileges and exposes behavior that a low-privileged user can abuse.">
+<meta name="description" content="Las malas configuraciones SUID y SGID ocurren cuando un ejecutable corre con los privilegios del owner o grupo del archivo y expone comportamiento que un usu...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Escalada de Privilegios en Linux, SUID and SGID Misconfigurations, linux-privilege-escalation, suid, sgid">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SUID and SGID Misconfigurations - Escalada de Privilegios en Linux | ldamoredev Security Atlas">
-<meta property="og:description" content="SUID and SGID misconfigurations occur when an executable runs with the file owner&#x27;s or group&#x27;s privileges and exposes behavior that a low-privileged user can abuse.">
+<meta property="og:description" content="Las malas configuraciones SUID y SGID ocurren cuando un ejecutable corre con los privilegios del owner o grupo del archivo y expone comportamiento que un usu...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/suid-sgid-misconfigurations.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="SUID and SGID Misconfigurations - Escalada de Privilegios en Linux | ldamoredev Security Atlas">
-<meta name="twitter:description" content="SUID and SGID misconfigurations occur when an executable runs with the file owner&#x27;s or group&#x27;s privileges and exposes behavior that a low-privileged user can abuse.">
+<meta name="twitter:description" content="Las malas configuraciones SUID y SGID ocurren cuando un ejecutable corre con los privilegios del owner o grupo del archivo y expone comportamiento que un usu...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/suid-sgid-misconfigurations.html#article","name":"SUID and SGID Misconfigurations - Escalada de Privilegios en Linux | ldamoredev Security Atlas","headline":"SUID and SGID Misconfigurations","description":"SUID and SGID misconfigurations occur when an executable runs with the file owner's or group's privileges and exposes behavior that a low-privileged user can abuse.","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/suid-sgid-misconfigurations.html","inLanguage":"es","datePublished":"2026-04-30","dateModified":"2026-04-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/suid-sgid-misconfigurations.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Escalada de Privilegios en Linux","SUID and SGID Misconfigurations","linux-privilege-escalation","suid","sgid"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Escalada de Privilegios en Linux","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/index.html"},{"@type":"ListItem","position":4,"name":"SUID and SGID Misconfigurations","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/suid-sgid-misconfigurations.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/suid-sgid-misconfigurations.html#article","name":"SUID and SGID Misconfigurations - Escalada de Privilegios en Linux | ldamoredev Security Atlas","headline":"SUID and SGID Misconfigurations","description":"Las malas configuraciones SUID y SGID ocurren cuando un ejecutable corre con los privilegios del owner o grupo del archivo y expone comportamiento que un usu...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/suid-sgid-misconfigurations.html","inLanguage":"es","datePublished":"2026-04-30","dateModified":"2026-04-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/suid-sgid-misconfigurations.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Escalada de Privilegios en Linux","SUID and SGID Misconfigurations","linux-privilege-escalation","suid","sgid"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Escalada de Privilegios en Linux","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/index.html"},{"@type":"ListItem","position":4,"name":"SUID and SGID Misconfigurations","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/suid-sgid-misconfigurations.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/suid-sgid-misconfigurations.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/suid-sgid-misconfigurations.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/suid-sgid-misconfigurations.html">
@@ -410,35 +410,34 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Escalada de Privilegios en Linux</a><span>/</span><span>SUID and SGID Misconfigurations</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>SUID and SGID Misconfigurations</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-orange">Escalada de Privilegios en Linux</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~3 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado Apr 30, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#linux-privilege-escalation</span><span class="meta-chip tag">#suid</span><span class="meta-chip tag">#sgid</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="suid-and-sgid-misconfigurations">SUID and SGID Misconfigurations</h1>
-<h2 id="definition">Definition</h2>
-<p>SUID and SGID misconfigurations occur when an executable runs with the file owner's or group's privileges and exposes behavior that a low-privileged user can abuse.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>SUID root binaries are intentional privilege crossings. They are powerful, easy to overlook, and dangerous when custom, outdated, or capable of launching helper programs.</p>
-<p>For defenders, a small known-good SUID inventory is a practical hardening baseline.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>Use 4 questions for each privileged binary:</p>
+<h2 id="definicion">Definición</h2>
+<p>Las malas configuraciones SUID y SGID ocurren cuando un ejecutable corre con los privilegios del owner o grupo del archivo y expone comportamiento que un usuario con pocos privilegios puede abusar.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>Los binarios SUID root son cruces intencionales de privilegios. Son poderosos, fáciles de pasar por alto y peligrosos cuando son custom, viejos o capaces de lanzar helper programs.</p>
+<p>Para defensores, un inventario SUID known-good y chico es una baseline práctica de hardening.</p>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>Usá 4 preguntas por cada binario privilegiado:</p>
 <ol>
-<li><strong>Expected:</strong> is this binary normally SUID/SGID on this distribution?</li>
-<li><strong>Owner:</strong> which user or group does it execute as?</li>
-<li><strong>Behavior:</strong> can it read/write files, execute commands, load config, or call helpers?</li>
-<li><strong>Influence:</strong> can a low user control arguments, input files, paths, environment, or working directory?</li>
+<li><strong>Esperado:</strong> este binario normalmente es SUID/SGID en esta distribución?</li>
+<li><strong>Owner:</strong> como qué usuario o grupo ejecuta?</li>
+<li><strong>Comportamiento:</strong> puede leer/escribir archivos, ejecutar comandos, cargar config o llamar helpers?</li>
+<li><strong>Influencia:</strong> un usuario bajo puede controlar argumentos, input files, paths, entorno o directorio de trabajo?</li>
 </ol>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
 <ul>
-<li>Compare SUID lists against a known-good baseline.</li>
-<li>Prioritize unusual custom paths such as <code>/opt</code>, <code>/usr/local/bin</code>, and home directories.</li>
-<li>Check GTFOBins for known privileged behavior.</li>
-<li>Inspect strings only as a clue, not proof.</li>
-<li>Look for helper calls without absolute paths.</li>
+<li>Compará listas SUID contra una baseline known-good.</li>
+<li>Priorizá rutas custom inusuales como <code>/opt</code>, <code>/usr/local/bin</code> y home directories.</li>
+<li>Revisá GTFOBins por comportamiento privilegiado conocido.</li>
+<li>Inspeccioná strings solo como pista, no como prueba.</li>
+<li>Buscá llamadas a helpers sin rutas absolutas.</li>
 </ul>
-<h3 id="worked-example-custom-suid-helper">Worked example: custom SUID helper</h3>
+<h3 id="ejemplo-trabajado-helper-suid-custom">Ejemplo trabajado: helper SUID custom</h3>
 <div class="codehilite"><pre><span></span><code>Lead: /usr/local/bin/report-helper has SUID root
 Expected baseline: not present on standard image
 Behavior clue: strings show &quot;tar -czf&quot;
@@ -446,61 +445,57 @@ Influence clue: helper runs from a user-writable working directory
 Minimal proof: controlled lab path proves helper lookup can be influenced
 Fix: remove SUID, use a root-owned service wrapper, absolute paths, and input validation
 </code></pre></div>
-
-<p>The strongest SUID findings explain both why the binary is privileged and how a low user can influence its privileged behavior.</p>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<h3 id="1-known-dangerous-utility">1. Known dangerous utility</h3>
-<p>A legitimate utility has features that become dangerous under SUID.</p>
-<h3 id="2-custom-helper-binary">2. Custom helper binary</h3>
-<p>An internal helper was built to solve an operations problem and lacks security review.</p>
-<h3 id="3-path-dependent-helper-call">3. PATH-dependent helper call</h3>
-<p>The binary calls another program by name instead of absolute path.</p>
-<h3 id="4-writable-input-or-config">4. Writable input or config</h3>
-<p>The binary trusts a file the low-privileged user can control.</p>
-<h3 id="5-sgid-data-access">5. SGID data access</h3>
-<p>SGID may not become root, but it can grant access to sensitive group-owned files.</p>
-<h2 id="impact">Impact</h2>
+<p>Los hallazgos SUID más fuertes explican tanto por qué el binario es privilegiado como cómo un usuario bajo puede influir su comportamiento privilegiado.</p>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<h3 id="1-utilidad-peligrosa-conocida">1. Utilidad peligrosa conocida</h3>
+<p>Una utilidad legítima tiene features que se vuelven peligrosas bajo SUID.</p>
+<h3 id="2-helper-binary-custom">2. Helper binary custom</h3>
+<p>Un helper interno fue creado para resolver un problema de operaciones y carece de revisión de seguridad.</p>
+<h3 id="3-llamada-a-helper-dependiente-de-path">3. Llamada a helper dependiente de PATH</h3>
+<p>El binario llama a otro programa por nombre en vez de ruta absoluta.</p>
+<h3 id="4-input-o-config-escribible">4. Input o config escribible</h3>
+<p>El binario confía en un archivo que el usuario con pocos privilegios puede controlar.</p>
+<h3 id="5-acceso-a-datos-sgid">5. Acceso a datos SGID</h3>
+<p>SGID puede no convertirse en root, pero puede otorgar acceso a archivos sensibles propiedad de un grupo.</p>
+<h2 id="impacto">Impacto</h2>
 <ul>
-<li>Root command execution.</li>
-<li>Privileged file read or write.</li>
-<li>Access to group-owned secrets.</li>
-<li>Persistent modification of privileged paths.</li>
-<li>Local denial of service if privileged helpers are unstable.</li>
+<li>Ejecución de comandos como root.</li>
+<li>Lectura o escritura privilegiada de archivos.</li>
+<li>Acceso a secretos propiedad de grupos.</li>
+<li>Modificación persistente de rutas privilegiadas.</li>
+<li>Denial of service local si helpers privilegiados son inestables.</li>
 </ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
 <ul>
-<li><strong>Maintain a baseline SUID/SGID inventory.</strong> Drift is easier to detect when expected privileged files are known.</li>
-<li><strong>Remove SUID from unnecessary binaries.</strong> Privileged execution should be rare and justified.</li>
-<li><strong>Review custom helpers as security-sensitive code.</strong> Any SUID helper is a boundary component.</li>
-<li><strong>Use absolute paths and sanitized environments.</strong> Privileged binaries must not trust caller-controlled lookup behavior.</li>
-<li><strong>Monitor privileged-bit changes.</strong> Unexpected chmod/chown changes are high-signal events.</li>
+<li><strong>Mantené una baseline de inventario SUID/SGID.</strong> El drift es más fácil de detectar cuando se conocen los archivos privilegiados esperados.</li>
+<li><strong>Remové SUID de binarios innecesarios.</strong> La ejecución privilegiada debería ser rara y justificada.</li>
+<li><strong>Revisá helpers custom como código sensible de seguridad.</strong> Cualquier helper SUID es un componente de límite.</li>
+<li><strong>Usá rutas absolutas y entornos sanitizados.</strong> Los binarios privilegiados no deben confiar en comportamiento de lookup controlado por caller.</li>
+<li><strong>Monitoreá cambios de bits privilegiados.</strong> Cambios inesperados de chmod/chown son eventos de alta señal.</li>
 </ul>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li><strong>Assuming standard binaries are always safe.</strong> Context and permissions still matter.</li>
-<li><strong>Only checking <code>/bin</code>.</strong> Custom SUID files often live elsewhere.</li>
-<li><strong>Relying on file names.</strong> Behavior, owner, and influence decide risk.</li>
+<li><strong>Asumir que los binarios estándar siempre son seguros.</strong> El contexto y los permisos todavía importan.</li>
+<li><strong>Revisar solo <code>/bin</code>.</strong> Los archivos SUID custom suelen vivir en otros lugares.</li>
+<li><strong>Depender de nombres de archivo.</strong> Comportamiento, owner e influencia deciden el riesgo.</li>
 </ul>
-<h2 id="practical-labs">Practical labs</h2>
-<p>Use an owned VM.</p>
-<h3 id="inventory-privileged-binaries">Inventory privileged binaries</h3>
-<div class="codehilite"><pre><span></span><code>find<span class="w"> </span>/<span class="w"> </span>-perm<span class="w"> </span>-4000<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span><span class="m">2</span>&gt;/dev/null
-find<span class="w"> </span>/<span class="w"> </span>-perm<span class="w"> </span>-2000<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+<h2 id="labs-practicos">Labs prácticos</h2>
+<p>Usá una VM propia.</p>
+<h3 id="inventariar-binarios-privilegiados">Inventariar binarios privilegiados</h3>
+<div class="codehilite"><pre><span></span><code>find / -perm -4000 -type f 2&gt;/dev/null
+find / -perm -2000 -type f 2&gt;/dev/null
 </code></pre></div>
-
-<p>Tag each as standard, custom, unknown, or suspicious.</p>
-<h3 id="compare-ownership-and-location">Compare ownership and location</h3>
-<div class="codehilite"><pre><span></span><code>ls<span class="w"> </span>-la<span class="w"> </span>/path/to/suid-binary
-file<span class="w"> </span>/path/to/suid-binary
+<p>Etiquetá cada uno como estándar, custom, desconocido o sospechoso.</p>
+<h3 id="comparar-ownership-y-ubicacion">Comparar ownership y ubicación</h3>
+<div class="codehilite"><pre><span></span><code>ls -la /path/to/suid-binary
+file /path/to/suid-binary
 </code></pre></div>
-
-<p>Custom root-owned SUID binaries deserve the most attention.</p>
-<h3 id="inspect-helper-behavior-lightly">Inspect helper behavior lightly</h3>
-<div class="codehilite"><pre><span></span><code>strings<span class="w"> </span>/path/to/suid-binary<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-80
+<p>Los binarios SUID custom propiedad de root merecen la mayor atención.</p>
+<h3 id="inspeccionar-comportamiento-de-helper-superficialmente">Inspeccionar comportamiento de helper superficialmente</h3>
+<div class="codehilite"><pre><span></span><code>strings /path/to/suid-binary | head -80
 </code></pre></div>
-
-<p>Strings can reveal helper names, file paths, or config references, but they are not complete analysis.</p>
-<h3 id="build-a-suid-finding-card">Build a SUID finding card</h3>
+<p>Strings puede revelar nombres de helpers, rutas de archivos o referencias de config, pero no es análisis completo.</p>
+<h3 id="armar-una-tarjeta-de-hallazgo-suid">Armar una tarjeta de hallazgo SUID</h3>
 <div class="codehilite"><pre><span></span><code>Binary:
 Owner/group:
 Path:
@@ -510,35 +505,34 @@ Privileged behavior:
 Minimal proof:
 Recommended fix:
 </code></pre></div>
-
-<p>This keeps the focus on the boundary failure.</p>
-<h2 id="practical-examples">Practical examples</h2>
+<p>Esto mantiene el foco en la falla de límite.</p>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
-<li>A custom SUID root backup helper calls <code>tar</code> without an absolute path.</li>
-<li>A SUID binary reads a config file from a writable directory.</li>
-<li>An SGID tool grants access to a sensitive group file.</li>
-<li>A standard binary appears in a nonstandard location and was manually granted SUID.</li>
-<li>A vulnerable helper has no need to be SUID after the workflow is redesigned.</li>
+<li>Un helper de backup SUID root custom llama a <code>tar</code> sin ruta absoluta.</li>
+<li>Un binario SUID lee un config file desde un directorio escribible.</li>
+<li>Una herramienta SGID otorga acceso a un archivo sensible de grupo.</li>
+<li>Un binario estándar aparece en una ubicación no estándar y recibió SUID manualmente.</li>
+<li>Un helper vulnerable ya no necesita SUID después de rediseñar el workflow.</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
-<li><a href="linux-privilege-escalation.html">linux-privilege-escalation</a></li>
-<li><a href="linux-enumeration.html">linux-enumeration</a></li>
-<li><a href="path-hijacking.html">path-hijacking</a></li>
-<li><a href="linux-capabilities.html">linux-capabilities</a></li>
-<li><a href="sudo-misconfigurations.html">sudo-misconfigurations</a></li>
+<li><a href="linux-privilege-escalation.html">Linux Privilege Escalation</a></li>
+<li><a href="linux-enumeration.html">Linux Enumeration</a></li>
+<li><a href="path-hijacking.html">PATH Hijacking</a></li>
+<li><a href="linux-capabilities.html">Linux Capabilities</a></li>
+<li><a href="sudo-misconfigurations.html">Sudo Misconfigurations</a></li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<h3 id="futuras-notas-atomicas-sugeridas">Futuras notas atómicas sugeridas</h3>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: suid-helper-secure-design">suid-helper-secure-design</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: linux-file-permissions">linux-file-permissions</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: sgid-data-access">sgid-data-access</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: privileged-binary-auditing">privileged-binary-auditing</span></li>
+<li>suid-helper-secure-design</li>
+<li>linux-file-permissions</li>
+<li>sgid-data-access</li>
+<li>privileged-binary-auditing</li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><strong>Technique Reference:</strong> GTFOBins: SUID — https://gtfobins.github.io/#+suid</li>
-<li><strong>Official Docs:</strong> chmod — https://man7.org/linux/man-pages/man1/chmod.1.html</li>
+<li><strong>Referencia técnica:</strong> GTFOBins: SUID — https://gtfobins.github.io/#+suid</li>
+<li><strong>Documentación oficial:</strong> chmod — https://man7.org/linux/man-pages/man1/chmod.1.html</li>
 <li><strong>Testing / Lab:</strong> HackTricks SUID — https://book.hacktricks.wiki/en/linux-hardening/privilege-escalation/index.html#sudo-and-suid</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="sudo-misconfigurations.html"><span class="nav-dir">← Previous</span><strong>Sudo Misconfigurations</strong></a></nav>
@@ -555,24 +549,29 @@ Recommended fix:
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-3" href="#worked-example-custom-suid-helper">Worked example: custom SUID helper</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-known-dangerous-utility">1. Known dangerous utility</a>
-<a class="toc-level-3" href="#2-custom-helper-binary">2. Custom helper binary</a>
-<a class="toc-level-3" href="#3-path-dependent-helper-call">3. PATH-dependent helper call</a>
-<a class="toc-level-3" href="#4-writable-input-or-config">4. Writable input or config</a>
-<a class="toc-level-3" href="#5-sgid-data-access">5. SGID data access</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-3" href="#inventory-privileged-binaries">Inventory privileged binaries</a>
-<a class="toc-level-3" href="#compare-ownership-and-location">Compare ownership and location</a>
-<a class="toc-level-3" href="#inspect-helper-behavior-lightly">Inspect helper behavior lightly</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-3" href="#ejemplo-trabajado-helper-suid-custom">Ejemplo trabajado: helper SUID custom</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
+<a class="toc-level-3" href="#1-utilidad-peligrosa-conocida">1. Utilidad peligrosa conocida</a>
+<a class="toc-level-3" href="#2-helper-binary-custom">2. Helper binary custom</a>
+<a class="toc-level-3" href="#3-llamada-a-helper-dependiente-de-path">3. Llamada a helper dependiente de PATH</a>
+<a class="toc-level-3" href="#4-input-o-config-escribible">4. Input o config escribible</a>
+<a class="toc-level-3" href="#5-acceso-a-datos-sgid">5. Acceso a datos SGID</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
+<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
+<a class="toc-level-3" href="#inventariar-binarios-privilegiados">Inventariar binarios privilegiados</a>
+<a class="toc-level-3" href="#comparar-ownership-y-ubicacion">Comparar ownership y ubicación</a>
+<a class="toc-level-3" href="#inspeccionar-comportamiento-de-helper-superficialmente">Inspeccionar comportamiento de helper superficialmente</a>
+<a class="toc-level-3" href="#armar-una-tarjeta-de-hallazgo-suid">Armar una tarjeta de hallazgo SUID</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-3" href="#futuras-notas-atomicas-sugeridas">Futuras notas atómicas sugeridas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

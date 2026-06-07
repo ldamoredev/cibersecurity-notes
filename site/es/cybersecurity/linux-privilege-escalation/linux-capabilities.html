@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Linux Capabilities - Escalada de Privilegios en Linux | ldamoredev Security Atlas</title>
-<meta name="description" content="Linux capabilities split root privileges into smaller units that can be assigned to processes or files.">
+<meta name="description" content="Linux capabilities dividen privilegios de root en unidades más chicas que se pueden asignar a procesos o archivos.">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Escalada de Privilegios en Linux, Linux Capabilities, linux-privilege-escalation, capabilities">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux Capabilities - Escalada de Privilegios en Linux | ldamoredev Security Atlas">
-<meta property="og:description" content="Linux capabilities split root privileges into smaller units that can be assigned to processes or files.">
+<meta property="og:description" content="Linux capabilities dividen privilegios de root en unidades más chicas que se pueden asignar a procesos o archivos.">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/linux-capabilities.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Linux Capabilities - Escalada de Privilegios en Linux | ldamoredev Security Atlas">
-<meta name="twitter:description" content="Linux capabilities split root privileges into smaller units that can be assigned to processes or files.">
+<meta name="twitter:description" content="Linux capabilities dividen privilegios de root en unidades más chicas que se pueden asignar a procesos o archivos.">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/linux-capabilities.html#article","name":"Linux Capabilities - Escalada de Privilegios en Linux | ldamoredev Security Atlas","headline":"Linux Capabilities","description":"Linux capabilities split root privileges into smaller units that can be assigned to processes or files.","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/linux-capabilities.html","inLanguage":"es","datePublished":"2026-04-30","dateModified":"2026-04-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/linux-capabilities.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Escalada de Privilegios en Linux","Linux Capabilities","linux-privilege-escalation","capabilities"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Escalada de Privilegios en Linux","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/index.html"},{"@type":"ListItem","position":4,"name":"Linux Capabilities","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/linux-capabilities.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/linux-capabilities.html#article","name":"Linux Capabilities - Escalada de Privilegios en Linux | ldamoredev Security Atlas","headline":"Linux Capabilities","description":"Linux capabilities dividen privilegios de root en unidades más chicas que se pueden asignar a procesos o archivos.","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/linux-capabilities.html","inLanguage":"es","datePublished":"2026-04-30","dateModified":"2026-04-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/linux-capabilities.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Escalada de Privilegios en Linux","Linux Capabilities","linux-privilege-escalation","capabilities"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Escalada de Privilegios en Linux","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/index.html"},{"@type":"ListItem","position":4,"name":"Linux Capabilities","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/linux-capabilities.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/linux-capabilities.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/linux-capabilities.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/linux-capabilities.html">
@@ -410,37 +410,36 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Escalada de Privilegios en Linux</a><span>/</span><span>Linux Capabilities</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Linux Capabilities</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-orange">Escalada de Privilegios en Linux</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~3 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado Apr 30, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#linux-privilege-escalation</span><span class="meta-chip tag">#capabilities</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="linux-capabilities">Linux Capabilities</h1>
-<h2 id="definition">Definition</h2>
-<p>Linux capabilities split root privileges into smaller units that can be assigned to processes or files.</p>
-<p>A capability misconfiguration occurs when a binary receives a capability that lets a low-privileged user cross a sensitive boundary.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>Capabilities are often introduced to avoid full root, but they still grant pieces of root. A single dangerous capability can be equivalent to root in practice.</p>
-<p>For defenders, capabilities are a precision tool that requires inventory and justification.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>Use 5 capability-risk questions:</p>
+<h2 id="definicion">Definición</h2>
+<p>Linux capabilities dividen privilegios de root en unidades más chicas que se pueden asignar a procesos o archivos.</p>
+<p>Una mala configuración de capabilities ocurre cuando un binario recibe una capability que permite que un usuario con pocos privilegios cruce un límite sensible.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>Las capabilities suelen introducirse para evitar root completo, pero siguen otorgando partes de root. Una sola capability peligrosa puede ser equivalente a root en la práctica.</p>
+<p>Para defensores, las capabilities son una herramienta de precisión que requiere inventario y justificación.</p>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>Usá 5 preguntas de riesgo sobre capabilities:</p>
 <ol>
-<li><strong>Which capability:</strong> what exact power is granted?</li>
-<li><strong>To what:</strong> process, service, or file capability?</li>
-<li><strong>Who can execute:</strong> which users can run the binary?</li>
-<li><strong>What behavior:</strong> can the binary use the capability to read, write, bind, trace, or change identity?</li>
-<li><strong>Can it chain:</strong> does the capability combine with command execution or file write?</li>
+<li><strong>Qué capability:</strong> qué poder exacto se otorga?</li>
+<li><strong>A qué:</strong> process, service o file capability?</li>
+<li><strong>Quién puede ejecutar:</strong> qué usuarios pueden correr el binario?</li>
+<li><strong>Qué comportamiento:</strong> el binario puede usar la capability para leer, escribir, bindear, tracear o cambiar identidad?</li>
+<li><strong>Puede encadenarse:</strong> la capability se combina con ejecución de comandos o escritura de archivos?</li>
 </ol>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
 <ul>
-<li>Enumerate file capabilities with <code>getcap -r /</code>.</li>
-<li>Prioritize <code>cap_setuid</code>, <code>cap_setgid</code>, <code>cap_dac_read_search</code>, <code>cap_dac_override</code>, <code>cap_sys_admin</code>, <code>cap_net_raw</code>, and <code>cap_net_bind_service</code>.</li>
-<li>Check whether the binary is interpreter-like or shell-capable.</li>
-<li>Compare capability use to the operational need.</li>
-<li>Remove file capabilities that are no longer justified.</li>
+<li>Enumerá file capabilities con <code>getcap -r /</code>.</li>
+<li>Priorizá <code>cap_setuid</code>, <code>cap_setgid</code>, <code>cap_dac_read_search</code>, <code>cap_dac_override</code>, <code>cap_sys_admin</code>, <code>cap_net_raw</code> y <code>cap_net_bind_service</code>.</li>
+<li>Revisá si el binario se comporta como intérprete o puede abrir shell.</li>
+<li>Compará el uso de la capability contra la necesidad operativa.</li>
+<li>Remové file capabilities que ya no estén justificadas.</li>
 </ul>
-<h3 id="worked-example-capability-that-outgrows-its-purpose">Worked example: capability that outgrows its purpose</h3>
+<h3 id="ejemplo-trabajado-capability-que-supera-su-proposito">Ejemplo trabajado: capability que supera su propósito</h3>
 <div class="codehilite"><pre><span></span><code>Lead: /usr/local/bin/net-helper = cap_net_raw+ep
 Business purpose: collect packet diagnostics for support
 Who can execute: all local users
@@ -448,56 +447,53 @@ Boundary question: can any user now perform packet-level activity?
 Minimal proof: show capability-bearing execution path without capturing unrelated traffic
 Fix: restrict execution to admin group or move diagnostics behind an audited service
 </code></pre></div>
-
-<p>Capabilities are not automatically bad. The finding appears when capability, executable behavior, and broad execution rights combine.</p>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<h3 id="1-identity-changing-capability">1. Identity-changing capability</h3>
-<p><code>cap_setuid</code> or <code>cap_setgid</code> may allow user or group transition.</p>
-<h3 id="2-file-access-capability">2. File-access capability</h3>
-<p>DAC override/read capabilities can bypass normal file permissions.</p>
-<h3 id="3-network-capability">3. Network capability</h3>
-<p>Network capabilities can enable packet capture, raw sockets, or privileged port binding.</p>
-<h3 id="4-broad-system-capability">4. Broad system capability</h3>
-<p><code>cap_sys_admin</code> is notoriously broad and often too close to root.</p>
-<h3 id="5-container-capability-drift">5. Container capability drift</h3>
-<p>Containers may run with capabilities that make host boundaries weaker than expected.</p>
-<h2 id="impact">Impact</h2>
+<p>Las capabilities no son automáticamente malas. El hallazgo aparece cuando se combinan capability, comportamiento del ejecutable y derechos amplios de ejecución.</p>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<h3 id="1-capability-de-cambio-de-identidad">1. Capability de cambio de identidad</h3>
+<p><code>cap_setuid</code> o <code>cap_setgid</code> puede permitir transición de usuario o grupo.</p>
+<h3 id="2-capability-de-acceso-a-archivos">2. Capability de acceso a archivos</h3>
+<p>Capabilities de DAC override/read pueden saltear permisos normales de archivos.</p>
+<h3 id="3-capability-de-red">3. Capability de red</h3>
+<p>Capabilities de red pueden habilitar packet capture, raw sockets o binding de puertos privilegiados.</p>
+<h3 id="4-capability-amplia-de-sistema">4. Capability amplia de sistema</h3>
+<p><code>cap_sys_admin</code> es notoriamente amplia y suele estar demasiado cerca de root.</p>
+<h3 id="5-drift-de-capabilities-en-containers">5. Drift de capabilities en containers</h3>
+<p>Los containers pueden correr con capabilities que debilitan más de lo esperado los límites del host.</p>
+<h2 id="impacto">Impacto</h2>
 <ul>
-<li>Privileged file read or write.</li>
-<li>Identity change or root-equivalent execution.</li>
-<li>Packet capture or network manipulation.</li>
-<li>Container escape preconditions.</li>
-<li>Service privilege expansion beyond intended design.</li>
+<li>Lectura o escritura privilegiada de archivos.</li>
+<li>Cambio de identidad o ejecución equivalente a root.</li>
+<li>Packet capture o manipulación de red.</li>
+<li>Precondiciones de escape de container.</li>
+<li>Expansión de privilegios de servicio más allá del diseño previsto.</li>
 </ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
 <ul>
-<li><strong>Inventory file capabilities.</strong> Capabilities are less visible than SUID bits and need their own baseline.</li>
-<li><strong>Grant the narrowest capability possible.</strong> Avoid broad capabilities such as <code>cap_sys_admin</code>.</li>
-<li><strong>Limit executable access.</strong> A capability-bearing binary should not be executable by users that do not need it.</li>
-<li><strong>Prefer service-level privilege management.</strong> Avoid scattering file capabilities across custom tools.</li>
-<li><strong>Monitor <code>setcap</code> changes.</strong> Capability assignment is a privilege-boundary change.</li>
+<li><strong>Inventariá file capabilities.</strong> Las capabilities son menos visibles que bits SUID y necesitan su propia baseline.</li>
+<li><strong>Otorgá la capability más estrecha posible.</strong> Evitá capabilities amplias como <code>cap_sys_admin</code>.</li>
+<li><strong>Limitá acceso de ejecución.</strong> Un binario con capability no debería ser ejecutable por usuarios que no lo necesitan.</li>
+<li><strong>Preferí gestión de privilegios a nivel service.</strong> Evitá dispersar file capabilities en herramientas custom.</li>
+<li><strong>Monitoreá cambios de <code>setcap</code>.</strong> La asignación de capabilities es un cambio de límite de privilegios.</li>
 </ul>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li><strong>Saying "it is not SUID."</strong> Capabilities can be equally dangerous.</li>
-<li><strong>Granting broad capabilities for convenience.</strong> The boundary becomes unclear.</li>
-<li><strong>Ignoring containers.</strong> Container capabilities can change the meaning of "root inside the container."</li>
+<li><strong>Decir &quot;no es SUID&quot;.</strong> Las capabilities pueden ser igual de peligrosas.</li>
+<li><strong>Otorgar capabilities amplias por comodidad.</strong> El límite se vuelve poco claro.</li>
+<li><strong>Ignorar containers.</strong> Las capabilities de container pueden cambiar el significado de &quot;root dentro del container&quot;.</li>
 </ul>
-<h2 id="practical-labs">Practical labs</h2>
-<p>Use an owned VM or disposable container.</p>
-<h3 id="enumerate-file-capabilities">Enumerate file capabilities</h3>
-<div class="codehilite"><pre><span></span><code>getcap<span class="w"> </span>-r<span class="w"> </span>/<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+<h2 id="labs-practicos">Labs prácticos</h2>
+<p>Usá una VM propia o un container descartable.</p>
+<h3 id="enumerar-file-capabilities">Enumerar file capabilities</h3>
+<div class="codehilite"><pre><span></span><code>getcap -r / 2&gt;/dev/null
 </code></pre></div>
-
-<p>Classify results as expected, unknown, or dangerous.</p>
-<h3 id="inspect-one-binary">Inspect one binary</h3>
-<div class="codehilite"><pre><span></span><code>ls<span class="w"> </span>-la<span class="w"> </span>/path/to/binary
-getcap<span class="w"> </span>/path/to/binary
-file<span class="w"> </span>/path/to/binary
+<p>Clasificá resultados como esperados, desconocidos o peligrosos.</p>
+<h3 id="inspeccionar-un-binario">Inspeccionar un binario</h3>
+<div class="codehilite"><pre><span></span><code>ls -la /path/to/binary
+getcap /path/to/binary
+file /path/to/binary
 </code></pre></div>
-
-<p>Capability risk depends on both the capability and binary behavior.</p>
-<h3 id="build-a-capability-risk-table">Build a capability risk table</h3>
+<p>El riesgo de capability depende tanto de la capability como del comportamiento del binario.</p>
+<h3 id="armar-una-tabla-de-riesgo-de-capability">Armar una tabla de riesgo de capability</h3>
 <div class="codehilite"><pre><span></span><code>Binary:
 Capability:
 Who can execute:
@@ -506,42 +502,40 @@ Dangerous behavior:
 Minimal proof:
 Safer alternative:
 </code></pre></div>
-
-<p>This turns capability output into a decision.</p>
-<h3 id="verify-removal-in-a-lab">Verify removal in a lab</h3>
-<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>setcap<span class="w"> </span>-r<span class="w"> </span>/path/to/binary
-getcap<span class="w"> </span>/path/to/binary
+<p>Esto convierte output de capability en una decisión.</p>
+<h3 id="verificar-remocion-en-un-lab">Verificar remoción en un lab</h3>
+<div class="codehilite"><pre><span></span><code>sudo setcap -r /path/to/binary
+getcap /path/to/binary
 </code></pre></div>
-
-<p>Only remove capabilities on owned lab systems or with change approval.</p>
-<h2 id="practical-examples">Practical examples</h2>
+<p>Solo remové capabilities en sistemas de lab propios o con aprobación de cambios.</p>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
-<li>Python with <code>cap_setuid+ep</code> can become root-equivalent.</li>
-<li>A packet tool with <code>cap_net_raw</code> may be justified for a specific admin group, but risky for all users.</li>
-<li>A custom service binary keeps an old capability after the service no longer needs it.</li>
-<li>A container runs with excessive capabilities and weakens host isolation assumptions.</li>
-<li>A backup helper has DAC override when a narrower design would use group permissions.</li>
+<li>Python con <code>cap_setuid+ep</code> puede volverse equivalente a root.</li>
+<li>Una herramienta de packets con <code>cap_net_raw</code> puede estar justificada para un grupo admin específico, pero ser riesgosa para todos los usuarios.</li>
+<li>Un binario de service custom conserva una capability vieja después de que el service ya no la necesita.</li>
+<li>Un container corre con capabilities excesivas y debilita supuestos de aislamiento del host.</li>
+<li>Un helper de backup tiene DAC override cuando un diseño más estrecho usaría permisos de grupo.</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
-<li><a href="linux-privilege-escalation.html">linux-privilege-escalation</a></li>
-<li><a href="linux-enumeration.html">linux-enumeration</a></li>
-<li><a href="suid-sgid-misconfigurations.html">suid-sgid-misconfigurations</a></li>
-<li><a href="kernel-exploit-triage.html">kernel-exploit-triage</a></li>
-<li><a href="../cloud-security/cloud-lab-infrastructure.html">Cloud Lab Infrastructure</a></li>
+<li><a href="linux-privilege-escalation.html">Linux Privilege Escalation</a></li>
+<li><a href="linux-enumeration.html">Linux Enumeration</a></li>
+<li><a href="suid-sgid-misconfigurations.html">SUID y SGID Misconfigurations</a></li>
+<li><a href="kernel-exploit-triage.html">Kernel Exploit Triage</a></li>
+<li><a href="../cloud-security/cloud-lab-infrastructure.html">Infraestructura de lab cloud</a></li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<h3 id="futuras-notas-atomicas-sugeridas">Futuras notas atómicas sugeridas</h3>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: container-capabilities">container-capabilities</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: cap-sys-admin-risk">cap-sys-admin-risk</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: linux-file-capability-inventory">linux-file-capability-inventory</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: capability-hardening-baseline">capability-hardening-baseline</span></li>
+<li>container-capabilities</li>
+<li>cap-sys-admin-risk</li>
+<li>linux-file-capability-inventory</li>
+<li>capability-hardening-baseline</li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><strong>Official Docs:</strong> Linux capabilities — https://man7.org/linux/man-pages/man7/capabilities.7.html</li>
-<li><strong>Official Docs:</strong> setcap — https://man7.org/linux/man-pages/man8/setcap.8.html</li>
-<li><strong>Technique Reference:</strong> GTFOBins: capabilities — https://gtfobins.github.io/#+capabilities</li>
+<li><strong>Documentación oficial:</strong> Linux capabilities — https://man7.org/linux/man-pages/man7/capabilities.7.html</li>
+<li><strong>Documentación oficial:</strong> setcap — https://man7.org/linux/man-pages/man8/setcap.8.html</li>
+<li><strong>Referencia técnica:</strong> GTFOBins: capabilities — https://gtfobins.github.io/#+capabilities</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="linpeas-workflow.html"><span class="nav-dir">← Previous</span><strong>LinPEAS Workflow</strong></a><a class="branch-nav-link next" href="linux-enumeration.html"><span class="nav-dir">Next →</span><strong>Linux Enumeration</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -557,24 +551,29 @@ getcap<span class="w"> </span>/path/to/binary
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-3" href="#worked-example-capability-that-outgrows-its-purpose">Worked example: capability that outgrows its purpose</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-identity-changing-capability">1. Identity-changing capability</a>
-<a class="toc-level-3" href="#2-file-access-capability">2. File-access capability</a>
-<a class="toc-level-3" href="#3-network-capability">3. Network capability</a>
-<a class="toc-level-3" href="#4-broad-system-capability">4. Broad system capability</a>
-<a class="toc-level-3" href="#5-container-capability-drift">5. Container capability drift</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-3" href="#enumerate-file-capabilities">Enumerate file capabilities</a>
-<a class="toc-level-3" href="#inspect-one-binary">Inspect one binary</a>
-<a class="toc-level-3" href="#build-a-capability-risk-table">Build a capability risk table</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-3" href="#ejemplo-trabajado-capability-que-supera-su-proposito">Ejemplo trabajado: capability que supera su propósito</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
+<a class="toc-level-3" href="#1-capability-de-cambio-de-identidad">1. Capability de cambio de identidad</a>
+<a class="toc-level-3" href="#2-capability-de-acceso-a-archivos">2. Capability de acceso a archivos</a>
+<a class="toc-level-3" href="#3-capability-de-red">3. Capability de red</a>
+<a class="toc-level-3" href="#4-capability-amplia-de-sistema">4. Capability amplia de sistema</a>
+<a class="toc-level-3" href="#5-drift-de-capabilities-en-containers">5. Drift de capabilities en containers</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
+<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
+<a class="toc-level-3" href="#enumerar-file-capabilities">Enumerar file capabilities</a>
+<a class="toc-level-3" href="#inspeccionar-un-binario">Inspeccionar un binario</a>
+<a class="toc-level-3" href="#armar-una-tabla-de-riesgo-de-capability">Armar una tabla de riesgo de capability</a>
+<a class="toc-level-3" href="#verificar-remocion-en-un-lab">Verificar remoción en un lab</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-3" href="#futuras-notas-atomicas-sugeridas">Futuras notas atómicas sugeridas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

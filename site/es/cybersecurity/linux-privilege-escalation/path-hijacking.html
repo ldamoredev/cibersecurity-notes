@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PATH Hijacking - Escalada de Privilegios en Linux | ldamoredev Security Atlas</title>
-<meta name="description" content="PATH hijacking is privilege escalation through influencing which executable or library a privileged process loads.">
+<meta name="description" content="PATH hijacking es privilege escalation mediante la influencia sobre qué ejecutable o librería carga un proceso privilegiado.">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Escalada de Privilegios en Linux, PATH Hijacking, linux-privilege-escalation, path">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PATH Hijacking - Escalada de Privilegios en Linux | ldamoredev Security Atlas">
-<meta property="og:description" content="PATH hijacking is privilege escalation through influencing which executable or library a privileged process loads.">
+<meta property="og:description" content="PATH hijacking es privilege escalation mediante la influencia sobre qué ejecutable o librería carga un proceso privilegiado.">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/path-hijacking.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="PATH Hijacking - Escalada de Privilegios en Linux | ldamoredev Security Atlas">
-<meta name="twitter:description" content="PATH hijacking is privilege escalation through influencing which executable or library a privileged process loads.">
+<meta name="twitter:description" content="PATH hijacking es privilege escalation mediante la influencia sobre qué ejecutable o librería carga un proceso privilegiado.">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/path-hijacking.html#article","name":"PATH Hijacking - Escalada de Privilegios en Linux | ldamoredev Security Atlas","headline":"PATH Hijacking","description":"PATH hijacking is privilege escalation through influencing which executable or library a privileged process loads.","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/path-hijacking.html","inLanguage":"es","datePublished":"2026-04-30","dateModified":"2026-04-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/path-hijacking.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Escalada de Privilegios en Linux","PATH Hijacking","linux-privilege-escalation","path"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Escalada de Privilegios en Linux","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/index.html"},{"@type":"ListItem","position":4,"name":"PATH Hijacking","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/path-hijacking.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/path-hijacking.html#article","name":"PATH Hijacking - Escalada de Privilegios en Linux | ldamoredev Security Atlas","headline":"PATH Hijacking","description":"PATH hijacking es privilege escalation mediante la influencia sobre qué ejecutable o librería carga un proceso privilegiado.","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/path-hijacking.html","inLanguage":"es","datePublished":"2026-04-30","dateModified":"2026-04-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/path-hijacking.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Escalada de Privilegios en Linux","PATH Hijacking","linux-privilege-escalation","path"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Escalada de Privilegios en Linux","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/index.html"},{"@type":"ListItem","position":4,"name":"PATH Hijacking","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/path-hijacking.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/path-hijacking.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/path-hijacking.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/path-hijacking.html">
@@ -410,36 +410,35 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Escalada de Privilegios en Linux</a><span>/</span><span>PATH Hijacking</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>PATH Hijacking</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-orange">Escalada de Privilegios en Linux</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~3 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado Apr 30, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#linux-privilege-escalation</span><span class="meta-chip tag">#path</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="path-hijacking">PATH Hijacking</h1>
-<h2 id="definition">Definition</h2>
-<p>PATH hijacking is privilege escalation through influencing which executable or library a privileged process loads.</p>
-<p>The classic case is a privileged script or binary calling <code>cp</code>, <code>tar</code>, or another helper without an absolute path while the attacker controls the search path or working directory.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>PATH hijacking turns a small coding shortcut into a privilege boundary failure. It is common in custom scripts, SUID helpers, cron jobs, service wrappers, and sudo rules.</p>
-<p>For defenders, it is a reminder that privileged code must treat lookup behavior as untrusted input.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>Use 4 lookup questions:</p>
+<h2 id="definicion">Definición</h2>
+<p>PATH hijacking es privilege escalation mediante la influencia sobre qué ejecutable o librería carga un proceso privilegiado.</p>
+<p>El caso clásico es un script o binario privilegiado llamando a <code>cp</code>, <code>tar</code> u otro helper sin ruta absoluta mientras el atacante controla la ruta de búsqueda o el directorio de trabajo.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>PATH hijacking convierte un atajo chico de código en una falla de límite de privilegios. Es común en scripts custom, helpers SUID, cron jobs, service wrappers y reglas sudo.</p>
+<p>Para defensores, recuerda que el código privilegiado debe tratar el comportamiento de lookup como input no confiable.</p>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>Usá 4 preguntas de lookup:</p>
 <ol>
-<li><strong>Caller:</strong> what privileged process executes the helper?</li>
-<li><strong>Lookup:</strong> is the helper referenced by absolute path or searched by PATH?</li>
-<li><strong>Control:</strong> can the low user influence PATH, working directory, library path, or helper file?</li>
-<li><strong>Privilege:</strong> does the helper run as root or another privileged account?</li>
+<li><strong>Caller:</strong> qué proceso privilegiado ejecuta el helper?</li>
+<li><strong>Lookup:</strong> el helper se referencia por ruta absoluta o se busca por PATH?</li>
+<li><strong>Control:</strong> el usuario bajo puede influir PATH, directorio de trabajo, library path o archivo helper?</li>
+<li><strong>Privilegio:</strong> el helper corre como root u otra cuenta privilegiada?</li>
 </ol>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
 <ul>
-<li>Inspect scripts for unqualified helper names.</li>
-<li>Inspect binaries for helper strings, but verify behavior carefully.</li>
-<li>Check sudo rules for <code>SETENV</code> or environment preservation.</li>
-<li>Check cron and systemd jobs for PATH definitions.</li>
-<li>Use <code>namei -l</code> to verify directory ownership along every path.</li>
+<li>Inspeccioná scripts por nombres de helpers no calificados.</li>
+<li>Inspeccioná binarios por strings de helpers, pero verificá el comportamiento con cuidado.</li>
+<li>Revisá reglas sudo por <code>SETENV</code> o preservación de entorno.</li>
+<li>Revisá cron y jobs de systemd por definiciones de PATH.</li>
+<li>Usá <code>namei -l</code> para verificar ownership de directorios a lo largo de cada ruta.</li>
 </ul>
-<h3 id="worked-example-helper-lookup-failure">Worked example: helper lookup failure</h3>
+<h3 id="ejemplo-trabajado-falla-de-lookup-de-helper">Ejemplo trabajado: falla de lookup de helper</h3>
 <div class="codehilite"><pre><span></span><code>Privileged caller: root cron script
 Command in script: tar -czf /backup/app.tgz /srv/app
 PATH in job: /opt/app/bin:/usr/bin:/bin
@@ -447,62 +446,58 @@ Attacker control: /opt/app/bin is group-writable
 Minimal proof: lab-only harmless helper logs its effective user
 Fix: /usr/bin/tar plus root-owned PATH directories
 </code></pre></div>
-
-<p>PATH hijacking is not "PATH is weird." It is attacker-controlled lookup plus privileged execution.</p>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<h3 id="1-shell-path-hijack">1. Shell PATH hijack</h3>
-<p>A privileged shell script calls a helper by name.</p>
-<h3 id="2-current-directory-trust">2. Current-directory trust</h3>
-<p>The process searches or executes from a writable working directory.</p>
-<h3 id="3-library-path-influence">3. Library path influence</h3>
-<p>The dynamic loader or program-specific plugin path loads attacker-controlled code.</p>
-<h3 id="4-environment-variable-preservation">4. Environment variable preservation</h3>
-<p>Sudo or service configuration preserves variables that influence lookup.</p>
-<h3 id="5-relative-path-in-service-or-cron">5. Relative path in service or cron</h3>
-<p>A scheduled or service command assumes a working directory that can be changed.</p>
-<h2 id="impact">Impact</h2>
+<p>PATH hijacking no es &quot;PATH es raro&quot;. Es lookup controlado por atacante más ejecución privilegiada.</p>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<h3 id="1-hijack-de-path-en-shell">1. Hijack de PATH en shell</h3>
+<p>Un shell script privilegiado llama a un helper por nombre.</p>
+<h3 id="2-confianza-en-directorio-actual">2. Confianza en directorio actual</h3>
+<p>El proceso busca o ejecuta desde un directorio de trabajo escribible.</p>
+<h3 id="3-influencia-de-library-path">3. Influencia de library path</h3>
+<p>El dynamic loader o una ruta de plugins específica del programa carga código controlado por atacante.</p>
+<h3 id="4-preservacion-de-variables-de-entorno">4. Preservación de variables de entorno</h3>
+<p>Sudo o configuración de service preserva variables que influyen en lookup.</p>
+<h3 id="5-ruta-relativa-en-service-o-cron">5. Ruta relativa en service o cron</h3>
+<p>Un comando programado o de service asume un directorio de trabajo que puede cambiarse.</p>
+<h2 id="impacto">Impacto</h2>
 <ul>
-<li>Privileged command execution.</li>
-<li>Root-owned file modification.</li>
-<li>Persistence through modified helper paths.</li>
-<li>Compromise of scheduled tasks or service restarts.</li>
-<li>Confusing behavior because the command name looks legitimate.</li>
+<li>Ejecución privilegiada de comandos.</li>
+<li>Modificación de archivos propiedad de root.</li>
+<li>Persistencia mediante rutas de helpers modificadas.</li>
+<li>Compromiso de tareas programadas o service restarts.</li>
+<li>Comportamiento confuso porque el nombre del comando parece legítimo.</li>
 </ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
 <ul>
-<li><strong>Use absolute paths in privileged scripts.</strong> Search behavior should not decide privileged execution.</li>
-<li><strong>Set safe PATH explicitly.</strong> Cron, sudo, and service contexts should define trusted paths.</li>
-<li><strong>Avoid dangerous environment preservation.</strong> Loader and path variables should not cross into privileged contexts.</li>
-<li><strong>Protect parent directories.</strong> A safe file in a writable directory is not a safe execution chain.</li>
-<li><strong>Prefer simpler privileged helpers.</strong> Smaller, audited helpers are less likely to perform unsafe lookup.</li>
+<li><strong>Usá rutas absolutas en scripts privilegiados.</strong> El comportamiento de búsqueda no debería decidir ejecución privilegiada.</li>
+<li><strong>Definí explícitamente un PATH seguro.</strong> Contextos de cron, sudo y service deberían definir rutas confiables.</li>
+<li><strong>Evitá preservación peligrosa del entorno.</strong> Variables de loader y path no deberían cruzar a contextos privilegiados.</li>
+<li><strong>Protegé directorios padre.</strong> Un archivo seguro en un directorio escribible no es una cadena de ejecución segura.</li>
+<li><strong>Preferí helpers privilegiados más simples.</strong> Helpers más chicos y auditados tienen menos probabilidad de hacer lookup inseguro.</li>
 </ul>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li><strong>Trusting the current PATH.</strong> The current environment belongs to the caller unless reset.</li>
-<li><strong>Checking only file permissions.</strong> Directory permissions and lookup order also matter.</li>
-<li><strong>Relying on script readability.</strong> Compiled helpers can make the same mistake.</li>
+<li><strong>Confiar en el PATH actual.</strong> El entorno actual pertenece al caller salvo que se resetee.</li>
+<li><strong>Revisar solo permisos de archivo.</strong> Los permisos de directorio y el orden de lookup también importan.</li>
+<li><strong>Depender de la legibilidad del script.</strong> Helpers compilados pueden cometer el mismo error.</li>
 </ul>
-<h2 id="practical-labs">Practical labs</h2>
-<p>Use an owned lab with a harmless privileged test script.</p>
-<h3 id="find-unqualified-commands-in-scripts">Find unqualified commands in scripts</h3>
-<div class="codehilite"><pre><span></span><code>grep<span class="w"> </span>-R<span class="w"> </span><span class="s2">&quot;tar\\|cp\\|mv\\|sh\\|bash&quot;</span><span class="w"> </span>/opt<span class="w"> </span>/usr/local/bin<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+<h2 id="labs-practicos">Labs prácticos</h2>
+<p>Usá un lab propio con un script de prueba privilegiado inocuo.</p>
+<h3 id="encontrar-comandos-no-calificados-en-scripts">Encontrar comandos no calificados en scripts</h3>
+<div class="codehilite"><pre><span></span><code>grep -R &quot;tar\\|cp\\|mv\\|sh\\|bash&quot; /opt /usr/local/bin 2&gt;/dev/null
 </code></pre></div>
-
-<p>Manual review is required because grep only finds clues.</p>
-<h3 id="check-the-path-chain">Check the path chain</h3>
-<div class="codehilite"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
-which<span class="w"> </span>tar
-namei<span class="w"> </span>-l<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>which<span class="w"> </span>tar<span class="k">)</span><span class="s2">&quot;</span>
+<p>La revisión manual es obligatoria porque grep solo encuentra pistas.</p>
+<h3 id="revisar-la-cadena-de-path">Revisar la cadena de path</h3>
+<div class="codehilite"><pre><span></span><code>echo &quot;$PATH&quot;
+which tar
+namei -l &quot;$(which tar)&quot;
 </code></pre></div>
-
-<p>The executable and every parent directory must be trusted.</p>
-<h3 id="review-sudo-environment-behavior">Review sudo environment behavior</h3>
-<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>-l
-sudo<span class="w"> </span>-V<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;env&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head
+<p>El ejecutable y cada directorio padre deben ser confiables.</p>
+<h3 id="revisar-comportamiento-de-entorno-en-sudo">Revisar comportamiento de entorno en sudo</h3>
+<div class="codehilite"><pre><span></span><code>sudo -l
+sudo -V | grep -i &quot;env&quot; | head
 </code></pre></div>
-
-<p>Look for <code>SETENV</code>, <code>secure_path</code>, and preserved variables.</p>
-<h3 id="build-a-path-risk-card">Build a PATH risk card</h3>
+<p>Buscá <code>SETENV</code>, <code>secure_path</code> y variables preservadas.</p>
+<h3 id="armar-una-tarjeta-de-riesgo-path">Armar una tarjeta de riesgo PATH</h3>
 <div class="codehilite"><pre><span></span><code>Privileged caller:
 Helper command:
 Absolute path used:
@@ -511,35 +506,34 @@ Privilege level:
 Minimal proof:
 Fix:
 </code></pre></div>
-
-<p>This keeps the finding concrete.</p>
-<h2 id="practical-examples">Practical examples</h2>
+<p>Esto mantiene concreto el hallazgo.</p>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
-<li>A root cron script calls <code>tar</code> without <code>/usr/bin/tar</code>.</li>
-<li>A SUID helper calls <code>service</code> by name.</li>
-<li>A sudo rule preserves PATH and permits a script that calls common helpers.</li>
-<li>A systemd service reads a writable environment file containing PATH.</li>
-<li>A privileged program loads a plugin from a writable directory.</li>
+<li>Un cron script de root llama a <code>tar</code> sin <code>/usr/bin/tar</code>.</li>
+<li>Un helper SUID llama a <code>service</code> por nombre.</li>
+<li>Una regla sudo preserva PATH y permite un script que llama a helpers comunes.</li>
+<li>Un service de systemd lee un environment file escribible que contiene PATH.</li>
+<li>Un programa privilegiado carga un plugin desde un directorio escribible.</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
-<li><a href="linux-privilege-escalation.html">linux-privilege-escalation</a></li>
-<li><a href="cron-and-timer-abuse.html">cron-and-timer-abuse</a></li>
-<li><a href="sudo-misconfigurations.html">sudo-misconfigurations</a></li>
-<li><a href="suid-sgid-misconfigurations.html">suid-sgid-misconfigurations</a></li>
-<li><a href="linux-enumeration.html">linux-enumeration</a></li>
+<li><a href="linux-privilege-escalation.html">Linux Privilege Escalation</a></li>
+<li><a href="cron-and-timer-abuse.html">Cron and Timer Abuse</a></li>
+<li><a href="sudo-misconfigurations.html">Sudo Misconfigurations</a></li>
+<li><a href="suid-sgid-misconfigurations.html">SUID y SGID Misconfigurations</a></li>
+<li><a href="linux-enumeration.html">Linux Enumeration</a></li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<h3 id="futuras-notas-atomicas-sugeridas">Futuras notas atómicas sugeridas</h3>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: ld-preload-abuse">ld-preload-abuse</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: secure-path-in-sudoers">secure-path-in-sudoers</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: privileged-script-hardening">privileged-script-hardening</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: library-search-path-risk">library-search-path-risk</span></li>
+<li>ld-preload-abuse</li>
+<li>secure-path-in-sudoers</li>
+<li>privileged-script-hardening</li>
+<li>library-search-path-risk</li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><strong>Official Docs:</strong> Bash command search and execution — https://www.gnu.org/software/bash/manual/bash.html#Command-Search-and-Execution</li>
-<li><strong>Official Docs:</strong> ld.so dynamic linker — https://man7.org/linux/man-pages/man8/ld.so.8.html</li>
+<li><strong>Documentación oficial:</strong> Bash command search and execution — https://www.gnu.org/software/bash/manual/bash.html#Command-Search-and-Execution</li>
+<li><strong>Documentación oficial:</strong> ld.so dynamic linker — https://man7.org/linux/man-pages/man8/ld.so.8.html</li>
 <li><strong>Testing / Lab:</strong> PayloadsAllTheThings: Linux Privilege Escalation — https://swisskyrepo.github.io/InternalAllTheThings/redteam/escalation/linux-privilege-escalation/</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="linux-privilege-escalation.html"><span class="nav-dir">← Previous</span><strong>Linux Privilege Escalation</strong></a><a class="branch-nav-link next" href="sudo-misconfigurations.html"><span class="nav-dir">Next →</span><strong>Sudo Misconfigurations</strong></a></nav>
@@ -556,24 +550,29 @@ Fix:
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-3" href="#worked-example-helper-lookup-failure">Worked example: helper lookup failure</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-shell-path-hijack">1. Shell PATH hijack</a>
-<a class="toc-level-3" href="#2-current-directory-trust">2. Current-directory trust</a>
-<a class="toc-level-3" href="#3-library-path-influence">3. Library path influence</a>
-<a class="toc-level-3" href="#4-environment-variable-preservation">4. Environment variable preservation</a>
-<a class="toc-level-3" href="#5-relative-path-in-service-or-cron">5. Relative path in service or cron</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-3" href="#find-unqualified-commands-in-scripts">Find unqualified commands in scripts</a>
-<a class="toc-level-3" href="#check-the-path-chain">Check the path chain</a>
-<a class="toc-level-3" href="#review-sudo-environment-behavior">Review sudo environment behavior</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-3" href="#ejemplo-trabajado-falla-de-lookup-de-helper">Ejemplo trabajado: falla de lookup de helper</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
+<a class="toc-level-3" href="#1-hijack-de-path-en-shell">1. Hijack de PATH en shell</a>
+<a class="toc-level-3" href="#2-confianza-en-directorio-actual">2. Confianza en directorio actual</a>
+<a class="toc-level-3" href="#3-influencia-de-library-path">3. Influencia de library path</a>
+<a class="toc-level-3" href="#4-preservacion-de-variables-de-entorno">4. Preservación de variables de entorno</a>
+<a class="toc-level-3" href="#5-ruta-relativa-en-service-o-cron">5. Ruta relativa en service o cron</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
+<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
+<a class="toc-level-3" href="#encontrar-comandos-no-calificados-en-scripts">Encontrar comandos no calificados en scripts</a>
+<a class="toc-level-3" href="#revisar-la-cadena-de-path">Revisar la cadena de path</a>
+<a class="toc-level-3" href="#revisar-comportamiento-de-entorno-en-sudo">Revisar comportamiento de entorno en sudo</a>
+<a class="toc-level-3" href="#armar-una-tarjeta-de-riesgo-path">Armar una tarjeta de riesgo PATH</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-3" href="#futuras-notas-atomicas-sugeridas">Futuras notas atómicas sugeridas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cron and Timer Abuse - Escalada de Privilegios en Linux | ldamoredev Security Atlas</title>
-<meta name="description" content="Cron and timer abuse occurs when a low-privileged user can influence a scheduled task that runs with higher privileges.">
+<meta name="description" content="El abuso de cron y timers ocurre cuando un usuario con pocos privilegios puede influir sobre una tarea programada que corre con privilegios más altos.">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Escalada de Privilegios en Linux, Cron and Timer Abuse, linux-privilege-escalation, cron, systemd">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cron and Timer Abuse - Escalada de Privilegios en Linux | ldamoredev Security Atlas">
-<meta property="og:description" content="Cron and timer abuse occurs when a low-privileged user can influence a scheduled task that runs with higher privileges.">
+<meta property="og:description" content="El abuso de cron y timers ocurre cuando un usuario con pocos privilegios puede influir sobre una tarea programada que corre con privilegios más altos.">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/cron-and-timer-abuse.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cron and Timer Abuse - Escalada de Privilegios en Linux | ldamoredev Security Atlas">
-<meta name="twitter:description" content="Cron and timer abuse occurs when a low-privileged user can influence a scheduled task that runs with higher privileges.">
+<meta name="twitter:description" content="El abuso de cron y timers ocurre cuando un usuario con pocos privilegios puede influir sobre una tarea programada que corre con privilegios más altos.">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/cron-and-timer-abuse.html#article","name":"Cron and Timer Abuse - Escalada de Privilegios en Linux | ldamoredev Security Atlas","headline":"Cron and Timer Abuse","description":"Cron and timer abuse occurs when a low-privileged user can influence a scheduled task that runs with higher privileges.","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/cron-and-timer-abuse.html","inLanguage":"es","datePublished":"2026-04-30","dateModified":"2026-04-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/cron-and-timer-abuse.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Escalada de Privilegios en Linux","Cron and Timer Abuse","linux-privilege-escalation","cron","systemd"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Escalada de Privilegios en Linux","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/index.html"},{"@type":"ListItem","position":4,"name":"Cron and Timer Abuse","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/cron-and-timer-abuse.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/cron-and-timer-abuse.html#article","name":"Cron and Timer Abuse - Escalada de Privilegios en Linux | ldamoredev Security Atlas","headline":"Cron and Timer Abuse","description":"El abuso de cron y timers ocurre cuando un usuario con pocos privilegios puede influir sobre una tarea programada que corre con privilegios más altos.","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/cron-and-timer-abuse.html","inLanguage":"es","datePublished":"2026-04-30","dateModified":"2026-04-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/cron-and-timer-abuse.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Escalada de Privilegios en Linux","Cron and Timer Abuse","linux-privilege-escalation","cron","systemd"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Escalada de Privilegios en Linux","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/index.html"},{"@type":"ListItem","position":4,"name":"Cron and Timer Abuse","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/cron-and-timer-abuse.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/cron-and-timer-abuse.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/cron-and-timer-abuse.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/cron-and-timer-abuse.html">
@@ -410,37 +410,36 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Escalada de Privilegios en Linux</a><span>/</span><span>Cron and Timer Abuse</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Cron and Timer Abuse</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-orange">Escalada de Privilegios en Linux</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~3 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado Apr 30, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#linux-privilege-escalation</span><span class="meta-chip tag">#cron</span><span class="meta-chip tag">#systemd</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="cron-and-timer-abuse">Cron and Timer Abuse</h1>
-<h2 id="definition">Definition</h2>
-<p>Cron and timer abuse occurs when a low-privileged user can influence a scheduled task that runs with higher privileges.</p>
-<p>This includes classic cron jobs, systemd timers, writable scripts, writable directories, unsafe PATH values, and root-run maintenance workflows.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>Scheduled jobs are quiet privilege crossings. They often run as root, repeat automatically, and execute scripts that were not reviewed like production code.</p>
-<p>For defenders, scheduled execution review catches a large class of preventable local escalation paths.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>Ask 5 questions:</p>
+<h2 id="definicion">Definición</h2>
+<p>El abuso de cron y timers ocurre cuando un usuario con pocos privilegios puede influir sobre una tarea programada que corre con privilegios más altos.</p>
+<p>Esto incluye cron jobs clásicos, timers de systemd, scripts escribibles, directorios escribibles, valores de PATH inseguros y workflows de mantenimiento ejecutados por root.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>Las tareas programadas son cruces de privilegios silenciosos. Suelen correr como root, repetirse automáticamente y ejecutar scripts que no fueron revisados como código de producción.</p>
+<p>Para defensores, revisar la ejecución programada detecta una clase grande de rutas prevenibles de escalada local.</p>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>Hacé 5 preguntas:</p>
 <ol>
-<li><strong>Who runs it:</strong> root, service account, or user?</li>
-<li><strong>What runs:</strong> binary, shell script, interpreter, or command string?</li>
-<li><strong>Where from:</strong> absolute path, relative path, wildcard, or writable directory?</li>
-<li><strong>What input:</strong> files, directories, environment, glob expansion, config, or logs?</li>
-<li><strong>Who can write:</strong> can a low user modify anything in the execution chain?</li>
+<li><strong>Quién lo corre:</strong> root, una cuenta de servicio o un usuario?</li>
+<li><strong>Qué corre:</strong> binario, shell script, intérprete o command string?</li>
+<li><strong>Desde dónde:</strong> ruta absoluta, ruta relativa, wildcard o directorio escribible?</li>
+<li><strong>Qué input:</strong> archivos, directorios, entorno, expansión de glob, configuración o logs?</li>
+<li><strong>Quién puede escribir:</strong> un usuario bajo puede modificar algo en la cadena de ejecución?</li>
 </ol>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
 <ul>
-<li>Inspect <code>/etc/crontab</code>, <code>/etc/cron.*</code>, user crontabs, and systemd timers.</li>
-<li>Check permissions on scripts and parent directories.</li>
-<li>Look for wildcard expansion and relative command paths.</li>
-<li>Identify jobs that process user-writable files.</li>
-<li>Verify scheduled task behavior in a lab without waiting for production cycles.</li>
+<li>Inspeccioná <code>/etc/crontab</code>, <code>/etc/cron.*</code>, crontabs de usuario y timers de systemd.</li>
+<li>Revisá permisos sobre scripts y directorios padre.</li>
+<li>Buscá expansión de wildcards y rutas relativas de comandos.</li>
+<li>Identificá jobs que procesan archivos escribibles por usuarios.</li>
+<li>Verificá el comportamiento de tareas programadas en un lab sin esperar ciclos de producción.</li>
 </ul>
-<h3 id="worked-example-writable-backup-chain">Worked example: writable backup chain</h3>
+<h3 id="ejemplo-trabajado-cadena-de-backup-escribible">Ejemplo trabajado: cadena de backup escribible</h3>
 <div class="codehilite"><pre><span></span><code>Schedule: root runs /opt/backup/run.sh every 5 minutes
 Script owner: root:backup-ops
 Script mode: group-writable
@@ -449,57 +448,54 @@ Boundary question: can the low user change root-executed code?
 Minimal proof: in lab, write a harmless timestamp marker to /tmp
 Fix: root-owned immutable deployment path and separate writable data directory
 </code></pre></div>
-
-<p>Scheduled-task findings should trace the full chain from schedule to identity to writable component.</p>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<h3 id="1-writable-script">1. Writable script</h3>
-<p>A root cron job executes a script writable by a low-privileged user.</p>
-<h3 id="2-writable-directory">2. Writable directory</h3>
-<p>The script is protected, but its parent directory or included files are writable.</p>
-<h3 id="3-path-or-relative-command">3. PATH or relative command</h3>
-<p>The scheduled job calls a program by name and trusts a PATH value.</p>
-<h3 id="4-wildcard-expansion">4. Wildcard expansion</h3>
-<p>The job processes files from a writable directory in a way that changes command behavior.</p>
-<h3 id="5-systemd-timer-chain">5. systemd timer chain</h3>
-<p>A timer triggers a service whose unit file, environment file, or script is writable.</p>
-<h2 id="impact">Impact</h2>
+<p>Los hallazgos de tareas programadas deberían trazar la cadena completa desde el schedule hasta la identidad y el componente escribible.</p>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<h3 id="1-script-escribible">1. Script escribible</h3>
+<p>Un cron job de root ejecuta un script escribible por un usuario con pocos privilegios.</p>
+<h3 id="2-directorio-escribible">2. Directorio escribible</h3>
+<p>El script está protegido, pero su directorio padre o archivos incluidos son escribibles.</p>
+<h3 id="3-path-o-comando-relativo">3. PATH o comando relativo</h3>
+<p>El job programado llama a un programa por nombre y confía en un valor de PATH.</p>
+<h3 id="4-expansion-de-wildcard">4. Expansión de wildcard</h3>
+<p>El job procesa archivos desde un directorio escribible de una forma que cambia el comportamiento del comando.</p>
+<h3 id="5-cadena-de-timer-systemd">5. Cadena de timer systemd</h3>
+<p>Un timer dispara un service cuyo unit file, environment file o script es escribible.</p>
+<h2 id="impacto">Impacto</h2>
 <ul>
-<li>Delayed root command execution.</li>
-<li>Persistent root-level modification.</li>
-<li>Credential theft from backup or maintenance scripts.</li>
-<li>Service tampering through scheduled restart or cleanup workflows.</li>
-<li>Hard-to-debug recurring compromise.</li>
+<li>Ejecución demorada de comandos como root.</li>
+<li>Modificación persistente a nivel root.</li>
+<li>Robo de credenciales desde scripts de backup o mantenimiento.</li>
+<li>Manipulación de servicios mediante workflows programados de restart o cleanup.</li>
+<li>Compromiso recurrente difícil de depurar.</li>
 </ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
 <ul>
-<li><strong>Use absolute paths in scheduled tasks.</strong> Remove ambiguity from privileged execution.</li>
-<li><strong>Protect scripts and parent directories.</strong> The whole execution chain must be root-owned or otherwise tightly controlled.</li>
-<li><strong>Avoid processing attacker-writable directories as root.</strong> Use safe staging, strict ownership, and defensive glob handling.</li>
-<li><strong>Inventory timers and cron jobs.</strong> Scheduled execution should be part of baseline review.</li>
-<li><strong>Log scheduled job activity.</strong> Failure and unexpected file changes should be observable.</li>
+<li><strong>Usá rutas absolutas en tareas programadas.</strong> Eliminá ambigüedad de la ejecución privilegiada.</li>
+<li><strong>Protegé scripts y directorios padre.</strong> Toda la cadena de ejecución tiene que ser propiedad de root o estar fuertemente controlada.</li>
+<li><strong>Evitá procesar directorios escribibles por atacantes como root.</strong> Usá staging seguro, ownership estricto y manejo defensivo de globs.</li>
+<li><strong>Inventariá timers y cron jobs.</strong> La ejecución programada debería ser parte de la revisión de baseline.</li>
+<li><strong>Logueá actividad de jobs programados.</strong> Fallas y cambios inesperados de archivos deberían ser observables.</li>
 </ul>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li><strong>Only checking <code>/etc/crontab</code>.</strong> User crontabs, <code>/etc/cron.*</code>, systemd timers, and app schedulers also matter.</li>
-<li><strong>Protecting the script but not the directory.</strong> Parent directory write access can still be dangerous.</li>
-<li><strong>Assuming infrequent jobs are safe.</strong> A daily root job is still a root boundary.</li>
+<li><strong>Revisar solo <code>/etc/crontab</code>.</strong> También importan crontabs de usuario, <code>/etc/cron.*</code>, timers de systemd y schedulers de apps.</li>
+<li><strong>Proteger el script pero no el directorio.</strong> El acceso de escritura al directorio padre todavía puede ser peligroso.</li>
+<li><strong>Asumir que los jobs infrecuentes son seguros.</strong> Un job diario de root sigue siendo un límite de root.</li>
 </ul>
-<h2 id="practical-labs">Practical labs</h2>
-<p>Use an owned VM with a deliberately safe test job.</p>
-<h3 id="enumerate-scheduled-tasks">Enumerate scheduled tasks</h3>
-<div class="codehilite"><pre><span></span><code>cat<span class="w"> </span>/etc/crontab<span class="w"> </span><span class="m">2</span>&gt;/dev/null
-ls<span class="w"> </span>-la<span class="w"> </span>/etc/cron.*<span class="w"> </span><span class="m">2</span>&gt;/dev/null
-systemctl<span class="w"> </span>list-timers<span class="w"> </span>--all<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+<h2 id="labs-practicos">Labs prácticos</h2>
+<p>Usá una VM propia con un job de prueba deliberadamente seguro.</p>
+<h3 id="enumerar-tareas-programadas">Enumerar tareas programadas</h3>
+<div class="codehilite"><pre><span></span><code>cat /etc/crontab 2&gt;/dev/null
+ls -la /etc/cron.* 2&gt;/dev/null
+systemctl list-timers --all 2&gt;/dev/null
 </code></pre></div>
-
-<p>Record who owns each job and what it executes.</p>
-<h3 id="check-script-and-directory-permissions">Check script and directory permissions</h3>
-<div class="codehilite"><pre><span></span><code>ls<span class="w"> </span>-la<span class="w"> </span>/path/to/script
-namei<span class="w"> </span>-l<span class="w"> </span>/path/to/script
+<p>Registrá quién es dueño de cada job y qué ejecuta.</p>
+<h3 id="revisar-permisos-de-script-y-directorio">Revisar permisos de script y directorio</h3>
+<div class="codehilite"><pre><span></span><code>ls -la /path/to/script
+namei -l /path/to/script
 </code></pre></div>
-
-<p><code>namei -l</code> shows every directory in the path.</p>
-<h3 id="build-an-execution-chain-table">Build an execution-chain table</h3>
+<p><code>namei -l</code> muestra todos los directorios en la ruta.</p>
+<h3 id="armar-una-tabla-de-cadena-de-ejecucion">Armar una tabla de cadena de ejecución</h3>
 <div class="codehilite"><pre><span></span><code>Schedule:
 Runs as:
 Command:
@@ -509,43 +505,41 @@ User-writable inputs:
 Risk:
 Fix:
 </code></pre></div>
-
-<p>This makes the whole chain visible.</p>
-<h3 id="verify-remediation">Verify remediation</h3>
-<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>root:root<span class="w"> </span>/path/to/script
-sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>/path/to/script
-namei<span class="w"> </span>-l<span class="w"> </span>/path/to/script
+<p>Esto vuelve visible toda la cadena.</p>
+<h3 id="verificar-remediacion">Verificar remediación</h3>
+<div class="codehilite"><pre><span></span><code>sudo chown root:root /path/to/script
+sudo chmod 755 /path/to/script
+namei -l /path/to/script
 </code></pre></div>
-
-<p>In real systems, use change control before modifying scheduled jobs.</p>
-<h2 id="practical-examples">Practical examples</h2>
+<p>En sistemas reales, usá control de cambios antes de modificar jobs programados.</p>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
-<li>A root cron job runs <code>/opt/backup.sh</code>, and <code>/opt</code> is writable by a support group.</li>
-<li>A cleanup script processes files from <code>/tmp</code> with unsafe wildcard behavior.</li>
-<li>A systemd timer triggers a service that reads an environment file writable by an app user.</li>
-<li>A script calls <code>tar</code> without an absolute path under a modified PATH.</li>
-<li>A backup job exposes credentials in logs readable by low users.</li>
+<li>Un cron job de root corre <code>/opt/backup.sh</code>, y <code>/opt</code> es escribible por un grupo de soporte.</li>
+<li>Un script de cleanup procesa archivos desde <code>/tmp</code> con comportamiento inseguro de wildcard.</li>
+<li>Un timer de systemd dispara un service que lee un environment file escribible por un usuario de app.</li>
+<li>Un script llama a <code>tar</code> sin ruta absoluta bajo un PATH modificado.</li>
+<li>Un job de backup expone credenciales en logs legibles por usuarios bajos.</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
-<li><a href="linux-privilege-escalation.html">linux-privilege-escalation</a></li>
-<li><a href="linux-enumeration.html">linux-enumeration</a></li>
-<li><a href="path-hijacking.html">path-hijacking</a></li>
-<li><a href="suid-sgid-misconfigurations.html">suid-sgid-misconfigurations</a></li>
-<li><a href="linpeas-workflow.html">linpeas-workflow</a></li>
+<li><a href="linux-privilege-escalation.html">Linux Privilege Escalation</a></li>
+<li><a href="linux-enumeration.html">Linux Enumeration</a></li>
+<li><a href="path-hijacking.html">PATH Hijacking</a></li>
+<li><a href="suid-sgid-misconfigurations.html">SUID y SGID Misconfigurations</a></li>
+<li><a href="linpeas-workflow.html">LinPEAS Workflow</a></li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<h3 id="futuras-notas-atomicas-sugeridas">Futuras notas atómicas sugeridas</h3>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: systemd-service-permissions">systemd-service-permissions</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: cron-wildcard-abuse">cron-wildcard-abuse</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: writable-service-files">writable-service-files</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: scheduled-job-hardening">scheduled-job-hardening</span></li>
+<li>systemd-service-permissions</li>
+<li>cron-wildcard-abuse</li>
+<li>writable-service-files</li>
+<li>scheduled-job-hardening</li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><strong>Official Docs:</strong> crontab file format — https://man7.org/linux/man-pages/man5/crontab.5.html</li>
-<li><strong>Official Docs:</strong> systemd timers — https://www.freedesktop.org/software/systemd/man/latest/systemd.timer.html</li>
-<li><strong>Official Docs:</strong> systemd service units — https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html</li>
+<li><strong>Documentación oficial:</strong> crontab file format — https://man7.org/linux/man-pages/man5/crontab.5.html</li>
+<li><strong>Documentación oficial:</strong> systemd timers — https://www.freedesktop.org/software/systemd/man/latest/systemd.timer.html</li>
+<li><strong>Documentación oficial:</strong> systemd service units — https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><span class="branch-nav-spacer"></span><a class="branch-nav-link next" href="kernel-exploit-triage.html"><span class="nav-dir">Next →</span><strong>Kernel Exploit Triage</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -561,24 +555,29 @@ namei<span class="w"> </span>-l<span class="w"> </span>/path/to/script
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-3" href="#worked-example-writable-backup-chain">Worked example: writable backup chain</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-writable-script">1. Writable script</a>
-<a class="toc-level-3" href="#2-writable-directory">2. Writable directory</a>
-<a class="toc-level-3" href="#3-path-or-relative-command">3. PATH or relative command</a>
-<a class="toc-level-3" href="#4-wildcard-expansion">4. Wildcard expansion</a>
-<a class="toc-level-3" href="#5-systemd-timer-chain">5. systemd timer chain</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-3" href="#enumerate-scheduled-tasks">Enumerate scheduled tasks</a>
-<a class="toc-level-3" href="#check-script-and-directory-permissions">Check script and directory permissions</a>
-<a class="toc-level-3" href="#build-an-execution-chain-table">Build an execution-chain table</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-3" href="#ejemplo-trabajado-cadena-de-backup-escribible">Ejemplo trabajado: cadena de backup escribible</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
+<a class="toc-level-3" href="#1-script-escribible">1. Script escribible</a>
+<a class="toc-level-3" href="#2-directorio-escribible">2. Directorio escribible</a>
+<a class="toc-level-3" href="#3-path-o-comando-relativo">3. PATH o comando relativo</a>
+<a class="toc-level-3" href="#4-expansion-de-wildcard">4. Expansión de wildcard</a>
+<a class="toc-level-3" href="#5-cadena-de-timer-systemd">5. Cadena de timer systemd</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
+<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
+<a class="toc-level-3" href="#enumerar-tareas-programadas">Enumerar tareas programadas</a>
+<a class="toc-level-3" href="#revisar-permisos-de-script-y-directorio">Revisar permisos de script y directorio</a>
+<a class="toc-level-3" href="#armar-una-tabla-de-cadena-de-ejecucion">Armar una tabla de cadena de ejecución</a>
+<a class="toc-level-3" href="#verificar-remediacion">Verificar remediación</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-3" href="#futuras-notas-atomicas-sugeridas">Futuras notas atómicas sugeridas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>
