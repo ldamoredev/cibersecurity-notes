@@ -1254,41 +1254,23 @@ def write_sitemap(notes: list[Note]) -> None:
     def page_url(note: Note | None, loc: str) -> str:
         return f"{SITE_URL}/{loc}/" if note is None else locale_url(note, loc)
 
-    def alt_links(note: Note | None) -> list[str]:
-        out = [
-            f'    <xhtml:link rel="alternate" hreflang="{loc}" href="{xml_escape(page_url(note, loc))}"/>'
-            for loc in LOCALES
-        ]
-        out.append(
-            f'    <xhtml:link rel="alternate" hreflang="x-default" href="{xml_escape(SITE_URL + "/" if note is None else page_url(note, DEFAULT_LOCALE))}"/>'
-        )
-        return out
-
-    # One <url> per (page, locale), each carrying hreflang alternates. The home
-    # page is the None sentinel.
-    pages: list[tuple[Note | None, str]] = [(None, today)]
-    pages.extend((n, note_last_modified(n)) for n in notes)
+    # Keep the submitted sitemap deliberately simple for Search Console:
+    # one URL per localized page, with hreflang handled in each page <head>.
+    pages: list[tuple[str, str]] = [(SITE_URL + "/", today)]
+    pages.extend((page_url(None, loc), today) for loc in LOCALES)
+    for n in notes:
+        lastmod = note_last_modified(n)
+        pages.extend((locale_url(n, loc), lastmod) for loc in LOCALES)
 
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
-        "  <url>",
-        f"    <loc>{xml_escape(SITE_URL + '/')}</loc>",
-        f"    <lastmod>{today}</lastmod>",
-        f'    <xhtml:link rel="alternate" hreflang="x-default" href="{xml_escape(SITE_URL + "/")}"/>',
-        *[
-            f'    <xhtml:link rel="alternate" hreflang="{loc}" href="{xml_escape(page_url(None, loc))}"/>'
-            for loc in LOCALES
-        ],
-        "  </url>",
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
-    for note, lastmod in pages:
-        for loc in LOCALES:
-            lines.append("  <url>")
-            lines.append(f"    <loc>{xml_escape(page_url(note, loc))}</loc>")
-            lines.append(f"    <lastmod>{lastmod}</lastmod>")
-            lines.extend(alt_links(note))
-            lines.append("  </url>")
+    for url, lastmod in pages:
+        lines.append("  <url>")
+        lines.append(f"    <loc>{xml_escape(url)}</loc>")
+        lines.append(f"    <lastmod>{lastmod}</lastmod>")
+        lines.append("  </url>")
     lines.append("</urlset>\n")
     sitemap_body = "\n".join(lines)
     (OUT / "sitemap.xml").write_text(sitemap_body, encoding="utf-8")
@@ -1300,8 +1282,7 @@ def write_robots() -> None:
     (OUT / "robots.txt").write_text(
         "User-agent: *\n"
         "Allow: /\n\n"
-        f"Sitemap: {absolute_site_url('sitemap.xml')}\n"
-        f"Sitemap: {absolute_site_url('sitemap-notes.xml')}\n",
+        f"Sitemap: {absolute_site_url('sitemap.xml')}\n",
         encoding="utf-8",
     )
 
