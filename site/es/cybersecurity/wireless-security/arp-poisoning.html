@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ARP Poisoning - Seguridad Inalámbrica | ldamoredev Security Atlas</title>
-<meta name="description" content="ARP poisoning is a local-network attack where a host sends false ARP mappings so victims associate an IP address, often the gateway, with the attacker&#x27;s MAC address.">
+<meta name="description" content="El ARP poisoning es la manipulación de la cache ARP de un host para redirigir tráfico de capa 2 a través de una máquina controlada por el atacante.">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Seguridad Inalámbrica, ARP Poisoning, wireless-security">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ARP Poisoning - Seguridad Inalámbrica | ldamoredev Security Atlas">
-<meta property="og:description" content="ARP poisoning is a local-network attack where a host sends false ARP mappings so victims associate an IP address, often the gateway, with the attacker&#x27;s MAC address.">
+<meta property="og:description" content="El ARP poisoning es la manipulación de la cache ARP de un host para redirigir tráfico de capa 2 a través de una máquina controlada por el atacante.">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/wireless-security/arp-poisoning.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ARP Poisoning - Seguridad Inalámbrica | ldamoredev Security Atlas">
-<meta name="twitter:description" content="ARP poisoning is a local-network attack where a host sends false ARP mappings so victims associate an IP address, often the gateway, with the attacker&#x27;s MAC address.">
+<meta name="twitter:description" content="El ARP poisoning es la manipulación de la cache ARP de un host para redirigir tráfico de capa 2 a través de una máquina controlada por el atacante.">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/wireless-security/arp-poisoning.html#article","name":"ARP Poisoning - Seguridad Inalámbrica | ldamoredev Security Atlas","headline":"ARP Poisoning","description":"ARP poisoning is a local-network attack where a host sends false ARP mappings so victims associate an IP address, often the gateway, with the attacker's MAC address.","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/wireless-security/arp-poisoning.html","inLanguage":"es","datePublished":"2026-04-30","dateModified":"2026-04-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/wireless-security/arp-poisoning.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Inalámbrica","ARP Poisoning","wireless-security"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Inalámbrica","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/wireless-security/index.html"},{"@type":"ListItem","position":4,"name":"ARP Poisoning","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/wireless-security/arp-poisoning.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/wireless-security/arp-poisoning.html#article","name":"ARP Poisoning - Seguridad Inalámbrica | ldamoredev Security Atlas","headline":"ARP Poisoning","description":"El ARP poisoning es la manipulación de la cache ARP de un host para redirigir tráfico de capa 2 a través de una máquina controlada por el atacante.","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/wireless-security/arp-poisoning.html","inLanguage":"es","datePublished":"2026-04-30","dateModified":"2026-04-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/wireless-security/arp-poisoning.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Inalámbrica","ARP Poisoning","wireless-security"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Inalámbrica","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/wireless-security/index.html"},{"@type":"ListItem","position":4,"name":"ARP Poisoning","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/wireless-security/arp-poisoning.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/wireless-security/arp-poisoning.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/wireless-security/arp-poisoning.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/wireless-security/arp-poisoning.html">
@@ -410,171 +410,150 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Seguridad Inalámbrica</a><span>/</span><span>ARP Poisoning</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>ARP Poisoning</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-teal">Seguridad Inalámbrica</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~3 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado Apr 30, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#wireless-security</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="arp-poisoning">ARP Poisoning</h1>
-<h2 id="definition">Definition</h2>
-<p>ARP poisoning is a local-network attack where a host sends false ARP mappings so victims associate an IP address, often the gateway, with the attacker's MAC address.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>Wireless compromise often becomes local-network compromise. Once an attacker joins the same LAN, ARP poisoning can redirect traffic even though the original weakness was Wi-Fi access or rogue AP connection.</p>
-<p>This note lives in wireless security because it is a common post-association lab, but the mechanism is Ethernet/IP neighbor resolution.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>ARP poisoning has <strong>5 steps</strong>:</p>
+<h2 id="definicion">Definición</h2>
+<p>El ARP poisoning es la manipulación de la cache ARP de un host para redirigir tráfico de capa 2 a través de una máquina controlada por el atacante.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>El ARP poisoning es la base de muchos ataques MITM en redes locales. Es efectivo contra herramientas defensivas comunes porque opera por debajo de donde el cifrado de capa de aplicación se aplica normalmente.</p>
+<p>La lección defensiva se generaliza: confiar en la dirección MAC de un vecino o en el mapping ARP es confiar en un protocolo sin autenticación incorporada.</p>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>El ARP poisoning tiene <strong>5 pasos</strong>:</p>
 <ol>
-<li><strong>Share a broadcast domain.</strong> Attacker and victim must be on the same local segment.</li>
-<li><strong>Identify victim and gateway.</strong> The attacker learns IP/MAC relationships.</li>
-<li><strong>Send false ARP replies.</strong> Victims update their ARP cache.</li>
-<li><strong>Traffic flows through attacker.</strong> The attacker forwards, drops, or observes packets.</li>
-<li><strong>Application controls decide impact.</strong> TLS and secure protocols limit what can be read or modified.</li>
+<li><strong>Observar la red local.</strong> El atacante identifica el gateway y los hosts objetivo.</li>
+<li><strong>Enviar respuestas ARP falsas.</strong> Se envían replies no solicitados que afirman que la MAC del atacante corresponde a una IP de destino.</li>
+<li><strong>Las caches de los hosts se contaminan.</strong> El gateway cree que el cliente es el atacante; el cliente cree que el gateway es el atacante.</li>
+<li><strong>El tráfico fluye a través del atacante.</strong> Con forwarding habilitado, ambas partes siguen comunicándose mientras el atacante intercepta.</li>
+<li><strong>La inspección o modificación ocurre.</strong> El tráfico no cifrado puede leerse; el tráfico cifrado puede inspeccionarse por metadatos o errores de certificado.</li>
 </ol>
-<p>The bug is not Wi-Fi encryption itself. It is trusting unauthenticated local ARP updates on a shared LAN.</p>
-<p>A worked example, ARP poisoning to segmentation decision:</p>
-<div class="codehilite"><pre><span></span><code>Lab setup:
-  two owned laptops on guest SSID
+<p>El bug no es el cifrado de datos. Es la ausencia de autenticación de identidad a nivel de capa de red local.</p>
+<p>Un ejemplo trabajado, ARP en un lab de concienciación:</p>
+<div class="codehilite"><pre><span></span><code>Entorno:
+  switch lab, gateway propio, laptop cliente propia
 
-Baseline:
-  both can ping gateway and each other
+Observado:
+  el tráfico del cliente fluye a través del atacante incluso con HTTPS habilitado
 
-ARP observation:
-  gateway MAC changes on victim during controlled spoof
+Lección:
+  el cifrado de capa de aplicación sobrevive; los metadatos no cifrados (DNS, SNI) todavía se filtran
 
-Application impact:
-  HTTPS sites remain protected, HTTP printer page exposes credentials
-
-Decision:
-  enable client isolation and remove plaintext admin pages from guest-reachable network
+Control defensivo:
+  DHCP snooping, ARP inspection dinámica en el switch, e isolation de cliente inalámbrico en el AP
 </code></pre></div>
-
-<p>ARP poisoning value is measuring what same-LAN access can actually affect.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
-<p>Testing looks at:</p>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
+<p>El testing evalúa:</p>
 <ul>
-<li>whether client isolation blocks peer-to-peer traffic</li>
-<li>whether gateway ARP entries change unexpectedly</li>
-<li>whether HTTPS, HSTS, and certificate validation hold under MITM</li>
-<li>whether local services leak plaintext credentials</li>
-<li>whether switches/APs enforce ARP inspection or isolation</li>
+<li>si los switches soportan ARP inspection dinámica y si está habilitada</li>
+<li>si los hosts usan entradas ARP estáticas para gateways críticos</li>
+<li>si el DNS puede manipularse una vez que el tráfico fluye a través del atacante</li>
+<li>si el tráfico de texto plano es visible después de la contaminación</li>
+<li>si los clientes inalámbricos tienen isolation habilitada</li>
 </ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>ARP poisoning has <strong>4 practical variants</strong>.</p>
-<h3 id="1-gateway-impersonation">1. Gateway impersonation</h3>
-<p>The attacker claims to be the gateway for the victim.</p>
-<h3 id="2-victim-impersonation">2. Victim impersonation</h3>
-<p>The attacker claims to be the victim for the gateway.</p>
-<h3 id="3-bidirectional-mitm">3. Bidirectional MITM</h3>
-<p>The attacker poisons both directions and forwards traffic.</p>
-<h3 id="4-denial-of-service">4. Denial of service</h3>
-<p>The attacker poisons but does not forward, breaking connectivity.</p>
-<h2 id="impact">Impact</h2>
-<p>Ordered roughly by severity:</p>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<p>El ARP poisoning tiene <strong>3 variantes prácticas</strong>.</p>
+<h3 id="1-suplantacion-de-gateway">1. Suplantación de gateway</h3>
+<p>El atacante impersona el gateway para capturar tráfico de salida.</p>
+<h3 id="2-mitm-bidireccional">2. MITM bidireccional</h3>
+<p>Ambos lados están contaminados para intercepción silenciosa con forwarding.</p>
+<h3 id="3-dos">3. DoS</h3>
+<p>La contaminación rompe el routing sin forwarding, causando pérdida de disponibilidad.</p>
+<h2 id="impacto">Impacto</h2>
+<p>Ordenado aproximadamente por severidad:</p>
 <ul>
-<li><strong>Traffic interception.</strong> Plaintext protocols can be read.</li>
-<li><strong>Traffic manipulation.</strong> DNS, HTTP, and update flows can be altered if not protected.</li>
-<li><strong>Credential exposure.</strong> Legacy protocols and bad TLS behavior leak secrets.</li>
-<li><strong>Availability loss.</strong> Bad forwarding or deliberate drops break network access.</li>
-<li><strong>Reconnaissance.</strong> Observed flows reveal services and users.</li>
+<li><strong>Intercepción MITM.</strong> El tráfico no cifrado puede leerse o modificarse.</li>
+<li><strong>Degradación de sesión.</strong> Los proxies HTTPS visibles pueden causar advertencias de certificado.</li>
+<li><strong>Fugas de metadatos.</strong> DNS, SNI y headers HTTP se filtran incluso con cifrado.</li>
+<li><strong>DoS de capa de red.</strong> La contaminación sin forwarding causa pérdida de conectividad.</li>
+<li><strong>Pivoting.</strong> El acceso de capa 2 puede usarse para alcanzar hosts que no son routeables directamente.</li>
 </ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
-<p>Ordered by effectiveness:</p>
-<ol>
-<li>
-<p><strong>Enable client isolation on guest or untrusted Wi-Fi.</strong>
-   If clients cannot talk directly, ARP poisoning between guests becomes much harder.</p>
-</li>
-<li>
-<p><strong>Segment trusted and untrusted wireless networks.</strong>
-   Keeping guests, IoT, and admin devices apart reduces shared-broadcast-domain risk.</p>
-</li>
-<li>
-<p><strong>Use secure application protocols.</strong>
-   TLS with valid certificate checking prevents most credential and content exposure even under local MITM.</p>
-</li>
-<li>
-<p><strong>Monitor ARP changes and duplicate MAC/IP mappings.</strong>
-   ARP instability is a useful signal for local MITM.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<p>Ordenado por efectividad:</p>
+<p>1. <strong>Habilitar ARP inspection dinámica en switches gestionados.</strong> Valida bindings IP-a-MAC usando la tabla DHCP snooping, bloqueando replies ARP falsificados.</p>
+<p>2. <strong>Usar DHCP snooping como base.</strong> ARP inspection depende de los datos de binding de DHCP snooping; ambos controles trabajan juntos.</p>
+<p>3. <strong>Habilitar client isolation en APs inalámbricos.</strong> Previene que los clientes inalámbricos envíen tráfico de capa 2 entre sí directamente.</p>
+<p>4. <strong>Entregar TLS fuerte en la capa de aplicación.</strong> HTTPS, HSTS y certificate pinning limitan lo que el atacante puede leer o modificar incluso si el tráfico es redirigido.</p>
+<p>5. <strong>Monitorear respuestas ARP duplicadas para la misma IP.</strong> Las inundaciones de ARP o los cambios frecuentes de binding son señales de envenenamiento activo.</p>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li><strong>WPA2 alone.</strong> Once joined, clients may still share a vulnerable LAN.</li>
-<li><strong>VPN alone for every risk.</strong> VPN helps routed traffic but may not protect local discovery, captive portals, or all apps.</li>
-<li><strong>Static trust in local networks.</strong> "Same Wi-Fi" should not imply safe peers.</li>
-<li><strong>Ignoring plaintext internal protocols.</strong> Local attackers benefit from legacy traffic.</li>
+<li><strong>Solo VLAN.</strong> El ARP poisoning opera dentro de una VLAN/subred; no cruza segmentos de red.</li>
+<li><strong>Filtrado de firewall.</strong> Los firewalls operan en capa 3 y no ven el envenenamiento de capa 2.</li>
+<li><strong>Solo cifrado.</strong> El cifrado protege el payload pero no el routing subyacente.</li>
+<li><strong>Ignorar advertencias de certificado.</strong> Las advertencias son frecuentemente la señal visible de intercepción TLS activa.</li>
 </ul>
-<h2 id="practical-labs">Practical labs</h2>
-<p>Use an isolated lab network with your own victim VM/device.</p>
-<h3 id="observe-normal-arp-state">Observe normal ARP state</h3>
-<div class="codehilite"><pre><span></span><code>ip<span class="w"> </span>neigh
-arp<span class="w"> </span>-a
-</code></pre></div>
+<h2 id="labs-practicos">Labs prácticos</h2>
+<p>Usar una red completamente aislada con dispositivos propios.</p>
+<h3 id="observar-las-caches-arp-antes-y-despues">Observar las caches ARP antes y después</h3>
+<div class="codehilite"><pre><span></span><code># En el cliente de prueba (Linux/Mac):
+arp -n
 
-<p>Record gateway IP and MAC before any test.</p>
-<h3 id="detect-arp-changes-in-wireshark">Detect ARP changes in Wireshark</h3>
-<div class="codehilite"><pre><span></span><code>Filter: arp
-Expected gateway MAC:
-Observed changes:
-Duplicate claims:
+# Registrar la MAC del gateway
+# Después de una prueba de contaminación controlada, volver a verificar
+arp -n
 </code></pre></div>
-
-<p>Focus first on recognition and evidence.</p>
-<h3 id="run-a-controlled-spoof-check">Run a controlled spoof check</h3>
-<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>bettercap<span class="w"> </span>-iface<span class="w"> </span>wlan0
+<p>Confirmar el cambio en la entrada de la cache ARP del gateway.</p>
+<h3 id="verificar-el-soporte-de-arp-inspection-dinamica">Verificar el soporte de ARP inspection dinámica</h3>
+<div class="codehilite"><pre><span></span><code>Switch:
+DHCP snooping habilitado:
+ARP inspection dinámica habilitada:
+Puertos confiables configurados:
+Cobertura de VLAN:
 </code></pre></div>
-
-<p>Use bettercap only inside an owned lab and document whether client isolation blocks peer traffic.</p>
-<h3 id="compare-client-isolation-states">Compare client isolation states</h3>
-<div class="codehilite"><pre><span></span><code>SSID:
-client isolation on/off:
-peer ping:
-ARP visibility:
-local service reach:
-decision:
+<p>La mayoría de los switches gestionados soportan ambas funciones; verificar que estén activas.</p>
+<h3 id="revisar-el-isolation-de-clientes-inalambricos">Revisar el isolation de clientes inalámbricos</h3>
+<div class="codehilite"><pre><span></span><code>Modelo de AP:
+Client isolation habilitada:
+Alcance: solo tráfico inalámbrico / también cableado:
+Red guest vs corporativa:
 </code></pre></div>
-
-<p>Client isolation should change peer attack feasibility.</p>
-<h3 id="record-protected-versus-exposed-traffic">Record protected versus exposed traffic</h3>
-<div class="codehilite"><pre><span></span><code>service | protocol | certificate valid? | credentials visible? | fix
+<p>El isolation puede habilitarse independientemente por SSID.</p>
+<h3 id="construir-una-checklist-de-defensa-de-arp">Construir una checklist de defensa de ARP</h3>
+<div class="codehilite"><pre><span></span><code>ARP inspection dinámica en switches:
+DHCP snooping habilitado:
+Client isolation en APs:
+TLS fuerte + HSTS en servicios:
+Monitoreo de anomalías ARP:
+Segmentación de red local:
 </code></pre></div>
-
-<p>Local MITM risk depends heavily on application-layer protection.</p>
-<h3 id="restore-arp-state-after-lab-test">Restore ARP state after lab test</h3>
-<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>ip<span class="w"> </span>neigh<span class="w"> </span>flush<span class="w"> </span>all
-ip<span class="w"> </span>neigh
+<p>El objetivo es múltiples capas, no un solo control.</p>
+<h3 id="verificar-la-visibilidad-de-metadatos-post-contaminacion">Verificar la visibilidad de metadatos post-contaminación</h3>
+<div class="codehilite"><pre><span></span><code>DNS queries visibles:
+SNI visible:
+HTTP en texto plano visible:
+Contenido cifrado expuesto:
 </code></pre></div>
-
-<p>Rollback matters; verify the victim sees the real gateway again.</p>
-<h2 id="practical-examples">Practical examples</h2>
+<p>Incluso en redes bien cifradas, los metadatos de capa de red se filtran.</p>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
-<li>A guest Wi-Fi network lets two laptops ARP-spoof each other.</li>
-<li>An IoT VLAN shares a segment with admin laptops.</li>
-<li>A plaintext printer admin page leaks credentials under local MITM.</li>
-<li>HSTS and certificate validation prevent a captured browser session from being read.</li>
-<li>Client isolation blocks peer ARP traffic on a guest SSID.</li>
+<li>Un atacante en una red de cafetería contamina caches ARP y ve queries DNS de otros clientes.</li>
+<li>Una red de oficina sin ARP inspection es vulnerable a envenenamiento de capa 2 interno.</li>
+<li>Client isolation en un AP inalámbrico previene que los dispositivos guest se contaminen entre sí.</li>
+<li>DHCP snooping + ARP inspection bloquean un intento de envenenamiento en un lab controlado.</li>
+<li>Una advertencia de certificado aparece en un navegador cuando un HTTPS proxy activo intercepta tráfico.</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
+<li><a href="wireless-security.html">wireless-security</a></li>
 <li><a href="mitm-on-local-networks.html">mitm-on-local-networks</a></li>
 <li><a href="bettercap-workflows.html">bettercap-workflows</a></li>
-<li><a href="wireless-security.html">wireless-security</a></li>
-<li><a href="../networking/nat-and-private-networks.html">NAT and Private Networks</a></li>
-<li><a href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a></li>
+<li><span class="unresolved-link">Network Fundamentals</span></li>
+<li><a href="evil-twin-access-points.html">evil-twin-access-points</a></li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<h3 id="notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</h3>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: dhcp-spoofing">dhcp-spoofing</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: dns-spoofing-on-local-networks">dns-spoofing-on-local-networks</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: client-isolation">client-isolation</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: dynamic-arp-inspection">dynamic-arp-inspection</span></li>
+<li>dhcp-snooping</li>
+<li>dynamic-arp-inspection</li>
+<li>network-segmentation-controls</li>
+<li>tls-interception</li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><strong>Official Tool Docs:</strong> bettercap ARP spoofing module — https://www.bettercap.org/modules/ethernet/spoofers/arpspoof/</li>
-<li><strong>Official Tool Docs:</strong> Wireshark User's Guide — https://www.wireshark.org/docs/wsug_html/</li>
-<li><strong>Foundational:</strong> RFC 826 (Address Resolution Protocol) — https://datatracker.ietf.org/doc/html/rfc826</li>
+<li><strong>Docs Oficiales:</strong> bettercap ARP module — https://www.bettercap.org/modules/ethernet/arp/</li>
+<li><strong>Mitigación:</strong> Cisco DAI configuration guide — https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst6500/ios/12-2SX/configuration/guide/book/dynarp.html</li>
+<li><strong>Fundamental:</strong> RFC 826 (ARP) — https://datatracker.ietf.org/doc/html/rfc826</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><span class="branch-nav-spacer"></span><a class="branch-nav-link next" href="bettercap-workflows.html"><span class="nav-dir">Next →</span><strong>Bettercap Workflows</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -590,24 +569,27 @@ ip<span class="w"> </span>neigh
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-gateway-impersonation">1. Gateway impersonation</a>
-<a class="toc-level-3" href="#2-victim-impersonation">2. Victim impersonation</a>
-<a class="toc-level-3" href="#3-bidirectional-mitm">3. Bidirectional MITM</a>
-<a class="toc-level-3" href="#4-denial-of-service">4. Denial of service</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-3" href="#observe-normal-arp-state">Observe normal ARP state</a>
-<a class="toc-level-3" href="#detect-arp-changes-in-wireshark">Detect ARP changes in Wireshark</a>
-<a class="toc-level-3" href="#run-a-controlled-spoof-check">Run a controlled spoof check</a>
-<a class="toc-level-3" href="#compare-client-isolation-states">Compare client isolation states</a>
-<a class="toc-level-3" href="#record-protected-versus-exposed-traffic">Record protected versus exposed traffic</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
+<a class="toc-level-3" href="#1-suplantacion-de-gateway">1. Suplantación de gateway</a>
+<a class="toc-level-3" href="#2-mitm-bidireccional">2. MITM bidireccional</a>
+<a class="toc-level-3" href="#3-dos">3. DoS</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
+<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
+<a class="toc-level-3" href="#observar-las-caches-arp-antes-y-despues">Observar las caches ARP antes y después</a>
+<a class="toc-level-3" href="#verificar-el-soporte-de-arp-inspection-dinamica">Verificar el soporte de ARP inspection dinámica</a>
+<a class="toc-level-3" href="#revisar-el-isolation-de-clientes-inalambricos">Revisar el isolation de clientes inalámbricos</a>
+<a class="toc-level-3" href="#construir-una-checklist-de-defensa-de-arp">Construir una checklist de defensa de ARP</a>
+<a class="toc-level-3" href="#verificar-la-visibilidad-de-metadatos-post-contaminacion">Verificar la visibilidad de metadatos post-contaminación</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-3" href="#notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>
