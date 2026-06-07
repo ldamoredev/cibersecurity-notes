@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Zeek, Suricata, and NetFlow Analysis - Ingeniería de Detección | ldamoredev Security Atlas</title>
-<meta name="description" content="Zeek, Suricata, and NetFlow/IPFIX are complementary network telemetry layers: Zeek reconstructs protocol transactions, Suricata applies detection rules and emits...">
+<meta name="description" content="Zeek, Suricata y NetFlow/IPFIX son capas complementarias de telemetría de red: Zeek reconstruye transacciones de protocolo, Suricata aplica reglas de detecci...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Ingeniería de Detección, Zeek, Suricata, and NetFlow Analysis, detection-engineering, zeek, suricata, netflow, nsm">
 <meta name="theme-color" content="#16a34a">
@@ -21,7 +21,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Zeek, Suricata, and NetFlow Analysis - Ingeniería de Detección | ldamoredev Security Atlas">
-<meta property="og:description" content="Zeek, Suricata, and NetFlow/IPFIX are complementary network telemetry layers: Zeek reconstructs protocol transactions, Suricata applies detection rules and emits...">
+<meta property="og:description" content="Zeek, Suricata y NetFlow/IPFIX son capas complementarias de telemetría de red: Zeek reconstruye transacciones de protocolo, Suricata aplica reglas de detecci...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/zeek-suricata-and-netflow-analysis.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -29,9 +29,9 @@
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Zeek, Suricata, and NetFlow Analysis - Ingeniería de Detección | ldamoredev Security Atlas">
-<meta name="twitter:description" content="Zeek, Suricata, and NetFlow/IPFIX are complementary network telemetry layers: Zeek reconstructs protocol transactions, Suricata applies detection rules and emits...">
+<meta name="twitter:description" content="Zeek, Suricata y NetFlow/IPFIX son capas complementarias de telemetría de red: Zeek reconstruye transacciones de protocolo, Suricata aplica reglas de detecci...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/zeek-suricata-and-netflow-analysis.html#article","name":"Zeek, Suricata, and NetFlow Analysis - Ingeniería de Detección | ldamoredev Security Atlas","headline":"Zeek, Suricata, and NetFlow Analysis","description":"Zeek, Suricata, and NetFlow/IPFIX are complementary network telemetry layers: Zeek reconstructs protocol transactions, Suricata applies detection rules and emits...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/zeek-suricata-and-netflow-analysis.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/zeek-suricata-and-netflow-analysis.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Ingeniería de Detección","Zeek, Suricata, and NetFlow Analysis","detection-engineering","zeek","suricata","netflow","nsm"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Ingeniería de Detección","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/index.html"},{"@type":"ListItem","position":4,"name":"Zeek, Suricata, and NetFlow Analysis","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/zeek-suricata-and-netflow-analysis.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/zeek-suricata-and-netflow-analysis.html#article","name":"Zeek, Suricata, and NetFlow Analysis - Ingeniería de Detección | ldamoredev Security Atlas","headline":"Zeek, Suricata, and NetFlow Analysis","description":"Zeek, Suricata y NetFlow/IPFIX son capas complementarias de telemetría de red: Zeek reconstruye transacciones de protocolo, Suricata aplica reglas de detecci...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/zeek-suricata-and-netflow-analysis.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/zeek-suricata-and-netflow-analysis.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Ingeniería de Detección","Zeek, Suricata, and NetFlow Analysis","detection-engineering","zeek","suricata","netflow","nsm"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Ingeniería de Detección","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/index.html"},{"@type":"ListItem","position":4,"name":"Zeek, Suricata, and NetFlow Analysis","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/zeek-suricata-and-netflow-analysis.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/zeek-suricata-and-netflow-analysis.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/zeek-suricata-and-netflow-analysis.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/zeek-suricata-and-netflow-analysis.html">
@@ -410,26 +410,25 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Ingeniería de Detección</a><span>/</span><span>Zeek, Suricata, and NetFlow Analysis</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Zeek, Suricata, and NetFlow Analysis</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-cyan">Ingeniería de Detección</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~6 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#detection-engineering</span><span class="meta-chip tag">#zeek</span><span class="meta-chip tag">#suricata</span><span class="meta-chip tag">#netflow</span><span class="meta-chip tag">#nsm</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="zeek-suricata-and-netflow-analysis">Zeek, Suricata, and NetFlow Analysis</h1>
-<h2 id="definition">Definition</h2>
-<p>Zeek, Suricata, and NetFlow/IPFIX are complementary network telemetry layers: Zeek reconstructs protocol transactions, Suricata applies detection rules and emits alert/protocol events, and NetFlow/IPFIX summarizes communication patterns at scale.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>Many teams say "we have network monitoring" without knowing which evidence layer they actually have. That distinction decides what they can detect. NetFlow may show a scan but not the HTTP paths. Suricata may alert on a signature but not preserve a full transaction history. Zeek may reconstruct rich protocol logs but not make the same rule-based alerting decisions.</p>
-<p>The senior model is not tool rivalry. It is evidence composition.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>The three layers answer <strong>3 different questions</strong>:</p>
+<h2 id="definicion">Definición</h2>
+<p>Zeek, Suricata y NetFlow/IPFIX son capas complementarias de telemetría de red: Zeek reconstruye transacciones de protocolo, Suricata aplica reglas de detección y emite eventos de alerta/protocolo, y NetFlow/IPFIX resume patrones de comunicación a escala.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>Muchos equipos dicen &quot;tenemos monitoreo de red&quot; sin saber qué capa de evidencia tienen realmente. Esa distinción decide qué pueden detectar. NetFlow puede mostrar un scan pero no los paths HTTP. Suricata puede alertar sobre una firma pero no preservar el historial completo de transacciones. Zeek puede reconstruir protocol logs ricos pero no tomar las mismas decisiones de alerting basado en reglas.</p>
+<p>El modelo senior no es rivalidad de herramientas. Es composición de evidencia.</p>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>Las tres capas responden <strong>3 preguntas diferentes</strong>:</p>
 <ol>
-<li><strong>NetFlow/IPFIX:</strong> Who talked to whom, when, how often, for how long, and how much?</li>
-<li><strong>Zeek:</strong> What protocol transactions happened, what metadata was visible, and what looked weird?</li>
-<li><strong>Suricata:</strong> Which packets/streams/protocol states matched detection logic, and what alert or event did the engine produce?</li>
+<li><strong>NetFlow/IPFIX:</strong> ¿Quién habló con quién, cuándo, con qué frecuencia, por cuánto tiempo y cuánto?</li>
+<li><strong>Zeek:</strong> ¿Qué transacciones de protocolo ocurrieron, qué metadata fue visible y qué se vio raro?</li>
+<li><strong>Suricata:</strong> ¿Qué paquetes/streams/estados de protocolo matchearon lógica de detección y qué alerta o evento produjo el motor?</li>
 </ol>
-<p>Example:</p>
+<p>Ejemplo:</p>
 <div class="codehilite"><pre><span></span><code>Observation: 10.0.5.20 probed 10.0.9.0/24 on 445/tcp.
 
 NetFlow: one source, 254 destinations, low bytes, short duration.
@@ -437,166 +436,150 @@ Zeek conn.log: many failed TCP states and no valid SMB sessions.
 Suricata eve.json: scan alerts and possible SMB probe signatures.
 Conclusion: discovery behavior, not confirmed exploitation.
 </code></pre></div>
-
-<p>The bug is assuming one layer can answer all three questions.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>El bug es asumir que una capa puede responder las tres preguntas.</p>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
 <ul>
-<li><strong>Use NetFlow for breadth.</strong> Detect fan-out, long-lived connections, byte asymmetry, beacon periodicity, rare ports, and environment-wide movement.</li>
-<li><strong>Use Zeek for transaction truth.</strong> Inspect <code>conn.log</code>, <code>dns.log</code>, <code>http.log</code>, <code>ssl.log</code>, <code>ssh.log</code>, <code>files.log</code>, <code>weird.log</code>, and <code>notice.log</code>.</li>
-<li><strong>Use Suricata for signatures and alert context.</strong> Review <code>eve.json</code> alert, flow, HTTP, DNS, TLS, file, and anomaly records.</li>
-<li><strong>Join with Community ID where possible.</strong> Shared flow identifiers help tie Zeek and Suricata records for the same flow.</li>
-<li><strong>Check capture quality first.</strong> Zeek <code>capture_loss.log</code>, Suricata drop stats, interface counters, and SPAN/TAP health shape every conclusion.</li>
-<li><strong>Read absence carefully.</strong> No Suricata alert plus Zeek protocol logs is different from no packets, no parser support, encrypted payload, or sensor loss.</li>
+<li><strong>Usá NetFlow para amplitud.</strong> Detectar fan-out, conexiones largas, asimetría de bytes, periodicidad de beacon, puertos raros y movimiento a escala de entorno.</li>
+<li><strong>Usá Zeek para verdad transaccional.</strong> Inspeccionar <code>conn.log</code>, <code>dns.log</code>, <code>http.log</code>, <code>ssl.log</code>, <code>ssh.log</code>, <code>files.log</code>, <code>weird.log</code> y <code>notice.log</code>.</li>
+<li><strong>Usá Suricata para firmas y contexto de alerta.</strong> Revisar <code>eve.json</code> alert, flow, HTTP, DNS, TLS, file y anomaly records.</li>
+<li><strong>Uní con Community ID cuando sea posible.</strong> Identificadores de flow compartidos ayudan a atar registros Zeek y Suricata del mismo flow.</li>
+<li><strong>Chequeá primero la calidad de captura.</strong> Zeek <code>capture_loss.log</code>, stats de drops de Suricata, counters de interfaz y salud SPAN/TAP moldean toda conclusión.</li>
+<li><strong>Leé la ausencia con cuidado.</strong> Sin alerta Suricata más logs de protocolo Zeek es distinto de no packets, sin soporte de parser, payload cifrado o pérdida de sensor.</li>
 </ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>The comparison has <strong>6 operating modes</strong>.</p>
-<h3 id="1-netflow-only-monitoring">1. NetFlow-only monitoring</h3>
-<p>Useful for high-level behavior and retention at scale. Weak for payload, protocol semantics, and process attribution.</p>
-<h3 id="2-zeek-only-nsm">2. Zeek-only NSM</h3>
-<p>Strong for protocol metadata, weird behavior, local policy scripting, and analyst pivoting. Weak when the question is "did this known exploit signature match?"</p>
-<h3 id="3-suricata-only-ids">3. Suricata-only IDS</h3>
-<p>Strong for known detection logic, alert workflows, and protocol-aware signatures. Weak when no rule exists or when analysts need transaction history beyond the alert.</p>
-<h3 id="4-zeek-plus-suricata">4. Zeek plus Suricata</h3>
-<p>The classic NSM pairing: Zeek explains what happened; Suricata flags known suspicious shapes. Shared pcap and flow IDs make this powerful.</p>
-<h3 id="5-flow-plus-endpoint">5. Flow plus endpoint</h3>
-<p>Common in cloud or high-speed networks where packet sensors are limited. Useful for role-aware behavior and process correlation, but weaker for protocol-level root cause.</p>
-<h3 id="6-offline-pcap-replay">6. Offline pcap replay</h3>
-<p>The safest lab and regression mode. Replay the same pcap through Zeek and Suricata to compare evidence, alerts, parser behavior, and rule changes.</p>
-<h2 id="impact">Impact</h2>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<p>La comparación tiene <strong>6 modos operativos</strong>.</p>
+<h3 id="1-monitoreo-solo-netflow">1. Monitoreo solo NetFlow</h3>
+<p>Útil para comportamiento high-level y retención a escala. Débil para payload, semántica de protocolo y atribución de proceso.</p>
+<h3 id="2-nsm-solo-zeek">2. NSM solo Zeek</h3>
+<p>Fuerte para metadata de protocolo, weird behavior, scripting de policy local y pivots de analista. Débil cuando la pregunta es &quot;¿matcheó esta firma de exploit conocida?&quot;</p>
+<h3 id="3-ids-solo-suricata">3. IDS solo Suricata</h3>
+<p>Fuerte para lógica de detección conocida, workflows de alertas y firmas protocol-aware. Débil cuando no existe regla o cuando analistas necesitan historial transaccional más allá de la alerta.</p>
+<h3 id="4-zeek-mas-suricata">4. Zeek más Suricata</h3>
+<p>El pairing clásico de NSM: Zeek explica qué pasó; Suricata marca formas sospechosas conocidas. Pcap y flow IDs compartidos lo vuelven potente.</p>
+<h3 id="5-flow-mas-endpoint">5. Flow más endpoint</h3>
+<p>Común en cloud o redes de alta velocidad donde sensores de paquetes son limitados. Útil para comportamiento consciente de rol y correlación de procesos, pero más débil para root cause a nivel protocolo.</p>
+<h3 id="6-replay-offline-de-pcap">6. Replay offline de pcap</h3>
+<p>El modo de lab y regresión más seguro. Reproducí el mismo pcap por Zeek y Suricata para comparar evidencia, alertas, comportamiento de parser y cambios de reglas.</p>
+<h2 id="impacto">Impacto</h2>
 <ul>
-<li><strong>Investigation depth.</strong> Zeek can reconstruct what a scanner asked for; Suricata can show which rule fired; NetFlow can prove scale and timing.</li>
-<li><strong>Detection resilience.</strong> If one layer misses an event, another may still preserve enough evidence.</li>
-<li><strong>Cost control.</strong> Flow records retain broad visibility longer; packet/protocol logs provide depth where needed.</li>
-<li><strong>Tool misuse risk.</strong> Treating Suricata alerts as protocol logs or NetFlow as packet capture causes bad conclusions.</li>
-<li><strong>Operational quality.</strong> Capture loss and parser errors can be as important as the adversary behavior.</li>
+<li><strong>Profundidad de investigación.</strong> Zeek puede reconstruir qué preguntó un scanner; Suricata puede mostrar qué regla disparó; NetFlow puede probar escala y timing.</li>
+<li><strong>Resiliencia de detección.</strong> Si una capa pierde un evento, otra todavía puede preservar evidencia suficiente.</li>
+<li><strong>Control de costos.</strong> Flow records retienen visibilidad amplia más tiempo; logs de paquete/protocolo dan profundidad donde hace falta.</li>
+<li><strong>Riesgo de mal uso de herramientas.</strong> Tratar alertas Suricata como protocol logs o NetFlow como packet capture produce malas conclusiones.</li>
+<li><strong>Calidad operacional.</strong> Capture loss y errores de parser pueden ser tan importantes como el comportamiento adversario.</li>
 </ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
-<p>Ordered by effectiveness:</p>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<p>Ordenado por efectividad:</p>
 <ol>
-<li>
-<p><strong>Design by evidence question.</strong>
-   Decide whether you need scale, protocol semantics, signatures, payload, or process context. Then pick the layer that can answer it.</p>
-</li>
-<li>
-<p><strong>Run Zeek and Suricata from the same observation points when feasible.</strong>
-   Shared packets make contradictions meaningful. Different sensor placement can explain mismatched logs.</p>
-</li>
-<li>
-<p><strong>Correlate with flow IDs and timestamps.</strong>
-   Community ID, precise timestamps, and consistent normalization reduce manual joins and false disagreements.</p>
-</li>
-<li>
-<p><strong>Monitor sensor health as security telemetry.</strong>
-   Packet loss, rule-engine drops, parser failures, disk pressure, and queue overflow should create operational alerts.</p>
-</li>
-<li>
-<p><strong>Keep packet samples for high-value detections.</strong>
-   Full retention may be impossible, but representative pcaps around alerts improve regression testing and analyst trust.</p>
-</li>
+<li><strong>Diseñá por pregunta de evidencia.</strong><br>
+Decidí si necesitás escala, semántica de protocolo, firmas, payload o contexto de proceso. Después elegí la capa que puede responder.</li>
+<li><strong>Corré Zeek y Suricata desde los mismos puntos de observación cuando sea viable.</strong><br>
+Paquetes compartidos hacen que las contradicciones sean significativas. Ubicaciones distintas de sensores pueden explicar logs discrepantes.</li>
+<li><strong>Correlacioná con flow IDs y timestamps.</strong><br>
+Community ID, timestamps precisos y normalización consistente reducen joins manuales y falsos desacuerdos.</li>
+<li><strong>Monitoreá salud de sensores como telemetría de seguridad.</strong><br>
+Packet loss, drops del rule-engine, parser failures, presión de disco y queue overflow deberían crear alertas operacionales.</li>
+<li><strong>Guardá muestras de paquetes para detecciones de alto valor.</strong><br>
+La retención completa puede ser imposible, pero pcaps representativos alrededor de alertas mejoran regression testing y confianza del analista.</li>
 </ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li><strong>Choosing one tool as the whole strategy.</strong> Zeek, Suricata, and NetFlow answer different questions.</li>
-<li><strong>Counting alerts as incidents.</strong> Suricata alert counts measure rule activity, not business impact.</li>
-<li><strong>Assuming flow logs prove payload safety.</strong> Flow records cannot validate exploit content.</li>
-<li><strong>Assuming Zeek logs every application.</strong> Parser support, encryption, visibility, and traffic quality constrain reconstruction.</li>
-<li><strong>Ignoring capture loss.</strong> Packet loss changes both alert reliability and protocol reconstruction.</li>
+<li><strong>Elegir una herramienta como toda la estrategia.</strong> Zeek, Suricata y NetFlow responden preguntas distintas.</li>
+<li><strong>Contar alertas como incidentes.</strong> Los conteos de alertas Suricata miden actividad de reglas, no impacto de negocio.</li>
+<li><strong>Asumir que flow logs prueban seguridad de payload.</strong> Flow records no pueden validar contenido de exploit.</li>
+<li><strong>Asumir que Zeek loguea toda aplicación.</strong> Soporte de parser, cifrado, visibilidad y calidad de tráfico limitan la reconstrucción.</li>
+<li><strong>Ignorar capture loss.</strong> La pérdida de paquetes cambia la confiabilidad de alertas y la reconstrucción de protocolo.</li>
 </ul>
-<h3 id="operational-misconceptions">Operational misconceptions</h3>
+<h3 id="malentendidos-operacionales">Malentendidos operacionales</h3>
 <ul>
-<li><strong>"Zeek is an IDS replacement."</strong> Zeek can detect and notice, but its main strength is rich NSM telemetry and programmable policy.</li>
-<li><strong>"Suricata is only signatures."</strong> Suricata also produces protocol logs, flow records, file events, anomalies, and TLS metadata.</li>
-<li><strong>"NetFlow is low value because it lacks payload."</strong> Flow is often the only scalable way to detect fan-out, beaconing, and exfil shape over long windows.</li>
-<li><strong>"Offline replay proves production behavior."</strong> Replay tests engine logic, not production sensor placement, packet loss, or timing effects.</li>
+<li><strong>&quot;Zeek reemplaza IDS.&quot;</strong> Zeek puede detectar y emitir notices, pero su fuerza principal es telemetría NSM rica y policy programable.</li>
+<li><strong>&quot;Suricata es solo firmas.&quot;</strong> Suricata también produce protocol logs, flow records, file events, anomalías y metadata TLS.</li>
+<li><strong>&quot;NetFlow tiene poco valor porque no tiene payload.&quot;</strong> Flow suele ser la única forma escalable de detectar fan-out, beaconing y forma de exfil en ventanas largas.</li>
+<li><strong>&quot;Offline replay prueba comportamiento de producción.&quot;</strong> El replay prueba lógica del engine, no ubicación de sensores, packet loss ni efectos de timing en producción.</li>
 </ul>
-<h3 id="modern-limitations">Modern limitations</h3>
+<h3 id="limitaciones-modernas">Limitaciones modernas</h3>
 <ul>
-<li>QUIC, TLS 1.3, ECH, DoH, service meshes, and cloud overlays reduce classic payload/protocol visibility.</li>
-<li>High-speed links can exceed commodity sensor capacity.</li>
-<li>Cloud environments may not allow TAP-like packet access.</li>
-<li>Protocol parsers lag behind new protocols and proprietary encodings.</li>
+<li>QUIC, TLS 1.3, ECH, DoH, service meshes y overlays cloud reducen visibilidad clásica de payload/protocolo.</li>
+<li>Links de alta velocidad pueden superar capacidad de sensores commodity.</li>
+<li>Entornos cloud pueden no permitir acceso tipo TAP a paquetes.</li>
+<li>Parsers de protocolo van detrás de protocolos nuevos y encodings propietarios.</li>
 </ul>
-<h3 id="telemetry-blind-spots">Telemetry blind spots</h3>
+<h3 id="puntos-ciegos-de-telemetria">Puntos ciegos de telemetría</h3>
 <ul>
-<li>Asymmetric routing where the sensor sees only one direction.</li>
-<li>SPAN oversubscription or dropped mirror traffic.</li>
-<li>Encrypted protocols without visible metadata or proxy logs.</li>
-<li>Sampled flow records that miss short connections.</li>
-<li>Load balancer or NAT points that hide original client identity.</li>
+<li>Routing asimétrico donde el sensor ve solo una dirección.</li>
+<li>Sobresuscripción SPAN o mirror traffic droppeado.</li>
+<li>Protocolos cifrados sin metadata visible o proxy logs.</li>
+<li>Flow records sampleados que pierden conexiones cortas.</li>
+<li>Puntos de load balancer o NAT que ocultan identidad original del cliente.</li>
 </ul>
-<h2 id="practical-labs">Practical labs</h2>
-<p>Use offline pcap replay for repeatability.</p>
-<h3 id="replay-the-same-scan-pcap-through-zeek-and-suricata">Replay the same scan pcap through Zeek and Suricata</h3>
-<div class="codehilite"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>zeek-out<span class="w"> </span>suricata-out
-<span class="o">(</span><span class="nb">cd</span><span class="w"> </span>zeek-out<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>zeek<span class="w"> </span>-r<span class="w"> </span>../scan.pcap<span class="o">)</span>
-suricata<span class="w"> </span>-r<span class="w"> </span>scan.pcap<span class="w"> </span>-l<span class="w"> </span>suricata-out
-ls<span class="w"> </span>zeek-out
-jq<span class="w"> </span><span class="s1">&#39;select(.event_type==&quot;alert&quot;) | .alert.signature&#39;</span><span class="w"> </span>suricata-out/eve.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c
+<h2 id="labs-practicos">Labs prácticos</h2>
+<p>Usá replay offline de pcap para repetibilidad.</p>
+<h3 id="reproducir-el-mismo-pcap-de-scan-por-zeek-y-suricata">Reproducir el mismo pcap de scan por Zeek y Suricata</h3>
+<div class="codehilite"><pre><span></span><code>mkdir -p zeek-out suricata-out
+(cd zeek-out &amp;&amp; zeek -r ../scan.pcap)
+suricata -r scan.pcap -l suricata-out
+ls zeek-out
+jq &#x27;select(.event_type==&quot;alert&quot;) | .alert.signature&#x27; suricata-out/eve.json | sort | uniq -c
 </code></pre></div>
-
-<p>Expected telemetry: Zeek produces transaction logs; Suricata produces alerts and EVE events. Compare what each layer explains.</p>
-<h3 id="use-zeek-to-summarize-port-scan-states">Use Zeek to summarize port scan states</h3>
-<div class="codehilite"><pre><span></span><code>zeek-cut<span class="w"> </span>id.orig_h<span class="w"> </span>id.resp_h<span class="w"> </span>id.resp_p<span class="w"> </span>conn_state<span class="w"> </span><span class="nb">history</span><span class="w"> </span>&lt;<span class="w"> </span>zeek-out/conn.log<span class="w"> </span><span class="p">|</span>
-<span class="w">  </span>awk<span class="w"> </span><span class="s1">&#39;{k=$1&quot; &quot;$3&quot; &quot;$4; c[k]++} END {for (k in c) print c[k], k}&#39;</span><span class="w"> </span><span class="p">|</span>
-<span class="w">  </span>sort<span class="w"> </span>-nr<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
+<p>Telemetría esperada: Zeek produce transaction logs; Suricata produce alertas y eventos EVE. Compará qué explica cada capa.</p>
+<h3 id="usar-zeek-para-resumir-estados-de-port-scan">Usar Zeek para resumir estados de port scan</h3>
+<div class="codehilite"><pre><span></span><code>zeek-cut id.orig_h id.resp_h id.resp_p conn_state history &lt; zeek-out/conn.log |
+  awk &#x27;{k=$1&quot; &quot;$3&quot; &quot;$4; c[k]++} END {for (k in c) print c[k], k}&#x27; |
+  sort -nr | head
 </code></pre></div>
-
-<p>Expected telemetry: repeated connection states show scan shape even without payload alerts.</p>
-<h3 id="inspect-suricata-tls-metadata">Inspect Suricata TLS metadata</h3>
-<div class="codehilite"><pre><span></span><code>jq<span class="w"> </span><span class="s1">&#39;select(.event_type==&quot;tls&quot;) | {src:.src_ip,dst:.dest_ip,sni:.tls.sni,ja3:.tls.ja3,ja4:.tls.ja4}&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>suricata-out/eve.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
+<p>Telemetría esperada: estados de conexión repetidos muestran forma de scan incluso sin alertas de payload.</p>
+<h3 id="inspeccionar-metadata-tls-de-suricata">Inspeccionar metadata TLS de Suricata</h3>
+<div class="codehilite"><pre><span></span><code>jq &#x27;select(.event_type==&quot;tls&quot;) | {src:.src_ip,dst:.dest_ip,sni:.tls.sni,ja3:.tls.ja3,ja4:.tls.ja4}&#x27; \
+  suricata-out/eve.json | head
 </code></pre></div>
-
-<p>Expected telemetry: encrypted traffic can still expose handshake metadata when configured and visible.</p>
-<h3 id="check-capture-loss-before-trusting-absence">Check capture loss before trusting absence</h3>
-<div class="codehilite"><pre><span></span><code><span class="o">(</span><span class="nb">cd</span><span class="w"> </span>zeek-out<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>zeek<span class="w"> </span>-r<span class="w"> </span>../busy-link.pcap<span class="w"> </span>policy/misc/capture-loss<span class="o">)</span>
-cat<span class="w"> </span>zeek-out/capture_loss.log
+<p>Telemetría esperada: el tráfico cifrado todavía puede exponer metadata de handshake cuando está configurada y visible.</p>
+<h3 id="chequear-capture-loss-antes-de-confiar-en-la-ausencia">Chequear capture loss antes de confiar en la ausencia</h3>
+<div class="codehilite"><pre><span></span><code>(cd zeek-out &amp;&amp; zeek -r ../busy-link.pcap policy/misc/capture-loss)
+cat zeek-out/capture_loss.log
 </code></pre></div>
-
-<p>Expected telemetry: loss records change the interpretation of missing alerts or incomplete protocol sessions.</p>
-<h3 id="derive-a-netflow-like-table-from-zeek">Derive a NetFlow-like table from Zeek</h3>
-<div class="codehilite"><pre><span></span><code>zeek-cut<span class="w"> </span>ts<span class="w"> </span>uid<span class="w"> </span>id.orig_h<span class="w"> </span>id.resp_h<span class="w"> </span>id.resp_p<span class="w"> </span>proto<span class="w"> </span>duration<span class="w"> </span>orig_bytes<span class="w"> </span>resp_bytes<span class="w"> </span>&lt;<span class="w"> </span>zeek-out/conn.log<span class="w"> </span><span class="p">|</span>
-<span class="w">  </span>head<span class="w"> </span>-30
+<p>Telemetría esperada: los registros de pérdida cambian la interpretación de alertas faltantes o sesiones de protocolo incompletas.</p>
+<h3 id="derivar-una-tabla-tipo-netflow-desde-zeek">Derivar una tabla tipo NetFlow desde Zeek</h3>
+<div class="codehilite"><pre><span></span><code>zeek-cut ts uid id.orig_h id.resp_h id.resp_p proto duration orig_bytes resp_bytes &lt; zeek-out/conn.log |
+  head -30
 </code></pre></div>
-
-<p>Expected telemetry: flow-like fields are useful for broad behavior, while Zeek keeps additional protocol context in separate logs.</p>
-<h2 id="practical-examples">Practical examples</h2>
+<p>Telemetría esperada: los campos tipo flow son útiles para comportamiento amplio, mientras Zeek conserva contexto de protocolo adicional en logs separados.</p>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
-<li>NetFlow shows thousands of short <code>3389/tcp</code> attempts; Suricata has no exploit alerts; Zeek confirms no successful RDP sessions.</li>
-<li>Zeek <code>dns.log</code> shows domain-generation-like query volume; Suricata DNS rules add known-bad matches for a subset.</li>
-<li>Suricata alerts on an HTTP exploit pattern; Zeek <code>http.log</code> shows method, host, URI, user agent, and response code for triage.</li>
-<li>Zeek <code>weird.log</code> shows malformed protocol behavior during a decoy/fragmentation test that a pure flow system would miss.</li>
-<li>Flow logs show exfil-like byte asymmetry; Zeek <code>ssl.log</code> and EDR process telemetry identify the client and TLS profile.</li>
+<li>NetFlow muestra miles de intentos cortos a <code>3389/tcp</code>; Suricata no tiene alertas de exploit; Zeek confirma que no hubo sesiones RDP exitosas.</li>
+<li>Zeek <code>dns.log</code> muestra volumen de queries tipo DGA; reglas DNS de Suricata agregan matches known-bad para un subset.</li>
+<li>Suricata alerta sobre un patrón de exploit HTTP; Zeek <code>http.log</code> muestra método, host, URI, user agent y response code para triage.</li>
+<li>Zeek <code>weird.log</code> muestra comportamiento de protocolo malformado durante una prueba de decoy/fragmentación que un sistema puro de flow perdería.</li>
+<li>Flow logs muestran asimetría de bytes tipo exfil; Zeek <code>ssl.log</code> y telemetría de proceso EDR identifican el cliente y perfil TLS.</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
-<li><a href="index.html">Detection Engineering</a></li>
-<li><a href="network-telemetry-sources-and-visibility.html">network-telemetry-sources-and-visibility</a></li>
-<li><a href="ids-ips-and-behavioral-detection-pipelines.html">ids-ips-and-behavioral-detection-pipelines</a></li>
-<li><a href="telemetry-normalization-correlation-and-enrichment.html">telemetry-normalization-correlation-and-enrichment</a></li>
-<li><a href="encrypted-traffic-analysis-and-metadata-leakage.html">encrypted-traffic-analysis-and-metadata-leakage</a></li>
-<li><a href="behavioral-detection-vs-signature-detection.html">behavioral-detection-vs-signature-detection</a></li>
-<li><a href="scan-anomaly-detection-and-fingerprint-analysis.html">scan-anomaly-detection-and-fingerprint-analysis</a></li>
-<li><a href="edr-network-observability-and-process-correlation.html">edr-network-observability-and-process-correlation</a></li>
+<li><a href="index.html">Ingeniería de Detección</a></li>
+<li><a href="network-telemetry-sources-and-visibility.html">Fuentes de telemetría de red y visibilidad</a></li>
+<li><a href="ids-ips-and-behavioral-detection-pipelines.html">Pipelines de IDS/IPS y detección de comportamiento</a></li>
+<li><a href="telemetry-normalization-correlation-and-enrichment.html">Normalización, correlación y enrichment de telemetría</a></li>
+<li><a href="encrypted-traffic-analysis-and-metadata-leakage.html">Análisis de tráfico cifrado y fuga de metadata</a></li>
+<li><a href="behavioral-detection-vs-signature-detection.html">Detección de comportamiento vs detección por firmas</a></li>
+<li><a href="scan-anomaly-detection-and-fingerprint-analysis.html">Detección de anomalías de scan y análisis de fingerprint</a></li>
+<li><a href="edr-network-observability-and-process-correlation.html">Observabilidad de red en EDR y correlación de procesos</a></li>
 <li><a href="../networking/packet-analysis.html">Packet Analysis</a></li>
 <li><a href="../networking/wireshark-workflows.html">Wireshark Workflows</a></li>
 <li><a href="../offensive-security/masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a></li>
 <li><a href="../offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a></li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<h3 id="notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</h3>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: threat-hunting-with-zeek">threat-hunting-with-zeek</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: suricata-rule-tuning">suricata-rule-tuning</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: community-id-correlation">community-id-correlation</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: sensor-health-and-capture-loss">sensor-health-and-capture-loss</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: netflow-beaconing-analysis">netflow-beaconing-analysis</span></li>
+<li>threat-hunting-with-zeek</li>
+<li>suricata-rule-tuning</li>
+<li>community-id-correlation</li>
+<li>sensor-health-and-capture-loss</li>
+<li>netflow-beaconing-analysis</li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="referencias">Referencias</h2>
 <ul>
 <li><strong>Official Tool Docs:</strong> Zeek Logs - https://docs.zeek.org/en/current/logs/</li>
 <li><strong>Official Tool Docs:</strong> Zeek Capture Loss Logs - https://docs.zeek.org/en/current/logs/capture-loss-and-reporter.html</li>
 <li><strong>Official Tool Docs:</strong> Suricata EVE JSON Output - https://docs.suricata.io/en/latest/output/eve/eve-json-output.html</li>
-<li><strong>Foundational:</strong> RFC 7011 IPFIX - https://www.rfc-editor.org/rfc/rfc7011.html</li>
+<li><strong>Fundamental:</strong> RFC 7011 IPFIX - https://www.rfc-editor.org/rfc/rfc7011.html</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="windows-event-logs.html"><span class="nav-dir">← Previous</span><strong>Windows Event Logs</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -612,24 +595,33 @@ cat<span class="w"> </span>zeek-out/capture_loss.log
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-netflow-only-monitoring">1. NetFlow-only monitoring</a>
-<a class="toc-level-3" href="#2-zeek-only-nsm">2. Zeek-only NSM</a>
-<a class="toc-level-3" href="#3-suricata-only-ids">3. Suricata-only IDS</a>
-<a class="toc-level-3" href="#4-zeek-plus-suricata">4. Zeek plus Suricata</a>
-<a class="toc-level-3" href="#5-flow-plus-endpoint">5. Flow plus endpoint</a>
-<a class="toc-level-3" href="#6-offline-pcap-replay">6. Offline pcap replay</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-3" href="#operational-misconceptions">Operational misconceptions</a>
-<a class="toc-level-3" href="#modern-limitations">Modern limitations</a>
-<a class="toc-level-3" href="#telemetry-blind-spots">Telemetry blind spots</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
+<a class="toc-level-3" href="#1-monitoreo-solo-netflow">1. Monitoreo solo NetFlow</a>
+<a class="toc-level-3" href="#2-nsm-solo-zeek">2. NSM solo Zeek</a>
+<a class="toc-level-3" href="#3-ids-solo-suricata">3. IDS solo Suricata</a>
+<a class="toc-level-3" href="#4-zeek-mas-suricata">4. Zeek más Suricata</a>
+<a class="toc-level-3" href="#5-flow-mas-endpoint">5. Flow más endpoint</a>
+<a class="toc-level-3" href="#6-replay-offline-de-pcap">6. Replay offline de pcap</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
+<a class="toc-level-3" href="#malentendidos-operacionales">Malentendidos operacionales</a>
+<a class="toc-level-3" href="#limitaciones-modernas">Limitaciones modernas</a>
+<a class="toc-level-3" href="#puntos-ciegos-de-telemetria">Puntos ciegos de telemetría</a>
+<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
+<a class="toc-level-3" href="#reproducir-el-mismo-pcap-de-scan-por-zeek-y-suricata">Reproducir el mismo pcap de scan por Zeek y Suricata</a>
+<a class="toc-level-3" href="#usar-zeek-para-resumir-estados-de-port-scan">Usar Zeek para resumir estados de port scan</a>
+<a class="toc-level-3" href="#inspeccionar-metadata-tls-de-suricata">Inspeccionar metadata TLS de Suricata</a>
+<a class="toc-level-3" href="#chequear-capture-loss-antes-de-confiar-en-la-ausencia">Chequear capture loss antes de confiar en la ausencia</a>
+<a class="toc-level-3" href="#derivar-una-tabla-tipo-netflow-desde-zeek">Derivar una tabla tipo NetFlow desde Zeek</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-3" href="#notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>
