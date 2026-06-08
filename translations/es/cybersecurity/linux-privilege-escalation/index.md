@@ -2,7 +2,7 @@
 
 ## Propósito
 
-Este índice es el punto de entrada raíz para la rama de Linux privilege escalation del vault de ciberseguridad.
+Este índice es el punto de entrada raíz para la rama de Linux privilege escalation del atlas de ciberseguridad.
 
 Usalo para:
 

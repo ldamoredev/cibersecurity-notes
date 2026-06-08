@@ -2,7 +2,7 @@
 
 ## Propósito
 
-Este índice es el punto de entrada raíz para la rama de Privacidad, Anonimato y OPSEC del vault de ciberseguridad.
+Este índice es el punto de entrada raíz para la rama de Privacidad, Anonimato y OPSEC del atlas de ciberseguridad.
 
 Usalo para entender cómo las herramientas de privacidad realmente modifican un threat model:
 - qué ocultan

@@ -2,7 +2,7 @@
 
 ## Propósito
 
-Este índice es el punto de entrada a la rama de seguridad de APIs del vault de ciberseguridad.
+Este índice es el punto de entrada a la rama de seguridad de APIs del atlas de ciberseguridad.
 
 Usalo para:
 - navegar las notas de API security

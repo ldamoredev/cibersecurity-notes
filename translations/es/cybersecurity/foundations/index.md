@@ -13,7 +13,7 @@ tags:
 # Índice de Fundamentos — Fase 0
 
 ## Propósito
-Este índice es lo **primero** que un estudiante debería leer en el vault. Existe porque toda otra rama asume que el estudiante ya *piensa security-first*. La Fase 0 construye esa mentalidad antes de abrir cualquier rama técnica.
+Este índice es lo **primero** que un estudiante debería leer en el atlas. Existe porque toda otra rama asume que el estudiante ya *piensa security-first*. La Fase 0 construye esa mentalidad antes de abrir cualquier rama técnica.
 
 Volvé al [[cybersecurity/index|Índice de Ciberseguridad]] para navegar entre ramas.
 

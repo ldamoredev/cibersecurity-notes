@@ -15,7 +15,7 @@ sources: []
 # La dualidad atacante-defensor como herramienta de aprendizaje
 
 ## Definición
-Toda técnica de ataque tiene una contraparte de detección o mitigación, y todo control defensivo tiene una clase de bypass conocida. **La dualidad es epistémica**: la forma de saber si entendés un tema de seguridad es articular ambos lados — qué hace un atacante, *y* qué ve, previene o no logra prevenir un defensor. Estudiar uno solo produce un medio-practicante. Estudiar ambos como pares es la estructura sobre la que está armado el resto de este vault.
+Toda técnica de ataque tiene una contraparte de detección o mitigación, y todo control defensivo tiene una clase de bypass conocida. **La dualidad es epistémica**: la forma de saber si entendés un tema de seguridad es articular ambos lados — qué hace un atacante, *y* qué ve, previene o no logra prevenir un defensor. Estudiar uno solo produce un medio-practicante. Estudiar ambos como pares es la estructura sobre la que está armado el resto de este atlas.
 
 ## Por qué importa
 Esta nota existe porque el modo de falla más común de un autodidacta de seguridad es elegir un lado y detenerse. Los aprendices de pura-ofensa se vuelven hábiles para encontrar agujeros pero no pueden recomendar arreglos que los equipos de ingeniería acepten; sus reportes identifican el *qué* pero no el *cómo convivir con el resultado*. Los aprendices de pura-defensa construyen controles sin entender qué frenan realmente esos controles, así que compran productos caros que bloquean ataques de manual y se pierden las variantes. Ambos arquetipos son comunes, ambos se estancan, ambos producen malos resultados a nivel de sistemas.
@@ -47,7 +47,7 @@ El bug no es "no sé ofensa" o "no sé defensa"; el bug es *aprendí uno y asum�
 ## Errores comunes
 
 ### "Aprendo ofensa primero, defensa después (o viceversa)."
-Este es el plan más común del principiante y produce brechas que se acumulan. Cada técnica estudiada sola deja un modelo a medio formar que hay que re-aprender más tarde cuando aterriza la otra mitad. Emparejar a medida que avanzás cuesta ~30% más de tiempo por tema y produce ~3x la comprensión retenida. El vault está estructurado para que emparejar salga barato — cada rama ofensiva tiene una rama defensiva correspondiente.
+Este es el plan más común del principiante y produce brechas que se acumulan. Cada técnica estudiada sola deja un modelo a medio formar que hay que re-aprender más tarde cuando aterriza la otra mitad. Emparejar a medida que avanzás cuesta ~30% más de tiempo por tema y produce ~3x la comprensión retenida. El atlas está estructurado para que emparejar salga barato — cada rama ofensiva tiene una rama defensiva correspondiente.
 
 ### "Red team y blue team son carreras distintas."
 Distintas en la superficie, estructuralmente idénticas. La misma base de conocimiento — redes, internals de web, AD, cripto, EDR — subyace a ambas. La diferencia del día de trabajo es qué herramientas y qué workflow, no qué cuerpo de conocimiento. La narrativa de carrera que dice "elegí un lado a los 22 y quedate ahí" es la que produce practicantes senior que chocan un techo en el año 5.

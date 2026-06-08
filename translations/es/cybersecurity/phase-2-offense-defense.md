@@ -2,7 +2,7 @@
 
 Tenés un modelo funcional del sustrato desde [[phase-1-substrate|Fase 1]]. Fase 2 es donde la mayoría de learners de ciberseguridad se estanca, porque eligen un lado — offense *o* defense — y lo leen solo. Esta fase existe para prevenir eso.
 
-**Fase 2 es la única fase de este vault pensada para leerse en pares.** Cada nota ofensiva tiene una nota correspondiente de detection-engineering que enseña cómo se ve la misma actividad desde el otro lado. Leelas juntas. El pairing no es decoración; es todo el valor pedagógico de la fase.
+**Fase 2 es la única fase de este atlas pensada para leerse en pares.** Cada nota ofensiva tiene una nota correspondiente de detection-engineering que enseña cómo se ve la misma actividad desde el otro lado. Leelas juntas. El pairing no es decoración; es todo el valor pedagógico de la fase.
 
 Ver [[attacker-defender-duality-as-a-learning-tool|Dualidad atacante-defensor]] (Fase 0) para la filosofía. Esta página es la versión operacional.
 
@@ -35,7 +35,7 @@ El set mínimo que te da un modelo offense+defense funcional. Leé cada par como
 
 - **Offense:** [[host-and-port-discovery|Host and Port Discovery]] — el movimiento recon entry-level que corre cualquier operador.
 - **Defense:** [[scan-anomaly-detection-and-fingerprint-analysis|Scan Anomaly Detection and Fingerprint Analysis]] — cómo se ve un scan en NetFlow, alertas IDS y TCP fingerprints.
-- **Por qué este par va segundo:** El par offense/defense más concreto del vault. Después de leerlo, podés correr un scan contra un target autorizado *y* encontrar tus propios packets en los logs del defensor.
+- **Por qué este par va segundo:** El par offense/defense más concreto del atlas. Después de leerlo, podés correr un scan contra un target autorizado *y* encontrar tus propios packets en los logs del defensor.
 
 ### Par 3 — Enumeration <-> detección behavioral vs por firmas
 
@@ -128,7 +128,7 @@ Futuras páginas de entrada `phase-3-operator.md` y `phase-4-specialty.md` van a
 
 ## Por qué existe esta página
 
-La mayoría de educación en seguridad enseña offense y defense como currículas separadas, por personas separadas, en salas separadas. El costo es el arquetipo de half-practitioner: hábil en un lado, peligroso cuando tiene que razonar sobre el otro. Este vault está estructurado para que el pairing sea barato, y esta página es el artefacto operacional que convierte el pairing en modo de lectura por defecto, no en aspiración.
+La mayoría de educación en seguridad enseña offense y defense como currículas separadas, por personas separadas, en salas separadas. El costo es el arquetipo de half-practitioner: hábil en un lado, peligroso cuando tiene que razonar sobre el otro. Este atlas está estructurado para que el pairing sea barato, y esta página es el artefacto operacional que convierte el pairing en modo de lectura por defecto, no en aspiración.
 
 Si leés solo una mitad de estos pares, aprendiste la mitad de Fase 2.
 
@@ -142,4 +142,4 @@ Si leés solo una mitad de estos pares, aprendiste la mitad de Fase 2.
 - [[index|Índice de Offensive Security / Recon]] — listado completo de la rama ofensiva.
 - [[index|Índice de Detection Engineering]] — listado completo de la rama defensiva.
 - [[must-know-30|Must-Know 30]] — lista must-know transversal (el Par 2 de esta página está ahí).
-- [[index|Índice de ciberseguridad]] — roadmap completo del vault.
+- [[index|Índice de ciberseguridad]] — roadmap completo del atlas.

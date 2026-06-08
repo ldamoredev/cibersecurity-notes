@@ -2,7 +2,7 @@
 
 ## Propósito
 
-Este índice es el punto de entrada raíz de la rama cloud-security del vault de ciberseguridad.
+Este índice es el punto de entrada raíz de la rama cloud-security del atlas de ciberseguridad.
 
 Usalo para:
 - entender el cloud como límites de identidad, red, almacenamiento, metadatos, logging y costos

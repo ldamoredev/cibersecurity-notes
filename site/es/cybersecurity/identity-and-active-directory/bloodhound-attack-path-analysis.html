@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BloodHound and Attack Path Analysis - Identidad y Active Directory | ldamoredev Security Atlas</title>
-<meta name="description" content="BloodHound is an open-source graph-analysis tool that models **Active Directory as a directed graph of principals** (users, groups, computers, GPOs, OUs, domains)...">
+<title>BloodHound and Attack Path Analysis | ldamoredev Security Atlas</title>
+<meta name="description" content="BloodHound es una herramienta de análisis de grafos open-source que modela Active Directory como un grafo dirigido de principales (usuarios, grupos, computad...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Identidad y Active Directory, BloodHound and Attack Path Analysis, offensive-security, active-directory, bloodhound, graph-analysis, attack-path">
 <meta name="theme-color" content="#16a34a">
@@ -20,18 +20,18 @@
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BloodHound and Attack Path Analysis - Identidad y Active Directory | ldamoredev Security Atlas">
-<meta property="og:description" content="BloodHound is an open-source graph-analysis tool that models **Active Directory as a directed graph of principals** (users, groups, computers, GPOs, OUs, domains)...">
+<meta property="og:title" content="BloodHound and Attack Path Analysis | ldamoredev Security Atlas">
+<meta property="og:description" content="BloodHound es una herramienta de análisis de grafos open-source que modela Active Directory como un grafo dirigido de principales (usuarios, grupos, computad...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BloodHound and Attack Path Analysis - Identidad y Active Directory | ldamoredev Security Atlas">
-<meta name="twitter:description" content="BloodHound is an open-source graph-analysis tool that models **Active Directory as a directed graph of principals** (users, groups, computers, GPOs, OUs, domains)...">
+<meta name="twitter:title" content="BloodHound and Attack Path Analysis | ldamoredev Security Atlas">
+<meta name="twitter:description" content="BloodHound es una herramienta de análisis de grafos open-source que modela Active Directory como un grafo dirigido de principales (usuarios, grupos, computad...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html#article","name":"BloodHound and Attack Path Analysis - Identidad y Active Directory | ldamoredev Security Atlas","headline":"BloodHound and Attack Path Analysis","description":"BloodHound is an open-source graph-analysis tool that models **Active Directory as a directed graph of principals** (users, groups, computers, GPOs, OUs, domains)...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identidad y Active Directory","BloodHound and Attack Path Analysis","offensive-security","active-directory","bloodhound","graph-analysis","attack-path"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identidad y Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"BloodHound and Attack Path Analysis","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html#article","name":"BloodHound and Attack Path Analysis | ldamoredev Security Atlas","headline":"BloodHound and Attack Path Analysis","description":"BloodHound es una herramienta de análisis de grafos open-source que modela Active Directory como un grafo dirigido de principales (usuarios, grupos, computad...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identidad y Active Directory","BloodHound and Attack Path Analysis","offensive-security","active-directory","bloodhound","graph-analysis","attack-path"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identidad y Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"BloodHound and Attack Path Analysis","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html">
@@ -410,189 +410,136 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Identidad y Active Directory</a><span>/</span><span>BloodHound and Attack Path Analysis</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>BloodHound and Attack Path Analysis</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-red">Identidad y Active Directory</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~9 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#active-directory</span><span class="meta-chip tag">#bloodhound</span><span class="meta-chip tag">#graph-analysis</span><span class="meta-chip tag">#attack-path</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="bloodhound-and-attack-path-analysis">BloodHound and Attack Path Analysis</h1>
-<h2 id="definition">Definition</h2>
-<p>BloodHound is an open-source graph-analysis tool that models <strong>Active Directory as a directed graph of principals</strong> (users, groups, computers, GPOs, OUs, domains) <strong>and the relationships between them</strong> (<code>MemberOf</code>, <code>AdminTo</code>, <code>CanRDP</code>, <code>WriteDACL</code>, <code>GenericAll</code>, <code>ForceChangePassword</code>, <code>Owns</code>, <code>DCSync</code>, <code>AllowedToDelegate</code>, etc.). Attack paths are then <em>graph queries</em> — typically "find the shortest path from any unprivileged principal to a privileged one". The tool is identical for offense and defense; what differs is which queries you run and what you do with the answer.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>Most AD compromises are not single-step exploits. They are <strong>chained relationships</strong>: lowpriv user is a member of group A → group A has <code>GenericAll</code> on user B → user B is in <code>Backup Operators</code> → <code>Backup Operators</code> can read <code>ntds.dit</code> → krbtgt hash → domain compromise. No single edge of that chain is obviously dangerous; the <em>combination</em> is what matters. Without graph analysis, defenders audit one principal at a time and miss the chain by construction.</p>
-<p>BloodHound is the artifact that converted AD security from "audit each ACL" into "compute the transitive closure of dangerous edges". Mastering it is the bridge from "I know Kerberoasting exists" to "I can reason about which Kerberoasting target <em>actually matters</em> in this domain".</p>
-<p>The senior framing is the offense/defense duality applied to the same tool:</p>
+<h2 id="definicion">Definición</h2>
+<p>BloodHound es una herramienta de análisis de grafos open-source que modela <strong>Active Directory como un grafo dirigido de principales</strong> (usuarios, grupos, computadoras, GPOs, OUs, dominios) <strong>y las relaciones entre ellos</strong> (<code>MemberOf</code>, <code>AdminTo</code>, <code>CanRDP</code>, <code>WriteDACL</code>, <code>GenericAll</code>, <code>ForceChangePassword</code>, <code>Owns</code>, <code>DCSync</code>, <code>AllowedToDelegate</code>, etc.). Las rutas de ataque son entonces <em>consultas de grafo</em> — típicamente &quot;encontrar la ruta más corta desde cualquier principal sin privilegios hasta uno privilegiado&quot;. La herramienta es idéntica para ofensiva y defensiva; lo que difiere es qué consultas ejecutás y qué hacés con la respuesta.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>La mayoría de los compromisos AD no son exploits de un solo paso. Son <strong>relaciones encadenadas</strong>: usuario bajo privilegio es miembro del grupo A → el grupo A tiene <code>GenericAll</code> sobre el usuario B → el usuario B está en <code>Backup Operators</code> → <code>Backup Operators</code> puede leer <code>ntds.dit</code> → hash krbtgt → compromiso del dominio. Ninguna arista individual de esa cadena es obviamente peligrosa; la <em>combinación</em> es lo que importa. Sin análisis de grafo, los defensores auditan un principal a la vez y se pierden la cadena por construcción.</p>
+<p>BloodHound es el artefacto que convirtió la seguridad de AD de &quot;auditar cada ACL&quot; a &quot;computar el cierre transitivo de aristas peligrosas&quot;. Dominarlo es el puente de &quot;sé que existe Kerberoasting&quot; a &quot;puedo razonar sobre qué objetivo de Kerberoasting <em>realmente importa</em> en este dominio&quot;.</p>
+<p>El framing senior es la dualidad ofensiva/defensiva aplicada a la misma herramienta:</p>
 <ul>
-<li><strong>Offense:</strong> BloodHound tells the operator which single foothold yields the largest blast radius — making engagement scoping data-driven instead of intuitive.</li>
-<li><strong>Defense:</strong> BloodHound tells the defender which 5 ACLs they should fix this quarter to eliminate the top 20 attack paths — making remediation prioritization data-driven instead of compliance-driven.</li>
+<li><strong>Ofensiva:</strong> BloodHound dice al operador qué foothold único produce el mayor blast radius.</li>
+<li><strong>Defensiva:</strong> BloodHound dice al defensor qué 5 ACLs deberían corregir este trimestre para eliminar las 20 rutas de ataque principales.</li>
 </ul>
-<p>If you cannot articulate both sides of that pair, you have learned half of BloodHound.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>BloodHound reduces to <strong>3 stages</strong>:</p>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>BloodHound se reduce a <strong>3 etapas</strong>:</p>
 <ol>
-<li><strong>Collection.</strong> A collector (SharpHound on Windows, <code>bloodhound-python</code> on Linux, AzureHound for Entra ID) queries AD via LDAP and SMB to enumerate principals and their relationships. Output is JSON files (<code>*_users.json</code>, <code>*_groups.json</code>, <code>*_computers.json</code>, <code>*_gpos.json</code>, etc.).</li>
-<li><strong>Ingestion.</strong> The JSON is loaded into a Neo4j graph database via the BloodHound UI. Every principal becomes a node; every relationship becomes a typed, directed edge.</li>
-<li><strong>Query.</strong> The UI exposes both pre-built queries ("Find shortest paths to Domain Admins", "Find principals with DCSync rights", "Find Kerberoastable users") and a Cypher query interface for custom analysis.</li>
+<li><strong>Colección.</strong> Un colector (SharpHound en Windows, <code>bloodhound-python</code> en Linux, AzureHound para Entra ID) consulta AD vía LDAP y SMB para enumerar principales y sus relaciones. La salida son archivos JSON.</li>
+<li><strong>Ingesta.</strong> El JSON se carga en una base de datos Neo4j vía la UI de BloodHound. Cada principal se convierte en un nodo; cada relación en una arista tipada y dirigida.</li>
+<li><strong>Consulta.</strong> La UI expone tanto consultas pre-construidas (&quot;Find shortest paths to Domain Admins&quot;, &quot;Find principals with DCSync rights&quot;, &quot;Find Kerberoastable users&quot;) como una interfaz de consulta Cypher para análisis personalizado.</li>
 </ol>
-<p>A canonical end-to-end sequence from a Linux foothold:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Stage 1: collect from any domain-joined or domain-reachable host with a valid cred.</span>
-bloodhound-python<span class="w"> </span>-u<span class="w"> </span>lowpriv<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;Password1&#39;</span><span class="w"> </span>-ns<span class="w"> </span><span class="m">10</span>.0.0.1<span class="w"> </span>-d<span class="w"> </span>LAB.LOCAL<span class="w"> </span>-c<span class="w"> </span>All
-<span class="c1"># Produces 20240510*_users.json, _groups.json, _computers.json, _domains.json, etc.</span>
+<p>Secuencia representativa de punta a punta desde un foothold Linux:</p>
+<div class="codehilite"><pre><span></span><code># Etapa 1: recolectar desde cualquier host de dominio o alcanzable al dominio con una credencial válida.
+bloodhound-python -u lowpriv -p &#x27;Password1&#x27; -ns 10.0.0.1 -d LAB.LOCAL -c All
+# Produce 20240510*_users.json, _groups.json, _computers.json, _domains.json, etc.
 
-<span class="c1"># Stage 2: spin up BloodHound CE (Community Edition) locally and import.</span>
-docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>bloodhound-cli.yaml<span class="w"> </span>up<span class="w"> </span>-d
-<span class="c1"># Open the UI at http://localhost:8080, upload the JSON files.</span>
+# Etapa 2: levantar BloodHound CE (Community Edition) localmente e importar.
+docker compose -f bloodhound-cli.yaml up -d
+# Abrir la UI en http://localhost:8080, cargar los archivos JSON.
 
-<span class="c1"># Stage 3: query. Pre-built: &quot;Shortest Paths to Domain Admins&quot;.</span>
-<span class="c1"># Or custom Cypher:</span>
-MATCH<span class="w"> </span><span class="o">(</span>n<span class="w"> </span><span class="o">{</span>kerberoastable:<span class="w"> </span>true<span class="o">})</span>-<span class="o">[</span>*1..<span class="o">]</span>-&gt;<span class="o">(</span>g:Group<span class="w"> </span><span class="o">{</span>name:<span class="w"> </span><span class="s1">&#39;DOMAIN ADMINS@LAB.LOCAL&#39;</span><span class="o">})</span>
-RETURN<span class="w"> </span>n.name,<span class="w"> </span>length<span class="o">(</span>shortestPath<span class="o">((</span>n<span class="o">)</span>-<span class="o">[</span>*..<span class="o">]</span>-&gt;<span class="o">(</span>g<span class="o">)))</span><span class="w"> </span>AS<span class="w"> </span>path_length
-ORDER<span class="w"> </span>BY<span class="w"> </span>path_length<span class="w"> </span>ASC
+# Etapa 3: consultar.
+MATCH (n {kerberoastable: true})-[*1..]-&gt;(g:Group {name: &#x27;DOMAIN ADMINS@LAB.LOCAL&#x27;})
+RETURN n.name, length(shortestPath((n)-[*..]-&gt;(g))) AS path_length
+ORDER BY path_length ASC
 </code></pre></div>
-
-<p>The bug is not "ACLs in AD are wrong"; it is <em>the security posture of AD is not visible without computing the transitive closure of trust relationships across thousands of nodes — which is the problem graph databases were built to solve</em>.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
 <ul>
-<li><strong>Collect with <code>-c All</code> on first pass, narrower on follow-ups.</strong> <code>All</code> runs every collection method (Group, Acl, Trusts, Session, LoggedOn, ObjectProps, SPNTargets, Container, etc.). For repeat collections, run <code>Session</code> and <code>LoggedOn</code> separately because they capture <em>who is logged in where</em> and decay quickly — fresh session data is what makes lateral-movement paths real.</li>
-<li><strong>Cypher beats the pre-built queries for engagement scoping.</strong> Learn enough Cypher to write your own targeted queries — "users in Kerberoastable accounts who can reach DA in ≤ 3 hops" is far more useful than "all Kerberoastable users".</li>
-<li><strong><code>MarkOwned</code> your foothold immediately.</strong> The UI lets you mark principals as "owned" (compromised). Path queries from <code>(:User {owned: true})</code> to high-value targets show your <em>actual</em> path forward, not the theoretical one.</li>
-<li><strong>Look for <code>DCSync</code> rights early.</strong> Any principal with <code>DS-Replication-Get-Changes-All</code> or <code>GetChangesAll</code> can replicate the entire AD database including all password hashes. Query: <code>MATCH (n)-[:DCSync]-&gt;(d:Domain) RETURN n.name</code>. The hit list is usually short (Domain Controllers + a handful of misconfigured accounts) — every misconfigured one is an endgame.</li>
-<li><strong>Treat paths to DCSync as paths to Golden Ticket capability.</strong> If a graph path reaches a principal that can replicate <code>krbtgt</code>, it reaches <a href="golden-ticket-and-krbtgt-compromise.html">domain Kerberos trust-root compromise</a>, not just "hash dumping".</li>
-<li><strong>Pair with <a href="kerberoasting.html">Kerberoasting</a> and <a href="as-rep-roasting.html">AS-REP Roasting</a> outputs.</strong> BloodHound knows which accounts are Kerberoastable and AS-REP-roastable. After roasting, mark the cracked accounts as owned and re-run path queries — paths frequently shrink dramatically.</li>
-<li><strong>Defenders: run BloodHound <em>on your own AD</em>, monthly.</strong> The query "Shortest Paths to Domain Admins" is the same on both sides; the defender's job is to make those paths longer or eliminate them.</li>
-<li><strong>OPSEC: collection is loud.</strong> <code>bloodhound-python -c All</code> against a large domain issues thousands of LDAP queries and SMB session enumerations in minutes. Use scoped collection (<code>-c Group,Acl</code> only) when stealth matters.</li>
+<li><strong>Recolectar con <code>-c All</code> en el primer pase.</strong> <code>All</code> ejecuta todos los métodos de colección. Para colecciones repetidas, ejecutar <code>Session</code> y <code>LoggedOn</code> por separado porque capturan <em>quién está logueado dónde</em> y decaen rápido.</li>
+<li><strong>Cypher supera a las consultas pre-construidas para el scope de engagement.</strong> Aprendé suficiente Cypher para escribir tus propias consultas dirigidas.</li>
+<li><strong><code>MarkOwned</code> tu foothold inmediatamente.</strong> La UI permite marcar principales como &quot;owned&quot; (comprometidos). Las consultas de ruta desde <code>(:User {owned: true})</code> hasta objetivos de alto valor muestran tu <em>ruta real</em> hacia adelante.</li>
+<li><strong>Buscá derechos <code>DCSync</code> temprano.</strong> Cualquier principal con <code>DS-Replication-Get-Changes-All</code> puede replicar toda la base de datos AD incluyendo todos los hashes de contraseñas. Consulta: <code>MATCH (n)-[:DCSync]-&gt;(d:Domain) RETURN n.name</code>.</li>
+<li><strong>Tratá las rutas hacia DCSync como rutas hacia capacidad de Golden Ticket.</strong> Si una ruta de grafo alcanza un principal que puede replicar <code>krbtgt</code>, alcanza <a href="golden-ticket-and-krbtgt-compromise.html">compromiso de la raíz de confianza Kerberos del dominio</a>.</li>
+<li><strong>Emparejá con salidas de <a href="kerberoasting.html">Kerberoasting</a> y <a href="as-rep-roasting.html">AS-REP Roasting</a>.</strong> BloodHound sabe qué cuentas son kerberoastables y AS-REP-roastables. Después de roastear, marcá las cuentas crackeadas como owned y volvé a ejecutar consultas de ruta.</li>
+<li><strong>Defensores: ejecutá BloodHound <em>en tu propio AD</em>, mensualmente.</strong> La consulta &quot;Shortest Paths to Domain Admins&quot; es la misma en ambos lados; el trabajo del defensor es hacer esas rutas más largas o eliminarlas.</li>
+<li><strong>OPSEC: la colección es ruidosa.</strong> <code>bloodhound-python -c All</code> contra un dominio grande emite miles de consultas LDAP y enumeraciones de sesiones SMB en minutos.</li>
 </ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>BloodHound's ecosystem has <strong>4 collector variants</strong> worth distinguishing.</p>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<p>El ecosistema de BloodHound tiene <strong>4 variantes de colector</strong> que vale distinguir.</p>
 <h3 id="1-sharphound-windows-net">1. SharpHound (Windows, .NET)</h3>
-<p>The original collector. Runs in-process on a domain-joined Windows host. Strongest collection coverage (most accurate session/loggedon data) but triggers AMSI and most modern EDR. OPSEC-aware operators use older versions, AMSI bypasses, or reflective loading from <code>Rubeus</code>-style PowerShell.</p>
+<p>El colector original. Corre in-process en un host Windows unido al dominio. Mayor cobertura de colección pero dispara AMSI y la mayoría de EDRs modernos.</p>
 <h3 id="2-bloodhound-python">2. bloodhound-python</h3>
-<p>Linux-native. Connects to AD over LDAP (port 389/636) and SMB (445) with explicit credentials. No domain join, no .NET, no Windows host required. Slightly weaker session data than SharpHound but enough for path analysis. The standard choice from a Linux pentest host.</p>
+<p>Nativo de Linux. Se conecta a AD sobre LDAP (puerto 389/636) y SMB (445) con credenciales explícitas. Sin unión al dominio, sin .NET. La elección estándar desde un host de pentest Linux.</p>
 <h3 id="3-azurehound">3. AzureHound</h3>
-<p>Targets Entra ID / Microsoft 365 / Azure AD instead of on-prem AD. Different node types (<code>AzureUser</code>, <code>AzureGroup</code>, <code>AzureRole</code>, <code>AzureApp</code>, <code>AzureSubscription</code>) and different edges (<code>AZRoleEligibility</code>, <code>AZGlobalAdmin</code>, etc.). Same conceptual model, different protocol stack. Essential for hybrid environments.</p>
-<h3 id="4-bloodhound-enterprise-bhe-commercial">4. BloodHound Enterprise (BHE / commercial)</h3>
-<p>SpecterOps's commercial product. Continuous collection, attack-path management dashboards, percentage-of-paths-eliminated metrics. The defender-grade variant. Worth knowing exists; on the offensive side everyone uses BloodHound CE (free, open-source).</p>
-<h2 id="impact">Impact</h2>
-<p>Ordered by typical real-world severity:</p>
+<p>Apunta a Entra ID / Microsoft 365 / Azure AD en lugar de AD on-prem. Diferentes tipos de nodos y aristas. Esencial para entornos híbridos.</p>
+<h3 id="4-bloodhound-enterprise-bhe-comercial">4. BloodHound Enterprise (BHE / comercial)</h3>
+<p>El producto comercial de SpecterOps. Colección continua, dashboards de gestión de rutas de ataque. En el lado ofensivo todos usan BloodHound CE (gratuito, open-source).</p>
+<h2 id="impacto">Impacto</h2>
+<p>Ordenado por severidad real típica:</p>
 <ul>
-<li><strong>Engagement-time-to-DA collapses from days to hours.</strong> A red-team operator with BloodHound and a foothold can identify the optimal path within 30 minutes of collection. Without it, the same operator spends days enumerating manually and frequently picks the wrong path first.</li>
-<li><strong>Defender prioritization becomes data-driven.</strong> "We have 12,000 ACLs in this domain" becomes "5 specific ACEs account for 80% of the paths to DA, and fixing them this quarter eliminates 200 attack paths". Compliance frameworks cannot produce this analysis; only graph traversal can.</li>
-<li><strong>The blast-radius question is finally answerable.</strong> "If account X is compromised, what can the attacker reach?" used to require manual ACL traversal. It is now <code>MATCH (n {name:'X'})-[*1..5]-&gt;(target) RETURN target</code>. Senior security work demands an answer to this question, and BloodHound is what makes it cheap.</li>
-<li><strong>Hybrid (on-prem + Azure) compromise paths become visible.</strong> Connectors that bridge on-prem AD and Entra ID (Azure AD Connect, password hash sync, pass-through auth) create cross-boundary paths that traditional auditing misses entirely. AzureHound + BloodHound together surface them.</li>
-<li><strong>Detection footprint of collection itself.</strong> BloodHound collection produces a recognizable signature (massive LDAP enumeration + ACL queries + SMB session enumeration from a single source). Mature defenders alert on the collection pattern as an early-warning indicator of red-team activity.</li>
+<li><strong>El tiempo de engagement hasta DA colapsa de días a horas.</strong> Un operador red-team con BloodHound y un foothold puede identificar la ruta óptima en 30 minutos de colección.</li>
+<li><strong>La priorización del defensor se vuelve basada en datos.</strong> &quot;Tenemos 12.000 ACLs en este dominio&quot; se convierte en &quot;5 ACEs específicas representan el 80% de las rutas hacia DA, y corregirlas este trimestre elimina 200 rutas de ataque&quot;.</li>
+<li><strong>La pregunta del blast-radius finalmente tiene respuesta.</strong> &quot;Si la cuenta X es comprometida, ¿qué puede alcanzar el atacante?&quot; antes requería traversal manual de ACLs. Ahora es <code>MATCH (n {name:&#x27;X&#x27;})-[*1..5]-&gt;(target) RETURN target</code>.</li>
+<li><strong>Las rutas de compromiso híbrido (on-prem + Azure) se vuelven visibles.</strong> Los conectores que hacen de puente entre AD on-prem y Entra ID crean rutas cross-boundary que la auditoría tradicional se pierde completamente.</li>
 </ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
-<p>Ordered by effectiveness:</p>
-<ol>
-<li>
-<p><strong>Use BloodHound defensively, monthly.</strong>
-   The single highest-leverage move. Run collection on your own AD, identify the top 10 shortest paths to Domain Admins, and remediate the cheapest edges. Repeat. This <em>is</em> attack-path management. Compliance audits do not produce this output.</p>
-</li>
-<li>
-<p><strong>Behavioral detection on LDAP enumeration patterns.</strong>
-   BloodHound collection signature: one source IP issues thousands of LDAP queries against many distinct OUs and objects within minutes, plus SMB session enumeration. Build a SIEM rule keyed on LDAP query rate + diversity per source. See <a href="../detection-engineering/behavioral-detection-vs-signature-detection.html">behavioral detection</a>.</p>
-</li>
-<li>
-<p><strong>Reduce the number of <code>Tier 0</code> principals.</strong>
-   Tier 0 = anyone with effective Domain Admin authority. The fewer principals at Tier 0, the shorter the attack surface for graph traversal. Microsoft's tiered admin model (Tier 0 / Tier 1 / Tier 2) plus enforced separation of admin accounts from daily-driver accounts is the structural defense.</p>
-</li>
-<li>
-<p><strong>Audit and prune dangerous ACEs.</strong>
-   <code>WriteDACL</code>, <code>GenericAll</code>, <code>GenericWrite</code>, <code>WriteOwner</code>, <code>ForceChangePassword</code>, <code>AllExtendedRights</code>, and DS-Replication-Get-Changes-* are the high-leverage edges BloodHound queries for. Most are legacy delegations that nobody remembers granting. Audit them per <a href="kerberoasting.html">Kerberoasting</a>'s "audit and remove privileged service accounts" pattern.</p>
-</li>
-<li>
-<p><strong>Tier 0 isolation.</strong>
-   No Tier 0 admin should ever log on to a Tier 1 or Tier 2 host. The moment they do, their credentials live in memory on a less-protected host and lateral movement becomes available. Privileged Access Workstations (PAWs) enforce this physically.</p>
-</li>
-<li>
-<p><strong>Honeypot principals high in the graph.</strong>
-   Plant a deceptively-attractive account (e.g., <code>svc_backup_admin</code>) with no production access but high-impact-looking ACLs. Any BloodHound query that surfaces it as a "great target" tells you a collector ran. Alert on session activity against the honeypot.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<p>Ordenado por efectividad:</p>
+<p>1. <strong>Usá BloodHound defensivamente, mensualmente.</strong> Ejecutar colección en tu propio AD, identificar las 10 rutas más cortas hacia Domain Admins y remediar las aristas más baratas. Repetir.</p>
+<p>2. <strong>Detección de comportamiento sobre patrones de enumeración LDAP.</strong> Firma de colección BloodHound: una IP fuente emite miles de consultas LDAP contra muchos OUs y objetos distintos en minutos, más enumeración de sesiones SMB.</p>
+<p>3. <strong>Reducir la cantidad de principales <code>Tier 0</code>.</strong> Tier 0 = cualquiera con autoridad efectiva de Domain Admin. Cuantos menos principales en Tier 0, menor la superficie de ataque para la traversal de grafos.</p>
+<p>4. <strong>Auditar y podar ACEs peligrosas.</strong> <code>WriteDACL</code>, <code>GenericAll</code>, <code>GenericWrite</code>, <code>WriteOwner</code>, <code>ForceChangePassword</code>, <code>AllExtendedRights</code>, y DS-Replication-Get-Changes-* son las aristas de alto leverage que BloodHound consulta.</p>
+<p>5. <strong>Aislamiento de Tier 0.</strong> Ningún admin Tier 0 debería nunca loguearse a un host Tier 1 o Tier 2. Privileged Access Workstations (PAWs) aplican esto físicamente.</p>
+<p>6. <strong>Principales honeypot altos en el grafo.</strong> Plantar una cuenta deceptivamente atractiva con ACLs de apariencia impactante. Cualquier consulta BloodHound que la presente como un &quot;gran objetivo&quot; indica que un colector corrió.</p>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li><strong>"We don't have any Domain Admins outside the SOC team."</strong> Almost always wrong on inspection. Run BloodHound and discover the 30 effective admins your org chart does not show.</li>
-<li><strong>Disabling SMB enumeration.</strong> Reduces collection fidelity slightly but does not prevent graph construction from LDAP alone.</li>
-<li><strong>Blocking BloodHound binaries.</strong> SharpHound is the named collector but bloodhound-python + custom collectors trivially bypass binary-name blocks. The signature is the <em>enumeration pattern</em>, not the binary.</li>
-<li><strong>Trusting ACL audit tools that do not compute transitive closure.</strong> Traditional ACL audit lists individual ACEs. The attack lives in chains. A list view is the wrong data structure for this problem.</li>
+<li><strong>&quot;No tenemos Domain Admins fuera del equipo SOC.&quot;</strong> Casi siempre incorrecto en la inspección.</li>
+<li><strong>Deshabilitar la enumeración SMB.</strong> Reduce levemente la fidelidad de colección pero no previene la construcción del grafo solo desde LDAP.</li>
+<li><strong>Bloquear binarios de BloodHound.</strong> La firma es el <em>patrón de enumeración</em>, no el binario.</li>
 </ul>
-<h2 id="practical-labs">Practical labs</h2>
-<p>Run only against owned lab environments or authorized engagements.</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 1 — Spin up BloodHound CE locally with Docker.</span>
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/SpecterOps/BloodHound.git
-<span class="nb">cd</span><span class="w"> </span>BloodHound/examples/docker-compose
-docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
-<span class="c1"># Open http://localhost:8080 — default creds in the README; rotate immediately.</span>
+<h2 id="labs-practicos">Labs prácticos</h2>
+<p>Ejecutar solo contra entornos lab propios o engagements autorizados.</p>
+<div class="codehilite"><pre><span></span><code># Lab 1 — Levantar BloodHound CE localmente con Docker.
+git clone https://github.com/SpecterOps/BloodHound.git
+cd BloodHound/examples/docker-compose
+docker compose up -d
 </code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 2 — Collect from a Linux pentest host against an authorized lab DC.</span>
-bloodhound-python<span class="w"> </span>-u<span class="w"> </span>lowpriv<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;Password1&#39;</span><span class="w"> </span>-ns<span class="w"> </span><span class="m">10</span>.0.0.1<span class="w"> </span>-d<span class="w"> </span>LAB.LOCAL<span class="w"> </span>-c<span class="w"> </span>All
-ls<span class="w"> </span>*_users.json<span class="w"> </span>*_groups.json<span class="w"> </span>*_computers.json<span class="w"> </span>*_domains.json
-<span class="c1"># Drag the JSON files into the BloodHound UI to ingest.</span>
+<div class="codehilite"><pre><span></span><code># Lab 2 — Recolectar desde un host de pentest Linux contra un DC lab autorizado.
+bloodhound-python -u lowpriv -p &#x27;Password1&#x27; -ns 10.0.0.1 -d LAB.LOCAL -c All
+# Arrastrar los archivos JSON a la UI de BloodHound para ingestarlos.
 </code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1">// Lab 3 — Pre-built query: shortest paths to Domain Admins.</span>
-<span class="c1">// In the UI&#39;s Cypher query box (or via the &quot;Analysis&quot; tab):</span>
-<span class="k">MATCH</span><span class="w"> </span><span class="n">p</span><span class="p">=</span><span class="n">shortestPath</span><span class="p">((</span><span class="n">n</span><span class="p">:</span><span class="n">User</span><span class="p">)</span><span class="o">-[</span><span class="p">*</span><span class="m">1</span><span class="p">..</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">g</span><span class="p">:</span><span class="n">Group</span><span class="w"> </span><span class="p">{</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;DOMAIN ADMINS@LAB.LOCAL&#39;</span><span class="p">}))</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">enabled</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">true</span>
-<span class="k">RETURN</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="m">25</span>
+<div class="codehilite"><pre><span></span><code>// Lab 3 — Consulta pre-construida: rutas más cortas hacia Domain Admins.
+MATCH p=shortestPath((n:User)-[*1..]-&gt;(g:Group {name: &#x27;DOMAIN ADMINS@LAB.LOCAL&#x27;}))
+WHERE n.enabled = true
+RETURN p LIMIT 25
 </code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1">// Lab 4 — Custom: Kerberoastable users with a path to DA in ≤ 3 hops.</span>
-<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="p">:</span><span class="n">User</span><span class="w"> </span><span class="p">{</span><span class="n">hasspn</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">})</span>
-<span class="k">MATCH</span><span class="w"> </span><span class="n">p</span><span class="p">=</span><span class="n">shortestPath</span><span class="p">((</span><span class="n">u</span><span class="p">)</span><span class="o">-[</span><span class="p">*</span><span class="m">1</span><span class="p">..</span><span class="m">3</span><span class="o">]-&gt;</span><span class="p">(:</span><span class="n">Group</span><span class="w"> </span><span class="p">{</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;DOMAIN ADMINS@LAB.LOCAL&#39;</span><span class="p">}))</span>
-<span class="k">RETURN</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">account</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">hops</span>
-<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">hops</span><span class="w"> </span><span class="k">ASC</span>
+<div class="codehilite"><pre><span></span><code>// Lab 4 — Custom: usuarios kerberoastables con ruta hacia DA en ≤ 3 hops.
+MATCH (u:User {hasspn: true})
+MATCH p=shortestPath((u)-[*1..3]-&gt;(:Group {name: &#x27;DOMAIN ADMINS@LAB.LOCAL&#x27;}))
+RETURN u.name AS account, length(p) AS hops
+ORDER BY hops ASC
 </code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1">// Lab 5 — Defender&#39;s high-leverage query: principals with DCSync rights.</span>
-<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">-[</span><span class="n">r</span><span class="p">:</span><span class="n">GetChanges</span><span class="p">|</span><span class="n">GetChangesAll</span><span class="p">|</span><span class="n">DCSync</span><span class="o">]-&gt;</span><span class="p">(:</span><span class="n">Domain</span><span class="p">)</span>
-<span class="k">RETURN</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">principal</span><span class="p">,</span><span class="w"> </span><span class="n">labels</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">type</span>
-<span class="c1">// Domain Controllers should appear here. Anything else is a finding.</span>
+<div class="codehilite"><pre><span></span><code>// Lab 5 — Consulta de alto leverage del defensor: principales con derechos DCSync.
+MATCH (n)-[r:GetChanges|GetChangesAll|DCSync]-&gt;(:Domain)
+RETURN DISTINCT n.name AS principal, labels(n) AS type
+// Los Domain Controllers deberían aparecer aquí. Cualquier otra cosa es un hallazgo.
 </code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 6 — Defender-side detection rule design.</span>
-<span class="c1"># After running BloodHound against the lab, query Windows Event logs on the DC:</span>
-Get-WinEvent<span class="w"> </span>-FilterHashtable<span class="w"> </span>@<span class="o">{</span><span class="nv">LogName</span><span class="o">=</span><span class="s1">&#39;Security&#39;</span><span class="p">;</span><span class="w"> </span><span class="nv">ID</span><span class="o">=</span><span class="m">4662</span><span class="o">}</span><span class="w"> </span>-MaxEvents<span class="w"> </span><span class="m">200</span><span class="w"> </span><span class="p">|</span>
-<span class="w">    </span>Where-Object<span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nv">$_</span>.Properties<span class="o">[</span><span class="m">7</span><span class="o">]</span>.Value<span class="w"> </span>-match<span class="w"> </span><span class="s1">&#39;DS-Replication-Get-Changes&#39;</span><span class="w"> </span><span class="o">}</span>
-<span class="c1"># Repeated bursts from one source IP across many objects = BloodHound collection signature.</span>
-<span class="c1"># Use as input to a SIEM correlation rule.</span>
+<div class="codehilite"><pre><span></span><code># Lab 6 — Diseño de regla de detección del lado defensor.
+Get-WinEvent -FilterHashtable @{LogName=&#x27;Security&#x27;; ID=4662} -MaxEvents 200 |
+    Where-Object { $_.Properties[7].Value -match &#x27;DS-Replication-Get-Changes&#x27; }
 </code></pre></div>
-
-<h2 id="practical-examples">Practical examples</h2>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
-<li><strong>Red-team engagement post-foothold.</strong> Initial phish lands a lowpriv user. BloodHound collection within 30 minutes; shortest-path query shows the user is in <code>IT Support</code> which has <code>GenericAll</code> on <code>Backup Service</code> which is in <code>Backup Operators</code>. Two ACE edges from phish to DA. Total engagement time: 4 hours.</li>
-<li><strong>Quarterly defender BHE-style review.</strong> Security team runs BloodHound on production AD, identifies that <code>IT Helpdesk</code> group has <code>ForceChangePassword</code> on 47 privileged accounts via a legacy 2014 delegation. Removing the delegation eliminates 312 attack paths overnight.</li>
-<li><strong>Hybrid Azure + on-prem analysis.</strong> AzureHound + BloodHound together reveal that an on-prem service account syncing to Entra ID has <code>Global Administrator</code> in Azure due to a mistaken role assignment. On-prem compromise → Azure tenant takeover via a single connector. Without graph analysis, the path is invisible.</li>
-<li><strong>Kerberoast targeting.</strong> Roaster has 15 cracked service-account passwords. BloodHound shows which 3 of the 15 reach DA in ≤ 2 hops. The other 12 are noise. Engagement focuses on the 3.</li>
-<li><strong>Tier-0 isolation finding.</strong> Defender query "users who can RDP to Tier 0 hosts" returns the entire IT department. The org assumed only the SOC could; the audit produces an immediate remediation backlog.</li>
+<li><strong>Post-foothold en engagement red-team.</strong> Phish inicial con usuario bajo privilegio. Colección BloodHound en 30 minutos; la consulta de ruta más corta muestra que el usuario está en <code>IT Support</code> que tiene <code>GenericAll</code> sobre <code>Backup Service</code> que está en <code>Backup Operators</code>. Dos aristas ACE del phish hasta DA. Tiempo total de engagement: 4 horas.</li>
+<li><strong>Revisión defensiva trimestral.</strong> El equipo de seguridad ejecuta BloodHound en AD de producción, identifica que el grupo <code>IT Helpdesk</code> tiene <code>ForceChangePassword</code> sobre 47 cuentas privilegiadas vía una delegación legacy de 2014. Remover la delegación elimina 312 rutas de ataque de la noche a la mañana.</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
-<li><a href="kerberoasting.html">kerberoasting</a> — BloodHound shows you which Kerberoastable accounts are worth roasting.</li>
-<li><a href="as-rep-roasting.html">as-rep-roasting</a> — BloodHound shows you which AS-REP-roastable accounts have onward paths.</li>
-<li><a href="golden-ticket-and-krbtgt-compromise.html">golden-ticket-and-krbtgt-compromise</a> — the downstream consequence of attack paths that reach DCSync of <code>krbtgt</code>.</li>
-<li><a href="gmsa-and-modern-service-account-hardening.html">gmsa-and-modern-service-account-hardening</a> — defensive graph review should include service-account privilege, retrieval scope, and delegation edges.</li>
-<li><a href="tier-zero-administration-and-paw.html">tier-zero-administration-and-paw</a> — the structural defense BloodHound output usually motivates.</li>
-<li><a href="krbtgt-rotation-and-tier-zero-recovery.html">krbtgt-rotation-and-tier-zero-recovery</a> — Tier 0 recovery depends on removing graph paths back to DCSync before rotating <code>krbtgt</code>.</li>
-<li><a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality</a> — the cleanest single-tool example of the duality: same tool, both sides, just different queries.</li>
-<li><a href="../foundations/threat-modeling-quickstart.html">Threat Modeling Quickstart</a> — BloodHound is essentially "STRIDE for AD relationships", computed automatically.</li>
-<li><a href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral vs signature detection</a> — the right framing for catching BloodHound collection.</li>
-<li><a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation</a> — the defensive counterpart concept; paths are the unit of analysis on both sides.</li>
-<li><a href="../offensive-security/enumeration.html">Enumeration</a> — BloodHound is enumeration with graph semantics on top.</li>
+<li><a href="kerberoasting.html">kerberoasting</a> — BloodHound muestra qué cuentas kerberoastables valen la pena atacar.</li>
+<li><a href="as-rep-roasting.html">as-rep-roasting</a> — BloodHound muestra qué cuentas AS-REP-roastables tienen rutas hacia adelante.</li>
+<li><a href="golden-ticket-and-krbtgt-compromise.html">golden-ticket-and-krbtgt-compromise</a> — la consecuencia downstream de las rutas de ataque que llegan a DCSync de <code>krbtgt</code>.</li>
+<li><a href="tier-zero-administration-and-paw.html">tier-zero-administration-and-paw</a> — la defensa estructural que la salida de BloodHound suele motivar.</li>
+<li><a href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral vs Signature Detection</a> — el framing correcto para capturar la colección de BloodHound.</li>
+<li><a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation</a> — el concepto de contraparte defensiva; las rutas son la unidad de análisis en ambos lados.</li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: writedacl-and-genericall-acl-abuse">writedacl-and-genericall-acl-abuse</span> — the high-leverage edge types and how to abuse them.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: shadow-credentials-and-kerberos-pkinit">shadow-credentials-and-kerberos-pkinit</span> — the modern AD-CS-based persistence path that BloodHound v4+ added edges for.</li>
-<li><a href="../security-playbooks/detect-bloodhound-collection.html">detect-bloodhound-collection</a> — the defender-side playbook pair.</li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Official Tool Docs:</strong> BloodHound Community Edition documentation (SpecterOps) — https://bloodhound.specterops.io/</li>
-<li><strong>Research / Deep Dive:</strong> Robbins, Schroeder, Vazarkar — "An ACE Up The Sleeve: Designing Active Directory DACL Backdoors" (Black Hat USA 2017, the foundational paper) — https://www.specterops.io/assets/resources/an_ace_up_the_sleeve.pdf</li>
-<li><strong>Research / Deep Dive:</strong> Robbins &amp; Schroeder — "Six Degrees of Domain Admin" (DEF CON 24, the original BloodHound talk) — https://www.youtube.com/watch?v=lxd2rerVsLo</li>
+<li><strong>Docs Oficiales:</strong> BloodHound Community Edition documentation (SpecterOps) — https://bloodhound.specterops.io/</li>
+<li><strong>Investigación / Deep Dive:</strong> Robbins, Schroeder, Vazarkar — &quot;An ACE Up The Sleeve: Designing Active Directory DACL Backdoors&quot; (Black Hat USA 2017) — https://www.specterops.io/assets/resources/an_ace_up_the_sleeve.pdf</li>
+<li><strong>Investigación / Deep Dive:</strong> Robbins &amp; Schroeder — &quot;Six Degrees of Domain Admin&quot; (DEF CON 24) — https://www.youtube.com/watch?v=lxd2rerVsLo</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="as-rep-roasting.html"><span class="nav-dir">← Previous</span><strong>AS-REP Roasting</strong></a><a class="branch-nav-link next" href="dcsync-and-ntdsdit-extraction.html"><span class="nav-dir">Next →</span><strong>DCSync and ntds.dit Extraction</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -608,23 +555,22 @@ Get-WinEvent<span class="w"> </span>-FilterHashtable<span class="w"> </span>@<sp
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
 <a class="toc-level-3" href="#1-sharphound-windows-net">1. SharpHound (Windows, .NET)</a>
 <a class="toc-level-3" href="#2-bloodhound-python">2. bloodhound-python</a>
 <a class="toc-level-3" href="#3-azurehound">3. AzureHound</a>
-<a class="toc-level-3" href="#4-bloodhound-enterprise-bhe-commercial">4. BloodHound Enterprise (BHE / commercial)</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-2" href="#practical-examples">Practical examples</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-3" href="#suggested-future-atomic-notes">Suggested future atomic notes</a>
-<a class="toc-level-2" href="#references">References</a>
+<a class="toc-level-3" href="#4-bloodhound-enterprise-bhe-comercial">4. BloodHound Enterprise (BHE / comercial)</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
+<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

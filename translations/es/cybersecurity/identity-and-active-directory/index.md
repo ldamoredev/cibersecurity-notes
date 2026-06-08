@@ -25,7 +25,7 @@ Esta rama se ubica en Fase 4 — **Tracks especializados** — según la clasifi
 
 ### Núcleo de primer paso (11 notas)
 
-1. [[bloodhound-attack-path-analysis]] — la capa de visibilidad. Leela primero porque dice qué ataques AD vale la pena hacer, qué cuentas vale la pena atacar y qué rutas defensivas remediar primero. El ejemplo más limpio de dualidad ofensiva/defensiva en todo el vault.
+1. [[bloodhound-attack-path-analysis]] — la capa de visibilidad. Leela primero porque dice qué ataques AD vale la pena hacer, qué cuentas vale la pena atacar y qué rutas defensivas remediar primero. El ejemplo más limpio de dualidad ofensiva/defensiva en todo el atlas.
 2. [[as-rep-roasting]] — el ataque *pre-foothold*. No necesita credenciales; solo nombres de usuario y una cuenta con pre-autenticación deshabilitada. Frecuentemente el primer ataque en un dominio.
 3. [[kerberoasting]] — el ataque *post-foothold*. Requiere cualquier credencial de dominio; apunta a cuentas con SPNs. Frecuentemente produce una service account con camino hacia DCSync.
 4. [[dcsync-and-ntdsdit-extraction]] — el endgame. Recupera cada hash del dominio incluyendo `krbtgt`. Habilita Golden Tickets y compromiso de dominio persistente total.

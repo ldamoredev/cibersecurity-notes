@@ -50,14 +50,14 @@ A veces, localmente. Globalmente, no — un sistema que nadie puede usar no es s
 Los marcos de cumplimiento (PCI-DSS, ISO 27001, SOC 2, HIPAA) definen un *piso*, no un techo. Te dicen la evidencia auditable mínima; no te dicen si tu sistema es realmente robusto frente a un atacante real. Muchas organizaciones famosamente vulneradas estaban totalmente en cumplimiento al momento de la brecha.
 
 ### "Necesito aprender todo antes de poder hacer algo."
-El vault tiene 200+ notas; no necesitás leerlas todas para ser útil. La Fase 0 te da el modelo mental. El sustrato de la Fase 1 (Redes + Web + Cripto) te da lo suficiente para razonar sobre la mayoría de lo que una persona de IT realmente toca. La especialización viene del contexto del trabajo, no de completar un checklist.
+El atlas tiene 200+ notas; no necesitás leerlas todas para ser útil. La Fase 0 te da el modelo mental. El sustrato de la Fase 1 (Redes + Web + Cripto) te da lo suficiente para razonar sobre la mayoría de lo que una persona de IT realmente toca. La especialización viene del contexto del trabajo, no de completar un checklist.
 
 ## Cómo aplicar esto
 
 Los 3 modelos mentales de arriba se convierten en 4 hábitos que un estudiante debería construir deliberadamente:
 
 1. **Nombrá primero la propiedad bajo amenaza.**
-   Cuando leas sobre una vulnerabilidad o diseñes un control, forzate a declarar explícitamente: "esto es un problema de confidencialidad" o "esto es un problema de integridad" antes de seguir leyendo. El reflejo rinde en cada rama del vault.
+   Cuando leas sobre una vulnerabilidad o diseñes un control, forzate a declarar explícitamente: "esto es un problema de confidencialidad" o "esto es un problema de integridad" antes de seguir leyendo. El reflejo rinde en cada rama del atlas.
 
 2. **Recorré el sistema, no la lista de bullets.**
    Para cualquier sistema que toques, dibujalo como cajas y flechas. Marcá las fronteras de confianza. Preguntá dónde entran los datos, dónde se guardan, por dónde salen. *Ese dibujo* es lo que analizás — no un checklist genérico "OWASP Top 10" aplicado sin contexto.
@@ -74,7 +74,7 @@ Los 3 modelos mentales de arriba se convierten en 4 hábitos que un estudiante d
 - **Una app web expone un JWT firmado con `none`.** Un pensador tool-first dice "Burp lo va a agarrar". Un pensador system-first dice "la propiedad de integridad del token está rota porque el servidor confía en un campo de algoritmo controlado por el cliente; arreglá la validación, después agregá la detección".
 - **Un EDR alerta sobre `nmap.exe` corriendo en un servidor.** Un pensador tool-first dice "bloqueá el binario". Un pensador system-first pregunta "¿cuál era el modelo de amenaza que permitió que alguien corriera binarios arbitrarios en un servidor en primer lugar?".
 - **Un equipo compra un WAF de USD 200k y se siente más seguro.** Una decisión tool-first. Un revisor system-first pregunta "¿qué superficies de ataque entran ahora en alcance, qué visibilidad perdemos, y qué pruebas demuestran que el WAF realmente bloquea lo que creemos que bloquea?".
-- **Un ingeniero junior pregunta "¿qué debería aprender ahora?".** Una respuesta tool-first nombra una herramienta ("aprendé Wireshark"). Una respuesta system-first pregunta "¿qué parte de tu trabajo es la más difícil de razonar ahora mismo?" y lo deriva a la rama correspondiente de este vault.
+- **Un ingeniero junior pregunta "¿qué debería aprender ahora?".** Una respuesta tool-first nombra una herramienta ("aprendé Wireshark"). Una respuesta system-first pregunta "¿qué parte de tu trabajo es la más difícil de razonar ahora mismo?" y lo deriva a la rama correspondiente de este atlas.
 
 ## Notas relacionadas
 

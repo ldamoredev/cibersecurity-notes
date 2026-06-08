@@ -79,7 +79,7 @@ No lo son. El cifrado sin integridad (los debates de "MAC-then-encrypt vs encryp
 La tríada se convierte en **4 reflejos** que un estudiante debería construir:
 
 1. **Nombrá la propiedad primero — antes de cualquier otro análisis.**
-   Cuando leas sobre un incidente o vulnerabilidad, forzate a declarar explícitamente: "esto es una brecha de C" / "esto es una brecha de I" / "esto es una brecha de A" *antes* de leer los detalles técnicos. La disciplina rinde en cada rama del vault.
+   Cuando leas sobre un incidente o vulnerabilidad, forzate a declarar explícitamente: "esto es una brecha de C" / "esto es una brecha de I" / "esto es una brecha de A" *antes* de leer los detalles técnicos. La disciplina rinde en cada rama del atlas.
 
 2. **Etiquetá cada control con su propiedad.**
    Cuando diseñes o revises un control, escribí al lado cuál de C/I/A sirve. Si un control dice servir a las tres, sospechá — la mayoría no lo hace. El ejercicio revela controles que no están haciendo nada por la propiedad bajo amenaza.

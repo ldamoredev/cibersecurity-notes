@@ -147,4 +147,4 @@ La disciplina paralela always-on de [[index|Privacy, Anonymity & OPSEC]] se vuel
 - [[index|Índice de Linux Privilege Escalation]] — rama completa.
 - [[index|Índice de Security Playbooks]] — rama completa.
 - [[must-know-30|Must-Know 30]] — lista must-know transversal.
-- [[index|Índice de ciberseguridad]] — roadmap completo del vault.
+- [[index|Índice de ciberseguridad]] — roadmap completo del atlas.

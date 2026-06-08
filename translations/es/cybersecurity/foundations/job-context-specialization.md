@@ -96,7 +96,7 @@ Artefactos de prueba-de-trabajo faltantes:
 
 La salida debería volverse un backlog de estudio y de proyectos.
 
-### Mapear un rol a las ramas del vault
+### Mapear un rol a las ramas del atlas
 
 ```text
 Rol:

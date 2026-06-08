@@ -2,7 +2,7 @@
 
 ## Propósito
 
-Este índice es el punto de entrada raíz para la rama wireless-security del vault de ciberseguridad.
+Este índice es el punto de entrada raíz para la rama wireless-security del atlas de ciberseguridad.
 
 Usalo para:
 - entender Wi-Fi como un sistema de radio, frames, asociación y autenticación

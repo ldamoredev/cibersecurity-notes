@@ -2,7 +2,7 @@
 
 ## Propósito
 
-Este índice es el punto de entrada raíz de la rama de criptografía del vault de ciberseguridad.
+Este índice es el punto de entrada raíz de la rama de criptografía del atlas de ciberseguridad.
 
 Usalo para:
 - navegar las notas de criptografía
@@ -21,7 +21,7 @@ Volvé a [[index|Índice de Ciberseguridad]] para la navegación raíz entre ram
 
 ## Por qué existe esta rama
 
-La mayoría de las fallas de seguridad que parecen "mala configuración de TLS", "JWT roto", "almacenamiento débil de contraseñas" o "filtración de secretos" son en realidad fallas de corrección criptográfica. El vault no tenía un lugar canónico para razonar sobre:
+La mayoría de las fallas de seguridad que parecen "mala configuración de TLS", "JWT roto", "almacenamiento débil de contraseñas" o "filtración de secretos" son en realidad fallas de corrección criptográfica. El atlas no tenía un lugar canónico para razonar sobre:
 
 - qué primitivo usar para qué problema
 - qué parámetros y modos todavía son aceptables

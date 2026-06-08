@@ -1,8 +1,8 @@
 # Must-Know 30 — La alfabetización mínima viable en seguridad
 
-Las más de 200 notas de este vault son la forma larga. Esta es la **forma corta**: 30 notas que cualquier persona de IT, developer o practitioner junior de seguridad debería poder explicar en 90 segundos cada una.
+Las más de 200 notas de este atlas son la forma larga. Esta es la **forma corta**: 30 notas que cualquier persona de IT, developer o practitioner junior de seguridad debería poder explicar en 90 segundos cada una.
 
-Si podés hacer eso con las 30, tenés un modelo de seguridad funcional; no completo, pero funcional. Todo lo demás en el vault es *profundidad* encima de esta *amplitud*.
+Si podés hacer eso con las 30, tenés un modelo de seguridad funcional; no completo, pero funcional. Todo lo demás en el atlas es *profundidad* encima de esta *amplitud*.
 
 **Cómo leer esta lista:**
 - La agrupación espeja el orden Fase 0 -> Fase 1 -> Fase 2, pero cada entrada se puede leer sola.
@@ -71,7 +71,7 @@ Si podés hacer eso con las 30, tenés un modelo de seguridad funcional; no comp
 - **Como preparación de entrevistas.** La mayoría de entrevistas "junior security engineer" / "AppSec engineer" / "detection engineer" tantean directamente un subconjunto de estas 30.
 - **Como índice de enseñanza.** ¿Onboarding de un teammate junior? Este es el curriculum. Trackeá cuáles de las 30 internalizó.
 
-Esta lista es **deliberadamente corta**. Lo difícil de curarla no fue elegir 30; fue dejar afuera las próximas 30. El vault es profundidad encima de estas; las próximas 30 (database security, Kubernetes hardening, básicos de AD/Kerberos, internals de EDR, IR/forensics, básicos de malware analysis, governance de secure SDLC) viven en las ramas, alcanzables desde acá.
+Esta lista es **deliberadamente corta**. Lo difícil de curarla no fue elegir 30; fue dejar afuera las próximas 30. El atlas es profundidad encima de estas; las próximas 30 (database security, Kubernetes hardening, básicos de AD/Kerberos, internals de EDR, IR/forensics, básicos de malware analysis, governance de secure SDLC) viven en las ramas, alcanzables desde acá.
 
 ---
 

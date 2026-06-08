@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KRBTGT Rotation and Tier Zero Recovery - Identidad y Active Directory | ldamoredev Security Atlas</title>
-<meta name="description" content="KRBTGT rotation is the controlled reset of the domain&#x27;s krbtgt account password material so previously stolen Kerberos ticket-signing keys can no longer validate...">
+<title>KRBTGT Rotation and Tier Zero Recovery | ldamoredev Security Atlas</title>
+<meta name="description" content="La rotación de KRBTGT es el reset controlado del material de contraseña de la cuenta krbtgt del dominio para que las claves de firma de tickets Kerberos prev...">
 <meta name="author" content="ldamoredev">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Identidad y Active Directory, KRBTGT Rotation and Tier Zero Recovery, active-directory, kerberos, krbtgt, incident-response, tier-zero">
 <meta name="theme-color" content="#16a34a">
@@ -20,18 +20,18 @@
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="KRBTGT Rotation and Tier Zero Recovery - Identidad y Active Directory | ldamoredev Security Atlas">
-<meta property="og:description" content="KRBTGT rotation is the controlled reset of the domain&#x27;s krbtgt account password material so previously stolen Kerberos ticket-signing keys can no longer validate...">
+<meta property="og:title" content="KRBTGT Rotation and Tier Zero Recovery | ldamoredev Security Atlas">
+<meta property="og:description" content="La rotación de KRBTGT es el reset controlado del material de contraseña de la cuenta krbtgt del dominio para que las claves de firma de tickets Kerberos prev...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ldamoredev Security Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="KRBTGT Rotation and Tier Zero Recovery - Identidad y Active Directory | ldamoredev Security Atlas">
-<meta name="twitter:description" content="KRBTGT rotation is the controlled reset of the domain&#x27;s krbtgt account password material so previously stolen Kerberos ticket-signing keys can no longer validate...">
+<meta name="twitter:title" content="KRBTGT Rotation and Tier Zero Recovery | ldamoredev Security Atlas">
+<meta name="twitter:description" content="La rotación de KRBTGT es el reset controlado del material de contraseña de la cuenta krbtgt del dominio para que las claves de firma de tickets Kerberos prev...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html#article","name":"KRBTGT Rotation and Tier Zero Recovery - Identidad y Active Directory | ldamoredev Security Atlas","headline":"KRBTGT Rotation and Tier Zero Recovery","description":"KRBTGT rotation is the controlled reset of the domain's krbtgt account password material so previously stolen Kerberos ticket-signing keys can no longer validate...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identidad y Active Directory","KRBTGT Rotation and Tier Zero Recovery","active-directory","kerberos","krbtgt","incident-response","tier-zero"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identidad y Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"KRBTGT Rotation and Tier Zero Recovery","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html#article","name":"KRBTGT Rotation and Tier Zero Recovery | ldamoredev Security Atlas","headline":"KRBTGT Rotation and Tier Zero Recovery","description":"La rotación de KRBTGT es el reset controlado del material de contraseña de la cuenta krbtgt del dominio para que las claves de firma de tickets Kerberos prev...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identidad y Active Directory","KRBTGT Rotation and Tier Zero Recovery","active-directory","kerberos","krbtgt","incident-response","tier-zero"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identidad y Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"KRBTGT Rotation and Tier Zero Recovery","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html"}]}]</script>
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">
@@ -410,233 +410,172 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Identidad y Active Directory</a><span>/</span><span>KRBTGT Rotation and Tier Zero Recovery</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>KRBTGT Rotation and Tier Zero Recovery</span></nav>
 <header class="page-hero">
 <div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-red">Identidad y Active Directory</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~8 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#active-directory</span><span class="meta-chip tag">#kerberos</span><span class="meta-chip tag">#krbtgt</span><span class="meta-chip tag">#incident-response</span><span class="meta-chip tag">#tier-zero</span><span class="meta-chip tag">#recovery</span></div>
 </header>
 <article class="article-note">
-<div class="translation-pending" role="note">Esta nota todavía no está traducida — se muestra el original en inglés.</div>
 <h1 id="krbtgt-rotation-and-tier-zero-recovery">KRBTGT Rotation and Tier Zero Recovery</h1>
-<h2 id="definition">Definition</h2>
-<p>KRBTGT rotation is the controlled reset of the domain's <code>krbtgt</code> account password material so previously stolen Kerberos ticket-signing keys can no longer validate forged Ticket Granting Tickets. It is not a normal password reset. After suspected <code>krbtgt</code> compromise, it is a Tier 0 recovery operation that must account for ticket lifetimes, password history, domain controller replication, trust relationships, privileged access hygiene, and operational outage risk.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p><a href="golden-ticket-and-krbtgt-compromise.html">Golden Ticket</a> compromise turns AD recovery into a trust-restoration problem. If the attacker has the <code>krbtgt</code> key, they may not need any live user password to authenticate. They can present forged TGTs that appear to belong to real users. Rotating every administrator password while leaving <code>krbtgt</code> unchanged fixes the wrong secret.</p>
-<p>The recovery principle:</p>
-<div class="codehilite"><pre><span></span><code>If krbtgt is compromised, the domain cannot fully trust Kerberos TGTs
-until old krbtgt material is pushed out of validity and replication windows.
+<h2 id="definicion">Definición</h2>
+<p>La rotación de KRBTGT es el reset controlado del material de contraseña de la cuenta <code>krbtgt</code> del dominio para que las claves de firma de tickets Kerberos previamente robadas ya no puedan validar Ticket Granting Tickets falsificados. No es un reset de contraseña normal. Después de un compromiso sospechado de <code>krbtgt</code>, es una operación de recuperación Tier 0 que debe tener en cuenta duraciones de tickets, historial de contraseñas, replicación de domain controllers, relaciones de trust, higiene de acceso privilegiado y riesgo de interrupción operacional.</p>
+<h2 id="por-que-importa">Por qué importa</h2>
+<p>El compromiso de <a href="golden-ticket-and-krbtgt-compromise.html">Golden Ticket</a> convierte la recuperación AD en un problema de restauración de confianza. Si el atacante tiene la clave <code>krbtgt</code>, puede no necesitar ninguna contraseña de usuario en vivo para autenticarse. Puede presentar TGTs falsificados que parecen pertenecer a usuarios reales. Rotar todas las contraseñas de administrador sin cambiar <code>krbtgt</code> arregla el secreto incorrecto.</p>
+<p>El principio de recuperación:</p>
+<div class="codehilite"><pre><span></span><code>Si krbtgt está comprometido, el dominio no puede confiar plenamente en los TGTs de Kerberos
+hasta que el material de krbtgt anterior quede fuera de las ventanas de validez y replicación.
 </code></pre></div>
-
-<p>This makes recovery operationally delicate. Rotate too casually and forged tickets remain valid. Rotate too aggressively without replication and dependency planning and legitimate Kerberos authentication can break across the domain.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>KRBTGT recovery depends on <strong>6 mechanics</strong>:</p>
+<p>Esto hace que la recuperación sea operativamente delicada. Rotar demasiado casualmente y los tickets falsificados siguen siendo válidos. Rotar demasiado agresivamente sin replicación y planificación de dependencias y la autenticación Kerberos legítima puede romperse en todo el dominio.</p>
+<h2 id="como-funciona">Cómo funciona</h2>
+<p>La recuperación de KRBTGT depende de <strong>6 mecánicas</strong>:</p>
 <ol>
-<li><strong><code>krbtgt</code> signs and encrypts TGTs.</strong> The KDC uses <code>krbtgt</code> password-derived keys to protect TGTs. Services do not know the user's password; they trust Kerberos tickets.</li>
-<li><strong>Domain Controllers cache current and previous keys.</strong> AD keeps previous password material so existing tickets can continue working during normal rotation and replication.</li>
-<li><strong>One reset does not necessarily invalidate all forged tickets.</strong> A forged ticket made with the previous key can remain accepted until the second reset and ticket lifetime/replication windows expire.</li>
-<li><strong>Replication timing matters.</strong> Every DC must receive the new <code>krbtgt</code> password state before the next phase. A DC with stale material can continue validating old tickets or issue inconsistent responses.</li>
-<li><strong>Ticket lifetime matters.</strong> Existing TGTs and renewable tickets may continue until policy limits unless explicitly disrupted by key changes and operational controls.</li>
-<li><strong>Tier 0 containment must precede recovery.</strong> If attackers still control DCSync, DCs, Tier 0 admin sessions, or backups, they can simply steal the new key after rotation.</li>
+<li><strong><code>krbtgt</code> firma y cifra los TGTs.</strong> El KDC usa claves derivadas de la contraseña de <code>krbtgt</code> para proteger los TGTs. Los servicios no conocen la contraseña del usuario; confían en los tickets Kerberos.</li>
+<li><strong>Los Domain Controllers cachean las claves actuales y anteriores.</strong> AD mantiene el material de contraseña anterior para que los tickets existentes puedan seguir funcionando durante la rotación normal y la replicación.</li>
+<li><strong>Un reset no invalida necesariamente todos los tickets falsificados.</strong> Un ticket falsificado hecho con la clave anterior puede seguir siendo aceptado hasta el segundo reset y la expiración de las ventanas de duración de tickets/replicación.</li>
+<li><strong>El timing de replicación importa.</strong> Cada DC debe recibir el nuevo estado de contraseña de <code>krbtgt</code> antes de la siguiente fase. Un DC con material stale puede seguir validando tickets antiguos o emitir respuestas inconsistentes.</li>
+<li><strong>La duración del ticket importa.</strong> Los TGTs y tickets renovables existentes pueden continuar hasta los límites de política a menos que sean explícitamente interrumpidos por cambios de clave y controles operacionales.</li>
+<li><strong>La contención Tier 0 debe preceder a la recuperación.</strong> Si los atacantes todavía controlan DCSync, DCs, sesiones de admin Tier 0 o backups, simplemente pueden robar la nueva clave después de la rotación.</li>
 </ol>
-<p>The structural lesson is <em>KRBTGT rotation is a sequencing problem</em>. The reset command is small; the recovery operation around it is the work.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>La lección estructural es <em>la rotación de KRBTGT es un problema de sequencing</em>. El comando de reset es pequeño; la operación de recuperación alrededor de él es el trabajo.</p>
+<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
 <ul>
-<li><strong>Contain before rotating.</strong> Remove or disable suspected DCSync principals, isolate compromised DCs, protect Tier 0 admin workstations, and stop active attacker access before changing the trust root.</li>
-<li><strong>Use the double-reset concept.</strong> First reset moves away from the known compromised key; second reset pushes the compromised key out of the previous-password slot. Wait for replication and ticket lifetimes between resets.</li>
-<li><strong>Validate replication between phases.</strong> Check DC convergence before the second reset. Multi-site domains and offline DCs are the classic failure points.</li>
-<li><strong>Assume backup exposure matters.</strong> If attackers accessed DC backups, snapshots, or <code>ntds.dit</code>, the recovery boundary includes backup protection and restoration paths.</li>
-<li><strong>Account for trusts.</strong> Forest trusts, child domains, external trusts, and SID filtering affect what forged tickets can access and which domains need recovery.</li>
-<li><strong>Separate admin identities.</strong> Use clean Tier 0 credentials from trusted PAWs. Do not perform recovery from a compromised workstation.</li>
-<li><strong>Monitor intensely during and after.</strong> Watch for replication requests, suspicious Kerberos failures, privileged logons, service outages, and old-ticket use.</li>
-<li><strong>Document rollback limits.</strong> Rolling back a DC snapshot after <code>krbtgt</code> rotation can reintroduce old secret material. Recovery plans need explicit anti-rollback controls.</li>
+<li><strong>Contener antes de rotar.</strong> Remover o deshabilitar principales DCSync sospechados, aislar DCs comprometidos, proteger workstations de admin Tier 0, y detener el acceso activo del atacante antes de cambiar la raíz de confianza.</li>
+<li><strong>Usar el concepto de doble reset.</strong> El primer reset aleja de la clave conocida comprometida; el segundo reset empuja la clave comprometida fuera del slot de contraseña anterior. Esperar por la replicación y las duraciones de tickets entre resets.</li>
+<li><strong>Validar la replicación entre fases.</strong> Verificar la convergencia del DC antes del segundo reset. Los dominios multi-sitio y los DCs offline son los puntos de falla clásicos.</li>
+<li><strong>Asumir que la exposición de backups importa.</strong> Si los atacantes accedieron a backups del DC, snapshots o <code>ntds.dit</code>, el límite de recuperación incluye la protección de backups y las rutas de restauración.</li>
+<li><strong>Tener en cuenta los trusts.</strong> Los forest trusts, dominios hijo, trusts externos y SID filtering afectan a qué pueden acceder los tickets falsificados y qué dominios necesitan recuperación.</li>
+<li><strong>Separar las identidades de admin.</strong> Usar credenciales Tier 0 limpias desde PAWs de confianza. No realizar la recuperación desde una workstation comprometida.</li>
+<li><strong>Monitorear intensamente durante y después.</strong> Observar solicitudes de replicación, fallas Kerberos sospechosas, logons privilegiados, interrupciones de servicio y uso de tickets antiguos.</li>
 </ul>
-<h2 id="variants-and-operational-scenarios">Variants and operational scenarios</h2>
-<p>KRBTGT recovery has <strong>5 common scenarios</strong>.</p>
-<h3 id="1-routine-hygiene-rotation">1. Routine hygiene rotation</h3>
-<p>Planned rotation with no known compromise. Lower urgency, still requires replication validation and helpdesk awareness. Useful to prove the process before a crisis.</p>
-<h3 id="2-suspected-krbtgt-exposure-from-dcsync">2. Suspected <code>krbtgt</code> exposure from DCSync</h3>
-<p>High confidence that <code>krbtgt</code> material was replicated or extracted. Requires containment, double reset, and monitoring for forged-ticket use.</p>
-<h3 id="3-domain-controller-compromise">3. Domain Controller compromise</h3>
-<p>More severe than one DCSync event. Assume attackers may have LSASS, NTDS, backup, and admin-session access. Rotation alone is insufficient until DC integrity is restored.</p>
-<h3 id="4-forest-or-multi-domain-compromise">4. Forest or multi-domain compromise</h3>
-<p>Each domain has its own <code>krbtgt</code>. Recovery must identify which domains are compromised and how trusts can propagate access.</p>
-<h3 id="5-legacy-fragile-environment">5. Legacy fragile environment</h3>
-<p>Old applications, RC4 dependencies, hard-coded SPNs, offline sites, and stale DCs can make rotation noisy. This is why routine rehearsal matters.</p>
-<h2 id="impact">Impact</h2>
-<p>Ordered by recovery significance:</p>
+<h2 id="variantes-y-escenarios-operacionales">Variantes y escenarios operacionales</h2>
+<p>La recuperación de KRBTGT tiene <strong>5 escenarios comunes</strong>.</p>
+<h3 id="1-rotacion-de-higiene-rutinaria">1. Rotación de higiene rutinaria</h3>
+<p>Rotación planificada sin compromiso conocido. Menor urgencia, todavía requiere validación de replicación y conciencia del helpdesk. Útil para probar el proceso antes de una crisis.</p>
+<h3 id="2-exposicion-sospechada-de-krbtgt-desde-dcsync">2. Exposición sospechada de <code>krbtgt</code> desde DCSync</h3>
+<p>Alta confianza de que el material de <code>krbtgt</code> fue replicado o extraído. Requiere contención, doble reset y monitoreo de uso de tickets falsificados.</p>
+<h3 id="3-compromiso-de-domain-controller">3. Compromiso de Domain Controller</h3>
+<p>Más severo que un evento DCSync único. Asumir que los atacantes pueden tener LSASS, NTDS, backup y acceso a sesiones de admin. La rotación sola es insuficiente hasta que se restaure la integridad del DC.</p>
+<h3 id="4-compromiso-de-forest-o-multi-dominio">4. Compromiso de forest o multi-dominio</h3>
+<p>Cada dominio tiene su propio <code>krbtgt</code>. La recuperación debe identificar qué dominios están comprometidos y cómo los trusts pueden propagar el acceso.</p>
+<h3 id="5-entorno-legacy-fragil">5. Entorno legacy frágil</h3>
+<p>Aplicaciones antiguas, dependencias RC4, SPNs hard-codeados, sitios offline y DCs stale pueden hacer que la rotación sea ruidosa. Por eso importa el ensayo rutinario.</p>
+<h2 id="impacto">Impacto</h2>
+<p>Ordenado por significancia de recuperación:</p>
 <ul>
-<li><strong>Invalidates stolen TGT-signing material when sequenced correctly.</strong> This is the direct control against Golden Tickets.</li>
-<li><strong>Forces attackers back to live credentials or newly stolen keys.</strong> A completed recovery closes the old forged-ticket path.</li>
-<li><strong>Can disrupt authentication if rushed.</strong> Bad sequencing can break Kerberos for legitimate users and services.</li>
-<li><strong>Reveals Tier 0 dependency debt.</strong> Fragile trusts, stale DCs, and old service dependencies surface during rotation planning.</li>
-<li><strong>Raises incident-response maturity.</strong> A team that can rotate <code>krbtgt</code> safely has usually done the Tier 0 inventory work many organizations avoid.</li>
+<li><strong>Invalida el material de firma TGT robado cuando se secuencia correctamente.</strong> Este es el control directo contra los Golden Tickets.</li>
+<li><strong>Fuerza a los atacantes de vuelta a credenciales en vivo o claves recientemente robadas.</strong> Una recuperación completada cierra la ruta de ticket falsificado antigua.</li>
+<li><strong>Puede interrumpir la autenticación si se apresura.</strong> Una secuenciación incorrecta puede romper Kerberos para usuarios y servicios legítimos.</li>
+<li><strong>Revela la deuda de dependencia Tier 0.</strong> Los trusts frágiles, DCs stale y dependencias de servicios antiguos emergen durante la planificación de la rotación.</li>
 </ul>
-<h2 id="detection-and-telemetry">Detection and telemetry</h2>
-<p>Monitor before, during, and after rotation:</p>
-<ol>
-<li>
-<p><strong>DCSync and replication abuse.</strong>
-   Watch <code>4662</code> with replication GUIDs and any non-DC replication behavior. Rotation is pointless if attackers still have DCSync.</p>
-</li>
-<li>
-<p><strong>Kerberos failures after reset.</strong>
-   Track spikes in <code>4768</code>, <code>4769</code>, <code>4771</code>, and <code>4776</code> failures by DC, site, account, and service. Some failure spike is expected; unexplained concentration points to replication or service dependency problems.</p>
-</li>
-<li>
-<p><strong>TGS activity with old behavioral patterns.</strong>
-   If the same suspicious account/source/service pattern continues after rotation, the attacker may have live credentials, new key access, or a missed persistence path.</p>
-</li>
-<li>
-<p><strong>Privileged logons and special privileges.</strong>
-   Monitor <code>4624</code>, <code>4672</code>, admin group changes, DC logons, and PAW usage. Recovery should narrow privileged activity, not create new ambiguous admin sessions.</p>
-</li>
-<li>
-<p><strong>Endpoint and process telemetry on DCs.</strong>
-   Watch LSASS access, <code>ntds.dit</code> reads, VSS operations, suspicious PowerShell, remote execution, and backup access.</p>
-</li>
-<li>
-<p><strong>Replication health.</strong>
-   DC convergence is a security signal here, not only operations hygiene. Stale DCs can undermine recovery.</p>
-</li>
-</ol>
-<h2 id="defensive-controls">Defensive controls</h2>
-<p>Ordered by recovery effectiveness:</p>
-<ol>
-<li>
-<p><strong>Tier 0 containment first.</strong>
-   Disable or isolate compromised Tier 0 principals, remove unexpected DCSync rights, secure DCs, protect backups, and use trusted admin workstations.</p>
-</li>
-<li>
-<p><strong>Double-reset <code>krbtgt</code> with validated wait periods.</strong>
-   Perform reset 1, validate replication and operational stability, wait through the ticket lifetime/replication window, then perform reset 2 and validate again.</p>
-</li>
-<li>
-<p><strong>Use vendor-supported scripts and procedures.</strong>
-   Microsoft publishes forest recovery guidance and KRBTGT reset tooling. Use supported procedures so replication and compatibility checks are not improvised under stress.</p>
-</li>
-<li>
-<p><strong>Validate every DC.</strong>
-   Confirm replication health, time synchronization, authentication behavior, and absence of offline/stale DCs before declaring recovery complete.</p>
-</li>
-<li>
-<p><strong>Rebuild trust in privileged access.</strong>
-   Reset admin credentials, rotate service secrets where relevant, clean PAWs, review delegation, and remove graph paths to DCSync.</p>
-</li>
-<li>
-<p><strong>Monitor post-recovery for old patterns.</strong>
-   A successful <code>krbtgt</code> rotation invalidates old Golden Tickets; it does not prove the adversary has no other persistence.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
+<h2 id="deteccion-y-telemetria">Detección y telemetría</h2>
+<p>Monitorear antes, durante y después de la rotación:</p>
+<p>1. <strong>DCSync y abuso de replicación.</strong> Observar <code>4662</code> con GUIDs de replicación y cualquier comportamiento de replicación no-DC. La rotación es inútil si los atacantes todavía tienen DCSync.</p>
+<p>2. <strong>Fallas Kerberos después del reset.</strong> Rastrear picos en fallas <code>4768</code>, <code>4769</code>, <code>4771</code> y <code>4776</code> por DC, sitio, cuenta y servicio. Se espera algún pico de fallas; la concentración inexplicada apunta a problemas de replicación o dependencia de servicio.</p>
+<p>3. <strong>Actividad TGS con patrones de comportamiento antiguos.</strong> Si el mismo patrón sospechoso de cuenta/fuente/servicio continúa después de la rotación, el atacante puede tener credenciales en vivo, acceso a nueva clave, o una ruta de persistencia que se pasó por alto.</p>
+<p>4. <strong>Logons privilegiados y privilegios especiales.</strong> Monitorear <code>4624</code>, <code>4672</code>, cambios de grupos de admin, logons en DCs y uso de PAW.</p>
+<p>5. <strong>Telemetría de endpoint y proceso en DCs.</strong> Observar acceso a LSASS, lecturas de <code>ntds.dit</code>, operaciones VSS, PowerShell sospechoso, ejecución remota y acceso a backups.</p>
+<p>6. <strong>Salud de replicación.</strong> La convergencia del DC es una señal de seguridad aquí, no solo higiene de operaciones.</p>
+<h2 id="controles-defensivos">Controles defensivos</h2>
+<p>Ordenado por efectividad de recuperación:</p>
+<p>1. <strong>Contención Tier 0 primero.</strong> Deshabilitar o aislar los principales Tier 0 comprometidos, remover derechos DCSync inesperados, asegurar DCs, proteger backups, y usar workstations de admin de confianza.</p>
+<p>2. <strong>Doble reset de <code>krbtgt</code> con períodos de espera validados.</strong> Realizar reset 1, validar la replicación y la estabilidad operacional, esperar a través de la ventana de duración de tickets/replicación, luego realizar reset 2 y validar de nuevo.</p>
+<p>3. <strong>Usar scripts y procedimientos soportados por el proveedor.</strong> Microsoft publica guías de recuperación de forest y herramientas de reset de KRBTGT. Usar procedimientos soportados para que las verificaciones de replicación y compatibilidad no se improvisen bajo estrés.</p>
+<p>4. <strong>Validar cada DC.</strong> Confirmar la salud de replicación, sincronización de tiempo, comportamiento de autenticación y ausencia de DCs offline/stale antes de declarar la recuperación completa.</p>
+<p>5. <strong>Reconstruir la confianza en el acceso privilegiado.</strong> Resetear las credenciales de admin, rotar secretos de servicio donde corresponda, limpiar PAWs, revisar delegaciones y remover rutas del grafo hacia DCSync.</p>
+<p>6. <strong>Monitorear post-recuperación por patrones antiguos.</strong> Una rotación exitosa de <code>krbtgt</code> invalida los Golden Tickets antiguos; no prueba que el adversario no tenga otra persistencia.</p>
+<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
 <ul>
-<li><strong>Rotating every human password but not <code>krbtgt</code>.</strong> Human credentials are not the secret that signs forged TGTs.</li>
-<li><strong>One <code>krbtgt</code> reset as a complete recovery.</strong> The previous key can remain accepted. The double-reset sequence exists for a reason.</li>
-<li><strong>Rotating while attackers still have DCSync.</strong> They can recover the new key and the rotation becomes theatre.</li>
-<li><strong>Running recovery from a compromised workstation.</strong> Tier 0 recovery requires clean administrative endpoints.</li>
-<li><strong>Assuming replication will catch up eventually.</strong> Eventual convergence is not a recovery guarantee. Validate it.</li>
-<li><strong>Snapshot rollback of DCs after rotation.</strong> Restoring old DC state can reintroduce old key material and break trust assumptions.</li>
-<li><strong>Treating Golden Ticket recovery as a SIEM rule.</strong> Detection helps; recovery requires changing the trust root and containing the path that exposed it.</li>
+<li><strong>Rotar cada contraseña humana pero no <code>krbtgt</code>.</strong> Las credenciales humanas no son el secreto que firma los TGTs falsificados.</li>
+<li><strong>Un reset de <code>krbtgt</code> como recuperación completa.</strong> La clave anterior puede seguir siendo aceptada. La secuencia de doble reset existe por una razón.</li>
+<li><strong>Rotar mientras los atacantes todavía tienen DCSync.</strong> Pueden recuperar la nueva clave y la rotación se convierte en teatro.</li>
+<li><strong>Ejecutar la recuperación desde una workstation comprometida.</strong> La recuperación Tier 0 requiere endpoints de admin limpios.</li>
+<li><strong>Asumir que la replicación se pondrá al día eventualmente.</strong> La convergencia eventual no es una garantía de recuperación. Validarla.</li>
+<li><strong>Rollback de snapshot de DC después de la rotación.</strong> Restaurar el estado anterior del DC puede reintroducir material de clave antiguo y romper las asunciones de confianza.</li>
 </ul>
-<h2 id="operational-misconceptions">Operational misconceptions</h2>
+<h2 id="conceptos-erroneos-operacionales">Conceptos erróneos operacionales</h2>
 <ul>
-<li><strong>"KRBTGT is just another account."</strong> False. It is the domain Kerberos trust root.</li>
-<li><strong>"The reset command is the recovery."</strong> False. The command is one step in containment, replication, validation, and monitoring.</li>
-<li><strong>"If users can still log in, recovery worked."</strong> False. Availability is not the same as invalidating attacker-held key material.</li>
-<li><strong>"Only the compromised domain admin account matters."</strong> False. Replication rights, DCs, backups, and PAWs define the recovery boundary.</li>
-<li><strong>"Rotation is too risky to practice."</strong> Backwards. It is risky precisely because organizations do not rehearse it.</li>
+<li><strong>&quot;KRBTGT es solo otra cuenta.&quot;</strong> Falso. Es la raíz de confianza Kerberos del dominio.</li>
+<li><strong>&quot;El comando de reset es la recuperación.&quot;</strong> Falso. El comando es un paso en la contención, replicación, validación y monitoreo.</li>
+<li><strong>&quot;Si los usuarios todavía pueden loguearse, la recuperación funcionó.&quot;</strong> Falso. La disponibilidad no es lo mismo que invalidar el material de clave sostenido por el atacante.</li>
+<li><strong>&quot;La rotación es demasiado riesgosa para practicar.&quot;</strong> Al revés. Es riesgosa precisamente porque las organizaciones no la ensayan.</li>
 </ul>
-<h2 id="practical-labs">Practical labs</h2>
-<p>Run as tabletop or in an owned lab domain. Do not experiment with production <code>krbtgt</code> rotation without an approved change and recovery plan.</p>
-<div class="codehilite"><pre><span></span><code>Lab 1 — Tabletop the decision tree.
-Objective: decide when KRBTGT rotation is required.
-Inputs:
-  - DCSync confirmed? yes/no
-  - krbtgt material extracted? yes/no/unknown
-  - DC compromise? yes/no
-  - Tier 0 admin workstation compromise? yes/no
-  - backup exposure? yes/no
-Decision:
-  If krbtgt exposure is confirmed or reasonably suspected, plan double reset after containment.
-Misconception corrected: &quot;no Golden Ticket observed&quot; is not proof krbtgt is safe.
+<h2 id="labs-practicos">Labs prácticos</h2>
+<p>Ejecutar como tabletop o en un dominio lab propio. No experimentar con la rotación de <code>krbtgt</code> de producción sin un cambio aprobado y un plan de recuperación.</p>
+<div class="codehilite"><pre><span></span><code>Lab 1 — Tabletop del árbol de decisión.
+Objetivo: decidir cuándo se requiere la rotación de KRBTGT.
+Entradas:
+  - ¿DCSync confirmado? sí/no
+  - ¿Material de krbtgt extraído? sí/no/desconocido
+  - ¿Compromiso de DC? sí/no
+  - ¿Compromiso de workstation de admin Tier 0? sí/no
+  - ¿Exposición de backup? sí/no
+Decisión:
+  Si la exposición de krbtgt está confirmada o razonablemente sospechada, planificar doble reset después de la contención.
+Concepto erróneo corregido: &quot;no se observó Golden Ticket&quot; no es prueba de que krbtgt esté seguro.
 </code></pre></div>
+<div class="codehilite"><pre><span></span><code># Lab 2 — Pre-verificación de salud de replicación en un lab.
+repadmin /replsummary
+dcdiag /test:replications
+w32tm /monitor
 
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 2 — Replication health pre-check in a lab.</span>
-<span class="n">repadmin</span> <span class="p">/</span><span class="n">replsummary</span>
-<span class="n">dcdiag</span> <span class="p">/</span><span class="n">test</span><span class="p">:</span><span class="n">replications</span>
-<span class="n">w32tm</span> <span class="p">/</span><span class="n">monitor</span>
-
-<span class="c"># Defender interpretation:</span>
-<span class="c"># - stale DCs and time drift are recovery blockers</span>
-<span class="c"># - replication health is part of the security control</span>
+# Interpretación del defensor:
+# - los DCs stale y la deriva de tiempo son bloqueadores de recuperación
+# - la salud de replicación es parte del control de seguridad
 </code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>Lab 3 — Simulated double-reset runbook.
-Objective: rehearse sequencing without touching production.
-Steps:
-  1. Announce change window and freeze Tier 0 admin activity.
-  2. Confirm DCSync paths removed.
-  3. Reset krbtgt once using supported tooling.
-  4. Validate replication to every DC.
-  5. Wait through the defined ticket lifetime/replication window.
-  6. Reset krbtgt a second time.
-  7. Validate authentication, replication, and monitoring.
-Expected telemetry:
-  - account password-set events for krbtgt
-  - Kerberos failure spikes if clients hold stale tickets
-  - replication traffic across DCs
-Limitations: tabletop cannot prove app compatibility; lab rotation should precede production playbook approval.
+<div class="codehilite"><pre><span></span><code>Lab 3 — Runbook de doble reset simulado.
+Objetivo: ensayar el sequencing sin tocar producción.
+Pasos:
+  1. Anunciar ventana de cambio y congelar la actividad de admin Tier 0.
+  2. Confirmar que las rutas DCSync están eliminadas.
+  3. Resetear krbtgt una vez usando herramientas soportadas.
+  4. Validar la replicación a cada DC.
+  5. Esperar a través de la ventana definida de duración de tickets/replicación.
+  6. Resetear krbtgt por segunda vez.
+  7. Validar la autenticación, replicación y monitoreo.
+Telemetría esperada:
+  - eventos de password-set de cuenta para krbtgt
+  - picos de fallas Kerberos si los clientes mantienen tickets stale
+  - tráfico de replicación entre DCs
+Limitaciones: el tabletop no puede probar compatibilidad de apps; la rotación en lab debería preceder a la aprobación del playbook de producción.
 </code></pre></div>
+<div class="codehilite"><pre><span></span><code># Lab 4 — Monitorear fallas Kerberos durante una ventana de reset en el lab.
+Get-WinEvent -FilterHashtable @{LogName=&#x27;Security&#x27;; ID=4768,4769,4771,4776} -MaxEvents 500 |
+  Select-Object TimeCreated, Id, ProviderName
 
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 4 — Monitor Kerberos failures during a lab reset window.</span>
-<span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="p">@{</span><span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span><span class="p">;</span> <span class="n">ID</span><span class="p">=</span><span class="n">4768</span><span class="p">,</span><span class="n">4769</span><span class="p">,</span><span class="n">4771</span><span class="p">,</span><span class="n">4776</span><span class="p">}</span> <span class="n">-MaxEvents</span> <span class="n">500</span> <span class="p">|</span>
-  <span class="nb">Select-Object</span> <span class="n">TimeCreated</span><span class="p">,</span> <span class="n">Id</span><span class="p">,</span> <span class="n">ProviderName</span>
-
-<span class="c"># Analyst exercise:</span>
-<span class="c"># - group by DC and account</span>
-<span class="c"># - separate expected cache churn from persistent service breakage</span>
-<span class="c"># - identify services still using stale Kerberos material</span>
+# Ejercicio del analista:
+# - agrupar por DC y cuenta
+# - separar el churn de caché esperado de la interrupción persistente del servicio
+# - identificar servicios todavía usando material Kerberos stale
 </code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>Lab 5 — Post-recovery validation checklist.
-Validate:
-  - every DC replicated the new krbtgt password version
-  - no non-DC principal has DCSync rights
-  - privileged accounts were rotated from clean PAWs
-  - service accounts with high privilege were reviewed
-  - DC backups and snapshots are protected
-  - old suspicious TGS patterns stopped
-  - incident timeline records exact reset times
+<div class="codehilite"><pre><span></span><code>Lab 5 — Checklist de validación post-recuperación.
+Validar:
+  - cada DC replicó la nueva versión de contraseña de krbtgt
+  - ningún principal non-DC tiene derechos DCSync
+  - las cuentas privilegiadas fueron rotadas desde PAWs limpias
+  - las service accounts de alto privilegio fueron revisadas
+  - los backups y snapshots del DC están protegidos
+  - los patrones TGS sospechosos anteriores se detuvieron
+  - el timeline del incidente registra los tiempos exactos de reset
 </code></pre></div>
-
-<h2 id="practical-examples">Practical examples</h2>
+<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
 <ul>
-<li><strong>Single-reset incident gap.</strong> An IR team rotates Domain Admin passwords and resets <code>krbtgt</code> once. Forged tickets continue during the old-key window. The missing second reset leaves the domain partially untrusted.</li>
-<li><strong>Replication failure.</strong> One remote DC is offline during the rotation. It later returns with stale state and creates inconsistent authentication behavior. Recovery declaration was premature.</li>
-<li><strong>DCSync path not contained.</strong> The attacker still controls a service account with replication rights. They steal the new <code>krbtgt</code> key after reset. The organization changed the secret but not the path to the secret.</li>
-<li><strong>Practiced routine rotation.</strong> A team performs annual planned rotation with monitoring and rollback boundaries. During a real incident, the procedure is known and the risk is lower.</li>
+<li><strong>Brecha de un solo reset.</strong> Un equipo IR rota las contraseñas de Domain Admin y resetea <code>krbtgt</code> una vez. Los tickets falsificados continúan durante la ventana de clave anterior. El segundo reset faltante deja el dominio parcialmente no confiable.</li>
+<li><strong>Falla de replicación.</strong> Un DC remoto está offline durante la rotación. Regresa más tarde con estado stale y crea comportamiento de autenticación inconsistente. La declaración de recuperación fue prematura.</li>
+<li><strong>Ruta DCSync no contenida.</strong> El atacante todavía controla una service account con derechos de replicación. Roban la nueva clave de <code>krbtgt</code> después del reset.</li>
+<li><strong>Rotación rutinaria practicada.</strong> Un equipo realiza rotación planificada anual con monitoreo y límites de rollback. Durante un incidente real, el procedimiento es conocido y el riesgo es menor.</li>
 </ul>
-<h2 id="related-notes">Related notes</h2>
+<h2 id="notas-relacionadas">Notas relacionadas</h2>
 <ul>
-<li><a href="golden-ticket-and-krbtgt-compromise.html">golden-ticket-and-krbtgt-compromise</a> — the compromise model this recovery operation addresses.</li>
-<li><a href="dcsync-and-ntdsdit-extraction.html">dcsync-and-ntdsdit-extraction</a> — the most common way <code>krbtgt</code> material is exposed.</li>
-<li><a href="bloodhound-attack-path-analysis.html">bloodhound-attack-path-analysis</a> — use graph analysis to remove paths to DCSync and Tier 0.</li>
-<li><a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation</a> — recovery monitoring is sequence-based.</li>
-<li><a href="../detection-engineering/telemetry-normalization-correlation-and-enrichment.html">Telemetry Normalization, Correlation, and Enrichment</a> — reset validation depends on normalized DC, endpoint, and identity telemetry.</li>
-<li><a href="../detection-engineering/edr-network-observability-and-process-correlation.html">EDR, Network Observability, and Process Correlation</a> — DC and PAW endpoint telemetry matter during containment.</li>
+<li><a href="golden-ticket-and-krbtgt-compromise.html">golden-ticket-and-krbtgt-compromise</a> — el modelo de compromiso que esta operación de recuperación aborda.</li>
+<li><a href="dcsync-and-ntdsdit-extraction.html">dcsync-and-ntdsdit-extraction</a> — la forma más común en que el material de <code>krbtgt</code> es expuesto.</li>
+<li><a href="bloodhound-attack-path-analysis.html">bloodhound-attack-path-analysis</a> — usar análisis de grafo para remover rutas hacia DCSync y Tier 0.</li>
+<li><a href="tier-zero-administration-and-paw.html">tier-zero-administration-and-paw</a> — la recuperación Tier 0 requiere endpoints de admin limpios y la disciplina que esta nota define.</li>
 </ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
+<h2 id="referencias">Referencias</h2>
 <ul>
-<li><a href="tier-zero-administration-and-paw.html">tier-zero-administration-and-paw</a></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: ad-forest-recovery">ad-forest-recovery</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: dc-backup-security">dc-backup-security</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: dcsync-containment-playbook">dcsync-containment-playbook</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: kerberos-ticket-lifetime-policy">kerberos-ticket-lifetime-policy</span></li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Recovery:</strong> Microsoft Learn — Active Directory Forest Recovery: Reset the krbtgt password — https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-reset-the-krbtgt-password</li>
-<li><strong>Recovery:</strong> Microsoft Learn — AD Forest Recovery Guide — https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-guide</li>
-<li><strong>Foundational:</strong> MITRE ATT&amp;CK T1558.001 — Golden Ticket — https://attack.mitre.org/techniques/T1558/001/</li>
-<li><strong>Recovery:</strong> Microsoft Security Blog — KRBTGT Account Password Reset Scripts now available for customers — https://www.microsoft.com/en-us/security/blog/2015/02/11/krbtgt-account-password-reset-scripts-now-available-for-customers/</li>
+<li><strong>Recuperación:</strong> Microsoft Learn — Active Directory Forest Recovery: Reset the krbtgt password — https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-reset-the-krbtgt-password</li>
+<li><strong>Recuperación:</strong> Microsoft Learn — AD Forest Recovery Guide — https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-guide</li>
+<li><strong>Fundamental:</strong> MITRE ATT&amp;CK T1558.001 — Golden Ticket — https://attack.mitre.org/techniques/T1558/001/</li>
+<li><strong>Recuperación:</strong> Microsoft Security Blog — KRBTGT Account Password Reset Scripts now available for customers — https://www.microsoft.com/en-us/security/blog/2015/02/11/krbtgt-account-password-reset-scripts-now-available-for-customers/</li>
 </ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="kerberoasting.html"><span class="nav-dir">← Previous</span><strong>Kerberoasting</strong></a><a class="branch-nav-link next" href="pass-the-hash-and-ntlm-credential-reuse.html"><span class="nav-dir">Next →</span><strong>Pass-the-Hash and NTLM Credential Reuse</strong></a></nav>
 <section class="related-notes" aria-label="Explore nearby notes">
@@ -652,24 +591,25 @@ Validate:
 </article>
 </main>
 <aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-operational-scenarios">Variants and operational scenarios</a>
-<a class="toc-level-3" href="#1-routine-hygiene-rotation">1. Routine hygiene rotation</a>
-<a class="toc-level-3" href="#2-suspected-krbtgt-exposure-from-dcsync">2. Suspected  krbtgt  exposure from DCSync</a>
-<a class="toc-level-3" href="#3-domain-controller-compromise">3. Domain Controller compromise</a>
-<a class="toc-level-3" href="#4-forest-or-multi-domain-compromise">4. Forest or multi-domain compromise</a>
-<a class="toc-level-3" href="#5-legacy-fragile-environment">5. Legacy fragile environment</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-telemetry">Detection and telemetry</a>
-<a class="toc-level-2" href="#defensive-controls">Defensive controls</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#operational-misconceptions">Operational misconceptions</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-2" href="#practical-examples">Practical examples</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
+<a class="toc-level-2" href="#definicion">Definición</a>
+<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
+<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
+<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
+<a class="toc-level-2" href="#variantes-y-escenarios-operacionales">Variantes y escenarios operacionales</a>
+<a class="toc-level-3" href="#1-rotacion-de-higiene-rutinaria">1. Rotación de higiene rutinaria</a>
+<a class="toc-level-3" href="#2-exposicion-sospechada-de-krbtgt-desde-dcsync">2. Exposición sospechada de krbtgt desde DCSync</a>
+<a class="toc-level-3" href="#3-compromiso-de-domain-controller">3. Compromiso de Domain Controller</a>
+<a class="toc-level-3" href="#4-compromiso-de-forest-o-multi-dominio">4. Compromiso de forest o multi-dominio</a>
+<a class="toc-level-3" href="#5-entorno-legacy-fragil">5. Entorno legacy frágil</a>
+<a class="toc-level-2" href="#impacto">Impacto</a>
+<a class="toc-level-2" href="#deteccion-y-telemetria">Detección y telemetría</a>
+<a class="toc-level-2" href="#controles-defensivos">Controles defensivos</a>
+<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
+<a class="toc-level-2" href="#conceptos-erroneos-operacionales">Conceptos erróneos operacionales</a>
+<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
+<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
+<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
+<a class="toc-level-2" href="#referencias">Referencias</a>
 <a class="back-to-top" href="#top">Volver arriba</a></div></aside>
 </div>
 </div>

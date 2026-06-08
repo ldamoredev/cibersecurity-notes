@@ -6,7 +6,7 @@ Windows Event Logs son la telemetría estructurada host-side que emite el sistem
 
 ## Por qué importa
 
-Cada ataque orientado a Windows en este vault — [[kerberoasting|Kerberoasting]] (4769 + RC4), [[as-rep-roasting|AS-REP Roasting]] (4768 + PreAuthType=0), [[dcsync-and-ntdsdit-extraction|DCSync]] (4662 + replication GUIDs), [[pass-the-hash-and-ntlm-credential-reuse|Pass-the-Hash]] (4624 LogonType=3 + NTLM), [[bloodhound-attack-path-analysis|BloodHound]] collection (patrones de LDAP query + 4662), uso de [[golden-ticket-and-krbtgt-compromise|Golden Ticket]] (4769 sin 4768 previo del mismo usuario) — produce una firma reconocible en Windows Event Logs. Sin un modelo operativo de qué significan esos Event IDs, qué campos llevan y qué audit policy los hace aparecer, las reglas de detección y las investigaciones IR son guesswork.
+Cada ataque orientado a Windows en este atlas — [[kerberoasting|Kerberoasting]] (4769 + RC4), [[as-rep-roasting|AS-REP Roasting]] (4768 + PreAuthType=0), [[dcsync-and-ntdsdit-extraction|DCSync]] (4662 + replication GUIDs), [[pass-the-hash-and-ntlm-credential-reuse|Pass-the-Hash]] (4624 LogonType=3 + NTLM), [[bloodhound-attack-path-analysis|BloodHound]] collection (patrones de LDAP query + 4662), uso de [[golden-ticket-and-krbtgt-compromise|Golden Ticket]] (4769 sin 4768 previo del mismo usuario) — produce una firma reconocible en Windows Event Logs. Sin un modelo operativo de qué significan esos Event IDs, qué campos llevan y qué audit policy los hace aparecer, las reglas de detección y las investigaciones IR son guesswork.
 
 El framing senior es que Event Logs **no son lo que se loguea por default**; son lo que se loguea *después de configurar correctamente la audit policy*. La audit policy default de Windows es silenciosa sobre Process Creation (4688), silenciosa sobre Sensitive Privilege Use (4673), silenciosa sobre Detailed File Share access; sin embargo esos son los eventos que la mayoría de reglas de detección necesitan. Configurar audit policy es el prerrequisito para cualquier claim de detection engineering sobre hosts Windows.
 
@@ -129,7 +129,7 @@ Ordenado por severidad típica de mal uso defensivo:
 
 ## Detección y defensa
 
-Esta nota *es* una defensa. El framing relevante es **qué monitorear en Windows Event Logs** para los ataques AD y de credenciales del vault.
+Esta nota *es* una defensa. El framing relevante es **qué monitorear en Windows Event Logs** para los ataques AD y de credenciales del atlas.
 
 Ordenado por valor de detección:
 

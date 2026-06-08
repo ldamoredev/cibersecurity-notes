@@ -2,7 +2,7 @@
 
 ## Propósito
 
-Este índice es el punto de entrada raíz de la rama attack-surface-mapping del vault de ciberseguridad.
+Este índice es el punto de entrada raíz de la rama attack-surface-mapping del atlas de ciberseguridad.
 
 Usalo para:
 - mapear qué está realmente expuesto, alcanzable y descubrible

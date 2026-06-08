@@ -198,7 +198,7 @@ La rotación es solo efectiva si está rastreada y ejecutada.
 - cloud-kms-boundaries
 - workload-identity-federation
 - secret-scanning-in-ci
-- vault-integration-patterns
+- secret-manager-integration-patterns
 
 ## Referencias
 

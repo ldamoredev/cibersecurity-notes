@@ -12,7 +12,7 @@ tags:
 # Índice de Redes
 
 ## Propósito
-Este índice es el punto de entrada raíz para la rama de redes del vault de ciberseguridad.
+Este índice es el punto de entrada raíz para la rama de redes del atlas de ciberseguridad.
 
 Usalo para:
 - navegar las notas de redes
@@ -206,7 +206,7 @@ Si un servicio es alcanzable, ruteable, forwardeado, cacheado o traducido incorr
 
 ---
 
-## Reglas de mantenimiento del vault para las notas de redes
+## Reglas de mantenimiento del atlas para las notas de redes
 
 Cada nota de redes debería seguir la forma interna de nota atómica de 11 secciones:
 - Definición

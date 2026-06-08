@@ -50,7 +50,7 @@
 <a class="sidebar-home" href="../../index.html">Atlas Home</a>
 <div class="sidebar-section"><h3>Entry layer</h3>
 <a class="sidebar-link kind-index" href="../index.html">Cybersecurity Index</a>
-<a class="sidebar-link kind-concept" href="../start-here.html">Start Here — Cybersecurity Vault Triage</a>
+<a class="sidebar-link kind-concept" href="../start-here.html">Start Here — Cybersecurity Atlas Guide</a>
 <a class="sidebar-link kind-concept" href="../must-know-30.html">Must-Know 30 — The Minimum Viable Security Literacy</a>
 <a class="sidebar-link kind-concept" href="../phase-1-substrate.html">Phase 1 — Substrate (How Things Actually Work)</a>
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
@@ -420,7 +420,7 @@
 <p>Kerberoasting is an Active Directory credential attack where an authenticated domain user requests <strong>TGS service tickets</strong> for accounts that have a Service Principal Name (SPN), then attempts to <strong>crack the resulting tickets offline</strong> to recover the service account's plaintext password. The attack works because (a) any authenticated domain user can request a TGS for any SPN, and (b) the portion of the TGS encrypted with the service account's password-derived key is observable to the requester.</p>
 <h2 id="why-it-matters">Why it matters</h2>
 <p>Kerberoasting is the single highest-impact post-foothold AD attack that requires no privilege escalation, no exploit, and no malware. Every domain user can run it. The only thing the defender controls is <strong>whether service account passwords are strong enough to survive offline cracking</strong> — and historically, service accounts are configured with weak, never-rotated, human-chosen passwords because "they are service accounts, nobody types them". The result is a reliable path from any domain user to a service account, and frequently from a service account to domain admin via lateral movement.</p>
-<p>The technique is also the textbook bridge between three branches of this vault that otherwise sit far apart:
+<p>The technique is also the textbook bridge between three branches of this atlas that otherwise sit far apart:
 - <strong>Cryptography</strong> — the attack only works because the encryption key is derived from a password via a known KDF. Strong passwords + AES + Kerberos PBKDF2 = uncrackable in practice; weak passwords + RC4 = cracked in hours on a single GPU.
 - <strong>Detection Engineering</strong> — it is the cleanest example of an attack whose <em>only</em> defensive signal is behavioral, not signature. Every TGS request is a normal Kerberos operation; the attack is in the <em>pattern</em> (which accounts, at what rate, with what encryption type).
 - <strong>Offensive Security</strong> — it is the canonical first move after gaining any AD user credential, and every red-team / pentest / IR walkthrough teaches it.</p>

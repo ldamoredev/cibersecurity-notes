@@ -74,7 +74,7 @@ La mayor parte de la privesc del mundo real — ACLs de servicio débiles, rutas
 
 ### 3. Primitivas de recuperación de credenciales
 
-Dump de LSASS (Mimikatz `sekurlsa::logonpasswords`), extracción de vault DPAPI, stores de credenciales del navegador, GPP `cpassword`, registro AutoLogon, texto plano en scripts. Las credenciales recuperadas impulsan ataques AD posteriores.
+Dump de LSASS (Mimikatz `sekurlsa::logonpasswords`), extracción de bóveda DPAPI, stores de credenciales del navegador, GPP `cpassword`, registro AutoLogon, texto plano en scripts. Las credenciales recuperadas impulsan ataques AD posteriores.
 
 ### 4. Primitivas de kernel / bypass de UAC
 

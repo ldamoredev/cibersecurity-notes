@@ -2,7 +2,7 @@
 
 ## Propósito
 
-Este índice es el punto de entrada raíz para la rama security-playbooks del vault de ciberseguridad.
+Este índice es el punto de entrada raíz para la rama security-playbooks del atlas de ciberseguridad.
 
 Usalo para:
 - navegar workflows ofensivos y defensivos reutilizables

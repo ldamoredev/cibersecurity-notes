@@ -2,7 +2,7 @@
 
 ## Propósito
 
-Este índice es el punto de entrada raíz de la rama OSINT del vault de ciberseguridad.
+Este índice es el punto de entrada raíz de la rama OSINT del atlas de ciberseguridad.
 
 Usalo para:
 - recopilar y evaluar información públicamente disponible

@@ -8,7 +8,7 @@ Kerberoasting es un ataque de credenciales de Active Directory donde un usuario 
 
 Kerberoasting es el ataque AD post-foothold de mayor impacto que no requiere escalada de privilegios, exploit ni malware. Cualquier usuario del dominio puede ejecutarlo. Lo único que controla el defensor es **si las contraseñas de las service accounts son lo suficientemente fuertes para sobrevivir el crackeo offline** — y históricamente, las service accounts se configuran con contraseñas débiles, nunca rotadas y elegidas por humanos porque "son service accounts, nadie las tipea". El resultado es una ruta confiable desde cualquier usuario del dominio hacia una service account, y frecuentemente desde esa service account hacia domain admin mediante movimiento lateral.
 
-La técnica también es el puente textbook entre tres ramas del vault que de otra manera están distantes:
+La técnica también es el puente textbook entre tres ramas del atlas que de otra manera están distantes:
 - **Cryptography** — el ataque solo funciona porque la clave de cifrado se deriva de una contraseña mediante un KDF conocido. Contraseñas fuertes + AES + Kerberos PBKDF2 = impracticable de crackear; contraseñas débiles + RC4 = crackeadas en horas en una sola GPU.
 - **Detection Engineering** — es el ejemplo más limpio de un ataque cuya *única* señal defensiva es de comportamiento, no de firma. Cada solicitud de TGS es una operación Kerberos normal; el ataque está en el *patrón*.
 - **Offensive Security** — es el primer movimiento canónico después de obtener cualquier credencial AD.

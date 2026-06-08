@@ -2,7 +2,7 @@
 
 ## Propósito
 
-Este índice es el punto de entrada raíz para la rama DevSecOps del vault de ciberseguridad.
+Este índice es el punto de entrada raíz para la rama DevSecOps del atlas de ciberseguridad.
 
 Usalo para:
 - conectar desarrollo seguro, CI/CD, dependency risk, manejo de secrets y delivery de containers

@@ -8,7 +8,7 @@ La compartimentación en Qubes es la práctica de separar actividades en máquin
 
 Muchas fallas de privacidad son fallas del endpoint. Un perfil de browser, un editor de documentos, una app de chat, un gestor de contraseñas y una cuenta personal todo se ejecutan en el mismo sistema diario y comparten silenciosamente archivos, portapapeles, red, credenciales y contexto del dispositivo.
 
-Qubes cambia el modelo operativo. En lugar de confiar en un solo entorno de escritorio, el usuario diseña compartimentos para trabajo, uso personal, archivos riesgosos, actividad anónima, datos de vault y tareas desechables. Esto es poderoso, pero requiere planificación y disciplina.
+Qubes cambia el modelo operativo. En lugar de confiar en un solo entorno de escritorio, el usuario diseña compartimentos para trabajo, uso personal, archivos riesgosos, actividad anónima, datos de bóveda y tareas desechables. Esto es poderoso, pero requiere planificación y disciplina.
 
 ## Cómo funciona
 
@@ -40,7 +40,7 @@ Boceto:
 qube personal    -> red normal
 qube trabajo     -> red de trabajo
 qube investigación -> desechable / restringida
-qube vault       -> sin red
+qube bóveda      -> sin red
 qube anon        -> ruta Whonix/Tor
 dom0             -> solo administración
 ```
@@ -190,7 +190,7 @@ El objetivo es manejar input riesgoso sin contaminar los compartimentos de ident
 
 - Un usuario abre PDFs desconocidos en qubes desechables antes de mover el output saneado a otro lugar.
 - Un qube de trabajo y un qube personal usan browsers, archivos y rutas de red separados.
-- Un qube vault almacena bases de datos de contraseñas sin acceso directo a internet.
+- Un qube de bóveda almacena bases de datos de contraseñas sin acceso directo a internet.
 - Un usuario copia texto de investigación anónima a un qube personal, vinculando contextos.
 - Un dispositivo USB se asigna solo a un qube dedicado porque los periféricos son riesgosos.
 

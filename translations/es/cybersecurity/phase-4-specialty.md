@@ -8,7 +8,7 @@ Seis tracks, cada uno con su persona, camino curado y condiciones de entrada:
 
 > **API Security · Cloud Security · DevSecOps · Wireless Security · Identity & Active Directory · Binary Exploitation**
 
-Cada track asume que completaste primera pasada de Fases 0-2; algunos también asumen Fase 3. Las condiciones de entrada del track se declaran explícitamente. **El track de Binary Exploitation tiene los prerequisitos no-vault más fuertes** (alfabetización C/C++, fluidez con debugger, baseline x86-64); ver Track F.
+Cada track asume que completaste primera pasada de Fases 0-2; algunos también asumen Fase 3. Las condiciones de entrada del track se declaran explícitamente. **El track de Binary Exploitation tiene los prerequisitos externos al atlas más fuertes** (alfabetización C/C++, fluidez con debugger, baseline x86-64); ver Track F.
 
 ---
 
@@ -129,7 +129,7 @@ Cada track asume que completaste primera pasada de Fases 0-2; algunos también a
 
 ## Track F — Binary Exploitation
 
-**Elegí esto si:** hacés vulnerability research, exploit development, security engineering para software low-level (kernels de OS, hypervisors, navegadores, runtimes de lenguajes), competencias CTF categoría pwn, autoría de tooling de seguridad o mantenés código memory-unsafe en cualquier contexto productivo. **Los prerequisitos no-vault más fuertes de cualquier track**: esta es la especialidad técnica más profunda del vault por distancia de escalera desde código fuente.
+**Elegí esto si:** hacés vulnerability research, exploit development, security engineering para software low-level (kernels de OS, hypervisors, navegadores, runtimes de lenguajes), competencias CTF categoría pwn, autoría de tooling de seguridad o mantenés código memory-unsafe en cualquier contexto productivo. **Los prerequisitos externos al atlas más fuertes de cualquier track**: esta es la especialidad técnica más profunda del atlas por distancia de escalera desde código fuente.
 
 **Condiciones de entrada:**
 - Primera pasada de Fase 1 completa.
@@ -157,7 +157,7 @@ Cada track asume que completaste primera pasada de Fases 0-2; algunos también a
 | DevSecOps | Crypto digital signatures + AEAD (Fase 1), threat-modeling (Fase 0), cada par de Fase 2 para pensar "¿mi pipeline es detectable?" |
 | Wireless Security | Networking L1/L2/L3 (Fase 1), pairing de evasión y detección (Fase 2) |
 | Identity & Active Directory | Password hashing + symmetric encryption modes (Fase 1 Crypto), behavioral-vs-signature detection (Fase 2), dualidad atacante-defensor (Fase 0) |
-| Binary Exploitation | **Alfabetización C/C++ + fluidez con debugger + baseline x86-64 (prerequisitos no-vault)**, threat-modeling en la capa systems-software (Fase 0), telemetría de detección del lado EDR (Fase 2) |
+| Binary Exploitation | **Alfabetización C/C++ + fluidez con debugger + baseline x86-64 (prerequisitos externos al atlas)**, threat-modeling en la capa systems-software (Fase 0), telemetría de detección del lado EDR (Fase 2) |
 
 Elegí el track cuyas dependencias ya cubriste; ese es el camino más eficiente.
 
@@ -173,13 +173,13 @@ Si tu rol demanda dos especialidades (por ejemplo, API + Cloud es común en inge
 
 ## Qué hay después de Fase 4
 
-No hay Fase 5 en este vault. Después de primera pasada de especialidad de Fase 4, estás operando como especialista con amplitud completa en Fases 0-3 y profundidad en una (o dos, secuencialmente) áreas de especialidad. El próximo movimiento de aprendizaje está **fuera de este vault**:
+No hay Fase 5 en este atlas. Después de primera pasada de especialidad de Fase 4, estás operando como especialista con amplitud completa en Fases 0-3 y profundidad en una (o dos, secuencialmente) áreas de especialidad. El próximo movimiento de aprendizaje está **fuera de este atlas**:
 
 - **Engagements reales** bajo autorización: bug bounty programs, ejercicios internos red/purple-team, drills IR.
 - **Defender un sistema real** que use tu especialidad: construir u operar uno es el contexto de aprendizaje de mayor leverage.
 - **Las ramas futuras sugeridas** en [[index|Índice de ciberseguridad]] (mobile, reverse-engineering, social-engineering, AI/agent-security): abrirlas cuando se vuelvan relevantes laboralmente.
 
-La estructura del vault termina acá. Todo lo demás es profundidad.
+La estructura del atlas termina acá. Todo lo demás es profundidad.
 
 ---
 
@@ -191,4 +191,4 @@ La estructura del vault termina acá. Todo lo demás es profundidad.
 - [[index|Índice de API Security]] · [[index|Índice de Cloud Security]] · [[index|Índice de DevSecOps]] · [[index|Índice de Wireless Security]] — listados completos de ramas.
 - [[index|Privacy, Anonymity & OPSEC]] — la disciplina paralela always-on.
 - [[must-know-30|Must-Know 30]] — lista must-know transversal.
-- [[index|Índice de ciberseguridad]] — roadmap completo del vault.
+- [[index|Índice de ciberseguridad]] — roadmap completo del atlas.

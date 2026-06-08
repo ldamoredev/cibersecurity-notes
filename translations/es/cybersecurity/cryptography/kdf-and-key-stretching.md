@@ -138,7 +138,7 @@ Esto convierte un secreto raíz gestionado en claves de aplicación explícitas 
 - TLS deriva claves de tráfico de un secreto de handshake y contexto del transcript.
 - Una herramienta de backup deriva claves separadas de encryption de archivos y autenticación de metadata de una clave de archivo.
 - Una web app deriva claves de firma de cookie y CSRF de un secreto raíz en lugar de reutilizar los mismos bytes directamente.
-- Los gestores de contraseñas estiran una master password antes de desbloquear las claves vault de alta entropía.
+- Los gestores de contraseñas estiran una master password antes de desbloquear las claves de bóveda de alta entropía.
 - La envelope encryption cloud separa las claves KMS raíz de las claves de datos por objeto.
 
 ## Notas relacionadas

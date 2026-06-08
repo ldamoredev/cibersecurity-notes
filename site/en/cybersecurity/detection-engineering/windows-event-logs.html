@@ -50,7 +50,7 @@
 <a class="sidebar-home" href="../../index.html">Atlas Home</a>
 <div class="sidebar-section"><h3>Entry layer</h3>
 <a class="sidebar-link kind-index" href="../index.html">Cybersecurity Index</a>
-<a class="sidebar-link kind-concept" href="../start-here.html">Start Here — Cybersecurity Vault Triage</a>
+<a class="sidebar-link kind-concept" href="../start-here.html">Start Here — Cybersecurity Atlas Guide</a>
 <a class="sidebar-link kind-concept" href="../must-know-30.html">Must-Know 30 — The Minimum Viable Security Literacy</a>
 <a class="sidebar-link kind-concept" href="../phase-1-substrate.html">Phase 1 — Substrate (How Things Actually Work)</a>
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
@@ -419,7 +419,7 @@
 <h2 id="definition">Definition</h2>
 <p>Windows Event Logs are the structured host-side telemetry that the Windows operating system emits for security-relevant operations (authentication, authorization, process execution, account changes, object access, system state). Logs are stored as <code>.evtx</code> files in <code>%SystemRoot%\System32\winevt\Logs\</code>, exposed via the Event Log service, and queryable through <code>wevtutil</code>, <code>Get-WinEvent</code>, the Event Viewer UI, or a forwarded copy in a SIEM. <strong>The body of useful security telemetry on Windows is built almost entirely from a small set of Event IDs</strong> — roughly 30 out of the thousands defined — and senior detection engineers internalize that subset rather than treating Windows logs as an undifferentiated stream.</p>
 <h2 id="why-it-matters">Why it matters</h2>
-<p>Every Windows-targeted attack in this vault — <a href="../identity-and-active-directory/kerberoasting.html">Kerberoasting</a> (4769 + RC4), <a href="../identity-and-active-directory/as-rep-roasting.html">AS-REP Roasting</a> (4768 + PreAuthType=0), <a href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync</a> (4662 + replication GUIDs), <a href="../identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash</a> (4624 LogonType=3 + NTLM), <a href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound</a> collection (LDAP query patterns + 4662), <a href="../identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">Golden Ticket</a> use (4769 without preceding 4768 from the same user) — produces a recognizable signature in Windows Event Logs. Without a working model of what those Event IDs mean, what fields they carry, and what audit policy makes them appear, detection rules and IR investigations are guesswork.</p>
+<p>Every Windows-targeted attack in this atlas — <a href="../identity-and-active-directory/kerberoasting.html">Kerberoasting</a> (4769 + RC4), <a href="../identity-and-active-directory/as-rep-roasting.html">AS-REP Roasting</a> (4768 + PreAuthType=0), <a href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync</a> (4662 + replication GUIDs), <a href="../identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash</a> (4624 LogonType=3 + NTLM), <a href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound</a> collection (LDAP query patterns + 4662), <a href="../identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">Golden Ticket</a> use (4769 without preceding 4768 from the same user) — produces a recognizable signature in Windows Event Logs. Without a working model of what those Event IDs mean, what fields they carry, and what audit policy makes them appear, detection rules and IR investigations are guesswork.</p>
 <p>The senior framing is that Event Logs are <strong>not what gets logged by default</strong>; they are what gets logged <em>after the audit policy is configured correctly</em>. Default Windows audit policy is silent about Process Creation (4688), silent about Sensitive Privilege Use (4673), silent about Detailed File Share access — yet these are the events most detection rules need. Configuring audit policy is the prerequisite to every other detection-engineering claim about Windows hosts.</p>
 <p>The technique also matters as a teaching note because it surfaces three transferable senior facts:</p>
 <ul>
@@ -695,8 +695,8 @@
 <li><strong>Volume vs retention tradeoffs.</strong> Enabling everything makes logs unmanageable; enabling too little makes detection impossible. The audit-policy tuning curve is real engineering work, not a one-time configuration.</li>
 </ul>
 <h2 id="detection-and-defense">Detection and defense</h2>
-<p>This note <em>is</em> a defense — it does not have a target-side defender section in the usual sense. The relevant framing is <strong>what to monitor in Windows Event Logs</strong> for the canonical AD and credential attacks elsewhere in the vault.</p>
-<p>Ordered by detection value across the vault's existing attack notes:</p>
+<p>This note <em>is</em> a defense — it does not have a target-side defender section in the usual sense. The relevant framing is <strong>what to monitor in Windows Event Logs</strong> for the canonical AD and credential attacks elsewhere in the atlas.</p>
+<p>Ordered by detection value across the atlas's existing attack notes:</p>
 <ol>
 <li>
 <p><strong>Configure the audit policy first.</strong>
