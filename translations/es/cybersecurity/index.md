@@ -2,7 +2,7 @@
 
 ## Propósito
 
-Este es el índice raíz de la rama de ciberseguridad del vault.
+Este es el índice raíz del atlas de ciberseguridad.
 
 El objetivo de este sistema es pasar de:
 - aprender conceptos de seguridad aislados
@@ -12,17 +12,17 @@ a:
 - entender exposición, explotación y defensa como un solo sistema
 - vincular conceptos con workflows prácticos, playbooks y decisiones de ingeniería
 
-Este vault está estructurado para soportar:
+Este atlas está estructurado para soportar:
 - aprendizaje de seguridad
 - testing práctico
 - razonamiento de arquitectura
-- recuperación a largo plazo tanto por mí como por workflows asistidos por LLM
+- recuperación a largo plazo y workflows asistidos por LLM
 
 ---
 
-## Cómo está organizado este vault
+## Cómo está organizado este atlas
 
-El vault está dividido en ramas canónicas.
+El atlas está dividido en ramas canónicas.
 
 ### Orientación (empezá acá)
 
@@ -85,20 +85,20 @@ No es una fase. Leela junto con todo lo demás.
 
 ### Fase 1 — Sustrato (cómo funcionan realmente las cosas)
 
-> Página de entrada: [[phase-1-substrate|Fase 1 — Sustrato]] — primera pasada curada de 12 notas + camino extendido de 13 notas por Networking + Web Security + Cryptography.
+> Página de entrada: [[phase-1-substrate|Fase 1 — Sustrato]] — primera pasada curada + camino extendido por Networking + Web Security + Cryptography.
 > 1. [[index|Networking]] — el sustrato de todo lo demás.
 > 2. [[index|Web Security]] — la superficie diaria que la mayoría de gente de IT toca.
 > 3. [[index|Cryptography]] — la capa de correctness; cobra sentido después de que TLS y sesiones son concretos.
 
 ### Fase 2 — Offense / defense en pares
 
-> Página de entrada: [[phase-2-offense-defense|Fase 2 — Offense / Defense (en pares)]] — 6 pares de primera pasada + 3 pares extendidos, cada uno con el ritual de lectura en pares de 4 pasos.
+> Página de entrada: [[phase-2-offense-defense|Fase 2 — Offense / Defense (en pares)]] — pares de primera pasada + pares extendidos, cada uno con el ritual de lectura en pares.
 > 4. [[index|Offensive Security / Recon]] — cómo los atacantes descubren y validan.
 > 5. [[index|Detection Engineering]] — leer nota por nota emparejada con #4.
 
 ### Fase 3 — Superficie de operador
 
-> Página de entrada: [[phase-3-operator|Fase 3 — Superficie de operador]] — loop de workflow de 4 ramas (surface mapping -> OSINT -> privesc -> playbooks) con un camino curado de primera pasada de 12 notas.
+> Página de entrada: [[phase-3-operator|Fase 3 — Superficie de operador]] — loop de workflow entre surface mapping, OSINT, privesc y playbooks, con un camino curado de primera pasada.
 > 6. [[index|Attack Surface Mapping]] — qué está realmente expuesto.
 > 7. [[index|OSINT]] — manejo de evidencia de fuentes públicas.
 > 8. [[index|Linux Privilege Escalation]] — fallas de límites locales después de un foothold.
@@ -106,7 +106,7 @@ No es una fase. Leela junto con todo lo demás.
 
 ### Fase 4 — Specialty tracks (elegí lo que tu trabajo demande)
 
-> Página de entrada: [[phase-4-specialty|Fase 4 — Specialty Tracks]] — shaped por persona: 6 tracks (API / Cloud / DevSecOps / Wireless / Identity & AD / Binary Exploitation), cada uno con sus condiciones de entrada y camino curado. Elegí uno; la lectura generalista en paralelo es el movimiento equivocado acá.
+> Página de entrada: [[phase-4-specialty|Fase 4 — Specialty Tracks]] — shaped por persona, con tracks por contexto (API / Cloud / DevSecOps / Wireless / Identity & AD / Binary Exploitation), cada uno con sus condiciones de entrada y camino curado. Elegí uno; la lectura generalista en paralelo es el movimiento equivocado acá.
 > 10. [[index|API Security]]
 > 11. [[index|Cloud Security]]
 > 12. [[index|DevSecOps]]
@@ -268,7 +268,7 @@ Estas son las notas source-of-truth para referencias en cada rama.
 
 ---
 
-## Reglas de trabajo del vault
+## Reglas de trabajo del atlas
 
 ### Notas canónicas
 

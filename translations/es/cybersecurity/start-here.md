@@ -1,6 +1,6 @@
-# Empezá acá — triage del vault de ciberseguridad
+# Empezá acá — guía del atlas de ciberseguridad
 
-Llegaste a un vault de 240 notas organizado en 14 ramas. Leerlo linealmente es incorrecto. Esta página te enruta al camino correcto según **quién sos ahora mismo**.
+Llegaste a un atlas de ciberseguridad organizado por fases, ramas y playbooks. Leerlo linealmente es incorrecto. Esta página te enruta al camino correcto según **quién sos ahora mismo**.
 
 Si no estás seguro de qué persona encaja, arrancá por **"Soy nuevo en ciberseguridad"**: el camino no cuesta nada extra y los fundamentos aplican a todos.
 
@@ -12,10 +12,10 @@ Usaste computadoras, quizás trabajás en IT, pero nunca pensaste security-first
 
 **Tu camino (4-8 semanas de lectura casual):**
 
-1. **Leé [[index|Fundamentos]] (Fase 0) de punta a punta.** 4 notas, ~1 hora. Es el framework que todo lo demás asume.
-2. **Leé [[phase-1-substrate|Fase 1 — Sustrato]]** para el recorrido curado de primera pasada de 12 notas por Networking -> Web Security -> Cryptography. Salteá notas que profundicen más de lo que necesitás en la primera vuelta; podés volver.
+1. **Leé [[index|Fundamentos]] (Fase 0) de punta a punta.** Es el framework que todo lo demás asume.
+2. **Leé [[phase-1-substrate|Fase 1 — Sustrato]]** para el recorrido curado de primera pasada por Networking -> Web Security -> Cryptography. Salteá notas que profundicen más de lo que necesitás en la primera vuelta; podés volver.
 3. **Leé la lista [[must-know-30|Must-Know 30]]** para ver dónde estás vs dónde querés estar.
-4. **Abrí [[phase-2-offense-defense|Fase 2 — Offense / Defense (en pares)]] y leé sus primeros 6 pares.** Ahí empieza a componer la *habilidad real*. La página vuelve operativo el pairing (ritual de 4 pasos por par) para que realmente leas ambos lados en vez de uno solo.
+4. **Abrí [[phase-2-offense-defense|Fase 2 — Offense / Defense (en pares)]] y leé sus pares de primera pasada.** Ahí empieza a componer la *habilidad real*. La página vuelve operativo el pairing para que realmente leas ambos lados en vez de uno solo.
 5. **Dejá de intentar aprender todo.** Especializate cuando tengas un contexto laboral que lo demande.
 
 ---
