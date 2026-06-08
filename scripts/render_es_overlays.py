@@ -456,6 +456,18 @@ def entry_layer_labels() -> dict[str, str]:
     return labels
 
 
+def overlay_related_metadata() -> dict[str, tuple[str, str]]:
+    metadata: dict[str, tuple[str, str]] = {}
+    for overlay in overlay_paths():
+        rel_md = overlay.relative_to(TRANSLATIONS)
+        md = overlay.read_text(encoding="utf-8")
+        title = first_heading(md)
+        description = first_paragraph_text(md)
+        if title or description:
+            metadata[rel_md.with_suffix(".html").as_posix()] = (title, description)
+    return metadata
+
+
 def update_entry_sidebar_labels(page: str, labels: dict[str, str]) -> str:
     for slug, label in labels.items():
         label_html = html.escape(label)
@@ -477,6 +489,35 @@ def update_entry_related_titles(page: str, labels: dict[str, str]) -> str:
             flags=re.S,
         )
     return page
+
+
+def update_related_notes(page: str, page_path: Path, metadata: dict[str, tuple[str, str]]) -> str:
+    page = re.sub(
+        r'<section class="related-notes" aria-label="[^"]*">\s*<h2>.*?</h2>',
+        '<section class="related-notes" aria-label="Notas relacionadas">\n<h2>Notas relacionadas</h2>',
+        page,
+        count=1,
+        flags=re.S,
+    )
+
+    page_dir = page_path.relative_to(SITE_ES).parent.as_posix()
+
+    def repl(m: re.Match) -> str:
+        href = html.unescape(m.group(2))
+        href_path = href.split("#", 1)[0].split("?", 1)[0]
+        rel = posixpath.normpath(posixpath.join(page_dir, href_path))
+        title, description = metadata.get(rel, ("", ""))
+        branch_html = "Ciberseguridad" if html_text(m.group(3)) == "Cybersecurity" else m.group(3)
+        title_html = html.escape(title) if title else m.group(5)
+        description_html = html.escape(description) if description else m.group(7)
+        return m.group(1) + branch_html + m.group(4) + title_html + m.group(6) + description_html + m.group(8)
+
+    return re.sub(
+        r'(<a class="related-card" href="([^"]+)"><span>)(.*?)(</span><strong>)(.*?)(</strong><small>)(.*?)(</small></a>)',
+        repl,
+        page,
+        flags=re.S,
+    )
 
 
 def update_search_json(updated: dict[str, tuple[str, str, str]]) -> None:
@@ -511,6 +552,7 @@ def main() -> int:
         sys.exit("error: site/es does not exist")
     slug_index = build_slug_index()
     sidebar_labels = entry_layer_labels()
+    related_metadata = overlay_related_metadata()
     updated: dict[str, tuple[str, str, str]] = {}
     count = 0
     missing: list[str] = []
@@ -533,6 +575,7 @@ def main() -> int:
         page = update_metadata(page, title, description, rendered)
         page = update_entry_sidebar_labels(page, sidebar_labels)
         page = update_entry_related_titles(page, sidebar_labels)
+        page = update_related_notes(page, page_path, related_metadata)
 
         rel_url = page_path.relative_to(SITE_ES).as_posix()
         updated[rel_url] = (title, description, html_text(rendered))

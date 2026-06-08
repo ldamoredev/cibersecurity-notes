@@ -381,6 +381,7 @@ def page_kind(note: Note) -> str:
 
 
 _TITLE_CACHE: dict[str, dict[str, str]] = {}
+_DESCRIPTION_CACHE: dict[str, dict[str, str]] = {}
 
 
 def localized_title(note: Note) -> str:
@@ -412,6 +413,32 @@ def localized_title(note: Note) -> str:
 
 def note_label(note: Note) -> str:
     return localized_title(note)
+
+
+def localized_description(note: Note) -> str:
+    """Description for related cards/search snippets in the current locale.
+
+    When an overlay exists, use its first real paragraph so generated chrome
+    around translated notes does not leak English copy.
+    """
+    if CURRENT_LOCALE == DEFAULT_LOCALE:
+        return ""
+    cache = _DESCRIPTION_CACHE.setdefault(CURRENT_LOCALE, {})
+    key = str(note.rel_path)
+    if key not in cache:
+        desc = ""
+        overlay = TRANSLATIONS_ROOT / CURRENT_LOCALE / note.rel_path
+        if overlay.exists():
+            try:
+                raw = overlay.read_text(encoding="utf-8")
+                m = FRONTMATTER_RE.match(raw)
+                if m:
+                    raw = raw[m.end():]
+                desc = first_content_paragraph(raw)
+            except OSError:
+                pass
+        cache[key] = desc
+    return cache[key]
 
 
 def branch_label(slug: str) -> str:
@@ -970,6 +997,10 @@ def truncate_description(value: str, limit: int = 165) -> str:
 
 
 def note_description(note: Note) -> str:
+    localized = localized_description(note)
+    if localized:
+        return truncate_description(localized)
+
     fm_description = note.frontmatter.get("description") or note.frontmatter.get("summary")
     if isinstance(fm_description, str) and fm_description.strip():
         return truncate_description(fm_description)
@@ -1224,14 +1255,15 @@ def related_notes_html(note: Note, all_notes: list[Note]) -> str:
     if not candidates:
         return ""
 
+    related_label = html.escape(t("related_notes"))
     lines = [
-        '<section class="related-notes" aria-label="Explore nearby notes">',
-        "<h2>Explore nearby notes</h2>",
+        f'<section class="related-notes" aria-label="{related_label}">',
+        f"<h2>{related_label}</h2>",
         '<div class="related-grid">',
     ]
     for _, _, other in sorted(candidates, key=lambda x: (-x[0], x[1]))[:6]:
         href = os.path.relpath(other.out_path, here)
-        branch_name = branch_label(branch_slug(other)) if branch_slug(other) else "Cybersecurity"
+        branch_name = branch_label(branch_slug(other)) if branch_slug(other) else t("bc_cyber")
         desc = note_description(other)
         lines.append(
             f'<a class="related-card" href="{html.escape(href)}">'
@@ -2048,6 +2080,7 @@ STYLE_CSS = r"""
 .branch-nav-link { display: flex; flex-direction: column; gap: .25rem; line-height: 1.35; }
 .branch-nav-link.next { text-align: right; align-items: flex-end; }
 .nav-dir, .related-card span {
+  display: block;
   color: var(--accent);
   font-family: var(--font-mono);
   font-size: .72rem;
