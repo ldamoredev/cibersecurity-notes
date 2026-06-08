@@ -41,6 +41,14 @@ MD_LINK_RE = re.compile(r"(?<!!)\[([^\]]+)\]\(([^)]+)\)")
 CODE_SPAN_RE = re.compile(r"`([^`]+)`")
 LIST_RE = re.compile(r"^(\s*)([-*]|\d+\.)\s+(.*)$")
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*$")
+ENTRY_LAYER_SLUGS = (
+    "start-here",
+    "must-know-30",
+    "phase-1-substrate",
+    "phase-2-offense-defense",
+    "phase-3-operator",
+    "phase-4-specialty",
+)
 
 
 def slugify(text: str) -> str:
@@ -337,14 +345,32 @@ def first_paragraph_text(md: str) -> str:
 
 def update_metadata(page: str, title: str, description: str, article_html: str) -> str:
     if title:
+        def title_with_existing_suffix(current_title: str) -> str:
+            current_title = html.unescape(current_title)
+            if " | " in current_title:
+                return title + current_title[current_title.index(" | ") :]
+            if " - " in current_title:
+                return title + current_title[current_title.index(" - ") :]
+            return title
+
         page = re.sub(
             r"<title>.*?</title>",
-            lambda m: f"<title>{html.escape(title)} - " + html.escape(html.unescape(re.sub(r"^.*? - ", "", m.group(0)[7:-8], count=1))) + "</title>"
-            if " - " in m.group(0)
-            else f"<title>{html.escape(title)}</title>",
+            lambda m: f"<title>{html.escape(title_with_existing_suffix(m.group(0)[7:-8]))}</title>",
             page,
             count=1,
             flags=re.S,
+        )
+        page = re.sub(
+            r'(<meta property="og:title" content=")([^"]*)(">)',
+            lambda m: m.group(1) + html.escape(title_with_existing_suffix(m.group(2)), quote=True) + m.group(3),
+            page,
+            count=1,
+        )
+        page = re.sub(
+            r'(<meta name="twitter:title" content=")([^"]*)(">)',
+            lambda m: m.group(1) + html.escape(title_with_existing_suffix(m.group(2)), quote=True) + m.group(3),
+            page,
+            count=1,
         )
         page = re.sub(
             r'(<nav class="breadcrumbs"[^>]*>.*?<span>)(.*?)(</span></nav>)',
@@ -377,7 +403,13 @@ def update_json_ld(page: str, title: str, description: str) -> str:
             if title:
                 item["headline"] = title
                 if "name" in item:
-                    item["name"] = re.sub(r"^.*?( - )", title + r"\1", item["name"], count=1)
+                    current_name = str(item["name"])
+                    if " | " in current_name:
+                        item["name"] = title + current_name[current_name.index(" | ") :]
+                    elif " - " in current_name:
+                        item["name"] = title + current_name[current_name.index(" - ") :]
+                    else:
+                        item["name"] = title
             if description:
                 item["description"] = description[:157] + "..." if len(description) > 160 else description
         if item.get("@type") == "BreadcrumbList" and title:
@@ -412,6 +444,41 @@ def update_toc(page: str, rendered: str) -> str:
     return TOC_RE.sub(lambda m: m.group(1) + "\n" + "\n".join(links) + "\n" + m.group(3), page, count=1)
 
 
+def entry_layer_labels() -> dict[str, str]:
+    labels: dict[str, str] = {}
+    for slug in ENTRY_LAYER_SLUGS:
+        overlay = TRANSLATIONS / "cybersecurity" / f"{slug}.md"
+        if not overlay.exists():
+            continue
+        label = first_heading(overlay.read_text(encoding="utf-8"))
+        if label:
+            labels[slug] = label
+    return labels
+
+
+def update_entry_sidebar_labels(page: str, labels: dict[str, str]) -> str:
+    for slug, label in labels.items():
+        label_html = html.escape(label)
+        page = re.sub(
+            rf'(<a class="sidebar-link kind-concept(?: active)?" href="[^"]*{re.escape(slug)}\.html">)(.*?)(</a>)',
+            lambda m: m.group(1) + label_html + m.group(3),
+            page,
+            flags=re.S,
+        )
+    return page
+
+
+def update_entry_related_titles(page: str, labels: dict[str, str]) -> str:
+    for slug, label in labels.items():
+        page = re.sub(
+            rf'(<a class="related-card" href="[^"]*{re.escape(slug)}\.html"><span>.*?</span><strong>)(.*?)(</strong>)',
+            lambda m: m.group(1) + html.escape(label) + m.group(3),
+            page,
+            flags=re.S,
+        )
+    return page
+
+
 def update_search_json(updated: dict[str, tuple[str, str, str]]) -> None:
     search_path = SITE_ES / "search.json"
     if not search_path.exists():
@@ -443,6 +510,7 @@ def main() -> int:
     if not SITE_ES.exists():
         sys.exit("error: site/es does not exist")
     slug_index = build_slug_index()
+    sidebar_labels = entry_layer_labels()
     updated: dict[str, tuple[str, str, str]] = {}
     count = 0
     missing: list[str] = []
@@ -463,6 +531,8 @@ def main() -> int:
         page = replace_article_body(page, rendered)
         page = update_toc(page, rendered)
         page = update_metadata(page, title, description, rendered)
+        page = update_entry_sidebar_labels(page, sidebar_labels)
+        page = update_entry_related_titles(page, sidebar_labels)
 
         rel_url = page_path.relative_to(SITE_ES).as_posix()
         updated[rel_url] = (title, description, html_text(rendered))
