@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nmap Timing and Evasion | ldamoredev Security Atlas</title>
+<title>Nmap Timing and Evasion - Seguridad Ofensiva / Recon | Cybersecurity Atlas</title>
 <meta name="description" content="El Nmap timing and evasion es el uso de las primitivas de tasa, reintento, paralelismo y forma de paquete de Nmap para (a) reducir resultados filtered falsos...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Seguridad Ofensiva / Recon, Nmap Timing and Evasion, offensive-security, nmap, timing, evasion, ids">
-<meta name="theme-color" content="#16a34a">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Seguridad Ofensiva / Recon, Nmap Timing and Evasion">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/nmap-timing-and-evasion.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Seguridad Ofensiva / Recon">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nmap Timing and Evasion | ldamoredev Security Atlas">
+<meta property="og:title" content="Nmap Timing and Evasion - Seguridad Ofensiva / Recon | Cybersecurity Atlas">
 <meta property="og:description" content="El Nmap timing and evasion es el uso de las primitivas de tasa, reintento, paralelismo y forma de paquete de Nmap para (a) reducir resultados filtered falsos...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/nmap-timing-and-evasion.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nmap Timing and Evasion | ldamoredev Security Atlas">
+<meta name="twitter:title" content="Nmap Timing and Evasion - Seguridad Ofensiva / Recon | Cybersecurity Atlas">
 <meta name="twitter:description" content="El Nmap timing and evasion es el uso de las primitivas de tasa, reintento, paralelismo y forma de paquete de Nmap para (a) reducir resultados filtered falsos...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/nmap-timing-and-evasion.html#article","name":"Nmap Timing and Evasion | ldamoredev Security Atlas","headline":"Nmap Timing and Evasion","description":"El Nmap timing and evasion es el uso de las primitivas de tasa, reintento, paralelismo y forma de paquete de Nmap para (a) reducir resultados filtered falsos...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/nmap-timing-and-evasion.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/nmap-timing-and-evasion.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Ofensiva / Recon","Nmap Timing and Evasion","offensive-security","nmap","timing","evasion","ids"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Ofensiva / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"Nmap Timing and Evasion","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/nmap-timing-and-evasion.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/nmap-timing-and-evasion.html#article","name":"Nmap Timing and Evasion - Seguridad Ofensiva / Recon | Cybersecurity Atlas","headline":"Nmap Timing and Evasion","description":"El Nmap timing and evasion es el uso de las primitivas de tasa, reintento, paralelismo y forma de paquete de Nmap para (a) reducir resultados filtered falsos...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/nmap-timing-and-evasion.html","inLanguage":"es","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/nmap-timing-and-evasion.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Ofensiva / Recon","Nmap Timing and Evasion"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Ofensiva / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"Nmap Timing and Evasion","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/nmap-timing-and-evasion.html"}]}]</script>
+<meta property="article:section" content="Seguridad Ofensiva / Recon">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/nmap-timing-and-evasion.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/nmap-timing-and-evasion.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/nmap-timing-and-evasion.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Base de Conocimiento</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Superficie de ataque y señal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Inicio del Atlas</a>
 <div class="sidebar-section"><h3>Capa de entrada</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Fase 2 — Offense / Defense (en pares)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Fase 3 — Superficie de operador (concepto -&gt; capacidad)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Fase 4 — Specialty Tracks (elegí lo que tu trabajo demande)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Ruta de aprendizaje</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Resumen</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="La dualidad atacante-defensor como herramienta de aprendizaje">La dualidad atacante-defensor como herramienta de apr…</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Las certificaciones como señales de validación">Las certificaciones como señales de validación</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="Tríada CIA — Qué decide en realidad">Tríada CIA — Qué decide en realidad</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Especialización por contexto de trabajo">Especialización por contexto de trabajo</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Alfabetización mínima viable en ciberseguridad">Alfabetización mínima viable en ciberseguridad</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Arranque rápido de modelado de amenazas">Arranque rápido de modelado de amenazas</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="Qué es la ciberseguridad, y por qué no es una lista de herramientas">Qué es la ciberseguridad, y por qué no es una lista d…</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Criptografía</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Resumen</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -84,11 +93,11 @@
 <a class="nav-leaf" href="../cryptography/password-hashing.html" title="Password Hashing">Password Hashing</a>
 <a class="nav-leaf" href="../cryptography/post-quantum-awareness.html" title="Post-Quantum Awareness">Post-Quantum Awareness</a>
 <a class="nav-leaf" href="../cryptography/random-and-csprng-pitfalls.html" title="Random and CSPRNG Pitfalls">Random and CSPRNG Pitfalls</a>
-<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll Your Own Crypto Failures">Roll Your Own Crypto Failures</a>
+<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll-Your-Own Crypto Failures">Roll-Your-Own Crypto Failures</a>
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Resumen</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caché y seguridad">Caché y seguridad</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Confianza en la IP del cliente">Confianza en la IP del cliente</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="Resolución DNS">Resolución DNS</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="Seguridad de DNS">Seguridad de DNS</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls y fronteras de red">Firewalls y fronteras de red</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Confianza en headers en Node Express">Confianza en headers en Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="Headers HTTP">Headers HTTP</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="Mensajes HTTP">Mensajes HTTP</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS y HTTPS">TLS y HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Flujos de trabajo con Wireshark">Flujos de trabajo con Wireshark</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Resumen</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Fallas de autenticación">Fallas de autenticación</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Control de acceso roto">Control de acceso roto</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Fronteras de seguridad del navegador">Fronteras de seguridad del navegador</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Seguridad Ofensiva / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="index.html">Resumen</a>
 <a class="nav-leaf" href="active-recon.html" title="Active Recon">Active Recon</a>
@@ -162,7 +173,7 @@
 <a class="nav-leaf" href="passive-recon.html" title="Passive Recon">Passive Recon</a>
 <a class="nav-leaf" href="public-asset-discovery.html" title="Public Asset Discovery">Public Asset Discovery</a>
 <a class="nav-leaf" href="recon.html" title="Recon">Recon</a>
-<a class="nav-leaf" href="recon-to-testing-handoff.html" title="Recon to Testing Handoff">Recon to Testing Handoff</a>
+<a class="nav-leaf" href="recon-to-testing-handoff.html" title="Recon-to-Testing Handoff">Recon-to-Testing Handoff</a>
 <a class="nav-leaf" href="rustscan-and-nse-pipeline.html" title="RustScan and NSE Pipeline">RustScan and NSE Pipeline</a>
 <a class="nav-leaf" href="scope-validation.html" title="Scope Validation">Scope Validation</a>
 <a class="nav-leaf" href="service-validation.html" title="Service Validation">Service Validation</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="operator-loop.html" title="El loop del operador">El loop del operador</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Resumen</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Disciplina de Network Security Monitoring (NSM)">Disciplina de Network Security Monitoring (NSM)</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Mapeo de Superficie de Ataque</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Resumen</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,15 +238,16 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Resumen</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detectar la recolección de BloodHound">Detectar la recolección de BloodHound</a>
-<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detect DCSync and ntds.dit Access">Detect DCSync and ntds.dit Access</a>
+<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detectar DCSync y acceso a ntds.dit">Detectar DCSync y acceso a ntds.dit</a>
 <a class="nav-leaf" href="../security-playbooks/detect-external-scan-pipeline.html" title="Detect External Recon Scan Pipeline">Detect External Recon Scan Pipeline</a>
-<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
+<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detectar Kerberoasting y AS-REP Roasting">Detectar Kerberoasting y AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -293,8 +306,8 @@
 <details class="nav-branch accent-green"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="nb-name">DevSecOps</span></span><span class="nb-right"><span class="count">13</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../devsecops/index.html">Resumen</a>
 <a class="nav-leaf" href="../devsecops/artifact-integrity.html" title="Artifact Integrity">Artifact Integrity</a>
-<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS as Dev Process Input">ASVS as Dev Process Input</a>
-<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Branch Protection and Release Controls">Branch Protection and Release Controls</a>
+<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS como input del proceso de desarrollo">ASVS como input del proceso de desarrollo</a>
+<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Protección de ramas y controles de release">Protección de ramas y controles de release</a>
 <a class="nav-leaf" href="../devsecops/ci-cd-hardening.html" title="CI/CD Hardening">CI/CD Hardening</a>
 <a class="nav-leaf" href="../devsecops/container-security.html" title="Container Security">Container Security</a>
 <a class="nav-leaf" href="../devsecops/dependency-risk.html" title="Dependency Risk">Dependency Risk</a>
@@ -372,7 +385,7 @@
 <div class="sidebar-section"><h3>Sistema de referencia</h3>
 <details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="ns-name">Registros</span></span><span class="ns-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <a class="nav-child" href="../reference-registry.html"><span class="nc-left"><span class="nc-name">Cybersecurity Reference Registry</span></span></a>
-<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Reference Registry - Detection Engineering</span></span></a>
+<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Registro de Referencia - Ingeniería de Detección</span></span></a>
 <a class="nav-child" href="../reference-registry-privacy-anonymity-opsec.html"><span class="nc-left"><span class="nc-name">Reference Registry - Privacy, Anonymity &amp; OPSEC</span></span></a>
 <a class="nav-child" href="../reference-registry-api-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — API Security</span></span></a>
 <a class="nav-child" href="../reference-registry-attack-surface-mapping.html"><span class="nc-left"><span class="nc-name">Reference Registry — Attack Surface Mapping</span></span></a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>actualizado · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>actualizado · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -410,168 +423,73 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Nmap Timing and Evasion</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Seguridad Ofensiva / Recon</a><span>/</span><span>Nmap Timing and Evasion</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-rose">Seguridad Ofensiva / Recon</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~5 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#nmap</span><span class="meta-chip tag">#timing</span><span class="meta-chip tag">#evasion</span><span class="meta-chip tag">#ids</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-rose">Seguridad Ofensiva / Recon</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~5 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="nmap-timing-and-evasion">Nmap Timing and Evasion</h1>
-<h2 id="definicion">Definición</h2>
-<p>El Nmap timing and evasion es el uso de las primitivas de tasa, reintento, paralelismo y forma de paquete de Nmap para (a) reducir resultados <code>filtered</code> falsos contra redes con rate limiting o (b) testear qué capturará y qué no un IDS/IPS, WAF o firewall stateful.</p>
-<h2 id="por-que-importa">Por qué importa</h2>
-<p>El comportamiento por defecto de Nmap optimiza para precisión en una LAN tranquila. Los objetivos de internet en producción están detrás de rate limiters, middleboxes que dropean paquetes y thresholds por IP fuente — los valores por defecto producen resultados <em>incorrectos</em> ahí, no solo lentos. El uso senior maneja los dials de timing individuales explícitamente para que el output del scan sea repetible, comparable entre corridas y defendible en un reporte.</p>
+<h1>Nmap Timing and Evasion</h1>
+<h2>Definición</h2>
+<p>El Nmap timing and evasion es el uso de las primitivas de tasa, reintento, paralelismo y forma de paquete de Nmap para (a) reducir resultados `filtered` falsos contra redes con rate limiting o (b) testear qué capturará y qué no un IDS/IPS, WAF o firewall stateful.</p>
+<h2>Por qué importa</h2>
+<p>El comportamiento por defecto de Nmap optimiza para precisión en una LAN tranquila. Los objetivos de internet en producción están detrás de rate limiters, middleboxes que dropean paquetes y thresholds por IP fuente — los valores por defecto producen resultados *incorrectos* ahí, no solo lentos. El uso senior maneja los dials de timing individuales explícitamente para que el output del scan sea repetible, comparable entre corridas y defendible en un reporte.</p>
 <p>Las primitivas de evasión importan menos para esconderse (la inspección stateful moderna las neutraliza en su mayoría) y más como toolkit de diagnóstico: cada primitiva aísla una capa de inspección, así que una matriz de probes te dice exactamente qué control te capturó.</p>
-<h2 id="como-funciona">Cómo funciona</h2>
-<p>El timing de Nmap es <strong>5 dials</strong> vestidos como una plantilla:</p>
-<ol>
-<li><strong>Timeout por probe</strong> (<code>--min-rtt-timeout</code>, <code>--max-rtt-timeout</code>, <code>--initial-rtt-timeout</code>) — cuánto esperar antes de declarar un probe perdido.</li>
-<li><strong>Conteo de reintentos</strong> (<code>--max-retries</code>) — cuántas veces reenviar un probe perdido antes de llamar el puerto <code>filtered</code>.</li>
-<li><strong>Concurrencia</strong> (<code>--min-parallelism</code>, <code>--max-parallelism</code>) — cuántos probes en vuelo mantiene Nmap.</li>
-<li><strong>Tasa</strong> (<code>--min-rate</code>, <code>--max-rate</code>) — piso/techo de paquetes-por-segundo, el dial más predecible.</li>
-<li><strong>Espaciado</strong> (<code>--scan-delay</code>, <code>--max-scan-delay</code>) — brecha determinística entre probes para derrotar los detectores de rate limiting.</li>
-</ol>
-<p>Las plantillas <code>-T0</code> a <code>-T5</code> son combinaciones preestablecidas de esos 5 dials:</p>
-<div class="codehilite"><pre><span></span><code>-T0 paranoid    5 min between probes        IDS evasion theatre
--T1 sneaky      15 s between probes         IDS evasion theatre
--T2 polite      0.4 s spacing, low rate     shared-network considerate
--T3 normal      Nmap default                LAN baseline
--T4 aggressive  fast, max-retries 6         what most tutorials use
--T5 insane      very fast, max-retries 2    accuracy starts dropping
-</code></pre></div>
-<p>El error en la mayoría de los engagements no es &quot;el scan fue demasiado lento&quot;; es &quot;el scan fue rate-limited por un control upstream y Nmap silenciosamente reetiquetó puertos <code>open</code> como <code>filtered</code>.&quot;</p>
-<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
-<ul>
-<li>Anclar <strong><code>--min-rate</code></strong> en lugar de <code>-T</code> para corridas reproducibles (ej. <code>--min-rate 100 --max-rate 300</code>).</li>
-<li>Detectar rate limiting con <strong>dos corridas a diferentes tasas</strong>: si el conteo de <code>filtered</code> sube bruscamente a tasas más altas, hay un rate limiter en el camino, no un firewall que bloquea el puerto directamente.</li>
-<li>Usar <strong><code>--scan-delay</code></strong> cuando un IDS se activa en N probes dentro de W segundos — el espaciado determinístico bajo el threshold supera el timing aleatorio.</li>
-<li>Usar <strong><code>--max-retries 1</code></strong> para descubrimiento rápido en primera pasada, luego reescanear solo puertos <code>open</code> y <code>open|filtered</code> con <code>--max-retries 6</code> y <code>-Pn</code>.</li>
-<li><strong>Source-port spoofing</strong> (<code>--source-port 53</code>, <code>--source-port 88</code>) — muchas ACLs de firewall viejas confían en tráfico <em>desde</em> el puerto 53/88 para permitir retornos DNS/Kerberos. Todavía funciona en ACLs de perímetro mal configuradas en 2026.</li>
-<li><strong><code>--badsum</code></strong> — detección de IDS: los OS reales dropean paquetes con checksum inválido, los motores IDS que no validan el checksum responden de todas formas y se delatan.</li>
-<li><strong><code>--data-length N</code></strong> — varía el tamaño del payload del probe, derrotando reglas de firma que coinciden en longitud exacta.</li>
-</ul>
-<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
-<p>El uso senior se agrupa en <strong>4 modos</strong>.</p>
-<h3 id="1-preciso-contra-rate-limiters">1. Preciso contra rate limiters</h3>
-<p>Objetivo: obtener el estado <code>open</code> verdadero en un objetivo hardened. <code>nmap -Pn -sS --min-rate 200 --max-rate 500 --max-retries 3 -p- target</code>. Dials anclados, no manejados por plantilla.</p>
-<h3 id="2-matriz-de-forma-de-paquete-diagnostica">2. Matriz de forma de paquete diagnóstica</h3>
-<p>Objetivo: descubrir qué capa de inspección capturó el scan. Correr la <em>misma</em> lista de puertos con <code>-f</code>, <code>--mtu 16</code>, <code>--data-length 200</code>, <code>--badsum</code>, <code>--source-port 53</code> y <code>-D RND:10</code> por separado. Cualquier variante que devuelve <code>open</code> revela qué inspecciona y qué no el middlebox.</p>
-<h3 id="3-stealth-desde-logs-idle-scan">3. Stealth desde logs (idle scan)</h3>
-<p><code>nmap -sI zombie:port target</code> — la IP del scanner nunca aparece en los logs del objetivo. Requiere un host &quot;zombie&quot; con IPID globalmente incremental. La mayoría de OS modernos randomiza IPID; esta es ahora una técnica de nicho para entornos legacy.</p>
-<h3 id="4-enganos-de-source-port-y-ttl">4. Engaños de source-port y TTL</h3>
-<p><code>--source-port 53</code> y <code>--ttl N</code> explotan ACLs stateless que confían en <em>source-port igual a 53</em> o <em>TTL igual al hop-count esperado</em>. Ambos son patrones legacy, ambos todavía aparecen en appliances viejos.</p>
-<h2 id="impacto">Impacto</h2>
-<ul>
-<li><strong>Falsos negativos</strong> al usar <code>-T4</code> por defecto contra objetivos con rate limiting, perdiendo exposición real.</li>
-<li><strong>Detección del engagement</strong> — un scan <code>-T5</code> activa la mayoría de IDS/WAFs modernos en segundos.</li>
-<li><strong>Blowback de scope</strong> — <code>-D</code> con decoys aleatorios puede incluir IPs de terceros en scope como fuentes falsas, lo que algunos pipelines IDS escalan a quejas de abuso.</li>
-<li><strong>Interrupción de servicio</strong> — <code>-T5 --min-rate 50000</code> contra un dispositivo embebido o servicio de bajo rendimiento puede colgarlo.</li>
-</ul>
-<h2 id="deteccion-y-defensa">Detección y defensa</h2>
-<ol>
-<li><strong>Inspección stateful más rate limiting por IP fuente.</strong><br>
-La combinación derrota casi todos los trucos de stealth y timing de Nmap a la vez.</li>
-<li><strong>Reglas IDS atadas a combinaciones de flags TCP.</strong><br>
-<code>-sN</code>, <code>-sF</code>, <code>-sX</code>, <code>-sM</code> envían combinaciones de flags inválidas. Los rule sets por defecto de Snort/Suricata/Zeek las capturan de manera confiable.</li>
-<li><strong>Detección de anomalías basada en distribución de la distribución de probes.</strong><br>
-La entropía por IP fuente en destino-puerto × tiempo derrota la evasión por <code>--scan-delay</code> porque el <em>fingerprint</em> (una fuente tocando muchos puertos, aunque sea despacio) todavía es anómalo.</li>
-<li><strong>Honeyports / tarpits.</strong><br>
-Unos pocos puertos monitoreados que nunca deberían ver tráfico convierten cualquier scan externo en una alerta de alta confianza sin falsos positivos.</li>
-</ol>
-<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
-<ul>
-<li><strong>Esconder el perímetro</strong> (&quot;no estamos listados en DNS&quot;) — Masscan/Shodan igual te ven.</li>
-<li><strong>Supresión de banners</strong> como control primario — reduce ruido en el output NSE, no explotabilidad.</li>
-<li><strong>Bloquear <code>-Pn</code></strong> dropeando ICMP echo — Nmap usa probes TCP cuando el ICMP está filtrado; no bloqueaste el descubrimiento, solo lo hiciste más lento.</li>
-</ul>
-<h2 id="labs-practicos">Labs prácticos</h2>
-<div class="codehilite"><pre><span></span><code># Lab 1 — reveal rate limiting on an authorized target.
-nmap -Pn -sS -p 1-1000 --min-rate 50 --max-rate 100 -oN slow.txt LAB
-nmap -Pn -sS -p 1-1000 --min-rate 5000 --max-rate 5000 -oN fast.txt LAB
-diff &lt;(grep &#x27;^[0-9]&#x27; slow.txt) &lt;(grep &#x27;^[0-9]&#x27; fast.txt)
-# What ports moved from open -&gt; filtered between runs is the rate-limit signature.
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code># Lab 2 — packet-shape diagnostic matrix on one open port.
-PORT=443
-for FLAG in &quot;&quot; &quot;-f&quot; &quot;--mtu 16&quot; &quot;--data-length 200&quot; &quot;--badsum&quot; &quot;--source-port 53&quot;; do
-  echo &quot;===== $FLAG&quot;
-  nmap -Pn -sS -p $PORT $FLAG LAB
-done
-# Whichever invocation still reports open tells you what the inspection device skipped.
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code># Lab 3 — confirm an IDS validates checksums.
-nmap -Pn --badsum -p 80,443 LAB
-# Real targets answer with nothing (OS drops invalid checksum). If you get RST/ACK,
-# something on path is replying without validating the TCP checksum — an inline IDS.
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code># Lab 4 — idle scan against an authorized lab zombie.
-sudo nmap -sn -PR LAB_NET                            # find candidate zombies
-sudo nmap -sI ZOMBIE:80 -p 22,80,443,3389 TARGET     # only works if ZOMBIE has incrementing IPID
-# Verify with: nmap -O ZOMBIE  -&gt; look for &quot;IP ID Sequence Generation: Incremental&quot;.
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code># Lab 5 — `--scan-delay` to evade per-source connection-rate IDS.
-sudo nmap -Pn -sS -p 22,80,443,3389 --scan-delay 2s --max-retries 1 LAB
-# Compare alert count in IDS console with and without --scan-delay 2s.
-</code></pre></div>
-<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
-<ul>
-<li><strong>Engagement externo contra app con CDN frontal.</strong> <code>-T4</code> por defecto devuelve todos los puertos <code>filtered</code>; anclar <code>--min-rate 50 --max-rate 100</code> revela puertos abiertos reales detrás del rate limit por IP del CDN.</li>
-<li><strong>Rescan de assets en bug bounty.</strong> <code>nmap -Pn -sS --min-rate 200 -p- ASN-IP-LIST</code> trimestral con flags de timing fijos permite diff de exposición entre trimestres sin ruido de timing.</li>
-<li><strong>Paridad lab vs producción.</strong> Los mismos flags de scan contra staging y producción revelan que el WAF de staging está configurado diferente al de prod — un hallazgo real recurrente.</li>
-<li><strong>Detección de un IDS transparente.</strong> Un probe <code>--badsum</code> a un puerto cerrado conocido que devuelve RST/ACK es un indicador limpio de inspección inline que no valida checksums.</li>
-</ul>
-<h2 id="notas-relacionadas">Notas relacionadas</h2>
-<ul>
-<li><a href="../networking/nmap-scanning.html">Nmap Scanning</a></li>
-<li><a href="../networking/ports-and-services.html">Puertos y Servicios</a></li>
-<li><a href="../networking/firewalls-and-network-boundaries.html">Firewalls y Límites de Red</a></li>
-<li><a href="host-and-port-discovery.html">Descubrimiento de Hosts y Puertos</a></li>
-<li><a href="active-recon.html">Active Recon</a></li>
-<li><a href="cloaking-and-security-evasion.html">Cloaking and Security Evasion</a></li>
-<li><a href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Detección de Anomalías de Scan y Análisis de Fingerprint</a></li>
-<li><a href="packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a></li>
-<li><a href="masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a></li>
-<li><a href="rustscan-and-nse-pipeline.html">RustScan and NSE Pipeline</a></li>
-</ul>
-<h2 id="referencias">Referencias</h2>
-<ul>
-<li><strong>Docs Oficiales:</strong> Nmap Reference Guide — Timing and Performance — https://nmap.org/book/man-performance.html</li>
-<li><strong>Docs Oficiales:</strong> Nmap Reference Guide — Firewall/IDS Evasion and Spoofing — https://nmap.org/book/man-bypass-firewalls-ids.html</li>
-<li><strong>Investigación / Deep Dive:</strong> ProjectDiscovery Reconnaissance 103 — https://projectdiscovery.io/blog/reconnaissance-series-3-host-and-port-discovery</li>
-</ul>
+<h2>Cómo funciona</h2>
+<p>El timing de Nmap es **5 dials** vestidos como una plantilla:</p>
+<p>1. **Timeout por probe** (`--min-rtt-timeout`, `--max-rtt-timeout`, `--initial-rtt-timeout`) — cuánto esperar antes de declarar un probe perdido. 2. **Conteo de reintentos** (`--max-retries`) — cuántas veces reenviar un probe perdido antes de llamar el puerto `filtered`. 3. **Concurrencia** (`--min-parallelism`, `--max-parallelism`) — cuántos probes en vuelo mantiene Nmap. 4. **Tasa** (`--min-rate`, `--max-rate`) — piso/techo de paquetes-por-segundo, el dial más predecible. 5. **Espaciado** (`--scan-delay`, `--max-scan-delay`) — brecha determinística entre probes para derrotar los detectores de rate limiting.</p>
+<p>Las plantillas `-T0` a `-T5` son combinaciones preestablecidas de esos 5 dials:</p>
+<p>``` -T0 paranoid    5 min between probes        IDS evasion theatre -T1 sneaky      15 s between probes         IDS evasion theatre -T2 polite      0.4 s spacing, low rate     shared-network considerate -T3 normal      Nmap default                LAN baseline -T4 aggressive  fast, max-retries 6         what most tutorials use -T5 insane      very fast, max-retries 2    accuracy starts dropping ```</p>
+<p>El error en la mayoría de los engagements no es &quot;el scan fue demasiado lento&quot;; es &quot;el scan fue rate-limited por un control upstream y Nmap silenciosamente reetiquetó puertos `open` como `filtered`.&quot;</p>
+<h2>Técnicas / patrones</h2>
+<ul><li>Anclar **`--min-rate`** en lugar de `-T` para corridas reproducibles (ej. `--min-rate 100 --max-rate 300`).</li><li>Detectar rate limiting con **dos corridas a diferentes tasas**: si el conteo de `filtered` sube bruscamente a tasas más altas, hay un rate limiter en el camino, no un firewall que bloquea el puerto directamente.</li><li>Usar **`--scan-delay`** cuando un IDS se activa en N probes dentro de W segundos — el espaciado determinístico bajo el threshold supera el timing aleatorio.</li><li>Usar **`--max-retries 1`** para descubrimiento rápido en primera pasada, luego reescanear solo puertos `open` y `open|filtered` con `--max-retries 6` y `-Pn`.</li><li>**Source-port spoofing** (`--source-port 53`, `--source-port 88`) — muchas ACLs de firewall viejas confían en tráfico *desde* el puerto 53/88 para permitir retornos DNS/Kerberos. Todavía funciona en ACLs de perímetro mal configuradas en 2026.</li><li>**`--badsum`** — detección de IDS: los OS reales dropean paquetes con checksum inválido, los motores IDS que no validan el checksum responden de todas formas y se delatan.</li><li>**`--data-length N`** — varía el tamaño del payload del probe, derrotando reglas de firma que coinciden en longitud exacta.</li></ul>
+<h2>Variantes y bypasses</h2>
+<p>El uso senior se agrupa en **4 modos**.</p>
+<h3>1. Preciso contra rate limiters</h3>
+<p>Objetivo: obtener el estado `open` verdadero en un objetivo hardened. `nmap -Pn -sS --min-rate 200 --max-rate 500 --max-retries 3 -p- target`. Dials anclados, no manejados por plantilla.</p>
+<h3>2. Matriz de forma de paquete diagnóstica</h3>
+<p>Objetivo: descubrir qué capa de inspección capturó el scan. Correr la *misma* lista de puertos con `-f`, `--mtu 16`, `--data-length 200`, `--badsum`, `--source-port 53` y `-D RND:10` por separado. Cualquier variante que devuelve `open` revela qué inspecciona y qué no el middlebox.</p>
+<h3>3. Stealth desde logs (idle scan)</h3>
+<p>`nmap -sI zombie:port target` — la IP del scanner nunca aparece en los logs del objetivo. Requiere un host &quot;zombie&quot; con IPID globalmente incremental. La mayoría de OS modernos randomiza IPID; esta es ahora una técnica de nicho para entornos legacy.</p>
+<h3>4. Engaños de source-port y TTL</h3>
+<p>`--source-port 53` y `--ttl N` explotan ACLs stateless que confían en *source-port igual a 53* o *TTL igual al hop-count esperado*. Ambos son patrones legacy, ambos todavía aparecen en appliances viejos.</p>
+<h2>Impacto</h2>
+<ul><li>**Falsos negativos** al usar `-T4` por defecto contra objetivos con rate limiting, perdiendo exposición real.</li><li>**Detección del engagement** — un scan `-T5` activa la mayoría de IDS/WAFs modernos en segundos.</li><li>**Blowback de scope** — `-D` con decoys aleatorios puede incluir IPs de terceros en scope como fuentes falsas, lo que algunos pipelines IDS escalan a quejas de abuso.</li><li>**Interrupción de servicio** — `-T5 --min-rate 50000` contra un dispositivo embebido o servicio de bajo rendimiento puede colgarlo.</li></ul>
+<h2>Detección y defensa</h2>
+<p>1. **Inspección stateful más rate limiting por IP fuente.**    La combinación derrota casi todos los trucos de stealth y timing de Nmap a la vez.</p>
+<p>2. **Reglas IDS atadas a combinaciones de flags TCP.**    `-sN`, `-sF`, `-sX`, `-sM` envían combinaciones de flags inválidas. Los rule sets por defecto de Snort/Suricata/Zeek las capturan de manera confiable.</p>
+<p>3. **Detección de anomalías basada en distribución de la distribución de probes.**    La entropía por IP fuente en destino-puerto × tiempo derrota la evasión por `--scan-delay` porque el *fingerprint* (una fuente tocando muchos puertos, aunque sea despacio) todavía es anómalo.</p>
+<p>4. **Honeyports / tarpits.**    Unos pocos puertos monitoreados que nunca deberían ver tráfico convierten cualquier scan externo en una alerta de alta confianza sin falsos positivos.</p>
+<h3>Qué no funciona como defensa primaria</h3>
+<ul><li>**Esconder el perímetro** (&quot;no estamos listados en DNS&quot;) — Masscan/Shodan igual te ven.</li><li>**Supresión de banners** como control primario — reduce ruido en el output NSE, no explotabilidad.</li><li>**Bloquear `-Pn`** dropeando ICMP echo — Nmap usa probes TCP cuando el ICMP está filtrado; no bloqueaste el descubrimiento, solo lo hiciste más lento.</li></ul>
+<h2>Labs prácticos</h2>
+<p>``` # Lab 1 — reveal rate limiting on an authorized target. nmap -Pn -sS -p 1-1000 --min-rate 50 --max-rate 100 -oN slow.txt LAB nmap -Pn -sS -p 1-1000 --min-rate 5000 --max-rate 5000 -oN fast.txt LAB diff &lt;(grep &#x27;^[0-9]&#x27; slow.txt) &lt;(grep &#x27;^[0-9]&#x27; fast.txt) # What ports moved from open -&gt; filtered between runs is the rate-limit signature. ```</p>
+<p>``` # Lab 2 — packet-shape diagnostic matrix on one open port. PORT=443 for FLAG in &quot;&quot; &quot;-f&quot; &quot;--mtu 16&quot; &quot;--data-length 200&quot; &quot;--badsum&quot; &quot;--source-port 53&quot;; do   echo &quot;===== $FLAG&quot;   nmap -Pn -sS -p $PORT $FLAG LAB done # Whichever invocation still reports open tells you what the inspection device skipped. ```</p>
+<p>``` # Lab 3 — confirm an IDS validates checksums. nmap -Pn --badsum -p 80,443 LAB # Real targets answer with nothing (OS drops invalid checksum). If you get RST/ACK, # something on path is replying without validating the TCP checksum — an inline IDS. ```</p>
+<p>``` # Lab 4 — idle scan against an authorized lab zombie. sudo nmap -sn -PR LAB_NET                            # find candidate zombies sudo nmap -sI ZOMBIE:80 -p 22,80,443,3389 TARGET     # only works if ZOMBIE has incrementing IPID # Verify with: nmap -O ZOMBIE  -&gt; look for &quot;IP ID Sequence Generation: Incremental&quot;. ```</p>
+<p>``` # Lab 5 — `--scan-delay` to evade per-source connection-rate IDS. sudo nmap -Pn -sS -p 22,80,443,3389 --scan-delay 2s --max-retries 1 LAB # Compare alert count in IDS console with and without --scan-delay 2s. ```</p>
+<h2>Ejemplos prácticos</h2>
+<ul><li>**Engagement externo contra app con CDN frontal.** `-T4` por defecto devuelve todos los puertos `filtered`; anclar `--min-rate 50 --max-rate 100` revela puertos abiertos reales detrás del rate limit por IP del CDN.</li><li>**Rescan de assets en bug bounty.** `nmap -Pn -sS --min-rate 200 -p- ASN-IP-LIST` trimestral con flags de timing fijos permite diff de exposición entre trimestres sin ruido de timing.</li><li>**Paridad lab vs producción.** Los mismos flags de scan contra staging y producción revelan que el WAF de staging está configurado diferente al de prod — un hallazgo real recurrente.</li><li>**Detección de un IDS transparente.** Un probe `--badsum` a un puerto cerrado conocido que devuelve RST/ACK es un indicador limpio de inspección inline que no valida checksums.</li></ul>
+<h2>Notas relacionadas</h2>
+<ul><li>&lt;a href=&quot;../networking/nmap-scanning.html&quot;&gt;Nmap Scanning&lt;/a&gt;</li><li>&lt;a href=&quot;../networking/ports-and-services.html&quot;&gt;Puertos y Servicios&lt;/a&gt;</li><li>&lt;a href=&quot;../networking/firewalls-and-network-boundaries.html&quot;&gt;Firewalls y Límites de Red&lt;/a&gt;</li><li>&lt;a href=&quot;host-and-port-discovery.html&quot;&gt;Descubrimiento de Hosts y Puertos&lt;/a&gt;</li><li>&lt;a href=&quot;active-recon.html&quot;&gt;Active Recon&lt;/a&gt;</li><li>&lt;a href=&quot;cloaking-and-security-evasion.html&quot;&gt;Cloaking and Security Evasion&lt;/a&gt;</li><li>&lt;a href=&quot;../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html&quot;&gt;Detección de Anomalías de Scan y Análisis de Fingerprint&lt;/a&gt;</li><li>&lt;a href=&quot;packet-fragmentation-and-decoy-scans.html&quot;&gt;Packet Fragmentation and Decoy Scans&lt;/a&gt;</li><li>&lt;a href=&quot;masscan-internet-scale-scanning.html&quot;&gt;Masscan Internet-Scale Scanning&lt;/a&gt;</li><li>&lt;a href=&quot;rustscan-and-nse-pipeline.html&quot;&gt;RustScan and NSE Pipeline&lt;/a&gt;</li></ul>
+<h2>Referencias</h2>
+<ul><li>**Docs Oficiales:** Nmap Reference Guide — Timing and Performance — https://nmap.org/book/man-performance.html</li><li>**Docs Oficiales:** Nmap Reference Guide — Firewall/IDS Evasion and Spoofing — https://nmap.org/book/man-bypass-firewalls-ids.html</li><li>**Investigación / Deep Dive:** ProjectDiscovery Reconnaissance 103 — https://projectdiscovery.io/blog/reconnaissance-series-3-host-and-port-discovery</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="masscan-internet-scale-scanning.html"><span class="nav-dir">← Previous</span><strong>Masscan Internet-Scale Scanning</strong></a><a class="branch-nav-link next" href="nse-vuln-category-audit.html"><span class="nav-dir">Next →</span><strong>NSE `vuln` Category Audit</strong></a></nav>
 <section class="related-notes" aria-label="Notas relacionadas">
 <h2>Notas relacionadas</h2>
 <div class="related-grid">
-<a class="related-card" href="idle-scan-and-ipid-side-channels.html"><span>Seguridad Ofensiva / Recon</span><strong>Idle Scan and IPID Side Channels</strong><small>Un idle scan (nmap -sI zombie:port target) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona explotando un contador IPID predecible en un host &quot;zombie&quot; de terceros: el atacante sondea el IPID actual del zombie, envía un SYN spoofed al objetivo como si viniera del zombie, y luego vuelve a sondear el IPID del zombie. El delta revela si el objetivo respondió — y a quién. Los IPID side channels son la familia más amplia de ataques de inferencia que usan el campo de identificador IP de cualquier host como contador observable para derivar información que el atacante no puede ver directamente.</small></a>
-<a class="related-card" href="packet-fragmentation-and-decoy-scans.html"><span>Seguridad Ofensiva / Recon</span><strong>Packet Fragmentation and Decoy Scans</strong><small>La fragmentación de paquetes (-f, --mtu) y los decoy scans (-D) son dos primitivas de evasión de Nmap que operan en capas diferentes: la fragmentación divide los headers de probe a través del límite de fragmentación IP para derrotar el matching de firmas a nivel de paquete, mientras que los decoys inundan los logs del objetivo con IPs fuente falsas adicionales para derrotar la atribución a nivel de log.</small></a>
-<a class="related-card" href="cloaking-and-security-evasion.html"><span>Seguridad Ofensiva / Recon</span><strong>Cloaking and Security Evasion</strong><small>El cloaking es la práctica de mostrar comportamiento diferente a distintos visitantes según señales como IP, geografía, ASN, reverse DNS, User-Agent, browser fingerprint, reputación del proxy o identidad percibida del scanner.</small></a>
-<a class="related-card" href="nse-vuln-category-audit.html"><span>Seguridad Ofensiva / Recon</span><strong>NSE vuln Category Audit</strong><small>La categoría vuln del Nmap Scripting Engine contiene aproximadamente 150 scripts que afirman detectar vulnerabilidades. No todos son iguales: algunos son verificaciones conductuales confiables, muchos son heurísticas de strings de versión, y unos pocos están directamente obsoletos. Auditar la categoría — saber qué scripts producen señal confiable en 2026, cuáles requieren confirmación manual y cuáles deshabilitar — es la disciplina que convierte &quot;corrí --script vuln y obtuve 50 alertas&quot; en &quot;produje 4 hallazgos validados&quot;.</small></a>
-<a class="related-card" href="rustscan-and-nse-pipeline.html"><span>Seguridad Ofensiva / Recon</span><strong>RustScan and NSE Pipeline</strong><small>El pipeline RustScan + NSE es un flujo de trabajo en dos etapas en el que RustScan realiza un descubrimiento de puertos asíncrono y rápido sobre un objetivo y pasa la lista de puertos descubiertos directamente a Nmap, que luego maneja el Nmap Scripting Engine (NSE) para detección de servicios, sondeo de versiones y verificaciones de vulnerabilidades con scope acotado por categoría.</small></a>
-<a class="related-card" href="active-recon.html"><span>Seguridad Ofensiva / Recon</span><strong>Active Recon</strong><small>El active recon es la recopilación de información que interactúa directamente con la infraestructura, servicios o aplicaciones del objetivo para validar o extender lo descubierto en el passive recon.</small></a>
+<a class="related-card" href="active-recon.html"><span>Seguridad Ofensiva / Recon</span><strong>Active Recon</strong><small>El active recon es la recopilación de información que interactúa directamente con la infraestructura, servicios o aplicaciones del objetivo para validar o extender...</small></a>
+<a class="related-card" href="cloaking-and-security-evasion.html"><span>Seguridad Ofensiva / Recon</span><strong>Cloaking and Security Evasion</strong><small>El cloaking es la práctica de mostrar comportamiento diferente a distintos visitantes según señales como IP, geografía, ASN, reverse DNS, User-Agent, browser...</small></a>
+<a class="related-card" href="company-mapping.html"><span>Seguridad Ofensiva / Recon</span><strong>Company Mapping</strong><small>El company mapping es el proceso de conectar dominios, marcas, subsidiarias, adquisiciones, vendors, identidades públicas, productos y pistas de infraestructura en...</small></a>
+<a class="related-card" href="enumeration.html"><span>Seguridad Ofensiva / Recon</span><strong>Enumeration</strong><small>La enumeration es la expansión enfocada y metódica de pistas descubiertas en conocimiento concreto y validado sobre servicios alcanzables, rutas, identidades...</small></a>
+<a class="related-card" href="host-and-port-discovery.html"><span>Seguridad Ofensiva / Recon</span><strong>Host and Port Discovery</strong><small>El host and port discovery es el proceso de encontrar hosts en vivo y los puertos y servicios alcanzables que exponen dentro de un scope autorizado.</small></a>
+<a class="related-card" href="idle-scan-and-ipid-side-channels.html"><span>Seguridad Ofensiva / Recon</span><strong>Idle Scan and IPID Side Channels</strong><small>Un **idle scan** (nmap -sI zombie:port target) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definicion">Definición</a>
-<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
-<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
-<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
-<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
-<a class="toc-level-3" href="#1-preciso-contra-rate-limiters">1. Preciso contra rate limiters</a>
-<a class="toc-level-3" href="#2-matriz-de-forma-de-paquete-diagnostica">2. Matriz de forma de paquete diagnóstica</a>
-<a class="toc-level-3" href="#3-stealth-desde-logs-idle-scan">3. Stealth desde logs (idle scan)</a>
-<a class="toc-level-3" href="#4-enganos-de-source-port-y-ttl">4. Engaños de source-port y TTL</a>
-<a class="toc-level-2" href="#impacto">Impacto</a>
-<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
-<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
-<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
-<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
-<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
-<a class="toc-level-2" href="#referencias">Referencias</a>
-<a class="back-to-top" href="#top">Volver arriba</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

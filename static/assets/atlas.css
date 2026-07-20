@@ -21,7 +21,7 @@
   --muted:        #5d6470;     /* WCAG AA body text on --bg / --panel */
   --muted-2:      #6b7280;     /* AA for small mono labels */
 
-  --accent:       #16a34a;       /* green */
+  --accent:       #147a3d;       /* verified defensive signal */
   --accent-2:     #15803d;
   --accent-3:     #166534;
   --accent-soft:  #f0fdf4;       /* green-50 */
@@ -78,7 +78,7 @@ html[data-theme="dark"] {
   --muted:        #9da7b2;     /* WCAG AA body text on dark --panel */
   --muted-2:      #7d8794;     /* AA for small mono labels on dark */
 
-  --accent:       #39d353;
+  --accent:       #43d17a;
   --accent-2:     #2ea043;
   --accent-3:     #4ce26a;
   --accent-soft:  rgba(57,211,83,0.12);
@@ -118,6 +118,27 @@ html { scroll-padding-top: calc(var(--topbar-h) + 18px); }
   }
   .hero-crumb .blink { animation: none; opacity: 1; }
 }
+
+/* Attack Surface & Signal — original, semantic home-system diagram. */
+.authorized-labs { display:inline-flex; margin:.65rem 0 1rem; padding:.32rem .62rem; border:1px solid var(--accent); border-radius:999px; color:var(--accent); font:700 .66rem/1 var(--font-mono); letter-spacing:.08em; }
+.threat-to-evidence-map { margin:1.5rem 0 1.25rem; padding:1rem; border:1px solid var(--border); border-radius:14px; background:linear-gradient(135deg,var(--panel),var(--panel-2)); overflow:auto; }
+.threat-to-evidence-map figcaption { margin-top:.85rem; color:var(--muted); font-size:.78rem; }
+.map-core,.map-track { display:flex; align-items:center; min-width:610px; gap:.38rem; }
+.map-core { padding:.6rem; border:1px dashed var(--border-strong); border-radius:10px; }
+.map-core b,.map-track span { display:inline-grid; place-items:center; min-height:34px; padding:.25rem .48rem; border-radius:6px; white-space:nowrap; font:700 .62rem/1.15 var(--font-mono); letter-spacing:.035em; }
+.map-core b { border:1px solid var(--border-strong); color:var(--fg-soft); background:var(--panel); }
+.map-core b:nth-of-type(1) { border-color:var(--infrastructure-blue,#315f9a); }
+.map-core b:nth-of-type(2) { border-color:var(--violet); }
+.map-core b:nth-of-type(4),.map-track span { border:1px solid var(--coral); color:var(--coral); }
+.map-core b:nth-of-type(5) { border-color:var(--sky); color:var(--sky); }
+.map-core b:nth-of-type(6),.map-core b:nth-of-type(7) { border-color:var(--accent); color:var(--accent); }
+.map-core i,.map-track i { flex:1 0 13px; height:1px; background:var(--border-strong); position:relative; }
+.map-core i::after,.map-track i::after { content:""; position:absolute; right:0; top:-3px; border:3px solid transparent; border-left-color:currentColor; }
+.map-adversary { margin:0 0 .5rem; color:var(--coral); }
+.map-defense { margin:.5rem 0 0; color:var(--sky); }
+.map-defense span { border-color:var(--sky); color:var(--sky); }
+.map-track i { background:currentColor; opacity:.65; }
+@media (max-width:700px) { .threat-to-evidence-map { margin-inline:-.25rem; } .threat-to-evidence-map figcaption { min-width:0; } }
 
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }

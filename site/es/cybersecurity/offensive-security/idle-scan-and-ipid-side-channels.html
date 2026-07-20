@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Idle Scan and IPID Side Channels | ldamoredev Security Atlas</title>
-<meta name="description" content="Un idle scan (nmap -sI zombie:port target) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona exp...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Seguridad Ofensiva / Recon, Idle Scan and IPID Side Channels, offensive-security, nmap, idle-scan, ipid, side-channel">
-<meta name="theme-color" content="#16a34a">
+<title>Idle Scan and IPID Side Channels - Seguridad Ofensiva / Recon | Cybersecurity Atlas</title>
+<meta name="description" content="Un **idle scan** (nmap -sI zombie:port target) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona...">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Seguridad Ofensiva / Recon, Idle Scan and IPID Side Channels">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Seguridad Ofensiva / Recon">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Idle Scan and IPID Side Channels | ldamoredev Security Atlas">
-<meta property="og:description" content="Un idle scan (nmap -sI zombie:port target) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona exp...">
+<meta property="og:title" content="Idle Scan and IPID Side Channels - Seguridad Ofensiva / Recon | Cybersecurity Atlas">
+<meta property="og:description" content="Un **idle scan** (nmap -sI zombie:port target) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Idle Scan and IPID Side Channels | ldamoredev Security Atlas">
-<meta name="twitter:description" content="Un idle scan (nmap -sI zombie:port target) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona exp...">
+<meta name="twitter:title" content="Idle Scan and IPID Side Channels - Seguridad Ofensiva / Recon | Cybersecurity Atlas">
+<meta name="twitter:description" content="Un **idle scan** (nmap -sI zombie:port target) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html#article","name":"Idle Scan and IPID Side Channels | ldamoredev Security Atlas","headline":"Idle Scan and IPID Side Channels","description":"Un idle scan (nmap -sI zombie:port target) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona exp...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Ofensiva / Recon","Idle Scan and IPID Side Channels","offensive-security","nmap","idle-scan","ipid","side-channel"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Ofensiva / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"Idle Scan and IPID Side Channels","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html#article","name":"Idle Scan and IPID Side Channels - Seguridad Ofensiva / Recon | Cybersecurity Atlas","headline":"Idle Scan and IPID Side Channels","description":"Un **idle scan** (nmap -sI zombie:port target) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html","inLanguage":"es","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Ofensiva / Recon","Idle Scan and IPID Side Channels"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Ofensiva / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"Idle Scan and IPID Side Channels","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html"}]}]</script>
+<meta property="article:section" content="Seguridad Ofensiva / Recon">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/idle-scan-and-ipid-side-channels.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Base de Conocimiento</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Superficie de ataque y señal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Inicio del Atlas</a>
 <div class="sidebar-section"><h3>Capa de entrada</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Fase 2 — Offense / Defense (en pares)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Fase 3 — Superficie de operador (concepto -&gt; capacidad)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Fase 4 — Specialty Tracks (elegí lo que tu trabajo demande)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Ruta de aprendizaje</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Resumen</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="La dualidad atacante-defensor como herramienta de aprendizaje">La dualidad atacante-defensor como herramienta de apr…</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Las certificaciones como señales de validación">Las certificaciones como señales de validación</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="Tríada CIA — Qué decide en realidad">Tríada CIA — Qué decide en realidad</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Especialización por contexto de trabajo">Especialización por contexto de trabajo</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Alfabetización mínima viable en ciberseguridad">Alfabetización mínima viable en ciberseguridad</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Arranque rápido de modelado de amenazas">Arranque rápido de modelado de amenazas</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="Qué es la ciberseguridad, y por qué no es una lista de herramientas">Qué es la ciberseguridad, y por qué no es una lista d…</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Criptografía</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Resumen</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -84,11 +93,11 @@
 <a class="nav-leaf" href="../cryptography/password-hashing.html" title="Password Hashing">Password Hashing</a>
 <a class="nav-leaf" href="../cryptography/post-quantum-awareness.html" title="Post-Quantum Awareness">Post-Quantum Awareness</a>
 <a class="nav-leaf" href="../cryptography/random-and-csprng-pitfalls.html" title="Random and CSPRNG Pitfalls">Random and CSPRNG Pitfalls</a>
-<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll Your Own Crypto Failures">Roll Your Own Crypto Failures</a>
+<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll-Your-Own Crypto Failures">Roll-Your-Own Crypto Failures</a>
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Resumen</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caché y seguridad">Caché y seguridad</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Confianza en la IP del cliente">Confianza en la IP del cliente</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="Resolución DNS">Resolución DNS</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="Seguridad de DNS">Seguridad de DNS</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls y fronteras de red">Firewalls y fronteras de red</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Confianza en headers en Node Express">Confianza en headers en Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="Headers HTTP">Headers HTTP</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="Mensajes HTTP">Mensajes HTTP</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS y HTTPS">TLS y HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Flujos de trabajo con Wireshark">Flujos de trabajo con Wireshark</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Resumen</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Fallas de autenticación">Fallas de autenticación</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Control de acceso roto">Control de acceso roto</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Fronteras de seguridad del navegador">Fronteras de seguridad del navegador</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Seguridad Ofensiva / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="index.html">Resumen</a>
 <a class="nav-leaf" href="active-recon.html" title="Active Recon">Active Recon</a>
@@ -162,7 +173,7 @@
 <a class="nav-leaf" href="passive-recon.html" title="Passive Recon">Passive Recon</a>
 <a class="nav-leaf" href="public-asset-discovery.html" title="Public Asset Discovery">Public Asset Discovery</a>
 <a class="nav-leaf" href="recon.html" title="Recon">Recon</a>
-<a class="nav-leaf" href="recon-to-testing-handoff.html" title="Recon to Testing Handoff">Recon to Testing Handoff</a>
+<a class="nav-leaf" href="recon-to-testing-handoff.html" title="Recon-to-Testing Handoff">Recon-to-Testing Handoff</a>
 <a class="nav-leaf" href="rustscan-and-nse-pipeline.html" title="RustScan and NSE Pipeline">RustScan and NSE Pipeline</a>
 <a class="nav-leaf" href="scope-validation.html" title="Scope Validation">Scope Validation</a>
 <a class="nav-leaf" href="service-validation.html" title="Service Validation">Service Validation</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="operator-loop.html" title="El loop del operador">El loop del operador</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Resumen</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Disciplina de Network Security Monitoring (NSM)">Disciplina de Network Security Monitoring (NSM)</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Mapeo de Superficie de Ataque</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Resumen</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,15 +238,16 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Resumen</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detectar la recolección de BloodHound">Detectar la recolección de BloodHound</a>
-<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detect DCSync and ntds.dit Access">Detect DCSync and ntds.dit Access</a>
+<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detectar DCSync y acceso a ntds.dit">Detectar DCSync y acceso a ntds.dit</a>
 <a class="nav-leaf" href="../security-playbooks/detect-external-scan-pipeline.html" title="Detect External Recon Scan Pipeline">Detect External Recon Scan Pipeline</a>
-<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
+<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detectar Kerberoasting y AS-REP Roasting">Detectar Kerberoasting y AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -293,8 +306,8 @@
 <details class="nav-branch accent-green"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="nb-name">DevSecOps</span></span><span class="nb-right"><span class="count">13</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../devsecops/index.html">Resumen</a>
 <a class="nav-leaf" href="../devsecops/artifact-integrity.html" title="Artifact Integrity">Artifact Integrity</a>
-<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS as Dev Process Input">ASVS as Dev Process Input</a>
-<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Branch Protection and Release Controls">Branch Protection and Release Controls</a>
+<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS como input del proceso de desarrollo">ASVS como input del proceso de desarrollo</a>
+<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Protección de ramas y controles de release">Protección de ramas y controles de release</a>
 <a class="nav-leaf" href="../devsecops/ci-cd-hardening.html" title="CI/CD Hardening">CI/CD Hardening</a>
 <a class="nav-leaf" href="../devsecops/container-security.html" title="Container Security">Container Security</a>
 <a class="nav-leaf" href="../devsecops/dependency-risk.html" title="Dependency Risk">Dependency Risk</a>
@@ -372,7 +385,7 @@
 <div class="sidebar-section"><h3>Sistema de referencia</h3>
 <details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="ns-name">Registros</span></span><span class="ns-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <a class="nav-child" href="../reference-registry.html"><span class="nc-left"><span class="nc-name">Cybersecurity Reference Registry</span></span></a>
-<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Reference Registry - Detection Engineering</span></span></a>
+<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Registro de Referencia - Ingeniería de Detección</span></span></a>
 <a class="nav-child" href="../reference-registry-privacy-anonymity-opsec.html"><span class="nc-left"><span class="nc-name">Reference Registry - Privacy, Anonymity &amp; OPSEC</span></span></a>
 <a class="nav-child" href="../reference-registry-api-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — API Security</span></span></a>
 <a class="nav-child" href="../reference-registry-attack-surface-mapping.html"><span class="nc-left"><span class="nc-name">Reference Registry — Attack Surface Mapping</span></span></a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>actualizado · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>actualizado · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -410,187 +423,81 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Idle Scan and IPID Side Channels</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Seguridad Ofensiva / Recon</a><span>/</span><span>Idle Scan and IPID Side Channels</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-rose">Seguridad Ofensiva / Recon</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~10 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#nmap</span><span class="meta-chip tag">#idle-scan</span><span class="meta-chip tag">#ipid</span><span class="meta-chip tag">#side-channel</span><span class="meta-chip tag">#evasion</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-rose">Seguridad Ofensiva / Recon</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~9 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="idle-scan-and-ipid-side-channels">Idle Scan and IPID Side Channels</h1>
-<h2 id="definicion">Definición</h2>
-<p>Un <strong>idle scan</strong> (<code>nmap -sI zombie:port target</code>) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona explotando un <strong>contador IPID predecible</strong> en un host &quot;zombie&quot; de terceros: el atacante sondea el IPID actual del zombie, envía un SYN spoofed al objetivo <em>como si viniera del zombie</em>, y luego vuelve a sondear el IPID del zombie. El delta revela si el objetivo respondió — y a quién. Los <strong>IPID side channels</strong> son la familia más amplia de ataques de inferencia que usan el campo de identificador IP de cualquier host como contador observable para derivar información que el atacante no puede ver directamente.</p>
-<h2 id="por-que-importa">Por qué importa</h2>
-<p>El idle scan es el único scan de Nmap donde la IP del scanner <strong>nunca aparece en los logs del objetivo</strong>. Todos los demás scans — incluso <code>-sN</code>, <code>-sF</code>, <code>-D RND:10</code> — emiten paquetes desde la fuente real. Los decoys aumentan el ruido; la fuente sigue estando. El idle scan es estructuralmente diferente: el objetivo solo ve tráfico del zombie. Para la evasión de atribución de fuente esto es único.</p>
-<p>También importa como nota educativa porque enseña <strong>tres ideas transferibles de nivel senior</strong>:</p>
-<ul>
-<li><strong>Los contadores predecibles filtran información.</strong> Cualquier contador que se incrementa globalmente (IPID, TCP ISN con RNGs débiles, ciertos contadores SNMP) es un oráculo de side channel. La vulnerabilidad es la predecibilidad, no el protocolo.</li>
-<li><strong>Los supuestos de confianza se apilan.</strong> El idle scan asume (a) que el zombie responde consistentemente, (b) que el objetivo confía en la IP fuente del zombie, (c) que el zombie está suficientemente quieto para que la inferencia por delta sea confiable. Cada supuesto es su propia superficie de ataque.</li>
-<li><strong>Las defensas son cambios en la especificación del protocolo.</strong> La guía a nivel RFC para randomizar IPID neutralizó el idle scan clásico en todos los sistemas operativos principales. El pensamiento senior trata el <em>campo del protocolo</em> como la superficie de ataque, no la herramienta.</li>
-</ul>
-<p>El idle scan hoy es principalmente <strong>diagnóstico</strong> en lugar de operacional — la randomización de IPID en OS modernos lo derrota en Linux, OpenBSD, Windows moderno y la mayoría de workloads cloud. Pero los dispositivos IoT, sistemas embebidos legacy y gateways NAT mal configurados todavía incluyen generadores de IPID que se incrementan globalmente, y la técnica sigue siendo una forma limpia de <em>probar</em> que un entorno es más viejo de lo que sus operadores afirman.</p>
-<h2 id="como-funciona">Cómo funciona</h2>
-<p>El idle scan se reduce a <strong>3 round-trips</strong> y <strong>una observación de un bit</strong>:</p>
-<ol>
-<li><strong>Sondear el IPID actual del zombie.</strong> El atacante envía un SYN-ACK no solicitado al zombie. El zombie responde con RST, portando IPID = N.</li>
-<li><strong>Spoof de un SYN al objetivo desde la IP del zombie.</strong> El objetivo recibe un SYN que parece venir del zombie.</li>
-<li>Si el puerto objetivo está <strong>abierto</strong>: el objetivo responde SYN-ACK al zombie. El zombie no esperaba esto, así que responde con RST — <em>e incrementa su IPID</em>. El IPID del zombie es ahora N+1.</li>
-<li>Si el puerto objetivo está <strong>cerrado</strong>: el objetivo responde RST al zombie. El zombie descarta el RST no solicitado y <em>no envía ningún paquete</em>. El IPID del zombie se queda en N.</li>
-<li><strong>Volver a sondear el IPID del zombie.</strong> El atacante envía otro SYN-ACK no solicitado. El zombie responde con RST, portando su IPID actual:</li>
-<li><strong>N+2</strong> (empezó en N, se incrementó una vez en el paso 2, se incrementó ahora) → el puerto estaba <strong>abierto</strong>.</li>
-<li><strong>N+1</strong> (sin incremento del paso 2, solo este probe) → el puerto estaba <strong>cerrado</strong>.</li>
-</ol>
+<h1>Idle Scan and IPID Side Channels</h1>
+<h2>Definición</h2>
+<p>Un **idle scan** (`nmap -sI zombie:port target`) infiere el estado de puertos de un objetivo sin enviar un solo paquete desde la IP real del atacante. Funciona explotando un **contador IPID predecible** en un host &quot;zombie&quot; de terceros: el atacante sondea el IPID actual del zombie, envía un SYN spoofed al objetivo *como si viniera del zombie*, y luego vuelve a sondear el IPID del zombie. El delta revela si el objetivo respondió — y a quién. Los **IPID side channels** son la familia más amplia de ataques de inferencia que usan el campo de identificador IP de cualquier host como contador observable para derivar información que el atacante no puede ver directamente.</p>
+<h2>Por qué importa</h2>
+<p>El idle scan es el único scan de Nmap donde la IP del scanner **nunca aparece en los logs del objetivo**. Todos los demás scans — incluso `-sN`, `-sF`, `-D RND:10` — emiten paquetes desde la fuente real. Los decoys aumentan el ruido; la fuente sigue estando. El idle scan es estructuralmente diferente: el objetivo solo ve tráfico del zombie. Para la evasión de atribución de fuente esto es único.</p>
+<p>También importa como nota educativa porque enseña **tres ideas transferibles de nivel senior**:</p>
+<ul><li>**Los contadores predecibles filtran información.** Cualquier contador que se incrementa globalmente (IPID, TCP ISN con RNGs débiles, ciertos contadores SNMP) es un oráculo de side channel. La vulnerabilidad es la predecibilidad, no el protocolo.</li><li>**Los supuestos de confianza se apilan.** El idle scan asume (a) que el zombie responde consistentemente, (b) que el objetivo confía en la IP fuente del zombie, (c) que el zombie está suficientemente quieto para que la inferencia por delta sea confiable. Cada supuesto es su propia superficie de ataque.</li><li>**Las defensas son cambios en la especificación del protocolo.** La guía a nivel RFC para randomizar IPID neutralizó el idle scan clásico en todos los sistemas operativos principales. El pensamiento senior trata el *campo del protocolo* como la superficie de ataque, no la herramienta.</li></ul>
+<p>El idle scan hoy es principalmente **diagnóstico** en lugar de operacional — la randomización de IPID en OS modernos lo derrota en Linux, OpenBSD, Windows moderno y la mayoría de workloads cloud. Pero los dispositivos IoT, sistemas embebidos legacy y gateways NAT mal configurados todavía incluyen generadores de IPID que se incrementan globalmente, y la técnica sigue siendo una forma limpia de *probar* que un entorno es más viejo de lo que sus operadores afirman.</p>
+<h2>Cómo funciona</h2>
+<p>El idle scan se reduce a **3 round-trips** y **una observación de un bit**:</p>
+<p>1. **Sondear el IPID actual del zombie.** El atacante envía un SYN-ACK no solicitado al zombie. El zombie responde con RST, portando IPID = N. 2. **Spoof de un SYN al objetivo desde la IP del zombie.** El objetivo recibe un SYN que parece venir del zombie.    - Si el puerto objetivo está **abierto**: el objetivo responde SYN-ACK al zombie. El zombie no esperaba esto, así que responde con RST — *e incrementa su IPID*. El IPID del zombie es ahora N+1.    - Si el puerto objetivo está **cerrado**: el objetivo responde RST al zombie. El zombie descarta el RST no solicitado y *no envía ningún paquete*. El IPID del zombie se queda en N. 3. **Volver a sondear el IPID del zombie.** El atacante envía otro SYN-ACK no solicitado. El zombie responde con RST, portando su IPID actual:    - **N+2** (empezó en N, se incrementó una vez en el paso 2, se incrementó ahora) → el puerto estaba **abierto**.    - **N+1** (sin incremento del paso 2, solo este probe) → el puerto estaba **cerrado**.</p>
 <p>Una invocación representativa:</p>
-<div class="codehilite"><pre><span></span><code># 1) Find a candidate zombie — must have INCREMENTAL IPID.
-sudo nmap -O ZOMBIE_CANDIDATE | grep -i &#x27;ip id sequence&#x27;
-# Look for: &quot;IP ID Sequence Generation: Incremental&quot;
-
-# 2) Run the idle scan.
-sudo nmap -Pn -sI ZOMBIE:80 -p 22,80,443,3389 TARGET
-# Target sees traffic from ZOMBIE only. Your IP appears nowhere in the target&#x27;s logs.
-</code></pre></div>
-<p>El error no es &quot;Nmap puede hacer spoof de IPs fuente&quot; (eso siempre fue posible); el error es <em>el contador IPID del host de terceros es un side channel medible que filtra la response del objetivo — y es observable para cualquiera que pueda sondear al tercero</em>.</p>
-<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
-<ul>
-<li><strong>La selección del zombie es todo el engagement.</strong> Un buen zombie tiene: (a) <code>IP ID Sequence Generation: Incremental</code> según <code>nmap -O</code>, (b) bajo tráfico para que el delta IPID sea exactamente +2 o +1 (los zombies ocupados avanzan múltiples veces entre probes, produciendo ruido), (c) alcanzabilidad de red al objetivo en los puertos relevantes.</li>
-<li><strong>Verificá el comportamiento IPID del zombie antes de escanear.</strong> <code>nmap -O</code> es el primer movimiento; si el resultado es <code>Random</code> o <code>Randomized</code>, ese zombie es inútil.</li>
-<li><strong>El IoT moderno y las impresoras son la fuente típica de zombie.</strong> Los stacks de red embebidos frecuentemente todavía usan IPID incremental global. Impresoras de red, switches KVM, timbres inteligentes, controladores industriales e interfaces de gestión fuera de banda son candidatos recurrentes.</li>
-<li><strong>El idle scan es lento.</strong> Cada puerto requiere múltiples round-trips. Práctico para confirmar exposición en unos pocos puertos de alto valor; impráctico para scans de rango completo <code>-p-</code>.</li>
-<li><strong><code>--proxies</code> no es lo mismo.</strong> <code>nmap --proxies</code> encadena proxies HTTP/SOCKS y reescribe la fuente en la capa del proxy — útil para alcanzabilidad, inútil para evasión (el proxy igual te registra). El idle scan elimina la fuente de los <em>logs del objetivo</em>.</li>
-<li><strong>OPSEC: la detección vive en el zombie, no en el objetivo.</strong> Un defensor que controla el zombie puede correlacionar tres cosas: saltos de IPID que no coinciden con el tráfico saliente, SYN-ACKs no solicitados desde tu IP, y responses no solicitadas llegando desde el objetivo.</li>
-</ul>
-<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
-<p>La familia de IPID side channel tiene <strong>4 variantes importantes</strong>.</p>
-<h3 id="1-idle-scan-clasico-nmap-si">1. Idle scan clásico (Nmap <code>-sI</code>)</h3>
+<p>``` # 1) Find a candidate zombie — must have INCREMENTAL IPID. sudo nmap -O ZOMBIE_CANDIDATE | grep -i &#x27;ip id sequence&#x27; # Look for: &quot;IP ID Sequence Generation: Incremental&quot;</p>
+<h1>2) Run the idle scan.</h1>
+<p>El error no es &quot;Nmap puede hacer spoof de IPs fuente&quot; (eso siempre fue posible); el error es *el contador IPID del host de terceros es un side channel medible que filtra la response del objetivo — y es observable para cualquiera que pueda sondear al tercero*.</p>
+<h2>Técnicas / patrones</h2>
+<ul><li>**La selección del zombie es todo el engagement.** Un buen zombie tiene: (a) `IP ID Sequence Generation: Incremental` según `nmap -O`, (b) bajo tráfico para que el delta IPID sea exactamente +2 o +1 (los zombies ocupados avanzan múltiples veces entre probes, produciendo ruido), (c) alcanzabilidad de red al objetivo en los puertos relevantes.</li><li>**Verificá el comportamiento IPID del zombie antes de escanear.** `nmap -O` es el primer movimiento; si el resultado es `Random` o `Randomized`, ese zombie es inútil.</li><li>**El IoT moderno y las impresoras son la fuente típica de zombie.** Los stacks de red embebidos frecuentemente todavía usan IPID incremental global. Impresoras de red, switches KVM, timbres inteligentes, controladores industriales e interfaces de gestión fuera de banda son candidatos recurrentes.</li><li>**El idle scan es lento.** Cada puerto requiere múltiples round-trips. Práctico para confirmar exposición en unos pocos puertos de alto valor; impráctico para scans de rango completo `-p-`.</li><li>**`--proxies` no es lo mismo.** `nmap --proxies` encadena proxies HTTP/SOCKS y reescribe la fuente en la capa del proxy — útil para alcanzabilidad, inútil para evasión (el proxy igual te registra). El idle scan elimina la fuente de los *logs del objetivo*.</li><li>**OPSEC: la detección vive en el zombie, no en el objetivo.** Un defensor que controla el zombie puede correlacionar tres cosas: saltos de IPID que no coinciden con el tráfico saliente, SYN-ACKs no solicitados desde tu IP, y responses no solicitadas llegando desde el objetivo.</li></ul>
+<h2>Variantes y bypasses</h2>
+<p>La familia de IPID side channel tiene **4 variantes importantes**.</p>
+<h3>1. Idle scan clásico (Nmap `-sI`)</h3>
 <p>El flujo descrito arriba. Requiere un zombie con IPID incremental alcanzable tanto desde el atacante como desde el objetivo. La variante del libro de texto, cada vez más difícil de ejecutar contra OS modernos.</p>
-<h3 id="2-idle-scan-por-destino-ipid">2. Idle scan por destino IPID</h3>
-<p>Linux (desde 2014) usa un contador IPID <em>por par de destinos</em> en lugar de uno global. El idle scan clásico no funciona directamente, pero una variante refinada usa el IPID del par <em>zombie-a-objetivo</em> como oráculo. Frágil pero documentado en literatura académica.</p>
-<h3 id="3-tcp-shared-state-side-channels">3. TCP shared-state side channels</h3>
-<p>Más allá del IPID, ciertos campos TCP (ISN bajo RNGs débiles, contadores de challenge ACK, estado de rate limit basado en conteo de paquetes) pueden filtrar el estado del objetivo a un observador tercero. <strong>Ensafi et al. (USENIX 2015)</strong> demostró detección de drops intencionales de paquetes en internet usando estas primitivas.</p>
-<h3 id="4-inferencia-de-mapeo-nat-via-ipid">4. Inferencia de mapeo NAT vía IPID</h3>
+<h3>2. Idle scan por destino IPID</h3>
+<p>Linux (desde 2014) usa un contador IPID *por par de destinos* en lugar de uno global. El idle scan clásico no funciona directamente, pero una variante refinada usa el IPID del par *zombie-a-objetivo* como oráculo. Frágil pero documentado en literatura académica.</p>
+<h3>3. TCP shared-state side channels</h3>
+<p>Más allá del IPID, ciertos campos TCP (ISN bajo RNGs débiles, contadores de challenge ACK, estado de rate limit basado en conteo de paquetes) pueden filtrar el estado del objetivo a un observador tercero. **Ensafi et al. (USENIX 2015)** demostró detección de drops intencionales de paquetes en internet usando estas primitivas.</p>
+<h3>4. Inferencia de mapeo NAT vía IPID</h3>
 <p>Un gateway NAT que traduce muchos hosts internos a una IP externa frecuentemente comparte un único contador IPID entre ellos. Sondear el IPID externo y observar la tasa de avance revela aproximadamente cuántos hosts internos están activos.</p>
-<h2 id="impacto">Impacto</h2>
+<h2>Impacto</h2>
 <p>Ordenado por severidad real típica:</p>
-<ul>
-<li><strong>Evasión de atribución de fuente que sobrevive la revisión forense.</strong> Los packet captures y logs del objetivo contienen solo el zombie. Las investigaciones persiguen primero al dueño del zombie; el atacante real es invisible a menos que el zombie mismo sea capturado y sus propios logs analizados.</li>
-<li><strong>Inferencia de relaciones de confianza.</strong> Si el zombie es <em>confiable</em> para el objetivo (ACL de firewall permite ZOMBIE → TARGET:N pero bloquea internet en general), el idle scan revela exposición que ningún scan directo desde internet encontraría.</li>
-<li><strong>Estimación de población NAT.</strong> Inteligencia tipo censo sobre la escala interna de una organización, filtrada a través de contadores IPID del perímetro.</li>
-<li><strong>Falsa confianza en la visibilidad del defensor.</strong> Los defensores que dicen &quot;monitoreamos cada conexión&quot; tienen razón sobre el objetivo; se pierden los idle scans completamente si su telemetría es solo del lado del objetivo.</li>
-<li><strong>Uso operacional limitado hoy.</strong> La mayoría de OS de producción randomiza IPID. La técnica es <em>educativa</em> y <em>específica para objetivos legacy</em>.</li>
-</ul>
-<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<ul><li>**Evasión de atribución de fuente que sobrevive la revisión forense.** Los packet captures y logs del objetivo contienen solo el zombie. Las investigaciones persiguen primero al dueño del zombie; el atacante real es invisible a menos que el zombie mismo sea capturado y sus propios logs analizados.</li><li>**Inferencia de relaciones de confianza.** Si el zombie es *confiable* para el objetivo (ACL de firewall permite ZOMBIE → TARGET:N pero bloquea internet en general), el idle scan revela exposición que ningún scan directo desde internet encontraría.</li><li>**Estimación de población NAT.** Inteligencia tipo censo sobre la escala interna de una organización, filtrada a través de contadores IPID del perímetro.</li><li>**Falsa confianza en la visibilidad del defensor.** Los defensores que dicen &quot;monitoreamos cada conexión&quot; tienen razón sobre el objetivo; se pierden los idle scans completamente si su telemetría es solo del lado del objetivo.</li><li>**Uso operacional limitado hoy.** La mayoría de OS de producción randomiza IPID. La técnica es *educativa* y *específica para objetivos legacy*.</li></ul>
+<h2>Detección y defensa</h2>
 <p>Ordenado por efectividad:</p>
-<ol>
-<li><strong>Usá un kernel que randomiza IPID por destino o por paquete.</strong><br>
-Linux 4.1+, macOS moderno, FreeBSD, OpenBSD, Windows 10/Server 2016+ lo hacen por defecto. El arreglo estructural que termina con el idle scan clásico como ataque útil contra OS modernos.</li>
-<li><strong>Egress filtering y verificación de dirección fuente (BCP 38).</strong><br>
-El idle scan requiere que el atacante haga spoof de la IP fuente del zombie. Las redes que aplican filtrado de ingreso hacen el spoof imposible. RFC 2827 / BCP 38 fue especificado en 2000 y todavía se despliega inconsistentemente.</li>
-<li><strong>Detección conductual del lado del zombie.</strong><br>
-El zombie ve tres anomalías: (a) SYN-ACKs no solicitados desde el atacante, (b) responses RST o SYN-ACK no solicitadas desde el objetivo, (c) su propio IPID avanzando sin coincidir con tráfico saliente de aplicaciones.</li>
-<li><strong>IPID por destino para cualquier stack de red custom.</strong><br>
-Los fabricantes de dispositivos IoT, sistemas embebidos y stacks de red custom frecuentemente heredan el mismo bug de IPID incremental.</li>
-<li><strong>Monitoreo de flujo de red a nivel de red en el perímetro.</strong><br>
-La detección en el perímetro captura una firma diferente: el SYN spoofed llega desde una fuente que normalmente no se comunica con el objetivo en ese puerto.</li>
-</ol>
-<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
-<ul>
-<li><strong>Solo logging del host objetivo.</strong> El idle scan fue diseñado para derrotar esto.</li>
-<li><strong>Reglas de firewall que bloquean patrones &quot;tipo scan&quot;.</strong> El idle scan es un SYN por puerto, distribuido al ritmo que elija el atacante.</li>
-<li><strong>TLS / cifrado.</strong> El idle scan opera en L3/L4. TLS es irrelevante.</li>
-<li><strong>Geo-blocking del país del zombie.</strong> Si el zombie está en red o cerca de ella, el geo-blocking bloquea tráfico legítimo o falla en aplicarse.</li>
-</ul>
-<h2 id="labs-practicos">Labs prácticos</h2>
-<p>Corré <strong>únicamente</strong> contra entornos de lab propios o engagements autorizados.</p>
-<div class="codehilite"><pre><span></span><code># Lab 1 — Find a candidate zombie in a lab subnet.
-sudo nmap -O 10.0.0.0/24 2&gt;/dev/null |
-    awk &#x27;/Nmap scan report/{ip=$NF} /IP ID Sequence Generation: Incremental/{print ip}&#x27;
-# Output: every host with incremental IPID is a candidate zombie.
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code># Lab 2 — Verify a specific zombie&#x27;s IPID behavior in detail.
-sudo nmap -O ZOMBIE | grep -A1 &quot;IP ID Sequence&quot;
-# Expected: &quot;IP ID Sequence Generation: Incremental&quot;
-# If you see &quot;Random&quot; or &quot;Randomized&quot;, this zombie cannot be used.
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code># Lab 3 — Run an idle scan against an authorized lab target.
-sudo nmap -Pn -sI ZOMBIE:80 -p 21,22,80,443,3389,8080 TARGET
-# The target&#x27;s packet capture will show ZOMBIE as the source.
-# Verify by running tcpdump on TARGET during the scan.
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code># Lab 4 — Confirm the source-attribution property from TARGET&#x27;s perspective.
-# On TARGET:
-sudo tcpdump -i any -nn &quot;host ATTACKER_REAL_IP or host ZOMBIE&quot; -c 50
-# Expected: zero packets to/from ATTACKER_REAL_IP, many packets to/from ZOMBIE.
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code># Lab 5 — Defender lab: detect being used as a zombie.
-# On the ZOMBIE host:
-sudo tcpdump -i any -nn &#x27;tcp and ((tcp[tcpflags] &amp; tcp-syn != 0 and tcp[tcpflags] &amp; tcp-ack != 0) or (tcp[tcpflags] &amp; tcp-rst != 0))&#x27; -c 200
-# Look for: SYN-ACK or RST packets arriving from the TARGET that do not correspond
-# to any outbound connection your host initiated. That is the zombie-side signature.
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code># Lab 6 — IPID-based NAT-population inference (educational, against owned NAT).
-# Probe the NAT external IP repeatedly and watch IPID advance.
-for i in $(seq 1 20); do
-  sudo hping3 -c1 -S -p 80 NAT_EXTERNAL_IP 2&gt;/dev/null |
-      grep -oP &#x27;id=\K\d+&#x27;
-  sleep 1
-done
-# If IPID advances by more than ~1 between samples, the NAT is sharing the counter
-# across multiple internal hosts — the rate of advance approximates the active host count.
-</code></pre></div>
-<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
-<ul>
-<li><strong>Engagement contra red industrial legacy.</strong> El perímetro tiene ACLs estrictas pero confía en una impresora de red del año 2010 en la misma subred. El idle scan con la impresora como zombie revela puertos que el scan directo desde internet reporta como <code>filtered</code>.</li>
-<li><strong>Ejercicio forense posterior a un scan de perímetro.</strong> El equipo defensor ve tráfico de scan aparentemente desde <code>printer-3F-001</code>. La investigación revela que el IPID de la impresora avanzó inconsistentemente con su tráfico saliente durante la ventana de scan.</li>
-<li><strong>Objetivo Linux moderno — el idle scan falla.</strong> Mismo engagement, pero el objetivo es un host Linux 5.x. El generador IPID por destino significa que la técnica clásica no funciona; el operador cae en <code>-sS</code> ordinario y acepta el costo de atribución.</li>
-<li><strong>Censo NAT durante pre-engagement recon.</strong> Sondear la IP de perímetro de una organización revela que el contador IPID avanza aproximadamente 50 unidades por minuto, sugiriendo ~30-50 hosts internos activos en el momento de la medición.</li>
-</ul>
-<h2 id="notas-relacionadas">Notas relacionadas</h2>
-<ul>
-<li><a href="nmap-timing-and-evasion.html">Nmap Timing and Evasion</a> — primitivas más amplias de timing/evasión; el idle scan es el caso más profundo de la pregunta de evasión de atribución.</li>
-<li><a href="packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a> — familia hermana de evasión; los decoys oscurecen la atribución por ruido, el idle scan la elimina por mecanismo.</li>
-<li><a href="../networking/tcp-ip-basics.html">Fundamentos de TCP/IP</a> — el campo de identificador IP que usa este ataque.</li>
-<li><a href="../networking/nmap-scanning.html">Nmap Scanning</a> — estrategia de scan más amplia en la que encaja.</li>
-<li><a href="../networking/packet-analysis.html">Análisis de Paquetes</a> — la herramienta correcta para verificar el flujo de paquetes zombie/objetivo durante un lab.</li>
-<li><a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Dualidad Atacante-Defensor como Herramienta de Aprendizaje</a> — el idle scan es un ejemplo limpio de un ataque cuyas defensas son cambios en la especificación del protocolo, no reglas perimetrales.</li>
-</ul>
-<h2 id="referencias">Referencias</h2>
-<ul>
-<li><strong>Docs Oficiales:</strong> Nmap Reference Guide — Idle Scan — https://nmap.org/book/idlescan.html</li>
-<li><strong>Investigación / Deep Dive:</strong> Antirez (Salvatore Sanfilippo) — Dumb scan / new TCP scan method (disclosure original de 1998 en Bugtraq) — https://seclists.org/bugtraq/1998/Dec/79</li>
-<li><strong>Investigación / Deep Dive:</strong> Ensafi et al. — Detecting Intentional Packet Drops on the Internet via TCP/IP Side Channels (USENIX Security 2015) — https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/ensafi</li>
-</ul>
+<p>1. **Usá un kernel que randomiza IPID por destino o por paquete.**    Linux 4.1+, macOS moderno, FreeBSD, OpenBSD, Windows 10/Server 2016+ lo hacen por defecto. El arreglo estructural que termina con el idle scan clásico como ataque útil contra OS modernos.</p>
+<p>2. **Egress filtering y verificación de dirección fuente (BCP 38).**    El idle scan requiere que el atacante haga spoof de la IP fuente del zombie. Las redes que aplican filtrado de ingreso hacen el spoof imposible. RFC 2827 / BCP 38 fue especificado en 2000 y todavía se despliega inconsistentemente.</p>
+<p>3. **Detección conductual del lado del zombie.**    El zombie ve tres anomalías: (a) SYN-ACKs no solicitados desde el atacante, (b) responses RST o SYN-ACK no solicitadas desde el objetivo, (c) su propio IPID avanzando sin coincidir con tráfico saliente de aplicaciones.</p>
+<p>4. **IPID por destino para cualquier stack de red custom.**    Los fabricantes de dispositivos IoT, sistemas embebidos y stacks de red custom frecuentemente heredan el mismo bug de IPID incremental.</p>
+<p>5. **Monitoreo de flujo de red a nivel de red en el perímetro.**    La detección en el perímetro captura una firma diferente: el SYN spoofed llega desde una fuente que normalmente no se comunica con el objetivo en ese puerto.</p>
+<h3>Qué no funciona como defensa primaria</h3>
+<ul><li>**Solo logging del host objetivo.** El idle scan fue diseñado para derrotar esto.</li><li>**Reglas de firewall que bloquean patrones &quot;tipo scan&quot;.** El idle scan es un SYN por puerto, distribuido al ritmo que elija el atacante.</li><li>**TLS / cifrado.** El idle scan opera en L3/L4. TLS es irrelevante.</li><li>**Geo-blocking del país del zombie.** Si el zombie está en red o cerca de ella, el geo-blocking bloquea tráfico legítimo o falla en aplicarse.</li></ul>
+<h2>Labs prácticos</h2>
+<p>Corré **únicamente** contra entornos de lab propios o engagements autorizados.</p>
+<p>``` # Lab 1 — Find a candidate zombie in a lab subnet. sudo nmap -O 10.0.0.0/24 2&gt;/dev/null |     awk &#x27;/Nmap scan report/{ip=$NF} /IP ID Sequence Generation: Incremental/{print ip}&#x27; # Output: every host with incremental IPID is a candidate zombie. ```</p>
+<p>``` # Lab 2 — Verify a specific zombie&#x27;s IPID behavior in detail. sudo nmap -O ZOMBIE | grep -A1 &quot;IP ID Sequence&quot; # Expected: &quot;IP ID Sequence Generation: Incremental&quot; # If you see &quot;Random&quot; or &quot;Randomized&quot;, this zombie cannot be used. ```</p>
+<p>``` # Lab 3 — Run an idle scan against an authorized lab target. sudo nmap -Pn -sI ZOMBIE:80 -p 21,22,80,443,3389,8080 TARGET # The target&#x27;s packet capture will show ZOMBIE as the source. # Verify by running tcpdump on TARGET during the scan. ```</p>
+<p>``` # Lab 4 — Confirm the source-attribution property from TARGET&#x27;s perspective. # On TARGET: sudo tcpdump -i any -nn &quot;host ATTACKER_REAL_IP or host ZOMBIE&quot; -c 50 # Expected: zero packets to/from ATTACKER_REAL_IP, many packets to/from ZOMBIE. ```</p>
+<p>``` # Lab 5 — Defender lab: detect being used as a zombie. # On the ZOMBIE host: sudo tcpdump -i any -nn &#x27;tcp and ((tcp[tcpflags] &amp; tcp-syn != 0 and tcp[tcpflags] &amp; tcp-ack != 0) or (tcp[tcpflags] &amp; tcp-rst != 0))&#x27; -c 200 # Look for: SYN-ACK or RST packets arriving from the TARGET that do not correspond # to any outbound connection your host initiated. That is the zombie-side signature. ```</p>
+<p>``` # Lab 6 — IPID-based NAT-population inference (educational, against owned NAT). # Probe the NAT external IP repeatedly and watch IPID advance. for i in $(seq 1 20); do   sudo hping3 -c1 -S -p 80 NAT_EXTERNAL_IP 2&gt;/dev/null |       grep -oP &#x27;id=\K\d+&#x27;   sleep 1 done # If IPID advances by more than ~1 between samples, the NAT is sharing the counter # across multiple internal hosts — the rate of advance approximates the active host count. ```</p>
+<h2>Ejemplos prácticos</h2>
+<ul><li>**Engagement contra red industrial legacy.** El perímetro tiene ACLs estrictas pero confía en una impresora de red del año 2010 en la misma subred. El idle scan con la impresora como zombie revela puertos que el scan directo desde internet reporta como `filtered`.</li><li>**Ejercicio forense posterior a un scan de perímetro.** El equipo defensor ve tráfico de scan aparentemente desde `printer-3F-001`. La investigación revela que el IPID de la impresora avanzó inconsistentemente con su tráfico saliente durante la ventana de scan.</li><li>**Objetivo Linux moderno — el idle scan falla.** Mismo engagement, pero el objetivo es un host Linux 5.x. El generador IPID por destino significa que la técnica clásica no funciona; el operador cae en `-sS` ordinario y acepta el costo de atribución.</li><li>**Censo NAT durante pre-engagement recon.** Sondear la IP de perímetro de una organización revela que el contador IPID avanza aproximadamente 50 unidades por minuto, sugiriendo ~30-50 hosts internos activos en el momento de la medición.</li></ul>
+<h2>Notas relacionadas</h2>
+<ul><li>&lt;a href=&quot;nmap-timing-and-evasion.html&quot;&gt;Nmap Timing and Evasion&lt;/a&gt; — primitivas más amplias de timing/evasión; el idle scan es el caso más profundo de la pregunta de evasión de atribución.</li><li>&lt;a href=&quot;packet-fragmentation-and-decoy-scans.html&quot;&gt;Packet Fragmentation and Decoy Scans&lt;/a&gt; — familia hermana de evasión; los decoys oscurecen la atribución por ruido, el idle scan la elimina por mecanismo.</li><li>&lt;a href=&quot;../networking/tcp-ip-basics.html&quot;&gt;Fundamentos de TCP/IP&lt;/a&gt; — el campo de identificador IP que usa este ataque.</li><li>&lt;a href=&quot;../networking/nmap-scanning.html&quot;&gt;Nmap Scanning&lt;/a&gt; — estrategia de scan más amplia en la que encaja.</li><li>&lt;a href=&quot;../networking/packet-analysis.html&quot;&gt;Análisis de Paquetes&lt;/a&gt; — la herramienta correcta para verificar el flujo de paquetes zombie/objetivo durante un lab.</li><li>&lt;a href=&quot;../foundations/attacker-defender-duality-as-a-learning-tool.html&quot;&gt;Dualidad Atacante-Defensor como Herramienta de Aprendizaje&lt;/a&gt; — el idle scan es un ejemplo limpio de un ataque cuyas defensas son cambios en la especificación del protocolo, no reglas perimetrales.</li></ul>
+<h2>Referencias</h2>
+<ul><li>**Docs Oficiales:** Nmap Reference Guide — Idle Scan — https://nmap.org/book/idlescan.html</li><li>**Investigación / Deep Dive:** Antirez (Salvatore Sanfilippo) — Dumb scan / new TCP scan method (disclosure original de 1998 en Bugtraq) — https://seclists.org/bugtraq/1998/Dec/79</li><li>**Investigación / Deep Dive:** Ensafi et al. — Detecting Intentional Packet Drops on the Internet via TCP/IP Side Channels (USENIX Security 2015) — https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/ensafi</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="host-and-port-discovery.html"><span class="nav-dir">← Previous</span><strong>Host and Port Discovery</strong></a><a class="branch-nav-link next" href="masscan-internet-scale-scanning.html"><span class="nav-dir">Next →</span><strong>Masscan Internet-Scale Scanning</strong></a></nav>
 <section class="related-notes" aria-label="Notas relacionadas">
 <h2>Notas relacionadas</h2>
 <div class="related-grid">
-<a class="related-card" href="nmap-timing-and-evasion.html"><span>Seguridad Ofensiva / Recon</span><strong>Nmap Timing and Evasion</strong><small>El Nmap timing and evasion es el uso de las primitivas de tasa, reintento, paralelismo y forma de paquete de Nmap para (a) reducir resultados filtered falsos contra redes con rate limiting o (b) testear qué capturará y qué no un IDS/IPS, WAF o firewall stateful.</small></a>
-<a class="related-card" href="packet-fragmentation-and-decoy-scans.html"><span>Seguridad Ofensiva / Recon</span><strong>Packet Fragmentation and Decoy Scans</strong><small>La fragmentación de paquetes (-f, --mtu) y los decoy scans (-D) son dos primitivas de evasión de Nmap que operan en capas diferentes: la fragmentación divide los headers de probe a través del límite de fragmentación IP para derrotar el matching de firmas a nivel de paquete, mientras que los decoys inundan los logs del objetivo con IPs fuente falsas adicionales para derrotar la atribución a nivel de log.</small></a>
-<a class="related-card" href="cloaking-and-security-evasion.html"><span>Seguridad Ofensiva / Recon</span><strong>Cloaking and Security Evasion</strong><small>El cloaking es la práctica de mostrar comportamiento diferente a distintos visitantes según señales como IP, geografía, ASN, reverse DNS, User-Agent, browser fingerprint, reputación del proxy o identidad percibida del scanner.</small></a>
-<a class="related-card" href="nse-vuln-category-audit.html"><span>Seguridad Ofensiva / Recon</span><strong>NSE vuln Category Audit</strong><small>La categoría vuln del Nmap Scripting Engine contiene aproximadamente 150 scripts que afirman detectar vulnerabilidades. No todos son iguales: algunos son verificaciones conductuales confiables, muchos son heurísticas de strings de versión, y unos pocos están directamente obsoletos. Auditar la categoría — saber qué scripts producen señal confiable en 2026, cuáles requieren confirmación manual y cuáles deshabilitar — es la disciplina que convierte &quot;corrí --script vuln y obtuve 50 alertas&quot; en &quot;produje 4 hallazgos validados&quot;.</small></a>
-<a class="related-card" href="rustscan-and-nse-pipeline.html"><span>Seguridad Ofensiva / Recon</span><strong>RustScan and NSE Pipeline</strong><small>El pipeline RustScan + NSE es un flujo de trabajo en dos etapas en el que RustScan realiza un descubrimiento de puertos asíncrono y rápido sobre un objetivo y pasa la lista de puertos descubiertos directamente a Nmap, que luego maneja el Nmap Scripting Engine (NSE) para detección de servicios, sondeo de versiones y verificaciones de vulnerabilidades con scope acotado por categoría.</small></a>
-<a class="related-card" href="active-recon.html"><span>Seguridad Ofensiva / Recon</span><strong>Active Recon</strong><small>El active recon es la recopilación de información que interactúa directamente con la infraestructura, servicios o aplicaciones del objetivo para validar o extender lo descubierto en el passive recon.</small></a>
+<a class="related-card" href="active-recon.html"><span>Seguridad Ofensiva / Recon</span><strong>Active Recon</strong><small>El active recon es la recopilación de información que interactúa directamente con la infraestructura, servicios o aplicaciones del objetivo para validar o extender...</small></a>
+<a class="related-card" href="cloaking-and-security-evasion.html"><span>Seguridad Ofensiva / Recon</span><strong>Cloaking and Security Evasion</strong><small>El cloaking es la práctica de mostrar comportamiento diferente a distintos visitantes según señales como IP, geografía, ASN, reverse DNS, User-Agent, browser...</small></a>
+<a class="related-card" href="company-mapping.html"><span>Seguridad Ofensiva / Recon</span><strong>Company Mapping</strong><small>El company mapping es el proceso de conectar dominios, marcas, subsidiarias, adquisiciones, vendors, identidades públicas, productos y pistas de infraestructura en...</small></a>
+<a class="related-card" href="enumeration.html"><span>Seguridad Ofensiva / Recon</span><strong>Enumeration</strong><small>La enumeration es la expansión enfocada y metódica de pistas descubiertas en conocimiento concreto y validado sobre servicios alcanzables, rutas, identidades...</small></a>
+<a class="related-card" href="host-and-port-discovery.html"><span>Seguridad Ofensiva / Recon</span><strong>Host and Port Discovery</strong><small>El host and port discovery es el proceso de encontrar hosts en vivo y los puertos y servicios alcanzables que exponen dentro de un scope autorizado.</small></a>
+<a class="related-card" href="masscan-internet-scale-scanning.html"><span>Seguridad Ofensiva / Recon</span><strong>Masscan Internet-Scale Scanning</strong><small>Masscan es un scanner de puertos TCP/IP asíncrono y stateless con su propio stack de red en espacio de usuario, diseñado para enumerar puertos abiertos en espacios...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definicion">Definición</a>
-<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
-<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
-<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
-<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
-<a class="toc-level-3" href="#1-idle-scan-clasico-nmap-si">1. Idle scan clásico (Nmap -sI )</a>
-<a class="toc-level-3" href="#2-idle-scan-por-destino-ipid">2. Idle scan por destino IPID</a>
-<a class="toc-level-3" href="#3-tcp-shared-state-side-channels">3. TCP shared-state side channels</a>
-<a class="toc-level-3" href="#4-inferencia-de-mapeo-nat-via-ipid">4. Inferencia de mapeo NAT vía IPID</a>
-<a class="toc-level-2" href="#impacto">Impacto</a>
-<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
-<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
-<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
-<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
-<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
-<a class="toc-level-2" href="#referencias">Referencias</a>
-<a class="back-to-top" href="#top">Volver arriba</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

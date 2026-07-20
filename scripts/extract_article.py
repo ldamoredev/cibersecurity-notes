@@ -21,6 +21,7 @@ Usage:
     python3 scripts/extract_article.py cybersecurity/web-security/csrf
     python3 scripts/extract_article.py site/en/cybersecurity/web-security/csrf.html
     python3 scripts/extract_article.py --list web-security      # list pending notes in a branch
+    python3 scripts/extract_article.py --export-canonical       # recover public snapshot into content/en
 """
 from __future__ import annotations
 
@@ -287,11 +288,43 @@ def list_pending(branch: str | None) -> None:
     print(f"\n# {len(pending)} pending", file=sys.stderr)
 
 
+def export_canonical() -> None:
+    """Recover the *published* English snapshot into repository content.
+
+    This is intentionally a migration bridge, not a Markdown round-trip claim:
+    the private Obsidian vault is absent and the renderer's public HTML is the
+    only complete English corpus tracked by Git.  Bodies are recovered without
+    inventing material; frontmatter is added only where it can state the
+    recovery provenance.  Editorial normalization happens later, note by note.
+    """
+    target_root = ROOT / "content" / "en"
+    written = 0
+    for page in sorted(EN_ROOT.rglob("*.html")):
+        rel = page.relative_to(EN_ROOT)
+        if rel.name == "index.html" and rel.parent == EN_ROOT:
+            continue
+        target = target_root / rel.with_suffix(".md")
+        target.parent.mkdir(parents=True, exist_ok=True)
+        body = to_markdown(page.read_text(encoding="utf-8"))
+        target.write_text(
+            "---\n"
+            "migration_source: published-html-snapshot\n"
+            "migration_status: needs-editorial-review\n"
+            "---\n\n" + body,
+            encoding="utf-8",
+        )
+        written += 1
+    print(f"Recovered {written} public English notes into {target_root.relative_to(ROOT)}")
+
+
 def main(argv: list[str]) -> None:
     if not argv:
         sys.exit(__doc__)
     if argv[0] == "--list":
         list_pending(argv[1] if len(argv) > 1 else None)
+        return
+    if argv[0] == "--export-canonical":
+        export_canonical()
         return
     html_path = resolve_html(argv[0])
     rel = html_path.relative_to(EN_ROOT).with_suffix(".md")

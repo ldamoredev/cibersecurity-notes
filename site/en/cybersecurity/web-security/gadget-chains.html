@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Gadget Chains - Web Security | ldamoredev Security Atlas</title>
+<title>Gadget Chains - Web Security | Cybersecurity Atlas</title>
 <meta name="description" content="A gadget chain is a sequence of method invocations through *existing trusted code* that walks attacker-controlled data from a deserialization entry point to a...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Gadget Chains, web-security, deserialization, rce">
-<meta name="theme-color" content="#16a34a">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Gadget Chains">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/gadget-chains.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Web Security">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gadget Chains - Web Security | ldamoredev Security Atlas">
+<meta property="og:title" content="Gadget Chains - Web Security | Cybersecurity Atlas">
 <meta property="og:description" content="A gadget chain is a sequence of method invocations through *existing trusted code* that walks attacker-controlled data from a deserialization entry point to a...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/gadget-chains.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Gadget Chains - Web Security | ldamoredev Security Atlas">
+<meta name="twitter:title" content="Gadget Chains - Web Security | Cybersecurity Atlas">
 <meta name="twitter:description" content="A gadget chain is a sequence of method invocations through *existing trusted code* that walks attacker-controlled data from a deserialization entry point to a...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/gadget-chains.html#article","name":"Gadget Chains - Web Security | ldamoredev Security Atlas","headline":"Gadget Chains","description":"A gadget chain is a sequence of method invocations through *existing trusted code* that walks attacker-controlled data from a deserialization entry point to a...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/gadget-chains.html","inLanguage":"en","datePublished":"2026-05-01","dateModified":"2026-05-01","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/gadget-chains.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Gadget Chains","web-security","deserialization","rce"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Web Security","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/index.html"},{"@type":"ListItem","position":4,"name":"Gadget Chains","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/gadget-chains.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/gadget-chains.html#article","name":"Gadget Chains - Web Security | Cybersecurity Atlas","headline":"Gadget Chains","description":"A gadget chain is a sequence of method invocations through *existing trusted code* that walks attacker-controlled data from a deserialization entry point to a...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/gadget-chains.html","inLanguage":"en","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/gadget-chains.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Gadget Chains"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Web Security","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/index.html"},{"@type":"ListItem","position":4,"name":"Gadget Chains","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/gadget-chains.html"}]}]</script>
+<meta property="article:section" content="Web Security">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/gadget-chains.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/gadget-chains.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/gadget-chains.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Knowledge Base</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Attack Surface &amp; Signal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Atlas Home</a>
 <div class="sidebar-section"><h3>Entry layer</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Learning Path</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Overview</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="Attacker-Defender Duality as a Learning Tool">Attacker-Defender Duality as a Learning Tool</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Certifications as Validation Signals">Certifications as Validation Signals</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="CIA Triad — What It Actually Decides">CIA Triad — What It Actually Decides</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Job Context Specialization">Job Context Specialization</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Minimum Viable Cybersecurity Literacy">Minimum Viable Cybersecurity Literacy</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Threat Modeling Quickstart">Threat Modeling Quickstart</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="What Is Cybersecurity, and Why It Is Not a Tool List">What Is Cybersecurity, and Why It Is Not a Tool List</a>
 </div></details>
 </div></details>
-<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Cryptography</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Overview</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -88,7 +97,7 @@
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Overview</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caching and Security">Caching and Security</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Client IP Trust">Client IP Trust</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="DNS Resolution">DNS Resolution</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="DNS Security">DNS Security</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls and Network Boundaries">Firewalls and Network Boundaries</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Header Trust in Node Express">Header Trust in Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="HTTP Headers">HTTP Headers</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="HTTP Messages">HTTP Messages</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS and HTTPS">TLS and HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Wireshark Workflows">Wireshark Workflows</a>
 </div></details>
-<details class="nav-branch accent-blue active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="index.html">Overview</a>
 <a class="nav-leaf" href="auth-flaws.html" title="Authentication Flaws">Authentication Flaws</a>
+<a class="nav-leaf" href="authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="broken-access-control.html" title="Broken Access Control">Broken Access Control</a>
 <a class="nav-leaf" href="browser-security-boundaries.html" title="Browser Security Boundaries">Browser Security Boundaries</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Offensive Security / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Overview</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="The Operator Loop">The Operator Loop</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Overview</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Network Security Monitoring Discipline">Network Security Monitoring Discipline</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Attack Surface Mapping</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Overview</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,7 +238,7 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Overview</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detect BloodHound Collection">Detect BloodHound Collection</a>
@@ -235,6 +247,7 @@
 <a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>updated · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>updated · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -412,188 +425,76 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Web Security</a><span>/</span><span>Gadget Chains</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-blue">Web Security</span><span class="meta-chip meta-time" title="Estimated reading time">~8 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated May 01, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#web-security</span><span class="meta-chip tag">#deserialization</span><span class="meta-chip tag">#rce</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-blue">Web Security</span><span class="meta-chip meta-time" title="Estimated reading time">~8 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="gadget-chains">Gadget Chains</h1>
-<h2 id="definition">Definition</h2>
-<p>A gadget chain is a sequence of method invocations through <em>existing trusted code</em> that walks attacker-controlled data from a deserialization entry point to a dangerous sink. The attacker writes no new code on the target — they only choose which serialized object graph the deserializer reconstructs, and the chain is whatever methods that graph causes the runtime to invoke.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>The gadget-chain mental model is what separates a casual deserialization finding ("I tampered with a cookie") from a productized RCE primitive. It matters because:</p>
-<ul>
-<li>It explains why "we removed the vulnerable library" is a losing defense. Modern dependency trees contain hundreds of classes that can become a gadget link; new chains are published every year. Whack-a-mole on chains never converges.</li>
-<li>It transfers cleanly across attack classes. The same kick-off / intermediate / sink shape applies to JSON polymorphic deserialization (Jackson, Newtonsoft), XML binding (XStream), .NET <code>BinaryFormatter</code>, Python pickle, YAML loaders. If you can read the gadget-chain shape, you can read all of them.</li>
-<li>It clarifies the threat model. The application is not "executing the attacker's code" — it is calling its own legitimate methods on data that should never have been allowed to choose what gets called. The bug is the deserialization, not the chain.</li>
-<li>It teaches a transferable design lesson: <strong>reflective instantiation of attacker-named types is execution</strong>, even when the data format looks inert.</li>
-</ul>
-<h2 id="how-it-works">How it works</h2>
-<p>The chain has three named stages. All three are <em>existing code</em> on the target.</p>
-<ol>
-<li><strong>Kick-off gadget</strong> — a method the language runtime invokes automatically when reconstructing the object graph. PHP <code>__wakeup()</code> / <code>__destruct()</code>, Java <code>readObject(ObjectInputStream)</code>, Python <code>__reduce__</code>, Ruby <code>_load</code>, .NET <code>OnDeserialized</code> callbacks. The deserializer calls this with no application code in between.</li>
-<li><strong>Intermediate gadgets</strong> — methods invoked from the kick-off (or from each prior link) that pass attacker-controlled state forward. Often these are innocent-looking helpers: a logger that calls <code>toString()</code> on the message, a comparator that invokes <code>equals()</code>, a transformer that wraps a <code>Method.invoke()</code>. Each link does one ordinary operation; the chain is the composition.</li>
-<li><strong>Sink gadget</strong> — the final method where attacker-controlled state becomes a dangerous primitive: <code>Runtime.exec</code>, <code>eval</code>, <code>ProcessBuilder.start</code>, <code>URL.openStream</code>, <code>File.write</code>, reflective method invocation. RCE is the typical ceiling, but file write, SSRF, or auth bypass are also valid sinks.</li>
-</ol>
-<p>The canonical demonstration is the Apache Commons Collections <code>InvokerTransformer</code> chain in Java:
-- Kick-off: a <code>HashMap</code> whose <code>hashCode()</code> is invoked during <code>readObject</code>.
-- Intermediate: keys are <code>LazyMap</code> entries whose <code>get()</code> calls <code>ChainedTransformer.transform()</code>.
-- Sink: the final <code>InvokerTransformer</code> reflectively calls <code>Runtime.getRuntime().exec(cmd)</code>.</p>
-<p>The application contains no malicious code. It contains <code>HashMap</code>, <code>LazyMap</code>, and <code>InvokerTransformer</code>. Composing them is the bug.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
+<h1>Gadget Chains</h1>
+<h2>Definition</h2>
+<p>A gadget chain is a sequence of method invocations through *existing trusted code* that walks attacker-controlled data from a deserialization entry point to a dangerous sink. The attacker writes no new code on the target — they only choose which serialized object graph the deserializer reconstructs, and the chain is whatever methods that graph causes the runtime to invoke.</p>
+<h2>Why it matters</h2>
+<p>The gadget-chain mental model is what separates a casual deserialization finding (&quot;I tampered with a cookie&quot;) from a productized RCE primitive. It matters because:</p>
+<ul><li>It explains why &quot;we removed the vulnerable library&quot; is a losing defense. Modern dependency trees contain hundreds of classes that can become a gadget link; new chains are published every year. Whack-a-mole on chains never converges.</li><li>It transfers cleanly across attack classes. The same kick-off / intermediate / sink shape applies to JSON polymorphic deserialization (Jackson, Newtonsoft), XML binding (XStream), .NET `BinaryFormatter`, Python pickle, YAML loaders. If you can read the gadget-chain shape, you can read all of them.</li><li>It clarifies the threat model. The application is not &quot;executing the attacker&#x27;s code&quot; — it is calling its own legitimate methods on data that should never have been allowed to choose what gets called. The bug is the deserialization, not the chain.</li><li>It teaches a transferable design lesson: **reflective instantiation of attacker-named types is execution**, even when the data format looks inert.</li></ul>
+<h2>How it works</h2>
+<p>The chain has three named stages. All three are *existing code* on the target.</p>
+<p>1. **Kick-off gadget** — a method the language runtime invokes automatically when reconstructing the object graph. PHP `__wakeup()` / `__destruct()`, Java `readObject(ObjectInputStream)`, Python `__reduce__`, Ruby `_load`, .NET `OnDeserialized` callbacks. The deserializer calls this with no application code in between. 2. **Intermediate gadgets** — methods invoked from the kick-off (or from each prior link) that pass attacker-controlled state forward. Often these are innocent-looking helpers: a logger that calls `toString()` on the message, a comparator that invokes `equals()`, a transformer that wraps a `Method.invoke()`. Each link does one ordinary operation; the chain is the composition. 3. **Sink gadget** — the final method where attacker-controlled state becomes a dangerous primitive: `Runtime.exec`, `eval`, `ProcessBuilder.start`, `URL.openStream`, `File.write`, reflective method invocation. RCE is the typical ceiling, but file write, SSRF, or auth bypass are also valid sinks.</p>
+<p>The canonical demonstration is the Apache Commons Collections `InvokerTransformer` chain in Java: - Kick-off: a `HashMap` whose `hashCode()` is invoked during `readObject`. - Intermediate: keys are `LazyMap` entries whose `get()` calls `ChainedTransformer.transform()`. - Sink: the final `InvokerTransformer` reflectively calls `Runtime.getRuntime().exec(cmd)`.</p>
+<p>The application contains no malicious code. It contains `HashMap`, `LazyMap`, and `InvokerTransformer`. Composing them is the bug.</p>
+<h2>Techniques / patterns</h2>
 <p>What attackers look at and how they probe:</p>
-<ul>
-<li><strong>Identify the deserialization format on the wire</strong> before reaching for chains. Java <code>rO0</code>/<code>ac ed</code>, PHP <code>O:N:"..."</code>, Python pickle opcodes (<code>(c__main__\n...</code>), .NET <code>AAEAAAD/////</code> (BinaryFormatter), Ruby Marshal <code>\x04\x08</code>, YAML <code>!!ruby/object:</code> or <code>!!python/object:</code>.</li>
-<li><strong>Confirm deserialization happens at all</strong> with a <em>universal</em> probe before searching for an application-specific chain:</li>
-<li><code>URLDNS</code> (ysoserial) — triggers a DNS lookup to attacker-controlled domain. Detectable via Burp Collaborator. Works against any Java target that calls <code>readObject</code>.</li>
-<li><code>JRMPClient</code> (ysoserial) — forces a TCP connectback. Works without specific gadgets.</li>
-<li>For PHP, a custom payload that calls <code>dns_get_record()</code> in a <code>__destruct()</code> of a known-loaded class.</li>
-<li><strong>Enumerate the classpath / loaded libraries</strong>. Common bug-bounty path: response headers leak server tech (<code>X-Powered-By: WildFly</code>), error pages leak stack traces with library names, source maps leak npm dependencies. Match the dependency list against ysoserial / PHPGGC chain catalogs.</li>
-<li><strong>Use the prebuilt tooling first</strong>. Hand-rolled chains are rarely necessary — start with:</li>
-<li><code>ysoserial</code> — Java, dozens of chains for Commons Collections (1–7), Spring 1/2, Groovy, Hibernate, JBoss, Hibernate, Jackson polymorphic, etc.</li>
-<li><code>PHPGGC</code> — PHP, chains for Laravel, Symfony, WordPress, Drupal, Monolog, Guzzle, Doctrine, Slim, etc.</li>
-<li><code>marshalsec</code> — JNDI / LDAP / RMI gadgets, polymorphic JSON/XML/YAML binders.</li>
-<li><strong>Hand-build a chain when the target's library set is unusual</strong>. The mental loop: pick a magic-method entry point that exists in any loaded class, walk the call graph forward looking for any method that does <em>something with input</em> (reflection, <code>Class.forName</code>, <code>eval</code>, file ops), then trace backward to the kick-off.</li>
-</ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<h3 id="java-commons-collections-family">Java — Commons Collections family</h3>
-<p>The original. Versions 1–7 in ysoserial, each adapted to a slightly different version of Commons Collections. Sink is always reflective <code>Runtime.exec</code>. Triggers Apache Struts2 RCE (CVE-2017-9805 used XStream rather than native Java serialization, but the chain shape is identical), JBoss, WebSphere, Jenkins, OpenNMS, and dozens of enterprise products.</p>
-<h3 id="java-non-commons-chains">Java — non-Commons chains</h3>
-<ul>
-<li><strong>Spring 1 / 2</strong> — <code>DefaultListableBeanFactory</code> chains. Useful when Commons Collections is not on the classpath.</li>
-<li><strong>Groovy</strong> — <code>MethodClosure</code> lets the chain end at arbitrary method invocation.</li>
-<li><strong>Hibernate</strong> — <code>TypedValue</code> + <code>PojoComponentTuplizer</code> reach reflective execution.</li>
-<li><strong>JRE-only chains</strong> — newer ysoserial entries (<code>URLDNS</code>, <code>JRMPClient</code>) work on a vanilla JRE with no extra libraries. Limited sinks (DNS, TCP) but require zero dependency assumptions.</li>
-</ul>
-<h3 id="php-phpggc-families">PHP — PHPGGC families</h3>
-<p>Framework-specific chains that exploit the framework's own classes:
-- <strong>Laravel</strong> — chain ends in <code>Symfony\Component\HttpKernel\HttpKernelBrowser</code> or similar.
-- <strong>Monolog</strong> — <code>__destruct</code> on a logger reaches <code>proc_open</code> via a <code>BufferHandler</code>.
-- <strong>Guzzle</strong> — chain reaches HTTP request side-effects useful for SSRF.
-- <strong>WordPress / Drupal</strong> — application-specific chains that exploit plugin classes.</p>
-<h3 id="net-binaryformatter-and-losformatter">.NET — <code>BinaryFormatter</code> and <code>LosFormatter</code></h3>
-<ul>
-<li><code>BinaryFormatter</code> — Microsoft has officially deprecated it for exactly this reason; chains via <code>ObjectDataProvider</code>, <code>WindowsIdentity</code>, <code>System.Configuration.Install.AssemblyInstaller</code>.</li>
-<li><code>LosFormatter</code> — used by ASP.NET ViewState. Chains identical in shape; ysoserial.NET covers them.</li>
-<li><code>Json.NET</code> with <code>TypeNameHandling.All</code> reintroduces the same chain surface in JSON; see <a href="../api-security/polymorphic-deserialization.html">polymorphic-deserialization</a> for the JSON polymorphic case.</li>
-</ul>
-<h3 id="python-pickle-__reduce__">Python — pickle <code>__reduce__</code></h3>
-<p>Single-link "chain": <code>__reduce__</code> returns <code>(os.system, ("id",))</code> and the unpickler obediently calls it. Pickle is unique in that the format itself is a stack-based VM — gadget chains are barely needed. Treat any <code>pickle.loads()</code> on untrusted data as immediate RCE.</p>
-<h3 id="ruby-marshal-activesupport">Ruby — Marshal + ActiveSupport</h3>
-<p><code>Marshal.load</code> on attacker-controlled bytes plus a Rails app on the classpath gives chains via <code>ActionDispatch::Cookies::CookieJar</code> and <code>ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy</code>.</p>
-<h3 id="universal-blind-probes">Universal blind probes</h3>
-<p>When you cannot identify the library set, the universal chains (<code>URLDNS</code>, <code>JRMPClient</code> for Java; DNS-callback <code>__wakeup</code> for PHP) confirm deserialization happens and tell you to invest more effort. Always probe blind first.</p>
-<h2 id="impact">Impact</h2>
+<ul><li>**Identify the deserialization format on the wire** before reaching for chains. Java `rO0`/`ac ed`, PHP `O:N:&quot;...&quot;`, Python pickle opcodes (`(c__main__\n...`), .NET `AAEAAAD/////` (BinaryFormatter), Ruby Marshal `\x04\x08`, YAML `!!ruby/object:` or `!!python/object:`.</li><li>**Confirm deserialization happens at all** with a *universal* probe before searching for an application-specific chain:</li><li>`URLDNS` (ysoserial) — triggers a DNS lookup to attacker-controlled domain. Detectable via Burp Collaborator. Works against any Java target that calls `readObject`.</li><li>`JRMPClient` (ysoserial) — forces a TCP connectback. Works without specific gadgets.</li><li>For PHP, a custom payload that calls `dns_get_record()` in a `__destruct()` of a known-loaded class.</li><li>**Enumerate the classpath / loaded libraries**. Common bug-bounty path: response headers leak server tech (`X-Powered-By: WildFly`), error pages leak stack traces with library names, source maps leak npm dependencies. Match the dependency list against ysoserial / PHPGGC chain catalogs.</li><li>**Use the prebuilt tooling first**. Hand-rolled chains are rarely necessary — start with:</li><li>`ysoserial` — Java, dozens of chains for Commons Collections (1–7), Spring 1/2, Groovy, Hibernate, JBoss, Hibernate, Jackson polymorphic, etc.</li><li>`PHPGGC` — PHP, chains for Laravel, Symfony, WordPress, Drupal, Monolog, Guzzle, Doctrine, Slim, etc.</li><li>`marshalsec` — JNDI / LDAP / RMI gadgets, polymorphic JSON/XML/YAML binders.</li><li>**Hand-build a chain when the target&#x27;s library set is unusual**. The mental loop: pick a magic-method entry point that exists in any loaded class, walk the call graph forward looking for any method that does *something with input* (reflection, `Class.forName`, `eval`, file ops), then trace backward to the kick-off.</li></ul>
+<h2>Variants and bypasses</h2>
+<h3>Java — Commons Collections family</h3>
+<p>The original. Versions 1–7 in ysoserial, each adapted to a slightly different version of Commons Collections. Sink is always reflective `Runtime.exec`. Triggers Apache Struts2 RCE (CVE-2017-9805 used XStream rather than native Java serialization, but the chain shape is identical), JBoss, WebSphere, Jenkins, OpenNMS, and dozens of enterprise products.</p>
+<h3>Java — non-Commons chains</h3>
+<ul><li>**Spring 1 / 2** — `DefaultListableBeanFactory` chains. Useful when Commons Collections is not on the classpath.</li><li>**Groovy** — `MethodClosure` lets the chain end at arbitrary method invocation.</li><li>**Hibernate** — `TypedValue` + `PojoComponentTuplizer` reach reflective execution.</li><li>**JRE-only chains** — newer ysoserial entries (`URLDNS`, `JRMPClient`) work on a vanilla JRE with no extra libraries. Limited sinks (DNS, TCP) but require zero dependency assumptions.</li></ul>
+<h3>PHP — PHPGGC families</h3>
+<p>Framework-specific chains that exploit the framework&#x27;s own classes: - **Laravel** — chain ends in `Symfony\Component\HttpKernel\HttpKernelBrowser` or similar. - **Monolog** — `__destruct` on a logger reaches `proc_open` via a `BufferHandler`. - **Guzzle** — chain reaches HTTP request side-effects useful for SSRF. - **WordPress / Drupal** — application-specific chains that exploit plugin classes.</p>
+<h3>.NET — `BinaryFormatter` and `LosFormatter`</h3>
+<ul><li>`BinaryFormatter` — Microsoft has officially deprecated it for exactly this reason; chains via `ObjectDataProvider`, `WindowsIdentity`, `System.Configuration.Install.AssemblyInstaller`.</li><li>`LosFormatter` — used by ASP.NET ViewState. Chains identical in shape; ysoserial.NET covers them.</li><li>`Json.NET` with `TypeNameHandling.All` reintroduces the same chain surface in JSON; see &lt;a href=&quot;../api-security/polymorphic-deserialization.html&quot;&gt;polymorphic-deserialization&lt;/a&gt; for the JSON polymorphic case.</li></ul>
+<h3>Python — pickle `__reduce__`</h3>
+<p>Single-link &quot;chain&quot;: `__reduce__` returns `(os.system, (&quot;id&quot;,))` and the unpickler obediently calls it. Pickle is unique in that the format itself is a stack-based VM — gadget chains are barely needed. Treat any `pickle.loads()` on untrusted data as immediate RCE.</p>
+<h3>Ruby — Marshal + ActiveSupport</h3>
+<p>`Marshal.load` on attacker-controlled bytes plus a Rails app on the classpath gives chains via `ActionDispatch::Cookies::CookieJar` and `ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy`.</p>
+<h3>Universal blind probes</h3>
+<p>When you cannot identify the library set, the universal chains (`URLDNS`, `JRMPClient` for Java; DNS-callback `__wakeup` for PHP) confirm deserialization happens and tell you to invest more effort. Always probe blind first.</p>
+<h2>Impact</h2>
 <p>Severity matches the strength of the sink, not the existence of the chain:</p>
-<ul>
-<li><strong>RCE</strong> — sink reaches <code>exec</code>/<code>eval</code>/equivalent. Default ceiling for any chain reaching an OS-level primitive.</li>
-<li><strong>SSRF</strong> — sink reaches HTTP/URL primitives (<code>URLDNS</code>, Guzzle chains, .NET <code>WebClient</code>).</li>
-<li><strong>File read / write</strong> — sink reaches filesystem APIs (<code>File.write</code>, <code>fopen</code> in <code>w</code> mode).</li>
-<li><strong>Auth bypass / privilege escalation</strong> — chain modifies server-side authorization state (e.g., flipping <code>isAdmin</code> via reflective field write).</li>
-<li><strong>Denial of service</strong> — degenerate chains: nested object graphs, billion-laughs-style hash collisions in <code>HashMap</code> keys.</li>
-</ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
+<ul><li>**RCE** — sink reaches `exec`/`eval`/equivalent. Default ceiling for any chain reaching an OS-level primitive.</li><li>**SSRF** — sink reaches HTTP/URL primitives (`URLDNS`, Guzzle chains, .NET `WebClient`).</li><li>**File read / write** — sink reaches filesystem APIs (`File.write`, `fopen` in `w` mode).</li><li>**Auth bypass / privilege escalation** — chain modifies server-side authorization state (e.g., flipping `isAdmin` via reflective field write).</li><li>**Denial of service** — degenerate chains: nested object graphs, billion-laughs-style hash collisions in `HashMap` keys.</li></ul>
+<h2>Detection and defense</h2>
 <p>Ordered by effectiveness:</p>
-<ol>
-<li>
-<p><strong>Don't deserialize untrusted input.</strong>
-   This is the only defense that addresses the class. If untrusted bytes never reach <code>readObject</code> / <code>unserialize</code> / <code>pickle.loads</code>, no chain can fire. Replace native serialization with data-only formats (JSON without polymorphic typing, Protobuf with explicit schemas, MessagePack) and reconstruct domain objects with explicit, type-checked code paths. Every other defense is a mitigation.</p>
-</li>
-<li>
-<p><strong>Verify integrity <em>before</em> deserializing.</strong>
-   HMAC the bytes with a server-only key; reject the payload outright if the signature does not match. The check must run on the bytes, not on a parsed-then-validated object — checks that run after deserialization are too late, because the kick-off gadget already fired. This is the standard pattern for "we must accept a typed cookie."</p>
-</li>
-<li>
-<p><strong>Apply a class allowlist at the deserializer level.</strong>
-   Java <code>ObjectInputFilter</code> (JEP 290), .NET <code>SerializationBinder</code>, Jackson <code>BasicPolymorphicTypeValidator</code>, Python <code>pickle.Unpickler.find_class</code> override. Each restricts which classes the deserializer is willing to instantiate. Maintain the list deliberately — every class added is an attack-surface decision. Allowlists shut down arbitrary-class injection even if the bytes are tampered with.</p>
-</li>
-<li>
-<p><strong>Replace generic serialization with class-specific methods.</strong>
-   Hand-rolled <code>serialize</code>/<code>deserialize</code> for each domain class lets you choose which fields cross the wire and validate types as you reconstruct. Prevents "the framework deserialized a private field you forgot existed."</p>
-</li>
-<li>
-<p><strong>Trim known gadget-chain libraries from the dependency tree.</strong>
-   Defense-in-depth, not primary defense. Removing Commons Collections from a classpath that does not need it is good hygiene; it is not a strategy. The chain set grows; the dependency tree drifts; the next ysoserial release changes the answer. See "what does not work" below.</p>
-</li>
-<li>
-<p><strong>Monitor for deserialization fingerprints in unexpected places.</strong>
-   Inbound traffic carrying <code>rO0</code>/<code>ac ed</code>/<code>O:</code>/PHP-PHAR/pickle opcodes/<code>AAEAAAD</code> where it should not appear is high-signal. WAF rules for these prefixes catch the off-the-shelf payloads even when the chain is novel.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
-<ul>
-<li><strong>Removing one vulnerable library at a time.</strong> The chain set is not a fixed list. Apache Commons Collections was the canonical example for years; modern ysoserial has chains in plain JRE classes, in Spring, in Hibernate, in Groovy, in C3P0, in Hibernate, in BeanShell. New chains are published faster than dependency teams remove old ones. Do not budget defense around "we removed the chain library."</li>
-<li><strong>Validating after deserialization.</strong> The kick-off gadget runs during <code>readObject</code>. By the time the application sees the resulting object, the sink may have already executed.</li>
-<li><strong>Obfuscating or encrypting the format on the wire.</strong> Encryption defends against tampering only if the key is server-side and the integrity check runs <em>before</em> deserialization. If the key leaks or the cipher is malleable, the chain is back.</li>
-<li><strong>WAF signatures alone.</strong> WAFs catch base64 ysoserial payloads and known PHPGGC prefixes. They do not catch hand-built chains, custom-encoded payloads, or chains delivered through indirect paths (PHAR streams, JNDI lookups).</li>
-<li><strong>Java <code>SecurityManager</code>.</strong> Deprecated and removed in Java 17+. Even when present, it does not prevent the chain — it only restricts the sink's effect, and most chains reach sinks the SecurityManager does not gate.</li>
-</ul>
-<h2 id="practical-examples">Practical examples</h2>
-<ul>
-<li>An internal Java RPC service receiving serialized payloads over HTTP from "trusted" callers — attacker reaches the service through a misconfigured ingress and lands <code>ysoserial CommonsCollections5</code>.</li>
-<li>A legacy PHP forum's session cookie holds a serialized <code>User</code> — PHPGGC-built chain via the bundled Monolog dependency reaches <code>proc_open</code>.</li>
-<li>A .NET ASP.NET application using <code>BinaryFormatter</code> for ViewState — ysoserial.NET chain via <code>ObjectDataProvider</code>. Microsoft has flagged this as the top reason <code>BinaryFormatter</code> is deprecated.</li>
-<li>A Python ML inference server accepting pickled models from S3 — <code>__reduce__</code>-based payload runs as a single-link chain. The "chain" is just the unpickler honoring <code>__reduce__</code>.</li>
-<li>A SnakeYAML loader behind an admin import feature — a <code>!!java.net.URLClassLoader</code> payload with a nested URL list constructs a class loader and triggers remote class load.</li>
-</ul>
-<h2 id="related-notes">Related notes</h2>
-<ul>
-<li><a href="deserialization.html">deserialization</a> — the parent concept; gadget chains are the exploitation half.</li>
-<li><a href="phar-deserialization.html">phar-deserialization</a> — the PHP-specific <em>trigger</em> for the kick-off, distinct from the chain itself.</li>
-<li><a href="../api-security/polymorphic-deserialization.html">Polymorphic deserialization</a> — the same chain shape reintroduced through JSON/XML/YAML binders.</li>
-<li><a href="file-upload-abuse.html">file-upload-abuse</a> — common delivery mechanism, especially for PHAR and pickle.</li>
-<li><a href="ssrf.html">ssrf</a> — the <code>URLDNS</code> family of chains is effectively SSRF-as-detection.</li>
-</ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
-<ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: ysoserial-chains">ysoserial-chains</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: phpggc-chains">phpggc-chains</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: jndi-injection">jndi-injection</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: binaryformatter-chains">binaryformatter-chains</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: snakeyaml-chains">snakeyaml-chains</span></li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Foundational:</strong> OWASP Deserialization Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html</li>
-<li><strong>Testing / Lab:</strong> PortSwigger Exploiting insecure deserialization — https://portswigger.net/web-security/deserialization/exploiting</li>
-<li><strong>Research / Deep Dive:</strong> Chris Frohoff &amp; Gabriel Lawrence, "Marshalling Pickles" (AppSecCali 2015, original ysoserial talk) — https://frohoff.github.io/appseccali-marshalling-pickles/</li>
-<li><strong>Official Tool Docs:</strong> ysoserial — https://github.com/frohoff/ysoserial</li>
-<li><strong>Official Tool Docs:</strong> PHPGGC — https://github.com/ambionics/phpggc</li>
-</ul>
+<p>1. **Don&#x27;t deserialize untrusted input.**    This is the only defense that addresses the class. If untrusted bytes never reach `readObject` / `unserialize` / `pickle.loads`, no chain can fire. Replace native serialization with data-only formats (JSON without polymorphic typing, Protobuf with explicit schemas, MessagePack) and reconstruct domain objects with explicit, type-checked code paths. Every other defense is a mitigation.</p>
+<p>2. **Verify integrity *before* deserializing.**    HMAC the bytes with a server-only key; reject the payload outright if the signature does not match. The check must run on the bytes, not on a parsed-then-validated object — checks that run after deserialization are too late, because the kick-off gadget already fired. This is the standard pattern for &quot;we must accept a typed cookie.&quot;</p>
+<p>3. **Apply a class allowlist at the deserializer level.**    Java `ObjectInputFilter` (JEP 290), .NET `SerializationBinder`, Jackson `BasicPolymorphicTypeValidator`, Python `pickle.Unpickler.find_class` override. Each restricts which classes the deserializer is willing to instantiate. Maintain the list deliberately — every class added is an attack-surface decision. Allowlists shut down arbitrary-class injection even if the bytes are tampered with.</p>
+<p>4. **Replace generic serialization with class-specific methods.**    Hand-rolled `serialize`/`deserialize` for each domain class lets you choose which fields cross the wire and validate types as you reconstruct. Prevents &quot;the framework deserialized a private field you forgot existed.&quot;</p>
+<p>5. **Trim known gadget-chain libraries from the dependency tree.**    Defense-in-depth, not primary defense. Removing Commons Collections from a classpath that does not need it is good hygiene; it is not a strategy. The chain set grows; the dependency tree drifts; the next ysoserial release changes the answer. See &quot;what does not work&quot; below.</p>
+<p>6. **Monitor for deserialization fingerprints in unexpected places.**    Inbound traffic carrying `rO0`/`ac ed`/`O:`/PHP-PHAR/pickle opcodes/`AAEAAAD` where it should not appear is high-signal. WAF rules for these prefixes catch the off-the-shelf payloads even when the chain is novel.</p>
+<h3>What does not work as a primary defense</h3>
+<ul><li>**Removing one vulnerable library at a time.** The chain set is not a fixed list. Apache Commons Collections was the canonical example for years; modern ysoserial has chains in plain JRE classes, in Spring, in Hibernate, in Groovy, in C3P0, in Hibernate, in BeanShell. New chains are published faster than dependency teams remove old ones. Do not budget defense around &quot;we removed the chain library.&quot;</li><li>**Validating after deserialization.** The kick-off gadget runs during `readObject`. By the time the application sees the resulting object, the sink may have already executed.</li><li>**Obfuscating or encrypting the format on the wire.** Encryption defends against tampering only if the key is server-side and the integrity check runs *before* deserialization. If the key leaks or the cipher is malleable, the chain is back.</li><li>**WAF signatures alone.** WAFs catch base64 ysoserial payloads and known PHPGGC prefixes. They do not catch hand-built chains, custom-encoded payloads, or chains delivered through indirect paths (PHAR streams, JNDI lookups).</li><li>**Java `SecurityManager`.** Deprecated and removed in Java 17+. Even when present, it does not prevent the chain — it only restricts the sink&#x27;s effect, and most chains reach sinks the SecurityManager does not gate.</li></ul>
+<h2>Practical examples</h2>
+<ul><li>An internal Java RPC service receiving serialized payloads over HTTP from &quot;trusted&quot; callers — attacker reaches the service through a misconfigured ingress and lands `ysoserial CommonsCollections5`.</li><li>A legacy PHP forum&#x27;s session cookie holds a serialized `User` — PHPGGC-built chain via the bundled Monolog dependency reaches `proc_open`.</li><li>A .NET ASP.NET application using `BinaryFormatter` for ViewState — ysoserial.NET chain via `ObjectDataProvider`. Microsoft has flagged this as the top reason `BinaryFormatter` is deprecated.</li><li>A Python ML inference server accepting pickled models from S3 — `__reduce__`-based payload runs as a single-link chain. The &quot;chain&quot; is just the unpickler honoring `__reduce__`.</li><li>A SnakeYAML loader behind an admin import feature — a `!!java.net.URLClassLoader` payload with a nested URL list constructs a class loader and triggers remote class load.</li></ul>
+<h2>Related notes</h2>
+<ul><li>&lt;a href=&quot;deserialization.html&quot;&gt;deserialization&lt;/a&gt; — the parent concept; gadget chains are the exploitation half.</li><li>&lt;a href=&quot;phar-deserialization.html&quot;&gt;phar-deserialization&lt;/a&gt; — the PHP-specific *trigger* for the kick-off, distinct from the chain itself.</li><li>&lt;a href=&quot;../api-security/polymorphic-deserialization.html&quot;&gt;Polymorphic deserialization&lt;/a&gt; — the same chain shape reintroduced through JSON/XML/YAML binders.</li><li>&lt;a href=&quot;file-upload-abuse.html&quot;&gt;file-upload-abuse&lt;/a&gt; — common delivery mechanism, especially for PHAR and pickle.</li><li>&lt;a href=&quot;ssrf.html&quot;&gt;ssrf&lt;/a&gt; — the `URLDNS` family of chains is effectively SSRF-as-detection.</li></ul>
+<h3>Suggested future atomic notes</h3>
+<ul><li>ysoserial-chains</li><li>phpggc-chains</li><li>jndi-injection</li><li>binaryformatter-chains</li><li>snakeyaml-chains</li></ul>
+<h2>References</h2>
+<ul><li>**Foundational:** OWASP Deserialization Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html</li><li>**Testing / Lab:** PortSwigger Exploiting insecure deserialization — https://portswigger.net/web-security/deserialization/exploiting</li><li>**Research / Deep Dive:** Chris Frohoff &amp; Gabriel Lawrence, &quot;Marshalling Pickles&quot; (AppSecCali 2015, original ysoserial talk) — https://frohoff.github.io/appseccali-marshalling-pickles/</li><li>**Official Tool Docs:** ysoserial — https://github.com/frohoff/ysoserial</li><li>**Official Tool Docs:** PHPGGC — https://github.com/ambionics/phpggc</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="file-upload-abuse.html"><span class="nav-dir">← Previous</span><strong>File Upload Abuse</strong></a><a class="branch-nav-link next" href="deserialization.html"><span class="nav-dir">Next →</span><strong>Insecure Deserialization</strong></a></nav>
-<section class="related-notes" aria-label="Explore nearby notes">
-<h2>Explore nearby notes</h2>
+<section class="related-notes" aria-label="Related notes">
+<h2>Related notes</h2>
 <div class="related-grid">
-<a class="related-card" href="deserialization.html"><span>Web Security</span><strong>Insecure Deserialization</strong><small>Insecure deserialization is the act of reconstructing a typed object from attacker-controlled bytes, where the reconstruction process itself executes code paths...</small></a>
-<a class="related-card" href="phar-deserialization.html"><span>Web Security</span><strong>PHAR Deserialization</strong><small>PHAR deserialization is a PHP-specific exploitation technique where deserialization is triggered not by an explicit unserialize() call, but as a side effect of any...</small></a>
 <a class="related-card" href="auth-flaws.html"><span>Web Security</span><strong>Authentication Flaws</strong><small>Authentication flaws are weaknesses in how an application verifies identity. They include weak login logic, user enumeration, broken MFA flows, password reset...</small></a>
+<a class="related-card" href="authentication-authorization-and-object-access.html"><span>Web Security</span><strong>Authentication, authorization and object access</strong><small>Authentication establishes a principal. Session management maintains that association across requests. Authorization decides whether that principal may perform an...</small></a>
 <a class="related-card" href="bot-detection-signals.html"><span>Web Security</span><strong>Bot Detection Signals</strong><small>Bot detection signals are the observable clues a web application or edge service uses to classify traffic as human, benign automation, suspicious automation, or...</small></a>
 <a class="related-card" href="broken-access-control.html"><span>Web Security</span><strong>Broken Access Control</strong><small>Broken access control happens when an application fails to enforce what a caller is allowed to access or do.</small></a>
 <a class="related-card" href="browser-security-boundaries.html"><span>Web Security</span><strong>Browser Security Boundaries</strong><small>&quot;Browser security boundaries&quot; is the **layered stack of isolation boundaries** a modern browser enforces between web content — not a single rule but five...</small></a>
+<a class="related-card" href="business-logic-vulnerabilities.html"><span>Web Security</span><strong>Business Logic Vulnerabilities</strong><small>Business logic vulnerabilities are flaws in the intended workflow, assumptions, invariants, or rule design of an application, where the system behaves as coded but...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#java-commons-collections-family">Java — Commons Collections family</a>
-<a class="toc-level-3" href="#java-non-commons-chains">Java — non-Commons chains</a>
-<a class="toc-level-3" href="#php-phpggc-families">PHP — PHPGGC families</a>
-<a class="toc-level-3" href="#net-binaryformatter-and-losformatter">.NET —  BinaryFormatter  and  LosFormatter</a>
-<a class="toc-level-3" href="#python-pickle-__reduce__">Python — pickle  __reduce__</a>
-<a class="toc-level-3" href="#ruby-marshal-activesupport">Ruby — Marshal + ActiveSupport</a>
-<a class="toc-level-3" href="#universal-blind-probes">Universal blind probes</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-examples">Practical examples</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-3" href="#suggested-future-atomic-notes">Suggested future atomic notes</a>
-<a class="back-to-top" href="#top">Back to top</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

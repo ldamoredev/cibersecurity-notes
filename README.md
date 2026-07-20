@@ -1,93 +1,50 @@
-# obsidian-site
+# Cybersecurity Atlas
 
-Static HTML mirror of the mature `cybersecurity/` branches from my
-Obsidian vault at `/Users/lautarodamore/obsidian-vault/ldamore/`.
+> Understand the system. Break the assumption. Detect the evidence.
 
-The build intentionally excludes private/project execution notes, templates,
-tooling experiments, and future/unpromoted cybersecurity branches.
+Cybersecurity Atlas is a systems-first reference for how assets, trust
+boundaries, vulnerabilities, adversary behavior, telemetry, detection, and
+response fit together. It is not a tool list and it does not authorize testing
+systems that are not yours.
 
-Plain HTML + CSS + a tiny vanilla-JS search. No framework, no runtime server,
-no build toolchain beyond Python.
+The public product name is **Cybersecurity Atlas**. The historical repository
+name and GitHub Pages URL stay unchanged for compatibility.
 
-## Layout
+## Architecture
 
-- `build.py` — single-file build script (Python 3 + `markdown`, `pyyaml`, `pygments`).
-- `site/` — generated output. Open `site/index.html` directly or serve the folder.
-- `.venv/` — local ignored virtualenv for the build dependencies.
+- `content/en/cybersecurity/` — canonical public English Markdown.
+- `content/es/cybersecurity/` — Spanish overlay; missing pages visibly fall
+  back to English.
+- `static/` — checked-in brand and site assets.
+- `site/` — generated static output; never edit it as canonical content.
+- `scripts/` — audit and structural validation.
 
-## Rebuild
+The original private Obsidian vault is not required. Because it was unavailable
+for this migration, the already published English HTML snapshot was recovered
+into `content/en` and explicitly marked for editorial review. No private notes
+were copied.
 
-After adding or editing notes in the vault:
-
-```bash
-cd ~/obsidian-site
-python3 -m venv .venv
-.venv/bin/python -m pip install markdown pyyaml pygments
-.venv/bin/python build.py
-```
-
-The script clears `site/` and regenerates everything. It prints how many notes
-it wrote and how many wikilinks were unresolved (those render as red dashed
-placeholders, matching Obsidian's "not yet created" behavior).
-
-## Serve locally
-
-```bash
-cd ~/obsidian-site/site
-python3 -m http.server 8000
-# visit http://127.0.0.1:8000
-```
-
-Or just open `site/index.html` in a browser — relative paths are used
-throughout, so the `file://` scheme works too.
-
-## What it handles
-
-- Folder hierarchy mirrored as a collapsible sidebar.
-- Obsidian `[[wikilinks]]`, including `[[folder/note]]`, `[[note|label]]`, and
-  `[[note#heading]]`. Same-folder notes win on slug collisions.
-- Standard `[text](foo.md)` links rewritten to `.html`.
-- YAML frontmatter (tags surface as chips at the top of each note).
-- Fenced code blocks with Pygments syntax highlighting.
-- Tables, blockquotes, lists, HR, inline code.
-- Client-side search across titles + body text (`assets/search.json`).
-- Light/dark theme toggle, persisted in `localStorage`.
-
-## Dependencies
-
-Install into the local ignored virtualenv:
+## Build locally
 
 ```bash
 python3 -m venv .venv
 .venv/bin/python -m pip install markdown pyyaml pygments
-```
-
-## Deploy to GitHub Pages
-
-CI deploys the pre-built `site/` directory — the build runs locally, not in
-Actions, so the workflow does not need access to the vault.
-
-Workflow in place: `.github/workflows/deploy.yml`.
-
-Update flow:
-
-```bash
-cd ~/obsidian-site
+.venv/bin/python scripts/validate_content.py
 .venv/bin/python build.py
-git add -A
-git commit -m "update notes"
-git push
 ```
 
-On first push, enable Pages in the repo: **Settings → Pages → Build and
-deployment → Source: GitHub Actions**.
+Serve `site/` with `python3 -m http.server --directory site 8000` and visit
+`http://127.0.0.1:8000`.
 
-## Notes
+## Editorial and safety rules
 
-- `.DS_Store` and other non-`.md` files are ignored.
-- Unresolved wikilinks (e.g. `[[clickjacking]]` when no such note exists yet)
-  are rendered as dashed red placeholders so they stay visible without
-  breaking navigation.
-- Slug collisions (same filename in different folders) are resolved by
-  preferring a target in the same folder as the source note, then the same
-  section. Warnings print during build.
+Read [CONTENT-PLAN.md](CONTENT-PLAN.md), [SOURCES.md](SOURCES.md),
+[SAFETY.md](SAFETY.md), [LABS-ROADMAP.md](LABS-ROADMAP.md), and
+[MIGRATION-MAP.md](MIGRATION-MAP.md) before adding content. Labs are local,
+authorized, deterministic, and paired with telemetry, a fix, and a regression
+test.
+
+## Deployment
+
+GitHub Actions installs the renderer dependencies, validates public content,
+builds `site/`, and deploys that generated artifact to GitHub Pages.

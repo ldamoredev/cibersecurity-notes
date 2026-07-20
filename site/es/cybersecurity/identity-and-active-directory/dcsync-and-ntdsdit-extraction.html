@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DCSync and ntds.dit Extraction | ldamoredev Security Atlas</title>
-<meta name="description" content="DCSync es un ataque de extracción de credenciales AD donde el atacante abusa de los derechos de replicación del directorio DS-Replication-Get-Changes-All y r...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Identidad y Active Directory, DCSync and ntds.dit Extraction, offensive-security, active-directory, dcsync, ntds, credential-extraction">
-<meta name="theme-color" content="#16a34a">
+<title>DCSync and ntds.dit Extraction - Identidad y Active Directory | Cybersecurity Atlas</title>
+<meta name="description" content="DCSync es un ataque de extracción de credenciales AD donde el atacante abusa de los derechos de replicación del directorio **DS-Replication-Get-Changes-All** y...">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Identidad y Active Directory, DCSync and ntds.dit Extraction">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Identidad y Active Directory">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DCSync and ntds.dit Extraction | ldamoredev Security Atlas">
-<meta property="og:description" content="DCSync es un ataque de extracción de credenciales AD donde el atacante abusa de los derechos de replicación del directorio DS-Replication-Get-Changes-All y r...">
+<meta property="og:title" content="DCSync and ntds.dit Extraction - Identidad y Active Directory | Cybersecurity Atlas">
+<meta property="og:description" content="DCSync es un ataque de extracción de credenciales AD donde el atacante abusa de los derechos de replicación del directorio **DS-Replication-Get-Changes-All** y...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="DCSync and ntds.dit Extraction | ldamoredev Security Atlas">
-<meta name="twitter:description" content="DCSync es un ataque de extracción de credenciales AD donde el atacante abusa de los derechos de replicación del directorio DS-Replication-Get-Changes-All y r...">
+<meta name="twitter:title" content="DCSync and ntds.dit Extraction - Identidad y Active Directory | Cybersecurity Atlas">
+<meta name="twitter:description" content="DCSync es un ataque de extracción de credenciales AD donde el atacante abusa de los derechos de replicación del directorio **DS-Replication-Get-Changes-All** y...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/dcsync-and-ntdsdit-extraction.html#article","name":"DCSync and ntds.dit Extraction | ldamoredev Security Atlas","headline":"DCSync and ntds.dit Extraction","description":"DCSync es un ataque de extracción de credenciales AD donde el atacante abusa de los derechos de replicación del directorio DS-Replication-Get-Changes-All y r...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/dcsync-and-ntdsdit-extraction.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/dcsync-and-ntdsdit-extraction.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identidad y Active Directory","DCSync and ntds.dit Extraction","offensive-security","active-directory","dcsync","ntds","credential-extraction"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identidad y Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"DCSync and ntds.dit Extraction","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/dcsync-and-ntdsdit-extraction.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/dcsync-and-ntdsdit-extraction.html#article","name":"DCSync and ntds.dit Extraction - Identidad y Active Directory | Cybersecurity Atlas","headline":"DCSync and ntds.dit Extraction","description":"DCSync es un ataque de extracción de credenciales AD donde el atacante abusa de los derechos de replicación del directorio **DS-Replication-Get-Changes-All** y...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/dcsync-and-ntdsdit-extraction.html","inLanguage":"es","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/dcsync-and-ntdsdit-extraction.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identidad y Active Directory","DCSync and ntds.dit Extraction"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identidad y Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"DCSync and ntds.dit Extraction","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/dcsync-and-ntdsdit-extraction.html"}]}]</script>
+<meta property="article:section" content="Identidad y Active Directory">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Base de Conocimiento</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Superficie de ataque y señal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Inicio del Atlas</a>
 <div class="sidebar-section"><h3>Capa de entrada</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Fase 2 — Offense / Defense (en pares)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Fase 3 — Superficie de operador (concepto -&gt; capacidad)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Fase 4 — Specialty Tracks (elegí lo que tu trabajo demande)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Ruta de aprendizaje</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Resumen</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="La dualidad atacante-defensor como herramienta de aprendizaje">La dualidad atacante-defensor como herramienta de apr…</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Las certificaciones como señales de validación">Las certificaciones como señales de validación</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="Tríada CIA — Qué decide en realidad">Tríada CIA — Qué decide en realidad</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Especialización por contexto de trabajo">Especialización por contexto de trabajo</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Alfabetización mínima viable en ciberseguridad">Alfabetización mínima viable en ciberseguridad</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Arranque rápido de modelado de amenazas">Arranque rápido de modelado de amenazas</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="Qué es la ciberseguridad, y por qué no es una lista de herramientas">Qué es la ciberseguridad, y por qué no es una lista d…</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Criptografía</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Resumen</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -84,11 +93,11 @@
 <a class="nav-leaf" href="../cryptography/password-hashing.html" title="Password Hashing">Password Hashing</a>
 <a class="nav-leaf" href="../cryptography/post-quantum-awareness.html" title="Post-Quantum Awareness">Post-Quantum Awareness</a>
 <a class="nav-leaf" href="../cryptography/random-and-csprng-pitfalls.html" title="Random and CSPRNG Pitfalls">Random and CSPRNG Pitfalls</a>
-<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll Your Own Crypto Failures">Roll Your Own Crypto Failures</a>
+<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll-Your-Own Crypto Failures">Roll-Your-Own Crypto Failures</a>
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Resumen</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caché y seguridad">Caché y seguridad</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Confianza en la IP del cliente">Confianza en la IP del cliente</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="Resolución DNS">Resolución DNS</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="Seguridad de DNS">Seguridad de DNS</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls y fronteras de red">Firewalls y fronteras de red</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Confianza en headers en Node Express">Confianza en headers en Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="Headers HTTP">Headers HTTP</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="Mensajes HTTP">Mensajes HTTP</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS y HTTPS">TLS y HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Flujos de trabajo con Wireshark">Flujos de trabajo con Wireshark</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Resumen</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Fallas de autenticación">Fallas de autenticación</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Control de acceso roto">Control de acceso roto</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Fronteras de seguridad del navegador">Fronteras de seguridad del navegador</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Seguridad Ofensiva / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Resumen</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -162,7 +173,7 @@
 <a class="nav-leaf" href="../offensive-security/passive-recon.html" title="Passive Recon">Passive Recon</a>
 <a class="nav-leaf" href="../offensive-security/public-asset-discovery.html" title="Public Asset Discovery">Public Asset Discovery</a>
 <a class="nav-leaf" href="../offensive-security/recon.html" title="Recon">Recon</a>
-<a class="nav-leaf" href="../offensive-security/recon-to-testing-handoff.html" title="Recon to Testing Handoff">Recon to Testing Handoff</a>
+<a class="nav-leaf" href="../offensive-security/recon-to-testing-handoff.html" title="Recon-to-Testing Handoff">Recon-to-Testing Handoff</a>
 <a class="nav-leaf" href="../offensive-security/rustscan-and-nse-pipeline.html" title="RustScan and NSE Pipeline">RustScan and NSE Pipeline</a>
 <a class="nav-leaf" href="../offensive-security/scope-validation.html" title="Scope Validation">Scope Validation</a>
 <a class="nav-leaf" href="../offensive-security/service-validation.html" title="Service Validation">Service Validation</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="El loop del operador">El loop del operador</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Resumen</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Disciplina de Network Security Monitoring (NSM)">Disciplina de Network Security Monitoring (NSM)</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Mapeo de Superficie de Ataque</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Resumen</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,15 +238,16 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Resumen</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detectar la recolección de BloodHound">Detectar la recolección de BloodHound</a>
-<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detect DCSync and ntds.dit Access">Detect DCSync and ntds.dit Access</a>
+<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detectar DCSync y acceso a ntds.dit">Detectar DCSync y acceso a ntds.dit</a>
 <a class="nav-leaf" href="../security-playbooks/detect-external-scan-pipeline.html" title="Detect External Recon Scan Pipeline">Detect External Recon Scan Pipeline</a>
-<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
+<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detectar Kerberoasting y AS-REP Roasting">Detectar Kerberoasting y AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -293,8 +306,8 @@
 <details class="nav-branch accent-green"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="nb-name">DevSecOps</span></span><span class="nb-right"><span class="count">13</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../devsecops/index.html">Resumen</a>
 <a class="nav-leaf" href="../devsecops/artifact-integrity.html" title="Artifact Integrity">Artifact Integrity</a>
-<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS as Dev Process Input">ASVS as Dev Process Input</a>
-<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Branch Protection and Release Controls">Branch Protection and Release Controls</a>
+<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS como input del proceso de desarrollo">ASVS como input del proceso de desarrollo</a>
+<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Protección de ramas y controles de release">Protección de ramas y controles de release</a>
 <a class="nav-leaf" href="../devsecops/ci-cd-hardening.html" title="CI/CD Hardening">CI/CD Hardening</a>
 <a class="nav-leaf" href="../devsecops/container-security.html" title="Container Security">Container Security</a>
 <a class="nav-leaf" href="../devsecops/dependency-risk.html" title="Dependency Risk">Dependency Risk</a>
@@ -372,7 +385,7 @@
 <div class="sidebar-section"><h3>Sistema de referencia</h3>
 <details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="ns-name">Registros</span></span><span class="ns-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <a class="nav-child" href="../reference-registry.html"><span class="nc-left"><span class="nc-name">Cybersecurity Reference Registry</span></span></a>
-<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Reference Registry - Detection Engineering</span></span></a>
+<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Registro de Referencia - Ingeniería de Detección</span></span></a>
 <a class="nav-child" href="../reference-registry-privacy-anonymity-opsec.html"><span class="nc-left"><span class="nc-name">Reference Registry - Privacy, Anonymity &amp; OPSEC</span></span></a>
 <a class="nav-child" href="../reference-registry-api-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — API Security</span></span></a>
 <a class="nav-child" href="../reference-registry-attack-surface-mapping.html"><span class="nc-left"><span class="nc-name">Reference Registry — Attack Surface Mapping</span></span></a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>actualizado · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>actualizado · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -410,172 +423,79 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>DCSync and ntds.dit Extraction</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Identidad y Active Directory</a><span>/</span><span>DCSync and ntds.dit Extraction</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-red">Identidad y Active Directory</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~10 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#active-directory</span><span class="meta-chip tag">#dcsync</span><span class="meta-chip tag">#ntds</span><span class="meta-chip tag">#credential-extraction</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-red">Identidad y Active Directory</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~7 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="dcsync-and-ntds-dit-extraction">DCSync and ntds.dit Extraction</h1>
-<h2 id="definicion">Definición</h2>
-<p>DCSync es un ataque de extracción de credenciales AD donde el atacante abusa de los derechos de replicación del directorio <strong><code>DS-Replication-Get-Changes-All</code></strong> y relacionados para hacer que su host actúe como un Domain Controller y solicitar copias replicadas de hashes de contraseñas para cualquier principal del dominio — incluyendo la cuenta <strong><code>krbtgt</code></strong>, cuyo hash es la clave maestra que Kerberos usa para cifrar cada Ticket Granting Ticket. <strong>La extracción de ntds.dit</strong> es la variante offline: copiar el archivo de la base de datos AD y el hive del registro SYSTEM desde un DC (o sus backups) para recuperar los mismos hashes sin usar el protocolo de replicación. Ambas producen una salida idéntica: los hashes NTLM y claves AES de cada cuenta en el dominio, que es el <em>endgame</em> canónico de un compromiso AD.</p>
-<h2 id="por-que-importa">Por qué importa</h2>
-<p>DCSync es lo que convierte &quot;comprometí un admin una vez&quot; en &quot;control perpetuo del dominio&quot;. La recuperación del hash de <code>krbtgt</code> habilita <strong>Golden Tickets</strong> — TGTs falsificados por el atacante válidos para cualquier usuario en cualquier grupo, con una duración de 10 años por defecto. La recuperación de un hash de service account habilita <strong>Silver Tickets</strong> — falsificaciones TGS con scope de servicio. La recuperación de los hashes NTLM de cada usuario habilita movimiento lateral Pass-the-Hash a todo el dominio.</p>
+<h1>DCSync and ntds.dit Extraction</h1>
+<h2>Definición</h2>
+<p>DCSync es un ataque de extracción de credenciales AD donde el atacante abusa de los derechos de replicación del directorio **`DS-Replication-Get-Changes-All`** y relacionados para hacer que su host actúe como un Domain Controller y solicitar copias replicadas de hashes de contraseñas para cualquier principal del dominio — incluyendo la cuenta **`krbtgt`**, cuyo hash es la clave maestra que Kerberos usa para cifrar cada Ticket Granting Ticket. **La extracción de ntds.dit** es la variante offline: copiar el archivo de la base de datos AD y el hive del registro SYSTEM desde un DC (o sus backups) para recuperar los mismos hashes sin usar el protocolo de replicación. Ambas producen una salida idéntica: los hashes NTLM y claves AES de cada cuenta en el dominio, que es el *endgame* canónico de un compromiso AD.</p>
+<h2>Por qué importa</h2>
+<p>DCSync es lo que convierte &quot;comprometí un admin una vez&quot; en &quot;control perpetuo del dominio&quot;. La recuperación del hash de `krbtgt` habilita **Golden Tickets** — TGTs falsificados por el atacante válidos para cualquier usuario en cualquier grupo, con una duración de 10 años por defecto. La recuperación de un hash de service account habilita **Silver Tickets** — falsificaciones TGS con scope de servicio. La recuperación de los hashes NTLM de cada usuario habilita movimiento lateral Pass-the-Hash a todo el dominio.</p>
 <p>El ataque importa como nota de aprendizaje porque expone tres hechos incómodos sobre AD:</p>
-<ul>
-<li><strong>La replicación AD en sí misma es la superficie de ataque.</strong> DCSync no explota una vulnerabilidad — está usando el protocolo de replicación documentado igual que dos DCs lo usan cada minuto. El bug es quién tiene los derechos, no lo que hace el protocolo.</li>
-<li><strong><code>krbtgt</code> es el secreto más valioso en cualquier entorno AD.</strong> La recomendación de Microsoft es rotar <code>krbtgt</code> <em>dos veces en secuencia</em> (con espera de replicación entre rotaciones) después de cualquier compromiso sospechado. La mayoría de los entornos nunca lo han rotado.</li>
-<li><strong>DCSync es el punto de conexión más limpio entre las notas AD existentes.</strong> <a href="bloodhound-attack-path-analysis.html">BloodHound</a> expone los principales con derechos DCSync; <a href="kerberoasting.html">Kerberoasting</a> y <a href="as-rep-roasting.html">AS-REP Roasting</a> frecuentemente aterrizan en service accounts que ya tienen derechos de replicación vía Exchange legacy u otras delegaciones.</li>
-</ul>
-<h2 id="como-funciona">Cómo funciona</h2>
-<p>DCSync se reduce a <strong>4 pasos</strong>:</p>
-<ol>
-<li><strong>Identificar un principal con derechos de replicación.</strong> ACEs requeridas en el objeto de dominio: <code>DS-Replication-Get-Changes</code> (GUID <code>1131f6aa-9c07-11d1-f79f-00c04fc2dcd2</code>) y <code>DS-Replication-Get-Changes-All</code> (GUID <code>1131f6ad-9c07-11d1-f79f-00c04fc2dcd2</code>). Los Domain Controllers y Domain Admins los tienen por diseño; el ataque funciona cuando <em>otros</em> principales también los tienen — usualmente vía instalación de Exchange legacy, Azure AD Connect, o delegaciones por error. La consulta pre-construida de BloodHound &quot;Find Principals with DCSync Rights&quot; es la enumeración canónica.</li>
-<li><strong>Autenticarse como el principal privilegiado.</strong> Ya sea teniendo su credencial directamente, recuperando su hash vía Pass-the-Hash, o kerberoasteando/AS-REP-roasteando su cuenta (la cadena típica).</li>
-<li><strong>Emitir el RPC de replicación.</strong> Las herramientas llaman al opcode <code>IDL_DRSGetNCChanges</code> de la interfaz RPC <code>DRSUAPI</code> (MS-DRSR — Directory Replication Service Remote Protocol). El DC obedece porque el caller tiene las ACEs correctas.</li>
-<li><strong>Falsificar tickets y pivotar.</strong> Con el hash de <code>krbtgt</code> → Golden Ticket. Con un hash de service account → Silver Ticket. Con hashes de usuarios → movimiento lateral Pass-the-Hash.</li>
-</ol>
+<ul><li>**La replicación AD en sí misma es la superficie de ataque.** DCSync no explota una vulnerabilidad — está usando el protocolo de replicación documentado igual que dos DCs lo usan cada minuto. El bug es quién tiene los derechos, no lo que hace el protocolo.</li><li>**`krbtgt` es el secreto más valioso en cualquier entorno AD.** La recomendación de Microsoft es rotar `krbtgt` *dos veces en secuencia* (con espera de replicación entre rotaciones) después de cualquier compromiso sospechado. La mayoría de los entornos nunca lo han rotado.</li><li>**DCSync es el punto de conexión más limpio entre las notas AD existentes.** &lt;a href=&quot;bloodhound-attack-path-analysis.html&quot;&gt;BloodHound&lt;/a&gt; expone los principales con derechos DCSync; &lt;a href=&quot;kerberoasting.html&quot;&gt;Kerberoasting&lt;/a&gt; y &lt;a href=&quot;as-rep-roasting.html&quot;&gt;AS-REP Roasting&lt;/a&gt; frecuentemente aterrizan en service accounts que ya tienen derechos de replicación vía Exchange legacy u otras delegaciones.</li></ul>
+<h2>Cómo funciona</h2>
+<p>DCSync se reduce a **4 pasos**:</p>
+<p>1. **Identificar un principal con derechos de replicación.** ACEs requeridas en el objeto de dominio: `DS-Replication-Get-Changes` (GUID `1131f6aa-9c07-11d1-f79f-00c04fc2dcd2`) y `DS-Replication-Get-Changes-All` (GUID `1131f6ad-9c07-11d1-f79f-00c04fc2dcd2`). Los Domain Controllers y Domain Admins los tienen por diseño; el ataque funciona cuando *otros* principales también los tienen — usualmente vía instalación de Exchange legacy, Azure AD Connect, o delegaciones por error. La consulta pre-construida de BloodHound &quot;Find Principals with DCSync Rights&quot; es la enumeración canónica. 2. **Autenticarse como el principal privilegiado.** Ya sea teniendo su credencial directamente, recuperando su hash vía Pass-the-Hash, o kerberoasteando/AS-REP-roasteando su cuenta (la cadena típica). 3. **Emitir el RPC de replicación.** Las herramientas llaman al opcode `IDL_DRSGetNCChanges` de la interfaz RPC `DRSUAPI` (MS-DRSR — Directory Replication Service Remote Protocol). El DC obedece porque el caller tiene las ACEs correctas. 4. **Falsificar tickets y pivotar.** Con el hash de `krbtgt` → Golden Ticket. Con un hash de service account → Silver Ticket. Con hashes de usuarios → movimiento lateral Pass-the-Hash.</p>
 <p>Secuencia representativa de punta a punta desde un foothold Linux:</p>
-<div class="codehilite"><pre><span></span><code># Después de que Kerberoasting produjo una service account con derechos de replicación:
-impacket-secretsdump LAB.LOCAL/svc_replication:&#x27;CrackedPassword!&#x27;@10.0.0.1 \
-    -just-dc-user krbtgt
-# Salida:
-#   krbtgt:502:aad3b435b51404eeaad3b435b51404ee:&lt;NTLM_HASH&gt;:::
-#   Kerberos keys grabbed: aes256-cts-hmac-sha1-96, aes128-cts-hmac-sha1-96, des-cbc-md5
-</code></pre></div>
-<p><strong>La extracción de ntds.dit</strong> es la variante offline:</p>
-<ol>
-<li>Ejecución de código y derechos de admin en un Domain Controller (o acceso a backups DC, snapshots VSS, o una copia restaurada).</li>
-<li>Copiar <code>C:\Windows\NTDS\ntds.dit</code> (la base de datos ESE que contiene todos los datos AD) más el hive del registro SYSTEM.</li>
-<li>Parsear offline con <code>secretsdump -ntds ntds.dit -system SYSTEM LOCAL</code>.</li>
-</ol>
-<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
-<ul>
-<li><strong>Siempre hacer BloodHound primero.</strong> <code>MATCH (n)-[r:DCSync|GetChanges|GetChangesAll]-&gt;(:Domain) RETURN n.name</code>. La lista de resultados debería contener Domain Controllers y Domain Admins. Cualquier otra cosa es una mala configuración Y tu ruta más corta al endgame.</li>
-<li><strong><code>-just-dc</code> vs <code>-just-dc-user</code>.</strong> <code>secretsdump.py -just-dc &lt;target&gt;</code> vuelca <strong>cada</strong> hash en el dominio — ruidoso y pobre en OPSEC. <code>-just-dc-user krbtgt</code> vuelca solo la cuenta nombrada. El uso avanzado extrae solo lo que se necesita para el siguiente paso.</li>
-<li><strong>Las instalaciones de Exchange son una fuente recurrente de principales DCSync no intencionados.</strong> Instalar Exchange históricamente otorgó a <code>Exchange Trusted Subsystem</code>, <code>Exchange Windows Permissions</code> y grupos relacionados derechos AD elevados incluyendo (en versiones pre-2019) DCSync efectivo.</li>
-<li><strong>La rotación de <code>krbtgt</code> es innegociable después del compromiso.</strong> Dos veces, en secuencia, con espera de replicación entre rotaciones.</li>
-<li><strong>La extracción de ntds.dit desde VSS es una alternativa sigilosa.</strong> <code>vssadmin create shadow /for=C:</code> → montar shadow → copiar ntds.dit + hive SYSTEM → parsear offline. Evita el RPC DRSUAPI completamente, así que las reglas de detección de DCSync lo pasan por alto.</li>
-<li><strong>OPSEC: DCSync es ruidoso por defecto.</strong> Cada llamada <code>IDL_DRSGetNCChanges</code> aterriza en el Event 4662 en el DC, con un GUID reconocible.</li>
-</ul>
-<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
-<p>La extracción de credenciales tipo DCSync tiene <strong>4 variantes importantes</strong>.</p>
-<h3 id="1-dcsync-clasico-via-drsuapi">1. DCSync clásico vía DRSUAPI</h3>
-<p>El flujo descripto arriba. Mimikatz <code>lsadump::dcsync</code> (Windows) o Impacket <code>secretsdump.py</code> (Linux). La variante por defecto y más detectada.</p>
-<h3 id="2-extraccion-de-ntds-dit-hive-system">2. Extracción de ntds.dit + hive SYSTEM</h3>
+<p>``` # Después de que Kerberoasting produjo una service account con derechos de replicación: impacket-secretsdump LAB.LOCAL/svc_replication:&#x27;CrackedPassword!&#x27;@10.0.0.1 \     -just-dc-user krbtgt # Salida: #   krbtgt:502:aad3b435b51404eeaad3b435b51404ee:&lt;NTLM_HASH&gt;::: #   Kerberos keys grabbed: aes256-cts-hmac-sha1-96, aes128-cts-hmac-sha1-96, des-cbc-md5 ```</p>
+<p>**La extracción de ntds.dit** es la variante offline:</p>
+<p>1. Ejecución de código y derechos de admin en un Domain Controller (o acceso a backups DC, snapshots VSS, o una copia restaurada). 2. Copiar `C:\Windows\NTDS\ntds.dit` (la base de datos ESE que contiene todos los datos AD) más el hive del registro SYSTEM. 3. Parsear offline con `secretsdump -ntds ntds.dit -system SYSTEM LOCAL`.</p>
+<h2>Técnicas / patrones</h2>
+<ul><li>**Siempre hacer BloodHound primero.** `MATCH (n)-[r:DCSync|GetChanges|GetChangesAll]-&gt;(:Domain) RETURN n.name`. La lista de resultados debería contener Domain Controllers y Domain Admins. Cualquier otra cosa es una mala configuración Y tu ruta más corta al endgame.</li><li>**`-just-dc` vs `-just-dc-user`.** `secretsdump.py -just-dc &lt;target&gt;` vuelca **cada** hash en el dominio — ruidoso y pobre en OPSEC. `-just-dc-user krbtgt` vuelca solo la cuenta nombrada. El uso avanzado extrae solo lo que se necesita para el siguiente paso.</li><li>**Las instalaciones de Exchange son una fuente recurrente de principales DCSync no intencionados.** Instalar Exchange históricamente otorgó a `Exchange Trusted Subsystem`, `Exchange Windows Permissions` y grupos relacionados derechos AD elevados incluyendo (en versiones pre-2019) DCSync efectivo.</li><li>**La rotación de `krbtgt` es innegociable después del compromiso.** Dos veces, en secuencia, con espera de replicación entre rotaciones.</li><li>**La extracción de ntds.dit desde VSS es una alternativa sigilosa.** `vssadmin create shadow /for=C:` → montar shadow → copiar ntds.dit + hive SYSTEM → parsear offline. Evita el RPC DRSUAPI completamente, así que las reglas de detección de DCSync lo pasan por alto.</li><li>**OPSEC: DCSync es ruidoso por defecto.** Cada llamada `IDL_DRSGetNCChanges` aterriza en el Event 4662 en el DC, con un GUID reconocible.</li></ul>
+<h2>Variantes y bypasses</h2>
+<p>La extracción de credenciales tipo DCSync tiene **4 variantes importantes**.</p>
+<h3>1. DCSync clásico vía DRSUAPI</h3>
+<p>El flujo descripto arriba. Mimikatz `lsadump::dcsync` (Windows) o Impacket `secretsdump.py` (Linux). La variante por defecto y más detectada.</p>
+<h3>2. Extracción de ntds.dit + hive SYSTEM</h3>
 <p>Offline, sin tráfico DRSUAPI. Requiere ejecución de código en un DC (o acceso a su backup). Evita la regla de detección de DCSync canónica.</p>
-<h3 id="3-dcshadow">3. DCShadow</h3>
-<p>Ataque diferente, misma familia. En lugar de <em>solicitar</em> datos replicados, el atacante <em>registra su host como un Domain Controller</em> y <em>empuja</em> cambios en AD que los DCs reales aceptan como replicación legítima. Mucho más difícil de detectar que el DCSync clásico.</p>
-<h3 id="4-dcsync-cross-domain-via-trusts">4. DCSync cross-domain vía trusts</h3>
+<h3>3. DCShadow</h3>
+<p>Ataque diferente, misma familia. En lugar de *solicitar* datos replicados, el atacante *registra su host como un Domain Controller* y *empuja* cambios en AD que los DCs reales aceptan como replicación legítima. Mucho más difícil de detectar que el DCSync clásico.</p>
+<h3>4. DCSync cross-domain vía trusts</h3>
 <p>En forests multi-dominio con trusts de dos vías transitivos, los derechos DCSync en un dominio a veces otorgan replicación efectiva en otro.</p>
-<h2 id="impacto">Impacto</h2>
+<h2>Impacto</h2>
 <p>Ordenado por severidad real típica:</p>
-<ul>
-<li><strong>Compromiso de dominio permanente vía Golden Ticket.</strong> El impacto definitorio. El hash de <code>krbtgt</code> recuperado permite al atacante forjar TGTs válidos para cualquier principal en cualquier grupo, duración de 10 años por defecto.</li>
-<li><strong>Compromiso forest-wide vía trusts cross-domain.</strong> Si el dominio comprometido está en un forest con un dominio raíz de confianza, los Golden Tickets en el dominio hijo frecuentemente impersonan identidades equivalentes a enterprise-admin en todo el forest.</li>
-<li><strong>Movimiento lateral Pass-the-Hash a cada endpoint.</strong> Los hashes NTLM recuperados funcionan directamente con SMB, WinRM, RDP (vía restricted-admin), MSSQL y cualquier servicio que confíe en NTLM.</li>
-<li><strong>Silver Tickets para persistencia sigilosa específica de servicio.</strong> Hash de service account → <a href="silver-ticket-and-service-account-persistence.html">falsificación TGS con scope de servicio</a>.</li>
-<li><strong>Pérdida total del suelo forense.</strong> Una vez comprometido <code>krbtgt</code>, cada evento de autenticación en el dominio es forensicamente sospechoso.</li>
-</ul>
-<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<ul><li>**Compromiso de dominio permanente vía Golden Ticket.** El impacto definitorio. El hash de `krbtgt` recuperado permite al atacante forjar TGTs válidos para cualquier principal en cualquier grupo, duración de 10 años por defecto.</li><li>**Compromiso forest-wide vía trusts cross-domain.** Si el dominio comprometido está en un forest con un dominio raíz de confianza, los Golden Tickets en el dominio hijo frecuentemente impersonan identidades equivalentes a enterprise-admin en todo el forest.</li><li>**Movimiento lateral Pass-the-Hash a cada endpoint.** Los hashes NTLM recuperados funcionan directamente con SMB, WinRM, RDP (vía restricted-admin), MSSQL y cualquier servicio que confíe en NTLM.</li><li>**Silver Tickets para persistencia sigilosa específica de servicio.** Hash de service account → &lt;a href=&quot;silver-ticket-and-service-account-persistence.html&quot;&gt;falsificación TGS con scope de servicio&lt;/a&gt;.</li><li>**Pérdida total del suelo forense.** Una vez comprometido `krbtgt`, cada evento de autenticación en el dominio es forensicamente sospechoso.</li></ul>
+<h2>Detección y defensa</h2>
 <p>Ordenado por efectividad:</p>
-<p>1. <strong>Auditá las ACEs <code>DS-Replication-Get-Changes-*</code> trimestralmente vía BloodHound.</strong> La corrección definitiva. <code>MATCH (n)-[:DCSync|GetChanges|GetChangesAll]-&gt;(:Domain) RETURN n.name</code>. Cada principal que no sea un Domain Controller o Domain Admin es un hallazgo.</p>
-<p>2. <strong>Detección de comportamiento sobre Event ID 4662 con los GUIDs de replicación.</strong> El DC loggea el Event 4662 en cada <code>IDL_DRSGetNCChanges</code>. Filtrar para <code>{Properties[8]}</code> que contenga <code>1131f6aa-9c07-11d1-f79f-00c04fc2dcd2</code> o <code>1131f6ad-9c07-11d1-f79f-00c04fc2dcd2</code>. Regla de detección: cualquier fuente que <strong>no</strong> sea una cuenta de computadora Domain Controller realizando estas solicitudes es una alerta de alta confianza. Los falsos positivos son esencialmente zero en un entorno saludable.</p>
-<p>3. <strong>Rotar <code>krbtgt</code> dos veces anualmente como higiene estándar — y dos veces en secuencia inmediatamente después de cualquier compromiso sospechado.</strong></p>
-<p>4. <strong>Detectar acceso a ntds.dit en Domain Controllers.</strong> La variante offline saltea DRSUAPI pero requiere acceso a nivel de archivo a <code>ntds.dit</code> o operaciones VSS shadow. Reglas EDR sobre <code>vssadmin create shadow</code>, sobre aperturas directas de <code>C:\Windows\NTDS\ntds.dit</code>, y sobre invocaciones de <code>ntdsutil</code> capturan esta variante.</p>
-<p>5. <strong>Implementar administración Tier 0 y Privileged Access Workstations.</strong> La defensa estructural. Si las cuentas capaces de DCSync nunca se loguean a hosts de menor tier, sus credenciales no pueden ser robadas vía Pass-the-Hash, Mimikatz desde LSASS, o Kerberoasting.</p>
-<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
-<ul>
-<li><strong>Confiar en que &quot;solo los DCs tienen derechos de replicación.&quot;</strong> Verificar con la consulta BloodHound arriba.</li>
-<li><strong>Rotar <code>krbtgt</code> una vez.</strong> El historial de contraseñas mantiene el hash anterior válido.</li>
-<li><strong>Bloqueos a nivel de red en DRSUAPI.</strong> Los DCs deben poder replicar; bloquear el protocolo rompe el directorio.</li>
-<li><strong>Renombrar <code>krbtgt</code>.</strong> No puede renombrarse; el sam account name es estructural.</li>
-</ul>
-<h2 id="labs-practicos">Labs prácticos</h2>
+<p>1. **Auditá las ACEs `DS-Replication-Get-Changes-*` trimestralmente vía BloodHound.**    La corrección definitiva. `MATCH (n)-[:DCSync|GetChanges|GetChangesAll]-&gt;(:Domain) RETURN n.name`. Cada principal que no sea un Domain Controller o Domain Admin es un hallazgo.</p>
+<p>2. **Detección de comportamiento sobre Event ID 4662 con los GUIDs de replicación.**    El DC loggea el Event 4662 en cada `IDL_DRSGetNCChanges`. Filtrar para `{Properties[8]}` que contenga `1131f6aa-9c07-11d1-f79f-00c04fc2dcd2` o `1131f6ad-9c07-11d1-f79f-00c04fc2dcd2`. Regla de detección: cualquier fuente que **no** sea una cuenta de computadora Domain Controller realizando estas solicitudes es una alerta de alta confianza. Los falsos positivos son esencialmente zero en un entorno saludable.</p>
+<p>3. **Rotar `krbtgt` dos veces anualmente como higiene estándar — y dos veces en secuencia inmediatamente después de cualquier compromiso sospechado.**</p>
+<p>4. **Detectar acceso a ntds.dit en Domain Controllers.**    La variante offline saltea DRSUAPI pero requiere acceso a nivel de archivo a `ntds.dit` o operaciones VSS shadow. Reglas EDR sobre `vssadmin create shadow`, sobre aperturas directas de `C:\Windows\NTDS\ntds.dit`, y sobre invocaciones de `ntdsutil` capturan esta variante.</p>
+<p>5. **Implementar administración Tier 0 y Privileged Access Workstations.**    La defensa estructural. Si las cuentas capaces de DCSync nunca se loguean a hosts de menor tier, sus credenciales no pueden ser robadas vía Pass-the-Hash, Mimikatz desde LSASS, o Kerberoasting.</p>
+<h3>Qué no funciona como defensa primaria</h3>
+<ul><li>**Confiar en que &quot;solo los DCs tienen derechos de replicación.&quot;** Verificar con la consulta BloodHound arriba.</li><li>**Rotar `krbtgt` una vez.** El historial de contraseñas mantiene el hash anterior válido.</li><li>**Bloqueos a nivel de red en DRSUAPI.** Los DCs deben poder replicar; bloquear el protocolo rompe el directorio.</li><li>**Renombrar `krbtgt`.** No puede renombrarse; el sam account name es estructural.</li></ul>
+<h2>Labs prácticos</h2>
 <p>Ejecutar solo contra entornos lab propios o engagements autorizados.</p>
-<div class="codehilite"><pre><span></span><code># Lab 1 — Identificar principales capaces de DCSync en un AD lab vía BloodHound Cypher.
-MATCH (n)-[r:DCSync|GetChanges|GetChangesAll]-&gt;(:Domain)
-RETURN DISTINCT n.name AS principal, labels(n)[0] AS type
-# Los DCs y Domain Admins deberían aparecer. Cualquier otro principal es un hallazgo.
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code># Lab 2 — DCSync del hash krbtgt desde un host Linux con credenciales de admin.
-impacket-secretsdump LAB.LOCAL/Administrator:&#x27;AdminPass!&#x27;@10.0.0.1 \
-    -just-dc-user krbtgt
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code># Lab 3 — Forjar un Golden Ticket desde el hash krbtgt del lab.
-impacket-ticketer -nthash &lt;KRBTGT_NTLM_HASH&gt; \
-    -domain-sid S-1-5-21-&lt;LAB-DOMAIN-SID&gt; \
-    -domain LAB.LOCAL Administrator
-export KRB5CCNAME=Administrator.ccache
-impacket-psexec LAB.LOCAL/Administrator@DC01.lab.local -k -no-pass
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code># Lab 4 — Extracción de ntds.dit vía VSS (ejecutar en un DC lab con admin).
-vssadmin create shadow /for=C:
-copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\NTDS\ntds.dit C:\extract\
-reg save HKLM\SYSTEM C:\extract\SYSTEM
-impacket-secretsdump -ntds C:\extract\ntds.dit -system C:\extract\SYSTEM LOCAL
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code># Lab 5 — Detección del lado defensor: Event 4662 con GUIDs de replicación.
-Get-WinEvent -FilterHashtable @{LogName=&#x27;Security&#x27;; ID=4662} -MaxEvents 200 |
-    Where-Object {
-        $_.Properties[8].Value -match &#x27;1131f6aa-9c07-11d1-f79f-00c04fc2dcd2&#x27; -or
-        $_.Properties[8].Value -match &#x27;1131f6ad-9c07-11d1-f79f-00c04fc2dcd2&#x27;
-    } |
-    Select-Object TimeCreated, @{n=&#x27;Subject&#x27;;e={$_.Properties[3].Value}}
-</code></pre></div>
-<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
-<ul>
-<li><strong>Endgame de engagement desde Kerberoasting.</strong> El operador kerberoastea <code>svc_replication</code> (una service account de 2017 con <code>GenericAll</code> en el objeto de dominio otorgado por error). Crackea la contraseña, realiza DCSync de <code>krbtgt</code>, forja un Golden Ticket para <code>Domain Admin</code>. Cadena total: phish → Kerberoast → DCSync → Golden Ticket. 6 horas.</li>
-<li><strong>Detección DCSync atrapa a un red team.</strong> El defensor alerta sobre <code>Event 4662</code> con los GUIDs de replicación desde una IP no-DC. En minutos el SOC rastrea la fuente a una workstation en el departamento IT, bloquea la cuenta del usuario y termina el engagement.</li>
-</ul>
-<h2 id="notas-relacionadas">Notas relacionadas</h2>
-<ul>
-<li><a href="kerberoasting.html">kerberoasting</a> — el ataque <em>predecesor</em> típico.</li>
-<li><a href="bloodhound-attack-path-analysis.html">bloodhound-attack-path-analysis</a> — la herramienta de targeting; su consulta &quot;Principals with DCSync Rights&quot; es el paso de enumeración canónico.</li>
-<li><a href="golden-ticket-and-krbtgt-compromise.html">golden-ticket-and-krbtgt-compromise</a> — la ruta de abuso post-DCSync de la raíz de confianza Kerberos.</li>
-<li><a href="krbtgt-rotation-and-tier-zero-recovery.html">krbtgt-rotation-and-tier-zero-recovery</a> — la operación de recuperación requerida cuando DCSync puede haber expuesto <code>krbtgt</code>.</li>
-<li><a href="pass-the-hash-and-ntlm-credential-reuse.html">pass-the-hash-and-ntlm-credential-reuse</a> — la ruta de reutilización de credenciales directa después de que DCSync devuelve hashes NTLM.</li>
-<li><a href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral vs Signature Detection</a> — la detección DCSync es puramente de comportamiento.</li>
-</ul>
-<h2 id="referencias">Referencias</h2>
-<ul>
-<li><strong>Fundamental:</strong> MITRE ATT&amp;CK T1003.006 — OS Credential Dumping: DCSync — https://attack.mitre.org/techniques/T1003/006/</li>
-<li><strong>Investigación / Deep Dive:</strong> Sean Metcalf (ADSecurity.org) — Mimikatz DCSync Usage, Exploitation, and Detection — https://adsecurity.org/?p=1729</li>
-<li><strong>Fundamental:</strong> Microsoft — AD DS Replication permissions and how to audit them — https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/ad-replication-event-id-1864</li>
-</ul>
+<p>``` # Lab 1 — Identificar principales capaces de DCSync en un AD lab vía BloodHound Cypher. MATCH (n)-[r:DCSync|GetChanges|GetChangesAll]-&gt;(:Domain) RETURN DISTINCT n.name AS principal, labels(n)[0] AS type # Los DCs y Domain Admins deberían aparecer. Cualquier otro principal es un hallazgo. ```</p>
+<p>``` # Lab 2 — DCSync del hash krbtgt desde un host Linux con credenciales de admin. impacket-secretsdump LAB.LOCAL/Administrator:&#x27;AdminPass!&#x27;@10.0.0.1 \     -just-dc-user krbtgt ```</p>
+<p>``` # Lab 3 — Forjar un Golden Ticket desde el hash krbtgt del lab. impacket-ticketer -nthash &lt;KRBTGT_NTLM_HASH&gt; \     -domain-sid S-1-5-21-&lt;LAB-DOMAIN-SID&gt; \     -domain LAB.LOCAL Administrator export KRB5CCNAME=Administrator.ccache impacket-psexec LAB.LOCAL/Administrator@DC01.lab.local -k -no-pass ```</p>
+<p>``` # Lab 4 — Extracción de ntds.dit vía VSS (ejecutar en un DC lab con admin). vssadmin create shadow /for=C: copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\Windows\NTDS\ntds.dit C:\extract\ reg save HKLM\SYSTEM C:\extract\SYSTEM impacket-secretsdump -ntds C:\extract\ntds.dit -system C:\extract\SYSTEM LOCAL ```</p>
+<p>``` # Lab 5 — Detección del lado defensor: Event 4662 con GUIDs de replicación. Get-WinEvent -FilterHashtable @{LogName=&#x27;Security&#x27;; ID=4662} -MaxEvents 200 |     Where-Object {         $_.Properties[8].Value -match &#x27;1131f6aa-9c07-11d1-f79f-00c04fc2dcd2&#x27; -or         $_.Properties[8].Value -match &#x27;1131f6ad-9c07-11d1-f79f-00c04fc2dcd2&#x27;     } |     Select-Object TimeCreated, @{n=&#x27;Subject&#x27;;e={$_.Properties[3].Value}} ```</p>
+<h2>Ejemplos prácticos</h2>
+<ul><li>**Endgame de engagement desde Kerberoasting.** El operador kerberoastea `svc_replication` (una service account de 2017 con `GenericAll` en el objeto de dominio otorgado por error). Crackea la contraseña, realiza DCSync de `krbtgt`, forja un Golden Ticket para `Domain Admin`. Cadena total: phish → Kerberoast → DCSync → Golden Ticket. 6 horas.</li><li>**Detección DCSync atrapa a un red team.** El defensor alerta sobre `Event 4662` con los GUIDs de replicación desde una IP no-DC. En minutos el SOC rastrea la fuente a una workstation en el departamento IT, bloquea la cuenta del usuario y termina el engagement.</li></ul>
+<h2>Notas relacionadas</h2>
+<ul><li>&lt;a href=&quot;kerberoasting.html&quot;&gt;kerberoasting&lt;/a&gt; — el ataque *predecesor* típico.</li><li>&lt;a href=&quot;bloodhound-attack-path-analysis.html&quot;&gt;bloodhound-attack-path-analysis&lt;/a&gt; — la herramienta de targeting; su consulta &quot;Principals with DCSync Rights&quot; es el paso de enumeración canónico.</li><li>&lt;a href=&quot;golden-ticket-and-krbtgt-compromise.html&quot;&gt;golden-ticket-and-krbtgt-compromise&lt;/a&gt; — la ruta de abuso post-DCSync de la raíz de confianza Kerberos.</li><li>&lt;a href=&quot;krbtgt-rotation-and-tier-zero-recovery.html&quot;&gt;krbtgt-rotation-and-tier-zero-recovery&lt;/a&gt; — la operación de recuperación requerida cuando DCSync puede haber expuesto `krbtgt`.</li><li>&lt;a href=&quot;pass-the-hash-and-ntlm-credential-reuse.html&quot;&gt;pass-the-hash-and-ntlm-credential-reuse&lt;/a&gt; — la ruta de reutilización de credenciales directa después de que DCSync devuelve hashes NTLM.</li><li>&lt;a href=&quot;../detection-engineering/behavioral-detection-vs-signature-detection.html&quot;&gt;Behavioral vs Signature Detection&lt;/a&gt; — la detección DCSync es puramente de comportamiento.</li></ul>
+<h2>Referencias</h2>
+<ul><li>**Fundamental:** MITRE ATT&amp;CK T1003.006 — OS Credential Dumping: DCSync — https://attack.mitre.org/techniques/T1003/006/</li><li>**Investigación / Deep Dive:** Sean Metcalf (ADSecurity.org) — Mimikatz DCSync Usage, Exploitation, and Detection — https://adsecurity.org/?p=1729</li><li>**Fundamental:** Microsoft — AD DS Replication permissions and how to audit them — https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/ad-replication-event-id-1864</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="bloodhound-attack-path-analysis.html"><span class="nav-dir">← Previous</span><strong>BloodHound and Attack Path Analysis</strong></a><a class="branch-nav-link next" href="gmsa-and-modern-service-account-hardening.html"><span class="nav-dir">Next →</span><strong>gMSA and Modern Service Account Hardening</strong></a></nav>
 <section class="related-notes" aria-label="Notas relacionadas">
 <h2>Notas relacionadas</h2>
 <div class="related-grid">
-<a class="related-card" href="as-rep-roasting.html"><span>Identidad y Active Directory</span><strong>AS-REP Roasting</strong><small>AS-REP Roasting es un ataque de credenciales de Active Directory donde un atacante explota cuentas con pre-autenticación Kerberos deshabilitada enviando un AS-REQ sin un blob de pre-auth y recibiendo un AS-REP cuya porción cifrada puede crackearse offline para recuperar la contraseña del usuario objetivo. A diferencia de Kerberoasting, AS-REP Roasting no requiere ninguna credencial autenticada del dominio — solo conocimiento de nombres de usuario.</small></a>
-<a class="related-card" href="bloodhound-attack-path-analysis.html"><span>Identidad y Active Directory</span><strong>BloodHound and Attack Path Analysis</strong><small>BloodHound es una herramienta de análisis de grafos open-source que modela Active Directory como un grafo dirigido de principales (usuarios, grupos, computadoras, GPOs, OUs, dominios) y las relaciones entre ellos (MemberOf, AdminTo, CanRDP, WriteDACL, GenericAll, ForceChangePassword, Owns, DCSync, AllowedToDelegate, etc.). Las rutas de ataque son entonces consultas de grafo — típicamente &quot;encontrar la ruta más corta desde cualquier principal sin privilegios hasta uno privilegiado&quot;. La herramienta es idéntica para ofensiva y defensiva; lo que difiere es qué consultas ejecutás y qué hacés con la respuesta.</small></a>
-<a class="related-card" href="golden-ticket-and-krbtgt-compromise.html"><span>Identidad y Active Directory</span><strong>Golden Ticket and KRBTGT Compromise</strong><small>Un Golden Ticket es un Ticket Granting Ticket (TGT) de Kerberos falsificado creado con el material de clave de largo plazo comprometido de la cuenta krbtgt del dominio. No es una contraseña mágica de administrador. Es el abuso de la raíz de confianza de firma de tickets Kerberos del dominio: si un atacante puede firmar un TGT con una clave que el Key Distribution Center acepta como krbtgt, el atacante puede acuñar material de autenticación para principales de dominio y membresías de grupos arbitrarios.</small></a>
-<a class="related-card" href="kerberoasting.html"><span>Identidad y Active Directory</span><strong>Kerberoasting</strong><small>Kerberoasting es un ataque de credenciales de Active Directory donde un usuario autenticado del dominio solicita tickets TGS de servicio para cuentas que tienen un Service Principal Name (SPN) y luego intenta crackear los tickets resultantes offline para recuperar la contraseña en texto plano de la service account. El ataque funciona porque (a) cualquier usuario autenticado del dominio puede solicitar un TGS para cualquier SPN, y (b) la porción del TGS cifrada con la clave derivada de la contraseña de la service account es observable para el solicitante.</small></a>
-<a class="related-card" href="silver-ticket-and-service-account-persistence.html"><span>Identidad y Active Directory</span><strong>Silver Ticket and Service Account Persistence</strong><small>Un Silver Ticket es un ticket de servicio (TGS) de Kerberos falsificado creado con una clave de service account comprometida en lugar de la clave krbtgt de todo el dominio. Es falsificación de Kerberos con scope de servicio: si un atacante conoce el hash NTLM o la clave AES para la cuenta detrás de un SPN, el atacante puede forjar un ticket para ese servicio específico sin primero pedirle al KDC un TGS legítimo.</small></a>
-<a class="related-card" href="gmsa-and-modern-service-account-hardening.html"><span>Identidad y Active Directory</span><strong>gMSA and Modern Service Account Hardening</strong><small>Un group Managed Service Account (gMSA) es una identidad de servicio gestionada por Active Directory cuya contraseña es larga, aleatoria, rotada automáticamente y recuperable solo por computadoras explícitamente autorizadas. gMSA no es una característica mágica anti-Kerberoasting. Es un patrón de diseño de service account que reduce el riesgo de contraseña estática cuando la propiedad de SPN, los permisos de recuperación, la delegación, el privilegio y el monitoreo están correctamente diseñados.</small></a>
+<a class="related-card" href="as-rep-roasting.html"><span>Identidad y Active Directory</span><strong>AS-REP Roasting</strong><small>AS-REP Roasting es un ataque de credenciales de Active Directory donde un atacante explota cuentas con **pre-autenticación Kerberos deshabilitada** enviando un...</small></a>
+<a class="related-card" href="bloodhound-attack-path-analysis.html"><span>Identidad y Active Directory</span><strong>BloodHound and Attack Path Analysis</strong><small>BloodHound es una herramienta de análisis de grafos open-source que modela **Active Directory como un grafo dirigido de principales** (usuarios, grupos...</small></a>
+<a class="related-card" href="gmsa-and-modern-service-account-hardening.html"><span>Identidad y Active Directory</span><strong>gMSA and Modern Service Account Hardening</strong><small>Un group Managed Service Account (gMSA) es una identidad de servicio gestionada por Active Directory cuya contraseña es larga, aleatoria, rotada automáticamente y...</small></a>
+<a class="related-card" href="golden-ticket-and-krbtgt-compromise.html"><span>Identidad y Active Directory</span><strong>Golden Ticket and KRBTGT Compromise</strong><small>Un Golden Ticket es un **Ticket Granting Ticket** (TGT) de Kerberos falsificado creado con el material de clave de largo plazo comprometido de la cuenta krbtgt del...</small></a>
+<a class="related-card" href="identity-attack-paths-across-idps.html"><span>Identidad y Active Directory</span><strong>Rutas de ataque de identidad entre IdPs</strong><small>Las rutas de ataque cross-IdP son cadenas de movimiento lateral que propagan el compromiso *a través de las fronteras de plataforma* atravesando las aristas de...</small></a>
+<a class="related-card" href="kerberoasting.html"><span>Identidad y Active Directory</span><strong>Kerberoasting</strong><small>Kerberoasting es un ataque de credenciales de Active Directory donde un usuario autenticado del dominio solicita **tickets TGS de servicio** para cuentas que...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definicion">Definición</a>
-<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
-<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
-<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
-<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
-<a class="toc-level-3" href="#1-dcsync-clasico-via-drsuapi">1. DCSync clásico vía DRSUAPI</a>
-<a class="toc-level-3" href="#2-extraccion-de-ntds-dit-hive-system">2. Extracción de ntds.dit + hive SYSTEM</a>
-<a class="toc-level-3" href="#3-dcshadow">3. DCShadow</a>
-<a class="toc-level-3" href="#4-dcsync-cross-domain-via-trusts">4. DCSync cross-domain vía trusts</a>
-<a class="toc-level-2" href="#impacto">Impacto</a>
-<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
-<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
-<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
-<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
-<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
-<a class="toc-level-2" href="#referencias">Referencias</a>
-<a class="back-to-top" href="#top">Volver arriba</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

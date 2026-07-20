@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Linux Enumeration - Linux Privilege Escalation | ldamoredev Security Atlas</title>
+<title>Linux Enumeration - Linux Privilege Escalation | Cybersecurity Atlas</title>
 <meta name="description" content="Linux enumeration is the structured collection of local host facts that can explain privilege boundaries, misconfigurations, credentials, and escalation paths.">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Linux Privilege Escalation, Linux Enumeration, linux-privilege-escalation, enumeration">
-<meta name="theme-color" content="#16a34a">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Linux Privilege Escalation, Linux Enumeration">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/linux-enumeration.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Linux Privilege Escalation">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Enumeration - Linux Privilege Escalation | ldamoredev Security Atlas">
+<meta property="og:title" content="Linux Enumeration - Linux Privilege Escalation | Cybersecurity Atlas">
 <meta property="og:description" content="Linux enumeration is the structured collection of local host facts that can explain privilege boundaries, misconfigurations, credentials, and escalation paths.">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/linux-enumeration.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Linux Enumeration - Linux Privilege Escalation | ldamoredev Security Atlas">
+<meta name="twitter:title" content="Linux Enumeration - Linux Privilege Escalation | Cybersecurity Atlas">
 <meta name="twitter:description" content="Linux enumeration is the structured collection of local host facts that can explain privilege boundaries, misconfigurations, credentials, and escalation paths.">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/linux-enumeration.html#article","name":"Linux Enumeration - Linux Privilege Escalation | ldamoredev Security Atlas","headline":"Linux Enumeration","description":"Linux enumeration is the structured collection of local host facts that can explain privilege boundaries, misconfigurations, credentials, and escalation paths.","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/linux-enumeration.html","inLanguage":"en","datePublished":"2026-04-30","dateModified":"2026-04-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/linux-enumeration.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Linux Privilege Escalation","Linux Enumeration","linux-privilege-escalation","enumeration"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Linux Privilege Escalation","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/index.html"},{"@type":"ListItem","position":4,"name":"Linux Enumeration","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/linux-enumeration.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/linux-enumeration.html#article","name":"Linux Enumeration - Linux Privilege Escalation | Cybersecurity Atlas","headline":"Linux Enumeration","description":"Linux enumeration is the structured collection of local host facts that can explain privilege boundaries, misconfigurations, credentials, and escalation paths.","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/linux-enumeration.html","inLanguage":"en","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/linux-enumeration.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Linux Privilege Escalation","Linux Enumeration"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Linux Privilege Escalation","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/index.html"},{"@type":"ListItem","position":4,"name":"Linux Enumeration","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/linux-enumeration.html"}]}]</script>
+<meta property="article:section" content="Linux Privilege Escalation">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/linux-enumeration.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/linux-privilege-escalation/linux-enumeration.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/linux-privilege-escalation/linux-enumeration.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Knowledge Base</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Attack Surface &amp; Signal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Atlas Home</a>
 <div class="sidebar-section"><h3>Entry layer</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Learning Path</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Overview</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="Attacker-Defender Duality as a Learning Tool">Attacker-Defender Duality as a Learning Tool</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Certifications as Validation Signals">Certifications as Validation Signals</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="CIA Triad — What It Actually Decides">CIA Triad — What It Actually Decides</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Job Context Specialization">Job Context Specialization</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Minimum Viable Cybersecurity Literacy">Minimum Viable Cybersecurity Literacy</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Threat Modeling Quickstart">Threat Modeling Quickstart</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="What Is Cybersecurity, and Why It Is Not a Tool List">What Is Cybersecurity, and Why It Is Not a Tool List</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Cryptography</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Overview</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -88,7 +97,7 @@
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Overview</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caching and Security">Caching and Security</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Client IP Trust">Client IP Trust</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="DNS Resolution">DNS Resolution</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="DNS Security">DNS Security</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls and Network Boundaries">Firewalls and Network Boundaries</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Header Trust in Node Express">Header Trust in Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="HTTP Headers">HTTP Headers</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="HTTP Messages">HTTP Messages</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS and HTTPS">TLS and HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Wireshark Workflows">Wireshark Workflows</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Overview</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Authentication Flaws">Authentication Flaws</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Broken Access Control">Broken Access Control</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Browser Security Boundaries">Browser Security Boundaries</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Offensive Security / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Overview</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="The Operator Loop">The Operator Loop</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Overview</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Network Security Monitoring Discipline">Network Security Monitoring Discipline</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Attack Surface Mapping</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Overview</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,7 +238,7 @@
 <a class="nav-leaf" href="sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Overview</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detect BloodHound Collection">Detect BloodHound Collection</a>
@@ -235,6 +247,7 @@
 <a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>updated · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>updated · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -412,139 +425,66 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Linux Privilege Escalation</a><span>/</span><span>Linux Enumeration</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-orange">Linux Privilege Escalation</span><span class="meta-chip meta-time" title="Estimated reading time">~3 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated Apr 30, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#linux-privilege-escalation</span><span class="meta-chip tag">#enumeration</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-orange">Linux Privilege Escalation</span><span class="meta-chip meta-time" title="Estimated reading time">~3 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="linux-enumeration">Linux Enumeration</h1>
-<h2 id="definition">Definition</h2>
+<h1>Linux Enumeration</h1>
+<h2>Definition</h2>
 <p>Linux enumeration is the structured collection of local host facts that can explain privilege boundaries, misconfigurations, credentials, and escalation paths.</p>
 <p>It is the first real skill in Linux privilege escalation because every later action depends on the quality of the evidence.</p>
-<h2 id="why-it-matters">Why it matters</h2>
+<h2>Why it matters</h2>
 <p>Bad enumeration creates noisy guessing. Good enumeration narrows the host to a few plausible questions: who am I, what can I run, what can I write, what runs as root, what secrets exist, and what is different from a hardened baseline.</p>
 <p>For defenders, enumeration teaches what a low-privileged user can learn from the host.</p>
-<h2 id="how-it-works">How it works</h2>
+<h2>How it works</h2>
 <p>Use 7 evidence buckets:</p>
-<ol>
-<li><strong>Identity:</strong> user, groups, uid/gid, shells, home directories.</li>
-<li><strong>System:</strong> OS, kernel, packages, architecture, hostname, virtualization hints.</li>
-<li><strong>Privileges:</strong> sudo, SUID/SGID, capabilities, privileged groups.</li>
-<li><strong>Writable surfaces:</strong> files, directories, scripts, service units, cron targets.</li>
-<li><strong>Processes and services:</strong> root processes, local ports, service accounts, timers.</li>
-<li><strong>Secrets:</strong> keys, configs, history, backups, tokens, environment variables.</li>
-<li><strong>Network context:</strong> interfaces, routes, local-only services, cloud metadata reachability.</li>
-</ol>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
-<ul>
-<li>Start with low-risk read-only commands.</li>
-<li>Preserve command output with timestamps and host identity.</li>
-<li>Separate fact collection from exploit testing.</li>
-<li>Prioritize unusual local changes over standard system files.</li>
-<li>Compare automated findings against manual checks.</li>
-</ul>
-<h3 id="worked-example-one-enumeration-lead-becomes-one-test">Worked example: one enumeration lead becomes one test</h3>
-<div class="codehilite"><pre><span></span><code>Observed fact: user is in group backup-ops
-Second fact: /opt/backups/run-backup.sh is group-writable
-Privileged link: root cron executes /opt/backups/run-backup.sh
-Hypothesis: backup-ops can influence root execution
-Minimal proof: change only a harmless marker in a lab copy
-Defensive fix: root-owned script, restricted group write, reviewed deployment path
-</code></pre></div>
-
+<p>1. **Identity:** user, groups, uid/gid, shells, home directories. 2. **System:** OS, kernel, packages, architecture, hostname, virtualization hints. 3. **Privileges:** sudo, SUID/SGID, capabilities, privileged groups. 4. **Writable surfaces:** files, directories, scripts, service units, cron targets. 5. **Processes and services:** root processes, local ports, service accounts, timers. 6. **Secrets:** keys, configs, history, backups, tokens, environment variables. 7. **Network context:** interfaces, routes, local-only services, cloud metadata reachability.</p>
+<h2>Techniques / patterns</h2>
+<ul><li>Start with low-risk read-only commands.</li><li>Preserve command output with timestamps and host identity.</li><li>Separate fact collection from exploit testing.</li><li>Prioritize unusual local changes over standard system files.</li><li>Compare automated findings against manual checks.</li></ul>
+<h3>Worked example: one enumeration lead becomes one test</h3>
+<p>``` Observed fact: user is in group backup-ops Second fact: /opt/backups/run-backup.sh is group-writable Privileged link: root cron executes /opt/backups/run-backup.sh Hypothesis: backup-ops can influence root execution Minimal proof: change only a harmless marker in a lab copy Defensive fix: root-owned script, restricted group write, reviewed deployment path ```</p>
 <p>The important move is connecting facts across buckets. Group membership alone is not a finding; a writable script alone is not a finding; root scheduled execution creates the boundary question.</p>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<h3 id="1-minimal-shell-enumeration">1. Minimal shell enumeration</h3>
+<h2>Variants and bypasses</h2>
+<h3>1. Minimal shell enumeration</h3>
 <p>Restricted shells, reverse shells, and non-interactive sessions may lack TTY, PATH, or common tools.</p>
-<h3 id="2-container-enumeration">2. Container enumeration</h3>
+<h3>2. Container enumeration</h3>
 <p>The host may be a container where root inside the container is not root on the host, but mounts, sockets, or capabilities may still cross boundaries.</p>
-<h3 id="3-cloud-host-enumeration">3. Cloud-host enumeration</h3>
+<h3>3. Cloud-host enumeration</h3>
 <p>Cloud instances add metadata, IAM roles, startup scripts, and attached volumes to the local question set.</p>
-<h3 id="4-multi-user-server-enumeration">4. Multi-user server enumeration</h3>
+<h3>4. Multi-user server enumeration</h3>
 <p>Shared hosts expose group membership, home directory permissions, and local service trust relationships.</p>
-<h3 id="5-hardened-host-enumeration">5. Hardened host enumeration</h3>
+<h3>5. Hardened host enumeration</h3>
 <p>Good hardening may hide little, but still leaves enough to verify that controls are working.</p>
-<h2 id="impact">Impact</h2>
-<ul>
-<li>Finds the few escalation paths worth manual verification.</li>
-<li>Prevents unsafe exploit attempts based on weak assumptions.</li>
-<li>Produces defensive hardening evidence.</li>
-<li>Creates a reproducible timeline for labs, reports, and retests.</li>
-</ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
-<ul>
-<li><strong>Harden low-privileged visibility where possible.</strong> Some data is inherently local, but secrets, logs, and configs should not be broadly readable.</li>
-<li><strong>Monitor suspicious enumeration bursts.</strong> Many read-only commands in a short window can signal post-exploitation activity.</li>
-<li><strong>Reduce unnecessary local services.</strong> Fewer services and users means fewer local trust relationships.</li>
-<li><strong>Keep baselines.</strong> Known-good SUID lists, capabilities, timers, and sudo rules make drift visible.</li>
-<li><strong>Document expected privilege paths.</strong> Legitimate admin paths should be clear enough that anomalies stand out.</li>
-</ul>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
-<ul>
-<li><strong>Blocking one command.</strong> Enumeration uses many equivalent commands and files.</li>
-<li><strong>Assuming read-only means harmless.</strong> Readable secrets and configs can be privilege boundaries.</li>
-<li><strong>Ignoring local-only services.</strong> A service bound to <code>127.0.0.1</code> may still be reachable from a foothold.</li>
-</ul>
-<h2 id="practical-labs">Practical labs</h2>
+<h2>Impact</h2>
+<ul><li>Finds the few escalation paths worth manual verification.</li><li>Prevents unsafe exploit attempts based on weak assumptions.</li><li>Produces defensive hardening evidence.</li><li>Creates a reproducible timeline for labs, reports, and retests.</li></ul>
+<h2>Detection and defense</h2>
+<ul><li>**Harden low-privileged visibility where possible.** Some data is inherently local, but secrets, logs, and configs should not be broadly readable.</li><li>**Monitor suspicious enumeration bursts.** Many read-only commands in a short window can signal post-exploitation activity.</li><li>**Reduce unnecessary local services.** Fewer services and users means fewer local trust relationships.</li><li>**Keep baselines.** Known-good SUID lists, capabilities, timers, and sudo rules make drift visible.</li><li>**Document expected privilege paths.** Legitimate admin paths should be clear enough that anomalies stand out.</li></ul>
+<h3>What does not work as a primary defense</h3>
+<ul><li>**Blocking one command.** Enumeration uses many equivalent commands and files.</li><li>**Assuming read-only means harmless.** Readable secrets and configs can be privilege boundaries.</li><li>**Ignoring local-only services.** A service bound to `127.0.0.1` may still be reachable from a foothold.</li></ul>
+<h2>Practical labs</h2>
 <p>Use an owned VM and save outputs into a lab folder.</p>
-<h3 id="build-a-host-snapshot">Build a host snapshot</h3>
-<div class="codehilite"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>privesc-enum
-id<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>privesc-enum/id.txt
-uname<span class="w"> </span>-a<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>privesc-enum/uname.txt
-cat<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>privesc-enum/os-release.txt
-</code></pre></div>
-
+<h3>Build a host snapshot</h3>
+<p>``` mkdir -p privesc-enum id | tee privesc-enum/id.txt uname -a | tee privesc-enum/uname.txt cat /etc/os-release | tee privesc-enum/os-release.txt ```</p>
 <p>This creates repeatable evidence instead of relying on memory.</p>
-<h3 id="enumerate-privilege-leads">Enumerate privilege leads</h3>
-<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>-l<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>privesc-enum/sudo-l.txt
-find<span class="w"> </span>/<span class="w"> </span>-perm<span class="w"> </span>-4000<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>privesc-enum/suid.txt
-getcap<span class="w"> </span>-r<span class="w"> </span>/<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>privesc-enum/capabilities.txt
-</code></pre></div>
-
+<h3>Enumerate privilege leads</h3>
+<p>``` sudo -l 2&gt;&amp;1 | tee privesc-enum/sudo-l.txt find / -perm -4000 -type f 2&gt;/dev/null | tee privesc-enum/suid.txt getcap -r / 2&gt;/dev/null | tee privesc-enum/capabilities.txt ```</p>
 <p>Classify each result before testing it.</p>
-<h3 id="enumerate-writable-execution-surfaces">Enumerate writable execution surfaces</h3>
-<div class="codehilite"><pre><span></span><code>find<span class="w"> </span>/<span class="w"> </span>-writable<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-100
-find<span class="w"> </span>/etc/systemd<span class="w"> </span>/etc/cron*<span class="w"> </span>-writable<span class="w"> </span><span class="m">2</span>&gt;/dev/null
-</code></pre></div>
-
+<h3>Enumerate writable execution surfaces</h3>
+<p>``` find / -writable -type d 2&gt;/dev/null | head -100 find /etc/systemd /etc/cron* -writable 2&gt;/dev/null ```</p>
 <p>Writable does not mean exploitable unless a privileged process uses it.</p>
-<h3 id="enumerate-local-services">Enumerate local services</h3>
-<div class="codehilite"><pre><span></span><code>ss<span class="w"> </span>-lntup<span class="w"> </span><span class="m">2</span>&gt;/dev/null
-ps<span class="w"> </span>aux<span class="w"> </span>--forest<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-80
-</code></pre></div>
-
+<h3>Enumerate local services</h3>
+<p>``` ss -lntup 2&gt;/dev/null ps aux --forest 2&gt;/dev/null | head -80 ```</p>
 <p>Record which processes run as root and whether low users can influence them.</p>
-<h2 id="practical-examples">Practical examples</h2>
-<ul>
-<li><code>sudo -l</code> reveals one restricted command worth deeper inspection.</li>
-<li><code>getcap</code> finds a binary with <code>cap_setuid+ep</code>.</li>
-<li>A writable directory is harmless until a root cron job executes scripts from it.</li>
-<li>A local admin panel bound to localhost matters after SSH access.</li>
-<li>A container has a mounted Docker socket, changing the host boundary question.</li>
-</ul>
-<h2 id="related-notes">Related notes</h2>
-<ul>
-<li><a href="linux-privilege-escalation.html">linux-privilege-escalation</a></li>
-<li><a href="sudo-misconfigurations.html">sudo-misconfigurations</a></li>
-<li><a href="suid-sgid-misconfigurations.html">suid-sgid-misconfigurations</a></li>
-<li><a href="linux-capabilities.html">linux-capabilities</a></li>
-<li><a href="cron-and-timer-abuse.html">cron-and-timer-abuse</a></li>
-<li><a href="../cloud-security/cloud-metadata-security.html">Cloud Metadata Security</a></li>
-</ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
-<ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: linux-enumeration-output-triage">linux-enumeration-output-triage</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: container-breakout-triage">container-breakout-triage</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: linux-local-service-enumeration">linux-local-service-enumeration</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: linux-credential-hunting">linux-credential-hunting</span></li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Testing / Lab:</strong> PayloadsAllTheThings: Linux Privilege Escalation — https://swisskyrepo.github.io/InternalAllTheThings/redteam/escalation/linux-privilege-escalation/</li>
-<li><strong>Official Docs:</strong> proc filesystem — https://man7.org/linux/man-pages/man5/proc.5.html</li>
-<li><strong>Official Docs:</strong> systemd service units — https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html</li>
-</ul>
+<h2>Practical examples</h2>
+<ul><li>`sudo -l` reveals one restricted command worth deeper inspection.</li><li>`getcap` finds a binary with `cap_setuid+ep`.</li><li>A writable directory is harmless until a root cron job executes scripts from it.</li><li>A local admin panel bound to localhost matters after SSH access.</li><li>A container has a mounted Docker socket, changing the host boundary question.</li></ul>
+<h2>Related notes</h2>
+<ul><li>&lt;a href=&quot;linux-privilege-escalation.html&quot;&gt;linux-privilege-escalation&lt;/a&gt;</li><li>&lt;a href=&quot;sudo-misconfigurations.html&quot;&gt;sudo-misconfigurations&lt;/a&gt;</li><li>&lt;a href=&quot;suid-sgid-misconfigurations.html&quot;&gt;suid-sgid-misconfigurations&lt;/a&gt;</li><li>&lt;a href=&quot;linux-capabilities.html&quot;&gt;linux-capabilities&lt;/a&gt;</li><li>&lt;a href=&quot;cron-and-timer-abuse.html&quot;&gt;cron-and-timer-abuse&lt;/a&gt;</li><li>&lt;a href=&quot;../cloud-security/cloud-metadata-security.html&quot;&gt;Cloud Metadata Security&lt;/a&gt;</li></ul>
+<h3>Suggested future atomic notes</h3>
+<ul><li>linux-enumeration-output-triage</li><li>container-breakout-triage</li><li>linux-local-service-enumeration</li><li>linux-credential-hunting</li></ul>
+<h2>References</h2>
+<ul><li>**Testing / Lab:** PayloadsAllTheThings: Linux Privilege Escalation — https://swisskyrepo.github.io/InternalAllTheThings/redteam/escalation/linux-privilege-escalation/</li><li>**Official Docs:** proc filesystem — https://man7.org/linux/man-pages/man5/proc.5.html</li><li>**Official Docs:** systemd service units — https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="linux-capabilities.html"><span class="nav-dir">← Previous</span><strong>Linux Capabilities</strong></a><a class="branch-nav-link next" href="linux-privilege-escalation.html"><span class="nav-dir">Next →</span><strong>Linux Privilege Escalation</strong></a></nav>
-<section class="related-notes" aria-label="Explore nearby notes">
-<h2>Explore nearby notes</h2>
+<section class="related-notes" aria-label="Related notes">
+<h2>Related notes</h2>
 <div class="related-grid">
 <a class="related-card" href="cron-and-timer-abuse.html"><span>Linux Privilege Escalation</span><strong>Cron and Timer Abuse</strong><small>Cron and timer abuse occurs when a low-privileged user can influence a scheduled task that runs with higher privileges.</small></a>
 <a class="related-card" href="kernel-exploit-triage.html"><span>Linux Privilege Escalation</span><strong>Kernel Exploit Triage</strong><small>Kernel exploit triage is the process of deciding whether a Linux kernel privilege escalation vulnerability is relevant, safe to test, already patched, or better...</small></a>
@@ -555,29 +495,10 @@ ps<span class="w"> </span>aux<span class="w"> </span>--forest<span class="w"> </
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-3" href="#worked-example-one-enumeration-lead-becomes-one-test">Worked example: one enumeration lead becomes one test</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-minimal-shell-enumeration">1. Minimal shell enumeration</a>
-<a class="toc-level-3" href="#2-container-enumeration">2. Container enumeration</a>
-<a class="toc-level-3" href="#3-cloud-host-enumeration">3. Cloud-host enumeration</a>
-<a class="toc-level-3" href="#4-multi-user-server-enumeration">4. Multi-user server enumeration</a>
-<a class="toc-level-3" href="#5-hardened-host-enumeration">5. Hardened host enumeration</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-3" href="#build-a-host-snapshot">Build a host snapshot</a>
-<a class="toc-level-3" href="#enumerate-privilege-leads">Enumerate privilege leads</a>
-<a class="toc-level-3" href="#enumerate-writable-execution-surfaces">Enumerate writable execution surfaces</a>
-<a class="back-to-top" href="#top">Back to top</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

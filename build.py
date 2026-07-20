@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Build a static HTML site from an Obsidian vault.
+"""Build Cybersecurity Atlas from public Markdown tracked in this repository.
 
-Walks mature cybersecurity branches under VAULT, converts each .md to .html,
-resolves [[wikilinks]] and relative .md links, emits a sidebar and a
-client-side search index. No framework, no build step beyond running this.
+The generator resolves [[wikilinks]], emits localized HTML, search, redirects,
+and metadata. It deliberately has no dependency on a private Obsidian vault.
 """
 from __future__ import annotations
 
@@ -17,32 +16,41 @@ from datetime import date
 from dataclasses import dataclass, field
 from pathlib import Path
 
-import markdown
-import yaml
+try:
+    import markdown
+except ImportError:  # A clean Python can still produce a readable site.
+    markdown = None
 
-VAULT = Path(os.environ.get("VAULT", "/Users/lautarodamore/obsidian-vault/ldamore"))
-OUT = Path(__file__).resolve().parent / "site"
-STATIC = Path(__file__).resolve().parent / "static"
+try:
+    import yaml
+except ImportError:
+    yaml = None
+
+ROOT = Path(__file__).resolve().parent
+CONTENT_EN = ROOT / "content" / "en"
+CONTENT_ES = ROOT / "content" / "es"
+OUT = ROOT / "site"
+STATIC = ROOT / "static"
 SECTIONS = [
     ("cybersecurity", "Cybersecurity"),
 ]
 
-SITE_NAME = "ldamoredev Security Atlas"
-SITE_SHORT_NAME = "Security Atlas"
-SITE_AUTHOR = "ldamoredev"
+SITE_NAME = "Cybersecurity Atlas"
+SITE_SHORT_NAME = "Cybersecurity Atlas"
+SITE_AUTHOR = "Lautaro Damore"
 SITE_URL = os.environ.get(
     "SITE_URL",
     "https://ldamoredev.github.io/cibersecurity-notes",
 ).rstrip("/")
 
 SITE_DESCRIPTION = (
-    "A personal cybersecurity knowledge base for web security, API security, "
-    "cloud security, offensive security, DevSecOps, and practical playbooks."
+    "A systems-first cybersecurity atlas connecting trust boundaries, attack "
+    "paths, telemetry, detection, response, and verified controls."
 )
 
 SITE_DESCRIPTION_ES = (
-    "Una base personal de conocimiento de ciberseguridad sobre seguridad web, "
-    "seguridad de APIs, cloud security, offensive security, DevSecOps y playbooks prácticos."
+    "Un atlas de ciberseguridad orientado a sistemas que conecta límites de "
+    "confianza, rutas de ataque, telemetría, detección, respuesta y controles verificados."
 )
 
 SITE_KEYWORDS = [
@@ -55,7 +63,7 @@ SITE_KEYWORDS = [
     "security playbooks",
 ]
 
-THEME_COLOR = "#16a34a"  # CyberSec Atlas green — sets the Android URL bar
+THEME_COLOR = "#43D17A"  # Defensive signal green — sets the Android URL bar
                            # tint, PWA splash, and <meta name="theme-color">.
 
 # Only publish mature cybersecurity branches and their reference registries.
@@ -197,14 +205,13 @@ MATURE_CYBERSECURITY_ROOT_FILES = {
 }
 
 # --- Internationalization (i18n) -------------------------------------------
-# The vault stays canonical English. Spanish is a WEB-ONLY overlay: translated
-# note bodies live in THIS repo under translations/es/<rel_path> (never in the
-# vault). UI chrome is translated via UI_STRINGS below. Pages are emitted per
+# English is canonical. Spanish is a repository overlay under content/es.
+# UI chrome is translated via UI_STRINGS below. Pages are emitted per
 # locale under site/<locale>/, with hreflang alternates and a language switcher.
 LOCALES = ("en", "es")
 DEFAULT_LOCALE = "en"
 CURRENT_LOCALE = DEFAULT_LOCALE  # rebound per build pass in main()
-TRANSLATIONS_ROOT = Path(__file__).resolve().parent / "translations"
+TRANSLATIONS_ROOT = ROOT / "content"
 OG_LOCALE = {"en": "en_US", "es": "es_ES"}
 LOCALE_LABEL = {"en": "EN", "es": "ES"}
 LOCALE_NAME = {"en": "English", "es": "Español"}
@@ -245,7 +252,7 @@ GROUP_LABELS = {
 
 UI_STRINGS = {
     "en": {
-        "brand_sub": "Knowledge Base", "theme_toggle": "Toggle theme",
+        "brand_sub": "Attack Surface & Signal", "theme_toggle": "Toggle theme",
         "light_mode": "Light mode", "dark_mode": "Dark mode",
         "atlas_home": "Atlas Home", "entry_layer": "Entry layer",
         "cybersecurity_index": "Cybersecurity Index", "learning_path": "Learning Path",
@@ -261,9 +268,9 @@ UI_STRINGS = {
         "translation_pending": "This note isn't translated yet — showing the English original.",
         "search_no_matches": "No matches for", "search_result": "result",
         "search_results": "results", "search_hint": "↑↓ to navigate · ↵ to open",
-        "home_title_1": "Cybersecurity", "home_title_2": "Knowledge Base",
-        "home_lede": "A curated atlas of <strong>{notes} notes</strong> across <strong>{branches} branches</strong> — organized by learning phase, from foundational substrate to specialty operations. Each note is atomic, with attacker/defender duality, references, and links to <em>playbooks</em> that turn it into action.",
-        "home_explore": "Explore Notes", "home_playbooks": "View Playbooks",
+        "home_title_1": "Cybersecurity", "home_title_2": "Atlas",
+        "home_lede": "A systems-first atlas of <strong>{notes} notes</strong> across <strong>{branches} branches</strong>: model the system, challenge its trust assumptions, observe the evidence, and verify the control.",
+        "home_explore": "Start Here", "home_playbooks": "Atlas Security Range",
         "stat_notes": "Notes", "stat_branches": "Branches", "stat_playbooks": "Playbooks", "stat_registries": "Registries",
         "path_eyebrow": "The learning path",
         "path_h2": "Read it in order. Each phase is the prerequisite for the next.",
@@ -287,7 +294,7 @@ UI_STRINGS = {
         "title_index": "Cybersecurity Notes Index", "title_notes": "Notes",
     },
     "es": {
-        "brand_sub": "Base de Conocimiento", "theme_toggle": "Cambiar tema",
+        "brand_sub": "Superficie de ataque y señal", "theme_toggle": "Cambiar tema",
         "light_mode": "Modo claro", "dark_mode": "Modo oscuro",
         "atlas_home": "Inicio del Atlas", "entry_layer": "Capa de entrada",
         "cybersecurity_index": "Índice de Ciberseguridad", "learning_path": "Ruta de aprendizaje",
@@ -303,9 +310,9 @@ UI_STRINGS = {
         "translation_pending": "Esta nota todavía no está traducida — se muestra el original en inglés.",
         "search_no_matches": "Sin coincidencias para", "search_result": "resultado",
         "search_results": "resultados", "search_hint": "↑↓ para navegar · ↵ para abrir",
-        "home_title_1": "Ciberseguridad", "home_title_2": "Base de Conocimiento",
-        "home_lede": "Un atlas curado de <strong>{notes} notas</strong> en <strong>{branches} ramas</strong> — organizado por fase de aprendizaje, desde el sustrato fundamental hasta operaciones de especialidad. Cada nota es atómica, con dualidad atacante/defensor, referencias y enlaces a <em>playbooks</em> que la convierten en acción.",
-        "home_explore": "Explorar notas", "home_playbooks": "Ver playbooks",
+        "home_title_1": "Cybersecurity", "home_title_2": "Atlas",
+        "home_lede": "Un atlas orientado a sistemas de <strong>{notes} notas</strong> en <strong>{branches} ramas</strong>: modelá el sistema, cuestioná sus supuestos de confianza, observá la evidencia y verificá el control.",
+        "home_explore": "Empezar acá", "home_playbooks": "Atlas Security Range",
         "stat_notes": "Notas", "stat_branches": "Ramas", "stat_playbooks": "Playbooks", "stat_registries": "Registros",
         "path_eyebrow": "La ruta de aprendizaje",
         "path_h2": "Leelo en orden. Cada fase es el prerrequisito de la siguiente.",
@@ -348,7 +355,7 @@ TAG_RE = re.compile(r"(?<!\w)#([A-Za-z][A-Za-z0-9_\-/]*)")
 @dataclass
 class Note:
     section: str           # "cybersecurity"
-    rel_path: Path         # path relative to VAULT, e.g. cybersecurity/networking/foo.md
+    rel_path: Path         # path relative to content/<locale>, e.g. cybersecurity/networking/foo.md
     title: str
     slug: str              # basename without extension
     body_md: str
@@ -371,6 +378,9 @@ def branch_slug(note: Note) -> str:
 
 
 def page_kind(note: Note) -> str:
+    declared = note.frontmatter.get("kind") or note.frontmatter.get("type")
+    if declared in {"concept", "mechanism", "attack", "detection", "lab", "playbook", "incident", "standard-guide"}:
+        return str(declared)
     if note.slug.startswith("reference-registry"):
         return "registry"
     if note.rel_path.name == "index.md":
@@ -471,25 +481,24 @@ def branch_accent(slug: str) -> str:
 
 
 def should_publish(section: str, path: Path) -> bool:
-    """Return whether a vault markdown file should be published."""
-    rel = path.relative_to(VAULT)
-    if section != "cybersecurity":
-        return True
-    if len(rel.parts) == 2:
-        return rel.name in MATURE_CYBERSECURITY_ROOT_FILES
-    branch = rel.parts[1]
-    return branch in MATURE_CYBERSECURITY_BRANCHES
+    """All Markdown in the public content tree is intentionally publishable."""
+    return section == "cybersecurity"
 
 
-def load_note(section: str, path: Path) -> Note:
+def load_note(section: str, path: Path, source_root: Path = CONTENT_EN) -> Note:
     raw = path.read_text(encoding="utf-8")
     fm: dict = {}
     m = FRONTMATTER_RE.match(raw)
     if m:
-        try:
-            fm = yaml.safe_load(m.group(1)) or {}
-        except yaml.YAMLError:
-            fm = {}
+        if yaml:
+            try:
+                fm = yaml.safe_load(m.group(1)) or {}
+            except yaml.YAMLError:
+                fm = {}
+        else:
+            fm = {k.strip(): v.strip().strip('"\'') for line in m.group(1).splitlines()
+                  if ":" in line and not line.startswith((" ", "-"))
+                  for k, v in [line.split(":", 1)]}
         raw = raw[m.end():]
     if path.name.startswith("reference-registry"):
         raw = re.sub(r"^# (.+?) Seed$", r"# \1", raw, count=1, flags=re.MULTILINE)
@@ -508,7 +517,7 @@ def load_note(section: str, path: Path) -> Note:
         tags = [tags]
     tags = [str(t) for t in tags]
 
-    rel = path.relative_to(VAULT)
+    rel = path.relative_to(source_root)
     return Note(
         section=section,
         rel_path=rel,
@@ -593,12 +602,18 @@ def rewrite_links(md_text: str, note: Note, by_slug: dict[str, list[Note]], by_p
 
     def wikilink_sub(m: re.Match) -> str:
         target_raw = m.group(1).strip()
+        # The recovered corpus contains prose that documents the literal
+        # ``[[wikilinks]]`` syntax. It is not a missing note.
+        if target_raw.lower() == "wikilinks":
+            return m.group(0)
         label = (m.group(2) or target_raw.split("/")[-1]).strip()
         # Drop optional heading anchor "Page#Section"
         target_slug, _, anchor = target_raw.partition("#")
         target = resolve(target_slug)
         if not target:
-            return f'<span class="unresolved-link" title="Unpublished or unresolved: {html.escape(target_slug)}">{html.escape(label)}</span>'
+            # Do not manufacture a destination from the absent private vault.
+            # A readable, non-clickable marker is more honest than a broken URL.
+            return f'<span class="unpublished-reference" title="Not published in this public Atlas: {html.escape(target_slug)}">{html.escape(label)}</span>'
         href = rel_href(target)
         if anchor:
             href += "#" + anchor.strip().lower().replace(" ", "-")
@@ -923,13 +938,11 @@ def absolute_site_url(path: str) -> str:
 
 
 def note_last_modified(note: Note) -> str:
-    source = VAULT / note.rel_path
-    try:
-        ts = source.stat().st_mtime
-    except OSError:
-        ts = date.today()
-        return ts.isoformat()
-    return date.fromtimestamp(ts).isoformat()
+    for field in ("last_verified", "updated", "date", "created"):
+        value = note.frontmatter.get(field)
+        if value:
+            return str(value)
+    return "editorial review needed"
 
 
 def locale_url(note: Note, loc: str) -> str:
@@ -1465,6 +1478,25 @@ def render_page(
 
 
 def md_to_html(md_text: str) -> str:
+    if markdown is None:
+        # Dependency-free emergency renderer for clean/offline builds. CI uses
+        # Python-Markdown for tables, fenced code and richer extensions.
+        blocks: list[str] = []
+        for block in re.split(r"\n\s*\n", md_text.strip()):
+            lines = block.splitlines()
+            if not lines:
+                continue
+            if lines[0].startswith("### "):
+                blocks.append(f"<h3>{html.escape(lines[0][4:])}</h3>")
+            elif lines[0].startswith("## "):
+                blocks.append(f"<h2>{html.escape(lines[0][3:])}</h2>")
+            elif lines[0].startswith("# "):
+                blocks.append(f"<h1>{html.escape(lines[0][2:])}</h1>")
+            elif all(line.startswith("- ") for line in lines):
+                blocks.append("<ul>" + "".join(f"<li>{html.escape(line[2:])}</li>" for line in lines) + "</ul>")
+            else:
+                blocks.append("<p>" + html.escape(" ".join(lines)) + "</p>")
+        return "\n".join(blocks)
     md = markdown.Markdown(
         extensions=[
             "extra",
@@ -1483,7 +1515,11 @@ def md_to_html(md_text: str) -> str:
 
 
 def write_pygments_css(path: Path) -> None:
-    from pygments.formatters import HtmlFormatter
+    try:
+        from pygments.formatters import HtmlFormatter
+    except ImportError:
+        path.write_text("/* Pygments unavailable: no syntax colorization. */\n", encoding="utf-8")
+        return
     path.write_text(HtmlFormatter().get_style_defs(".codehilite"), encoding="utf-8")
 
 
@@ -1571,8 +1607,9 @@ def build_home(tree: dict, notes: list[Note]) -> str:
     lines: list[str] = []
 
     # --- HERO ---
-    lines.append('<section class="hero home-hero">')
-    lines.append('<div class="hero-crumb">&gt;_ ~/cybersecurity-atlas<span class="blink"></span></div>')
+    lines.append('<section class="hero home-hero threat-hero">')
+    lines.append('<div class="hero-crumb">ATTACK SURFACE &amp; SIGNAL</div>')
+    lines.append('<div class="authorized-labs">AUTHORIZED LABS ONLY · LOCAL FIXTURES</div>')
     lines.append(f'<h1 class="hero-title">{html.escape(t("home_title_1"))}<br><span class="accent">{html.escape(t("home_title_2"))}</span></h1>')
     lines.append(
         f'<p class="lede">{t("home_lede").format(notes=published_notes, branches=len(BRANCHES))}</p>'
@@ -1585,11 +1622,17 @@ def build_home(tree: dict, notes: list[Note]) -> str:
     )
     if playbook_count:
         lines.append(
-            '<a class="btn btn-ghost" href="cybersecurity/security-playbooks/index.html">'
+            '<a class="btn btn-ghost" href="cybersecurity/atlas-security-range.html">'
             '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>'
             f'{html.escape(t("home_playbooks"))}</a>'
         )
     lines.append('</div>')
+    lines.append('''<figure class="threat-to-evidence-map" aria-labelledby="threat-map-caption">
+<div class="map-track map-adversary"><span>entry</span><i></i><span>execution</span><i></i><span>access</span><i></i><span>objective</span></div>
+<div class="map-core"><b>ASSET</b><i></i><b>TRUST BOUNDARY</b><i></i><b>EXPOSURE</b><i></i><b>TECHNIQUE</b><i></i><b>TELEMETRY</b><i></i><b>DETECTION</b><i></i><b>RESPONSE</b></div>
+<div class="map-track map-defense"><span>event</span><i></i><span>signal</span><i></i><span>correlation</span><i></i><span>evidence</span><i></i><span>action</span></div>
+<figcaption id="threat-map-caption">A system map: an adversary path above, defensive evidence below, and verification at every boundary.</figcaption>
+</figure>''')
     lines.append('<div class="hero-stats">')
     stats = [
         (published_notes, t("stat_notes"), '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>'),
@@ -1808,10 +1851,11 @@ def localized_note(note: Note) -> tuple[Note, bool]:
     fm = dict(note.frontmatter)
     m = FRONTMATTER_RE.match(raw)
     if m:
-        try:
-            fm.update(yaml.safe_load(m.group(1)) or {})
-        except yaml.YAMLError:
-            pass
+        if yaml:
+            try:
+                fm.update(yaml.safe_load(m.group(1)) or {})
+            except yaml.YAMLError:
+                pass
         raw = raw[m.end():]
     title_match = re.search(r"^#\s+(.+)$", raw, re.MULTILINE)
     title = title_match.group(1).strip() if title_match else note.title
@@ -1940,21 +1984,21 @@ def main() -> int:
     global ASSET_VER, CURRENT_LOCALE
     ASSET_VER = compute_asset_version()
 
-    # Load notes once — the vault is the canonical English source.
+    # Load notes once — content/en is the canonical public English source.
     notes: list[Note] = []
     for section_key, _ in SECTIONS:
-        root = VAULT / section_key
+        root = CONTENT_EN / section_key
         if not root.exists():
             print(f"[warn] missing: {root}", file=sys.stderr)
             continue
         for p in sorted(root.rglob("*.md")):
             if not should_publish(section_key, p):
                 continue
-            notes.append(load_note(section_key, p))
+            notes.append(load_note(section_key, p, CONTENT_EN))
 
     if not notes:
         print(
-            f"[error] loaded 0 notes from {VAULT}; refusing to delete or rebuild {OUT}.",
+            f"[error] loaded 0 notes from {CONTENT_EN}; refusing to delete or rebuild {OUT}.",
             file=sys.stderr,
         )
         return 1
@@ -1979,7 +2023,9 @@ def main() -> int:
             if not is_fallback and loc != DEFAULT_LOCALE:
                 translated_total += 1
             rewritten = rewrite_links(render_note.body_md, render_note, by_slug, by_path)
-            broken_total += rewritten.count('class="unresolved-link"')
+            # Some recovered notes literally document the historical HTML
+            # placeholder. Count only placeholders introduced by this pass.
+            broken_total += max(0, rewritten.count('class="unresolved-link"') - render_note.body_md.count('class="unresolved-link"'))
             body_html = md_to_html(rewritten)
             if is_fallback and loc != DEFAULT_LOCALE:
                 body_html = translation_pending_banner() + body_html

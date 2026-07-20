@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NAT and Private Networks - Networking | ldamoredev Security Atlas</title>
+<title>NAT and Private Networks - Networking | Cybersecurity Atlas</title>
 <meta name="description" content="Private networks use IP address ranges that are **not routable on the public Internet**, by design. NAT (Network Address Translation) lets hosts in those ranges...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Networking, NAT and Private Networks, nat, private-networks, reachability, trust-boundary">
-<meta name="theme-color" content="#16a34a">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Networking, NAT and Private Networks">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/nat-and-private-networks.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Networking">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NAT and Private Networks - Networking | ldamoredev Security Atlas">
+<meta property="og:title" content="NAT and Private Networks - Networking | Cybersecurity Atlas">
 <meta property="og:description" content="Private networks use IP address ranges that are **not routable on the public Internet**, by design. NAT (Network Address Translation) lets hosts in those ranges...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/nat-and-private-networks.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="NAT and Private Networks - Networking | ldamoredev Security Atlas">
+<meta name="twitter:title" content="NAT and Private Networks - Networking | Cybersecurity Atlas">
 <meta name="twitter:description" content="Private networks use IP address ranges that are **not routable on the public Internet**, by design. NAT (Network Address Translation) lets hosts in those ranges...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/nat-and-private-networks.html#article","name":"NAT and Private Networks - Networking | ldamoredev Security Atlas","headline":"NAT and Private Networks","description":"Private networks use IP address ranges that are **not routable on the public Internet**, by design. NAT (Network Address Translation) lets hosts in those ranges...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/nat-and-private-networks.html","inLanguage":"en","datePublished":"2026-04-28","dateModified":"2026-04-28","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/nat-and-private-networks.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Networking","NAT and Private Networks","nat","private-networks","reachability","trust-boundary"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Networking","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/index.html"},{"@type":"ListItem","position":4,"name":"NAT and Private Networks","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/nat-and-private-networks.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/nat-and-private-networks.html#article","name":"NAT and Private Networks - Networking | Cybersecurity Atlas","headline":"NAT and Private Networks","description":"Private networks use IP address ranges that are **not routable on the public Internet**, by design. NAT (Network Address Translation) lets hosts in those ranges...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/nat-and-private-networks.html","inLanguage":"en","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/nat-and-private-networks.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Networking","NAT and Private Networks"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Networking","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/index.html"},{"@type":"ListItem","position":4,"name":"NAT and Private Networks","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/nat-and-private-networks.html"}]}]</script>
+<meta property="article:section" content="Networking">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/nat-and-private-networks.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/nat-and-private-networks.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/nat-and-private-networks.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Knowledge Base</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Attack Surface &amp; Signal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Atlas Home</a>
 <div class="sidebar-section"><h3>Entry layer</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Learning Path</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Overview</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="Attacker-Defender Duality as a Learning Tool">Attacker-Defender Duality as a Learning Tool</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Certifications as Validation Signals">Certifications as Validation Signals</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="CIA Triad — What It Actually Decides">CIA Triad — What It Actually Decides</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Job Context Specialization">Job Context Specialization</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Minimum Viable Cybersecurity Literacy">Minimum Viable Cybersecurity Literacy</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Threat Modeling Quickstart">Threat Modeling Quickstart</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="What Is Cybersecurity, and Why It Is Not a Tool List">What Is Cybersecurity, and Why It Is Not a Tool List</a>
 </div></details>
 </div></details>
-<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Cryptography</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Overview</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -88,7 +97,7 @@
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="index.html">Overview</a>
 <a class="nav-leaf" href="caching-and-security.html" title="Caching and Security">Caching and Security</a>
 <a class="nav-leaf" href="client-ip-trust.html" title="Client IP Trust">Client IP Trust</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="dns-resolution.html" title="DNS Resolution">DNS Resolution</a>
 <a class="nav-leaf" href="dns-security.html" title="DNS Security">DNS Security</a>
 <a class="nav-leaf" href="firewalls-and-network-boundaries.html" title="Firewalls and Network Boundaries">Firewalls and Network Boundaries</a>
+<a class="nav-leaf" href="from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="header-trust-in-node-express.html" title="Header Trust in Node Express">Header Trust in Node Express</a>
 <a class="nav-leaf" href="http-headers.html" title="HTTP Headers">HTTP Headers</a>
 <a class="nav-leaf" href="http-messages.html" title="HTTP Messages">HTTP Messages</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="tls-https.html" title="TLS and HTTPS">TLS and HTTPS</a>
 <a class="nav-leaf" href="wireshark-workflows.html" title="Wireshark Workflows">Wireshark Workflows</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Overview</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Authentication Flaws">Authentication Flaws</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Broken Access Control">Broken Access Control</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Browser Security Boundaries">Browser Security Boundaries</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Offensive Security / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Overview</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="The Operator Loop">The Operator Loop</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Overview</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Network Security Monitoring Discipline">Network Security Monitoring Discipline</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Attack Surface Mapping</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Overview</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,7 +238,7 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Overview</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detect BloodHound Collection">Detect BloodHound Collection</a>
@@ -235,6 +247,7 @@
 <a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>updated · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>updated · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -412,306 +425,99 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Networking</a><span>/</span><span>NAT and Private Networks</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-sky">Networking</span><span class="meta-chip meta-time" title="Estimated reading time">~10 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated Apr 28, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#networking</span><span class="meta-chip tag">#nat</span><span class="meta-chip tag">#private-networks</span><span class="meta-chip tag">#reachability</span><span class="meta-chip tag">#trust-boundary</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-sky">Networking</span><span class="meta-chip meta-time" title="Estimated reading time">~10 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="nat-and-private-networks">NAT and Private Networks</h1>
-<h2 id="definition">Definition</h2>
-<p>Private networks use IP address ranges that are <strong>not routable on the public Internet</strong>, by design. NAT (Network Address Translation) lets hosts in those ranges talk to public destinations by rewriting their source addresses on the way out, and rewriting the destination addresses on the way back. The combination is the substrate of nearly every modern deployment: home networks, corporate LANs, cloud VPCs, container networks, and Kubernetes pod networks all use private addressing plus NAT.</p>
-<p>The single security mistake this whole topic exists to refute: <strong>"this address range is not routable from the Internet, therefore it is safe."</strong> Reachability is a property of the network <em>path</em>, not of the address. A compromised public-facing service has the path; an attacker via SSRF has the path; a misconfigured container neighbor has the path. Private addressing is a deployment convenience, not a security boundary.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>The "internal vs external" distinction is the single most-overestimated boundary in production:</p>
-<ul>
-<li><strong>SSRF impact amplification.</strong> Server-side request forgery hits its highest impact when the app's own VPC contains internal-only services (databases, admin APIs, metadata endpoints) the attacker cannot reach directly. See <a href="../web-security/ssrf.html">SSRF</a> and <a href="metadata-endpoints.html">metadata-endpoints</a>.</li>
-<li><strong>Lateral movement.</strong> A flat private subnet makes one compromised workload a launchpad to every neighbor. Cloud security groups frequently default to <code>0.0.0.0/0</code> egress and <code>10.0.0.0/16</code> intra-subnet ingress.</li>
-<li><strong>Cloud-credential exposure.</strong> Cloud-instance metadata endpoints sit on the link-local address space (169.254.0.0/16). Any process inside the VM that can issue an outbound HTTP request can read short-lived IAM credentials. See <a href="metadata-endpoints.html">metadata-endpoints</a>.</li>
-<li><strong>Trust-by-IP shortcuts.</strong> "Internal = trusted" allowlists collapse the moment a public-facing service forwards a request on the attacker's behalf, or one workload in the private network is compromised.</li>
-<li><strong>Container and pod networking blur the boundary.</strong> Kubernetes pods share node-local network namespaces; a misconfigured <code>hostNetwork: true</code> pod sees the node's interfaces directly.</li>
-</ul>
-<h2 id="how-it-works">How it works</h2>
-<p>Modern operators meet <strong>6 reserved address blocks</strong> repeatedly. Recognizing them on sight is the entry point for any reachability discussion.</p>
-<table>
-<thead>
-<tr>
-<th>Range</th>
-<th>RFC</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>10.0.0.0/8</code></td>
-<td>RFC 1918</td>
-<td>Private (large enterprise / cloud VPC)</td>
-</tr>
-<tr>
-<td><code>172.16.0.0/12</code></td>
-<td>RFC 1918</td>
-<td>Private (mid-size, also Docker default)</td>
-</tr>
-<tr>
-<td><code>192.168.0.0/16</code></td>
-<td>RFC 1918</td>
-<td>Private (home, small office)</td>
-</tr>
-<tr>
-<td><code>127.0.0.0/8</code></td>
-<td>RFC 1122</td>
-<td>Loopback (<code>localhost</code>)</td>
-</tr>
-<tr>
-<td><code>169.254.0.0/16</code></td>
-<td>RFC 3927</td>
-<td>Link-local — and the home of cloud metadata services</td>
-</tr>
-<tr>
-<td><code>100.64.0.0/10</code></td>
-<td>RFC 6598</td>
-<td>Carrier-grade NAT (CGNAT)</td>
-</tr>
-</tbody>
-</table>
-<p>IPv6 equivalents:
-- <code>fc00::/7</code> — Unique Local Addresses (ULA), the IPv6 RFC 1918.
-- <code>fe80::/10</code> — link-local.
-- <code>::1/128</code> — loopback.</p>
-<p>NAT comes in <strong>3 modes</strong> that have meaningfully different security properties.</p>
-<ol>
-<li><strong>1:1 NAT (basic NAT)</strong> — one private IP maps to one public IP. Common in cloud "elastic IP" / "static NAT" deployments. The private host still has a stable public identity; its outbound and inbound flows are symmetric.</li>
-<li><strong>NAPT / PAT (Port Address Translation)</strong> — the canonical "many private hosts behind one public IP" mode. Source port is rewritten so return traffic can be demultiplexed. This is what home routers and most cloud NAT gateways do. Outbound flows are stateful; inbound flows are blocked unless explicit port-forwarding is configured. <strong>The privacy property is incidental.</strong> A connection initiated from inside punches a hole that anything on the outside can answer back through, until the state expires.</li>
-<li><strong>CGNAT</strong> — a second tier of NAPT operated by the ISP, used for IPv4 exhaustion. Many subscribers share one public IP. From an attacker perspective, "block this IP" affects many users at once; from a defender perspective, "trust this IP" trusts many users at once.</li>
-</ol>
+<h1>NAT and Private Networks</h1>
+<h2>Definition</h2>
+<p>Private networks use IP address ranges that are **not routable on the public Internet**, by design. NAT (Network Address Translation) lets hosts in those ranges talk to public destinations by rewriting their source addresses on the way out, and rewriting the destination addresses on the way back. The combination is the substrate of nearly every modern deployment: home networks, corporate LANs, cloud VPCs, container networks, and Kubernetes pod networks all use private addressing plus NAT.</p>
+<p>The single security mistake this whole topic exists to refute: **&quot;this address range is not routable from the Internet, therefore it is safe.&quot;** Reachability is a property of the network *path*, not of the address. A compromised public-facing service has the path; an attacker via SSRF has the path; a misconfigured container neighbor has the path. Private addressing is a deployment convenience, not a security boundary.</p>
+<h2>Why it matters</h2>
+<p>The &quot;internal vs external&quot; distinction is the single most-overestimated boundary in production:</p>
+<ul><li>**SSRF impact amplification.** Server-side request forgery hits its highest impact when the app&#x27;s own VPC contains internal-only services (databases, admin APIs, metadata endpoints) the attacker cannot reach directly. See &lt;a href=&quot;../web-security/ssrf.html&quot;&gt;SSRF&lt;/a&gt; and &lt;a href=&quot;metadata-endpoints.html&quot;&gt;metadata-endpoints&lt;/a&gt;.</li><li>**Lateral movement.** A flat private subnet makes one compromised workload a launchpad to every neighbor. Cloud security groups frequently default to `0.0.0.0/0` egress and `10.0.0.0/16` intra-subnet ingress.</li><li>**Cloud-credential exposure.** Cloud-instance metadata endpoints sit on the link-local address space (169.254.0.0/16). Any process inside the VM that can issue an outbound HTTP request can read short-lived IAM credentials. See &lt;a href=&quot;metadata-endpoints.html&quot;&gt;metadata-endpoints&lt;/a&gt;.</li><li>**Trust-by-IP shortcuts.** &quot;Internal = trusted&quot; allowlists collapse the moment a public-facing service forwards a request on the attacker&#x27;s behalf, or one workload in the private network is compromised.</li><li>**Container and pod networking blur the boundary.** Kubernetes pods share node-local network namespaces; a misconfigured `hostNetwork: true` pod sees the node&#x27;s interfaces directly.</li></ul>
+<h2>How it works</h2>
+<p>Modern operators meet **6 reserved address blocks** repeatedly. Recognizing them on sight is the entry point for any reachability discussion.</p>
+<p>| Range | RFC | Purpose | | --- | --- | --- | | `10.0.0.0/8` | RFC 1918 | Private (large enterprise / cloud VPC) | | `172.16.0.0/12` | RFC 1918 | Private (mid-size, also Docker default) | | `192.168.0.0/16` | RFC 1918 | Private (home, small office) | | `127.0.0.0/8` | RFC 1122 | Loopback (`localhost`) | | `169.254.0.0/16` | RFC 3927 | Link-local — and the home of cloud metadata services | | `100.64.0.0/10` | RFC 6598 | Carrier-grade NAT (CGNAT) |</p>
+<p>IPv6 equivalents: - `fc00::/7` — Unique Local Addresses (ULA), the IPv6 RFC 1918. - `fe80::/10` — link-local. - `::1/128` — loopback.</p>
+<p>NAT comes in **3 modes** that have meaningfully different security properties.</p>
+<p>1. **1:1 NAT (basic NAT)** — one private IP maps to one public IP. Common in cloud &quot;elastic IP&quot; / &quot;static NAT&quot; deployments. The private host still has a stable public identity; its outbound and inbound flows are symmetric. 2. **NAPT / PAT (Port Address Translation)** — the canonical &quot;many private hosts behind one public IP&quot; mode. Source port is rewritten so return traffic can be demultiplexed. This is what home routers and most cloud NAT gateways do. Outbound flows are stateful; inbound flows are blocked unless explicit port-forwarding is configured. **The privacy property is incidental.** A connection initiated from inside punches a hole that anything on the outside can answer back through, until the state expires. 3. **CGNAT** — a second tier of NAPT operated by the ISP, used for IPv4 exhaustion. Many subscribers share one public IP. From an attacker perspective, &quot;block this IP&quot; affects many users at once; from a defender perspective, &quot;trust this IP&quot; trusts many users at once.</p>
 <p>A practical request showing the layered translation:</p>
-<div class="codehilite"><pre><span></span><code>Container (172.17.0.5) → Host (192.168.1.20) → Home router (203.0.113.42) → Internet
-       NAPT inside Docker         NAPT inside the home router
-</code></pre></div>
-
+<p>``` Container (172.17.0.5) → Host (192.168.1.20) → Home router (203.0.113.42) → Internet        NAPT inside Docker         NAPT inside the home router ```</p>
 <p>By the time the request hits the public Internet, the original source has been rewritten twice. Each NAT hop maintains its own state table; loss of state (router reboot, idle timeout) drops the flow.</p>
-<p>The bug is rarely in NAT itself. The bug is in the chain of trust assumptions: "this came from inside my VPC so it's safe" — without verifying whether <em>anything inside the VPC</em> might be issuing requests on behalf of an attacker.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>The bug is rarely in NAT itself. The bug is in the chain of trust assumptions: &quot;this came from inside my VPC so it&#x27;s safe&quot; — without verifying whether *anything inside the VPC* might be issuing requests on behalf of an attacker.</p>
+<h2>Techniques / patterns</h2>
 <p>What attackers and operators look at:</p>
-<ul>
-<li><strong>Identify the address space.</strong> <code>ip addr</code>, <code>ipconfig</code>, <code>route -n</code>, cloud console — what private ranges does the host see, and what does it route where? The first probe in any internal-reachability investigation.</li>
-<li><strong>Test SSRF reachability against private ranges.</strong> From a compromised public-facing app, can it issue requests to <code>10.x</code>, <code>192.168.x</code>, <code>172.16.x</code>, <code>127.0.0.1</code>, <code>169.254.169.254</code>? Each is a separate gate; many SSRF defenses block one and forget the rest. See <a href="../web-security/ssrf.html">SSRF</a>.</li>
-<li><strong>Probe link-local space.</strong> <code>169.254.169.254</code>, <code>fe80::</code>, vendor-specific VM-host addresses (<code>10.0.2.2</code> in VirtualBox NAT, <code>host.docker.internal</code> in Docker Desktop). Each is a "leak from container to host" candidate.</li>
-<li><strong>Look for NAT hairpinning.</strong> A service in a private subnet reaches itself through its public IP and is treated as an external client, sometimes with looser ACLs than the internal path applies.</li>
-<li><strong>Recognize cloud-VPC defaults.</strong> AWS <code>default</code> VPC has <code>0.0.0.0/0</code> egress and intra-VPC <code>10.0.0.0/16</code> allow. Many "private" services are reachable from any sibling instance.</li>
-<li><strong>Check container network namespaces.</strong> Pods/containers on the same node see each other; on the same network plugin see neighbors; with <code>hostNetwork: true</code> see the node's full network stack.</li>
-</ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>"Internal means safe" fails in <strong>4 specific ways</strong>. Each is its own attack class with its own ceiling.</p>
-<h3 id="1-ssrf-flattens-the-boundary">1. SSRF flattens the boundary</h3>
-<p>A public-facing app accepts URLs and fetches them server-side. The fetcher is <em>inside</em> the private network. The attacker's request now traverses paths the firewall was supposed to block. The attacker never reaches the private service directly — the app does, on the attacker's behalf. Highest-impact when this lands on metadata endpoints (cloud credential theft) or admin APIs (often unauthenticated because "internal").</p>
-<h3 id="2-lateral-movement-in-flat-subnets">2. Lateral movement in flat subnets</h3>
+<ul><li>**Identify the address space.** `ip addr`, `ipconfig`, `route -n`, cloud console — what private ranges does the host see, and what does it route where? The first probe in any internal-reachability investigation.</li><li>**Test SSRF reachability against private ranges.** From a compromised public-facing app, can it issue requests to `10.x`, `192.168.x`, `172.16.x`, `127.0.0.1`, `169.254.169.254`? Each is a separate gate; many SSRF defenses block one and forget the rest. See &lt;a href=&quot;../web-security/ssrf.html&quot;&gt;SSRF&lt;/a&gt;.</li><li>**Probe link-local space.** `169.254.169.254`, `fe80::`, vendor-specific VM-host addresses (`10.0.2.2` in VirtualBox NAT, `host.docker.internal` in Docker Desktop). Each is a &quot;leak from container to host&quot; candidate.</li><li>**Look for NAT hairpinning.** A service in a private subnet reaches itself through its public IP and is treated as an external client, sometimes with looser ACLs than the internal path applies.</li><li>**Recognize cloud-VPC defaults.** AWS `default` VPC has `0.0.0.0/0` egress and intra-VPC `10.0.0.0/16` allow. Many &quot;private&quot; services are reachable from any sibling instance.</li><li>**Check container network namespaces.** Pods/containers on the same node see each other; on the same network plugin see neighbors; with `hostNetwork: true` see the node&#x27;s full network stack.</li></ul>
+<h2>Variants and bypasses</h2>
+<p>&quot;Internal means safe&quot; fails in **4 specific ways**. Each is its own attack class with its own ceiling.</p>
+<h3>1. SSRF flattens the boundary</h3>
+<p>A public-facing app accepts URLs and fetches them server-side. The fetcher is *inside* the private network. The attacker&#x27;s request now traverses paths the firewall was supposed to block. The attacker never reaches the private service directly — the app does, on the attacker&#x27;s behalf. Highest-impact when this lands on metadata endpoints (cloud credential theft) or admin APIs (often unauthenticated because &quot;internal&quot;).</p>
+<h3>2. Lateral movement in flat subnets</h3>
 <p>One compromised workload is one hop from every neighbor on the same subnet. AWS default security groups, Kubernetes network-policy-less clusters, and most home networks are flat. Default cloud images run sshd, kubelet API, container runtime sockets, and database listeners with no expectation of an attacker on the same /16.</p>
-<h3 id="3-containerpod-boundary-leaks">3. Container/pod boundary leaks</h3>
-<ul>
-<li><code>hostNetwork: true</code> on a pod exposes the node's full network stack to the pod, including link-local metadata.</li>
-<li>Docker bridge networking with no explicit <code>--internal</code> lets containers route to the host and beyond.</li>
-<li>Misconfigured CNI plugins (Calico/Cilium/Flannel) leak between namespaces.</li>
-<li>The container runtime socket (<code>/var/run/docker.sock</code>, containerd) bind-mounted into a pod is "container escape with extra steps."</li>
-</ul>
-<h3 id="4-nat-hairpinning-and-trust-by-source-ip">4. NAT hairpinning and trust-by-source-IP</h3>
-<p>When an internal service reaches its own public IP, the NAT gateway loops the connection back through the public path. The receiving service sees the connection arriving from "outside" but with internal-trust expectations. Combined with public allowlists keyed on the corporate egress IP, this lets an internal attacker masquerade as the corporate edge to an internal API.</p>
-<h2 id="impact">Impact</h2>
+<h3>3. Container/pod boundary leaks</h3>
+<ul><li>`hostNetwork: true` on a pod exposes the node&#x27;s full network stack to the pod, including link-local metadata.</li><li>Docker bridge networking with no explicit `--internal` lets containers route to the host and beyond.</li><li>Misconfigured CNI plugins (Calico/Cilium/Flannel) leak between namespaces.</li><li>The container runtime socket (`/var/run/docker.sock`, containerd) bind-mounted into a pod is &quot;container escape with extra steps.&quot;</li></ul>
+<h3>4. NAT hairpinning and trust-by-source-IP</h3>
+<p>When an internal service reaches its own public IP, the NAT gateway loops the connection back through the public path. The receiving service sees the connection arriving from &quot;outside&quot; but with internal-trust expectations. Combined with public allowlists keyed on the corporate egress IP, this lets an internal attacker masquerade as the corporate edge to an internal API.</p>
+<h2>Impact</h2>
 <p>Ordered roughly by severity:</p>
-<ul>
-<li><strong>Cloud-credential theft</strong> — SSRF + metadata endpoint reachability → instance IAM credentials → cloud-account compromise. Owns the depth: <a href="metadata-endpoints.html">metadata-endpoints</a>.</li>
-<li><strong>Internal admin / debug API exposure</strong> — unauthenticated <code>/admin</code>, <code>/metrics</code>, <code>/debug</code>, <code>/actuator/*</code>, kubelet API, etcd, Redis, Memcached, Elasticsearch. "Internal" assumption substituted for authentication.</li>
-<li><strong>Database direct access</strong> — Postgres/MySQL/MongoDB listening on a private IP with weak or default credentials, reachable from any workload in the same subnet.</li>
-<li><strong>Lateral movement</strong> — one popped container becomes a vantage point for every other workload. Privilege escalation often follows because the next workload runs with broader IAM.</li>
-<li><strong>Cross-tenant leaks in multi-tenant clusters</strong> — flat networking + shared CNI + shared node = one tenant's compromise reaches another's pod.</li>
-<li><strong>Trust-by-IP bypass</strong> — a "we only allow corporate egress IP" allowlist collapses when an internal attacker reaches the corporate egress and then loops back.</li>
-</ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
+<ul><li>**Cloud-credential theft** — SSRF + metadata endpoint reachability → instance IAM credentials → cloud-account compromise. Owns the depth: &lt;a href=&quot;metadata-endpoints.html&quot;&gt;metadata-endpoints&lt;/a&gt;.</li><li>**Internal admin / debug API exposure** — unauthenticated `/admin`, `/metrics`, `/debug`, `/actuator/*`, kubelet API, etcd, Redis, Memcached, Elasticsearch. &quot;Internal&quot; assumption substituted for authentication.</li><li>**Database direct access** — Postgres/MySQL/MongoDB listening on a private IP with weak or default credentials, reachable from any workload in the same subnet.</li><li>**Lateral movement** — one popped container becomes a vantage point for every other workload. Privilege escalation often follows because the next workload runs with broader IAM.</li><li>**Cross-tenant leaks in multi-tenant clusters** — flat networking + shared CNI + shared node = one tenant&#x27;s compromise reaches another&#x27;s pod.</li><li>**Trust-by-IP bypass** — a &quot;we only allow corporate egress IP&quot; allowlist collapses when an internal attacker reaches the corporate egress and then loops back.</li></ul>
+<h2>Detection and defense</h2>
 <p>Ordered by effectiveness:</p>
-<ol>
-<li>
-<p><strong>Treat private networks as untrusted by default (zero trust).</strong>
-   The internal/external distinction is a deployment fact, not a security boundary. Every service authenticates every caller — mTLS, signed tokens, hardware keys. Network reachability is a layer of defense-in-depth, not the primary control. This single posture defeats the entire "internal = safe" failure family.</p>
-</li>
-<li>
-<p><strong>Micro-segment the private network.</strong>
-   Break the flat subnet into many small zones with explicit ingress/egress rules between them. Cloud: per-service security groups, AWS Network Firewall, GCP firewall rules with target tags, Azure NSGs. Kubernetes: NetworkPolicy resources (deny-all default, then explicit allow). The goal is "compromise of one workload reaches one other workload at most."</p>
-</li>
-<li>
-<p><strong>Block egress to private and link-local ranges from public-facing services.</strong>
-   The fetcher in your image-thumbnail service has no business connecting to <code>10.0.0.0/8</code>, <code>127.0.0.1</code>, or <code>169.254.169.254</code>. Enforce at the network layer (egress security groups, network policies, application-mesh policy) rather than relying on the app to refuse. This is the SSRF-impact-cap defense; combine with the application-level URL allowlist.</p>
-</li>
-<li>
-<p><strong>Configure cloud metadata service hardening.</strong>
-   AWS IMDSv2 with <code>HttpPutResponseHopLimit: 1</code> (so containers and pods cannot reach it through the host). GCP and Azure require explicit headers (<code>Metadata-Flavor: Google</code>, <code>Metadata: true</code>) which a naive SSRF cannot supply. See <a href="metadata-endpoints.html">metadata-endpoints</a> for the long version.</p>
-</li>
-<li>
-<p><strong>Disable container host-network and runtime-socket bind-mounts.</strong>
-   <code>hostNetwork: true</code>, <code>hostPID: true</code>, <code>hostIPC: true</code>, and bind-mounts of <code>/var/run/docker.sock</code> are escape primitives. Block in admission controllers (PSA / Kyverno / OPA Gatekeeper).</p>
-</li>
-<li>
-<p><strong>Audit security-group and NetworkPolicy defaults.</strong>
-   <code>0.0.0.0/0</code> egress is the wrong default. Intra-VPC <code>allow all</code> is the wrong default. Ship with <code>deny-all</code> and explicit allow-rules; force every new service to declare its egress.</p>
-</li>
-<li>
-<p><strong>Watch for NAT hairpinning when designing IP allowlists.</strong>
-   Trust-by-source-IP based on the corporate egress IP must account for the case where an internal attacker reaches the corporate egress. Pair every IP allowlist with mutual auth so the IP is one factor of two.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
-<ul>
-<li><strong>"It's in a private subnet."</strong> Any path the application has, an attacker with a server-side request primitive has too. The address range is not the boundary.</li>
-<li><strong>Blocking <code>127.0.0.1</code> only.</strong> RFC 1918 private ranges, link-local, and IPv6 ULA all need to be blocked too. Each is a separate gate the SSRF defense must close.</li>
-<li><strong>Trusting <code>Host:</code> or <code>X-Forwarded-Host:</code> for "is this internal?"</strong> Header content is data. The connection's source IP is the only network-layer evidence, and even that is forgeable if NAT hairpinning is in play.</li>
-<li><strong>Default cloud security groups.</strong> AWS default VPC, GCP default network, Azure default NSG all favor connectivity over isolation. Treat defaults as a starting point, not a finished posture.</li>
-<li><strong>Kubernetes without NetworkPolicy.</strong> A cluster with no policies allows pod-to-pod traffic in every direction. CNI installation is not policy enforcement; you must write the rules.</li>
-</ul>
-<h2 id="practical-labs">Practical labs</h2>
-<p>Stock <code>ip</code>, <code>nc</code>, <code>curl</code>, plus <code>dig</code> for cloud-DNS investigations.</p>
-<h3 id="identify-the-local-network-landscape">Identify the local network landscape</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Linux: which addresses does this host see, and how is it routing?</span>
-ip<span class="w"> </span>addr
-ip<span class="w"> </span>route
-ip<span class="w"> </span>-6<span class="w"> </span>route
-
-<span class="c1"># macOS variants</span>
-ifconfig
-netstat<span class="w"> </span>-rn
-
-<span class="c1"># Cloud: what is the instance&#39;s view of itself? (See metadata-endpoints note for safer probes.)</span>
-hostname<span class="w"> </span>-I
-</code></pre></div>
-
-<h3 id="probe-ssrf-reach-into-private-space">Probe SSRF reach into private space</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># From a public-facing host you control, simulate an SSRF fetcher&#39;s reach.</span>
-<span class="c1"># Replace 10.0.0.5 with the actual private target.</span>
-<span class="k">for</span><span class="w"> </span>target<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span><span class="m">169</span>.254.169.254<span class="w"> </span><span class="m">10</span>.0.0.5<span class="w"> </span><span class="m">192</span>.168.1.1<span class="w"> </span><span class="m">172</span>.17.0.1<span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;%-20s -&gt; &#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$target</span><span class="s2">&quot;</span>
-<span class="w">  </span>curl<span class="w"> </span>-s<span class="w"> </span>--max-time<span class="w"> </span><span class="m">3</span><span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s1">&#39;%{http_code}\n&#39;</span><span class="w"> </span><span class="s2">&quot;http://</span><span class="nv">$target</span><span class="s2">/&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;fail&quot;</span>
-<span class="k">done</span>
-
-<span class="c1"># Also test IPv6 link-local — many SSRF allowlists forget it</span>
-curl<span class="w"> </span>-s<span class="w"> </span>--max-time<span class="w"> </span><span class="m">3</span><span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s1">&#39;%{http_code}\n&#39;</span><span class="w"> </span><span class="s1">&#39;http://[fe80::1]/&#39;</span>
-</code></pre></div>
-
-<h3 id="discover-internal-services-on-a-subnet">Discover internal services on a subnet</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Sweep a /24 for live hosts and common admin ports — RUN ONLY AGAINST RANGES YOU OWN</span>
-<span class="k">for</span><span class="w"> </span>ip<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">10</span>.0.0.<span class="o">{</span><span class="m">1</span>..254<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="o">(</span>nc<span class="w"> </span>-zw1<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ip</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ip</span><span class="s2"> ssh&quot;</span><span class="o">)</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">  </span><span class="o">(</span>nc<span class="w"> </span>-zw1<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ip</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">6443</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ip</span><span class="s2"> kube-api&quot;</span><span class="o">)</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">  </span><span class="o">(</span>nc<span class="w"> </span>-zw1<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ip</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">2379</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ip</span><span class="s2"> etcd&quot;</span><span class="o">)</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">  </span><span class="o">(</span>nc<span class="w"> </span>-zw1<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ip</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">6379</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ip</span><span class="s2"> redis&quot;</span><span class="o">)</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="k">done</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-V
-<span class="nb">wait</span>
-
-<span class="c1"># Or use nmap if available</span>
-nmap<span class="w"> </span>-sT<span class="w"> </span>-Pn<span class="w"> </span>-p<span class="w"> </span><span class="m">22</span>,80,443,2379,6379,6443,8080,9200<span class="w"> </span><span class="m">10</span>.0.0.0/24
-</code></pre></div>
-
-<h3 id="test-container-host-reach">Test container → host reach</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Inside a container, can you reach the host&#39;s link-local / metadata?</span>
-curl<span class="w"> </span>-s<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s1">&#39;%{http_code}\n&#39;</span><span class="w"> </span>http://169.254.169.254/
-curl<span class="w"> </span>-s<span class="w"> </span>--max-time<span class="w"> </span><span class="m">2</span><span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s1">&#39;%{http_code}\n&#39;</span><span class="w"> </span>http://host.docker.internal/<span class="w">  </span><span class="c1"># Docker Desktop only</span>
-
-<span class="c1"># Inside a Kubernetes pod, what subnet do you see?</span>
-ip<span class="w"> </span>addr
-nslookup<span class="w"> </span>kubernetes.default.svc.cluster.local
-nslookup<span class="w"> </span>metadata.google.internal<span class="w">  </span><span class="c1"># if running on GKE</span>
-</code></pre></div>
-
-<h3 id="probe-nat-hairpin-behavior">Probe NAT hairpin behavior</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># From inside the network, request the public IP/hostname and see if it loops back.</span>
-<span class="c1"># Useful when designing or auditing IP-allowlist controls.</span>
-curl<span class="w"> </span>-sI<span class="w"> </span>https://example.com/internal-api<span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;X-Forwarded-For: 10.0.0.99&#39;</span>
-<span class="c1"># If a public-IP-allowlisted endpoint returns 200 from a private host hairpinning out</span>
-<span class="c1"># and back through NAT, the allowlist substitutes for auth dangerously.</span>
-</code></pre></div>
-
-<h3 id="audit-kubernetes-pod-network-exposure">Audit Kubernetes pod-network exposure</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># List pods with hostNetwork or runtime-socket mounts — both are escape primitives</span>
-kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--all-namespaces<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.items[] | select(.spec.hostNetwork == true) | &quot;hostNetwork \(.metadata.namespace)/\(.metadata.name)&quot;&#39;</span>
-
-kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--all-namespaces<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.items[] | select(.spec.volumes[]?.hostPath.path | tostring | test(&quot;docker.sock|containerd.sock|crio.sock&quot;)) | &quot;runtime-socket \(.metadata.namespace)/\(.metadata.name)&quot;&#39;</span>
-
-<span class="c1"># Check NetworkPolicy coverage</span>
-kubectl<span class="w"> </span>get<span class="w"> </span>networkpolicy<span class="w"> </span>--all-namespaces
-</code></pre></div>
-
-<h2 id="practical-examples">Practical examples</h2>
-<ul>
-<li>A public Node.js image-thumbnail service accepts a <code>url</code> parameter and <code>fetch()</code>es it. The service runs in an EC2 instance in a VPC. An attacker submits <code>http://169.254.169.254/latest/meta-data/iam/security-credentials/role-name</code> and receives the EC2 instance's IAM credentials.</li>
-<li>A Kubernetes cluster has no NetworkPolicy. A compromised customer-facing pod connects to <code>10.x.x.x:6379</code> (cluster Redis), reads cached session tokens, and impersonates other tenants.</li>
-<li>A Java webhook handler accepts URLs and posts to them. The "URL allowlist" blocks <code>127.0.0.1</code> and <code>localhost</code> but not <code>0.0.0.0</code>, <code>[::]</code>, or <code>169.254.169.254</code>. SSRF reaches metadata.</li>
-<li>A corporate API allowlists the corporate egress IP. An internal employee on the corporate VPN hairpins through NAT and is treated as a trusted external client. Their compromised browser session reaches an internal-only admin path that public clients are denied.</li>
-<li>A Docker Compose dev environment runs <code>app</code> and <code>postgres</code> containers on the default bridge network with port 5432 published to the host. The developer is on Wi-Fi; a guest on the same Wi-Fi reaches <code>host-laptop.local:5432</code> and the app's "I'm in a private network" assumption shatters.</li>
-<li>An HCL module deploys a "private" RDS instance with <code>publicly_accessible = false</code>. The security group allows <code>10.0.0.0/16</code> (the whole VPC). Every workload — including the public-facing web app's pod — has direct database access without going through the application layer.</li>
-</ul>
-<h2 id="related-notes">Related notes</h2>
-<ul>
-<li><a href="tcp-ip-basics.html">tcp-ip-basics</a> — addressing fundamentals; private vs public ranges.</li>
-<li><a href="firewalls-and-network-boundaries.html">firewalls-and-network-boundaries</a> — the network-layer enforcement of segmentation.</li>
-<li><a href="metadata-endpoints.html">metadata-endpoints</a> — the link-local cloud-credential gateway. Highest-impact SSRF target.</li>
-<li><a href="../web-security/ssrf.html">SSRF</a> — the application-layer primitive that flattens the public/private boundary.</li>
-<li><a href="reverse-proxies.html">reverse-proxies</a> — the trust-translation layer that often sits between public and private.</li>
-<li><a href="client-ip-trust.html">client-ip-trust</a> — IP-allowlist subtleties, NAT hairpinning impact on source-IP trust.</li>
-<li><a href="ports-and-services.html">ports-and-services</a> — discovering what's listening on a private subnet.</li>
-<li><a href="dns-resolution.html">dns-resolution</a> / <a href="dns-security.html">dns-security</a> — internal DNS and split-horizon are the naming layer of private networks.</li>
-<li><a href="../attack-surface-mapping/internal-attack-surface.html">Internal attack surface</a></li>
-<li><a href="../security-playbooks/trace-metadata-endpoint-reachability.html">Trace metadata endpoint reachability</a></li>
-</ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
-<ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: cloud-vpc-defaults">cloud-vpc-defaults</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: kubernetes-networkpolicy">kubernetes-networkpolicy</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: container-escape-primitives">container-escape-primitives</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: ssrf-allowlist-design">ssrf-allowlist-design</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: ipv6-private-ranges">ipv6-private-ranges</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: nat-hairpinning">nat-hairpinning</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: zero-trust-network-architecture">zero-trust-network-architecture</span></li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Foundational:</strong> RFC 1918 (Private Address Allocation) — https://datatracker.ietf.org/doc/html/rfc1918</li>
-<li><strong>Foundational:</strong> RFC 6598 (CGNAT shared address space) — https://datatracker.ietf.org/doc/html/rfc6598</li>
-<li><strong>Testing / Lab:</strong> PortSwigger SSRF topic — https://portswigger.net/web-security/ssrf</li>
-<li><strong>Foundational:</strong> OWASP SSRF Prevention Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html</li>
-<li><strong>Official Tool Docs:</strong> Nmap Network Scanning — https://nmap.org/book/toc.html</li>
-</ul>
+<p>1. **Treat private networks as untrusted by default (zero trust).**    The internal/external distinction is a deployment fact, not a security boundary. Every service authenticates every caller — mTLS, signed tokens, hardware keys. Network reachability is a layer of defense-in-depth, not the primary control. This single posture defeats the entire &quot;internal = safe&quot; failure family.</p>
+<p>2. **Micro-segment the private network.**    Break the flat subnet into many small zones with explicit ingress/egress rules between them. Cloud: per-service security groups, AWS Network Firewall, GCP firewall rules with target tags, Azure NSGs. Kubernetes: NetworkPolicy resources (deny-all default, then explicit allow). The goal is &quot;compromise of one workload reaches one other workload at most.&quot;</p>
+<p>3. **Block egress to private and link-local ranges from public-facing services.**    The fetcher in your image-thumbnail service has no business connecting to `10.0.0.0/8`, `127.0.0.1`, or `169.254.169.254`. Enforce at the network layer (egress security groups, network policies, application-mesh policy) rather than relying on the app to refuse. This is the SSRF-impact-cap defense; combine with the application-level URL allowlist.</p>
+<p>4. **Configure cloud metadata service hardening.**    AWS IMDSv2 with `HttpPutResponseHopLimit: 1` (so containers and pods cannot reach it through the host). GCP and Azure require explicit headers (`Metadata-Flavor: Google`, `Metadata: true`) which a naive SSRF cannot supply. See &lt;a href=&quot;metadata-endpoints.html&quot;&gt;metadata-endpoints&lt;/a&gt; for the long version.</p>
+<p>5. **Disable container host-network and runtime-socket bind-mounts.**    `hostNetwork: true`, `hostPID: true`, `hostIPC: true`, and bind-mounts of `/var/run/docker.sock` are escape primitives. Block in admission controllers (PSA / Kyverno / OPA Gatekeeper).</p>
+<p>6. **Audit security-group and NetworkPolicy defaults.**    `0.0.0.0/0` egress is the wrong default. Intra-VPC `allow all` is the wrong default. Ship with `deny-all` and explicit allow-rules; force every new service to declare its egress.</p>
+<p>7. **Watch for NAT hairpinning when designing IP allowlists.**    Trust-by-source-IP based on the corporate egress IP must account for the case where an internal attacker reaches the corporate egress. Pair every IP allowlist with mutual auth so the IP is one factor of two.</p>
+<h3>What does not work as a primary defense</h3>
+<ul><li>**&quot;It&#x27;s in a private subnet.&quot;** Any path the application has, an attacker with a server-side request primitive has too. The address range is not the boundary.</li><li>**Blocking `127.0.0.1` only.** RFC 1918 private ranges, link-local, and IPv6 ULA all need to be blocked too. Each is a separate gate the SSRF defense must close.</li><li>**Trusting `Host:` or `X-Forwarded-Host:` for &quot;is this internal?&quot;** Header content is data. The connection&#x27;s source IP is the only network-layer evidence, and even that is forgeable if NAT hairpinning is in play.</li><li>**Default cloud security groups.** AWS default VPC, GCP default network, Azure default NSG all favor connectivity over isolation. Treat defaults as a starting point, not a finished posture.</li><li>**Kubernetes without NetworkPolicy.** A cluster with no policies allows pod-to-pod traffic in every direction. CNI installation is not policy enforcement; you must write the rules.</li></ul>
+<h2>Practical labs</h2>
+<p>Stock `ip`, `nc`, `curl`, plus `dig` for cloud-DNS investigations.</p>
+<h3>Identify the local network landscape</h3>
+<p>``` # Linux: which addresses does this host see, and how is it routing? ip addr ip route ip -6 route</p>
+<h1>macOS variants</h1>
+<h1>Cloud: what is the instance&#x27;s view of itself? (See metadata-endpoints note for safer probes.)</h1>
+<h3>Probe SSRF reach into private space</h3>
+<p>``` # From a public-facing host you control, simulate an SSRF fetcher&#x27;s reach. # Replace 10.0.0.5 with the actual private target. for target in 127.0.0.1 169.254.169.254 10.0.0.5 192.168.1.1 172.17.0.1; do   printf &#x27;%-20s -&gt; &#x27; &quot;$target&quot;   curl -s --max-time 3 -o /dev/null -w &#x27;%{http_code}\n&#x27; &quot;http://$target/&quot; || echo &quot;fail&quot; done</p>
+<h1>Also test IPv6 link-local — many SSRF allowlists forget it</h1>
+<h3>Discover internal services on a subnet</h3>
+<p>``` # Sweep a /24 for live hosts and common admin ports — RUN ONLY AGAINST RANGES YOU OWN for ip in 10.0.0.{1..254}; do   (nc -zw1 &quot;$ip&quot; 22 2&gt;/dev/null &amp;&amp; echo &quot;$ip ssh&quot;) &amp;   (nc -zw1 &quot;$ip&quot; 6443 2&gt;/dev/null &amp;&amp; echo &quot;$ip kube-api&quot;) &amp;   (nc -zw1 &quot;$ip&quot; 2379 2&gt;/dev/null &amp;&amp; echo &quot;$ip etcd&quot;) &amp;   (nc -zw1 &quot;$ip&quot; 6379 2&gt;/dev/null &amp;&amp; echo &quot;$ip redis&quot;) &amp; done | sort -V wait</p>
+<h1>Or use nmap if available</h1>
+<h3>Test container → host reach</h3>
+<p>``` # Inside a container, can you reach the host&#x27;s link-local / metadata? curl -s --max-time 2 -o /dev/null -w &#x27;%{http_code}\n&#x27; http://169.254.169.254/ curl -s --max-time 2 -o /dev/null -w &#x27;%{http_code}\n&#x27; http://host.docker.internal/  # Docker Desktop only</p>
+<h1>Inside a Kubernetes pod, what subnet do you see?</h1>
+<h3>Probe NAT hairpin behavior</h3>
+<p>``` # From inside the network, request the public IP/hostname and see if it loops back. # Useful when designing or auditing IP-allowlist controls. curl -sI https://example.com/internal-api -H &#x27;X-Forwarded-For: 10.0.0.99&#x27; # If a public-IP-allowlisted endpoint returns 200 from a private host hairpinning out # and back through NAT, the allowlist substitutes for auth dangerously. ```</p>
+<h3>Audit Kubernetes pod-network exposure</h3>
+<p>``` # List pods with hostNetwork or runtime-socket mounts — both are escape primitives kubectl get pods --all-namespaces -o json | \   jq -r &#x27;.items[] | select(.spec.hostNetwork == true) | &quot;hostNetwork \(.metadata.namespace)/\(.metadata.name)&quot;&#x27;</p>
+<p>kubectl get pods --all-namespaces -o json | \   jq -r &#x27;.items[] | select(.spec.volumes[]?.hostPath.path | tostring | test(&quot;docker.sock|containerd.sock|crio.sock&quot;)) | &quot;runtime-socket \(.metadata.namespace)/\(.metadata.name)&quot;&#x27;</p>
+<h1>Check NetworkPolicy coverage</h1>
+<h2>Practical examples</h2>
+<ul><li>A public Node.js image-thumbnail service accepts a `url` parameter and `fetch()`es it. The service runs in an EC2 instance in a VPC. An attacker submits `http://169.254.169.254/latest/meta-data/iam/security-credentials/role-name` and receives the EC2 instance&#x27;s IAM credentials.</li><li>A Kubernetes cluster has no NetworkPolicy. A compromised customer-facing pod connects to `10.x.x.x:6379` (cluster Redis), reads cached session tokens, and impersonates other tenants.</li><li>A Java webhook handler accepts URLs and posts to them. The &quot;URL allowlist&quot; blocks `127.0.0.1` and `localhost` but not `0.0.0.0`, `[::]`, or `169.254.169.254`. SSRF reaches metadata.</li><li>A corporate API allowlists the corporate egress IP. An internal employee on the corporate VPN hairpins through NAT and is treated as a trusted external client. Their compromised browser session reaches an internal-only admin path that public clients are denied.</li><li>A Docker Compose dev environment runs `app` and `postgres` containers on the default bridge network with port 5432 published to the host. The developer is on Wi-Fi; a guest on the same Wi-Fi reaches `host-laptop.local:5432` and the app&#x27;s &quot;I&#x27;m in a private network&quot; assumption shatters.</li><li>An HCL module deploys a &quot;private&quot; RDS instance with `publicly_accessible = false`. The security group allows `10.0.0.0/16` (the whole VPC). Every workload — including the public-facing web app&#x27;s pod — has direct database access without going through the application layer.</li></ul>
+<h2>Related notes</h2>
+<ul><li>&lt;a href=&quot;tcp-ip-basics.html&quot;&gt;tcp-ip-basics&lt;/a&gt; — addressing fundamentals; private vs public ranges.</li><li>&lt;a href=&quot;firewalls-and-network-boundaries.html&quot;&gt;firewalls-and-network-boundaries&lt;/a&gt; — the network-layer enforcement of segmentation.</li><li>&lt;a href=&quot;metadata-endpoints.html&quot;&gt;metadata-endpoints&lt;/a&gt; — the link-local cloud-credential gateway. Highest-impact SSRF target.</li><li>&lt;a href=&quot;../web-security/ssrf.html&quot;&gt;SSRF&lt;/a&gt; — the application-layer primitive that flattens the public/private boundary.</li><li>&lt;a href=&quot;reverse-proxies.html&quot;&gt;reverse-proxies&lt;/a&gt; — the trust-translation layer that often sits between public and private.</li><li>&lt;a href=&quot;client-ip-trust.html&quot;&gt;client-ip-trust&lt;/a&gt; — IP-allowlist subtleties, NAT hairpinning impact on source-IP trust.</li><li>&lt;a href=&quot;ports-and-services.html&quot;&gt;ports-and-services&lt;/a&gt; — discovering what&#x27;s listening on a private subnet.</li><li>&lt;a href=&quot;dns-resolution.html&quot;&gt;dns-resolution&lt;/a&gt; / &lt;a href=&quot;dns-security.html&quot;&gt;dns-security&lt;/a&gt; — internal DNS and split-horizon are the naming layer of private networks.</li><li>&lt;a href=&quot;../attack-surface-mapping/internal-attack-surface.html&quot;&gt;Internal attack surface&lt;/a&gt;</li><li>&lt;a href=&quot;../security-playbooks/trace-metadata-endpoint-reachability.html&quot;&gt;Trace metadata endpoint reachability&lt;/a&gt;</li></ul>
+<h3>Suggested future atomic notes</h3>
+<ul><li>cloud-vpc-defaults</li><li>kubernetes-networkpolicy</li><li>container-escape-primitives</li><li>ssrf-allowlist-design</li><li>ipv6-private-ranges</li><li>nat-hairpinning</li><li>zero-trust-network-architecture</li></ul>
+<h2>References</h2>
+<ul><li>**Foundational:** RFC 1918 (Private Address Allocation) — https://datatracker.ietf.org/doc/html/rfc1918</li><li>**Foundational:** RFC 6598 (CGNAT shared address space) — https://datatracker.ietf.org/doc/html/rfc6598</li><li>**Testing / Lab:** PortSwigger SSRF topic — https://portswigger.net/web-security/ssrf</li><li>**Foundational:** OWASP SSRF Prevention Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html</li><li>**Official Tool Docs:** Nmap Network Scanning — https://nmap.org/book/toc.html</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="load-balancers.html"><span class="nav-dir">← Previous</span><strong>Load Balancers</strong></a><a class="branch-nav-link next" href="nmap-scanning.html"><span class="nav-dir">Next →</span><strong>Nmap Scanning</strong></a></nav>
-<section class="related-notes" aria-label="Explore nearby notes">
-<h2>Explore nearby notes</h2>
+<section class="related-notes" aria-label="Related notes">
+<h2>Related notes</h2>
 <div class="related-grid">
-<a class="related-card" href="client-ip-trust.html"><span>Networking</span><strong>Client IP Trust</strong><small>Client IP trust is the question of **which IP an application treats as &quot;the client&quot;** when requests pass through any intermediary — reverse proxy, load balancer...</small></a>
-<a class="related-card" href="header-trust-in-node-express.html"><span>Networking</span><strong>Header Trust in Node Express</strong><small>Header trust in Node/Express is the decision of whether framework APIs such as req.ip, req.ips, req.hostname, and req.protocol should believe proxy-provided HTTP...</small></a>
-<a class="related-card" href="reverse-proxies.html"><span>Networking</span><strong>Reverse Proxies</strong><small>A reverse proxy is an HTTP intermediary that accepts requests on behalf of one or more backend services, applies a fixed set of transformations, and forwards the...</small></a>
-<a class="related-card" href="tls-https.html"><span>Networking</span><strong>TLS and HTTPS</strong><small>HTTPS is HTTP carried over TLS. TLS (Transport Layer Security, formerly SSL) is the protocol that wraps a TCP connection — or a UDP-based QUIC connection in HTTP/3...</small></a>
 <a class="related-card" href="caching-and-security.html"><span>Networking</span><strong>Caching and Security</strong><small>Caching is the reuse of previously generated responses by browsers, CDNs, reverse proxies, shared intermediaries, or application layers. Caching becomes a security...</small></a>
+<a class="related-card" href="client-ip-trust.html"><span>Networking</span><strong>Client IP Trust</strong><small>Client IP trust is the question of **which IP an application treats as &quot;the client&quot;** when requests pass through any intermediary — reverse proxy, load balancer...</small></a>
 <a class="related-card" href="metadata-endpoints.html"><span>Networking</span><strong>Cloud Instance Metadata Endpoints</strong><small>Cloud-instance metadata endpoints are HTTP services hosted by the cloud provider on a **link-local address** (typically 169.254.169.254) that any process running...</small></a>
+<a class="related-card" href="cookies-and-sessions.html"><span>Networking</span><strong>Cookies and Sessions</strong><small>Cookies are HTTP header-carried state that browsers store and automatically attach to later requests. Sessions are the server-side or token-backed continuity model...</small></a>
+<a class="related-card" href="dangling-dns-records.html"><span>Networking</span><strong>Dangling DNS Records</strong><small>Dangling DNS records are DNS entries that still point to infrastructure, cloud resources, SaaS mappings, storage buckets, CDN distributions, or service targets...</small></a>
+<a class="related-card" href="dns-resolution.html"><span>Networking</span><strong>DNS Resolution</strong><small>DNS resolution is the lookup process that turns a human-readable name, such as app.example.com, into the records a client needs to choose a destination: address...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-ssrf-flattens-the-boundary">1. SSRF flattens the boundary</a>
-<a class="toc-level-3" href="#2-lateral-movement-in-flat-subnets">2. Lateral movement in flat subnets</a>
-<a class="toc-level-3" href="#3-containerpod-boundary-leaks">3. Container/pod boundary leaks</a>
-<a class="toc-level-3" href="#4-nat-hairpinning-and-trust-by-source-ip">4. NAT hairpinning and trust-by-source-IP</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-3" href="#identify-the-local-network-landscape">Identify the local network landscape</a>
-<a class="toc-level-3" href="#probe-ssrf-reach-into-private-space">Probe SSRF reach into private space</a>
-<a class="toc-level-3" href="#discover-internal-services-on-a-subnet">Discover internal services on a subnet</a>
-<a class="toc-level-3" href="#test-container-host-reach">Test container → host reach</a>
-<a class="toc-level-3" href="#probe-nat-hairpin-behavior">Probe NAT hairpin behavior</a>
-<a class="back-to-top" href="#top">Back to top</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

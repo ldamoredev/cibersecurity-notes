@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Golden Ticket and KRBTGT Compromise - Identity &amp; Active Directory | ldamoredev Security Atlas</title>
+<title>Golden Ticket and KRBTGT Compromise - Identity &amp; Active Directory | Cybersecurity Atlas</title>
 <meta name="description" content="A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain&#x27;s krbtgt account. It is not...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Identity &amp; Active Directory, Golden Ticket and KRBTGT Compromise, offensive-security, active-directory, kerberos, golden-ticket, krbtgt">
-<meta name="theme-color" content="#16a34a">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Identity &amp; Active Directory, Golden Ticket and KRBTGT Compromise">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Identity &amp; Active Directory">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Golden Ticket and KRBTGT Compromise - Identity &amp; Active Directory | ldamoredev Security Atlas">
+<meta property="og:title" content="Golden Ticket and KRBTGT Compromise - Identity &amp; Active Directory | Cybersecurity Atlas">
 <meta property="og:description" content="A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain&#x27;s krbtgt account. It is not...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Golden Ticket and KRBTGT Compromise - Identity &amp; Active Directory | ldamoredev Security Atlas">
+<meta name="twitter:title" content="Golden Ticket and KRBTGT Compromise - Identity &amp; Active Directory | Cybersecurity Atlas">
 <meta name="twitter:description" content="A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain&#x27;s krbtgt account. It is not...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html#article","name":"Golden Ticket and KRBTGT Compromise - Identity & Active Directory | ldamoredev Security Atlas","headline":"Golden Ticket and KRBTGT Compromise","description":"A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain's krbtgt account. It is not...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html","inLanguage":"en","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identity & Active Directory","Golden Ticket and KRBTGT Compromise","offensive-security","active-directory","kerberos","golden-ticket","krbtgt"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identity & Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"Golden Ticket and KRBTGT Compromise","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html#article","name":"Golden Ticket and KRBTGT Compromise - Identity & Active Directory | Cybersecurity Atlas","headline":"Golden Ticket and KRBTGT Compromise","description":"A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain's krbtgt account. It is not...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html","inLanguage":"en","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identity & Active Directory","Golden Ticket and KRBTGT Compromise"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identity & Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"Golden Ticket and KRBTGT Compromise","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html"}]}]</script>
+<meta property="article:section" content="Identity &amp; Active Directory">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Knowledge Base</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Attack Surface &amp; Signal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Atlas Home</a>
 <div class="sidebar-section"><h3>Entry layer</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Learning Path</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Overview</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="Attacker-Defender Duality as a Learning Tool">Attacker-Defender Duality as a Learning Tool</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Certifications as Validation Signals">Certifications as Validation Signals</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="CIA Triad — What It Actually Decides">CIA Triad — What It Actually Decides</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Job Context Specialization">Job Context Specialization</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Minimum Viable Cybersecurity Literacy">Minimum Viable Cybersecurity Literacy</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Threat Modeling Quickstart">Threat Modeling Quickstart</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="What Is Cybersecurity, and Why It Is Not a Tool List">What Is Cybersecurity, and Why It Is Not a Tool List</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Cryptography</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Overview</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -88,7 +97,7 @@
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Overview</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caching and Security">Caching and Security</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Client IP Trust">Client IP Trust</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="DNS Resolution">DNS Resolution</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="DNS Security">DNS Security</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls and Network Boundaries">Firewalls and Network Boundaries</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Header Trust in Node Express">Header Trust in Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="HTTP Headers">HTTP Headers</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="HTTP Messages">HTTP Messages</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS and HTTPS">TLS and HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Wireshark Workflows">Wireshark Workflows</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Overview</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Authentication Flaws">Authentication Flaws</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Broken Access Control">Broken Access Control</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Browser Security Boundaries">Browser Security Boundaries</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Offensive Security / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Overview</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="The Operator Loop">The Operator Loop</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Overview</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Network Security Monitoring Discipline">Network Security Monitoring Discipline</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Attack Surface Mapping</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Overview</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,7 +238,7 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Overview</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detect BloodHound Collection">Detect BloodHound Collection</a>
@@ -235,6 +247,7 @@
 <a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>updated · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>updated · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -412,270 +425,96 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Identity &amp; Active Directory</a><span>/</span><span>Golden Ticket and KRBTGT Compromise</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-red">Identity &amp; Active Directory</span><span class="meta-chip meta-time" title="Estimated reading time">~9 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#active-directory</span><span class="meta-chip tag">#kerberos</span><span class="meta-chip tag">#golden-ticket</span><span class="meta-chip tag">#krbtgt</span><span class="meta-chip tag">#tier-zero</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-red">Identity &amp; Active Directory</span><span class="meta-chip meta-time" title="Estimated reading time">~9 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="golden-ticket-and-krbtgt-compromise">Golden Ticket and KRBTGT Compromise</h1>
-<h2 id="definition">Definition</h2>
-<p>A Golden Ticket is a forged Kerberos <strong>Ticket Granting Ticket</strong> (TGT) created with the compromised long-term key material of the domain's <code>krbtgt</code> account. It is not a magic administrator password. It is abuse of the domain's Kerberos ticket-signing trust root: if an attacker can sign a TGT with a key the Key Distribution Center accepts as <code>krbtgt</code>, the attacker can mint authentication material for arbitrary domain principals and group memberships.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p><code>krbtgt</code> is Tier 0 because it is the cryptographic root of domain authentication. Domain Controllers use the <code>krbtgt</code> key to encrypt and sign TGTs. Services and KDCs do not start by asking "did this password login happen"; they ask "does this ticket validate under the domain trust model". A stolen <code>krbtgt</code> hash or AES key therefore moves the incident from credential theft into <strong>identity-system trust compromise</strong>.</p>
-<p>This is why <a href="dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit extraction</a> are endgame events. DCSync of ordinary users enables lateral movement; DCSync of <code>krbtgt</code> enables ticket forgery against the domain authentication fabric itself. Normal user password resets, even Domain Admin password resets, do not revoke a Golden Ticket forged with still-valid <code>krbtgt</code> material.</p>
+<h1>Golden Ticket and KRBTGT Compromise</h1>
+<h2>Definition</h2>
+<p>A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain&#x27;s `krbtgt` account. It is not a magic administrator password. It is abuse of the domain&#x27;s Kerberos ticket-signing trust root: if an attacker can sign a TGT with a key the Key Distribution Center accepts as `krbtgt`, the attacker can mint authentication material for arbitrary domain principals and group memberships.</p>
+<h2>Why it matters</h2>
+<p>`krbtgt` is Tier 0 because it is the cryptographic root of domain authentication. Domain Controllers use the `krbtgt` key to encrypt and sign TGTs. Services and KDCs do not start by asking &quot;did this password login happen&quot;; they ask &quot;does this ticket validate under the domain trust model&quot;. A stolen `krbtgt` hash or AES key therefore moves the incident from credential theft into **identity-system trust compromise**.</p>
+<p>This is why &lt;a href=&quot;dcsync-and-ntdsdit-extraction.html&quot;&gt;DCSync and ntds.dit extraction&lt;/a&gt; are endgame events. DCSync of ordinary users enables lateral movement; DCSync of `krbtgt` enables ticket forgery against the domain authentication fabric itself. Normal user password resets, even Domain Admin password resets, do not revoke a Golden Ticket forged with still-valid `krbtgt` material.</p>
 <p>The senior distinction is:</p>
-<ul>
-<li><strong>Password compromise:</strong> rotate the affected identity and investigate sessions.</li>
-<li><strong>Service-account compromise:</strong> rotate the service secret and inspect service access.</li>
-<li><strong><code>krbtgt</code> compromise:</strong> treat the domain's Kerberos signing root as untrusted until recovery sequencing proves otherwise.</li>
-</ul>
-<h2 id="how-it-works">How it works</h2>
-<p>Golden Ticket abuse reduces to <strong>5 protocol facts</strong>:</p>
-<ol>
-<li><strong>Kerberos separates authentication from service access.</strong> A user first receives a TGT from the KDC through AS exchange, then presents the TGT later to request TGS service tickets.</li>
-<li><strong>The TGT is protected by <code>krbtgt</code>.</strong> The ticket body is encrypted and signed with the <code>krbtgt</code> long-term key. The client cannot normally create a valid one.</li>
-<li><strong>DCSync can recover <code>krbtgt</code> material.</strong> A principal with replication rights can request the <code>krbtgt</code> NTLM hash and Kerberos AES keys from a DC. See <a href="dcsync-and-ntdsdit-extraction.html">DCSync and ntds.dit Extraction</a>.</li>
-<li><strong>A forged TGT can contain attacker-chosen identity claims.</strong> Tooling can choose username, RID, domain SID, group SIDs, SIDHistory, ticket lifetime, encryption type, and timestamps.</li>
-<li><strong>The KDC validates the signature, not the original login.</strong> When the forged TGT is later used for a TGS request, the KDC accepts it if the cryptographic material and fields are plausible under current policy.</li>
-</ol>
+<ul><li>**Password compromise:** rotate the affected identity and investigate sessions.</li><li>**Service-account compromise:** rotate the service secret and inspect service access.</li><li>**`krbtgt` compromise:** treat the domain&#x27;s Kerberos signing root as untrusted until recovery sequencing proves otherwise.</li></ul>
+<h2>How it works</h2>
+<p>Golden Ticket abuse reduces to **5 protocol facts**:</p>
+<p>1. **Kerberos separates authentication from service access.** A user first receives a TGT from the KDC through AS exchange, then presents the TGT later to request TGS service tickets. 2. **The TGT is protected by `krbtgt`.** The ticket body is encrypted and signed with the `krbtgt` long-term key. The client cannot normally create a valid one. 3. **DCSync can recover `krbtgt` material.** A principal with replication rights can request the `krbtgt` NTLM hash and Kerberos AES keys from a DC. See &lt;a href=&quot;dcsync-and-ntdsdit-extraction.html&quot;&gt;DCSync and ntds.dit Extraction&lt;/a&gt;. 4. **A forged TGT can contain attacker-chosen identity claims.** Tooling can choose username, RID, domain SID, group SIDs, SIDHistory, ticket lifetime, encryption type, and timestamps. 5. **The KDC validates the signature, not the original login.** When the forged TGT is later used for a TGS request, the KDC accepts it if the cryptographic material and fields are plausible under current policy.</p>
 <p>Conceptual authorized-lab flow:</p>
-<div class="codehilite"><pre><span></span><code>owned replication-right principal
-  -&gt; DCSync krbtgt hash/AES key
-  -&gt; obtain domain SID
-  -&gt; forge TGT for chosen user + group claims
-  -&gt; load ticket into a lab session
-  -&gt; request TGS for CIFS/LDAP/HTTP/MSSQL
-  -&gt; observe 4769/4624/4672-style telemetry
-</code></pre></div>
-
-<p>The structural bug is not "Kerberos is broken"; it is <em>if the domain ticket-signing account is compromised, the verifier can no longer distinguish real KDC-issued TGTs from attacker-signed TGTs without correlation and recovery</em>.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
-<ul>
-<li><strong>DCSync to <code>krbtgt</code> is the common predecessor.</strong> Golden Tickets usually appear after DCSync, ntds.dit extraction, DC compromise, or backup compromise. The attack is downstream of Tier 0 access, not a first foothold.</li>
-<li><strong>Domain SID is required.</strong> The forged PAC needs the domain SID plus RIDs/group SIDs. Operators usually obtain it from LDAP, <code>whoami /user</code>, BloodHound data, or Impacket lookup. Wrong SID = unusable or anomalous ticket.</li>
-<li><strong>RID and group manipulation matter.</strong> Forging <code>Administrator</code> RID 500 is noisy. Mature operators may choose an existing user identity and inject privileged group SIDs. Defenders should compare observed group claims against directory membership.</li>
-<li><strong>SIDHistory can smuggle privilege.</strong> A forged PAC can include unexpected <code>SIDHistory</code> values, including historical or foreign-domain privileged SIDs. This is why SID filtering, trust configuration, and PAC inspection matter in multi-domain environments.</li>
-<li><strong>Lifetime anomalies are a detection surface.</strong> Old tooling defaulted to 10-year tickets. Modern operators tune lifetimes closer to domain policy, but mismatched <code>StartTime</code>, <code>EndTime</code>, <code>RenewTill</code>, and logon patterns still create correlation opportunities.</li>
-<li><strong>AES vs RC4 changes both crack and detection economics.</strong> RC4-HMAC tickets are suspicious in modern AES-capable domains and often indicate legacy settings or attacker preference. AES-forged tickets are less obviously anomalous but require AES key material, not only the NTLM hash.</li>
-<li><strong>Golden Tickets still need service access.</strong> A forged TGT usually has to obtain TGS tickets for services. That KDC interaction creates <code>4769</code> telemetry even when the original AS request never occurred.</li>
-<li><strong>Normal password resets do not revoke the trust root.</strong> Resetting the impersonated user changes the real user's password-derived keys, not the <code>krbtgt</code> key that validates the forged TGT.</li>
-</ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>Golden Ticket usage has <strong>4 operational variants</strong> worth separating.</p>
-<h3 id="1-classic-high-privilege-golden-ticket">1. Classic high-privilege Golden Ticket</h3>
-<p>The attacker forges a TGT for a privileged identity such as <code>Administrator</code> with Domain Admin-like group SIDs. Easy to understand, high impact, high telemetry risk because privileged logons appear from unusual hosts and services.</p>
-<h3 id="2-low-noise-existing-user-impersonation">2. Low-noise existing-user impersonation</h3>
+<p>``` owned replication-right principal   -&gt; DCSync krbtgt hash/AES key   -&gt; obtain domain SID   -&gt; forge TGT for chosen user + group claims   -&gt; load ticket into a lab session   -&gt; request TGS for CIFS/LDAP/HTTP/MSSQL   -&gt; observe 4769/4624/4672-style telemetry ```</p>
+<p>The structural bug is not &quot;Kerberos is broken&quot;; it is *if the domain ticket-signing account is compromised, the verifier can no longer distinguish real KDC-issued TGTs from attacker-signed TGTs without correlation and recovery*.</p>
+<h2>Techniques / patterns</h2>
+<ul><li>**DCSync to `krbtgt` is the common predecessor.** Golden Tickets usually appear after DCSync, ntds.dit extraction, DC compromise, or backup compromise. The attack is downstream of Tier 0 access, not a first foothold.</li><li>**Domain SID is required.** The forged PAC needs the domain SID plus RIDs/group SIDs. Operators usually obtain it from LDAP, `whoami /user`, BloodHound data, or Impacket lookup. Wrong SID = unusable or anomalous ticket.</li><li>**RID and group manipulation matter.** Forging `Administrator` RID 500 is noisy. Mature operators may choose an existing user identity and inject privileged group SIDs. Defenders should compare observed group claims against directory membership.</li><li>**SIDHistory can smuggle privilege.** A forged PAC can include unexpected `SIDHistory` values, including historical or foreign-domain privileged SIDs. This is why SID filtering, trust configuration, and PAC inspection matter in multi-domain environments.</li><li>**Lifetime anomalies are a detection surface.** Old tooling defaulted to 10-year tickets. Modern operators tune lifetimes closer to domain policy, but mismatched `StartTime`, `EndTime`, `RenewTill`, and logon patterns still create correlation opportunities.</li><li>**AES vs RC4 changes both crack and detection economics.** RC4-HMAC tickets are suspicious in modern AES-capable domains and often indicate legacy settings or attacker preference. AES-forged tickets are less obviously anomalous but require AES key material, not only the NTLM hash.</li><li>**Golden Tickets still need service access.** A forged TGT usually has to obtain TGS tickets for services. That KDC interaction creates `4769` telemetry even when the original AS request never occurred.</li><li>**Normal password resets do not revoke the trust root.** Resetting the impersonated user changes the real user&#x27;s password-derived keys, not the `krbtgt` key that validates the forged TGT.</li></ul>
+<h2>Variants and bypasses</h2>
+<p>Golden Ticket usage has **4 operational variants** worth separating.</p>
+<h3>1. Classic high-privilege Golden Ticket</h3>
+<p>The attacker forges a TGT for a privileged identity such as `Administrator` with Domain Admin-like group SIDs. Easy to understand, high impact, high telemetry risk because privileged logons appear from unusual hosts and services.</p>
+<h3>2. Low-noise existing-user impersonation</h3>
 <p>The attacker forges a TGT for an existing account whose normal access resembles the target action. The ticket may add only a narrow privileged SID or may rely on existing access. Harder to detect with username-only rules; correlation must compare group claims, host history, and ticket issuance sequence.</p>
-<h3 id="3-sidhistory-cross-domain-abuse">3. SIDHistory / cross-domain abuse</h3>
+<h3>3. SIDHistory / cross-domain abuse</h3>
 <p>The forged PAC includes SIDHistory or trusted-domain SIDs to obtain access across trust boundaries. This depends heavily on trust configuration and SID filtering. It is most relevant in forests with legacy migrations or weak external trusts.</p>
-<h3 id="4-long-term-persistence-ticket">4. Long-term persistence ticket</h3>
+<h3>4. Long-term persistence ticket</h3>
 <p>The attacker forges tickets with extended lifetime and renew fields for persistence. This was historically common. It is now a strong detection signal in domains where Kerberos policy is centrally known and telemetry is normalized.</p>
-<h2 id="impact">Impact</h2>
+<h2>Impact</h2>
 <p>Ordered by typical real-world severity:</p>
-<ul>
-<li><strong>Tier 0 authentication-root compromise.</strong> <code>krbtgt</code> material lets an attacker impersonate any domain principal from the Kerberos layer.</li>
-<li><strong>Persistence beyond ordinary account remediation.</strong> User, admin, and service account password resets do not invalidate tickets signed by an unchanged <code>krbtgt</code> key.</li>
-<li><strong>Domain-wide privilege fabrication.</strong> The forged PAC can claim privileged group membership even if the directory does not contain that membership.</li>
-<li><strong>Forensic ambiguity.</strong> Authentication logs may show a real username even though the real user's password was never used.</li>
-<li><strong>Attack-path completion.</strong> <a href="bloodhound-attack-path-analysis.html">BloodHound</a> paths that end in DCSync effectively become paths to Golden Ticket capability.</li>
-</ul>
-<h2 id="detection-and-telemetry">Detection and telemetry</h2>
+<ul><li>**Tier 0 authentication-root compromise.** `krbtgt` material lets an attacker impersonate any domain principal from the Kerberos layer.</li><li>**Persistence beyond ordinary account remediation.** User, admin, and service account password resets do not invalidate tickets signed by an unchanged `krbtgt` key.</li><li>**Domain-wide privilege fabrication.** The forged PAC can claim privileged group membership even if the directory does not contain that membership.</li><li>**Forensic ambiguity.** Authentication logs may show a real username even though the real user&#x27;s password was never used.</li><li>**Attack-path completion.** &lt;a href=&quot;bloodhound-attack-path-analysis.html&quot;&gt;BloodHound&lt;/a&gt; paths that end in DCSync effectively become paths to Golden Ticket capability.</li></ul>
+<h2>Detection and telemetry</h2>
 <p>Detection is correlational, not a single IOC. Useful signals include:</p>
-<ol>
-<li>
-<p><strong>TGS request without a plausible preceding AS request.</strong>
-   Event ID <code>4769</code> appears when a TGS is requested. If there is no corresponding <code>4768</code> TGT request for that account, host, and time window, the TGT may have been injected or forged. This requires timestamp-aligned DC telemetry, not one isolated log.</p>
-</li>
-<li>
-<p><strong>Ticket lifetime and renewal anomalies.</strong>
-   Compare observed ticket fields with domain Kerberos policy. Abnormally long <code>EndTime</code> or <code>RenewTill</code> values are useful, but modern attackers can tune them; treat lifetime as one feature, not the whole detection.</p>
-</li>
-<li>
-<p><strong>Unexpected encryption type.</strong>
-   <code>0x17</code> RC4-HMAC in a modern AES-only or AES-preferred environment is suspicious, especially for privileged accounts. AES usage is not proof of legitimacy.</p>
-</li>
-<li>
-<p><strong>PAC / group membership mismatch.</strong>
-   Privileged SIDs in logon events (<code>4624</code>, <code>4672</code>) that do not match current AD group membership are high-value signals. This requires enrichment from directory state.</p>
-</li>
-<li>
-<p><strong>Privileged account behavior from unusual hosts.</strong>
-   Golden Ticket use usually produces service access: SMB, LDAP, WinRM, MSSQL, HTTP. Correlate <code>4624</code>, <code>4672</code>, <code>4769</code>, EDR process ancestry, and host/service baselines.</p>
-</li>
-<li>
-<p><strong>Precursor telemetry.</strong>
-   Golden Ticket detection should start before the ticket: DCSync <code>4662</code> replication GUIDs, <code>ntds.dit</code> access, LSASS access, BloodHound collection, or abnormal replication-right use. See <a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation</a>.</p>
-</li>
-</ol>
+<p>1. **TGS request without a plausible preceding AS request.**    Event ID `4769` appears when a TGS is requested. If there is no corresponding `4768` TGT request for that account, host, and time window, the TGT may have been injected or forged. This requires timestamp-aligned DC telemetry, not one isolated log.</p>
+<p>2. **Ticket lifetime and renewal anomalies.**    Compare observed ticket fields with domain Kerberos policy. Abnormally long `EndTime` or `RenewTill` values are useful, but modern attackers can tune them; treat lifetime as one feature, not the whole detection.</p>
+<p>3. **Unexpected encryption type.**    `0x17` RC4-HMAC in a modern AES-only or AES-preferred environment is suspicious, especially for privileged accounts. AES usage is not proof of legitimacy.</p>
+<p>4. **PAC / group membership mismatch.**    Privileged SIDs in logon events (`4624`, `4672`) that do not match current AD group membership are high-value signals. This requires enrichment from directory state.</p>
+<p>5. **Privileged account behavior from unusual hosts.**    Golden Ticket use usually produces service access: SMB, LDAP, WinRM, MSSQL, HTTP. Correlate `4624`, `4672`, `4769`, EDR process ancestry, and host/service baselines.</p>
+<p>6. **Precursor telemetry.**    Golden Ticket detection should start before the ticket: DCSync `4662` replication GUIDs, `ntds.dit` access, LSASS access, BloodHound collection, or abnormal replication-right use. See &lt;a href=&quot;../detection-engineering/attack-path-correlation-and-kill-chain-observability.html&quot;&gt;Attack Path Correlation&lt;/a&gt;.</p>
 <p>Modern telemetry reality: a perfectly field-tuned Golden Ticket may not trip a standalone Kerberos rule. The stronger detection is the sequence: graph collection -&gt; replication abuse -&gt; ticket injection -&gt; privileged service access.</p>
-<h2 id="defensive-controls">Defensive controls</h2>
+<h2>Defensive controls</h2>
 <p>Ordered by effectiveness:</p>
-<ol>
-<li>
-<p><strong>Prevent non-DC replication rights.</strong>
-   Audit <code>DS-Replication-Get-Changes*</code> and effective DCSync edges with <a href="bloodhound-attack-path-analysis.html">BloodHound</a>. If attackers cannot recover <code>krbtgt</code>, Golden Ticket risk collapses.</p>
-</li>
-<li>
-<p><strong>Treat <code>krbtgt</code> as Tier 0 secret material.</strong>
-   Include <code>krbtgt</code> in privileged-access review, domain compromise playbooks, backup-protection assumptions, and DC hardening. It is not a normal user account.</p>
-</li>
-<li>
-<p><strong>Rotate <code>krbtgt</code> twice after suspected compromise.</strong>
-   One reset is normally insufficient because the previous key remains usable during the password-history and ticket-lifetime window. Pair with <a href="krbtgt-rotation-and-tier-zero-recovery.html">KRBTGT Rotation and Tier Zero Recovery</a>.</p>
-</li>
-<li>
-<p><strong>Enforce AES and retire RC4 where operationally possible.</strong>
-   This reduces weak-key and legacy-detection ambiguity. It does not prevent Golden Tickets if AES <code>krbtgt</code> keys are stolen.</p>
-</li>
-<li>
-<p><strong>Normalize Kerberos, logon, EDR, and directory telemetry.</strong>
-   Golden Ticket detections depend on correlation keys: account, SID, client address, DC, service SPN, logon ID, process, host role, and group membership snapshot. See <a href="../detection-engineering/telemetry-normalization-correlation-and-enrichment.html">Telemetry Normalization, Correlation, and Enrichment</a>.</p>
-</li>
-<li>
-<p><strong>Tier 0 isolation and PAWs.</strong>
-   Prevent the credential-theft chain that leads to DCSync: Tier 0 admins should not log on to lower-tier systems where credentials can be harvested.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
-<ul>
-<li><strong>Resetting Domain Admin passwords.</strong> This does not change <code>krbtgt</code> and therefore does not invalidate forged TGTs signed with stolen <code>krbtgt</code> material.</li>
-<li><strong>Disabling or deleting the impersonated user.</strong> Some KDC/service validation paths may catch nonexistent users, but forged tickets can still abuse other identities. Recovery must address the signing key.</li>
-<li><strong>Blocking Mimikatz by filename.</strong> Golden Ticket creation exists in multiple tools and can be reimplemented. Detect the trust abuse and precursor behavior, not the brand name.</li>
-<li><strong>Relying on short ticket lifetime policy after compromise.</strong> Policy helps future legitimate tickets. It does not revoke stolen <code>krbtgt</code> keys by itself.</li>
-<li><strong>One <code>krbtgt</code> reset as incident closure.</strong> The old key can remain valid long enough for forged tickets to survive. Sequencing matters.</li>
-<li><strong>Assuming EDR sees everything.</strong> Ticket validation happens through Kerberos and service logons; endpoint process telemetry is necessary but insufficient without DC logs and directory context.</li>
-</ul>
-<h2 id="operational-misconceptions">Operational misconceptions</h2>
-<ul>
-<li><strong>"Golden Ticket equals Domain Admin password."</strong> False. It is stronger in some ways and narrower in others: it forges Kerberos authentication, not every protocol credential.</li>
-<li><strong>"If we see no 4768, there is no Kerberos activity."</strong> False. A forged TGT may appear first as <code>4769</code> TGS activity or as host logons.</li>
-<li><strong>"AES means safe."</strong> False. AES removes RC4 weakness; it does not help if the AES key itself was replicated.</li>
-<li><strong>"The attacker must use Administrator."</strong> False. Existing-user impersonation is usually better tradecraft and harder to detect.</li>
-<li><strong>"The ticket is invisible."</strong> False. The original AS request may be missing, but service access, logons, group claims, process ancestry, and network paths still leak behavior.</li>
-</ul>
-<h2 id="practical-labs">Practical labs</h2>
+<p>1. **Prevent non-DC replication rights.**    Audit `DS-Replication-Get-Changes*` and effective DCSync edges with &lt;a href=&quot;bloodhound-attack-path-analysis.html&quot;&gt;BloodHound&lt;/a&gt;. If attackers cannot recover `krbtgt`, Golden Ticket risk collapses.</p>
+<p>2. **Treat `krbtgt` as Tier 0 secret material.**    Include `krbtgt` in privileged-access review, domain compromise playbooks, backup-protection assumptions, and DC hardening. It is not a normal user account.</p>
+<p>3. **Rotate `krbtgt` twice after suspected compromise.**    One reset is normally insufficient because the previous key remains usable during the password-history and ticket-lifetime window. Pair with &lt;a href=&quot;krbtgt-rotation-and-tier-zero-recovery.html&quot;&gt;KRBTGT Rotation and Tier Zero Recovery&lt;/a&gt;.</p>
+<p>4. **Enforce AES and retire RC4 where operationally possible.**    This reduces weak-key and legacy-detection ambiguity. It does not prevent Golden Tickets if AES `krbtgt` keys are stolen.</p>
+<p>5. **Normalize Kerberos, logon, EDR, and directory telemetry.**    Golden Ticket detections depend on correlation keys: account, SID, client address, DC, service SPN, logon ID, process, host role, and group membership snapshot. See &lt;a href=&quot;../detection-engineering/telemetry-normalization-correlation-and-enrichment.html&quot;&gt;Telemetry Normalization, Correlation, and Enrichment&lt;/a&gt;.</p>
+<p>6. **Tier 0 isolation and PAWs.**    Prevent the credential-theft chain that leads to DCSync: Tier 0 admins should not log on to lower-tier systems where credentials can be harvested.</p>
+<h3>What does not work as a primary defense</h3>
+<ul><li>**Resetting Domain Admin passwords.** This does not change `krbtgt` and therefore does not invalidate forged TGTs signed with stolen `krbtgt` material.</li><li>**Disabling or deleting the impersonated user.** Some KDC/service validation paths may catch nonexistent users, but forged tickets can still abuse other identities. Recovery must address the signing key.</li><li>**Blocking Mimikatz by filename.** Golden Ticket creation exists in multiple tools and can be reimplemented. Detect the trust abuse and precursor behavior, not the brand name.</li><li>**Relying on short ticket lifetime policy after compromise.** Policy helps future legitimate tickets. It does not revoke stolen `krbtgt` keys by itself.</li><li>**One `krbtgt` reset as incident closure.** The old key can remain valid long enough for forged tickets to survive. Sequencing matters.</li><li>**Assuming EDR sees everything.** Ticket validation happens through Kerberos and service logons; endpoint process telemetry is necessary but insufficient without DC logs and directory context.</li></ul>
+<h2>Operational misconceptions</h2>
+<ul><li>**&quot;Golden Ticket equals Domain Admin password.&quot;** False. It is stronger in some ways and narrower in others: it forges Kerberos authentication, not every protocol credential.</li><li>**&quot;If we see no 4768, there is no Kerberos activity.&quot;** False. A forged TGT may appear first as `4769` TGS activity or as host logons.</li><li>**&quot;AES means safe.&quot;** False. AES removes RC4 weakness; it does not help if the AES key itself was replicated.</li><li>**&quot;The attacker must use Administrator.&quot;** False. Existing-user impersonation is usually better tradecraft and harder to detect.</li><li>**&quot;The ticket is invisible.&quot;** False. The original AS request may be missing, but service access, logons, group claims, process ancestry, and network paths still leak behavior.</li></ul>
+<h2>Practical labs</h2>
 <p>Run only in a private AD lab, intentionally vulnerable range, or authorized assessment.</p>
-<div class="codehilite"><pre><span></span><code>Lab 1 — Map the Golden Ticket preconditions.
-Objective: prove that Golden Ticket is downstream of Tier 0 material, not a first-step exploit.
-Setup: one lab domain, one DC, one low-priv user, one admin user, BloodHound collection.
-Steps:
-  1. Run BloodHound against the lab.
-  2. Query principals with DCSync/GetChangesAll rights.
-  3. Record whether any non-DC/non-DA principal can reach DCSync.
-Expected telemetry: LDAP collection, possible 4662 object access depending audit policy.
-Defender interpretation: a path to DCSync is a path to krbtgt and Golden Ticket capability.
-Misconception corrected: &quot;Golden Ticket starts with a tool command&quot;; it starts with a trust-path failure.
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 2 — Conceptual authorized-lab Golden Ticket flow.</span>
-<span class="c1"># Preconditions: owned lab domain, explicit permission, lab krbtgt material from your own DC.</span>
-<span class="c1"># Do not run this against any third-party or production domain.</span>
-
-<span class="c1"># 1. Recover only the lab krbtgt material, as shown in the DCSync note.</span>
-impacket-secretsdump<span class="w"> </span>LAB.LOCAL/Administrator:<span class="s1">&#39;AdminPass!&#39;</span>@10.0.0.1<span class="w"> </span>-just-dc-user<span class="w"> </span>krbtgt
-
-<span class="c1"># 2. Obtain the lab domain SID.</span>
-impacket-lookupsid<span class="w"> </span>LAB.LOCAL/Administrator:<span class="s1">&#39;AdminPass!&#39;</span>@10.0.0.1
-
-<span class="c1"># 3. Forge a lab TGT with realistic lifetime settings.</span>
-impacket-ticketer<span class="w"> </span>-aesKey<span class="w"> </span>&lt;LAB_KRBTGT_AES256_KEY&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-domain-sid<span class="w"> </span>S-1-5-21-&lt;LAB-SID&gt;<span class="w"> </span>-domain<span class="w"> </span>LAB.LOCAL<span class="w"> </span>labuser
-
-<span class="c1"># 4. Use the ticket only against lab services and observe DC + host logs.</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">KRB5CCNAME</span><span class="o">=</span>labuser.ccache
-impacket-smbclient<span class="w"> </span>LAB.LOCAL/labuser@dc01.lab.local<span class="w"> </span>-k<span class="w"> </span>-no-pass
-</code></pre></div>
-
-<p>Expected defender view: <code>4769</code> for service ticket requests, <code>4624</code> on the target host, possible privileged <code>4672</code> if privileged SIDs were injected, and a missing or suspicious <code>4768</code> predecessor depending cache and sequence.</p>
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 3 — Detection reasoning over DC logs.</span>
-<span class="c"># Run on the lab DC after the authorized flow.</span>
-<span class="nv">$tgs</span> <span class="p">=</span> <span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="p">@{</span><span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span><span class="p">;</span> <span class="n">ID</span><span class="p">=</span><span class="n">4769</span><span class="p">}</span> <span class="n">-MaxEvents</span> <span class="n">200</span>
-<span class="nv">$as</span>  <span class="p">=</span> <span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="p">@{</span><span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span><span class="p">;</span> <span class="n">ID</span><span class="p">=</span><span class="n">4768</span><span class="p">}</span> <span class="n">-MaxEvents</span> <span class="n">200</span>
-
-<span class="c"># Analyst exercise:</span>
-<span class="c"># - group by AccountName + ClientAddress</span>
-<span class="c"># - look for TGS activity without nearby AS activity</span>
-<span class="c"># - compare encryption types against domain policy</span>
-<span class="c"># - inspect target SPNs reached by the forged identity</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>Lab 4 — Ticket-field anomaly table.
-Objective: learn which fields are features, not verdicts.
-Setup: export 4768/4769/4624 events from normal lab users and the authorized forged-ticket flow.
-Steps:
-  1. Compare account, client address, service name, ticket encryption type, time fields, and logon type.
-  2. Mark each field as normal, suspicious, or inconclusive.
-  3. Write a detection that requires at least two suspicious features.
-Limitations: a skilled operator can tune many fields. The value is correlation, not a single field.
-</code></pre></div>
-
-<h2 id="practical-examples">Practical examples</h2>
-<ul>
-<li><strong>DCSync-to-Golden-Ticket chain.</strong> Kerberoasting yields <code>svc_replication</code>, BloodHound shows DCSync rights, DCSync recovers <code>krbtgt</code>, and a forged TGT impersonates a privileged user. The real issue was the replication-right edge.</li>
-<li><strong>Post-incident false closure.</strong> IR resets all Domain Admin passwords but does not rotate <code>krbtgt</code>. The attacker continues using a previously forged TGT. The organization fixed users, not the trust root.</li>
-<li><strong>Modern tuned ticket.</strong> The attacker forges with AES, normal lifetimes, and a real username. Detection comes from TGS-without-AS correlation plus unusual service access and group-claim mismatch.</li>
-<li><strong>SIDHistory abuse in a legacy trust.</strong> A migration-era trust leaves SID filtering weak. Forged SIDHistory grants access that current group membership does not explain.</li>
-</ul>
-<h2 id="related-notes">Related notes</h2>
-<ul>
-<li><a href="dcsync-and-ntdsdit-extraction.html">dcsync-and-ntdsdit-extraction</a> — the most common way <code>krbtgt</code> material is recovered.</li>
-<li><a href="bloodhound-attack-path-analysis.html">bloodhound-attack-path-analysis</a> — graph paths to DCSync are graph paths to Golden Ticket capability.</li>
-<li><a href="kerberoasting.html">kerberoasting</a> — a common predecessor when cracked service accounts lead to replication rights.</li>
-<li><a href="silver-ticket-and-service-account-persistence.html">silver-ticket-and-service-account-persistence</a> — the service-scoped contrast case for forged Kerberos tickets.</li>
-<li><a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation</a> — Golden Ticket detection is strongest as a sequence, not a single event.</li>
-<li><a href="../detection-engineering/edr-network-observability-and-process-correlation.html">EDR, Network Observability, and Process Correlation</a> — endpoint telemetry explains ticket injection and service access context.</li>
-<li><a href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral vs Signature Detection</a> — Golden Ticket detection is behavioral and correlational.</li>
-<li><a href="krbtgt-rotation-and-tier-zero-recovery.html">krbtgt-rotation-and-tier-zero-recovery</a> — the recovery operation that invalidates stolen <code>krbtgt</code> material when sequenced correctly.</li>
-</ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
-<ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: kerberos-pac-validation">kerberos-pac-validation</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: sid-history-abuse-and-sid-filtering">sid-history-abuse-and-sid-filtering</span></li>
-<li><a href="tier-zero-administration-and-paw.html">tier-zero-administration-and-paw</a></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: detect-golden-ticket-and-silver-ticket">detect-golden-ticket-and-silver-ticket</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: ad-forest-trust-security">ad-forest-trust-security</span></li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Foundational:</strong> MITRE ATT&amp;CK T1558.001 — Steal or Forge Kerberos Tickets: Golden Ticket — https://attack.mitre.org/techniques/T1558/001/</li>
-<li><strong>Detection:</strong> MITRE ATT&amp;CK DET0144 — Detect Forged Kerberos Golden Tickets — https://attack.mitre.org/detectionstrategies/DET0144/</li>
-<li><strong>Recovery:</strong> Microsoft Learn — Active Directory Forest Recovery: Reset the krbtgt password — https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-reset-the-krbtgt-password</li>
-<li><strong>Research / Deep Dive:</strong> Sean Metcalf (ADSecurity.org) — Mimikatz Golden Ticket Usage, Exploitation, and Detection — https://adsecurity.org/?p=1515</li>
-</ul>
+<p>``` Lab 1 — Map the Golden Ticket preconditions. Objective: prove that Golden Ticket is downstream of Tier 0 material, not a first-step exploit. Setup: one lab domain, one DC, one low-priv user, one admin user, BloodHound collection. Steps:   1. Run BloodHound against the lab.   2. Query principals with DCSync/GetChangesAll rights.   3. Record whether any non-DC/non-DA principal can reach DCSync. Expected telemetry: LDAP collection, possible 4662 object access depending audit policy. Defender interpretation: a path to DCSync is a path to krbtgt and Golden Ticket capability. Misconception corrected: &quot;Golden Ticket starts with a tool command&quot;; it starts with a trust-path failure. ```</p>
+<p>``` # Lab 2 — Conceptual authorized-lab Golden Ticket flow. # Preconditions: owned lab domain, explicit permission, lab krbtgt material from your own DC. # Do not run this against any third-party or production domain.</p>
+<h1>1. Recover only the lab krbtgt material, as shown in the DCSync note.</h1>
+<h1>2. Obtain the lab domain SID.</h1>
+<h1>3. Forge a lab TGT with realistic lifetime settings.</h1>
+<h1>4. Use the ticket only against lab services and observe DC + host logs.</h1>
+<p>Expected defender view: `4769` for service ticket requests, `4624` on the target host, possible privileged `4672` if privileged SIDs were injected, and a missing or suspicious `4768` predecessor depending cache and sequence.</p>
+<p>``` # Lab 3 — Detection reasoning over DC logs. # Run on the lab DC after the authorized flow. $tgs = Get-WinEvent -FilterHashtable @{LogName=&#x27;Security&#x27;; ID=4769} -MaxEvents 200 $as  = Get-WinEvent -FilterHashtable @{LogName=&#x27;Security&#x27;; ID=4768} -MaxEvents 200</p>
+<h1>Analyst exercise:</h1>
+<p>``` Lab 4 — Ticket-field anomaly table. Objective: learn which fields are features, not verdicts. Setup: export 4768/4769/4624 events from normal lab users and the authorized forged-ticket flow. Steps:   1. Compare account, client address, service name, ticket encryption type, time fields, and logon type.   2. Mark each field as normal, suspicious, or inconclusive.   3. Write a detection that requires at least two suspicious features. Limitations: a skilled operator can tune many fields. The value is correlation, not a single field. ```</p>
+<h2>Practical examples</h2>
+<ul><li>**DCSync-to-Golden-Ticket chain.** Kerberoasting yields `svc_replication`, BloodHound shows DCSync rights, DCSync recovers `krbtgt`, and a forged TGT impersonates a privileged user. The real issue was the replication-right edge.</li><li>**Post-incident false closure.** IR resets all Domain Admin passwords but does not rotate `krbtgt`. The attacker continues using a previously forged TGT. The organization fixed users, not the trust root.</li><li>**Modern tuned ticket.** The attacker forges with AES, normal lifetimes, and a real username. Detection comes from TGS-without-AS correlation plus unusual service access and group-claim mismatch.</li><li>**SIDHistory abuse in a legacy trust.** A migration-era trust leaves SID filtering weak. Forged SIDHistory grants access that current group membership does not explain.</li></ul>
+<h2>Related notes</h2>
+<ul><li>&lt;a href=&quot;dcsync-and-ntdsdit-extraction.html&quot;&gt;dcsync-and-ntdsdit-extraction&lt;/a&gt; — the most common way `krbtgt` material is recovered.</li><li>&lt;a href=&quot;bloodhound-attack-path-analysis.html&quot;&gt;bloodhound-attack-path-analysis&lt;/a&gt; — graph paths to DCSync are graph paths to Golden Ticket capability.</li><li>&lt;a href=&quot;kerberoasting.html&quot;&gt;kerberoasting&lt;/a&gt; — a common predecessor when cracked service accounts lead to replication rights.</li><li>&lt;a href=&quot;silver-ticket-and-service-account-persistence.html&quot;&gt;silver-ticket-and-service-account-persistence&lt;/a&gt; — the service-scoped contrast case for forged Kerberos tickets.</li><li>&lt;a href=&quot;../detection-engineering/attack-path-correlation-and-kill-chain-observability.html&quot;&gt;Attack Path Correlation&lt;/a&gt; — Golden Ticket detection is strongest as a sequence, not a single event.</li><li>&lt;a href=&quot;../detection-engineering/edr-network-observability-and-process-correlation.html&quot;&gt;EDR, Network Observability, and Process Correlation&lt;/a&gt; — endpoint telemetry explains ticket injection and service access context.</li><li>&lt;a href=&quot;../detection-engineering/behavioral-detection-vs-signature-detection.html&quot;&gt;Behavioral vs Signature Detection&lt;/a&gt; — Golden Ticket detection is behavioral and correlational.</li><li>&lt;a href=&quot;krbtgt-rotation-and-tier-zero-recovery.html&quot;&gt;krbtgt-rotation-and-tier-zero-recovery&lt;/a&gt; — the recovery operation that invalidates stolen `krbtgt` material when sequenced correctly.</li></ul>
+<h3>Suggested future atomic notes</h3>
+<ul><li>kerberos-pac-validation</li><li>sid-history-abuse-and-sid-filtering</li><li>&lt;a href=&quot;tier-zero-administration-and-paw.html&quot;&gt;tier-zero-administration-and-paw&lt;/a&gt;</li><li>detect-golden-ticket-and-silver-ticket</li><li>ad-forest-trust-security</li></ul>
+<h2>References</h2>
+<ul><li>**Foundational:** MITRE ATT&amp;CK T1558.001 — Steal or Forge Kerberos Tickets: Golden Ticket — https://attack.mitre.org/techniques/T1558/001/</li><li>**Detection:** MITRE ATT&amp;CK DET0144 — Detect Forged Kerberos Golden Tickets — https://attack.mitre.org/detectionstrategies/DET0144/</li><li>**Recovery:** Microsoft Learn — Active Directory Forest Recovery: Reset the krbtgt password — https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-reset-the-krbtgt-password</li><li>**Research / Deep Dive:** Sean Metcalf (ADSecurity.org) — Mimikatz Golden Ticket Usage, Exploitation, and Detection — https://adsecurity.org/?p=1515</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="gmsa-and-modern-service-account-hardening.html"><span class="nav-dir">← Previous</span><strong>gMSA and Modern Service Account Hardening</strong></a><a class="branch-nav-link next" href="identity-attack-paths-across-idps.html"><span class="nav-dir">Next →</span><strong>Identity Attack Paths Across IdPs</strong></a></nav>
-<section class="related-notes" aria-label="Explore nearby notes">
-<h2>Explore nearby notes</h2>
+<section class="related-notes" aria-label="Related notes">
+<h2>Related notes</h2>
 <div class="related-grid">
-<a class="related-card" href="krbtgt-rotation-and-tier-zero-recovery.html"><span>Identity &amp; Active Directory</span><strong>KRBTGT Rotation and Tier Zero Recovery</strong><small>KRBTGT rotation is the controlled reset of the domain&#x27;s krbtgt account password material so previously stolen Kerberos ticket-signing keys can no longer validate...</small></a>
 <a class="related-card" href="as-rep-roasting.html"><span>Identity &amp; Active Directory</span><strong>AS-REP Roasting</strong><small>AS-REP Roasting is an Active Directory credential attack where an attacker exploits accounts with **Kerberos pre-authentication disabled** by sending an AS-REQ...</small></a>
-<a class="related-card" href="gmsa-and-modern-service-account-hardening.html"><span>Identity &amp; Active Directory</span><strong>gMSA and Modern Service Account Hardening</strong><small>A group Managed Service Account (gMSA) is an Active Directory-managed service identity whose password is long, random, automatically rotated, and retrievable only...</small></a>
-<a class="related-card" href="kerberoasting.html"><span>Identity &amp; Active Directory</span><strong>Kerberoasting</strong><small>Kerberoasting is an Active Directory credential attack where an authenticated domain user requests **TGS service tickets** for accounts that have a Service...</small></a>
-<a class="related-card" href="silver-ticket-and-service-account-persistence.html"><span>Identity &amp; Active Directory</span><strong>Silver Ticket and Service Account Persistence</strong><small>A Silver Ticket is a forged Kerberos **service ticket** (TGS) created with a compromised service account key rather than the domain-wide krbtgt key. It is...</small></a>
 <a class="related-card" href="bloodhound-attack-path-analysis.html"><span>Identity &amp; Active Directory</span><strong>BloodHound and Attack Path Analysis</strong><small>BloodHound is an open-source graph-analysis tool that models **Active Directory as a directed graph of principals** (users, groups, computers, GPOs, OUs, domains)...</small></a>
+<a class="related-card" href="dcsync-and-ntdsdit-extraction.html"><span>Identity &amp; Active Directory</span><strong>DCSync and ntds.dit Extraction</strong><small>DCSync is an AD credential-extraction attack where the attacker abuses the **DS-Replication-Get-Changes-All** and related directory-replication rights to make...</small></a>
+<a class="related-card" href="gmsa-and-modern-service-account-hardening.html"><span>Identity &amp; Active Directory</span><strong>gMSA and Modern Service Account Hardening</strong><small>A group Managed Service Account (gMSA) is an Active Directory-managed service identity whose password is long, random, automatically rotated, and retrievable only...</small></a>
+<a class="related-card" href="identity-attack-paths-across-idps.html"><span>Identity &amp; Active Directory</span><strong>Identity Attack Paths Across IdPs</strong><small>Cross-IdP attack paths are lateral-movement chains that propagate compromise *across platform boundaries* by traversing the trust edges — **federation, directory...</small></a>
+<a class="related-card" href="kerberoasting.html"><span>Identity &amp; Active Directory</span><strong>Kerberoasting</strong><small>Kerberoasting is an Active Directory credential attack where an authenticated domain user requests **TGS service tickets** for accounts that have a Service...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-classic-high-privilege-golden-ticket">1. Classic high-privilege Golden Ticket</a>
-<a class="toc-level-3" href="#2-low-noise-existing-user-impersonation">2. Low-noise existing-user impersonation</a>
-<a class="toc-level-3" href="#3-sidhistory-cross-domain-abuse">3. SIDHistory / cross-domain abuse</a>
-<a class="toc-level-3" href="#4-long-term-persistence-ticket">4. Long-term persistence ticket</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-telemetry">Detection and telemetry</a>
-<a class="toc-level-2" href="#defensive-controls">Defensive controls</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#operational-misconceptions">Operational misconceptions</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-2" href="#practical-examples">Practical examples</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-3" href="#suggested-future-atomic-notes">Suggested future atomic notes</a>
-<a class="back-to-top" href="#top">Back to top</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Windows Event Logs - Detection Engineering | ldamoredev Security Atlas</title>
+<title>Windows Event Logs - Detection Engineering | Cybersecurity Atlas</title>
 <meta name="description" content="Windows Event Logs are the structured host-side telemetry that the Windows operating system emits for security-relevant operations (authentication, authorization...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Detection Engineering, Windows Event Logs, detection-engineering, windows, event-logs, telemetry, dfir">
-<meta name="theme-color" content="#16a34a">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Detection Engineering, Windows Event Logs">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/windows-event-logs.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Detection Engineering">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows Event Logs - Detection Engineering | ldamoredev Security Atlas">
+<meta property="og:title" content="Windows Event Logs - Detection Engineering | Cybersecurity Atlas">
 <meta property="og:description" content="Windows Event Logs are the structured host-side telemetry that the Windows operating system emits for security-relevant operations (authentication, authorization...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/windows-event-logs.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Windows Event Logs - Detection Engineering | ldamoredev Security Atlas">
+<meta name="twitter:title" content="Windows Event Logs - Detection Engineering | Cybersecurity Atlas">
 <meta name="twitter:description" content="Windows Event Logs are the structured host-side telemetry that the Windows operating system emits for security-relevant operations (authentication, authorization...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/windows-event-logs.html#article","name":"Windows Event Logs - Detection Engineering | ldamoredev Security Atlas","headline":"Windows Event Logs","description":"Windows Event Logs are the structured host-side telemetry that the Windows operating system emits for security-relevant operations (authentication, authorization...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/windows-event-logs.html","inLanguage":"en","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/windows-event-logs.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Detection Engineering","Windows Event Logs","detection-engineering","windows","event-logs","telemetry","dfir"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Detection Engineering","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/index.html"},{"@type":"ListItem","position":4,"name":"Windows Event Logs","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/windows-event-logs.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/windows-event-logs.html#article","name":"Windows Event Logs - Detection Engineering | Cybersecurity Atlas","headline":"Windows Event Logs","description":"Windows Event Logs are the structured host-side telemetry that the Windows operating system emits for security-relevant operations (authentication, authorization...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/windows-event-logs.html","inLanguage":"en","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/windows-event-logs.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Detection Engineering","Windows Event Logs"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Detection Engineering","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/index.html"},{"@type":"ListItem","position":4,"name":"Windows Event Logs","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/windows-event-logs.html"}]}]</script>
+<meta property="article:section" content="Detection Engineering">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/windows-event-logs.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/windows-event-logs.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/windows-event-logs.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Knowledge Base</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Attack Surface &amp; Signal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Atlas Home</a>
 <div class="sidebar-section"><h3>Entry layer</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Learning Path</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Overview</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="Attacker-Defender Duality as a Learning Tool">Attacker-Defender Duality as a Learning Tool</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Certifications as Validation Signals">Certifications as Validation Signals</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="CIA Triad — What It Actually Decides">CIA Triad — What It Actually Decides</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Job Context Specialization">Job Context Specialization</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Minimum Viable Cybersecurity Literacy">Minimum Viable Cybersecurity Literacy</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Threat Modeling Quickstart">Threat Modeling Quickstart</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="What Is Cybersecurity, and Why It Is Not a Tool List">What Is Cybersecurity, and Why It Is Not a Tool List</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Cryptography</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Overview</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -88,7 +97,7 @@
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Overview</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caching and Security">Caching and Security</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Client IP Trust">Client IP Trust</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="DNS Resolution">DNS Resolution</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="DNS Security">DNS Security</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls and Network Boundaries">Firewalls and Network Boundaries</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Header Trust in Node Express">Header Trust in Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="HTTP Headers">HTTP Headers</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="HTTP Messages">HTTP Messages</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS and HTTPS">TLS and HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Wireshark Workflows">Wireshark Workflows</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Overview</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Authentication Flaws">Authentication Flaws</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Broken Access Control">Broken Access Control</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Browser Security Boundaries">Browser Security Boundaries</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Offensive Security / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Overview</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="The Operator Loop">The Operator Loop</a>
 </div></details>
-<details class="nav-branch accent-cyan active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="index.html">Overview</a>
 <a class="nav-leaf" href="attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="network-security-monitoring-discipline.html" title="Network Security Monitoring Discipline">Network Security Monitoring Discipline</a>
 <a class="nav-leaf" href="network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Attack Surface Mapping</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Overview</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,7 +238,7 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Overview</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detect BloodHound Collection">Detect BloodHound Collection</a>
@@ -235,6 +247,7 @@
 <a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>updated · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>updated · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -412,471 +425,84 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Detection Engineering</a><span>/</span><span>Windows Event Logs</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-cyan">Detection Engineering</span><span class="meta-chip meta-time" title="Estimated reading time">~12 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#detection-engineering</span><span class="meta-chip tag">#windows</span><span class="meta-chip tag">#event-logs</span><span class="meta-chip tag">#telemetry</span><span class="meta-chip tag">#dfir</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-cyan">Detection Engineering</span><span class="meta-chip meta-time" title="Estimated reading time">~12 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="windows-event-logs">Windows Event Logs</h1>
-<h2 id="definition">Definition</h2>
-<p>Windows Event Logs are the structured host-side telemetry that the Windows operating system emits for security-relevant operations (authentication, authorization, process execution, account changes, object access, system state). Logs are stored as <code>.evtx</code> files in <code>%SystemRoot%\System32\winevt\Logs\</code>, exposed via the Event Log service, and queryable through <code>wevtutil</code>, <code>Get-WinEvent</code>, the Event Viewer UI, or a forwarded copy in a SIEM. <strong>The body of useful security telemetry on Windows is built almost entirely from a small set of Event IDs</strong> — roughly 30 out of the thousands defined — and senior detection engineers internalize that subset rather than treating Windows logs as an undifferentiated stream.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>Every Windows-targeted attack in this atlas — <a href="../identity-and-active-directory/kerberoasting.html">Kerberoasting</a> (4769 + RC4), <a href="../identity-and-active-directory/as-rep-roasting.html">AS-REP Roasting</a> (4768 + PreAuthType=0), <a href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync</a> (4662 + replication GUIDs), <a href="../identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash</a> (4624 LogonType=3 + NTLM), <a href="../identity-and-active-directory/bloodhound-attack-path-analysis.html">BloodHound</a> collection (LDAP query patterns + 4662), <a href="../identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">Golden Ticket</a> use (4769 without preceding 4768 from the same user) — produces a recognizable signature in Windows Event Logs. Without a working model of what those Event IDs mean, what fields they carry, and what audit policy makes them appear, detection rules and IR investigations are guesswork.</p>
-<p>The senior framing is that Event Logs are <strong>not what gets logged by default</strong>; they are what gets logged <em>after the audit policy is configured correctly</em>. Default Windows audit policy is silent about Process Creation (4688), silent about Sensitive Privilege Use (4673), silent about Detailed File Share access — yet these are the events most detection rules need. Configuring audit policy is the prerequisite to every other detection-engineering claim about Windows hosts.</p>
+<h1>Windows Event Logs</h1>
+<h2>Definition</h2>
+<p>Windows Event Logs are the structured host-side telemetry that the Windows operating system emits for security-relevant operations (authentication, authorization, process execution, account changes, object access, system state). Logs are stored as `.evtx` files in `%SystemRoot%\System32\winevt\Logs\`, exposed via the Event Log service, and queryable through `wevtutil`, `Get-WinEvent`, the Event Viewer UI, or a forwarded copy in a SIEM. **The body of useful security telemetry on Windows is built almost entirely from a small set of Event IDs** — roughly 30 out of the thousands defined — and senior detection engineers internalize that subset rather than treating Windows logs as an undifferentiated stream.</p>
+<h2>Why it matters</h2>
+<p>Every Windows-targeted attack in this atlas — &lt;a href=&quot;../identity-and-active-directory/kerberoasting.html&quot;&gt;Kerberoasting&lt;/a&gt; (4769 + RC4), &lt;a href=&quot;../identity-and-active-directory/as-rep-roasting.html&quot;&gt;AS-REP Roasting&lt;/a&gt; (4768 + PreAuthType=0), &lt;a href=&quot;../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html&quot;&gt;DCSync&lt;/a&gt; (4662 + replication GUIDs), &lt;a href=&quot;../identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html&quot;&gt;Pass-the-Hash&lt;/a&gt; (4624 LogonType=3 + NTLM), &lt;a href=&quot;../identity-and-active-directory/bloodhound-attack-path-analysis.html&quot;&gt;BloodHound&lt;/a&gt; collection (LDAP query patterns + 4662), &lt;a href=&quot;../identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html&quot;&gt;Golden Ticket&lt;/a&gt; use (4769 without preceding 4768 from the same user) — produces a recognizable signature in Windows Event Logs. Without a working model of what those Event IDs mean, what fields they carry, and what audit policy makes them appear, detection rules and IR investigations are guesswork.</p>
+<p>The senior framing is that Event Logs are **not what gets logged by default**; they are what gets logged *after the audit policy is configured correctly*. Default Windows audit policy is silent about Process Creation (4688), silent about Sensitive Privilege Use (4673), silent about Detailed File Share access — yet these are the events most detection rules need. Configuring audit policy is the prerequisite to every other detection-engineering claim about Windows hosts.</p>
 <p>The technique also matters as a teaching note because it surfaces three transferable senior facts:</p>
-<ul>
-<li><strong>Event IDs are the alphabet, not the language.</strong> Real detections are <em>sequences and conjunctions</em> of Event IDs (<a href="behavioral-detection-vs-signature-detection.html">behavioral detection</a>) — e.g., "4624 + LogonType=3 + AuthenticationPackage=NTLM + unusual source" — not single-Event-ID alerts.</li>
-<li><strong>The default field set is incomplete on purpose.</strong> Microsoft ships safe defaults to control log volume on shared infrastructure. Production detection requires opt-in: process command line (<code>Include command line in process creation events</code> policy), PowerShell ScriptBlockLogging, DNS client logging, Sysmon for the next layer.</li>
-<li><strong>Log clearing is itself a high-fidelity signal.</strong> Event 1102 ("audit log was cleared") and 104 ("System log was cleared") are emitted <em>before</em> the clearing takes effect — and they're emitted to the same log that's being cleared. Attackers know this; mature defenders forward logs in real time so the clearing event survives.</li>
-</ul>
-<h2 id="how-it-works">How it works</h2>
-<p>Windows Event Logs are organized into <strong>4 layers</strong> that a detection engineer must hold simultaneously:</p>
-<ol>
-<li><strong>The log channels.</strong> The three classic logs — <code>Security</code>, <code>System</code>, <code>Application</code> — plus the modern operational logs under <code>Microsoft-Windows-*/Operational</code> (PowerShell, Sysmon, Windows Defender, AppLocker, DNS-Client, etc.). The classic logs follow Windows since NT; the operational logs are where most modern security telemetry lives.</li>
-<li><strong>The audit policy.</strong> Configured via <code>Local Security Policy → Advanced Audit Policy Configuration</code> or domain GPO. <strong>No event is logged unless the corresponding audit subcategory is enabled.</strong> Audit Process Creation (Success) generates 4688; without it, 4688 events never appear. The audit policy is the gate, not the log.</li>
-<li><strong>The Event ID + field set.</strong> Each Event ID has a fixed schema: 4624 carries fields for User, LogonType, AuthenticationPackage, Source Network Address, Workstation Name, Logon ID, and ~15 others. Detection rules pattern-match on these fields, not on the raw event text. Knowing field positions matters because some SIEMs index by field name (Splunk, Sentinel) and some index by ordinal position (older agents).</li>
-<li><strong>The forwarding/storage layer.</strong> Windows Event Forwarding (WEF) collects logs centrally, often via the WinRM-based subscription model. Modern deployments push to a SIEM via an agent (Sysmon → Splunk Universal Forwarder, Sentinel Azure Monitor Agent, Elastic Agent). The forwarder is also where filtering and rate-limiting happen; detection rules must account for what survives the forwarder.</li>
-</ol>
+<ul><li>**Event IDs are the alphabet, not the language.** Real detections are *sequences and conjunctions* of Event IDs (&lt;a href=&quot;behavioral-detection-vs-signature-detection.html&quot;&gt;behavioral detection&lt;/a&gt;) — e.g., &quot;4624 + LogonType=3 + AuthenticationPackage=NTLM + unusual source&quot; — not single-Event-ID alerts.</li><li>**The default field set is incomplete on purpose.** Microsoft ships safe defaults to control log volume on shared infrastructure. Production detection requires opt-in: process command line (`Include command line in process creation events` policy), PowerShell ScriptBlockLogging, DNS client logging, Sysmon for the next layer.</li><li>**Log clearing is itself a high-fidelity signal.** Event 1102 (&quot;audit log was cleared&quot;) and 104 (&quot;System log was cleared&quot;) are emitted *before* the clearing takes effect — and they&#x27;re emitted to the same log that&#x27;s being cleared. Attackers know this; mature defenders forward logs in real time so the clearing event survives.</li></ul>
+<h2>How it works</h2>
+<p>Windows Event Logs are organized into **4 layers** that a detection engineer must hold simultaneously:</p>
+<p>1. **The log channels.** The three classic logs — `Security`, `System`, `Application` — plus the modern operational logs under `Microsoft-Windows-*/Operational` (PowerShell, Sysmon, Windows Defender, AppLocker, DNS-Client, etc.). The classic logs follow Windows since NT; the operational logs are where most modern security telemetry lives. 2. **The audit policy.** Configured via `Local Security Policy → Advanced Audit Policy Configuration` or domain GPO. **No event is logged unless the corresponding audit subcategory is enabled.** Audit Process Creation (Success) generates 4688; without it, 4688 events never appear. The audit policy is the gate, not the log. 3. **The Event ID + field set.** Each Event ID has a fixed schema: 4624 carries fields for User, LogonType, AuthenticationPackage, Source Network Address, Workstation Name, Logon ID, and ~15 others. Detection rules pattern-match on these fields, not on the raw event text. Knowing field positions matters because some SIEMs index by field name (Splunk, Sentinel) and some index by ordinal position (older agents). 4. **The forwarding/storage layer.** Windows Event Forwarding (WEF) collects logs centrally, often via the WinRM-based subscription model. Modern deployments push to a SIEM via an agent (Sysmon → Splunk Universal Forwarder, Sentinel Azure Monitor Agent, Elastic Agent). The forwarder is also where filtering and rate-limiting happen; detection rules must account for what survives the forwarder.</p>
 <p>A representative end-to-end query against the Security log:</p>
-<div class="codehilite"><pre><span></span><code><span class="c"># Find every NTLM network logon in the last 24 hours.</span>
-<span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="p">@{</span>
-    <span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span>
-    <span class="n">ID</span><span class="p">=</span><span class="n">4624</span>
-    <span class="n">StartTime</span><span class="p">=(</span><span class="nb">Get-Date</span><span class="p">).</span><span class="n">AddHours</span><span class="p">(-</span><span class="n">24</span><span class="p">)</span>
-<span class="p">}</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span>
-    <span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">8</span><span class="p">].</span><span class="n">Value</span> <span class="o">-eq</span> <span class="n">3</span> <span class="o">-and</span>       <span class="c"># LogonType 3 (Network)</span>
-    <span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">10</span><span class="p">].</span><span class="n">Value</span> <span class="o">-eq</span> <span class="s1">&#39;NTLM&#39;</span>      <span class="c"># AuthenticationPackage</span>
-<span class="p">}</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">TimeCreated</span><span class="p">,</span>
-    <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;User&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">5</span><span class="p">].</span><span class="n">Value</span><span class="p">}},</span>
-    <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;Source&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">18</span><span class="p">].</span><span class="n">Value</span><span class="p">}},</span>
-    <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;Target&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">6</span><span class="p">].</span><span class="n">Value</span><span class="p">}}</span>
-</code></pre></div>
-
-<p>The bug is not "Windows logs are too verbose" or "Windows logs are too sparse"; it is <em>Windows logs are configured-not-default, schema-driven, and field-positional — and detection engineering requires holding the audit policy, the Event ID semantics, the field schema, and the forwarding pipeline as four interacting layers simultaneously</em>.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
-<h3 id="the-event-ids-that-matter-the-senior-subset">The Event IDs that matter (the senior subset)</h3>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>Event ID</th>
-<th>What it means</th>
-<th>Telemetry signal</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Logon / logoff</strong></td>
-<td>4624</td>
-<td>Successful logon</td>
-<td>LogonType + AuthenticationPackage + Source IP — the foundational event</td>
-</tr>
-<tr>
-<td></td>
-<td>4625</td>
-<td>Failed logon</td>
-<td>Failure reason — brute-force, locked-out, expired-pwd, bad-user</td>
-</tr>
-<tr>
-<td></td>
-<td>4634</td>
-<td>Logoff</td>
-<td>End of a session</td>
-</tr>
-<tr>
-<td></td>
-<td>4647</td>
-<td>User-initiated logoff</td>
-<td>Distinguishes voluntary from system-induced</td>
-</tr>
-<tr>
-<td></td>
-<td>4648</td>
-<td>Logon with explicit credentials</td>
-<td><code>runas /netonly</code> and similar — credential delegation</td>
-</tr>
-<tr>
-<td></td>
-<td>4672</td>
-<td>Special privileges assigned to a new logon</td>
-<td>Indicates Administrator-equivalent rights on this session</td>
-</tr>
-<tr>
-<td><strong>Kerberos</strong></td>
-<td>4768</td>
-<td>TGT (Authentication Service) request</td>
-<td>Pre-Auth Type field — <code>PreAuthType=0</code> = AS-REP roasting indicator</td>
-</tr>
-<tr>
-<td></td>
-<td>4769</td>
-<td>TGS (Service Ticket) request</td>
-<td>TicketEncryptionType field — <code>0x17</code> (RC4) against AES baseline = Kerberoasting indicator</td>
-</tr>
-<tr>
-<td></td>
-<td>4770</td>
-<td>TGT renewed</td>
-<td>Long-lived TGT renewals can indicate Golden Ticket if <code>krbtgt</code> was rotated</td>
-</tr>
-<tr>
-<td></td>
-<td>4771</td>
-<td>Kerberos pre-auth failed</td>
-<td>Failure-code differentiates "wrong password" from "account locked" — bruteforce telemetry</td>
-</tr>
-<tr>
-<td><strong>Process / command</strong></td>
-<td>4688</td>
-<td>Process created</td>
-<td>Command line (only if explicitly enabled in audit policy) + parent process — the bedrock of host-side behavioral detection</td>
-</tr>
-<tr>
-<td></td>
-<td>4689</td>
-<td>Process exited</td>
-<td>Pair with 4688 for process duration</td>
-</tr>
-<tr>
-<td><strong>Privilege use</strong></td>
-<td>4672</td>
-<td>Special privileges assigned at logon</td>
-<td>(see Logon)</td>
-</tr>
-<tr>
-<td></td>
-<td>4673</td>
-<td>Sensitive privilege used</td>
-<td>High-volume in default config — usually filtered</td>
-</tr>
-<tr>
-<td></td>
-<td>4674</td>
-<td>Operation attempted on a privileged object</td>
-<td>Tied to SeDebugPrivilege use, often relevant for credential dumping detection</td>
-</tr>
-<tr>
-<td><strong>Account management</strong></td>
-<td>4720</td>
-<td>User account created</td>
-<td>New principal — alert always</td>
-</tr>
-<tr>
-<td></td>
-<td>4722</td>
-<td>User account enabled</td>
-<td>Re-enable can be persistence</td>
-</tr>
-<tr>
-<td></td>
-<td>4724</td>
-<td>Password reset attempt</td>
-<td>Privilege escalation indicator</td>
-</tr>
-<tr>
-<td></td>
-<td>4725</td>
-<td>User account disabled</td>
-<td>Operational telemetry</td>
-</tr>
-<tr>
-<td></td>
-<td>4726</td>
-<td>User account deleted</td>
-<td>Anti-forensic indicator</td>
-</tr>
-<tr>
-<td></td>
-<td>4738</td>
-<td>User account changed</td>
-<td>Catch-all for property modification</td>
-</tr>
-<tr>
-<td><strong>Group management</strong></td>
-<td>4728</td>
-<td>Member added to security-enabled global group</td>
-<td>Watch Tier 0 groups especially</td>
-</tr>
-<tr>
-<td></td>
-<td>4732</td>
-<td>Member added to security-enabled local group</td>
-<td>Local admin escalation</td>
-</tr>
-<tr>
-<td></td>
-<td>4756</td>
-<td>Member added to security-enabled universal group</td>
-<td>Enterprise Admins, Schema Admins lives here</td>
-</tr>
-<tr>
-<td><strong>Object access</strong></td>
-<td>4662</td>
-<td>An operation was performed on an object</td>
-<td>The DCSync detector — filter for replication GUIDs <code>1131f6aa-*</code> and <code>1131f6ad-*</code></td>
-</tr>
-<tr>
-<td></td>
-<td>4663</td>
-<td>An attempt was made to access an object</td>
-<td>File / registry / kernel object access</td>
-</tr>
-<tr>
-<td></td>
-<td>4670</td>
-<td>Permissions on an object were changed</td>
-<td>AdminSDHolder modification trail</td>
-</tr>
-<tr>
-<td><strong>System / integrity</strong></td>
-<td>1100</td>
-<td>Event log service shutting down</td>
-<td>Pre-clear or pre-shutdown indicator</td>
-</tr>
-<tr>
-<td></td>
-<td>1102</td>
-<td>Audit log was cleared</td>
-<td>High-fidelity adversary indicator — never legitimate in production</td>
-</tr>
-<tr>
-<td></td>
-<td>104</td>
-<td>System log was cleared</td>
-<td>Companion to 1102</td>
-</tr>
-<tr>
-<td><strong>PowerShell</strong></td>
-<td>4103</td>
-<td>Module logging</td>
-<td>Function-level PowerShell execution detail</td>
-</tr>
-<tr>
-<td></td>
-<td>4104</td>
-<td>ScriptBlock logging</td>
-<td>The de-obfuscated script content — the most valuable PowerShell telemetry</td>
-</tr>
-<tr>
-<td></td>
-<td>4105 / 4106</td>
-<td>ScriptBlock start / stop</td>
-<td>Lifecycle bracketing</td>
-</tr>
-</tbody>
-</table>
-<h3 id="patterns">Patterns</h3>
-<ul>
-<li><strong>Always enable Audit Process Creation with command line.</strong> GPO: <code>Computer Configuration → Administrative Templates → System → Audit Process Creation → Include command line in process creation events = Enabled</code>. Without it, 4688 is half-blind.</li>
-<li><strong>Enable PowerShell ScriptBlock Logging.</strong> <code>Turn on PowerShell Script Block Logging</code> GPO. Captures the de-obfuscated script content in Event 4104, including dynamically-built strings. The single highest-value PowerShell detection telemetry.</li>
-<li><strong>Forward in real time, do not pull on a schedule.</strong> WEF subscriptions with <code>Minimize Latency</code> (push events as they occur) make log-clearing futile — the events are already at the collector before the attacker can clear the source.</li>
-<li><strong>Pair 4624 LogonType with AuthenticationPackage and source IP.</strong> A single <code>4624 + LogonType=3 + AuthenticationPackage=NTLM</code> is a textbook Pass-the-Hash signal in environments that should use Kerberos. See <a href="../identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash</a> §Detection.</li>
-<li><strong>Watch encryption-type drift in 4769.</strong> Service accounts have a baseline encryption type (almost always AES256 = <code>0x12</code> or AES128 = <code>0x11</code> in modern AD). A 4769 with <code>TicketEncryptionType=0x17</code> (RC4-HMAC) for an AES-baseline account is the Kerberoasting signature.</li>
-<li><strong><code>PreAuthType=0</code> on Event 4768 is a single-event high-confidence detection.</strong> In any environment without legacy MIT/Heimdal integration, no account should ever have <code>DONT_REQ_PREAUTH</code> set. Every 4768 with <code>PreAuthType=0</code> is an AS-REP roasting attempt by definition.</li>
-<li><strong>Cross-join 4662 with the replication-rights GUIDs.</strong> <code>MATCH AccessMask containing 1131f6aa-9c07-11d1-f79f-00c04fc2dcd2 OR 1131f6ad-9c07-11d1-f79f-00c04fc2dcd2</code>. Only DCs should generate these from their own computer accounts. Any other source = DCSync.</li>
-</ul>
-<h3 id="what-sysmon-adds-on-top">What Sysmon adds on top</h3>
-<p>Built-in Windows logging captures what the OS observes about itself. <strong>Sysmon</strong> (<a href="edr-network-observability-and-process-correlation.html">EDR / process correlation</a>) is a Microsoft Sysinternals driver that captures what's adjacent: network connections per process, file creates, registry modifications, image loads, named pipe activity, raw access reads. The pair <code>4688 + Sysmon Event 1</code> (process creation, both from Microsoft sources) provides the canonical Windows process-creation telemetry that almost every detection rule depends on.</p>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>Windows logging splits into <strong>4 telemetry-source variants</strong> with different defender tradeoffs.</p>
-<h3 id="1-built-in-windows-audit-default-os-logs">1. Built-in Windows audit (default OS logs)</h3>
+<p>``` # Find every NTLM network logon in the last 24 hours. Get-WinEvent -FilterHashtable @{     LogName=&#x27;Security&#x27;     ID=4624     StartTime=(Get-Date).AddHours(-24) } | Where-Object {     $_.Properties[8].Value -eq 3 -and       # LogonType 3 (Network)     $_.Properties[10].Value -eq &#x27;NTLM&#x27;      # AuthenticationPackage } | Select-Object TimeCreated,     @{n=&#x27;User&#x27;;e={$_.Properties[5].Value}},     @{n=&#x27;Source&#x27;;e={$_.Properties[18].Value}},     @{n=&#x27;Target&#x27;;e={$_.Properties[6].Value}} ```</p>
+<p>The bug is not &quot;Windows logs are too verbose&quot; or &quot;Windows logs are too sparse&quot;; it is *Windows logs are configured-not-default, schema-driven, and field-positional — and detection engineering requires holding the audit policy, the Event ID semantics, the field schema, and the forwarding pipeline as four interacting layers simultaneously*.</p>
+<h2>Techniques / patterns</h2>
+<h3>The Event IDs that matter (the senior subset)</h3>
+<p>| Category | Event ID | What it means | Telemetry signal | | --- | --- | --- | --- | | **Logon / logoff** | 4624 | Successful logon | LogonType + AuthenticationPackage + Source IP — the foundational event | |  | 4625 | Failed logon | Failure reason — brute-force, locked-out, expired-pwd, bad-user | |  | 4634 | Logoff | End of a session | |  | 4647 | User-initiated logoff | Distinguishes voluntary from system-induced | |  | 4648 | Logon with explicit credentials | `runas /netonly` and similar — credential delegation | |  | 4672 | Special privileges assigned to a new logon | Indicates Administrator-equivalent rights on this session | | **Kerberos** | 4768 | TGT (Authentication Service) request | Pre-Auth Type field — `PreAuthType=0` = AS-REP roasting indicator | |  | 4769 | TGS (Service Ticket) request | TicketEncryptionType field — `0x17` (RC4) against AES baseline = Kerberoasting indicator | |  | 4770 | TGT renewed | Long-lived TGT renewals can indicate Golden Ticket if `krbtgt` was rotated | |  | 4771 | Kerberos pre-auth failed | Failure-code differentiates &quot;wrong password&quot; from &quot;account locked&quot; — bruteforce telemetry | | **Process / command** | 4688 | Process created | Command line (only if explicitly enabled in audit policy) + parent process — the bedrock of host-side behavioral detection | |  | 4689 | Process exited | Pair with 4688 for process duration | | **Privilege use** | 4672 | Special privileges assigned at logon | (see Logon) | |  | 4673 | Sensitive privilege used | High-volume in default config — usually filtered | |  | 4674 | Operation attempted on a privileged object | Tied to SeDebugPrivilege use, often relevant for credential dumping detection | | **Account management** | 4720 | User account created | New principal — alert always | |  | 4722 | User account enabled | Re-enable can be persistence | |  | 4724 | Password reset attempt | Privilege escalation indicator | |  | 4725 | User account disabled | Operational telemetry | |  | 4726 | User account deleted | Anti-forensic indicator | |  | 4738 | User account changed | Catch-all for property modification | | **Group management** | 4728 | Member added to security-enabled global group | Watch Tier 0 groups especially | |  | 4732 | Member added to security-enabled local group | Local admin escalation | |  | 4756 | Member added to security-enabled universal group | Enterprise Admins, Schema Admins lives here | | **Object access** | 4662 | An operation was performed on an object | The DCSync detector — filter for replication GUIDs `1131f6aa-*` and `1131f6ad-*` | |  | 4663 | An attempt was made to access an object | File / registry / kernel object access | |  | 4670 | Permissions on an object were changed | AdminSDHolder modification trail | | **System / integrity** | 1100 | Event log service shutting down | Pre-clear or pre-shutdown indicator | |  | 1102 | Audit log was cleared | High-fidelity adversary indicator — never legitimate in production | |  | 104 | System log was cleared | Companion to 1102 | | **PowerShell** | 4103 | Module logging | Function-level PowerShell execution detail | |  | 4104 | ScriptBlock logging | The de-obfuscated script content — the most valuable PowerShell telemetry | |  | 4105 / 4106 | ScriptBlock start / stop | Lifecycle bracketing |</p>
+<h3>Patterns</h3>
+<ul><li>**Always enable Audit Process Creation with command line.** GPO: `Computer Configuration → Administrative Templates → System → Audit Process Creation → Include command line in process creation events = Enabled`. Without it, 4688 is half-blind.</li><li>**Enable PowerShell ScriptBlock Logging.** `Turn on PowerShell Script Block Logging` GPO. Captures the de-obfuscated script content in Event 4104, including dynamically-built strings. The single highest-value PowerShell detection telemetry.</li><li>**Forward in real time, do not pull on a schedule.** WEF subscriptions with `Minimize Latency` (push events as they occur) make log-clearing futile — the events are already at the collector before the attacker can clear the source.</li><li>**Pair 4624 LogonType with AuthenticationPackage and source IP.** A single `4624 + LogonType=3 + AuthenticationPackage=NTLM` is a textbook Pass-the-Hash signal in environments that should use Kerberos. See &lt;a href=&quot;../identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html&quot;&gt;Pass-the-Hash&lt;/a&gt; §Detection.</li><li>**Watch encryption-type drift in 4769.** Service accounts have a baseline encryption type (almost always AES256 = `0x12` or AES128 = `0x11` in modern AD). A 4769 with `TicketEncryptionType=0x17` (RC4-HMAC) for an AES-baseline account is the Kerberoasting signature.</li><li>**`PreAuthType=0` on Event 4768 is a single-event high-confidence detection.** In any environment without legacy MIT/Heimdal integration, no account should ever have `DONT_REQ_PREAUTH` set. Every 4768 with `PreAuthType=0` is an AS-REP roasting attempt by definition.</li><li>**Cross-join 4662 with the replication-rights GUIDs.** `MATCH AccessMask containing 1131f6aa-9c07-11d1-f79f-00c04fc2dcd2 OR 1131f6ad-9c07-11d1-f79f-00c04fc2dcd2`. Only DCs should generate these from their own computer accounts. Any other source = DCSync.</li></ul>
+<h3>What Sysmon adds on top</h3>
+<p>Built-in Windows logging captures what the OS observes about itself. **Sysmon** (&lt;a href=&quot;edr-network-observability-and-process-correlation.html&quot;&gt;EDR / process correlation&lt;/a&gt;) is a Microsoft Sysinternals driver that captures what&#x27;s adjacent: network connections per process, file creates, registry modifications, image loads, named pipe activity, raw access reads. The pair `4688 + Sysmon Event 1` (process creation, both from Microsoft sources) provides the canonical Windows process-creation telemetry that almost every detection rule depends on.</p>
+<h2>Variants and bypasses</h2>
+<p>Windows logging splits into **4 telemetry-source variants** with different defender tradeoffs.</p>
+<h3>1. Built-in Windows audit (default OS logs)</h3>
 <p>The Security/System/Application logs with audit policy enabled. Zero extra software. Limited field set per Event ID. Adequate for foundational detections (logons, account changes, Kerberos events); inadequate for command-line process telemetry by default until the command-line policy is enabled.</p>
-<h3 id="2-sysmon">2. Sysmon</h3>
+<h3>2. Sysmon</h3>
 <p>Microsoft Sysinternals. Free, kernel-driver-based, configurable via XML rule files (the SwiftOnSecurity / Olaf Hartong configurations are community standards). Adds process-network joins, file creation telemetry, image loads. The de-facto next layer above default audit on any defender stack worth running.</p>
-<h3 id="3-edr-vendor-telemetry">3. EDR-vendor telemetry</h3>
+<h3>3. EDR-vendor telemetry</h3>
 <p>CrowdStrike, Microsoft Defender for Endpoint, SentinelOne, etc. Captures everything Sysmon does plus memory access, child-process telemetry, behavioral analytics, and (importantly) ships the data to a cloud backend the attacker cannot turn off from the host. Where Windows logging is auditable-but-tamperable, EDR is opinionated-but-tamper-resistant.</p>
-<h3 id="4-auditd-style-on-windows-rare">4. Auditd-style on Windows (rare)</h3>
+<h3>4. Auditd-style on Windows (rare)</h3>
 <p>Some organizations use ETW (Event Tracing for Windows) sessions directly with custom consumers — a Windows analog of Linux auditd. Highest fidelity, lowest abstraction, highest operational cost. Generally only seen in security-research and CIRT-team environments.</p>
-<h2 id="impact">Impact</h2>
-<p>Ordered by typical real-world severity (of <em>defensive misuse</em> — the technique is defensive):</p>
-<ul>
-<li><strong>Detection blindness from default audit policy.</strong> Organizations that rely on "we have Windows logs" without verifying the audit subcategories are enabled. The most common defender failure mode for Windows.</li>
-<li><strong>Process telemetry without command lines.</strong> 4688 events that say "a process was created" without identifying <em>what command line</em> was executed. Halts most malware-detection use cases.</li>
-<li><strong>No PowerShell ScriptBlock logging.</strong> Attackers obfuscate; the Event 4104 ScriptBlock log captures the post-obfuscation script — without it, every PowerShell-based attack is half-invisible.</li>
-<li><strong>Local-only retention.</strong> Logs that live only on the host get cleared by attackers (Event 1102) and are no longer available for forensics. WEF or equivalent forwarding is non-negotiable for any environment that needs forensic evidence.</li>
-<li><strong>Volume vs retention tradeoffs.</strong> Enabling everything makes logs unmanageable; enabling too little makes detection impossible. The audit-policy tuning curve is real engineering work, not a one-time configuration.</li>
-</ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
-<p>This note <em>is</em> a defense — it does not have a target-side defender section in the usual sense. The relevant framing is <strong>what to monitor in Windows Event Logs</strong> for the canonical AD and credential attacks elsewhere in the atlas.</p>
-<p>Ordered by detection value across the atlas's existing attack notes:</p>
-<ol>
-<li>
-<p><strong>Configure the audit policy first.</strong>
-   <code>auditpol /set /subcategory:</code> for Logon, Logoff, Process Creation, Kerberos Authentication Service, Kerberos Service Ticket Operations, Account Management, Directory Service Access, Security State Change. Enable "Include command line in process creation events" GPO. Enable PowerShell Module + ScriptBlock + Transcription logging. Without this, every later step is moot.</p>
-</li>
-<li>
-<p><strong>Forward to a SIEM in real time.</strong>
-   Windows Event Forwarding with WinRM subscriptions, or an EDR/SIEM agent. Local-only logs are forensically unreliable; forwarded logs survive Event 1102. Tag the forwarder pipeline so detection rules know what was filtered out at the source.</p>
-</li>
-<li>
-<p><strong>Build behavioral detection rules from Event-ID sequences, not single events.</strong>
-   Detection patterns:
-   - <a href="../identity-and-active-directory/kerberoasting.html">Kerberoasting</a>: high volume of 4769 with <code>TicketEncryptionType=0x17</code> from one source in 60s.
-   - <a href="../identity-and-active-directory/as-rep-roasting.html">AS-REP Roasting</a>: 4768 with <code>PreAuthType=0</code> against any non-allowlisted account.
-   - <a href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync</a>: 4662 with replication GUIDs from a non-DC computer account.
-   - <a href="../identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash</a>: 4624 LogonType=3 + AuthenticationPackage=NTLM in an AES-only / Kerberos-only environment.
-   - Log clearing: 1102 or 104 — high-severity alert, near-zero legitimate cause.
-   - Tier 0 group changes: 4728 / 4732 / 4756 where the group is in the Tier 0 set (<a href="../identity-and-active-directory/tier-zero-administration-and-paw.html">Tier 0 Administration</a>).</p>
-</li>
-<li>
-<p><strong>Pair with Sysmon for process telemetry.</strong>
-   The community-standard SwiftOnSecurity Sysmon config is a solid starting point. Sysmon Event 1 (process creation with hashes, parent process, command line) plus 3 (network connection), 7 (image load), 11 (file create), 13 (registry value set) cover the bulk of host-side behavioral detection.</p>
-</li>
-<li>
-<p><strong>Audit and tune quarterly.</strong>
-   Log-volume and false-positive baselines drift. Quarterly review of the alert pipeline keeps the signal-to-noise ratio high.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
-<ul>
-<li><strong>Enabling every audit subcategory.</strong> Produces unmanageable volume and degrades the SIEM. Tune for the events you actually detect on; everything else is noise.</li>
-<li><strong>Local-only retention.</strong> Attackers clear logs; forensic timelines die.</li>
-<li><strong>Detecting on raw event text.</strong> Event-text strings change across Windows versions and language packs. Detection rules must be field-based, not regex-on-Message.</li>
-<li><strong>Trusting "no log = nothing happened".</strong> The most common failure mode. Verify the audit policy and the forwarder <em>separately</em> — both must be working.</li>
-</ul>
-<h2 id="practical-labs">Practical labs</h2>
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 1 — Audit your current audit policy.</span>
-<span class="n">auditpol</span> <span class="p">/</span><span class="n">get</span> <span class="p">/</span><span class="n">category</span><span class="p">:*</span>
-<span class="c"># Look for &quot;Success and Failure&quot; on critical subcategories:</span>
-<span class="c">#   Logon, Logoff, Account Lockout, Process Creation, Kerberos Authentication Service,</span>
-<span class="c">#   Kerberos Service Ticket Operations, Audit Policy Change, Security State Change.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 2 — Enable Process Creation with command-line logging (test in a lab).</span>
-<span class="n">auditpol</span> <span class="p">/</span><span class="nb">set </span><span class="p">/</span><span class="n">subcategory</span><span class="p">:</span><span class="s2">&quot;Process Creation&quot;</span> <span class="p">/</span><span class="n">success</span><span class="p">:</span><span class="n">enable</span> <span class="p">/</span><span class="n">failure</span><span class="p">:</span><span class="n">enable</span>
-<span class="c"># Then enable command-line capture via Registry (or GPO):</span>
-<span class="n">reg</span> <span class="n">add</span> <span class="s2">&quot;HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit&quot;</span> <span class="p">`</span>
-    <span class="p">/</span><span class="n">v</span> <span class="n">ProcessCreationIncludeCmdLine_Enabled</span> <span class="p">/</span><span class="n">t</span> <span class="n">REG_DWORD</span> <span class="p">/</span><span class="n">d</span> <span class="n">1</span> <span class="p">/</span><span class="n">f</span>
-<span class="c"># Generate a test event:</span>
-<span class="n">cmd</span> <span class="p">/</span><span class="n">c</span> <span class="s2">&quot;whoami&quot;</span>
-<span class="c"># Verify 4688 events now carry command-line data:</span>
-<span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="p">@{</span><span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span><span class="p">;</span> <span class="n">ID</span><span class="p">=</span><span class="n">4688</span><span class="p">}</span> <span class="n">-MaxEvents</span> <span class="n">5</span> <span class="p">|</span>
-    <span class="nb">Select-Object</span> <span class="n">TimeCreated</span><span class="p">,</span> <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;CmdLine&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">8</span><span class="p">].</span><span class="n">Value</span><span class="p">}}</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 3 — Query Kerberos events for Kerberoasting signature.</span>
-<span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="p">@{</span>
-    <span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span>
-    <span class="n">ID</span><span class="p">=</span><span class="n">4769</span>
-    <span class="n">StartTime</span><span class="p">=(</span><span class="nb">Get-Date</span><span class="p">).</span><span class="n">AddHours</span><span class="p">(-</span><span class="n">24</span><span class="p">)</span>
-<span class="p">}</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span>
-    <span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">6</span><span class="p">].</span><span class="n">Value</span> <span class="o">-eq</span> <span class="s1">&#39;0x17&#39;</span>   <span class="c"># TicketEncryptionType = RC4-HMAC</span>
-<span class="p">}</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">TimeCreated</span><span class="p">,</span>
-    <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;Target&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">0</span><span class="p">].</span><span class="n">Value</span><span class="p">}},</span>
-    <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;Service&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">2</span><span class="p">].</span><span class="n">Value</span><span class="p">}},</span>
-    <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;Source&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">6</span><span class="p">].</span><span class="n">Value</span><span class="p">}},</span>
-    <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;EncType&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">5</span><span class="p">].</span><span class="n">Value</span><span class="p">}}</span>
-<span class="c"># Every result is a candidate Kerberoasting event.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 4 — Detect AS-REP Roasting signature.</span>
-<span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="p">@{</span><span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span><span class="p">;</span> <span class="n">ID</span><span class="p">=</span><span class="n">4768</span><span class="p">}</span> <span class="n">-MaxEvents</span> <span class="n">200</span> <span class="p">|</span>
-    <span class="nb">Where-Object</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">10</span><span class="p">].</span><span class="n">Value</span> <span class="o">-eq</span> <span class="s1">&#39;0&#39;</span> <span class="p">}</span> <span class="p">|</span>   <span class="c"># PreAuthType = 0</span>
-    <span class="nb">Select-Object</span> <span class="n">TimeCreated</span><span class="p">,</span>
-        <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;Target&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">0</span><span class="p">].</span><span class="n">Value</span><span class="p">}},</span>
-        <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;Source&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">9</span><span class="p">].</span><span class="n">Value</span><span class="p">}}</span>
-<span class="c"># Any non-allowlisted result is an AS-REP roasting attempt.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 5 — Detect DCSync signature (Event 4662 + replication GUIDs).</span>
-<span class="nv">$dcsyncGuids</span> <span class="p">=</span> <span class="p">@(</span>
-    <span class="s1">&#39;1131f6aa-9c07-11d1-f79f-00c04fc2dcd2&#39;</span><span class="p">,</span>  <span class="c"># DS-Replication-Get-Changes</span>
-    <span class="s1">&#39;1131f6ad-9c07-11d1-f79f-00c04fc2dcd2&#39;</span>   <span class="c"># DS-Replication-Get-Changes-All</span>
-<span class="p">)</span>
-<span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="p">@{</span><span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span><span class="p">;</span> <span class="n">ID</span><span class="p">=</span><span class="n">4662</span><span class="p">}</span> <span class="n">-MaxEvents</span> <span class="n">500</span> <span class="p">|</span>
-    <span class="nb">Where-Object</span> <span class="p">{</span>
-        <span class="nv">$msg</span> <span class="p">=</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Message</span>
-        <span class="nv">$dcsyncGuids</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$msg</span> <span class="o">-match</span> <span class="nv">$_</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nv">$true</span> <span class="p">}</span> <span class="p">}</span>
-    <span class="p">}</span> <span class="p">|</span>
-    <span class="nb">Select-Object</span> <span class="n">TimeCreated</span><span class="p">,</span> <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;Subject&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">3</span><span class="p">].</span><span class="n">Value</span><span class="p">}}</span>
-<span class="c"># Only Domain Controllers should appear. Any other source is a DCSync alert.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 6 — Enable PowerShell ScriptBlock logging and verify capture.</span>
-<span class="c"># GPO (or registry):</span>
-<span class="n">reg</span> <span class="n">add</span> <span class="s2">&quot;HKLM\Software\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging&quot;</span> <span class="p">`</span>
-    <span class="p">/</span><span class="n">v</span> <span class="n">EnableScriptBlockLogging</span> <span class="p">/</span><span class="n">t</span> <span class="n">REG_DWORD</span> <span class="p">/</span><span class="n">d</span> <span class="n">1</span> <span class="p">/</span><span class="n">f</span>
-<span class="c"># Generate a test obfuscated script:</span>
-<span class="n">powershell</span> <span class="n">-enc</span> <span class="n">cwBlAHQALQBsAG8AYwBhAHQAaQBvAG4AIABDADoAXAA</span><span class="p">=</span>
-<span class="c"># Inspect the resulting 4104 event:</span>
-<span class="nb">Get-WinEvent</span> <span class="n">-LogName</span> <span class="s1">&#39;Microsoft-Windows-PowerShell/Operational&#39;</span> <span class="n">-MaxEvents</span> <span class="n">10</span> <span class="p">|</span>
-    <span class="nb">Where-Object</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Id</span> <span class="o">-eq</span> <span class="n">4104</span> <span class="p">}</span> <span class="p">|</span>
-    <span class="nb">Select-Object</span> <span class="n">TimeCreated</span><span class="p">,</span> <span class="p">@{</span><span class="n">n</span><span class="p">=</span><span class="s1">&#39;Script&#39;</span><span class="p">;</span><span class="n">e</span><span class="p">={</span><span class="nv">$_</span><span class="p">.</span><span class="n">Properties</span><span class="p">[</span><span class="n">2</span><span class="p">].</span><span class="n">Value</span><span class="p">}}</span>
-<span class="c"># Expected: the de-obfuscated `set-location C:\` content in the Script field.</span>
-</code></pre></div>
-
-<h2 id="practical-examples">Practical examples</h2>
-<ul>
-<li><strong>SOC catches Kerberoasting in 90 seconds.</strong> Detection rule on 4769 + <code>TicketEncryptionType=0x17</code> against an AES-baseline environment fires on the operator's first roasting attempt. Source IP traced to a workstation that should not be issuing Kerberos service-ticket requests at that scale. Account disabled within five minutes.</li>
-<li><strong>DCSync caught by Event 4662.</strong> Detection rule on 4662 + replication GUIDs from non-DC subjects fires on the operator's first <code>secretsdump.py -just-dc-user krbtgt</code>. The single event is high-confidence; SOC pivots to the source IP, finds the operator's beachhead, ends the engagement.</li>
-<li><strong>PowerShell obfuscation defeated by ScriptBlockLogging.</strong> Operator runs a 14-layer-encoded PowerShell payload. Event 4104 captures the final-stage de-obfuscated script. Detection rule matches on the inner content; the outer encoding was irrelevant.</li>
-<li><strong>Audit-policy gap discovered post-incident.</strong> IR investigation finds attacker activity from three weeks ago. Process Creation auditing was never enabled on the affected hosts; the SIEM has no command-line telemetry. The intrusion is reconstructable only by inference. Audit-policy verification becomes a quarterly check after this.</li>
-<li><strong>Log-clearing alert catches anti-forensics.</strong> Attacker, mid-engagement, runs <code>wevtutil cl Security</code>. The clearing operation generates Event 1102 <em>before</em> the log is purged — and the WEF subscription has already forwarded it to the SIEM. The clearing event itself is the high-fidelity finding.</li>
-</ul>
-<h2 id="related-notes">Related notes</h2>
-<ul>
-<li><a href="behavioral-detection-vs-signature-detection.html">Behavioral vs Signature Detection</a> — Event-ID <em>sequences</em> (behavior) beat Event-ID <em>thresholds</em> (rate) for Windows attack detection.</li>
-<li><a href="network-telemetry-sources-and-visibility.html">Network Telemetry Sources and Visibility</a> — host-side log telemetry pairs with network telemetry for the full picture.</li>
-<li><a href="edr-network-observability-and-process-correlation.html">EDR / process correlation</a> — Sysmon and EDR sit on top of the Event-Log foundation.</li>
-<li><a href="attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation</a> — Event IDs are the atoms; chains are the molecules.</li>
-<li><a href="false-positives-false-negatives-and-detection-tradeoffs.html">False Positives and Negatives</a> — the audit-volume / signal tradeoff curve applied here.</li>
-<li><a href="../identity-and-active-directory/kerberoasting.html">Kerberoasting</a> — primary 4769-based detection consumer.</li>
-<li><a href="../identity-and-active-directory/as-rep-roasting.html">AS-REP Roasting</a> — primary 4768-based detection consumer.</li>
-<li><a href="../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html">DCSync</a> — primary 4662-based detection consumer.</li>
-<li><a href="../identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html">Pass-the-Hash</a> — primary 4624-LogonType-3-NTLM detection consumer.</li>
-<li><a href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html">Detect Kerberoasting + AS-REP Roasting</a> — operational playbook that orchestrates these Event-ID detections.</li>
-<li><a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality</a> — Windows Event Logs are the canonical host-side defender telemetry; pair with every Windows offensive technique.</li>
-</ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
-<ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: sysmon-configuration-and-tuning">sysmon-configuration-and-tuning</span> — the SwiftOnSecurity / Olaf Hartong config patterns plus how to write custom Sysmon rules.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: powershell-logging-deep-dive">powershell-logging-deep-dive</span> — Module / ScriptBlock / Transcription logging tradeoffs and tuning.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: etw-event-tracing-for-windows">etw-event-tracing-for-windows</span> — the layer below the Event Log API; basis for advanced EDR telemetry.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: windows-event-forwarding-architecture">windows-event-forwarding-architecture</span> — WEF subscriptions, collector design, scaling considerations.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: ad-logging-versus-application-logging-tradeoffs">ad-logging-versus-application-logging-tradeoffs</span> — domain-controller-only logs vs member-server logs vs workstation logs.</li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: detect-windows-log-clearing">detect-windows-log-clearing</span> — playbook for the 1102 / 104 detection pattern.</li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Foundational:</strong> Microsoft Learn — Advanced security audit policy settings — https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/advanced-security-audit-policy-settings</li>
-<li><strong>Foundational:</strong> Microsoft Learn — Events to Monitor — https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/appendix-l-events-to-monitor</li>
-<li><strong>Research / Deep Dive:</strong> Sean Metcalf (ADSecurity.org) — Windows Security Event Log Categories — https://adsecurity.org/?p=3299</li>
-<li><strong>Official Tool Docs:</strong> Microsoft Sysinternals — Sysmon — https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon</li>
-</ul>
+<h2>Impact</h2>
+<p>Ordered by typical real-world severity (of *defensive misuse* — the technique is defensive):</p>
+<ul><li>**Detection blindness from default audit policy.** Organizations that rely on &quot;we have Windows logs&quot; without verifying the audit subcategories are enabled. The most common defender failure mode for Windows.</li><li>**Process telemetry without command lines.** 4688 events that say &quot;a process was created&quot; without identifying *what command line* was executed. Halts most malware-detection use cases.</li><li>**No PowerShell ScriptBlock logging.** Attackers obfuscate; the Event 4104 ScriptBlock log captures the post-obfuscation script — without it, every PowerShell-based attack is half-invisible.</li><li>**Local-only retention.** Logs that live only on the host get cleared by attackers (Event 1102) and are no longer available for forensics. WEF or equivalent forwarding is non-negotiable for any environment that needs forensic evidence.</li><li>**Volume vs retention tradeoffs.** Enabling everything makes logs unmanageable; enabling too little makes detection impossible. The audit-policy tuning curve is real engineering work, not a one-time configuration.</li></ul>
+<h2>Detection and defense</h2>
+<p>This note *is* a defense — it does not have a target-side defender section in the usual sense. The relevant framing is **what to monitor in Windows Event Logs** for the canonical AD and credential attacks elsewhere in the atlas.</p>
+<p>Ordered by detection value across the atlas&#x27;s existing attack notes:</p>
+<p>1. **Configure the audit policy first.**    `auditpol /set /subcategory:` for Logon, Logoff, Process Creation, Kerberos Authentication Service, Kerberos Service Ticket Operations, Account Management, Directory Service Access, Security State Change. Enable &quot;Include command line in process creation events&quot; GPO. Enable PowerShell Module + ScriptBlock + Transcription logging. Without this, every later step is moot.</p>
+<p>2. **Forward to a SIEM in real time.**    Windows Event Forwarding with WinRM subscriptions, or an EDR/SIEM agent. Local-only logs are forensically unreliable; forwarded logs survive Event 1102. Tag the forwarder pipeline so detection rules know what was filtered out at the source.</p>
+<p>3. **Build behavioral detection rules from Event-ID sequences, not single events.**    Detection patterns:    - &lt;a href=&quot;../identity-and-active-directory/kerberoasting.html&quot;&gt;Kerberoasting&lt;/a&gt;: high volume of 4769 with `TicketEncryptionType=0x17` from one source in 60s.    - &lt;a href=&quot;../identity-and-active-directory/as-rep-roasting.html&quot;&gt;AS-REP Roasting&lt;/a&gt;: 4768 with `PreAuthType=0` against any non-allowlisted account.    - &lt;a href=&quot;../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html&quot;&gt;DCSync&lt;/a&gt;: 4662 with replication GUIDs from a non-DC computer account.    - &lt;a href=&quot;../identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html&quot;&gt;Pass-the-Hash&lt;/a&gt;: 4624 LogonType=3 + AuthenticationPackage=NTLM in an AES-only / Kerberos-only environment.    - Log clearing: 1102 or 104 — high-severity alert, near-zero legitimate cause.    - Tier 0 group changes: 4728 / 4732 / 4756 where the group is in the Tier 0 set (&lt;a href=&quot;../identity-and-active-directory/tier-zero-administration-and-paw.html&quot;&gt;Tier 0 Administration&lt;/a&gt;). 4. **Pair with Sysmon for process telemetry.**    The community-standard SwiftOnSecurity Sysmon config is a solid starting point. Sysmon Event 1 (process creation with hashes, parent process, command line) plus 3 (network connection), 7 (image load), 11 (file create), 13 (registry value set) cover the bulk of host-side behavioral detection.</p>
+<p>5. **Audit and tune quarterly.**    Log-volume and false-positive baselines drift. Quarterly review of the alert pipeline keeps the signal-to-noise ratio high.</p>
+<h3>What does not work as a primary defense</h3>
+<ul><li>**Enabling every audit subcategory.** Produces unmanageable volume and degrades the SIEM. Tune for the events you actually detect on; everything else is noise.</li><li>**Local-only retention.** Attackers clear logs; forensic timelines die.</li><li>**Detecting on raw event text.** Event-text strings change across Windows versions and language packs. Detection rules must be field-based, not regex-on-Message.</li><li>**Trusting &quot;no log = nothing happened&quot;.** The most common failure mode. Verify the audit policy and the forwarder *separately* — both must be working.</li></ul>
+<h2>Practical labs</h2>
+<p>``` # Lab 1 — Audit your current audit policy. auditpol /get /category:* # Look for &quot;Success and Failure&quot; on critical subcategories: #   Logon, Logoff, Account Lockout, Process Creation, Kerberos Authentication Service, #   Kerberos Service Ticket Operations, Audit Policy Change, Security State Change. ```</p>
+<p>``` # Lab 2 — Enable Process Creation with command-line logging (test in a lab). auditpol /set /subcategory:&quot;Process Creation&quot; /success:enable /failure:enable # Then enable command-line capture via Registry (or GPO): reg add &quot;HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit&quot; `     /v ProcessCreationIncludeCmdLine_Enabled /t REG_DWORD /d 1 /f # Generate a test event: cmd /c &quot;whoami&quot; # Verify 4688 events now carry command-line data: Get-WinEvent -FilterHashtable @{LogName=&#x27;Security&#x27;; ID=4688} -MaxEvents 5 |     Select-Object TimeCreated, @{n=&#x27;CmdLine&#x27;;e={$_.Properties[8].Value}} ```</p>
+<p>``` # Lab 3 — Query Kerberos events for Kerberoasting signature. Get-WinEvent -FilterHashtable @{     LogName=&#x27;Security&#x27;     ID=4769     StartTime=(Get-Date).AddHours(-24) } | Where-Object {     $_.Properties[6].Value -eq &#x27;0x17&#x27;   # TicketEncryptionType = RC4-HMAC } | Select-Object TimeCreated,     @{n=&#x27;Target&#x27;;e={$_.Properties[0].Value}},     @{n=&#x27;Service&#x27;;e={$_.Properties[2].Value}},     @{n=&#x27;Source&#x27;;e={$_.Properties[6].Value}},     @{n=&#x27;EncType&#x27;;e={$_.Properties[5].Value}} # Every result is a candidate Kerberoasting event. ```</p>
+<p>``` # Lab 4 — Detect AS-REP Roasting signature. Get-WinEvent -FilterHashtable @{LogName=&#x27;Security&#x27;; ID=4768} -MaxEvents 200 |     Where-Object { $_.Properties[10].Value -eq &#x27;0&#x27; } |   # PreAuthType = 0     Select-Object TimeCreated,         @{n=&#x27;Target&#x27;;e={$_.Properties[0].Value}},         @{n=&#x27;Source&#x27;;e={$_.Properties[9].Value}} # Any non-allowlisted result is an AS-REP roasting attempt. ```</p>
+<p>``` # Lab 5 — Detect DCSync signature (Event 4662 + replication GUIDs). $dcsyncGuids = @(     &#x27;1131f6aa-9c07-11d1-f79f-00c04fc2dcd2&#x27;,  # DS-Replication-Get-Changes     &#x27;1131f6ad-9c07-11d1-f79f-00c04fc2dcd2&#x27;   # DS-Replication-Get-Changes-All ) Get-WinEvent -FilterHashtable @{LogName=&#x27;Security&#x27;; ID=4662} -MaxEvents 500 |     Where-Object {         $msg = $_.Message         $dcsyncGuids | ForEach-Object { if ($msg -match $_) { return $true } }     } |     Select-Object TimeCreated, @{n=&#x27;Subject&#x27;;e={$_.Properties[3].Value}} # Only Domain Controllers should appear. Any other source is a DCSync alert. ```</p>
+<p>``` # Lab 6 — Enable PowerShell ScriptBlock logging and verify capture. # GPO (or registry): reg add &quot;HKLM\Software\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging&quot; `     /v EnableScriptBlockLogging /t REG_DWORD /d 1 /f # Generate a test obfuscated script: powershell -enc cwBlAHQALQBsAG8AYwBhAHQAaQBvAG4AIABDADoAXAA= # Inspect the resulting 4104 event: Get-WinEvent -LogName &#x27;Microsoft-Windows-PowerShell/Operational&#x27; -MaxEvents 10 |     Where-Object { $_.Id -eq 4104 } |     Select-Object TimeCreated, @{n=&#x27;Script&#x27;;e={$_.Properties[2].Value}} # Expected: the de-obfuscated `set-location C:\` content in the Script field. ```</p>
+<h2>Practical examples</h2>
+<ul><li>**SOC catches Kerberoasting in 90 seconds.** Detection rule on 4769 + `TicketEncryptionType=0x17` against an AES-baseline environment fires on the operator&#x27;s first roasting attempt. Source IP traced to a workstation that should not be issuing Kerberos service-ticket requests at that scale. Account disabled within five minutes.</li><li>**DCSync caught by Event 4662.** Detection rule on 4662 + replication GUIDs from non-DC subjects fires on the operator&#x27;s first `secretsdump.py -just-dc-user krbtgt`. The single event is high-confidence; SOC pivots to the source IP, finds the operator&#x27;s beachhead, ends the engagement.</li><li>**PowerShell obfuscation defeated by ScriptBlockLogging.** Operator runs a 14-layer-encoded PowerShell payload. Event 4104 captures the final-stage de-obfuscated script. Detection rule matches on the inner content; the outer encoding was irrelevant.</li><li>**Audit-policy gap discovered post-incident.** IR investigation finds attacker activity from three weeks ago. Process Creation auditing was never enabled on the affected hosts; the SIEM has no command-line telemetry. The intrusion is reconstructable only by inference. Audit-policy verification becomes a quarterly check after this.</li><li>**Log-clearing alert catches anti-forensics.** Attacker, mid-engagement, runs `wevtutil cl Security`. The clearing operation generates Event 1102 *before* the log is purged — and the WEF subscription has already forwarded it to the SIEM. The clearing event itself is the high-fidelity finding.</li></ul>
+<h2>Related notes</h2>
+<ul><li>&lt;a href=&quot;behavioral-detection-vs-signature-detection.html&quot;&gt;Behavioral vs Signature Detection&lt;/a&gt; — Event-ID *sequences* (behavior) beat Event-ID *thresholds* (rate) for Windows attack detection.</li><li>&lt;a href=&quot;network-telemetry-sources-and-visibility.html&quot;&gt;Network Telemetry Sources and Visibility&lt;/a&gt; — host-side log telemetry pairs with network telemetry for the full picture.</li><li>&lt;a href=&quot;edr-network-observability-and-process-correlation.html&quot;&gt;EDR / process correlation&lt;/a&gt; — Sysmon and EDR sit on top of the Event-Log foundation.</li><li>&lt;a href=&quot;attack-path-correlation-and-kill-chain-observability.html&quot;&gt;Attack Path Correlation&lt;/a&gt; — Event IDs are the atoms; chains are the molecules.</li><li>&lt;a href=&quot;false-positives-false-negatives-and-detection-tradeoffs.html&quot;&gt;False Positives and Negatives&lt;/a&gt; — the audit-volume / signal tradeoff curve applied here.</li><li>&lt;a href=&quot;../identity-and-active-directory/kerberoasting.html&quot;&gt;Kerberoasting&lt;/a&gt; — primary 4769-based detection consumer.</li><li>&lt;a href=&quot;../identity-and-active-directory/as-rep-roasting.html&quot;&gt;AS-REP Roasting&lt;/a&gt; — primary 4768-based detection consumer.</li><li>&lt;a href=&quot;../identity-and-active-directory/dcsync-and-ntdsdit-extraction.html&quot;&gt;DCSync&lt;/a&gt; — primary 4662-based detection consumer.</li><li>&lt;a href=&quot;../identity-and-active-directory/pass-the-hash-and-ntlm-credential-reuse.html&quot;&gt;Pass-the-Hash&lt;/a&gt; — primary 4624-LogonType-3-NTLM detection consumer.</li><li>&lt;a href=&quot;../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html&quot;&gt;Detect Kerberoasting + AS-REP Roasting&lt;/a&gt; — operational playbook that orchestrates these Event-ID detections.</li><li>&lt;a href=&quot;../foundations/attacker-defender-duality-as-a-learning-tool.html&quot;&gt;Attacker-Defender Duality&lt;/a&gt; — Windows Event Logs are the canonical host-side defender telemetry; pair with every Windows offensive technique.</li></ul>
+<h3>Suggested future atomic notes</h3>
+<ul><li>sysmon-configuration-and-tuning — the SwiftOnSecurity / Olaf Hartong config patterns plus how to write custom Sysmon rules.</li><li>powershell-logging-deep-dive — Module / ScriptBlock / Transcription logging tradeoffs and tuning.</li><li>etw-event-tracing-for-windows — the layer below the Event Log API; basis for advanced EDR telemetry.</li><li>windows-event-forwarding-architecture — WEF subscriptions, collector design, scaling considerations.</li><li>ad-logging-versus-application-logging-tradeoffs — domain-controller-only logs vs member-server logs vs workstation logs.</li><li>detect-windows-log-clearing — playbook for the 1102 / 104 detection pattern.</li></ul>
+<h2>References</h2>
+<ul><li>**Foundational:** Microsoft Learn — Advanced security audit policy settings — https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/advanced-security-audit-policy-settings</li><li>**Foundational:** Microsoft Learn — Events to Monitor — https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/appendix-l-events-to-monitor</li><li>**Research / Deep Dive:** Sean Metcalf (ADSecurity.org) — Windows Security Event Log Categories — https://adsecurity.org/?p=3299</li><li>**Official Tool Docs:** Microsoft Sysinternals — Sysmon — https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="telemetry-normalization-correlation-and-enrichment.html"><span class="nav-dir">← Previous</span><strong>Telemetry Normalization, Correlation, and Enrichment</strong></a><a class="branch-nav-link next" href="zeek-suricata-and-netflow-analysis.html"><span class="nav-dir">Next →</span><strong>Zeek, Suricata, and NetFlow Analysis</strong></a></nav>
-<section class="related-notes" aria-label="Explore nearby notes">
-<h2>Explore nearby notes</h2>
+<section class="related-notes" aria-label="Related notes">
+<h2>Related notes</h2>
 <div class="related-grid">
-<a class="related-card" href="detection-evasion-myths-and-modern-limitations.html"><span>Detection Engineering</span><strong>Detection Evasion Myths and Modern Limitations</strong><small>Detection evasion myths are oversimplified claims that confuse avoiding one sensor or signature with becoming invisible to the full telemetry system.</small></a>
-<a class="related-card" href="network-security-monitoring-discipline.html"><span>Detection Engineering</span><strong>Network Security Monitoring Discipline</strong><small>Network security monitoring (NSM) is the discipline of *collecting, retaining, and analyzing network evidence* so that intrusions are detected and investigated...</small></a>
-<a class="related-card" href="network-telemetry-sources-and-visibility.html"><span>Detection Engineering</span><strong>Network Telemetry Sources and Visibility</strong><small>Network telemetry is the evidence produced by observation points that see communication across a network: packets, flows, protocol transactions, device logs, cloud...</small></a>
 <a class="related-card" href="attack-path-correlation-and-kill-chain-observability.html"><span>Detection Engineering</span><strong>Attack Path Correlation and Kill Chain Observability</strong><small>Attack path correlation is the detection and reconstruction of relationships between events across an adversary sequence, such as recon, exploitation, persistence...</small></a>
 <a class="related-card" href="behavioral-detection-vs-signature-detection.html"><span>Detection Engineering</span><strong>Behavioral Detection vs Signature Detection</strong><small>Behavioral detection identifies activity by what an actor or system does over time, while signature detection identifies known artifacts, byte patterns, strings...</small></a>
+<a class="related-card" href="detection-evasion-myths-and-modern-limitations.html"><span>Detection Engineering</span><strong>Detection Evasion Myths and Modern Limitations</strong><small>Detection evasion myths are oversimplified claims that confuse avoiding one sensor or signature with becoming invisible to the full telemetry system.</small></a>
 <a class="related-card" href="edr-network-observability-and-process-correlation.html"><span>Detection Engineering</span><strong>EDR Network Observability and Process Correlation</strong><small>EDR network observability is the endpoint-side capture of network-related activity, especially the ability to correlate sockets, connections, destinations...</small></a>
+<a class="related-card" href="encrypted-traffic-analysis-and-metadata-leakage.html"><span>Detection Engineering</span><strong>Encrypted Traffic Analysis and Metadata Leakage</strong><small>Encrypted traffic analysis is the detection and investigation of communication behavior using metadata that remains visible when payload content is protected by...</small></a>
+<a class="related-card" href="false-positives-false-negatives-and-detection-tradeoffs.html"><span>Detection Engineering</span><strong>False Positives, False Negatives, and Detection Tradeoffs</strong><small>False positives are benign events classified as suspicious; false negatives are malicious or policy-relevant events that detection fails to identify.</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-3" href="#the-event-ids-that-matter-the-senior-subset">The Event IDs that matter (the senior subset)</a>
-<a class="toc-level-3" href="#patterns">Patterns</a>
-<a class="toc-level-3" href="#what-sysmon-adds-on-top">What Sysmon adds on top</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-built-in-windows-audit-default-os-logs">1. Built-in Windows audit (default OS logs)</a>
-<a class="toc-level-3" href="#2-sysmon">2. Sysmon</a>
-<a class="toc-level-3" href="#3-edr-vendor-telemetry">3. EDR-vendor telemetry</a>
-<a class="toc-level-3" href="#4-auditd-style-on-windows-rare">4. Auditd-style on Windows (rare)</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-2" href="#practical-examples">Practical examples</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="back-to-top" href="#top">Back to top</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

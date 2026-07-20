@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Run External Recon Scan Pipeline | ldamoredev Security Atlas</title>
-<meta name="description" content="Mapear puertos abiertos, servicios y exposición de versiones de un objetivo autorizado (host único, subnet o BGP AS) usando un pipeline de dos fases Masscan ...">
-<meta name="author" content="ldamoredev">
+<title>Run External Recon Scan Pipeline - Playbooks de Seguridad | Cybersecurity Atlas</title>
+<meta name="description" content="Mapear puertos abiertos, servicios y exposición de versiones de un objetivo autorizado (host único, subnet o BGP AS) usando un pipeline de dos fases Masscan →...">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
 <meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Playbooks de Seguridad, Run External Recon Scan Pipeline">
-<meta name="theme-color" content="#16a34a">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Playbooks de Seguridad">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Run External Recon Scan Pipeline | ldamoredev Security Atlas">
-<meta property="og:description" content="Mapear puertos abiertos, servicios y exposición de versiones de un objetivo autorizado (host único, subnet o BGP AS) usando un pipeline de dos fases Masscan ...">
+<meta property="og:title" content="Run External Recon Scan Pipeline - Playbooks de Seguridad | Cybersecurity Atlas">
+<meta property="og:description" content="Mapear puertos abiertos, servicios y exposición de versiones de un objetivo autorizado (host único, subnet o BGP AS) usando un pipeline de dos fases Masscan →...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Run External Recon Scan Pipeline | ldamoredev Security Atlas">
-<meta name="twitter:description" content="Mapear puertos abiertos, servicios y exposición de versiones de un objetivo autorizado (host único, subnet o BGP AS) usando un pipeline de dos fases Masscan ...">
+<meta name="twitter:title" content="Run External Recon Scan Pipeline - Playbooks de Seguridad | Cybersecurity Atlas">
+<meta name="twitter:description" content="Mapear puertos abiertos, servicios y exposición de versiones de un objetivo autorizado (host único, subnet o BGP AS) usando un pipeline de dos fases Masscan →...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html#article","name":"Run External Recon Scan Pipeline | ldamoredev Security Atlas","headline":"Run External Recon Scan Pipeline","description":"Mapear puertos abiertos, servicios y exposición de versiones de un objetivo autorizado (host único, subnet o BGP AS) usando un pipeline de dos fases Masscan ...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Playbooks de Seguridad","Run External Recon Scan Pipeline"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Playbooks de Seguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/index.html"},{"@type":"ListItem","position":4,"name":"Run External Recon Scan Pipeline","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html#article","name":"Run External Recon Scan Pipeline - Playbooks de Seguridad | Cybersecurity Atlas","headline":"Run External Recon Scan Pipeline","description":"Mapear puertos abiertos, servicios y exposición de versiones de un objetivo autorizado (host único, subnet o BGP AS) usando un pipeline de dos fases Masscan →...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html","inLanguage":"es","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Playbooks de Seguridad","Run External Recon Scan Pipeline"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Playbooks de Seguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/index.html"},{"@type":"ListItem","position":4,"name":"Run External Recon Scan Pipeline","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html"}]}]</script>
+<meta property="article:section" content="Playbooks de Seguridad">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/security-playbooks/run-scan-pipeline.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/security-playbooks/run-scan-pipeline.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/security-playbooks/run-scan-pipeline.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Base de Conocimiento</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Superficie de ataque y señal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Inicio del Atlas</a>
 <div class="sidebar-section"><h3>Capa de entrada</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Fase 2 — Offense / Defense (en pares)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Fase 3 — Superficie de operador (concepto -&gt; capacidad)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Fase 4 — Specialty Tracks (elegí lo que tu trabajo demande)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Ruta de aprendizaje</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Resumen</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="La dualidad atacante-defensor como herramienta de aprendizaje">La dualidad atacante-defensor como herramienta de apr…</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Las certificaciones como señales de validación">Las certificaciones como señales de validación</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="Tríada CIA — Qué decide en realidad">Tríada CIA — Qué decide en realidad</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Especialización por contexto de trabajo">Especialización por contexto de trabajo</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Alfabetización mínima viable en ciberseguridad">Alfabetización mínima viable en ciberseguridad</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Arranque rápido de modelado de amenazas">Arranque rápido de modelado de amenazas</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="Qué es la ciberseguridad, y por qué no es una lista de herramientas">Qué es la ciberseguridad, y por qué no es una lista d…</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Criptografía</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Resumen</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -84,11 +93,11 @@
 <a class="nav-leaf" href="../cryptography/password-hashing.html" title="Password Hashing">Password Hashing</a>
 <a class="nav-leaf" href="../cryptography/post-quantum-awareness.html" title="Post-Quantum Awareness">Post-Quantum Awareness</a>
 <a class="nav-leaf" href="../cryptography/random-and-csprng-pitfalls.html" title="Random and CSPRNG Pitfalls">Random and CSPRNG Pitfalls</a>
-<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll Your Own Crypto Failures">Roll Your Own Crypto Failures</a>
+<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll-Your-Own Crypto Failures">Roll-Your-Own Crypto Failures</a>
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Resumen</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caché y seguridad">Caché y seguridad</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Confianza en la IP del cliente">Confianza en la IP del cliente</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="Resolución DNS">Resolución DNS</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="Seguridad de DNS">Seguridad de DNS</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls y fronteras de red">Firewalls y fronteras de red</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Confianza en headers en Node Express">Confianza en headers en Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="Headers HTTP">Headers HTTP</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="Mensajes HTTP">Mensajes HTTP</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS y HTTPS">TLS y HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Flujos de trabajo con Wireshark">Flujos de trabajo con Wireshark</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Resumen</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Fallas de autenticación">Fallas de autenticación</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Control de acceso roto">Control de acceso roto</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Fronteras de seguridad del navegador">Fronteras de seguridad del navegador</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Seguridad Ofensiva / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Resumen</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -162,7 +173,7 @@
 <a class="nav-leaf" href="../offensive-security/passive-recon.html" title="Passive Recon">Passive Recon</a>
 <a class="nav-leaf" href="../offensive-security/public-asset-discovery.html" title="Public Asset Discovery">Public Asset Discovery</a>
 <a class="nav-leaf" href="../offensive-security/recon.html" title="Recon">Recon</a>
-<a class="nav-leaf" href="../offensive-security/recon-to-testing-handoff.html" title="Recon to Testing Handoff">Recon to Testing Handoff</a>
+<a class="nav-leaf" href="../offensive-security/recon-to-testing-handoff.html" title="Recon-to-Testing Handoff">Recon-to-Testing Handoff</a>
 <a class="nav-leaf" href="../offensive-security/rustscan-and-nse-pipeline.html" title="RustScan and NSE Pipeline">RustScan and NSE Pipeline</a>
 <a class="nav-leaf" href="../offensive-security/scope-validation.html" title="Scope Validation">Scope Validation</a>
 <a class="nav-leaf" href="../offensive-security/service-validation.html" title="Service Validation">Service Validation</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="El loop del operador">El loop del operador</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Resumen</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Disciplina de Network Security Monitoring (NSM)">Disciplina de Network Security Monitoring (NSM)</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Mapeo de Superficie de Ataque</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Resumen</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,15 +238,16 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="index.html">Resumen</a>
 <a class="nav-leaf" href="break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="detect-bloodhound-collection.html" title="Detectar la recolección de BloodHound">Detectar la recolección de BloodHound</a>
-<a class="nav-leaf" href="detect-dcsync-and-ntdsdit-access.html" title="Detect DCSync and ntds.dit Access">Detect DCSync and ntds.dit Access</a>
+<a class="nav-leaf" href="detect-dcsync-and-ntdsdit-access.html" title="Detectar DCSync y acceso a ntds.dit">Detectar DCSync y acceso a ntds.dit</a>
 <a class="nav-leaf" href="detect-external-scan-pipeline.html" title="Detect External Recon Scan Pipeline">Detect External Recon Scan Pipeline</a>
-<a class="nav-leaf" href="detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
+<a class="nav-leaf" href="detect-kerberoasting-and-as-rep-roasting.html" title="Detectar Kerberoasting y AS-REP Roasting">Detectar Kerberoasting y AS-REP Roasting</a>
 <a class="nav-leaf" href="exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -293,8 +306,8 @@
 <details class="nav-branch accent-green"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="nb-name">DevSecOps</span></span><span class="nb-right"><span class="count">13</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../devsecops/index.html">Resumen</a>
 <a class="nav-leaf" href="../devsecops/artifact-integrity.html" title="Artifact Integrity">Artifact Integrity</a>
-<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS as Dev Process Input">ASVS as Dev Process Input</a>
-<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Branch Protection and Release Controls">Branch Protection and Release Controls</a>
+<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS como input del proceso de desarrollo">ASVS como input del proceso de desarrollo</a>
+<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Protección de ramas y controles de release">Protección de ramas y controles de release</a>
 <a class="nav-leaf" href="../devsecops/ci-cd-hardening.html" title="CI/CD Hardening">CI/CD Hardening</a>
 <a class="nav-leaf" href="../devsecops/container-security.html" title="Container Security">Container Security</a>
 <a class="nav-leaf" href="../devsecops/dependency-risk.html" title="Dependency Risk">Dependency Risk</a>
@@ -372,7 +385,7 @@
 <div class="sidebar-section"><h3>Sistema de referencia</h3>
 <details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="ns-name">Registros</span></span><span class="ns-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <a class="nav-child" href="../reference-registry.html"><span class="nc-left"><span class="nc-name">Cybersecurity Reference Registry</span></span></a>
-<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Reference Registry - Detection Engineering</span></span></a>
+<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Registro de Referencia - Ingeniería de Detección</span></span></a>
 <a class="nav-child" href="../reference-registry-privacy-anonymity-opsec.html"><span class="nc-left"><span class="nc-name">Reference Registry - Privacy, Anonymity &amp; OPSEC</span></span></a>
 <a class="nav-child" href="../reference-registry-api-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — API Security</span></span></a>
 <a class="nav-child" href="../reference-registry-attack-surface-mapping.html"><span class="nc-left"><span class="nc-name">Reference Registry — Attack Surface Mapping</span></span></a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>actualizado · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>actualizado · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -410,188 +423,68 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Run External Recon Scan Pipeline</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Playbooks de Seguridad</a><span>/</span><span>Run External Recon Scan Pipeline</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">playbook</span><span class="meta-chip accent-slate">Playbooks de Seguridad</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~4 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span></div>
+<div class="page-meta"><span class="meta-chip">playbook</span><span class="meta-chip accent-slate">Playbooks de Seguridad</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~4 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="run-external-recon-scan-pipeline">Run External Recon Scan Pipeline</h1>
-<h2 id="objetivo">Objetivo</h2>
+<h1>Run External Recon Scan Pipeline</h1>
+<h2>Objetivo</h2>
 <p>Mapear puertos abiertos, servicios y exposición de versiones de un objetivo autorizado (host único, subnet o BGP AS) usando un pipeline de dos fases Masscan → RustScan/Nmap-NSE, con timing reproducible, exclude-list obligatorio y output estructurado que diffee limpio entre corridas.</p>
-<h2 id="supuestos">Supuestos</h2>
-<ul>
-<li>existe autorización escrita (scope de engagement, policy de bug bounty o lista de assets propios) y cubre cada IP/CIDR que aparecerá en include list</li>
-<li>la scan box tiene IP fuente estable y link upstream limpio</li>
-<li>el objetivo es recon de amplitud-luego-profundidad, no explotación</li>
-<li>Nmap, Masscan, RustScan, <code>jq</code> y <code>whois</code> están instalados y actualizados</li>
-</ul>
-<h2 id="prerrequisitos">Prerrequisitos</h2>
-<ul>
-<li><code>INCLUDE.txt</code> — objetivos autorizados (un CIDR/IP/host por línea)</li>
-<li><code>EXCLUDE.txt</code> — IPs fuera de scope, integraciones de partners, infra de monitoreo, rangos RFC 5737 si aplica</li>
-<li>valor <code>--adapter-ip</code> que coincide con la IP fuente enrutable real de la scan box</li>
-<li><code>nmap --script-updatedb</code> corrido en los últimos 30 días</li>
-<li>shell <code>ulimit -n 65535</code> disponible (o usar la imagen Docker de RustScan)</li>
-</ul>
-<h2 id="pasos-de-recon">Pasos de recon</h2>
-<blockquote>
-<p><em>Script runnable de referencia:</em> <code>cybersecurity/security-playbooks/run-scan-pipeline.sh</code> empaqueta las Fases 1–2 de abajo en un script shell. Usalo con env vars <code>INCLUDE_FILE</code>, <code>EXCLUDE_FILE</code> y <code>ADAPTER_IP</code>; el script se niega a correr si <code>EXCLUDE_FILE</code> está vacío y pide un <code>YES</code> explícito antes de escanear salvo que pases <code>--yes</code>. Fase 0 (gate de autorización) y Fase 3 (matriz diagnóstica de packet-shape) quedan como pasos human-in-the-loop y no se automatizan.</p>
-<p><em>Par defensor:</em> <a href="detect-external-scan-pipeline.html">Detectar pipeline de scan externo</a> es el espejo defender-side de este playbook — leé ambos juntos según <a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Dualidad atacante-defensor</a>.</p>
-</blockquote>
-<h3 id="fase-0-gate-de-autorizacion">Fase 0 — Gate de autorización</h3>
-<ol>
-<li>Imprimí scope y exclude list textualmente y confirmá contra el documento del engagement.</li>
-<li><code>cat INCLUDE.txt EXCLUDE.txt</code> — verificá visualmente antes de que salga cualquier paquete.</li>
-<li>Si los objetivos son a nivel AS, expandí el AS a prefixes primero:<br>
-`bash<br>
-whois -h whois.radb.net -- &quot;-i origin AS&lt;NUMBER&gt;&quot; |<br>
-awk &#x27;/^route:/ {print $2}&#x27; | sort -u &gt; INCLUDE.txt`</li>
-</ol>
-<h3 id="fase-1-amplitud-masscan">Fase 1 — Amplitud (Masscan)</h3>
-<ol>
-<li>Echo-validá la config de Masscan antes de escanear:<br>
-`bash<br>
-sudo masscan --excludefile EXCLUDE.txt -iL INCLUDE.txt \<br>
--p1-65535 --rate 1000 --adapter-ip &lt;YOUR_IP&gt; --echo &gt; masscan.conf<br>
-less masscan.conf   # eyeball the merged include/exclude`</li>
-<li>Calibrá <code>--rate</code> en una porción mínima primero (<code>-p80</code> en un /24) y observá ICMP-unreachable / spikes de pérdida. Seteá la tasa real a ~½ de la tasa limpia más alta.</li>
-<li>Corré el scan con output binario para re-parsing sin pérdida:<br>
-`bash<br>
-sudo masscan -c masscan.conf -oB scan.bin`</li>
-<li>Convertí a JSON para tooling downstream:<br>
-`bash<br>
-sudo masscan --readscan scan.bin -oJ scan.json<br>
-jq -r &#x27;.[] | &quot;\(.ip):\(.ports[0].port)&quot;&#x27; scan.json | sort -u &gt; openports.txt`</li>
-<li>Si se interrumpe, retomá con <code>sudo masscan --resume paused.conf</code> — nunca reinicies desde cero.</li>
-</ol>
-<h3 id="fase-2-profundidad-rustscan-nmap-nse">Fase 2 — Profundidad (RustScan → Nmap NSE)</h3>
-<ol>
-<li>Agrupá output de Masscan por host para que Nmap corra una vez por host con la lista de puertos de ese host:<br>
-`bash<br>
-awk -F: &#x27;{ports[$1]=ports[$1]&quot;,&quot;$2} END {for (h in ports) print h, substr(ports[h],2)}&#x27; openports.txt &gt; hostports.txt`</li>
-<li>Corré Nmap con version detection y una categoría NSE conservadora:<br>
-`bash<br>
-while read host ports; do<br>
-sudo nmap -Pn -sS -sV -sC \<br>
---script &quot;(default or vuln) and not (intrusive or dos or brute)&quot; \<br>
---min-rate 100 --max-rate 300 --max-retries 3 \<br>
--p &quot;$ports&quot; -oA &quot;nmap/$host&quot; &quot;$host&quot;<br>
-done &lt; hostports.txt`</li>
-<li>Para deep scans de host único donde no hace falta escala Masscan, sustituí RustScan como capa de discovery:<br>
-`bash<br>
-rustscan -a &lt;HOST&gt; --ulimit 5000 -- -sV -sC \<br>
---script &quot;(default or safe or vuln) and not (intrusive or dos or brute)&quot; \<br>
---min-rate 100`</li>
-<li>Si un objetivo parece rate-limited, fijá <code>--min-rate 50 --max-rate 100</code> y repetí solo ese host.</li>
-</ol>
-<h3 id="fase-3-matriz-diagnostica-de-packet-shape-opcional">Fase 3 — Matriz diagnóstica de packet-shape (opcional)</h3>
-<p>Corré solo cuando Fase 2 reporta todo como <code>filtered</code> pese a exposición esperada. Elegí un puerto supuestamente abierto y probá cada primitiva de evasión por separado para fingerprinting de la capa de inspección:</p>
-<div class="codehilite"><pre><span></span><code>PORT=443; HOST=&lt;TARGET&gt;
-for FLAG in &quot;&quot; &quot;-f&quot; &quot;--mtu 24&quot; &quot;--data-length 200&quot; &quot;--badsum&quot; &quot;--source-port 53&quot;; do
-  echo &quot;===== $FLAG&quot;
-  sudo nmap -Pn -sS -p $PORT $FLAG &quot;$HOST&quot;
-done
-</code></pre></div>
-<p>La invocación que devuelva <code>open</code> revela qué inspecciona y qué no el middlebox; esa intel guía la fase siguiente.</p>
-<h2 id="pasos-de-exploit-testing">Pasos de exploit / testing</h2>
-<p>Este playbook se detiene intencionalmente en enumeración. Los hallazgos validados van a:</p>
-<ul>
-<li>playbooks de explotación por clase de servicio (<code>exploit-sqli</code>, <code>break-jwt-validation</code>, <code>inspect-file-upload-surface</code>, etc.)</li>
-<li><code>cybersecurity/offensive-security/service-validation</code> para inspección manual de servicios</li>
-<li><code>cybersecurity/offensive-security/recon-to-testing-handoff</code> para handoff de engagement</li>
-</ul>
-<h2 id="senales-de-validacion">Señales de validación</h2>
-<ul>
-<li>puertos <code>open</code> aparecen igual entre corridas Masscan y Nmap</li>
-<li>banners de versión son consistentes entre NSE scripts (<code>-sV</code>, <code>http-server-header</code>, <code>ssl-cert</code>)</li>
-<li>conteos <code>filtered</code> bajan cuando baja <code>--min-rate</code></li>
-<li>un probe <code>--badsum</code> que devuelve <code>RST/ACK</code> confirma IDS inline que no valida checksums</li>
-<li>diff contra la corrida previa muestra puertos/servicios nuevos</li>
-</ul>
-<h2 id="mitigacion">Mitigación</h2>
-<p>Del lado defensor, controles correctos contra este pipeline:</p>
-<ul>
-<li>alerting per-source-IP de tasa SYN en el perímetro</li>
-<li>reglas IDS atadas a fan-out y TCP fingerprint</li>
-<li>reassembly de fragmentos IP habilitado en IDS</li>
-<li>honeyports/tarpits en puertos nunca usados</li>
-<li>version-banner shaping</li>
-</ul>
-<h2 id="logging-deteccion">Logging / detección</h2>
-<ul>
-<li>una IP fuente golpeando &gt; N IPs destino distintas en un puerto dentro de 60 s</li>
-<li>una IP fuente probando &gt; 100 puertos distintos en un host dentro de 60 s</li>
-<li>patrones de probe específicos de NSE en rulesets IDS</li>
-<li>estabilidad de TCP fingerprint por fuente a través de IPs &quot;distintas&quot;</li>
-<li>joins proceso-red EDR que atan scanner behavior a <code>nmap</code>, <code>masscan</code>, <code>rustscan</code>, <code>python</code>, <code>powershell</code> o binarios renombrados</li>
-</ul>
-<h2 id="seguridad-operacional">Seguridad operacional</h2>
-<ul>
-<li><strong>nunca</strong> uses IPs reales de terceros como decoys <code>-D</code>; preferí rangos RFC 5737 (<code>192.0.2.0/24</code>, <code>198.51.100.0/24</code>, <code>203.0.113.0/24</code>)</li>
-<li><strong>nunca</strong> escanees por encima de <code>--rate 1000</code> en un link upstream compartido sin medir pérdida primero</li>
-<li><strong>nunca</strong> corras categorías NSE <code>intrusive</code>, <code>exploit</code>, <code>dos</code> o <code>brute</code> sin autorización escrita explícita</li>
-<li><strong>siempre</strong> mantené <code>EXCLUDE.txt</code> no-overridable</li>
-<li><strong>siempre</strong> escribí output binario para cualquier scan de más de cinco minutos</li>
-</ul>
-<h2 id="notas-relacionadas">Notas relacionadas</h2>
-<ul>
-<li><a href="../offensive-security/nmap-timing-and-evasion.html">Nmap Timing and Evasion</a></li>
-<li><a href="../offensive-security/packet-fragmentation-and-decoy-scans.html">Packet Fragmentation and Decoy Scans</a></li>
-<li><a href="../offensive-security/masscan-internet-scale-scanning.html">Masscan Internet-Scale Scanning</a></li>
-<li><a href="../offensive-security/rustscan-and-nse-pipeline.html">RustScan and NSE Pipeline</a></li>
-<li><a href="../networking/nmap-scanning.html">Nmap Scanning</a></li>
-<li><a href="../offensive-security/host-and-port-discovery.html">Host and Port Discovery</a></li>
-<li><a href="../offensive-security/service-validation.html">Service Validation</a></li>
-<li><a href="../offensive-security/scope-validation.html">Scope Validation</a></li>
-<li><a href="../offensive-security/recon-to-testing-handoff.html">Recon to Testing Handoff</a></li>
-<li><a href="../attack-surface-mapping/external-attack-surface.html">External Attack Surface</a></li>
-<li><a href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Detección de anomalías de scan y análisis de fingerprint</a></li>
-<li><a href="../detection-engineering/network-telemetry-sources-and-visibility.html">Fuentes de telemetría de red y visibilidad</a></li>
-<li><a href="../detection-engineering/zeek-suricata-and-netflow-analysis.html">Análisis con Zeek, Suricata y NetFlow</a></li>
-<li><a href="../detection-engineering/edr-network-observability-and-process-correlation.html">Observabilidad de red en EDR y correlación de procesos</a></li>
-<li><a href="../detection-engineering/detection-evasion-myths-and-modern-limitations.html">Mitos de evasión de detección y limitaciones modernas</a></li>
-<li><a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Correlación de attack paths y observabilidad de kill chain</a></li>
-</ul>
-<h2 id="referencias">Referencias</h2>
-<ul>
-<li><strong>Official Tool Docs:</strong> Nmap Reference Guide — Timing and Performance — https://nmap.org/book/man-performance.html</li>
-<li><strong>Official Tool Docs:</strong> Masscan README — https://github.com/robertdavidgraham/masscan</li>
-<li><strong>Official Tool Docs:</strong> RustScan repository and docs — https://github.com/RustScan/RustScan</li>
-<li><strong>Investigación / Deep Dive:</strong> ProjectDiscovery Reconnaissance 103 — Host and Port Discovery — https://projectdiscovery.io/blog/reconnaissance-series-3-host-and-port-discovery</li>
-</ul>
+<h2>Supuestos</h2>
+<ul><li>existe autorización escrita (scope de engagement, policy de bug bounty o lista de assets propios) y cubre cada IP/CIDR que aparecerá en include list</li><li>la scan box tiene IP fuente estable y link upstream limpio</li><li>el objetivo es recon de amplitud-luego-profundidad, no explotación</li><li>Nmap, Masscan, RustScan, `jq` y `whois` están instalados y actualizados</li></ul>
+<h2>Prerrequisitos</h2>
+<ul><li>`INCLUDE.txt` — objetivos autorizados (un CIDR/IP/host por línea)</li><li>`EXCLUDE.txt` — IPs fuera de scope, integraciones de partners, infra de monitoreo, rangos RFC 5737 si aplica</li><li>valor `--adapter-ip` que coincide con la IP fuente enrutable real de la scan box</li><li>`nmap --script-updatedb` corrido en los últimos 30 días</li><li>shell `ulimit -n 65535` disponible (o usar la imagen Docker de RustScan)</li></ul>
+<h2>Pasos de recon</h2>
+<p>&gt; *Script runnable de referencia:* `cybersecurity/security-playbooks/run-scan-pipeline.sh` empaqueta las Fases 1–2 de abajo en un script shell. Usalo con env vars `INCLUDE_FILE`, `EXCLUDE_FILE` y `ADAPTER_IP`; el script se niega a correr si `EXCLUDE_FILE` está vacío y pide un `YES` explícito antes de escanear salvo que pases `--yes`. Fase 0 (gate de autorización) y Fase 3 (matriz diagnóstica de packet-shape) quedan como pasos human-in-the-loop y no se automatizan.</p>
+<p>&gt; *Par defensor:* &lt;a href=&quot;detect-external-scan-pipeline.html&quot;&gt;Detectar pipeline de scan externo&lt;/a&gt; es el espejo defender-side de este playbook — leé ambos juntos según &lt;a href=&quot;../foundations/attacker-defender-duality-as-a-learning-tool.html&quot;&gt;Dualidad atacante-defensor&lt;/a&gt;.</p>
+<h3>Fase 0 — Gate de autorización</h3>
+<p>1. Imprimí scope y exclude list textualmente y confirmá contra el documento del engagement. 2. `cat INCLUDE.txt EXCLUDE.txt` — verificá visualmente antes de que salga cualquier paquete. 3. Si los objetivos son a nivel AS, expandí el AS a prefixes primero:    `bash    whois -h whois.radb.net -- &quot;-i origin AS&lt;NUMBER&gt;&quot; |      awk &#x27;/^route:/ {print $2}&#x27; | sort -u &gt; INCLUDE.txt`</p>
+<h3>Fase 1 — Amplitud (Masscan)</h3>
+<p>1. Echo-validá la config de Masscan antes de escanear:    `bash    sudo masscan --excludefile EXCLUDE.txt -iL INCLUDE.txt \         -p1-65535 --rate 1000 --adapter-ip &lt;YOUR_IP&gt; --echo &gt; masscan.conf    less masscan.conf   # eyeball the merged include/exclude`</p>
+<p>2. Calibrá `--rate` en una porción mínima primero (`-p80` en un /24) y observá ICMP-unreachable / spikes de pérdida. Seteá la tasa real a ~½ de la tasa limpia más alta. 3. Corré el scan con output binario para re-parsing sin pérdida:    `bash    sudo masscan -c masscan.conf -oB scan.bin`</p>
+<p>4. Convertí a JSON para tooling downstream:    `bash    sudo masscan --readscan scan.bin -oJ scan.json    jq -r &#x27;.[] | &quot;\(.ip):\(.ports[0].port)&quot;&#x27; scan.json | sort -u &gt; openports.txt`</p>
+<p>5. Si se interrumpe, retomá con `sudo masscan --resume paused.conf` — nunca reinicies desde cero.</p>
+<h3>Fase 2 — Profundidad (RustScan → Nmap NSE)</h3>
+<p>1. Agrupá output de Masscan por host para que Nmap corra una vez por host con la lista de puertos de ese host:    `bash    awk -F: &#x27;{ports[$1]=ports[$1]&quot;,&quot;$2} END {for (h in ports) print h, substr(ports[h],2)}&#x27; openports.txt &gt; hostports.txt`</p>
+<p>2. Corré Nmap con version detection y una categoría NSE conservadora:    `bash    while read host ports; do      sudo nmap -Pn -sS -sV -sC \           --script &quot;(default or vuln) and not (intrusive or dos or brute)&quot; \           --min-rate 100 --max-rate 300 --max-retries 3 \           -p &quot;$ports&quot; -oA &quot;nmap/$host&quot; &quot;$host&quot;    done &lt; hostports.txt`</p>
+<p>3. Para deep scans de host único donde no hace falta escala Masscan, sustituí RustScan como capa de discovery:    `bash    rustscan -a &lt;HOST&gt; --ulimit 5000 -- -sV -sC \        --script &quot;(default or safe or vuln) and not (intrusive or dos or brute)&quot; \        --min-rate 100`</p>
+<p>4. Si un objetivo parece rate-limited, fijá `--min-rate 50 --max-rate 100` y repetí solo ese host.</p>
+<h3>Fase 3 — Matriz diagnóstica de packet-shape (opcional)</h3>
+<p>Corré solo cuando Fase 2 reporta todo como `filtered` pese a exposición esperada. Elegí un puerto supuestamente abierto y probá cada primitiva de evasión por separado para fingerprinting de la capa de inspección:</p>
+<p>``` PORT=443; HOST=&lt;TARGET&gt; for FLAG in &quot;&quot; &quot;-f&quot; &quot;--mtu 24&quot; &quot;--data-length 200&quot; &quot;--badsum&quot; &quot;--source-port 53&quot;; do   echo &quot;===== $FLAG&quot;   sudo nmap -Pn -sS -p $PORT $FLAG &quot;$HOST&quot; done ```</p>
+<p>La invocación que devuelva `open` revela qué inspecciona y qué no el middlebox; esa intel guía la fase siguiente.</p>
+<h2>Pasos de exploit / testing</h2>
+<p>Este playbook se detiene intencionalmente en enumeración. Los hallazgos validados van a: - playbooks de explotación por clase de servicio (`exploit-sqli`, `break-jwt-validation`, `inspect-file-upload-surface`, etc.) - `cybersecurity/offensive-security/service-validation` para inspección manual de servicios - `cybersecurity/offensive-security/recon-to-testing-handoff` para handoff de engagement</p>
+<h2>Señales de validación</h2>
+<ul><li>puertos `open` aparecen igual entre corridas Masscan y Nmap</li><li>banners de versión son consistentes entre NSE scripts (`-sV`, `http-server-header`, `ssl-cert`)</li><li>conteos `filtered` bajan cuando baja `--min-rate`</li><li>un probe `--badsum` que devuelve `RST/ACK` confirma IDS inline que no valida checksums</li><li>diff contra la corrida previa muestra puertos/servicios nuevos</li></ul>
+<h2>Mitigación</h2>
+<p>Del lado defensor, controles correctos contra este pipeline: - alerting per-source-IP de tasa SYN en el perímetro - reglas IDS atadas a fan-out y TCP fingerprint - reassembly de fragmentos IP habilitado en IDS - honeyports/tarpits en puertos nunca usados - version-banner shaping</p>
+<h2>Logging / detección</h2>
+<ul><li>una IP fuente golpeando &gt; N IPs destino distintas en un puerto dentro de 60 s</li><li>una IP fuente probando &gt; 100 puertos distintos en un host dentro de 60 s</li><li>patrones de probe específicos de NSE en rulesets IDS</li><li>estabilidad de TCP fingerprint por fuente a través de IPs &quot;distintas&quot;</li><li>joins proceso-red EDR que atan scanner behavior a `nmap`, `masscan`, `rustscan`, `python`, `powershell` o binarios renombrados</li></ul>
+<h2>Seguridad operacional</h2>
+<ul><li>**nunca** uses IPs reales de terceros como decoys `-D`; preferí rangos RFC 5737 (`192.0.2.0/24`, `198.51.100.0/24`, `203.0.113.0/24`)</li><li>**nunca** escanees por encima de `--rate 1000` en un link upstream compartido sin medir pérdida primero</li><li>**nunca** corras categorías NSE `intrusive`, `exploit`, `dos` o `brute` sin autorización escrita explícita</li><li>**siempre** mantené `EXCLUDE.txt` no-overridable</li><li>**siempre** escribí output binario para cualquier scan de más de cinco minutos</li></ul>
+<h2>Notas relacionadas</h2>
+<ul><li>&lt;a href=&quot;../offensive-security/nmap-timing-and-evasion.html&quot;&gt;Nmap Timing and Evasion&lt;/a&gt;</li><li>&lt;a href=&quot;../offensive-security/packet-fragmentation-and-decoy-scans.html&quot;&gt;Packet Fragmentation and Decoy Scans&lt;/a&gt;</li><li>&lt;a href=&quot;../offensive-security/masscan-internet-scale-scanning.html&quot;&gt;Masscan Internet-Scale Scanning&lt;/a&gt;</li><li>&lt;a href=&quot;../offensive-security/rustscan-and-nse-pipeline.html&quot;&gt;RustScan and NSE Pipeline&lt;/a&gt;</li><li>&lt;a href=&quot;../networking/nmap-scanning.html&quot;&gt;Nmap Scanning&lt;/a&gt;</li><li>&lt;a href=&quot;../offensive-security/host-and-port-discovery.html&quot;&gt;Host and Port Discovery&lt;/a&gt;</li><li>&lt;a href=&quot;../offensive-security/service-validation.html&quot;&gt;Service Validation&lt;/a&gt;</li><li>&lt;a href=&quot;../offensive-security/scope-validation.html&quot;&gt;Scope Validation&lt;/a&gt;</li><li>&lt;a href=&quot;../offensive-security/recon-to-testing-handoff.html&quot;&gt;Recon to Testing Handoff&lt;/a&gt;</li><li>&lt;a href=&quot;../attack-surface-mapping/external-attack-surface.html&quot;&gt;External Attack Surface&lt;/a&gt;</li><li>&lt;a href=&quot;../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html&quot;&gt;Detección de anomalías de scan y análisis de fingerprint&lt;/a&gt;</li><li>&lt;a href=&quot;../detection-engineering/network-telemetry-sources-and-visibility.html&quot;&gt;Fuentes de telemetría de red y visibilidad&lt;/a&gt;</li><li>&lt;a href=&quot;../detection-engineering/zeek-suricata-and-netflow-analysis.html&quot;&gt;Análisis con Zeek, Suricata y NetFlow&lt;/a&gt;</li><li>&lt;a href=&quot;../detection-engineering/edr-network-observability-and-process-correlation.html&quot;&gt;Observabilidad de red en EDR y correlación de procesos&lt;/a&gt;</li><li>&lt;a href=&quot;../detection-engineering/detection-evasion-myths-and-modern-limitations.html&quot;&gt;Mitos de evasión de detección y limitaciones modernas&lt;/a&gt;</li><li>&lt;a href=&quot;../detection-engineering/attack-path-correlation-and-kill-chain-observability.html&quot;&gt;Correlación de attack paths y observabilidad de kill chain&lt;/a&gt;</li></ul>
+<h2>Referencias</h2>
+<ul><li>**Official Tool Docs:** Nmap Reference Guide — Timing and Performance — https://nmap.org/book/man-performance.html</li><li>**Official Tool Docs:** Masscan README — https://github.com/robertdavidgraham/masscan</li><li>**Official Tool Docs:** RustScan repository and docs — https://github.com/RustScan/RustScan</li><li>**Investigación / Deep Dive:** ProjectDiscovery Reconnaissance 103 — Host and Port Discovery — https://projectdiscovery.io/blog/reconnaissance-series-3-host-and-port-discovery</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="reverse-proxy-misconfig-checklist.html"><span class="nav-dir">← Previous</span><strong>Reverse Proxy Misconfig Checklist</strong></a><a class="branch-nav-link next" href="test-client-ip-spoofing.html"><span class="nav-dir">Next →</span><strong>Test Client IP Spoofing</strong></a></nav>
 <section class="related-notes" aria-label="Notas relacionadas">
 <h2>Notas relacionadas</h2>
 <div class="related-grid">
 <a class="related-card" href="break-jwt-validation.html"><span>Playbooks de Seguridad</span><strong>Break JWT Validation</strong><small>Identificar si el manejo de JWT es lo suficientemente débil como para aceptar tokens inválidos, viejos, mal scopeados o influenciados por un atacante.</small></a>
-<a class="related-card" href="detect-bloodhound-collection.html"><span>Playbooks de Seguridad</span><strong>Detectar la recolección de BloodHound</strong><small>Detectar la enumeración de Active Directory por colectores de la familia BloodHound (SharpHound / BloodHound-CE y sucesores como SOAPHound) lo suficientemente temprano como para identificar el host de origen, el principal de origen y el método de recolección antes de que el operador convierta el grafo de ataque resultante en una cadena Kerberoast → DCSync → Domain Admin — y con suficiente fidelidad como para sobrevivir a las evasiones realistas de 2026 (LDAP paginado/throttleado, recolección DCOnly, abuso de AD Web Services, colectores custom en memoria).</small></a>
-<a class="related-card" href="detect-dcsync-and-ntdsdit-access.html"><span>Playbooks de Seguridad</span><strong>Detectar DCSync y acceso a ntds.dit</strong><small>Detectar las dos formas de extracción masiva de credenciales de Active Directory — DCSync (IDLDRSGetNCChanges vía la interfaz RPC DRSUAPI) y extracción offline de ntds.dit (acceso a nivel archivo, abuso de shadow-copy VSS, invocaciones de ntdsutil) — con fidelidad suficiente para identificar el principal origen, las cuentas afectadas y la ventana posterior a la extracción antes de que puedan usarse tickets falsificados (Golden Ticket o Silver Ticket).</small></a>
-<a class="related-card" href="detect-external-scan-pipeline.html"><span>Playbooks de Seguridad</span><strong>Detect External Recon Scan Pipeline</strong><small>Detectar a un operador externo corriendo un pipeline de recon de dos fases Masscan → Nmap-NSE (el playbook ofensivo Run External Recon Scan Pipeline) contra tu perímetro, con fidelidad suficiente para identificar fuente, scope e intención en minutos — antes de que los hallazgos de la fase de profundidad se conviertan en explotación posterior.</small></a>
-<a class="related-card" href="detect-kerberoasting-and-as-rep-roasting.html"><span>Playbooks de Seguridad</span><strong>Detectar Kerberoasting y AS-REP Roasting</strong><small>Detectar las dos familias de ataques de credenciales Kerberos en Active Directory (Kerberoasting y AS-REP Roasting) mediante análisis behavioral sobre Event IDs 4768/4769 y telemetría complementaria, con fidelidad suficiente para identificar la cuenta origen, el host atacante y el alcance en minutos, y con durabilidad suficiente para sobrevivir pequeñas variaciones de tradecraft del operador (tipo de cifrado, tasa de requests, selección de cuentas).</small></a>
+<a class="related-card" href="detect-bloodhound-collection.html"><span>Playbooks de Seguridad</span><strong>Detectar la recolección de BloodHound</strong><small>_Estructura de playbook (Objetivo / Supuestos / Prerrequisitos / Pasos de detección / Pistas de validación / Mitigación / Logging / Seguridad operativa)...</small></a>
+<a class="related-card" href="detect-dcsync-and-ntdsdit-access.html"><span>Playbooks de Seguridad</span><strong>Detectar DCSync y acceso a ntds.dit</strong><small>Detectar las dos formas de extracción masiva de credenciales de Active Directory — **DCSync** (IDL_DRSGetNCChanges vía la interfaz RPC DRSUAPI) y **extracción...</small></a>
+<a class="related-card" href="detect-external-scan-pipeline.html"><span>Playbooks de Seguridad</span><strong>Detect External Recon Scan Pipeline</strong><small>Detectar a un operador externo corriendo un pipeline de recon de dos fases Masscan → Nmap-NSE (el playbook ofensivo Run External Recon Scan Pipeline) contra tu...</small></a>
+<a class="related-card" href="detect-kerberoasting-and-as-rep-roasting.html"><span>Playbooks de Seguridad</span><strong>Detectar Kerberoasting y AS-REP Roasting</strong><small>Detectar las dos familias de ataques de credenciales Kerberos en Active Directory (Kerberoasting y AS-REP Roasting) mediante análisis behavioral sobre Event IDs...</small></a>
 <a class="related-card" href="exploit-idor.html"><span>Playbooks de Seguridad</span><strong>Exploit IDOR</strong><small>Determinar si los identificadores de objetos pueden manipularse para acceder a datos o acciones de otro usuario.</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#objetivo">Objetivo</a>
-<a class="toc-level-2" href="#supuestos">Supuestos</a>
-<a class="toc-level-2" href="#prerrequisitos">Prerrequisitos</a>
-<a class="toc-level-2" href="#pasos-de-recon">Pasos de recon</a>
-<a class="toc-level-3" href="#fase-0-gate-de-autorizacion">Fase 0 — Gate de autorización</a>
-<a class="toc-level-3" href="#fase-1-amplitud-masscan">Fase 1 — Amplitud (Masscan)</a>
-<a class="toc-level-3" href="#fase-2-profundidad-rustscan-nmap-nse">Fase 2 — Profundidad (RustScan → Nmap NSE)</a>
-<a class="toc-level-3" href="#fase-3-matriz-diagnostica-de-packet-shape-opcional">Fase 3 — Matriz diagnóstica de packet-shape (opcional)</a>
-<a class="toc-level-2" href="#pasos-de-exploit-testing">Pasos de exploit / testing</a>
-<a class="toc-level-2" href="#senales-de-validacion">Señales de validación</a>
-<a class="toc-level-2" href="#mitigacion">Mitigación</a>
-<a class="toc-level-2" href="#logging-deteccion">Logging / detección</a>
-<a class="toc-level-2" href="#seguridad-operacional">Seguridad operacional</a>
-<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
-<a class="toc-level-2" href="#referencias">Referencias</a>
-<a class="back-to-top" href="#top">Volver arriba</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

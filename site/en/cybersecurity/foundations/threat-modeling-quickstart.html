@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Threat Modeling Quickstart - Foundations | ldamoredev Security Atlas</title>
+<title>Threat Modeling Quickstart - Foundations | Cybersecurity Atlas</title>
 <meta name="description" content="Threat modeling is the practice of looking at a system, walking its components and trust boundaries, and answering four questions: **what are we building, what can...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Foundations, Threat Modeling Quickstart, phase-0, mindset, threat-modeling, stride">
-<meta name="theme-color" content="#16a34a">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Foundations, Threat Modeling Quickstart">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/foundations/threat-modeling-quickstart.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Foundations">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Threat Modeling Quickstart - Foundations | ldamoredev Security Atlas">
+<meta property="og:title" content="Threat Modeling Quickstart - Foundations | Cybersecurity Atlas">
 <meta property="og:description" content="Threat modeling is the practice of looking at a system, walking its components and trust boundaries, and answering four questions: **what are we building, what can...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/foundations/threat-modeling-quickstart.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Threat Modeling Quickstart - Foundations | ldamoredev Security Atlas">
+<meta name="twitter:title" content="Threat Modeling Quickstart - Foundations | Cybersecurity Atlas">
 <meta name="twitter:description" content="Threat modeling is the practice of looking at a system, walking its components and trust boundaries, and answering four questions: **what are we building, what can...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/foundations/threat-modeling-quickstart.html#article","name":"Threat Modeling Quickstart - Foundations | ldamoredev Security Atlas","headline":"Threat Modeling Quickstart","description":"Threat modeling is the practice of looking at a system, walking its components and trust boundaries, and answering four questions: **what are we building, what can...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/foundations/threat-modeling-quickstart.html","inLanguage":"en","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/foundations/threat-modeling-quickstart.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Foundations","Threat Modeling Quickstart","phase-0","mindset","threat-modeling","stride"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Foundations","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/foundations/index.html"},{"@type":"ListItem","position":4,"name":"Threat Modeling Quickstart","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/foundations/threat-modeling-quickstart.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/foundations/threat-modeling-quickstart.html#article","name":"Threat Modeling Quickstart - Foundations | Cybersecurity Atlas","headline":"Threat Modeling Quickstart","description":"Threat modeling is the practice of looking at a system, walking its components and trust boundaries, and answering four questions: **what are we building, what can...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/foundations/threat-modeling-quickstart.html","inLanguage":"en","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/foundations/threat-modeling-quickstart.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Foundations","Threat Modeling Quickstart"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Foundations","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/foundations/index.html"},{"@type":"ListItem","position":4,"name":"Threat Modeling Quickstart","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/foundations/threat-modeling-quickstart.html"}]}]</script>
+<meta property="article:section" content="Foundations">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/foundations/threat-modeling-quickstart.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/foundations/threat-modeling-quickstart.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/foundations/threat-modeling-quickstart.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Knowledge Base</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Attack Surface &amp; Signal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Atlas Home</a>
 <div class="sidebar-section"><h3>Entry layer</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Learning Path</h3>
-<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="index.html">Overview</a>
 <a class="nav-leaf" href="attacker-defender-duality-as-a-learning-tool.html" title="Attacker-Defender Duality as a Learning Tool">Attacker-Defender Duality as a Learning Tool</a>
 <a class="nav-leaf" href="certifications-as-validation-signals.html" title="Certifications as Validation Signals">Certifications as Validation Signals</a>
 <a class="nav-leaf" href="cia-triad-and-what-it-actually-decides.html" title="CIA Triad — What It Actually Decides">CIA Triad — What It Actually Decides</a>
 <a class="nav-leaf" href="job-context-specialization.html" title="Job Context Specialization">Job Context Specialization</a>
 <a class="nav-leaf" href="minimum-viable-cybersecurity-literacy.html" title="Minimum Viable Cybersecurity Literacy">Minimum Viable Cybersecurity Literacy</a>
+<a class="nav-leaf" href="security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf active" href="threat-modeling-quickstart.html" title="Threat Modeling Quickstart">Threat Modeling Quickstart</a>
 <a class="nav-leaf" href="what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="What Is Cybersecurity, and Why It Is Not a Tool List">What Is Cybersecurity, and Why It Is Not a Tool List</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Cryptography</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Overview</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -88,7 +97,7 @@
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Overview</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caching and Security">Caching and Security</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Client IP Trust">Client IP Trust</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="DNS Resolution">DNS Resolution</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="DNS Security">DNS Security</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls and Network Boundaries">Firewalls and Network Boundaries</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Header Trust in Node Express">Header Trust in Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="HTTP Headers">HTTP Headers</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="HTTP Messages">HTTP Messages</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS and HTTPS">TLS and HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Wireshark Workflows">Wireshark Workflows</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Overview</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Authentication Flaws">Authentication Flaws</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Broken Access Control">Broken Access Control</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Browser Security Boundaries">Browser Security Boundaries</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Offensive Security / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Overview</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="The Operator Loop">The Operator Loop</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Overview</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Network Security Monitoring Discipline">Network Security Monitoring Discipline</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Attack Surface Mapping</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Overview</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,7 +238,7 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Overview</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detect BloodHound Collection">Detect BloodHound Collection</a>
@@ -235,6 +247,7 @@
 <a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>updated · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>updated · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -412,169 +425,65 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Foundations</a><span>/</span><span>Threat Modeling Quickstart</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-amber">Foundations</span><span class="meta-chip meta-time" title="Estimated reading time">~7 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#foundations</span><span class="meta-chip tag">#phase-0</span><span class="meta-chip tag">#mindset</span><span class="meta-chip tag">#threat-modeling</span><span class="meta-chip tag">#stride</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-amber">Foundations</span><span class="meta-chip meta-time" title="Estimated reading time">~7 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="threat-modeling-quickstart">Threat Modeling Quickstart</h1>
-<h2 id="definition">Definition</h2>
-<p>Threat modeling is the practice of looking at a system, walking its components and trust boundaries, and answering four questions: <strong>what are we building, what can go wrong, what are we going to do about it, and did we do a good job?</strong> Done well it takes an hour for a feature and a day for a service. Done poorly — or skipped — it produces controls aimed at threats nobody actually faces while the real risks go unanalyzed.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>Security work without threat modeling reduces to running checklists. Checklists are useful but they cannot tell you <em>which</em> of their items matter for <em>your</em> system, or where the items leave gaps. Threat modeling is the discipline that produces the <em>right</em> checklist for a particular asset, instead of treating every system as if it had the same threats.</p>
-<p>The framing also fixes the most common newcomer confusion: "security is the security team's job". A threat model is best built by <em>the people who built the system</em> — they know the components, the assumptions, and the trust boundaries far better than any outside reviewer. The security team's role is to teach the methodology, review the output, and identify cross-cutting threats. The team that wrote the code owns the threat model the same way it owns the design.</p>
-<p>The senior framing is that threat modeling is <strong>structured paranoia</strong>: you replace "I have a bad feeling about this" with a repeatable artifact that names the threats, attaches them to system elements, and records the decisions you took about each one.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>Threat modeling reduces to <strong>4 questions</strong> (the Adam Shostack frame) and <strong>1 categorization</strong> (STRIDE).</p>
-<h3 id="the-4-questions">The 4 questions</h3>
-<ol>
-<li><strong>What are we building?</strong> Draw the system as a data flow diagram (DFD): boxes for processes and data stores, arrows for data flows, dashed lines for trust boundaries. The picture is the artifact; bullet points are not enough.</li>
-<li><strong>What can go wrong?</strong> Walk each element of the DFD and apply STRIDE (below) to it. For each element-threat pair, ask "is this credible in our threat model?".</li>
-<li><strong>What are we going to do about it?</strong> For each credible threat, pick one of four responses: <em>mitigate</em> (add a control), <em>accept</em> (live with it, record why), <em>transfer</em> (insurance, contract, dependency on a more capable party), <em>eliminate</em> (remove the feature).</li>
-<li><strong>Did we do a good job?</strong> Review the model after the system ships, and on every meaningful change. Update or invalidate.</li>
-</ol>
-<h3 id="stride-the-categorization">STRIDE — the categorization</h3>
-<p>Six threat categories, each mapped to a <a href="cia-triad-and-what-it-actually-decides.html">CIA</a> property:</p>
-<table>
-<thead>
-<tr>
-<th>Letter</th>
-<th>Threat</th>
-<th>CIA property</th>
-<th>Example mitigation family</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>S</strong></td>
-<td>Spoofing</td>
-<td>Authenticity (a flavor of integrity)</td>
-<td>Authentication, signed tokens, mTLS</td>
-</tr>
-<tr>
-<td><strong>T</strong></td>
-<td>Tampering</td>
-<td>Integrity</td>
-<td>MACs, signatures, immutable storage, AEAD</td>
-</tr>
-<tr>
-<td><strong>R</strong></td>
-<td>Repudiation</td>
-<td>Integrity + auditability</td>
-<td>Signed/immutable audit logs</td>
-</tr>
-<tr>
-<td><strong>I</strong></td>
-<td>Information disclosure</td>
-<td>Confidentiality</td>
-<td>Access control, encryption, channel isolation</td>
-</tr>
-<tr>
-<td><strong>D</strong></td>
-<td>Denial of service</td>
-<td>Availability</td>
-<td>Rate limiting, capacity, redundancy, graceful degradation</td>
-</tr>
-<tr>
-<td><strong>E</strong></td>
-<td>Elevation of privilege</td>
-<td>Integrity + authorization</td>
-<td>Least privilege, authorization checks, sandboxing</td>
-</tr>
-</tbody>
-</table>
-<p>The bug is not "we did not threat-model"; the bug is <em>we did not walk our trust boundaries and ask STRIDE at each one, so our controls protect the wrong elements</em>.</p>
-<h2 id="common-misconceptions">Common misconceptions</h2>
-<h3 id="threat-modeling-is-a-6-month-project-that-needs-a-consultant">"Threat modeling is a 6-month project that needs a consultant."</h3>
-<p>This is the academic version, useful for safety-critical systems. The working version a developer or IT person should master is the 4-question / STRIDE pass on one feature, which takes an hour. The investment-to-payoff curve is steep early and flattens fast — the first hour produces 80% of the value. Skipping that hour because "we need a real threat-modeling program" is a common excuse for never doing it at all.</p>
-<h3 id="only-the-security-team-can-do-it">"Only the security team can do it."</h3>
-<p>The opposite is true. The team that built the system has the deepest model of how it works, where its assumptions live, and which trust boundaries are real vs aspirational. The security team's leverage is <em>teaching</em> the methodology and reviewing output for cross-cutting threats, not doing threat modeling on behalf of every product team.</p>
-<h3 id="stride-catches-everything">"STRIDE catches everything."</h3>
-<p>STRIDE is a categorization aid, not a coverage guarantee. It misses:
-- <strong>Business-logic flaws</strong> (race conditions in checkout, abusing referral codes for free credit) — they fit awkwardly into "tampering" but are usually missed.
-- <strong>Privacy / data-sensitivity threats</strong> beyond information disclosure (e.g., correlation attacks, re-identification of anonymized data).
-- <strong>Supply-chain threats</strong> that span systems STRIDE was originally scoped to.
-Treat STRIDE as scaffolding, not as the answer. The 4 questions are the actual frame; STRIDE is one of several useful prompts.</p>
-<h3 id="we-threat-modeled-at-design-time-were-done">"We threat-modeled at design time, we're done."</h3>
+<h1>Threat Modeling Quickstart</h1>
+<h2>Definition</h2>
+<p>Threat modeling is the practice of looking at a system, walking its components and trust boundaries, and answering four questions: **what are we building, what can go wrong, what are we going to do about it, and did we do a good job?** Done well it takes an hour for a feature and a day for a service. Done poorly — or skipped — it produces controls aimed at threats nobody actually faces while the real risks go unanalyzed.</p>
+<h2>Why it matters</h2>
+<p>Security work without threat modeling reduces to running checklists. Checklists are useful but they cannot tell you *which* of their items matter for *your* system, or where the items leave gaps. Threat modeling is the discipline that produces the *right* checklist for a particular asset, instead of treating every system as if it had the same threats.</p>
+<p>The framing also fixes the most common newcomer confusion: &quot;security is the security team&#x27;s job&quot;. A threat model is best built by *the people who built the system* — they know the components, the assumptions, and the trust boundaries far better than any outside reviewer. The security team&#x27;s role is to teach the methodology, review the output, and identify cross-cutting threats. The team that wrote the code owns the threat model the same way it owns the design.</p>
+<p>The senior framing is that threat modeling is **structured paranoia**: you replace &quot;I have a bad feeling about this&quot; with a repeatable artifact that names the threats, attaches them to system elements, and records the decisions you took about each one.</p>
+<h2>How it works</h2>
+<p>Threat modeling reduces to **4 questions** (the Adam Shostack frame) and **1 categorization** (STRIDE).</p>
+<h3>The 4 questions</h3>
+<p>1. **What are we building?** Draw the system as a data flow diagram (DFD): boxes for processes and data stores, arrows for data flows, dashed lines for trust boundaries. The picture is the artifact; bullet points are not enough. 2. **What can go wrong?** Walk each element of the DFD and apply STRIDE (below) to it. For each element-threat pair, ask &quot;is this credible in our threat model?&quot;. 3. **What are we going to do about it?** For each credible threat, pick one of four responses: *mitigate* (add a control), *accept* (live with it, record why), *transfer* (insurance, contract, dependency on a more capable party), *eliminate* (remove the feature). 4. **Did we do a good job?** Review the model after the system ships, and on every meaningful change. Update or invalidate.</p>
+<h3>STRIDE — the categorization</h3>
+<p>Six threat categories, each mapped to a &lt;a href=&quot;cia-triad-and-what-it-actually-decides.html&quot;&gt;CIA&lt;/a&gt; property:</p>
+<p>| Letter | Threat | CIA property | Example mitigation family | | --- | --- | --- | --- | | **S** | Spoofing | Authenticity (a flavor of integrity) | Authentication, signed tokens, mTLS | | **T** | Tampering | Integrity | MACs, signatures, immutable storage, AEAD | | **R** | Repudiation | Integrity + auditability | Signed/immutable audit logs | | **I** | Information disclosure | Confidentiality | Access control, encryption, channel isolation | | **D** | Denial of service | Availability | Rate limiting, capacity, redundancy, graceful degradation | | **E** | Elevation of privilege | Integrity + authorization | Least privilege, authorization checks, sandboxing |</p>
+<p>The bug is not &quot;we did not threat-model&quot;; the bug is *we did not walk our trust boundaries and ask STRIDE at each one, so our controls protect the wrong elements*.</p>
+<h2>Common misconceptions</h2>
+<h3>&quot;Threat modeling is a 6-month project that needs a consultant.&quot;</h3>
+<p>This is the academic version, useful for safety-critical systems. The working version a developer or IT person should master is the 4-question / STRIDE pass on one feature, which takes an hour. The investment-to-payoff curve is steep early and flattens fast — the first hour produces 80% of the value. Skipping that hour because &quot;we need a real threat-modeling program&quot; is a common excuse for never doing it at all.</p>
+<h3>&quot;Only the security team can do it.&quot;</h3>
+<p>The opposite is true. The team that built the system has the deepest model of how it works, where its assumptions live, and which trust boundaries are real vs aspirational. The security team&#x27;s leverage is *teaching* the methodology and reviewing output for cross-cutting threats, not doing threat modeling on behalf of every product team.</p>
+<h3>&quot;STRIDE catches everything.&quot;</h3>
+<p>STRIDE is a categorization aid, not a coverage guarantee. It misses: - **Business-logic flaws** (race conditions in checkout, abusing referral codes for free credit) — they fit awkwardly into &quot;tampering&quot; but are usually missed. - **Privacy / data-sensitivity threats** beyond information disclosure (e.g., correlation attacks, re-identification of anonymized data). - **Supply-chain threats** that span systems STRIDE was originally scoped to. Treat STRIDE as scaffolding, not as the answer. The 4 questions are the actual frame; STRIDE is one of several useful prompts.</p>
+<h3>&quot;We threat-modeled at design time, we&#x27;re done.&quot;</h3>
 <p>Threat models are living artifacts. Every new feature, every new dependency, every new integration changes the trust boundaries. A threat model that does not get updated is wrong within months. Treat it the way you treat architecture diagrams or ADRs — version it, link it from the codebase, and update it when reality changes.</p>
-<h3 id="tools-microsoft-tmt-owasp-threat-dragon-iriusrisk-do-the-thinking-for-you">"Tools (Microsoft TMT, OWASP Threat Dragon, IriusRisk) do the thinking for you."</h3>
-<p>Tools capture and present threat models well; they do not <em>generate</em> them. The reasoning is human. A tool's auto-generated threat list is a starting point, not a deliverable. Senior usage is "use the tool to draw and store the DFD; use your brain (and STRIDE prompts) to populate the threats."</p>
-<h3 id="threat-modeling-is-for-new-systems-only">"Threat modeling is for new systems only."</h3>
-<p>Existing systems benefit <em>more</em> from threat modeling than new ones, because their assumptions have drifted from their original design. A "threat-model an existing service" exercise routinely uncovers controls that no longer match the threats the service actually faces.</p>
-<h2 id="how-to-apply-this">How to apply this</h2>
-<p>The 4 questions + STRIDE turn into <strong>a repeatable hour-long ritual</strong> for any feature:</p>
-<ol>
-<li><strong>Draw the DFD on a whiteboard or in Excalidraw.</strong> Boxes (processes), cylinders (data stores), arrows (flows), dashed lines (trust boundaries). Spend 10–20 minutes here. If you cannot draw it, you do not understand the system well enough to threat-model it.</li>
-<li><strong>Walk each element through STRIDE.</strong> For every box, arrow, and data store, ask all six STRIDE questions out loud. Some will obviously not apply; many will surface threats nobody had named. Record the credible ones.</li>
-<li><strong>Decide on each credible threat.</strong> Mitigate / accept / transfer / eliminate. Write the decision and the rationale next to the threat.</li>
-<li><strong>Cross-check against CIA priority.</strong> For your dominant asset, is the C/I/A you ranked highest covered by your mitigations? If not, you have a coverage gap.</li>
-<li><strong>Store the artifact next to the code.</strong> A threat-model markdown file in the repo, version-controlled, linked from the README. Threat models that live in shared drives die.</li>
-<li><strong>Reopen on change.</strong> When the design changes meaningfully, re-walk the affected part of the DFD.</li>
-</ol>
-<h2 id="practical-examples">Practical examples</h2>
-<ul>
-<li><strong>Login form.</strong> DFD: browser → reverse proxy → app → user DB + session store. STRIDE walk surfaces: spoofing (credential stuffing → MFA), tampering (session-cookie forgery → signed/encrypted cookies), repudiation ("I didn't log in" → audit log), information disclosure (user enumeration via response-time / error-message difference → uniform responses), DoS (password brute force → rate limit + account lockout strategy), elevation (auth bypass via parameter manipulation → server-side authorization on every action).</li>
-<li><strong>File upload.</strong> DFD: client → app → object storage → downstream consumer. STRIDE: tampering (uploaded file modified after scan → integrity hash + write-once storage), info disclosure (path-traversal exposing other tenants' files → server-generated paths), DoS (large or zip-bomb files → size and decompression limits), elevation (uploaded executable run by the server → store outside the app's exec path, scan in sandbox).</li>
-<li><strong>API endpoint that proxies to internal services.</strong> DFD shows a trust boundary the developers forgot existed. STRIDE on the proxy: spoofing (client identity replayed downstream → propagate signed identity, not raw token), tampering (request rewritten → input validation), info disclosure (internal topology leaked via error messages → opaque error mapping), elevation (SSRF reaching the metadata service → allowlist outbound destinations).</li>
-<li><strong>CI/CD pipeline.</strong> DFD: developer → git → CI runner → registry → production. STRIDE: tampering (build steps modified → reproducible builds, signed artifacts), info disclosure (secrets in build logs → secret scanning, masked logs), DoS (runner exhaustion via abusive PR → resource quotas), elevation (runner privileges abused → least-privilege OIDC tokens, ephemeral runners). This single pass is how most modern supply-chain controls (SLSA, Sigstore) are motivated.</li>
-<li><strong>Existing legacy service rebuild.</strong> Draw the DFD as it is <em>today</em>, not as the original architecture document claims. The gap between "design DFD" and "reality DFD" is itself a finding.</li>
-</ul>
-<h2 id="related-notes">Related notes</h2>
-<ul>
-<li><a href="what-is-cybersecurity-and-why-it-is-not-a-tool-list.html">what-is-cybersecurity-and-why-it-is-not-a-tool-list</a> — the framework this sits inside.</li>
-<li><a href="cia-triad-and-what-it-actually-decides.html">cia-triad-and-what-it-actually-decides</a> — STRIDE categories map back to CIA properties.</li>
-<li><a href="attacker-defender-duality-as-a-learning-tool.html">attacker-defender-duality-as-a-learning-tool</a> <em>(future)</em> — threat modeling is one of the disciplines that makes the duality concrete.</li>
-<li><a href="../web-security/index.html">Web Security</a> — STRIDE applied to the daily-surface system class.</li>
-<li><a href="../api-security/index.html">API Security</a> — STRIDE applied to machine-readable surfaces.</li>
-<li><a href="../devsecops/index.html">DevSecOps</a> — threat modeling the build/release pipeline itself.</li>
-<li><a href="../detection-engineering/index.html">Detection Engineering</a> — every threat your model accepts needs a corresponding detection story.</li>
-</ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
-<ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: stride-vs-pasta-vs-octave">stride-vs-pasta-vs-octave</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: dfd-conventions-and-trust-boundaries">dfd-conventions-and-trust-boundaries</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: threat-modeling-as-code">threat-modeling-as-code</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: business-logic-threat-modeling">business-logic-threat-modeling</span></li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Foundational:</strong> Adam Shostack — Threat Modeling: Designing for Security (the canonical text) — https://shostack.org/books/threat-modeling-book</li>
-<li><strong>Foundational:</strong> Microsoft — STRIDE Threat Model — https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats</li>
-<li><strong>Testing / Lab:</strong> OWASP Threat Modeling Process — https://owasp.org/www-community/Threat_Modeling_Process</li>
-</ul>
-<nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="minimum-viable-cybersecurity-literacy.html"><span class="nav-dir">← Previous</span><strong>Minimum Viable Cybersecurity Literacy</strong></a><a class="branch-nav-link next" href="what-is-cybersecurity-and-why-it-is-not-a-tool-list.html"><span class="nav-dir">Next →</span><strong>What Is Cybersecurity, and Why It Is Not a Tool List</strong></a></nav>
-<section class="related-notes" aria-label="Explore nearby notes">
-<h2>Explore nearby notes</h2>
+<h3>&quot;Tools (Microsoft TMT, OWASP Threat Dragon, IriusRisk) do the thinking for you.&quot;</h3>
+<p>Tools capture and present threat models well; they do not *generate* them. The reasoning is human. A tool&#x27;s auto-generated threat list is a starting point, not a deliverable. Senior usage is &quot;use the tool to draw and store the DFD; use your brain (and STRIDE prompts) to populate the threats.&quot;</p>
+<h3>&quot;Threat modeling is for new systems only.&quot;</h3>
+<p>Existing systems benefit *more* from threat modeling than new ones, because their assumptions have drifted from their original design. A &quot;threat-model an existing service&quot; exercise routinely uncovers controls that no longer match the threats the service actually faces.</p>
+<h2>How to apply this</h2>
+<p>The 4 questions + STRIDE turn into **a repeatable hour-long ritual** for any feature:</p>
+<p>1. **Draw the DFD on a whiteboard or in Excalidraw.** Boxes (processes), cylinders (data stores), arrows (flows), dashed lines (trust boundaries). Spend 10–20 minutes here. If you cannot draw it, you do not understand the system well enough to threat-model it. 2. **Walk each element through STRIDE.** For every box, arrow, and data store, ask all six STRIDE questions out loud. Some will obviously not apply; many will surface threats nobody had named. Record the credible ones. 3. **Decide on each credible threat.** Mitigate / accept / transfer / eliminate. Write the decision and the rationale next to the threat. 4. **Cross-check against CIA priority.** For your dominant asset, is the C/I/A you ranked highest covered by your mitigations? If not, you have a coverage gap. 5. **Store the artifact next to the code.** A threat-model markdown file in the repo, version-controlled, linked from the README. Threat models that live in shared drives die. 6. **Reopen on change.** When the design changes meaningfully, re-walk the affected part of the DFD.</p>
+<h2>Practical examples</h2>
+<ul><li>**Login form.** DFD: browser → reverse proxy → app → user DB + session store. STRIDE walk surfaces: spoofing (credential stuffing → MFA), tampering (session-cookie forgery → signed/encrypted cookies), repudiation (&quot;I didn&#x27;t log in&quot; → audit log), information disclosure (user enumeration via response-time / error-message difference → uniform responses), DoS (password brute force → rate limit + account lockout strategy), elevation (auth bypass via parameter manipulation → server-side authorization on every action).</li><li>**File upload.** DFD: client → app → object storage → downstream consumer. STRIDE: tampering (uploaded file modified after scan → integrity hash + write-once storage), info disclosure (path-traversal exposing other tenants&#x27; files → server-generated paths), DoS (large or zip-bomb files → size and decompression limits), elevation (uploaded executable run by the server → store outside the app&#x27;s exec path, scan in sandbox).</li><li>**API endpoint that proxies to internal services.** DFD shows a trust boundary the developers forgot existed. STRIDE on the proxy: spoofing (client identity replayed downstream → propagate signed identity, not raw token), tampering (request rewritten → input validation), info disclosure (internal topology leaked via error messages → opaque error mapping), elevation (SSRF reaching the metadata service → allowlist outbound destinations).</li><li>**CI/CD pipeline.** DFD: developer → git → CI runner → registry → production. STRIDE: tampering (build steps modified → reproducible builds, signed artifacts), info disclosure (secrets in build logs → secret scanning, masked logs), DoS (runner exhaustion via abusive PR → resource quotas), elevation (runner privileges abused → least-privilege OIDC tokens, ephemeral runners). This single pass is how most modern supply-chain controls (SLSA, Sigstore) are motivated.</li><li>**Existing legacy service rebuild.** Draw the DFD as it is *today*, not as the original architecture document claims. The gap between &quot;design DFD&quot; and &quot;reality DFD&quot; is itself a finding.</li></ul>
+<h2>Related notes</h2>
+<ul><li>&lt;a href=&quot;what-is-cybersecurity-and-why-it-is-not-a-tool-list.html&quot;&gt;what-is-cybersecurity-and-why-it-is-not-a-tool-list&lt;/a&gt; — the framework this sits inside.</li><li>&lt;a href=&quot;cia-triad-and-what-it-actually-decides.html&quot;&gt;cia-triad-and-what-it-actually-decides&lt;/a&gt; — STRIDE categories map back to CIA properties.</li><li>&lt;a href=&quot;attacker-defender-duality-as-a-learning-tool.html&quot;&gt;attacker-defender-duality-as-a-learning-tool&lt;/a&gt; *(future)* — threat modeling is one of the disciplines that makes the duality concrete.</li><li>&lt;a href=&quot;index.html&quot;&gt;Web Security&lt;/a&gt; — STRIDE applied to the daily-surface system class.</li><li>&lt;a href=&quot;index.html&quot;&gt;API Security&lt;/a&gt; — STRIDE applied to machine-readable surfaces.</li><li>&lt;a href=&quot;index.html&quot;&gt;DevSecOps&lt;/a&gt; — threat modeling the build/release pipeline itself.</li><li>&lt;a href=&quot;index.html&quot;&gt;Detection Engineering&lt;/a&gt; — every threat your model accepts needs a corresponding detection story.</li></ul>
+<h3>Suggested future atomic notes</h3>
+<ul><li>stride-vs-pasta-vs-octave</li><li>dfd-conventions-and-trust-boundaries</li><li>threat-modeling-as-code</li><li>business-logic-threat-modeling</li></ul>
+<h2>References</h2>
+<ul><li>**Foundational:** Adam Shostack — Threat Modeling: Designing for Security (the canonical text) — https://shostack.org/books/threat-modeling-book</li><li>**Foundational:** Microsoft — STRIDE Threat Model — https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats</li><li>**Testing / Lab:** OWASP Threat Modeling Process — https://owasp.org/www-community/Threat_Modeling_Process</li></ul>
+<nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="security-boundaries-and-trust-assumptions.html"><span class="nav-dir">← Previous</span><strong>Security boundaries and trust assumptions</strong></a><a class="branch-nav-link next" href="what-is-cybersecurity-and-why-it-is-not-a-tool-list.html"><span class="nav-dir">Next →</span><strong>What Is Cybersecurity, and Why It Is Not a Tool List</strong></a></nav>
+<section class="related-notes" aria-label="Related notes">
+<h2>Related notes</h2>
 <div class="related-grid">
 <a class="related-card" href="attacker-defender-duality-as-a-learning-tool.html"><span>Foundations</span><strong>Attacker-Defender Duality as a Learning Tool</strong><small>Every attack technique has a detection or mitigation counterpart, and every defensive control has a known bypass class. **The duality is epistemic**: the way to...</small></a>
-<a class="related-card" href="cia-triad-and-what-it-actually-decides.html"><span>Foundations</span><strong>CIA Triad — What It Actually Decides</strong><small>The CIA triad — **Confidentiality, Integrity, Availability** — is the three-property model of what information security is trying to preserve. Confidentiality is...</small></a>
-<a class="related-card" href="what-is-cybersecurity-and-why-it-is-not-a-tool-list.html"><span>Foundations</span><strong>What Is Cybersecurity, and Why It Is Not a Tool List</strong><small>Cybersecurity is the discipline of reasoning about and managing the **confidentiality, integrity, and availability** of information systems under adversarial...</small></a>
 <a class="related-card" href="certifications-as-validation-signals.html"><span>Foundations</span><strong>Certifications as Validation Signals</strong><small>Certifications are validation signals when they provide external evidence for knowledge and practice the learner has already built.</small></a>
+<a class="related-card" href="cia-triad-and-what-it-actually-decides.html"><span>Foundations</span><strong>CIA Triad — What It Actually Decides</strong><small>The CIA triad — **Confidentiality, Integrity, Availability** — is the three-property model of what information security is trying to preserve. Confidentiality is...</small></a>
 <a class="related-card" href="job-context-specialization.html"><span>Foundations</span><strong>Job Context Specialization</strong><small>Job context specialization is the practice of choosing a cybersecurity specialty by matching personal interest against real role demand and branch-specific work.</small></a>
 <a class="related-card" href="minimum-viable-cybersecurity-literacy.html"><span>Foundations</span><strong>Minimum Viable Cybersecurity Literacy</strong><small>Minimum viable cybersecurity literacy is the broad technical baseline a learner needs before specialization becomes useful.</small></a>
+<a class="related-card" href="security-boundaries-and-trust-assumptions.html"><span>Foundations</span><strong>Security boundaries and trust assumptions</strong><small>Security is a property of a system operating across boundaries, not a property of a library or a scanner. An asset is valuable because a person or service can...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-3" href="#the-4-questions">The 4 questions</a>
-<a class="toc-level-3" href="#stride-the-categorization">STRIDE — the categorization</a>
-<a class="toc-level-2" href="#common-misconceptions">Common misconceptions</a>
-<a class="toc-level-3" href="#threat-modeling-is-a-6-month-project-that-needs-a-consultant">&quot;Threat modeling is a 6-month project that needs a consultant.&quot;</a>
-<a class="toc-level-3" href="#only-the-security-team-can-do-it">&quot;Only the security team can do it.&quot;</a>
-<a class="toc-level-3" href="#stride-catches-everything">&quot;STRIDE catches everything.&quot;</a>
-<a class="toc-level-3" href="#we-threat-modeled-at-design-time-were-done">&quot;We threat-modeled at design time, we&#x27;re done.&quot;</a>
-<a class="toc-level-3" href="#tools-microsoft-tmt-owasp-threat-dragon-iriusrisk-do-the-thinking-for-you">&quot;Tools (Microsoft TMT, OWASP Threat Dragon, IriusRisk) do the thinking for you.&quot;</a>
-<a class="toc-level-3" href="#threat-modeling-is-for-new-systems-only">&quot;Threat modeling is for new systems only.&quot;</a>
-<a class="toc-level-2" href="#how-to-apply-this">How to apply this</a>
-<a class="toc-level-2" href="#practical-examples">Practical examples</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-3" href="#suggested-future-atomic-notes">Suggested future atomic notes</a>
-<a class="toc-level-2" href="#references">References</a>
-<a class="back-to-top" href="#top">Back to top</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

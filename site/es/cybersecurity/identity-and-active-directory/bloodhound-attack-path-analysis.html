@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BloodHound and Attack Path Analysis | ldamoredev Security Atlas</title>
-<meta name="description" content="BloodHound es una herramienta de análisis de grafos open-source que modela Active Directory como un grafo dirigido de principales (usuarios, grupos, computad...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Identidad y Active Directory, BloodHound and Attack Path Analysis, offensive-security, active-directory, bloodhound, graph-analysis, attack-path">
-<meta name="theme-color" content="#16a34a">
+<title>BloodHound and Attack Path Analysis - Identidad y Active Directory | Cybersecurity Atlas</title>
+<meta name="description" content="BloodHound es una herramienta de análisis de grafos open-source que modela **Active Directory como un grafo dirigido de principales** (usuarios, grupos...">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Identidad y Active Directory, BloodHound and Attack Path Analysis">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Identidad y Active Directory">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BloodHound and Attack Path Analysis | ldamoredev Security Atlas">
-<meta property="og:description" content="BloodHound es una herramienta de análisis de grafos open-source que modela Active Directory como un grafo dirigido de principales (usuarios, grupos, computad...">
+<meta property="og:title" content="BloodHound and Attack Path Analysis - Identidad y Active Directory | Cybersecurity Atlas">
+<meta property="og:description" content="BloodHound es una herramienta de análisis de grafos open-source que modela **Active Directory como un grafo dirigido de principales** (usuarios, grupos...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BloodHound and Attack Path Analysis | ldamoredev Security Atlas">
-<meta name="twitter:description" content="BloodHound es una herramienta de análisis de grafos open-source que modela Active Directory como un grafo dirigido de principales (usuarios, grupos, computad...">
+<meta name="twitter:title" content="BloodHound and Attack Path Analysis - Identidad y Active Directory | Cybersecurity Atlas">
+<meta name="twitter:description" content="BloodHound es una herramienta de análisis de grafos open-source que modela **Active Directory como un grafo dirigido de principales** (usuarios, grupos...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html#article","name":"BloodHound and Attack Path Analysis | ldamoredev Security Atlas","headline":"BloodHound and Attack Path Analysis","description":"BloodHound es una herramienta de análisis de grafos open-source que modela Active Directory como un grafo dirigido de principales (usuarios, grupos, computad...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identidad y Active Directory","BloodHound and Attack Path Analysis","offensive-security","active-directory","bloodhound","graph-analysis","attack-path"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identidad y Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"BloodHound and Attack Path Analysis","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html#article","name":"BloodHound and Attack Path Analysis - Identidad y Active Directory | Cybersecurity Atlas","headline":"BloodHound and Attack Path Analysis","description":"BloodHound es una herramienta de análisis de grafos open-source que modela **Active Directory como un grafo dirigido de principales** (usuarios, grupos...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html","inLanguage":"es","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identidad y Active Directory","BloodHound and Attack Path Analysis"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identidad y Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"BloodHound and Attack Path Analysis","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html"}]}]</script>
+<meta property="article:section" content="Identidad y Active Directory">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/bloodhound-attack-path-analysis.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Base de Conocimiento</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Superficie de ataque y señal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Inicio del Atlas</a>
 <div class="sidebar-section"><h3>Capa de entrada</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Fase 2 — Offense / Defense (en pares)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Fase 3 — Superficie de operador (concepto -&gt; capacidad)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Fase 4 — Specialty Tracks (elegí lo que tu trabajo demande)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Ruta de aprendizaje</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Resumen</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="La dualidad atacante-defensor como herramienta de aprendizaje">La dualidad atacante-defensor como herramienta de apr…</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Las certificaciones como señales de validación">Las certificaciones como señales de validación</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="Tríada CIA — Qué decide en realidad">Tríada CIA — Qué decide en realidad</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Especialización por contexto de trabajo">Especialización por contexto de trabajo</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Alfabetización mínima viable en ciberseguridad">Alfabetización mínima viable en ciberseguridad</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Arranque rápido de modelado de amenazas">Arranque rápido de modelado de amenazas</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="Qué es la ciberseguridad, y por qué no es una lista de herramientas">Qué es la ciberseguridad, y por qué no es una lista d…</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Criptografía</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Resumen</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -84,11 +93,11 @@
 <a class="nav-leaf" href="../cryptography/password-hashing.html" title="Password Hashing">Password Hashing</a>
 <a class="nav-leaf" href="../cryptography/post-quantum-awareness.html" title="Post-Quantum Awareness">Post-Quantum Awareness</a>
 <a class="nav-leaf" href="../cryptography/random-and-csprng-pitfalls.html" title="Random and CSPRNG Pitfalls">Random and CSPRNG Pitfalls</a>
-<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll Your Own Crypto Failures">Roll Your Own Crypto Failures</a>
+<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll-Your-Own Crypto Failures">Roll-Your-Own Crypto Failures</a>
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Resumen</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caché y seguridad">Caché y seguridad</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Confianza en la IP del cliente">Confianza en la IP del cliente</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="Resolución DNS">Resolución DNS</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="Seguridad de DNS">Seguridad de DNS</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls y fronteras de red">Firewalls y fronteras de red</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Confianza en headers en Node Express">Confianza en headers en Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="Headers HTTP">Headers HTTP</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="Mensajes HTTP">Mensajes HTTP</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS y HTTPS">TLS y HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Flujos de trabajo con Wireshark">Flujos de trabajo con Wireshark</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Resumen</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Fallas de autenticación">Fallas de autenticación</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Control de acceso roto">Control de acceso roto</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Fronteras de seguridad del navegador">Fronteras de seguridad del navegador</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Seguridad Ofensiva / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Resumen</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -162,7 +173,7 @@
 <a class="nav-leaf" href="../offensive-security/passive-recon.html" title="Passive Recon">Passive Recon</a>
 <a class="nav-leaf" href="../offensive-security/public-asset-discovery.html" title="Public Asset Discovery">Public Asset Discovery</a>
 <a class="nav-leaf" href="../offensive-security/recon.html" title="Recon">Recon</a>
-<a class="nav-leaf" href="../offensive-security/recon-to-testing-handoff.html" title="Recon to Testing Handoff">Recon to Testing Handoff</a>
+<a class="nav-leaf" href="../offensive-security/recon-to-testing-handoff.html" title="Recon-to-Testing Handoff">Recon-to-Testing Handoff</a>
 <a class="nav-leaf" href="../offensive-security/rustscan-and-nse-pipeline.html" title="RustScan and NSE Pipeline">RustScan and NSE Pipeline</a>
 <a class="nav-leaf" href="../offensive-security/scope-validation.html" title="Scope Validation">Scope Validation</a>
 <a class="nav-leaf" href="../offensive-security/service-validation.html" title="Service Validation">Service Validation</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="El loop del operador">El loop del operador</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Resumen</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Disciplina de Network Security Monitoring (NSM)">Disciplina de Network Security Monitoring (NSM)</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Mapeo de Superficie de Ataque</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Resumen</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,15 +238,16 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Resumen</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detectar la recolección de BloodHound">Detectar la recolección de BloodHound</a>
-<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detect DCSync and ntds.dit Access">Detect DCSync and ntds.dit Access</a>
+<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detectar DCSync y acceso a ntds.dit">Detectar DCSync y acceso a ntds.dit</a>
 <a class="nav-leaf" href="../security-playbooks/detect-external-scan-pipeline.html" title="Detect External Recon Scan Pipeline">Detect External Recon Scan Pipeline</a>
-<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
+<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detectar Kerberoasting y AS-REP Roasting">Detectar Kerberoasting y AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -293,8 +306,8 @@
 <details class="nav-branch accent-green"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="nb-name">DevSecOps</span></span><span class="nb-right"><span class="count">13</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../devsecops/index.html">Resumen</a>
 <a class="nav-leaf" href="../devsecops/artifact-integrity.html" title="Artifact Integrity">Artifact Integrity</a>
-<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS as Dev Process Input">ASVS as Dev Process Input</a>
-<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Branch Protection and Release Controls">Branch Protection and Release Controls</a>
+<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS como input del proceso de desarrollo">ASVS como input del proceso de desarrollo</a>
+<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Protección de ramas y controles de release">Protección de ramas y controles de release</a>
 <a class="nav-leaf" href="../devsecops/ci-cd-hardening.html" title="CI/CD Hardening">CI/CD Hardening</a>
 <a class="nav-leaf" href="../devsecops/container-security.html" title="Container Security">Container Security</a>
 <a class="nav-leaf" href="../devsecops/dependency-risk.html" title="Dependency Risk">Dependency Risk</a>
@@ -372,7 +385,7 @@
 <div class="sidebar-section"><h3>Sistema de referencia</h3>
 <details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="ns-name">Registros</span></span><span class="ns-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <a class="nav-child" href="../reference-registry.html"><span class="nc-left"><span class="nc-name">Cybersecurity Reference Registry</span></span></a>
-<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Reference Registry - Detection Engineering</span></span></a>
+<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Registro de Referencia - Ingeniería de Detección</span></span></a>
 <a class="nav-child" href="../reference-registry-privacy-anonymity-opsec.html"><span class="nc-left"><span class="nc-name">Reference Registry - Privacy, Anonymity &amp; OPSEC</span></span></a>
 <a class="nav-child" href="../reference-registry-api-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — API Security</span></span></a>
 <a class="nav-child" href="../reference-registry-attack-surface-mapping.html"><span class="nc-left"><span class="nc-name">Reference Registry — Attack Surface Mapping</span></span></a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>actualizado · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>actualizado · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -410,171 +423,82 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>BloodHound and Attack Path Analysis</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Identidad y Active Directory</a><span>/</span><span>BloodHound and Attack Path Analysis</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-red">Identidad y Active Directory</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~9 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#active-directory</span><span class="meta-chip tag">#bloodhound</span><span class="meta-chip tag">#graph-analysis</span><span class="meta-chip tag">#attack-path</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-red">Identidad y Active Directory</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~6 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="bloodhound-and-attack-path-analysis">BloodHound and Attack Path Analysis</h1>
-<h2 id="definicion">Definición</h2>
-<p>BloodHound es una herramienta de análisis de grafos open-source que modela <strong>Active Directory como un grafo dirigido de principales</strong> (usuarios, grupos, computadoras, GPOs, OUs, dominios) <strong>y las relaciones entre ellos</strong> (<code>MemberOf</code>, <code>AdminTo</code>, <code>CanRDP</code>, <code>WriteDACL</code>, <code>GenericAll</code>, <code>ForceChangePassword</code>, <code>Owns</code>, <code>DCSync</code>, <code>AllowedToDelegate</code>, etc.). Las rutas de ataque son entonces <em>consultas de grafo</em> — típicamente &quot;encontrar la ruta más corta desde cualquier principal sin privilegios hasta uno privilegiado&quot;. La herramienta es idéntica para ofensiva y defensiva; lo que difiere es qué consultas ejecutás y qué hacés con la respuesta.</p>
-<h2 id="por-que-importa">Por qué importa</h2>
-<p>La mayoría de los compromisos AD no son exploits de un solo paso. Son <strong>relaciones encadenadas</strong>: usuario bajo privilegio es miembro del grupo A → el grupo A tiene <code>GenericAll</code> sobre el usuario B → el usuario B está en <code>Backup Operators</code> → <code>Backup Operators</code> puede leer <code>ntds.dit</code> → hash krbtgt → compromiso del dominio. Ninguna arista individual de esa cadena es obviamente peligrosa; la <em>combinación</em> es lo que importa. Sin análisis de grafo, los defensores auditan un principal a la vez y se pierden la cadena por construcción.</p>
-<p>BloodHound es el artefacto que convirtió la seguridad de AD de &quot;auditar cada ACL&quot; a &quot;computar el cierre transitivo de aristas peligrosas&quot;. Dominarlo es el puente de &quot;sé que existe Kerberoasting&quot; a &quot;puedo razonar sobre qué objetivo de Kerberoasting <em>realmente importa</em> en este dominio&quot;.</p>
+<h1>BloodHound and Attack Path Analysis</h1>
+<h2>Definición</h2>
+<p>BloodHound es una herramienta de análisis de grafos open-source que modela **Active Directory como un grafo dirigido de principales** (usuarios, grupos, computadoras, GPOs, OUs, dominios) **y las relaciones entre ellos** (`MemberOf`, `AdminTo`, `CanRDP`, `WriteDACL`, `GenericAll`, `ForceChangePassword`, `Owns`, `DCSync`, `AllowedToDelegate`, etc.). Las rutas de ataque son entonces *consultas de grafo* — típicamente &quot;encontrar la ruta más corta desde cualquier principal sin privilegios hasta uno privilegiado&quot;. La herramienta es idéntica para ofensiva y defensiva; lo que difiere es qué consultas ejecutás y qué hacés con la respuesta.</p>
+<h2>Por qué importa</h2>
+<p>La mayoría de los compromisos AD no son exploits de un solo paso. Son **relaciones encadenadas**: usuario bajo privilegio es miembro del grupo A → el grupo A tiene `GenericAll` sobre el usuario B → el usuario B está en `Backup Operators` → `Backup Operators` puede leer `ntds.dit` → hash krbtgt → compromiso del dominio. Ninguna arista individual de esa cadena es obviamente peligrosa; la *combinación* es lo que importa. Sin análisis de grafo, los defensores auditan un principal a la vez y se pierden la cadena por construcción.</p>
+<p>BloodHound es el artefacto que convirtió la seguridad de AD de &quot;auditar cada ACL&quot; a &quot;computar el cierre transitivo de aristas peligrosas&quot;. Dominarlo es el puente de &quot;sé que existe Kerberoasting&quot; a &quot;puedo razonar sobre qué objetivo de Kerberoasting *realmente importa* en este dominio&quot;.</p>
 <p>El framing senior es la dualidad ofensiva/defensiva aplicada a la misma herramienta:</p>
-<ul>
-<li><strong>Ofensiva:</strong> BloodHound dice al operador qué foothold único produce el mayor blast radius.</li>
-<li><strong>Defensiva:</strong> BloodHound dice al defensor qué 5 ACLs deberían corregir este trimestre para eliminar las 20 rutas de ataque principales.</li>
-</ul>
-<h2 id="como-funciona">Cómo funciona</h2>
-<p>BloodHound se reduce a <strong>3 etapas</strong>:</p>
-<ol>
-<li><strong>Colección.</strong> Un colector (SharpHound en Windows, <code>bloodhound-python</code> en Linux, AzureHound para Entra ID) consulta AD vía LDAP y SMB para enumerar principales y sus relaciones. La salida son archivos JSON.</li>
-<li><strong>Ingesta.</strong> El JSON se carga en una base de datos Neo4j vía la UI de BloodHound. Cada principal se convierte en un nodo; cada relación en una arista tipada y dirigida.</li>
-<li><strong>Consulta.</strong> La UI expone tanto consultas pre-construidas (&quot;Find shortest paths to Domain Admins&quot;, &quot;Find principals with DCSync rights&quot;, &quot;Find Kerberoastable users&quot;) como una interfaz de consulta Cypher para análisis personalizado.</li>
-</ol>
+<ul><li>**Ofensiva:** BloodHound dice al operador qué foothold único produce el mayor blast radius.</li><li>**Defensiva:** BloodHound dice al defensor qué 5 ACLs deberían corregir este trimestre para eliminar las 20 rutas de ataque principales.</li></ul>
+<h2>Cómo funciona</h2>
+<p>BloodHound se reduce a **3 etapas**:</p>
+<p>1. **Colección.** Un colector (SharpHound en Windows, `bloodhound-python` en Linux, AzureHound para Entra ID) consulta AD vía LDAP y SMB para enumerar principales y sus relaciones. La salida son archivos JSON. 2. **Ingesta.** El JSON se carga en una base de datos Neo4j vía la UI de BloodHound. Cada principal se convierte en un nodo; cada relación en una arista tipada y dirigida. 3. **Consulta.** La UI expone tanto consultas pre-construidas (&quot;Find shortest paths to Domain Admins&quot;, &quot;Find principals with DCSync rights&quot;, &quot;Find Kerberoastable users&quot;) como una interfaz de consulta Cypher para análisis personalizado.</p>
 <p>Secuencia representativa de punta a punta desde un foothold Linux:</p>
-<div class="codehilite"><pre><span></span><code># Etapa 1: recolectar desde cualquier host de dominio o alcanzable al dominio con una credencial válida.
-bloodhound-python -u lowpriv -p &#x27;Password1&#x27; -ns 10.0.0.1 -d LAB.LOCAL -c All
-# Produce 20240510*_users.json, _groups.json, _computers.json, _domains.json, etc.
-
-# Etapa 2: levantar BloodHound CE (Community Edition) localmente e importar.
-docker compose -f bloodhound-cli.yaml up -d
-# Abrir la UI en http://localhost:8080, cargar los archivos JSON.
-
-# Etapa 3: consultar.
-MATCH (n {kerberoastable: true})-[*1..]-&gt;(g:Group {name: &#x27;DOMAIN ADMINS@LAB.LOCAL&#x27;})
-RETURN n.name, length(shortestPath((n)-[*..]-&gt;(g))) AS path_length
-ORDER BY path_length ASC
-</code></pre></div>
-<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
-<ul>
-<li><strong>Recolectar con <code>-c All</code> en el primer pase.</strong> <code>All</code> ejecuta todos los métodos de colección. Para colecciones repetidas, ejecutar <code>Session</code> y <code>LoggedOn</code> por separado porque capturan <em>quién está logueado dónde</em> y decaen rápido.</li>
-<li><strong>Cypher supera a las consultas pre-construidas para el scope de engagement.</strong> Aprendé suficiente Cypher para escribir tus propias consultas dirigidas.</li>
-<li><strong><code>MarkOwned</code> tu foothold inmediatamente.</strong> La UI permite marcar principales como &quot;owned&quot; (comprometidos). Las consultas de ruta desde <code>(:User {owned: true})</code> hasta objetivos de alto valor muestran tu <em>ruta real</em> hacia adelante.</li>
-<li><strong>Buscá derechos <code>DCSync</code> temprano.</strong> Cualquier principal con <code>DS-Replication-Get-Changes-All</code> puede replicar toda la base de datos AD incluyendo todos los hashes de contraseñas. Consulta: <code>MATCH (n)-[:DCSync]-&gt;(d:Domain) RETURN n.name</code>.</li>
-<li><strong>Tratá las rutas hacia DCSync como rutas hacia capacidad de Golden Ticket.</strong> Si una ruta de grafo alcanza un principal que puede replicar <code>krbtgt</code>, alcanza <a href="golden-ticket-and-krbtgt-compromise.html">compromiso de la raíz de confianza Kerberos del dominio</a>.</li>
-<li><strong>Emparejá con salidas de <a href="kerberoasting.html">Kerberoasting</a> y <a href="as-rep-roasting.html">AS-REP Roasting</a>.</strong> BloodHound sabe qué cuentas son kerberoastables y AS-REP-roastables. Después de roastear, marcá las cuentas crackeadas como owned y volvé a ejecutar consultas de ruta.</li>
-<li><strong>Defensores: ejecutá BloodHound <em>en tu propio AD</em>, mensualmente.</strong> La consulta &quot;Shortest Paths to Domain Admins&quot; es la misma en ambos lados; el trabajo del defensor es hacer esas rutas más largas o eliminarlas.</li>
-<li><strong>OPSEC: la colección es ruidosa.</strong> <code>bloodhound-python -c All</code> contra un dominio grande emite miles de consultas LDAP y enumeraciones de sesiones SMB en minutos.</li>
-</ul>
-<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
-<p>El ecosistema de BloodHound tiene <strong>4 variantes de colector</strong> que vale distinguir.</p>
-<h3 id="1-sharphound-windows-net">1. SharpHound (Windows, .NET)</h3>
+<p>``` # Etapa 1: recolectar desde cualquier host de dominio o alcanzable al dominio con una credencial válida. bloodhound-python -u lowpriv -p &#x27;Password1&#x27; -ns 10.0.0.1 -d LAB.LOCAL -c All # Produce 20240510*_users.json, _groups.json, _computers.json, _domains.json, etc.</p>
+<h1>Etapa 2: levantar BloodHound CE (Community Edition) localmente e importar.</h1>
+<h1>Etapa 3: consultar.</h1>
+<h2>Técnicas / patrones</h2>
+<ul><li>**Recolectar con `-c All` en el primer pase.** `All` ejecuta todos los métodos de colección. Para colecciones repetidas, ejecutar `Session` y `LoggedOn` por separado porque capturan *quién está logueado dónde* y decaen rápido.</li><li>**Cypher supera a las consultas pre-construidas para el scope de engagement.** Aprendé suficiente Cypher para escribir tus propias consultas dirigidas.</li><li>**`MarkOwned` tu foothold inmediatamente.** La UI permite marcar principales como &quot;owned&quot; (comprometidos). Las consultas de ruta desde `(:User {owned: true})` hasta objetivos de alto valor muestran tu *ruta real* hacia adelante.</li><li>**Buscá derechos `DCSync` temprano.** Cualquier principal con `DS-Replication-Get-Changes-All` puede replicar toda la base de datos AD incluyendo todos los hashes de contraseñas. Consulta: `MATCH (n)-[:DCSync]-&gt;(d:Domain) RETURN n.name`.</li><li>**Tratá las rutas hacia DCSync como rutas hacia capacidad de Golden Ticket.** Si una ruta de grafo alcanza un principal que puede replicar `krbtgt`, alcanza &lt;a href=&quot;golden-ticket-and-krbtgt-compromise.html&quot;&gt;compromiso de la raíz de confianza Kerberos del dominio&lt;/a&gt;.</li><li>**Emparejá con salidas de &lt;a href=&quot;kerberoasting.html&quot;&gt;Kerberoasting&lt;/a&gt; y &lt;a href=&quot;as-rep-roasting.html&quot;&gt;AS-REP Roasting&lt;/a&gt;.** BloodHound sabe qué cuentas son kerberoastables y AS-REP-roastables. Después de roastear, marcá las cuentas crackeadas como owned y volvé a ejecutar consultas de ruta.</li><li>**Defensores: ejecutá BloodHound *en tu propio AD*, mensualmente.** La consulta &quot;Shortest Paths to Domain Admins&quot; es la misma en ambos lados; el trabajo del defensor es hacer esas rutas más largas o eliminarlas.</li><li>**OPSEC: la colección es ruidosa.** `bloodhound-python -c All` contra un dominio grande emite miles de consultas LDAP y enumeraciones de sesiones SMB en minutos.</li></ul>
+<h2>Variantes y bypasses</h2>
+<p>El ecosistema de BloodHound tiene **4 variantes de colector** que vale distinguir.</p>
+<h3>1. SharpHound (Windows, .NET)</h3>
 <p>El colector original. Corre in-process en un host Windows unido al dominio. Mayor cobertura de colección pero dispara AMSI y la mayoría de EDRs modernos.</p>
-<h3 id="2-bloodhound-python">2. bloodhound-python</h3>
+<h3>2. bloodhound-python</h3>
 <p>Nativo de Linux. Se conecta a AD sobre LDAP (puerto 389/636) y SMB (445) con credenciales explícitas. Sin unión al dominio, sin .NET. La elección estándar desde un host de pentest Linux.</p>
-<h3 id="3-azurehound">3. AzureHound</h3>
+<h3>3. AzureHound</h3>
 <p>Apunta a Entra ID / Microsoft 365 / Azure AD en lugar de AD on-prem. Diferentes tipos de nodos y aristas. Esencial para entornos híbridos.</p>
-<h3 id="4-bloodhound-enterprise-bhe-comercial">4. BloodHound Enterprise (BHE / comercial)</h3>
+<h3>4. BloodHound Enterprise (BHE / comercial)</h3>
 <p>El producto comercial de SpecterOps. Colección continua, dashboards de gestión de rutas de ataque. En el lado ofensivo todos usan BloodHound CE (gratuito, open-source).</p>
-<h2 id="impacto">Impacto</h2>
+<h2>Impacto</h2>
 <p>Ordenado por severidad real típica:</p>
-<ul>
-<li><strong>El tiempo de engagement hasta DA colapsa de días a horas.</strong> Un operador red-team con BloodHound y un foothold puede identificar la ruta óptima en 30 minutos de colección.</li>
-<li><strong>La priorización del defensor se vuelve basada en datos.</strong> &quot;Tenemos 12.000 ACLs en este dominio&quot; se convierte en &quot;5 ACEs específicas representan el 80% de las rutas hacia DA, y corregirlas este trimestre elimina 200 rutas de ataque&quot;.</li>
-<li><strong>La pregunta del blast-radius finalmente tiene respuesta.</strong> &quot;Si la cuenta X es comprometida, ¿qué puede alcanzar el atacante?&quot; antes requería traversal manual de ACLs. Ahora es <code>MATCH (n {name:&#x27;X&#x27;})-[*1..5]-&gt;(target) RETURN target</code>.</li>
-<li><strong>Las rutas de compromiso híbrido (on-prem + Azure) se vuelven visibles.</strong> Los conectores que hacen de puente entre AD on-prem y Entra ID crean rutas cross-boundary que la auditoría tradicional se pierde completamente.</li>
-</ul>
-<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<ul><li>**El tiempo de engagement hasta DA colapsa de días a horas.** Un operador red-team con BloodHound y un foothold puede identificar la ruta óptima en 30 minutos de colección.</li><li>**La priorización del defensor se vuelve basada en datos.** &quot;Tenemos 12.000 ACLs en este dominio&quot; se convierte en &quot;5 ACEs específicas representan el 80% de las rutas hacia DA, y corregirlas este trimestre elimina 200 rutas de ataque&quot;.</li><li>**La pregunta del blast-radius finalmente tiene respuesta.** &quot;Si la cuenta X es comprometida, ¿qué puede alcanzar el atacante?&quot; antes requería traversal manual de ACLs. Ahora es `MATCH (n {name:&#x27;X&#x27;})-[*1..5]-&gt;(target) RETURN target`.</li><li>**Las rutas de compromiso híbrido (on-prem + Azure) se vuelven visibles.** Los conectores que hacen de puente entre AD on-prem y Entra ID crean rutas cross-boundary que la auditoría tradicional se pierde completamente.</li></ul>
+<h2>Detección y defensa</h2>
 <p>Ordenado por efectividad:</p>
-<p>1. <strong>Usá BloodHound defensivamente, mensualmente.</strong> Ejecutar colección en tu propio AD, identificar las 10 rutas más cortas hacia Domain Admins y remediar las aristas más baratas. Repetir.</p>
-<p>2. <strong>Detección de comportamiento sobre patrones de enumeración LDAP.</strong> Firma de colección BloodHound: una IP fuente emite miles de consultas LDAP contra muchos OUs y objetos distintos en minutos, más enumeración de sesiones SMB.</p>
-<p>3. <strong>Reducir la cantidad de principales <code>Tier 0</code>.</strong> Tier 0 = cualquiera con autoridad efectiva de Domain Admin. Cuantos menos principales en Tier 0, menor la superficie de ataque para la traversal de grafos.</p>
-<p>4. <strong>Auditar y podar ACEs peligrosas.</strong> <code>WriteDACL</code>, <code>GenericAll</code>, <code>GenericWrite</code>, <code>WriteOwner</code>, <code>ForceChangePassword</code>, <code>AllExtendedRights</code>, y DS-Replication-Get-Changes-* son las aristas de alto leverage que BloodHound consulta.</p>
-<p>5. <strong>Aislamiento de Tier 0.</strong> Ningún admin Tier 0 debería nunca loguearse a un host Tier 1 o Tier 2. Privileged Access Workstations (PAWs) aplican esto físicamente.</p>
-<p>6. <strong>Principales honeypot altos en el grafo.</strong> Plantar una cuenta deceptivamente atractiva con ACLs de apariencia impactante. Cualquier consulta BloodHound que la presente como un &quot;gran objetivo&quot; indica que un colector corrió.</p>
-<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
-<ul>
-<li><strong>&quot;No tenemos Domain Admins fuera del equipo SOC.&quot;</strong> Casi siempre incorrecto en la inspección.</li>
-<li><strong>Deshabilitar la enumeración SMB.</strong> Reduce levemente la fidelidad de colección pero no previene la construcción del grafo solo desde LDAP.</li>
-<li><strong>Bloquear binarios de BloodHound.</strong> La firma es el <em>patrón de enumeración</em>, no el binario.</li>
-</ul>
-<h2 id="labs-practicos">Labs prácticos</h2>
+<p>1. **Usá BloodHound defensivamente, mensualmente.**    Ejecutar colección en tu propio AD, identificar las 10 rutas más cortas hacia Domain Admins y remediar las aristas más baratas. Repetir.</p>
+<p>2. **Detección de comportamiento sobre patrones de enumeración LDAP.**    Firma de colección BloodHound: una IP fuente emite miles de consultas LDAP contra muchos OUs y objetos distintos en minutos, más enumeración de sesiones SMB.</p>
+<p>3. **Reducir la cantidad de principales `Tier 0`.**    Tier 0 = cualquiera con autoridad efectiva de Domain Admin. Cuantos menos principales en Tier 0, menor la superficie de ataque para la traversal de grafos.</p>
+<p>4. **Auditar y podar ACEs peligrosas.**    `WriteDACL`, `GenericAll`, `GenericWrite`, `WriteOwner`, `ForceChangePassword`, `AllExtendedRights`, y DS-Replication-Get-Changes-* son las aristas de alto leverage que BloodHound consulta.</p>
+<p>5. **Aislamiento de Tier 0.**    Ningún admin Tier 0 debería nunca loguearse a un host Tier 1 o Tier 2. Privileged Access Workstations (PAWs) aplican esto físicamente.</p>
+<p>6. **Principales honeypot altos en el grafo.**    Plantar una cuenta deceptivamente atractiva con ACLs de apariencia impactante. Cualquier consulta BloodHound que la presente como un &quot;gran objetivo&quot; indica que un colector corrió.</p>
+<h3>Qué no funciona como defensa primaria</h3>
+<ul><li>**&quot;No tenemos Domain Admins fuera del equipo SOC.&quot;** Casi siempre incorrecto en la inspección.</li><li>**Deshabilitar la enumeración SMB.** Reduce levemente la fidelidad de colección pero no previene la construcción del grafo solo desde LDAP.</li><li>**Bloquear binarios de BloodHound.** La firma es el *patrón de enumeración*, no el binario.</li></ul>
+<h2>Labs prácticos</h2>
 <p>Ejecutar solo contra entornos lab propios o engagements autorizados.</p>
-<div class="codehilite"><pre><span></span><code># Lab 1 — Levantar BloodHound CE localmente con Docker.
-git clone https://github.com/SpecterOps/BloodHound.git
-cd BloodHound/examples/docker-compose
-docker compose up -d
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code># Lab 2 — Recolectar desde un host de pentest Linux contra un DC lab autorizado.
-bloodhound-python -u lowpriv -p &#x27;Password1&#x27; -ns 10.0.0.1 -d LAB.LOCAL -c All
-# Arrastrar los archivos JSON a la UI de BloodHound para ingestarlos.
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code>// Lab 3 — Consulta pre-construida: rutas más cortas hacia Domain Admins.
-MATCH p=shortestPath((n:User)-[*1..]-&gt;(g:Group {name: &#x27;DOMAIN ADMINS@LAB.LOCAL&#x27;}))
-WHERE n.enabled = true
-RETURN p LIMIT 25
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code>// Lab 4 — Custom: usuarios kerberoastables con ruta hacia DA en ≤ 3 hops.
-MATCH (u:User {hasspn: true})
-MATCH p=shortestPath((u)-[*1..3]-&gt;(:Group {name: &#x27;DOMAIN ADMINS@LAB.LOCAL&#x27;}))
-RETURN u.name AS account, length(p) AS hops
-ORDER BY hops ASC
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code>// Lab 5 — Consulta de alto leverage del defensor: principales con derechos DCSync.
-MATCH (n)-[r:GetChanges|GetChangesAll|DCSync]-&gt;(:Domain)
-RETURN DISTINCT n.name AS principal, labels(n) AS type
-// Los Domain Controllers deberían aparecer aquí. Cualquier otra cosa es un hallazgo.
-</code></pre></div>
-<div class="codehilite"><pre><span></span><code># Lab 6 — Diseño de regla de detección del lado defensor.
-Get-WinEvent -FilterHashtable @{LogName=&#x27;Security&#x27;; ID=4662} -MaxEvents 200 |
-    Where-Object { $_.Properties[7].Value -match &#x27;DS-Replication-Get-Changes&#x27; }
-</code></pre></div>
-<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
-<ul>
-<li><strong>Post-foothold en engagement red-team.</strong> Phish inicial con usuario bajo privilegio. Colección BloodHound en 30 minutos; la consulta de ruta más corta muestra que el usuario está en <code>IT Support</code> que tiene <code>GenericAll</code> sobre <code>Backup Service</code> que está en <code>Backup Operators</code>. Dos aristas ACE del phish hasta DA. Tiempo total de engagement: 4 horas.</li>
-<li><strong>Revisión defensiva trimestral.</strong> El equipo de seguridad ejecuta BloodHound en AD de producción, identifica que el grupo <code>IT Helpdesk</code> tiene <code>ForceChangePassword</code> sobre 47 cuentas privilegiadas vía una delegación legacy de 2014. Remover la delegación elimina 312 rutas de ataque de la noche a la mañana.</li>
-</ul>
-<h2 id="notas-relacionadas">Notas relacionadas</h2>
-<ul>
-<li><a href="kerberoasting.html">kerberoasting</a> — BloodHound muestra qué cuentas kerberoastables valen la pena atacar.</li>
-<li><a href="as-rep-roasting.html">as-rep-roasting</a> — BloodHound muestra qué cuentas AS-REP-roastables tienen rutas hacia adelante.</li>
-<li><a href="golden-ticket-and-krbtgt-compromise.html">golden-ticket-and-krbtgt-compromise</a> — la consecuencia downstream de las rutas de ataque que llegan a DCSync de <code>krbtgt</code>.</li>
-<li><a href="tier-zero-administration-and-paw.html">tier-zero-administration-and-paw</a> — la defensa estructural que la salida de BloodHound suele motivar.</li>
-<li><a href="../detection-engineering/behavioral-detection-vs-signature-detection.html">Behavioral vs Signature Detection</a> — el framing correcto para capturar la colección de BloodHound.</li>
-<li><a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation</a> — el concepto de contraparte defensiva; las rutas son la unidad de análisis en ambos lados.</li>
-</ul>
-<h2 id="referencias">Referencias</h2>
-<ul>
-<li><strong>Docs Oficiales:</strong> BloodHound Community Edition documentation (SpecterOps) — https://bloodhound.specterops.io/</li>
-<li><strong>Investigación / Deep Dive:</strong> Robbins, Schroeder, Vazarkar — &quot;An ACE Up The Sleeve: Designing Active Directory DACL Backdoors&quot; (Black Hat USA 2017) — https://www.specterops.io/assets/resources/an_ace_up_the_sleeve.pdf</li>
-<li><strong>Investigación / Deep Dive:</strong> Robbins &amp; Schroeder — &quot;Six Degrees of Domain Admin&quot; (DEF CON 24) — https://www.youtube.com/watch?v=lxd2rerVsLo</li>
-</ul>
+<p>``` # Lab 1 — Levantar BloodHound CE localmente con Docker. git clone https://github.com/SpecterOps/BloodHound.git cd BloodHound/examples/docker-compose docker compose up -d ```</p>
+<p>``` # Lab 2 — Recolectar desde un host de pentest Linux contra un DC lab autorizado. bloodhound-python -u lowpriv -p &#x27;Password1&#x27; -ns 10.0.0.1 -d LAB.LOCAL -c All # Arrastrar los archivos JSON a la UI de BloodHound para ingestarlos. ```</p>
+<p>``` // Lab 3 — Consulta pre-construida: rutas más cortas hacia Domain Admins. MATCH p=shortestPath((n:User)-[*1..]-&gt;(g:Group {name: &#x27;DOMAIN ADMINS@LAB.LOCAL&#x27;})) WHERE n.enabled = true RETURN p LIMIT 25 ```</p>
+<p>``` // Lab 4 — Custom: usuarios kerberoastables con ruta hacia DA en ≤ 3 hops. MATCH (u:User {hasspn: true}) MATCH p=shortestPath((u)-[*1..3]-&gt;(:Group {name: &#x27;DOMAIN ADMINS@LAB.LOCAL&#x27;})) RETURN u.name AS account, length(p) AS hops ORDER BY hops ASC ```</p>
+<p>``` // Lab 5 — Consulta de alto leverage del defensor: principales con derechos DCSync. MATCH (n)-[r:GetChanges|GetChangesAll|DCSync]-&gt;(:Domain) RETURN DISTINCT n.name AS principal, labels(n) AS type // Los Domain Controllers deberían aparecer aquí. Cualquier otra cosa es un hallazgo. ```</p>
+<p>``` # Lab 6 — Diseño de regla de detección del lado defensor. Get-WinEvent -FilterHashtable @{LogName=&#x27;Security&#x27;; ID=4662} -MaxEvents 200 |     Where-Object { $_.Properties[7].Value -match &#x27;DS-Replication-Get-Changes&#x27; } ```</p>
+<h2>Ejemplos prácticos</h2>
+<ul><li>**Post-foothold en engagement red-team.** Phish inicial con usuario bajo privilegio. Colección BloodHound en 30 minutos; la consulta de ruta más corta muestra que el usuario está en `IT Support` que tiene `GenericAll` sobre `Backup Service` que está en `Backup Operators`. Dos aristas ACE del phish hasta DA. Tiempo total de engagement: 4 horas.</li><li>**Revisión defensiva trimestral.** El equipo de seguridad ejecuta BloodHound en AD de producción, identifica que el grupo `IT Helpdesk` tiene `ForceChangePassword` sobre 47 cuentas privilegiadas vía una delegación legacy de 2014. Remover la delegación elimina 312 rutas de ataque de la noche a la mañana.</li></ul>
+<h2>Notas relacionadas</h2>
+<ul><li>&lt;a href=&quot;kerberoasting.html&quot;&gt;kerberoasting&lt;/a&gt; — BloodHound muestra qué cuentas kerberoastables valen la pena atacar.</li><li>&lt;a href=&quot;as-rep-roasting.html&quot;&gt;as-rep-roasting&lt;/a&gt; — BloodHound muestra qué cuentas AS-REP-roastables tienen rutas hacia adelante.</li><li>&lt;a href=&quot;golden-ticket-and-krbtgt-compromise.html&quot;&gt;golden-ticket-and-krbtgt-compromise&lt;/a&gt; — la consecuencia downstream de las rutas de ataque que llegan a DCSync de `krbtgt`.</li><li>&lt;a href=&quot;tier-zero-administration-and-paw.html&quot;&gt;tier-zero-administration-and-paw&lt;/a&gt; — la defensa estructural que la salida de BloodHound suele motivar.</li><li>&lt;a href=&quot;../detection-engineering/behavioral-detection-vs-signature-detection.html&quot;&gt;Behavioral vs Signature Detection&lt;/a&gt; — el framing correcto para capturar la colección de BloodHound.</li><li>&lt;a href=&quot;../detection-engineering/attack-path-correlation-and-kill-chain-observability.html&quot;&gt;Attack Path Correlation&lt;/a&gt; — el concepto de contraparte defensiva; las rutas son la unidad de análisis en ambos lados.</li></ul>
+<h2>Referencias</h2>
+<ul><li>**Docs Oficiales:** BloodHound Community Edition documentation (SpecterOps) — https://bloodhound.specterops.io/</li><li>**Investigación / Deep Dive:** Robbins, Schroeder, Vazarkar — &quot;An ACE Up The Sleeve: Designing Active Directory DACL Backdoors&quot; (Black Hat USA 2017) — https://www.specterops.io/assets/resources/an_ace_up_the_sleeve.pdf</li><li>**Investigación / Deep Dive:** Robbins &amp; Schroeder — &quot;Six Degrees of Domain Admin&quot; (DEF CON 24) — https://www.youtube.com/watch?v=lxd2rerVsLo</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="as-rep-roasting.html"><span class="nav-dir">← Previous</span><strong>AS-REP Roasting</strong></a><a class="branch-nav-link next" href="dcsync-and-ntdsdit-extraction.html"><span class="nav-dir">Next →</span><strong>DCSync and ntds.dit Extraction</strong></a></nav>
 <section class="related-notes" aria-label="Notas relacionadas">
 <h2>Notas relacionadas</h2>
 <div class="related-grid">
-<a class="related-card" href="as-rep-roasting.html"><span>Identidad y Active Directory</span><strong>AS-REP Roasting</strong><small>AS-REP Roasting es un ataque de credenciales de Active Directory donde un atacante explota cuentas con pre-autenticación Kerberos deshabilitada enviando un AS-REQ sin un blob de pre-auth y recibiendo un AS-REP cuya porción cifrada puede crackearse offline para recuperar la contraseña del usuario objetivo. A diferencia de Kerberoasting, AS-REP Roasting no requiere ninguna credencial autenticada del dominio — solo conocimiento de nombres de usuario.</small></a>
-<a class="related-card" href="dcsync-and-ntdsdit-extraction.html"><span>Identidad y Active Directory</span><strong>DCSync and ntds.dit Extraction</strong><small>DCSync es un ataque de extracción de credenciales AD donde el atacante abusa de los derechos de replicación del directorio DS-Replication-Get-Changes-All y relacionados para hacer que su host actúe como un Domain Controller y solicitar copias replicadas de hashes de contraseñas para cualquier principal del dominio — incluyendo la cuenta krbtgt, cuyo hash es la clave maestra que Kerberos usa para cifrar cada Ticket Granting Ticket. La extracción de ntds.dit es la variante offline: copiar el archivo de la base de datos AD y el hive del registro SYSTEM desde un DC (o sus backups) para recuperar los mismos hashes sin usar el protocolo de replicación. Ambas producen una salida idéntica: los hashes NTLM y claves AES de cada cuenta en el dominio, que es el endgame canónico de un compromiso AD.</small></a>
-<a class="related-card" href="golden-ticket-and-krbtgt-compromise.html"><span>Identidad y Active Directory</span><strong>Golden Ticket and KRBTGT Compromise</strong><small>Un Golden Ticket es un Ticket Granting Ticket (TGT) de Kerberos falsificado creado con el material de clave de largo plazo comprometido de la cuenta krbtgt del dominio. No es una contraseña mágica de administrador. Es el abuso de la raíz de confianza de firma de tickets Kerberos del dominio: si un atacante puede firmar un TGT con una clave que el Key Distribution Center acepta como krbtgt, el atacante puede acuñar material de autenticación para principales de dominio y membresías de grupos arbitrarios.</small></a>
-<a class="related-card" href="kerberoasting.html"><span>Identidad y Active Directory</span><strong>Kerberoasting</strong><small>Kerberoasting es un ataque de credenciales de Active Directory donde un usuario autenticado del dominio solicita tickets TGS de servicio para cuentas que tienen un Service Principal Name (SPN) y luego intenta crackear los tickets resultantes offline para recuperar la contraseña en texto plano de la service account. El ataque funciona porque (a) cualquier usuario autenticado del dominio puede solicitar un TGS para cualquier SPN, y (b) la porción del TGS cifrada con la clave derivada de la contraseña de la service account es observable para el solicitante.</small></a>
-<a class="related-card" href="silver-ticket-and-service-account-persistence.html"><span>Identidad y Active Directory</span><strong>Silver Ticket and Service Account Persistence</strong><small>Un Silver Ticket es un ticket de servicio (TGS) de Kerberos falsificado creado con una clave de service account comprometida en lugar de la clave krbtgt de todo el dominio. Es falsificación de Kerberos con scope de servicio: si un atacante conoce el hash NTLM o la clave AES para la cuenta detrás de un SPN, el atacante puede forjar un ticket para ese servicio específico sin primero pedirle al KDC un TGS legítimo.</small></a>
-<a class="related-card" href="gmsa-and-modern-service-account-hardening.html"><span>Identidad y Active Directory</span><strong>gMSA and Modern Service Account Hardening</strong><small>Un group Managed Service Account (gMSA) es una identidad de servicio gestionada por Active Directory cuya contraseña es larga, aleatoria, rotada automáticamente y recuperable solo por computadoras explícitamente autorizadas. gMSA no es una característica mágica anti-Kerberoasting. Es un patrón de diseño de service account que reduce el riesgo de contraseña estática cuando la propiedad de SPN, los permisos de recuperación, la delegación, el privilegio y el monitoreo están correctamente diseñados.</small></a>
+<a class="related-card" href="as-rep-roasting.html"><span>Identidad y Active Directory</span><strong>AS-REP Roasting</strong><small>AS-REP Roasting es un ataque de credenciales de Active Directory donde un atacante explota cuentas con **pre-autenticación Kerberos deshabilitada** enviando un...</small></a>
+<a class="related-card" href="dcsync-and-ntdsdit-extraction.html"><span>Identidad y Active Directory</span><strong>DCSync and ntds.dit Extraction</strong><small>DCSync es un ataque de extracción de credenciales AD donde el atacante abusa de los derechos de replicación del directorio **DS-Replication-Get-Changes-All** y...</small></a>
+<a class="related-card" href="gmsa-and-modern-service-account-hardening.html"><span>Identidad y Active Directory</span><strong>gMSA and Modern Service Account Hardening</strong><small>Un group Managed Service Account (gMSA) es una identidad de servicio gestionada por Active Directory cuya contraseña es larga, aleatoria, rotada automáticamente y...</small></a>
+<a class="related-card" href="golden-ticket-and-krbtgt-compromise.html"><span>Identidad y Active Directory</span><strong>Golden Ticket and KRBTGT Compromise</strong><small>Un Golden Ticket es un **Ticket Granting Ticket** (TGT) de Kerberos falsificado creado con el material de clave de largo plazo comprometido de la cuenta krbtgt del...</small></a>
+<a class="related-card" href="identity-attack-paths-across-idps.html"><span>Identidad y Active Directory</span><strong>Rutas de ataque de identidad entre IdPs</strong><small>Las rutas de ataque cross-IdP son cadenas de movimiento lateral que propagan el compromiso *a través de las fronteras de plataforma* atravesando las aristas de...</small></a>
+<a class="related-card" href="kerberoasting.html"><span>Identidad y Active Directory</span><strong>Kerberoasting</strong><small>Kerberoasting es un ataque de credenciales de Active Directory donde un usuario autenticado del dominio solicita **tickets TGS de servicio** para cuentas que...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definicion">Definición</a>
-<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
-<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
-<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
-<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
-<a class="toc-level-3" href="#1-sharphound-windows-net">1. SharpHound (Windows, .NET)</a>
-<a class="toc-level-3" href="#2-bloodhound-python">2. bloodhound-python</a>
-<a class="toc-level-3" href="#3-azurehound">3. AzureHound</a>
-<a class="toc-level-3" href="#4-bloodhound-enterprise-bhe-comercial">4. BloodHound Enterprise (BHE / comercial)</a>
-<a class="toc-level-2" href="#impacto">Impacto</a>
-<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
-<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
-<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
-<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
-<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
-<a class="toc-level-2" href="#referencias">Referencias</a>
-<a class="back-to-top" href="#top">Volver arriba</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

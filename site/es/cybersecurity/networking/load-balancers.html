@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Load balancers | ldamoredev Security Atlas</title>
-<meta name="description" content="Un load balancer es un punto de entrada que distribuye el tráfico entre servicios de backend y a menudo realiza terminación de TLS, health checks, ruteo por ...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Redes, Load balancers, networking, load-balancing, edge">
-<meta name="theme-color" content="#16a34a">
+<title>Load balancers - Redes | Cybersecurity Atlas</title>
+<meta name="description" content="Un load balancer es un punto de entrada que distribuye el tráfico entre servicios de backend y a menudo realiza terminación de TLS, health checks, ruteo por...">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Redes, Load balancers">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/load-balancers.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Redes">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Load balancers | ldamoredev Security Atlas">
-<meta property="og:description" content="Un load balancer es un punto de entrada que distribuye el tráfico entre servicios de backend y a menudo realiza terminación de TLS, health checks, ruteo por ...">
+<meta property="og:title" content="Load balancers - Redes | Cybersecurity Atlas">
+<meta property="og:description" content="Un load balancer es un punto de entrada que distribuye el tráfico entre servicios de backend y a menudo realiza terminación de TLS, health checks, ruteo por...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/load-balancers.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Load balancers | ldamoredev Security Atlas">
-<meta name="twitter:description" content="Un load balancer es un punto de entrada que distribuye el tráfico entre servicios de backend y a menudo realiza terminación de TLS, health checks, ruteo por ...">
+<meta name="twitter:title" content="Load balancers - Redes | Cybersecurity Atlas">
+<meta name="twitter:description" content="Un load balancer es un punto de entrada que distribuye el tráfico entre servicios de backend y a menudo realiza terminación de TLS, health checks, ruteo por...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/load-balancers.html#article","name":"Load balancers | ldamoredev Security Atlas","headline":"Load balancers","description":"Un load balancer es un punto de entrada que distribuye el tráfico entre servicios de backend y a menudo realiza terminación de TLS, health checks, ruteo por ...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/load-balancers.html","inLanguage":"es","datePublished":"2026-04-29","dateModified":"2026-04-29","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/load-balancers.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Redes","Load balancers","networking","load-balancing","edge"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Redes","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/index.html"},{"@type":"ListItem","position":4,"name":"Load balancers","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/load-balancers.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/load-balancers.html#article","name":"Load balancers - Redes | Cybersecurity Atlas","headline":"Load balancers","description":"Un load balancer es un punto de entrada que distribuye el tráfico entre servicios de backend y a menudo realiza terminación de TLS, health checks, ruteo por...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/load-balancers.html","inLanguage":"es","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/load-balancers.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Redes","Load balancers"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Redes","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/index.html"},{"@type":"ListItem","position":4,"name":"Load balancers","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/load-balancers.html"}]}]</script>
+<meta property="article:section" content="Redes">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/load-balancers.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/load-balancers.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/load-balancers.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Base de Conocimiento</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Superficie de ataque y señal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Inicio del Atlas</a>
 <div class="sidebar-section"><h3>Capa de entrada</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Fase 2 — Offense / Defense (en pares)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Fase 3 — Superficie de operador (concepto -&gt; capacidad)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Fase 4 — Specialty Tracks (elegí lo que tu trabajo demande)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Ruta de aprendizaje</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Resumen</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="La dualidad atacante-defensor como herramienta de aprendizaje">La dualidad atacante-defensor como herramienta de apr…</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Las certificaciones como señales de validación">Las certificaciones como señales de validación</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="Tríada CIA — Qué decide en realidad">Tríada CIA — Qué decide en realidad</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Especialización por contexto de trabajo">Especialización por contexto de trabajo</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Alfabetización mínima viable en ciberseguridad">Alfabetización mínima viable en ciberseguridad</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Arranque rápido de modelado de amenazas">Arranque rápido de modelado de amenazas</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="Qué es la ciberseguridad, y por qué no es una lista de herramientas">Qué es la ciberseguridad, y por qué no es una lista d…</a>
 </div></details>
 </div></details>
-<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Criptografía</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Resumen</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -84,11 +93,11 @@
 <a class="nav-leaf" href="../cryptography/password-hashing.html" title="Password Hashing">Password Hashing</a>
 <a class="nav-leaf" href="../cryptography/post-quantum-awareness.html" title="Post-Quantum Awareness">Post-Quantum Awareness</a>
 <a class="nav-leaf" href="../cryptography/random-and-csprng-pitfalls.html" title="Random and CSPRNG Pitfalls">Random and CSPRNG Pitfalls</a>
-<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll Your Own Crypto Failures">Roll Your Own Crypto Failures</a>
+<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll-Your-Own Crypto Failures">Roll-Your-Own Crypto Failures</a>
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="index.html">Resumen</a>
 <a class="nav-leaf" href="caching-and-security.html" title="Caché y seguridad">Caché y seguridad</a>
 <a class="nav-leaf" href="client-ip-trust.html" title="Confianza en la IP del cliente">Confianza en la IP del cliente</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="dns-resolution.html" title="Resolución DNS">Resolución DNS</a>
 <a class="nav-leaf" href="dns-security.html" title="Seguridad de DNS">Seguridad de DNS</a>
 <a class="nav-leaf" href="firewalls-and-network-boundaries.html" title="Firewalls y fronteras de red">Firewalls y fronteras de red</a>
+<a class="nav-leaf" href="from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="header-trust-in-node-express.html" title="Confianza en headers en Node Express">Confianza en headers en Node Express</a>
 <a class="nav-leaf" href="http-headers.html" title="Headers HTTP">Headers HTTP</a>
 <a class="nav-leaf" href="http-messages.html" title="Mensajes HTTP">Mensajes HTTP</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="tls-https.html" title="TLS y HTTPS">TLS y HTTPS</a>
 <a class="nav-leaf" href="wireshark-workflows.html" title="Flujos de trabajo con Wireshark">Flujos de trabajo con Wireshark</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Resumen</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Fallas de autenticación">Fallas de autenticación</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Control de acceso roto">Control de acceso roto</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Fronteras de seguridad del navegador">Fronteras de seguridad del navegador</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Seguridad Ofensiva / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Resumen</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -162,7 +173,7 @@
 <a class="nav-leaf" href="../offensive-security/passive-recon.html" title="Passive Recon">Passive Recon</a>
 <a class="nav-leaf" href="../offensive-security/public-asset-discovery.html" title="Public Asset Discovery">Public Asset Discovery</a>
 <a class="nav-leaf" href="../offensive-security/recon.html" title="Recon">Recon</a>
-<a class="nav-leaf" href="../offensive-security/recon-to-testing-handoff.html" title="Recon to Testing Handoff">Recon to Testing Handoff</a>
+<a class="nav-leaf" href="../offensive-security/recon-to-testing-handoff.html" title="Recon-to-Testing Handoff">Recon-to-Testing Handoff</a>
 <a class="nav-leaf" href="../offensive-security/rustscan-and-nse-pipeline.html" title="RustScan and NSE Pipeline">RustScan and NSE Pipeline</a>
 <a class="nav-leaf" href="../offensive-security/scope-validation.html" title="Scope Validation">Scope Validation</a>
 <a class="nav-leaf" href="../offensive-security/service-validation.html" title="Service Validation">Service Validation</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="El loop del operador">El loop del operador</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Resumen</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Disciplina de Network Security Monitoring (NSM)">Disciplina de Network Security Monitoring (NSM)</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Mapeo de Superficie de Ataque</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Resumen</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,15 +238,16 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Resumen</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detectar la recolección de BloodHound">Detectar la recolección de BloodHound</a>
-<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detect DCSync and ntds.dit Access">Detect DCSync and ntds.dit Access</a>
+<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detectar DCSync y acceso a ntds.dit">Detectar DCSync y acceso a ntds.dit</a>
 <a class="nav-leaf" href="../security-playbooks/detect-external-scan-pipeline.html" title="Detect External Recon Scan Pipeline">Detect External Recon Scan Pipeline</a>
-<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
+<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detectar Kerberoasting y AS-REP Roasting">Detectar Kerberoasting y AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -293,8 +306,8 @@
 <details class="nav-branch accent-green"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="nb-name">DevSecOps</span></span><span class="nb-right"><span class="count">13</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../devsecops/index.html">Resumen</a>
 <a class="nav-leaf" href="../devsecops/artifact-integrity.html" title="Artifact Integrity">Artifact Integrity</a>
-<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS as Dev Process Input">ASVS as Dev Process Input</a>
-<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Branch Protection and Release Controls">Branch Protection and Release Controls</a>
+<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS como input del proceso de desarrollo">ASVS como input del proceso de desarrollo</a>
+<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Protección de ramas y controles de release">Protección de ramas y controles de release</a>
 <a class="nav-leaf" href="../devsecops/ci-cd-hardening.html" title="CI/CD Hardening">CI/CD Hardening</a>
 <a class="nav-leaf" href="../devsecops/container-security.html" title="Container Security">Container Security</a>
 <a class="nav-leaf" href="../devsecops/dependency-risk.html" title="Dependency Risk">Dependency Risk</a>
@@ -372,7 +385,7 @@
 <div class="sidebar-section"><h3>Sistema de referencia</h3>
 <details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="ns-name">Registros</span></span><span class="ns-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <a class="nav-child" href="../reference-registry.html"><span class="nc-left"><span class="nc-name">Cybersecurity Reference Registry</span></span></a>
-<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Reference Registry - Detection Engineering</span></span></a>
+<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Registro de Referencia - Ingeniería de Detección</span></span></a>
 <a class="nav-child" href="../reference-registry-privacy-anonymity-opsec.html"><span class="nc-left"><span class="nc-name">Reference Registry - Privacy, Anonymity &amp; OPSEC</span></span></a>
 <a class="nav-child" href="../reference-registry-api-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — API Security</span></span></a>
 <a class="nav-child" href="../reference-registry-attack-surface-mapping.html"><span class="nc-left"><span class="nc-name">Reference Registry — Attack Surface Mapping</span></span></a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>actualizado · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>actualizado · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -410,213 +423,81 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Load balancers</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Redes</a><span>/</span><span>Load balancers</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-sky">Redes</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~6 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado Apr 29, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#networking</span><span class="meta-chip tag">#load-balancing</span><span class="meta-chip tag">#edge</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-sky">Redes</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~6 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="load-balancers">Load balancers</h1>
-<h2 id="definicion">Definición</h2>
-<p>Un load balancer es un punto de entrada que distribuye el tráfico entre servicios de backend y a menudo realiza terminación de TLS, health checks, ruteo por host/path, reuso de conexión e inyección de headers.</p>
-<h2 id="por-que-importa">Por qué importa</h2>
-<p>Los load balancers son componentes operativos que se vuelven fronteras de seguridad. Deciden qué backend recibe una request, qué headers se agregan, si TLS termina en el edge, si los endpoints de health son alcanzables y si debería existir acceso directo al backend.</p>
-<p>Esta nota es dueña del ruteo del punto de entrada y la alcanzabilidad del backend. <a href="reverse-proxies.html">Reverse proxies</a> es dueña de la normalización HTTP más profunda y el comportamiento de desacuerdo-de-parser.</p>
-<h2 id="como-funciona">Cómo funciona</h2>
-<p>Un load balancer aplica <strong>5 funciones relevantes para la seguridad</strong>:</p>
-<ol>
-<li><strong>Aceptar tráfico.</strong> Escucha en IPs/puertos públicos o privados.</li>
-<li><strong>Terminar o pasar TLS.</strong> Puede descifrar en el edge o forwardear tráfico cifrado.</li>
-<li><strong>Elegir un backend.</strong> Rutea por host, path, puerto, protocolo, peso, salud o target group.</li>
-<li><strong>Reescribir o agregar metadata.</strong> Agrega <code>X-Forwarded-For</code>, <code>X-Forwarded-Proto</code>, <code>X-Forwarded-Port</code>, <code>Forwarded</code> o headers específicos del proveedor.</li>
-<li><strong>Realizar health checks.</strong> Sondea paths o puertos del backend y remueve los targets no saludables.</li>
-</ol>
+<h1>Load balancers</h1>
+<h2>Definición</h2>
+<h2>Por qué importa</h2>
+<p>Esta nota es dueña del ruteo del punto de entrada y la alcanzabilidad del backend. &lt;a href=&quot;reverse-proxies.html&quot;&gt;Reverse proxies&lt;/a&gt; es dueña de la normalización HTTP más profunda y el comportamiento de desacuerdo-de-parser.</p>
+<h2>Cómo funciona</h2>
+<p>1. **Aceptar tráfico.** Escucha en IPs/puertos públicos o privados. 2. **Terminar o pasar TLS.** Puede descifrar en el edge o forwardear tráfico cifrado. 3. **Elegir un backend.** Rutea por host, path, puerto, protocolo, peso, salud o target group. 4. **Reescribir o agregar metadata.** Agrega `X-Forwarded-For`, `X-Forwarded-Proto`, `X-Forwarded-Port`, `Forwarded` o headers específicos del proveedor. 5. **Realizar health checks.** Sondea paths o puertos del backend y remueve los targets no saludables.</p>
 <p>Camino de ejemplo:</p>
-<div class="codehilite"><pre><span></span><code>cliente -&gt; CDN/WAF -&gt; load balancer público :443
-load balancer -&gt; target group de la app      :8080
-load balancer -&gt; /health cada 30s
-</code></pre></div>
+<p>```txt cliente -&gt; CDN/WAF -&gt; load balancer público :443 load balancer -&gt; target group de la app      :8080 load balancer -&gt; /health cada 30s ```</p>
 <p>La pregunta de seguridad es si el backend solo confía en el tráfico y la metadata que realmente vinieron por este camino.</p>
-<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
-<p>Atacantes y defensores inspeccionan:</p>
-<ul>
-<li>listeners públicos y puertos expuestos</li>
-<li>reglas de ruteo por host/path</li>
-<li>terminación de TLS y cifrado del backend</li>
-<li>alcanzabilidad directa de IP/puerto del backend</li>
-<li>paths de health-check y fuga de diagnósticos</li>
-<li>headers forwarded y propagación de la IP del cliente</li>
-<li>target groups, pools de backend y targets obsoletos</li>
-<li>backends por defecto y rutas catch-all</li>
-<li>sticky sessions y afinidad de ruteo</li>
-<li>desajuste entre los logs del load balancer y los de la app</li>
-</ul>
-<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
-<p>Los problemas de load balancer caen en <strong>6 clases</strong>.</p>
-<h3 id="1-bypass-directo-al-backend">1. Bypass directo al backend</h3>
-<p>El backend es alcanzable directamente por IP, DNS alternativo o regla de security-group pública. Esto bypassea el TLS de edge, el WAF, los gateways de auth, los rate limits y las reglas de sobrescritura de headers.</p>
-<h3 id="2-huecos-de-terminacion-de-tls">2. Huecos de terminación de TLS</h3>
-<p>TLS termina en el load balancer, pero el tráfico al backend es texto plano o no autenticado. Esto puede ser aceptable en una red confiable, pero peligroso a través de caminos compartidos o débilmente segmentados.</p>
-<h3 id="3-confusion-de-confianza-de-headers">3. Confusión de confianza de headers</h3>
-<p>El load balancer agrega headers de forwarding, pero el backend también acepta las versiones provistas por el cliente. Esto crea bugs de IP-de-cliente, esquema, host y generación de URLs.</p>
-<h3 id="4-errores-de-reglas-de-ruteo">4. Errores de reglas de ruteo</h3>
-<p>Las reglas de host/path/default mandan tráfico al target group equivocado, exponen paths de admin o dejan que valores <code>Host</code> hostiles alcancen backends inesperados.</p>
-<h3 id="5-exposicion-de-health-check">5. Exposición de health-check</h3>
-<p>Los endpoints de health revelan internals, bypassean auth o quedan alcanzables públicamente porque fueron diseñados para el load balancer y después expuestos a todos.</p>
-<h3 id="6-target-groups-obsoletos-o-mezclados">6. Target groups obsoletos o mezclados</h3>
-<p>Versiones viejas, instancias de debug o targets del entorno equivocado quedan registrados detrás del mismo load balancer.</p>
-<h2 id="impacto">Impacto</h2>
-<p>Ordenado aproximadamente por severidad:</p>
-<ul>
-<li><strong>Bypass de controles de edge.</strong> El acceso directo al backend saltea WAF, CDN, auth, logging o política de TLS.</li>
-<li><strong>Exposición de credenciales/sesión.</strong> Los hops de backend en texto plano pueden exponer headers sensibles si la red interna no es confiable.</li>
-<li><strong>Bugs de ruteo de privilegio o tenant.</strong> Los errores de host/path rutean usuarios a apps o superficies de admin equivocadas.</li>
-<li><strong>Abuso de confianza en IP-de-cliente.</strong> El mal manejo de headers de forwarding rompe rate limits, allowlists, logs y controles de acceso.</li>
-<li><strong>Fuga de información.</strong> Los health checks y backends por defecto exponen internals.</li>
-<li><strong>Riesgo de disponibilidad.</strong> Health checks malos o deriva de targets rutean tráfico a servicios no saludables o no previstos.</li>
-</ul>
-<h2 id="deteccion-y-defensa">Detección y defensa</h2>
-<p>Ordenado por efectividad:</p>
-<ol>
-<li><strong>Bloqueá la alcanzabilidad directa al backend.</strong><br>
-Los backends deberían aceptar tráfico de inbound solo del load balancer o de una identidad upstream confiable. Este es el control que vuelve al load balancer una frontera real.</li>
-<li><strong>Definí la política de TLS para los hops del cliente y del backend.</strong><br>
-Usá TLS moderno en el edge y decidí explícitamente si se requiere TLS o mTLS al backend. El tráfico sensible a través de redes compartidas debería estar cifrado y autenticado end-to-end.</li>
-<li><strong>Sobrescribí los headers de forwarding en el load balancer y confiá en ellos solo desde ese camino.</strong><br>
-El edge debería setear los headers de origen/proto/host de forma consistente; el backend debería ignorar esos headers desde cualquier otro origen.</li>
-<li><strong>Auditá las reglas de ruteo y los targets por defecto.</strong><br>
-Cada regla de host/path debería tener un dueño y un target group esperado. Las rutas catch-all por defecto deberían fallar cerrado o servir contenido inofensivo.</li>
-<li><strong>Protegé los endpoints de health y diagnóstico.</strong><br>
-Los endpoints de health deberían revelar el mínimo estado y ser alcanzables solo donde se necesita. Los usuarios públicos no deberían recibir diagnósticos del backend.</li>
-<li><strong>Podá continuamente los target groups.</strong><br>
-Remové instancias obsoletas, deploys viejos, hosts de debug y targets del entorno equivocado. Los pools del load balancer son superficies de inventario.</li>
-<li><strong>Correlacioná los logs del load balancer y del backend.</strong><br>
-Los request IDs, IP de origen, target ID, host, path y status codes deberían dejarte probar qué backend sirvió una request.</li>
-</ol>
-<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
-<ul>
-<li><strong>Asumir que el load balancer protege los backends mientras los backends son públicos.</strong> Los atacantes pueden bypassear la puerta de entrada.</li>
-<li><strong>Confiar en <code>X-Forwarded-*</code> porque el load balancer lo setea.</strong> Los clientes también pueden setear esos headers salvo que el edge sobrescriba y el backend restrinja la confianza por camino de red.</li>
-<li><strong>HTTPS solo-en-el-edge como garantía general.</strong> El texto plano del backend todavía puede importar.</li>
-<li><strong>Oscuridad del endpoint de health.</strong> <code>/healthz</code> y <code>/actuator/health</code> son fáciles de encontrar.</li>
-<li><strong>Un backend por defecto para todo.</strong> Las rutas catch-all a menudo filtran apps equivocadas o paneles de admin.</li>
-</ul>
-<h2 id="labs-practicos">Labs prácticos</h2>
-<p>Corré solo contra infraestructura que sea tuya o que estés autorizado a testear.</p>
-<h3 id="fingerprintear-el-punto-de-entrada">Fingerprintear el punto de entrada</h3>
-<div class="codehilite"><pre><span></span><code>curl -skI https://app.example.com/ | rg -i &#x27;server|via|x-cache|x-amz|cf-ray|x-forwarded|strict-transport-security&#x27;
-openssl s_client -connect app.example.com:443 -servername app.example.com &lt;/dev/null 2&gt;/dev/null | rg -i &#x27;issuer=|subject=|ALPN|Protocol|Cipher&#x27;
-</code></pre></div>
+<h2>Técnicas / patrones</h2>
+<ul><li>listeners públicos y puertos expuestos</li><li>reglas de ruteo por host/path</li><li>terminación de TLS y cifrado del backend</li><li>alcanzabilidad directa de IP/puerto del backend</li><li>paths de health-check y fuga de diagnósticos</li><li>headers forwarded y propagación de la IP del cliente</li><li>target groups, pools de backend y targets obsoletos</li><li>backends por defecto y rutas catch-all</li><li>sticky sessions y afinidad de ruteo</li><li>desajuste entre los logs del load balancer y los de la app</li></ul>
+<h2>Variantes y bypasses</h2>
+<h3>1. Bypass directo al backend</h3>
+<h3>2. Huecos de terminación de TLS</h3>
+<h3>3. Confusión de confianza de headers</h3>
+<h3>4. Errores de reglas de ruteo</h3>
+<h3>5. Exposición de health-check</h3>
+<h3>6. Target groups obsoletos o mezclados</h3>
+<h2>Impacto</h2>
+<ul><li>**Bypass de controles de edge.** El acceso directo al backend saltea WAF, CDN, auth, logging o política de TLS.</li><li>**Exposición de credenciales/sesión.** Los hops de backend en texto plano pueden exponer headers sensibles si la red interna no es confiable.</li><li>**Bugs de ruteo de privilegio o tenant.** Los errores de host/path rutean usuarios a apps o superficies de admin equivocadas.</li><li>**Abuso de confianza en IP-de-cliente.** El mal manejo de headers de forwarding rompe rate limits, allowlists, logs y controles de acceso.</li><li>**Fuga de información.** Los health checks y backends por defecto exponen internals.</li><li>**Riesgo de disponibilidad.** Health checks malos o deriva de targets rutean tráfico a servicios no saludables o no previstos.</li></ul>
+<h2>Detección y defensa</h2>
+<p>1. **Bloqueá la alcanzabilidad directa al backend.**    Los backends deberían aceptar tráfico de inbound solo del load balancer o de una identidad upstream confiable. Este es el control que vuelve al load balancer una frontera real.</p>
+<p>2. **Definí la política de TLS para los hops del cliente y del backend.**    Usá TLS moderno en el edge y decidí explícitamente si se requiere TLS o mTLS al backend. El tráfico sensible a través de redes compartidas debería estar cifrado y autenticado end-to-end.</p>
+<p>3. **Sobrescribí los headers de forwarding en el load balancer y confiá en ellos solo desde ese camino.**    El edge debería setear los headers de origen/proto/host de forma consistente; el backend debería ignorar esos headers desde cualquier otro origen.</p>
+<p>4. **Auditá las reglas de ruteo y los targets por defecto.**    Cada regla de host/path debería tener un dueño y un target group esperado. Las rutas catch-all por defecto deberían fallar cerrado o servir contenido inofensivo.</p>
+<p>5. **Protegé los endpoints de health y diagnóstico.**    Los endpoints de health deberían revelar el mínimo estado y ser alcanzables solo donde se necesita. Los usuarios públicos no deberían recibir diagnósticos del backend.</p>
+<p>6. **Podá continuamente los target groups.**    Remové instancias obsoletas, deploys viejos, hosts de debug y targets del entorno equivocado. Los pools del load balancer son superficies de inventario.</p>
+<p>7. **Correlacioná los logs del load balancer y del backend.**    Los request IDs, IP de origen, target ID, host, path y status codes deberían dejarte probar qué backend sirvió una request.</p>
+<h3>Qué no funciona como defensa primaria</h3>
+<ul><li>**Asumir que el load balancer protege los backends mientras los backends son públicos.** Los atacantes pueden bypassear la puerta de entrada.</li><li>**Confiar en `X-Forwarded-*` porque el load balancer lo setea.** Los clientes también pueden setear esos headers salvo que el edge sobrescriba y el backend restrinja la confianza por camino de red.</li><li>**HTTPS solo-en-el-edge como garantía general.** El texto plano del backend todavía puede importar.</li><li>**Oscuridad del endpoint de health.** `/healthz` y `/actuator/health` son fáciles de encontrar.</li><li>**Un backend por defecto para todo.** Las rutas catch-all a menudo filtran apps equivocadas o paneles de admin.</li></ul>
+<h2>Labs prácticos</h2>
+<h3>Fingerprintear el punto de entrada</h3>
+<p>```bash curl -skI https://app.example.com/ | rg -i &#x27;server|via|x-cache|x-amz|cf-ray|x-forwarded|strict-transport-security&#x27; openssl s_client -connect app.example.com:443 -servername app.example.com &lt;/dev/null 2&gt;/dev/null | rg -i &#x27;issuer=|subject=|ALPN|Protocol|Cipher&#x27; ```</p>
 <p>Identificá pistas de CDN/LB, postura de TLS y headers de política.</p>
-<h3 id="comparar-el-ruteo-por-host-path">Comparar el ruteo por host/path</h3>
-<div class="codehilite"><pre><span></span><code>curl -skI https://app.example.com/
-curl -skI https://app.example.com/health
-curl -skI https://app.example.com/admin
-curl -skI https://app.example.com/ -H &#x27;Host: unexpected.example.com&#x27;
-</code></pre></div>
+<h3>Comparar el ruteo por host/path</h3>
+<p>```bash curl -skI https://app.example.com/ curl -skI https://app.example.com/health curl -skI https://app.example.com/admin curl -skI https://app.example.com/ -H &#x27;Host: unexpected.example.com&#x27; ```</p>
 <p>Éxitos o redirects inesperados pueden indicar problemas de ruteo/backend-por-defecto.</p>
-<h3 id="sondear-el-manejo-de-headers-forwarded">Sondear el manejo de headers forwarded</h3>
-<div class="codehilite"><pre><span></span><code>curl -skI https://app.example.com/ \
-  -H &#x27;X-Forwarded-For: 127.0.0.1&#x27; \
-  -H &#x27;X-Forwarded-Proto: http&#x27; \
-  -H &#x27;X-Forwarded-Host: evil.example&#x27;
-</code></pre></div>
+<h3>Sondear el manejo de headers forwarded</h3>
+<p>```bash curl -skI https://app.example.com/ \   -H &#x27;X-Forwarded-For: 127.0.0.1&#x27; \   -H &#x27;X-Forwarded-Proto: http&#x27; \   -H &#x27;X-Forwarded-Host: evil.example&#x27; ```</p>
 <p>Buscá status cambiado, redirects, URLs generadas o efectos en logs.</p>
-<h3 id="testear-la-alcanzabilidad-directa-al-backend">Testear la alcanzabilidad directa al backend</h3>
-<div class="codehilite"><pre><span></span><code>origin_ip=203.0.113.42
-curl -skI &quot;https://$origin_ip/&quot; -H &#x27;Host: app.example.com&#x27; --connect-timeout 5
-curl -sI  &quot;http://$origin_ip:8080/&quot; -H &#x27;Host: app.example.com&#x27; --connect-timeout 5
-</code></pre></div>
+<h3>Testear la alcanzabilidad directa al backend</h3>
+<p>```bash origin_ip=203.0.113.42 curl -skI &quot;https://$origin_ip/&quot; -H &#x27;Host: app.example.com&#x27; --connect-timeout 5 curl -sI  &quot;http://$origin_ip:8080/&quot; -H &#x27;Host: app.example.com&#x27; --connect-timeout 5 ```</p>
 <p>Esperado: bloqueado salvo que el acceso directo al origin esté permitido intencionalmente.</p>
-<h3 id="inspeccionar-la-exposicion-de-health-check">Inspeccionar la exposición de health-check</h3>
-<div class="codehilite"><pre><span></span><code>for path in /health /healthz /status /metrics /actuator/health; do
-  printf &#x27;%s -&gt; &#x27; &quot;$path&quot;
-  curl -sk -o /dev/null -w &#x27;%{http_code}\n&#x27; &quot;https://app.example.com$path&quot;
-done
-</code></pre></div>
+<h3>Inspeccionar la exposición de health-check</h3>
+<p>```bash for path in /health /healthz /status /metrics /actuator/health; do   printf &#x27;%s -&gt; &#x27; &quot;$path&quot;   curl -sk -o /dev/null -w &#x27;%{http_code}\n&#x27; &quot;https://app.example.com$path&quot; done ```</p>
 <p>Seguí cualquier diagnóstico verboso o público.</p>
-<h3 id="comparar-los-logs-del-load-balancer-y-del-backend">Comparar los logs del load balancer y del backend</h3>
-<div class="codehilite"><pre><span></span><code>1. Enviá una request con X-Request-ID: lb-lab-001.
-2. Encontrala en los logs del load balancer.
-3. Encontrala en los logs del backend.
-4. Compará IP de origen, host, path, esquema, target y status.
-</code></pre></div>
+<h3>Comparar los logs del load balancer y del backend</h3>
+<p>```text 1. Enviá una request con X-Request-ID: lb-lab-001. 2. Encontrala en los logs del load balancer. 3. Encontrala en los logs del backend. 4. Compará IP de origen, host, path, esquema, target y status. ```</p>
 <p>Esto prueba cómo la metadata cruza la frontera.</p>
-<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
-<ul>
-<li>El load balancer público impone HTTPS, pero el backend es alcanzable directamente por HTTP en <code>8080</code>.</li>
-<li>Una regla de host por defecto rutea headers <code>Host</code> desconocidos a una app de admin.</li>
-<li>La app confía en <code>X-Forwarded-Proto: https</code>, permitiendo que un atacante haga que los links generados o las decisiones de seguridad mientan.</li>
-<li><code>/actuator/health</code> está pensado para el load balancer pero expone el estado de la base de datos y las dependencias públicamente.</li>
-<li>Un target group obsoleto todavía incluye un build de debug con errores verbosos.</li>
-</ul>
-<h2 id="notas-relacionadas">Notas relacionadas</h2>
-<ul>
-<li><a href="reverse-proxies.html">Reverse proxies</a> — normalización HTTP más profunda y desacuerdo de parser.</li>
-<li><a href="client-ip-trust.html">Confianza en la IP del cliente</a> — semántica de la IP de cliente forwarded.</li>
-<li><a href="tls-https.html">TLS/HTTPS</a> — postura de TLS en edge y backend.</li>
-<li><a href="firewalls-and-network-boundaries.html">Firewalls y fronteras de red</a> — bloquear la alcanzabilidad directa al backend.</li>
-<li><a href="http-headers.html">Headers HTTP</a> — headers de forwarding y política.</li>
-<li><a href="service-enumeration.html">Enumeración de servicios</a> — identificar el comportamiento del load balancer y el backend.</li>
-</ul>
-<h3 id="notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</h3>
-<ul>
-<li><span class="unresolved-link">Bypass directo al origin</span></li>
-<li><span class="unresolved-link">Health checks de load balancer</span></li>
-<li><span class="unresolved-link">Deriva de target groups</span></li>
-<li><span class="unresolved-link">TLS en edge vs origin</span></li>
-<li><span class="unresolved-link">Ruteo basado en host</span></li>
-<li><span class="unresolved-link">Sticky sessions</span></li>
-</ul>
-<h2 id="referencias">Referencias</h2>
-<ul>
-<li><strong>Foundational:</strong> MDN HTTPS — https://developer.mozilla.org/en-US/docs/Glossary/HTTPS</li>
-<li><strong>Foundational:</strong> MDN HTTP headers — https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers</li>
-<li><strong>Testing / Lab:</strong> PortSwigger Web Security Academy — https://portswigger.net/web-security</li>
-<li><strong>Research / Deep Dive:</strong> James Kettle, &quot;Practical Web Cache Poisoning&quot; — https://portswigger.net/research/practical-web-cache-poisoning</li>
-</ul>
+<h2>Ejemplos prácticos</h2>
+<h2>Notas relacionadas</h2>
+<h3>Notas atómicas futuras sugeridas</h3>
+<h2>Referencias</h2>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="http-overview.html"><span class="nav-dir">← Previous</span><strong>Panorama de HTTP</strong></a><a class="branch-nav-link next" href="nat-and-private-networks.html"><span class="nav-dir">Next →</span><strong>NAT y redes privadas</strong></a></nav>
 <section class="related-notes" aria-label="Notas relacionadas">
 <h2>Notas relacionadas</h2>
 <div class="related-grid">
-<a class="related-card" href="caching-and-security.html"><span>Redes</span><strong>Caché y seguridad</strong><small>El caché es el reuso de responses generadas previamente por navegadores, CDNs, reverse proxies, intermediarios compartidos o capas de aplicación. El caché se vuelve un problema de seguridad cuando una response se almacena, se le hace clave, se varía o se invalida de forma distinta a como la aplicación espera.</small></a>
-<a class="related-card" href="client-ip-trust.html"><span>Redes</span><strong>Confianza en la IP del cliente</strong><small>La confianza en la IP del cliente es la pregunta de qué IP trata una aplicación como &quot;el cliente&quot; cuando las requests pasan por cualquier intermediario — reverse proxy, load balancer, CDN, WAF o sidecar de service-mesh. El bug rara vez es &quot;leímos el header equivocado&quot;. El bug es que la traducción de confianza entre la identidad de red y la identidad de header HTTP no está auditada: el proxy dice una verdad, el backend cree otra distinta y el atacante elige cuál.</small></a>
-<a class="related-card" href="metadata-endpoints.html"><span>Redes</span><strong>Endpoints de metadata de instancias de nube</strong><small>Los endpoints de metadata de instancia de nube son servicios HTTP hospedados por el proveedor de nube en una dirección link-local (típicamente 169.254.169.254) que cualquier proceso corriendo dentro de la máquina virtual puede consultar sin autenticación. Exponen información sobre la instancia — región, identidad, user-data — y, críticamente, credenciales IAM de vida corta para el rol adjunto a la instancia. La misma primitiva existe en cada nube mayor, con diferencias sutiles de protocolo que importan para el tooling del atacante y para los defensores que escriben allowlists de SSRF.</small></a>
-<a class="related-card" href="cookies-and-sessions.html"><span>Redes</span><strong>Cookies y sesiones</strong><small>Las cookies son estado cargado por headers HTTP que los navegadores guardan y adjuntan automáticamente a requests posteriores. Las sesiones son el modelo de continuidad del lado del servidor o respaldado por token que le permite a una aplicación reconocer &quot;al mismo usuario&quot; a través de requests HTTP que de otro modo no tienen estado.</small></a>
-<a class="related-card" href="dangling-dns-records.html"><span>Redes</span><strong>Registros DNS colgantes</strong><small>Los registros DNS colgantes son entradas de DNS que todavía apuntan a infraestructura, recursos de nube, mapeos de SaaS, buckets de almacenamiento, distribuciones de CDN u objetivos de servicio que ya no existen o ya no están controlados por el dueño previsto.</small></a>
-<a class="related-card" href="dns-resolution.html"><span>Redes</span><strong>Resolución DNS</strong><small>La resolución DNS es el proceso de lookup que convierte un nombre legible por humanos, como app.example.com, en los registros que un cliente necesita para elegir un destino: registros de dirección, alias, mail exchangers, registros de servicio, registros de texto y cadenas de delegación específicas del proveedor.</small></a>
+<a class="related-card" href="caching-and-security.html"><span>Redes</span><strong>Caché y seguridad</strong><small>El caché es el reuso de responses generadas previamente por navegadores, CDNs, reverse proxies, intermediarios compartidos o capas de aplicación. El caché se...</small></a>
+<a class="related-card" href="client-ip-trust.html"><span>Redes</span><strong>Confianza en la IP del cliente</strong><small>La confianza en la IP del cliente es la pregunta de **qué IP trata una aplicación como &quot;el cliente&quot;** cuando las requests pasan por cualquier intermediario —...</small></a>
+<a class="related-card" href="metadata-endpoints.html"><span>Redes</span><strong>Endpoints de metadata de instancias de nube</strong><small>Los endpoints de metadata de instancia de nube son servicios HTTP hospedados por el proveedor de nube en una **dirección link-local** (típicamente 169.254.169.254)...</small></a>
+<a class="related-card" href="cookies-and-sessions.html"><span>Redes</span><strong>Cookies y sesiones</strong><small>Las cookies son estado cargado por headers HTTP que los navegadores guardan y adjuntan automáticamente a requests posteriores. Las sesiones son el modelo de...</small></a>
+<a class="related-card" href="dangling-dns-records.html"><span>Redes</span><strong>Registros DNS colgantes</strong><small>Los registros DNS colgantes son entradas de DNS que todavía apuntan a infraestructura, recursos de nube, mapeos de SaaS, buckets de almacenamiento, distribuciones...</small></a>
+<a class="related-card" href="dns-resolution.html"><span>Redes</span><strong>Resolución DNS</strong><small>La resolución DNS es el proceso de lookup que convierte un nombre legible por humanos, como app.example.com, en los registros que un cliente necesita para elegir...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definicion">Definición</a>
-<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
-<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
-<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
-<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
-<a class="toc-level-3" href="#1-bypass-directo-al-backend">1. Bypass directo al backend</a>
-<a class="toc-level-3" href="#2-huecos-de-terminacion-de-tls">2. Huecos de terminación de TLS</a>
-<a class="toc-level-3" href="#3-confusion-de-confianza-de-headers">3. Confusión de confianza de headers</a>
-<a class="toc-level-3" href="#4-errores-de-reglas-de-ruteo">4. Errores de reglas de ruteo</a>
-<a class="toc-level-3" href="#5-exposicion-de-health-check">5. Exposición de health-check</a>
-<a class="toc-level-3" href="#6-target-groups-obsoletos-o-mezclados">6. Target groups obsoletos o mezclados</a>
-<a class="toc-level-2" href="#impacto">Impacto</a>
-<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
-<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
-<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
-<a class="toc-level-3" href="#fingerprintear-el-punto-de-entrada">Fingerprintear el punto de entrada</a>
-<a class="toc-level-3" href="#comparar-el-ruteo-por-host-path">Comparar el ruteo por host/path</a>
-<a class="toc-level-3" href="#sondear-el-manejo-de-headers-forwarded">Sondear el manejo de headers forwarded</a>
-<a class="toc-level-3" href="#testear-la-alcanzabilidad-directa-al-backend">Testear la alcanzabilidad directa al backend</a>
-<a class="toc-level-3" href="#inspeccionar-la-exposicion-de-health-check">Inspeccionar la exposición de health-check</a>
-<a class="toc-level-3" href="#comparar-los-logs-del-load-balancer-y-del-backend">Comparar los logs del load balancer y del backend</a>
-<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
-<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
-<a class="toc-level-3" href="#notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</a>
-<a class="toc-level-2" href="#referencias">Referencias</a>
-<a class="back-to-top" href="#top">Volver arriba</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

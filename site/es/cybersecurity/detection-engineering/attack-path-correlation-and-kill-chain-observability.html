@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Attack Path Correlation and Kill Chain Observability | ldamoredev Security Atlas</title>
-<meta name="description" content="La correlación de attack paths es la detección y reconstrucción de relaciones entre eventos a lo largo de una secuencia adversaria, como recon, explotación, ...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Ingeniería de Detección, Attack Path Correlation and Kill Chain Observability, detection-engineering, attack-path, kill-chain, correlation">
-<meta name="theme-color" content="#16a34a">
+<title>Attack Path Correlation and Kill Chain Observability - Ingeniería de Detección | Cybersecurity Atlas</title>
+<meta name="description" content="La correlación de attack paths es la detección y reconstrucción de relaciones entre eventos a lo largo de una secuencia adversaria, como recon, explotación...">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Ingeniería de Detección, Attack Path Correlation and Kill Chain Observability">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/attack-path-correlation-and-kill-chain-observability.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Ingeniería de Detección">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Attack Path Correlation and Kill Chain Observability | ldamoredev Security Atlas">
-<meta property="og:description" content="La correlación de attack paths es la detección y reconstrucción de relaciones entre eventos a lo largo de una secuencia adversaria, como recon, explotación, ...">
+<meta property="og:title" content="Attack Path Correlation and Kill Chain Observability - Ingeniería de Detección | Cybersecurity Atlas">
+<meta property="og:description" content="La correlación de attack paths es la detección y reconstrucción de relaciones entre eventos a lo largo de una secuencia adversaria, como recon, explotación...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/attack-path-correlation-and-kill-chain-observability.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Attack Path Correlation and Kill Chain Observability | ldamoredev Security Atlas">
-<meta name="twitter:description" content="La correlación de attack paths es la detección y reconstrucción de relaciones entre eventos a lo largo de una secuencia adversaria, como recon, explotación, ...">
+<meta name="twitter:title" content="Attack Path Correlation and Kill Chain Observability - Ingeniería de Detección | Cybersecurity Atlas">
+<meta name="twitter:description" content="La correlación de attack paths es la detección y reconstrucción de relaciones entre eventos a lo largo de una secuencia adversaria, como recon, explotación...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/attack-path-correlation-and-kill-chain-observability.html#article","name":"Attack Path Correlation and Kill Chain Observability | ldamoredev Security Atlas","headline":"Attack Path Correlation and Kill Chain Observability","description":"La correlación de attack paths es la detección y reconstrucción de relaciones entre eventos a lo largo de una secuencia adversaria, como recon, explotación, ...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/attack-path-correlation-and-kill-chain-observability.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/attack-path-correlation-and-kill-chain-observability.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Ingeniería de Detección","Attack Path Correlation and Kill Chain Observability","detection-engineering","attack-path","kill-chain","correlation"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Ingeniería de Detección","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/index.html"},{"@type":"ListItem","position":4,"name":"Attack Path Correlation and Kill Chain Observability","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/attack-path-correlation-and-kill-chain-observability.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/attack-path-correlation-and-kill-chain-observability.html#article","name":"Attack Path Correlation and Kill Chain Observability - Ingeniería de Detección | Cybersecurity Atlas","headline":"Attack Path Correlation and Kill Chain Observability","description":"La correlación de attack paths es la detección y reconstrucción de relaciones entre eventos a lo largo de una secuencia adversaria, como recon, explotación...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/attack-path-correlation-and-kill-chain-observability.html","inLanguage":"es","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/attack-path-correlation-and-kill-chain-observability.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Ingeniería de Detección","Attack Path Correlation and Kill Chain Observability"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Ingeniería de Detección","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/index.html"},{"@type":"ListItem","position":4,"name":"Attack Path Correlation and Kill Chain Observability","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/attack-path-correlation-and-kill-chain-observability.html"}]}]</script>
+<meta property="article:section" content="Ingeniería de Detección">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/attack-path-correlation-and-kill-chain-observability.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/attack-path-correlation-and-kill-chain-observability.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/attack-path-correlation-and-kill-chain-observability.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Base de Conocimiento</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Superficie de ataque y señal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Inicio del Atlas</a>
 <div class="sidebar-section"><h3>Capa de entrada</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Fase 2 — Offense / Defense (en pares)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Fase 3 — Superficie de operador (concepto -&gt; capacidad)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Fase 4 — Specialty Tracks (elegí lo que tu trabajo demande)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Ruta de aprendizaje</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Resumen</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="La dualidad atacante-defensor como herramienta de aprendizaje">La dualidad atacante-defensor como herramienta de apr…</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Las certificaciones como señales de validación">Las certificaciones como señales de validación</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="Tríada CIA — Qué decide en realidad">Tríada CIA — Qué decide en realidad</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Especialización por contexto de trabajo">Especialización por contexto de trabajo</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Alfabetización mínima viable en ciberseguridad">Alfabetización mínima viable en ciberseguridad</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Arranque rápido de modelado de amenazas">Arranque rápido de modelado de amenazas</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="Qué es la ciberseguridad, y por qué no es una lista de herramientas">Qué es la ciberseguridad, y por qué no es una lista d…</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Criptografía</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Resumen</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -84,11 +93,11 @@
 <a class="nav-leaf" href="../cryptography/password-hashing.html" title="Password Hashing">Password Hashing</a>
 <a class="nav-leaf" href="../cryptography/post-quantum-awareness.html" title="Post-Quantum Awareness">Post-Quantum Awareness</a>
 <a class="nav-leaf" href="../cryptography/random-and-csprng-pitfalls.html" title="Random and CSPRNG Pitfalls">Random and CSPRNG Pitfalls</a>
-<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll Your Own Crypto Failures">Roll Your Own Crypto Failures</a>
+<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll-Your-Own Crypto Failures">Roll-Your-Own Crypto Failures</a>
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Resumen</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caché y seguridad">Caché y seguridad</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Confianza en la IP del cliente">Confianza en la IP del cliente</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="Resolución DNS">Resolución DNS</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="Seguridad de DNS">Seguridad de DNS</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls y fronteras de red">Firewalls y fronteras de red</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Confianza en headers en Node Express">Confianza en headers en Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="Headers HTTP">Headers HTTP</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="Mensajes HTTP">Mensajes HTTP</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS y HTTPS">TLS y HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Flujos de trabajo con Wireshark">Flujos de trabajo con Wireshark</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Resumen</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Fallas de autenticación">Fallas de autenticación</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Control de acceso roto">Control de acceso roto</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Fronteras de seguridad del navegador">Fronteras de seguridad del navegador</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Seguridad Ofensiva / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Resumen</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -162,7 +173,7 @@
 <a class="nav-leaf" href="../offensive-security/passive-recon.html" title="Passive Recon">Passive Recon</a>
 <a class="nav-leaf" href="../offensive-security/public-asset-discovery.html" title="Public Asset Discovery">Public Asset Discovery</a>
 <a class="nav-leaf" href="../offensive-security/recon.html" title="Recon">Recon</a>
-<a class="nav-leaf" href="../offensive-security/recon-to-testing-handoff.html" title="Recon to Testing Handoff">Recon to Testing Handoff</a>
+<a class="nav-leaf" href="../offensive-security/recon-to-testing-handoff.html" title="Recon-to-Testing Handoff">Recon-to-Testing Handoff</a>
 <a class="nav-leaf" href="../offensive-security/rustscan-and-nse-pipeline.html" title="RustScan and NSE Pipeline">RustScan and NSE Pipeline</a>
 <a class="nav-leaf" href="../offensive-security/scope-validation.html" title="Scope Validation">Scope Validation</a>
 <a class="nav-leaf" href="../offensive-security/service-validation.html" title="Service Validation">Service Validation</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="El loop del operador">El loop del operador</a>
 </div></details>
-<details class="nav-branch accent-cyan active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="index.html">Resumen</a>
 <a class="nav-leaf active" href="attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="network-security-monitoring-discipline.html" title="Disciplina de Network Security Monitoring (NSM)">Disciplina de Network Security Monitoring (NSM)</a>
 <a class="nav-leaf" href="network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Mapeo de Superficie de Ataque</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Resumen</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,15 +238,16 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Resumen</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detectar la recolección de BloodHound">Detectar la recolección de BloodHound</a>
-<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detect DCSync and ntds.dit Access">Detect DCSync and ntds.dit Access</a>
+<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detectar DCSync y acceso a ntds.dit">Detectar DCSync y acceso a ntds.dit</a>
 <a class="nav-leaf" href="../security-playbooks/detect-external-scan-pipeline.html" title="Detect External Recon Scan Pipeline">Detect External Recon Scan Pipeline</a>
-<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
+<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detectar Kerberoasting y AS-REP Roasting">Detectar Kerberoasting y AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -293,8 +306,8 @@
 <details class="nav-branch accent-green"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="nb-name">DevSecOps</span></span><span class="nb-right"><span class="count">13</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../devsecops/index.html">Resumen</a>
 <a class="nav-leaf" href="../devsecops/artifact-integrity.html" title="Artifact Integrity">Artifact Integrity</a>
-<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS as Dev Process Input">ASVS as Dev Process Input</a>
-<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Branch Protection and Release Controls">Branch Protection and Release Controls</a>
+<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS como input del proceso de desarrollo">ASVS como input del proceso de desarrollo</a>
+<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Protección de ramas y controles de release">Protección de ramas y controles de release</a>
 <a class="nav-leaf" href="../devsecops/ci-cd-hardening.html" title="CI/CD Hardening">CI/CD Hardening</a>
 <a class="nav-leaf" href="../devsecops/container-security.html" title="Container Security">Container Security</a>
 <a class="nav-leaf" href="../devsecops/dependency-risk.html" title="Dependency Risk">Dependency Risk</a>
@@ -372,7 +385,7 @@
 <div class="sidebar-section"><h3>Sistema de referencia</h3>
 <details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="ns-name">Registros</span></span><span class="ns-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <a class="nav-child" href="../reference-registry.html"><span class="nc-left"><span class="nc-name">Cybersecurity Reference Registry</span></span></a>
-<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Reference Registry - Detection Engineering</span></span></a>
+<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Registro de Referencia - Ingeniería de Detección</span></span></a>
 <a class="nav-child" href="../reference-registry-privacy-anonymity-opsec.html"><span class="nc-left"><span class="nc-name">Reference Registry - Privacy, Anonymity &amp; OPSEC</span></span></a>
 <a class="nav-child" href="../reference-registry-api-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — API Security</span></span></a>
 <a class="nav-child" href="../reference-registry-attack-surface-mapping.html"><span class="nc-left"><span class="nc-name">Reference Registry — Attack Surface Mapping</span></span></a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>actualizado · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>actualizado · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -410,205 +423,86 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Attack Path Correlation and Kill Chain Observability</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Ingeniería de Detección</a><span>/</span><span>Attack Path Correlation and Kill Chain Observability</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-cyan">Ingeniería de Detección</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~5 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#detection-engineering</span><span class="meta-chip tag">#attack-path</span><span class="meta-chip tag">#kill-chain</span><span class="meta-chip tag">#correlation</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-cyan">Ingeniería de Detección</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~6 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="attack-path-correlation-and-kill-chain-observability">Attack Path Correlation and Kill Chain Observability</h1>
-<h2 id="definicion">Definición</h2>
+<h1>Attack Path Correlation and Kill Chain Observability</h1>
+<h2>Definición</h2>
 <p>La correlación de attack paths es la detección y reconstrucción de relaciones entre eventos a lo largo de una secuencia adversaria, como recon, explotación, persistencia, escalada de privilegios, movimiento lateral, recolección y exfiltración.</p>
-<h2 id="por-que-importa">Por qué importa</h2>
+<h2>Por qué importa</h2>
 <p>La detección moderna suele detectar relaciones entre eventos, no eventos aislados. Un único login fallido, scan, lanzamiento de PowerShell, llamada a una API cloud o conexión TLS saliente puede ser débil. La secuencia puede ser decisiva.</p>
 <p>Los modelos de kill chain y ATT&amp;CK son útiles porque obligan a los defensores a preguntarse cómo un evento cambia el significado de otro. Son limitados porque los ataques reales hacen loops, saltean etapas, usan workflows legítimos y cruzan límites de identidad, endpoint, red, cloud y SaaS.</p>
-<h2 id="como-funciona">Cómo funciona</h2>
-<p>La observabilidad de attack paths usa <strong>6 capas de correlación</strong>:</p>
-<ol>
-<li><strong>Mapeo de etapas.</strong> Agrupar eventos por propósito: recon, acceso inicial, ejecución, persistencia, escalada de privilegios, evasión de defensas, acceso a credenciales, discovery, movimiento lateral, recolección, exfiltración.</li>
-<li><strong>Costura de entidades.</strong> Rastrear usuarios, dispositivos, árboles de procesos, IPs, sesiones, recursos cloud, tokens y service accounts.</li>
-<li><strong>Correlación por ventana temporal.</strong> Vincular señales débiles dentro de un tempo de ataque plausible.</li>
-<li><strong>Joins multisensor.</strong> Combinar EDR, Zeek, Suricata, NetFlow, identidad, cloud, proxy, DNS, aplicación y datos de tickets/cambios.</li>
-<li><strong>Razonamiento de grafo.</strong> Modelar relaciones: user -&gt; host -&gt; process -&gt; destination -&gt; credential -&gt; cloud role -&gt; data store.</li>
-<li><strong>Reconstrucción de timeline.</strong> Construir una cadena cronológica de evidencia que explique qué pasó y qué sigue incierto.</li>
-</ol>
+<h2>Cómo funciona</h2>
+<p>La observabilidad de attack paths usa **6 capas de correlación**:</p>
+<p>1. **Mapeo de etapas.** Agrupar eventos por propósito: recon, acceso inicial, ejecución, persistencia, escalada de privilegios, evasión de defensas, acceso a credenciales, discovery, movimiento lateral, recolección, exfiltración. 2. **Costura de entidades.** Rastrear usuarios, dispositivos, árboles de procesos, IPs, sesiones, recursos cloud, tokens y service accounts. 3. **Correlación por ventana temporal.** Vincular señales débiles dentro de un tempo de ataque plausible. 4. **Joins multisensor.** Combinar EDR, Zeek, Suricata, NetFlow, identidad, cloud, proxy, DNS, aplicación y datos de tickets/cambios. 5. **Razonamiento de grafo.** Modelar relaciones: user -&gt; host -&gt; process -&gt; destination -&gt; credential -&gt; cloud role -&gt; data store. 6. **Reconstrucción de timeline.** Construir una cadena cronológica de evidencia que explique qué pasó y qué sigue incierto.</p>
 <p>Ejemplo:</p>
-<div class="codehilite"><pre><span></span><code>09:00 external scan finds /admin
-09:12 web exploit probe returns 500
-09:14 web process launches shell
-09:16 host contacts metadata endpoint
-09:22 new cloud API calls enumerate storage
-09:40 unusual egress to external host
-</code></pre></div>
+<p>``` 09:00 external scan finds /admin 09:12 web exploit probe returns 500 09:14 web process launches shell 09:16 host contacts metadata endpoint 09:22 new cloud API calls enumerate storage 09:40 unusual egress to external host ```</p>
 <p>Ningún evento por sí solo prueba todo el incidente. El path sí.</p>
-<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
-<ul>
-<li><strong>Acumulación de señales débiles.</strong> Elevar combinaciones que solas son de baja severidad pero juntas tienen alto significado.</li>
-<li><strong>Encadenamiento de alertas.</strong> Conectar alertas por host, usuario, proceso, IP, recurso cloud o sesión compartida.</li>
-<li><strong>Seguimiento de pivots de identidad.</strong> Seguir el uso de cuentas a través de hosts, VPN, cloud, SaaS y acciones privilegiadas.</li>
-<li><strong>Timelines de linaje de procesos.</strong> Rastrear cadenas padre-hijo y efectos laterales de red/archivo.</li>
-<li><strong>Detección basada en grafos.</strong> Detectar recorridos inusuales por grafos de identidad, red, host y acceso a datos.</li>
-<li><strong>Mapeo de cobertura de kill chain.</strong> Identificar qué etapas tienen telemetría y cuáles están ciegas.</li>
-</ul>
-<h2 id="perspectiva-del-atacante">Perspectiva del atacante</h2>
+<h2>Técnicas / patrones</h2>
+<ul><li>**Acumulación de señales débiles.** Elevar combinaciones que solas son de baja severidad pero juntas tienen alto significado.</li><li>**Encadenamiento de alertas.** Conectar alertas por host, usuario, proceso, IP, recurso cloud o sesión compartida.</li><li>**Seguimiento de pivots de identidad.** Seguir el uso de cuentas a través de hosts, VPN, cloud, SaaS y acciones privilegiadas.</li><li>**Timelines de linaje de procesos.** Rastrear cadenas padre-hijo y efectos laterales de red/archivo.</li><li>**Detección basada en grafos.** Detectar recorridos inusuales por grafos de identidad, red, host y acceso a datos.</li><li>**Mapeo de cobertura de kill chain.** Identificar qué etapas tienen telemetría y cuáles están ciegas.</li></ul>
+<h2>Perspectiva del atacante</h2>
 <p>Los atacantes piensan en paths. Pueden empezar con recon, explotar un servicio, obtener credenciales, moverse lateralmente, escalar privilegios, persistir, recolectar y exfiltrar. También hacen loops: un exploit fallido lleva a más recon; credenciales descubiertas abren paths nuevos; la identidad cloud cambia la ruta.</p>
 <p>Intentan romper la correlación estirando el tiempo, cambiando cuentas, moviéndose por infraestructura compartida, usando herramientas legítimas y cruzando límites de telemetría.</p>
-<h2 id="perspectiva-del-defensor">Perspectiva del defensor</h2>
+<h2>Perspectiva del defensor</h2>
 <p>Los defensores necesitan reconstruir paths bajo incertidumbre. Un buen programa de detección no requiere que cada etapa dispare. Acumula señales débiles y le da al analista un timeline, entidades, evidencia faltante y pivots siguientes.</p>
-<h2 id="tradeoffs-de-deteccion-e-ingenieria">Tradeoffs de detección e ingeniería</h2>
-<ol>
-<li><strong>Precisión de evento único vs recall de secuencia.</strong><br>
-Los eventos únicos pueden ser precisos pero perder cadenas lentas. Las secuencias capturan más pero arriesgan joins falsos.</li>
-<li><strong>Ventanas cortas vs dwell time del atacante.</strong><br>
-Las ventanas cortas reducen ruido; las largas capturan tempos de ataque realistas.</li>
-<li><strong>Riqueza de grafo vs complejidad operacional.</strong><br>
-Los modelos de grafo revelan paths pero requieren fuerte resolución de entidades y calidad de datos.</li>
-<li><strong>Modelos de etapa vs ataques reales.</strong><br>
-Kill chains y ATT&amp;CK ayudan a estructurar el pensamiento, pero los atacantes no obedecen un orden limpio.</li>
-<li><strong>Automatización vs criterio del analista.</strong><br>
-El chaining automatizado puede priorizar, pero los analistas deben validar causalidad y scope.</li>
-</ol>
-<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<h2>Tradeoffs de detección e ingeniería</h2>
+<p>1. **Precisión de evento único vs recall de secuencia.**    Los eventos únicos pueden ser precisos pero perder cadenas lentas. Las secuencias capturan más pero arriesgan joins falsos.</p>
+<p>2. **Ventanas cortas vs dwell time del atacante.**    Las ventanas cortas reducen ruido; las largas capturan tempos de ataque realistas.</p>
+<p>3. **Riqueza de grafo vs complejidad operacional.**    Los modelos de grafo revelan paths pero requieren fuerte resolución de entidades y calidad de datos.</p>
+<p>4. **Modelos de etapa vs ataques reales.**    Kill chains y ATT&amp;CK ayudan a estructurar el pensamiento, pero los atacantes no obedecen un orden limpio.</p>
+<p>5. **Automatización vs criterio del analista.**    El chaining automatizado puede priorizar, pero los analistas deben validar causalidad y scope.</p>
+<h2>Detección y defensa</h2>
 <p>Ordenado por efectividad:</p>
-<ol>
-<li><strong>Definí los attack paths que vale la pena detectar.</strong><br>
-Empezá con paths de alto riesgo: exploit público a shell, phishing a abuso de token, scan interno a movimiento lateral, metadata cloud a acceso a storage.</li>
-<li><strong>Instrumentá joins antes de escribir reglas de cadena.</strong><br>
-La correlación necesita usuarios, hosts, process IDs, cloud IDs, flow IDs, timestamps y contexto de assets estables.</li>
-<li><strong>Usá señales débiles como componentes de cadena.</strong><br>
-Las alertas de baja confianza se vuelven útiles cuando preceden o siguen comportamiento relacionado.</li>
-<li><strong>Construí salidas tipo timeline.</strong><br>
-Las detecciones deberían producir evidencia legible para un analista: eventos ordenados, entidades, confianza, gaps y pivots recomendados.</li>
-<li><strong>Testeá contra paths simulados.</strong><br>
-Usá logs generados o ejercicios de lab para verificar si cada etapa es observable y si la cadena dispara.</li>
-</ol>
-<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
-<ul>
-<li><strong>Solo detección de evento único.</strong> Muchos ataques parecen benignos evento por evento.</li>
-<li><strong>Orden rígido de kill chain.</strong> Las intrusiones reales hacen loops, saltean etapas y paralelizan.</li>
-<li><strong>Mapeo ATT&amp;CK sin telemetría.</strong> Los nombres de técnicas no crean visibilidad.</li>
-<li><strong>Graph analytics con malos joins de identidad.</strong> Los joins incorrectos producen narrativas falsas convincentes.</li>
-<li><strong>Ignorar etapas faltantes.</strong> Un timeline parcial debería nombrar gaps de telemetría en vez de fingir certeza.</li>
-</ul>
-<h3 id="malentendidos-operacionales">Malentendidos operacionales</h3>
-<ul>
-<li><strong>&quot;Una alerta equivale a un incidente.&quot;</strong> Los incidentes suelen ser clusters de eventos.</li>
-<li><strong>&quot;Sin alerta de exploit significa sin compromiso.&quot;</strong> El acceso inicial puede haberse perdido mientras el comportamiento posterior es visible.</li>
-<li><strong>&quot;Kill chain significa lineal.&quot;</strong> Es un modelo de pensamiento, no una ley física del ataque.</li>
-<li><strong>&quot;La detección por grafo es contexto automático.&quot;</strong> Los grafos son tan buenos como la resolución de entidades y los timestamps.</li>
-</ul>
-<h3 id="limitaciones-modernas">Limitaciones modernas</h3>
-<ul>
-<li>Los logs de cloud, SaaS, endpoint y red tienen distintos delays e identificadores.</li>
-<li>Los dwell times largos desafían la retención y las ventanas de correlación.</li>
-<li>Los atacantes usan identidades y herramientas admin legítimas, creando paths ambiguos.</li>
-<li>Las restricciones de privacidad y costo pueden limitar la reconstrucción completa del timeline.</li>
-</ul>
-<h3 id="puntos-ciegos-de-telemetria">Puntos ciegos de telemetría</h3>
-<ul>
-<li>Logs de identidad faltantes, ausencia de cobertura de endpoint, sin visibilidad east-west, retención corta.</li>
-<li>Sin process IDs o cloud resource IDs estables.</li>
-<li>Colapso por NAT/proxy que oculta la identidad fuente.</li>
-<li>Logs de auditoría SaaS que omiten detalle del objeto de datos.</li>
-<li>Clock skew entre sensores.</li>
-</ul>
-<h2 id="labs-practicos">Labs prácticos</h2>
+<p>1. **Definí los attack paths que vale la pena detectar.**    Empezá con paths de alto riesgo: exploit público a shell, phishing a abuso de token, scan interno a movimiento lateral, metadata cloud a acceso a storage.</p>
+<p>2. **Instrumentá joins antes de escribir reglas de cadena.**    La correlación necesita usuarios, hosts, process IDs, cloud IDs, flow IDs, timestamps y contexto de assets estables.</p>
+<p>3. **Usá señales débiles como componentes de cadena.**    Las alertas de baja confianza se vuelven útiles cuando preceden o siguen comportamiento relacionado.</p>
+<p>4. **Construí salidas tipo timeline.**    Las detecciones deberían producir evidencia legible para un analista: eventos ordenados, entidades, confianza, gaps y pivots recomendados.</p>
+<p>5. **Testeá contra paths simulados.**    Usá logs generados o ejercicios de lab para verificar si cada etapa es observable y si la cadena dispara.</p>
+<h3>Qué no funciona como defensa primaria</h3>
+<ul><li>**Solo detección de evento único.** Muchos ataques parecen benignos evento por evento.</li><li>**Orden rígido de kill chain.** Las intrusiones reales hacen loops, saltean etapas y paralelizan.</li><li>**Mapeo ATT&amp;CK sin telemetría.** Los nombres de técnicas no crean visibilidad.</li><li>**Graph analytics con malos joins de identidad.** Los joins incorrectos producen narrativas falsas convincentes.</li><li>**Ignorar etapas faltantes.** Un timeline parcial debería nombrar gaps de telemetría en vez de fingir certeza.</li></ul>
+<h3>Malentendidos operacionales</h3>
+<ul><li>**&quot;Una alerta equivale a un incidente.&quot;** Los incidentes suelen ser clusters de eventos.</li><li>**&quot;Sin alerta de exploit significa sin compromiso.&quot;** El acceso inicial puede haberse perdido mientras el comportamiento posterior es visible.</li><li>**&quot;Kill chain significa lineal.&quot;** Es un modelo de pensamiento, no una ley física del ataque.</li><li>**&quot;La detección por grafo es contexto automático.&quot;** Los grafos son tan buenos como la resolución de entidades y los timestamps.</li></ul>
+<h3>Limitaciones modernas</h3>
+<ul><li>Los logs de cloud, SaaS, endpoint y red tienen distintos delays e identificadores.</li><li>Los dwell times largos desafían la retención y las ventanas de correlación.</li><li>Los atacantes usan identidades y herramientas admin legítimas, creando paths ambiguos.</li><li>Las restricciones de privacidad y costo pueden limitar la reconstrucción completa del timeline.</li></ul>
+<h3>Puntos ciegos de telemetría</h3>
+<ul><li>Logs de identidad faltantes, ausencia de cobertura de endpoint, sin visibilidad east-west, retención corta.</li><li>Sin process IDs o cloud resource IDs estables.</li><li>Colapso por NAT/proxy que oculta la identidad fuente.</li><li>Logs de auditoría SaaS que omiten detalle del objeto de datos.</li><li>Clock skew entre sensores.</li></ul>
+<h2>Labs prácticos</h2>
 <p>Usá solo datos de timeline generados.</p>
-<h3 id="lab-1-reconstruir-un-timeline-de-ataque">Lab 1 - Reconstruir un timeline de ataque</h3>
+<h3>Lab 1 - Reconstruir un timeline de ataque</h3>
 <p>Objetivo: Construir una secuencia desde logs simulados.</p>
-<div class="codehilite"><pre><span></span><code>cat &gt; /tmp/attack-path.jsonl &lt;&lt;&#x27;EOF&#x27;
-{&quot;ts&quot;:&quot;2026-05-11T09:00:00Z&quot;,&quot;stage&quot;:&quot;recon&quot;,&quot;entity&quot;:&quot;198.51.100.10&quot;,&quot;event&quot;:&quot;scan /admin on web-1&quot;}
-{&quot;ts&quot;:&quot;2026-05-11T09:12:00Z&quot;,&quot;stage&quot;:&quot;exploit&quot;,&quot;entity&quot;:&quot;web-1&quot;,&quot;event&quot;:&quot;POST /upload returns 500 then web process spawns sh&quot;}
-{&quot;ts&quot;:&quot;2026-05-11T09:16:00Z&quot;,&quot;stage&quot;:&quot;credential_access&quot;,&quot;entity&quot;:&quot;web-1&quot;,&quot;event&quot;:&quot;curl 169.254.169.254 metadata token&quot;}
-{&quot;ts&quot;:&quot;2026-05-11T09:22:00Z&quot;,&quot;stage&quot;:&quot;discovery&quot;,&quot;entity&quot;:&quot;cloud-role-web&quot;,&quot;event&quot;:&quot;ListBuckets and GetCallerIdentity&quot;}
-{&quot;ts&quot;:&quot;2026-05-11T09:40:00Z&quot;,&quot;stage&quot;:&quot;exfiltration&quot;,&quot;entity&quot;:&quot;cloud-role-web&quot;,&quot;event&quot;:&quot;large object reads then external upload&quot;}
-EOF
-jq -r &#x27;[.ts,.stage,.entity,.event] | @tsv&#x27; /tmp/attack-path.jsonl | sort
-</code></pre></div>
+<p>``` cat &gt; /tmp/attack-path.jsonl &lt;&lt;&#x27;EOF&#x27; {&quot;ts&quot;:&quot;2026-05-11T09:00:00Z&quot;,&quot;stage&quot;:&quot;recon&quot;,&quot;entity&quot;:&quot;198.51.100.10&quot;,&quot;event&quot;:&quot;scan /admin on web-1&quot;} {&quot;ts&quot;:&quot;2026-05-11T09:12:00Z&quot;,&quot;stage&quot;:&quot;exploit&quot;,&quot;entity&quot;:&quot;web-1&quot;,&quot;event&quot;:&quot;POST /upload returns 500 then web process spawns sh&quot;} {&quot;ts&quot;:&quot;2026-05-11T09:16:00Z&quot;,&quot;stage&quot;:&quot;credential_access&quot;,&quot;entity&quot;:&quot;web-1&quot;,&quot;event&quot;:&quot;curl 169.254.169.254 metadata token&quot;} {&quot;ts&quot;:&quot;2026-05-11T09:22:00Z&quot;,&quot;stage&quot;:&quot;discovery&quot;,&quot;entity&quot;:&quot;cloud-role-web&quot;,&quot;event&quot;:&quot;ListBuckets and GetCallerIdentity&quot;} {&quot;ts&quot;:&quot;2026-05-11T09:40:00Z&quot;,&quot;stage&quot;:&quot;exfiltration&quot;,&quot;entity&quot;:&quot;cloud-role-web&quot;,&quot;event&quot;:&quot;large object reads then external upload&quot;} EOF jq -r &#x27;[.ts,.stage,.entity,.event] | @tsv&#x27; /tmp/attack-path.jsonl | sort ```</p>
 <p>Telemetría esperada: el timeline muestra un path desde recon hasta acceso a datos cloud. Los defensores observarían relaciones entre etapas, no solo eventos aislados. Limitación: la causalidad simulada debe validarse en logs reales. Malentendido corregido: &quot;las alertas únicas son suficientes.&quot;</p>
-<h3 id="lab-2-encadenar-senales-debiles-por-entidad">Lab 2 - Encadenar señales débiles por entidad</h3>
+<h3>Lab 2 - Encadenar señales débiles por entidad</h3>
 <p>Objetivo: Mostrar acumulación de señales débiles.</p>
-<div class="codehilite"><pre><span></span><code>cat &gt; /tmp/weak-signals.jsonl &lt;&lt;&#x27;EOF&#x27;
-{&quot;host&quot;:&quot;web-1&quot;,&quot;signal&quot;:&quot;rare 500 after upload&quot;,&quot;score&quot;:1}
-{&quot;host&quot;:&quot;web-1&quot;,&quot;signal&quot;:&quot;web process spawned shell&quot;,&quot;score&quot;:3}
-{&quot;host&quot;:&quot;web-1&quot;,&quot;signal&quot;:&quot;metadata endpoint access&quot;,&quot;score&quot;:3}
-{&quot;host&quot;:&quot;web-1&quot;,&quot;signal&quot;:&quot;new cloud API sequence&quot;,&quot;score&quot;:2}
-{&quot;host&quot;:&quot;dev-1&quot;,&quot;signal&quot;:&quot;single 404 on admin path&quot;,&quot;score&quot;:1}
-EOF
-jq -s &#x27;group_by(.host)[] | {host:.[0].host,total:(map(.score)|add),signals:map(.signal)} | select(.total&gt;=5)&#x27; /tmp/weak-signals.jsonl
-</code></pre></div>
+<p>``` cat &gt; /tmp/weak-signals.jsonl &lt;&lt;&#x27;EOF&#x27; {&quot;host&quot;:&quot;web-1&quot;,&quot;signal&quot;:&quot;rare 500 after upload&quot;,&quot;score&quot;:1} {&quot;host&quot;:&quot;web-1&quot;,&quot;signal&quot;:&quot;web process spawned shell&quot;,&quot;score&quot;:3} {&quot;host&quot;:&quot;web-1&quot;,&quot;signal&quot;:&quot;metadata endpoint access&quot;,&quot;score&quot;:3} {&quot;host&quot;:&quot;web-1&quot;,&quot;signal&quot;:&quot;new cloud API sequence&quot;,&quot;score&quot;:2} {&quot;host&quot;:&quot;dev-1&quot;,&quot;signal&quot;:&quot;single 404 on admin path&quot;,&quot;score&quot;:1} EOF jq -s &#x27;group_by(.host)[] | {host:.[0].host,total:(map(.score)|add),signals:map(.signal)} | select(.total&gt;=5)&#x27; /tmp/weak-signals.jsonl ```</p>
 <p>Telemetría esperada: las señales débiles se vuelven de alta prioridad cuando se acumulan en una entidad. Limitación: el scoring debe calibrarse. Malentendido corregido: &quot;baja severidad significa ignorar.&quot;</p>
-<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
-<ul>
-<li>Scan externo seguido de intentos de exploit y spawn de shell por EDR en el mismo servidor web.</li>
-<li>Login VPN desde geografía inusual seguido de discovery SMB interno y cambios de grupos privilegiados.</li>
-<li>Acceso a metadata cloud seguido de nueva enumeración de storage y lecturas grandes de objetos.</li>
-<li>Click de phishing seguido de OAuth consent, creación de regla de mailbox y forwarding externo.</li>
-<li>Scan de Nmap seguido de paths de exploit específicos de versión desde el mismo linaje de proceso.</li>
-</ul>
-<h2 id="notas-relacionadas">Notas relacionadas</h2>
-<ul>
-<li><a href="ids-ips-and-behavioral-detection-pipelines.html">Pipelines de IDS/IPS y detección de comportamiento</a></li>
-<li><a href="behavioral-detection-vs-signature-detection.html">Detección de comportamiento vs detección por firmas</a></li>
-<li><a href="telemetry-normalization-correlation-and-enrichment.html">Normalización, correlación y enrichment de telemetría</a></li>
-<li><a href="false-positives-false-negatives-and-detection-tradeoffs.html">Falsos positivos, falsos negativos y tradeoffs de detección</a></li>
-<li><a href="edr-network-observability-and-process-correlation.html">Observabilidad de red en EDR y correlación de procesos</a></li>
-<li><a href="network-telemetry-sources-and-visibility.html">Fuentes de telemetría de red y visibilidad</a></li>
-<li><a href="../identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html">Golden Ticket and KRBTGT Compromise</a></li>
-<li><a href="../identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">KRBTGT Rotation and Tier Zero Recovery</a></li>
-<li><a href="../offensive-security/active-recon.html">Active Recon</a></li>
-<li><a href="../security-playbooks/run-scan-pipeline.html">Ejecutar pipeline de scan externo de recon</a></li>
-</ul>
-<h3 id="notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</h3>
-<ul>
-<li>attack-graph-detection</li>
-<li>identity-pivot-tracking</li>
-<li>timeline-reconstruction-for-incident-response</li>
-<li>weak-signal-correlation</li>
-</ul>
-<h2 id="referencias">Referencias</h2>
-<ul>
-<li><strong>Fundamental:</strong> MITRE ATT&amp;CK Tactics - https://attack.mitre.org/tactics/enterprise/</li>
-<li><strong>Fundamental:</strong> MITRE ATT&amp;CK Detection Strategies - https://attack.mitre.org/detectionstrategies/</li>
-<li><strong>Investigación / Deep Dive:</strong> Elastic Higher-Order Detection Rules - https://www.elastic.co/security-labs/higher-order-detection-rules</li>
-<li><strong>Telemetry Schema:</strong> Microsoft Defender XDR DeviceNetworkEvents - https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-devicenetworkevents-table</li>
-</ul>
+<h2>Ejemplos prácticos</h2>
+<ul><li>Scan externo seguido de intentos de exploit y spawn de shell por EDR en el mismo servidor web.</li><li>Login VPN desde geografía inusual seguido de discovery SMB interno y cambios de grupos privilegiados.</li><li>Acceso a metadata cloud seguido de nueva enumeración de storage y lecturas grandes de objetos.</li><li>Click de phishing seguido de OAuth consent, creación de regla de mailbox y forwarding externo.</li><li>Scan de Nmap seguido de paths de exploit específicos de versión desde el mismo linaje de proceso.</li></ul>
+<h2>Notas relacionadas</h2>
+<ul><li>&lt;a href=&quot;ids-ips-and-behavioral-detection-pipelines.html&quot;&gt;Pipelines de IDS/IPS y detección de comportamiento&lt;/a&gt;</li><li>&lt;a href=&quot;behavioral-detection-vs-signature-detection.html&quot;&gt;Detección de comportamiento vs detección por firmas&lt;/a&gt;</li><li>&lt;a href=&quot;telemetry-normalization-correlation-and-enrichment.html&quot;&gt;Normalización, correlación y enrichment de telemetría&lt;/a&gt;</li><li>&lt;a href=&quot;false-positives-false-negatives-and-detection-tradeoffs.html&quot;&gt;Falsos positivos, falsos negativos y tradeoffs de detección&lt;/a&gt;</li><li>&lt;a href=&quot;edr-network-observability-and-process-correlation.html&quot;&gt;Observabilidad de red en EDR y correlación de procesos&lt;/a&gt;</li><li>&lt;a href=&quot;network-telemetry-sources-and-visibility.html&quot;&gt;Fuentes de telemetría de red y visibilidad&lt;/a&gt;</li><li>&lt;a href=&quot;../identity-and-active-directory/golden-ticket-and-krbtgt-compromise.html&quot;&gt;Golden Ticket and KRBTGT Compromise&lt;/a&gt;</li><li>&lt;a href=&quot;../identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html&quot;&gt;KRBTGT Rotation and Tier Zero Recovery&lt;/a&gt;</li><li>&lt;a href=&quot;../offensive-security/active-recon.html&quot;&gt;Active Recon&lt;/a&gt;</li><li>&lt;a href=&quot;../security-playbooks/run-scan-pipeline.html&quot;&gt;Ejecutar pipeline de scan externo de recon&lt;/a&gt;</li></ul>
+<h3>Notas atómicas futuras sugeridas</h3>
+<ul><li>attack-graph-detection</li><li>identity-pivot-tracking</li><li>timeline-reconstruction-for-incident-response</li><li>weak-signal-correlation</li></ul>
+<h2>Referencias</h2>
+<ul><li>**Fundamental:** MITRE ATT&amp;CK Tactics - https://attack.mitre.org/tactics/enterprise/</li><li>**Fundamental:** MITRE ATT&amp;CK Detection Strategies - https://attack.mitre.org/detectionstrategies/</li><li>**Investigación / Deep Dive:** Elastic Higher-Order Detection Rules - https://www.elastic.co/security-labs/higher-order-detection-rules</li><li>**Telemetry Schema:** Microsoft Defender XDR DeviceNetworkEvents - https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-devicenetworkevents-table</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><span class="branch-nav-spacer"></span><a class="branch-nav-link next" href="behavioral-detection-vs-signature-detection.html"><span class="nav-dir">Next →</span><strong>Behavioral Detection vs Signature Detection</strong></a></nav>
 <section class="related-notes" aria-label="Notas relacionadas">
 <h2>Notas relacionadas</h2>
 <div class="related-grid">
-<a class="related-card" href="ids-ips-and-behavioral-detection-pipelines.html"><span>Ingeniería de Detección</span><strong>IDS/IPS and Behavioral Detection Pipelines</strong><small>Un pipeline de IDS/IPS y detección de comportamiento es el camino ingenierizado desde la recolección de telemetría hasta lógica analítica, enrichment, correlación, alerting, triage, respuesta, supresión, tuning y retención de evidencia.</small></a>
-<a class="related-card" href="telemetry-normalization-correlation-and-enrichment.html"><span>Ingeniería de Detección</span><strong>Telemetry Normalization, Correlation, and Enrichment</strong><small>La normalización de telemetría mapea eventos heterogéneos a campos consistentes; el enrichment agrega contexto; la correlación cose eventos relacionados en evidencia higher-order.</small></a>
-<a class="related-card" href="behavioral-detection-vs-signature-detection.html"><span>Ingeniería de Detección</span><strong>Behavioral Detection vs Signature Detection</strong><small>La detección de comportamiento identifica actividad por lo que un actor o sistema hace a lo largo del tiempo, mientras que la detección por firma identifica artefactos conocidos, patrones de bytes, strings, hashes, formas de protocolo o eventos que coinciden con reglas.</small></a>
-<a class="related-card" href="detection-evasion-myths-and-modern-limitations.html"><span>Ingeniería de Detección</span><strong>Detection Evasion Myths and Modern Limitations</strong><small>Los mitos de evasión de detección son afirmaciones sobresimplificadas que confunden evitar un sensor o una firma con volverse invisible para el sistema completo de telemetría.</small></a>
-<a class="related-card" href="edr-network-observability-and-process-correlation.html"><span>Ingeniería de Detección</span><strong>EDR Network Observability and Process Correlation</strong><small>La observabilidad de red en EDR es la captura desde el endpoint de actividad relacionada con red, especialmente la capacidad de correlacionar sockets, conexiones, destinos, actividad tipo DNS y alertas con linaje de procesos, command lines, usuarios, hashes, sesiones e identidad del host.</small></a>
-<a class="related-card" href="encrypted-traffic-analysis-and-metadata-leakage.html"><span>Ingeniería de Detección</span><strong>Encrypted Traffic Analysis and Metadata Leakage</strong><small>El análisis de tráfico cifrado es la detección e investigación del comportamiento de comunicación usando metadata que sigue visible cuando el contenido del payload está protegido por TLS, QUIC, VPNs u otras capas de cifrado.</small></a>
+<a class="related-card" href="behavioral-detection-vs-signature-detection.html"><span>Ingeniería de Detección</span><strong>Behavioral Detection vs Signature Detection</strong><small>La detección de comportamiento identifica actividad por lo que un actor o sistema hace a lo largo del tiempo, mientras que la detección por firma identifica...</small></a>
+<a class="related-card" href="detection-evasion-myths-and-modern-limitations.html"><span>Ingeniería de Detección</span><strong>Detection Evasion Myths and Modern Limitations</strong><small>Los mitos de evasión de detección son afirmaciones sobresimplificadas que confunden evitar un sensor o una firma con volverse invisible para el sistema completo de...</small></a>
+<a class="related-card" href="edr-network-observability-and-process-correlation.html"><span>Ingeniería de Detección</span><strong>EDR Network Observability and Process Correlation</strong><small>La observabilidad de red en EDR es la captura desde el endpoint de actividad relacionada con red, especialmente la capacidad de correlacionar sockets, conexiones...</small></a>
+<a class="related-card" href="encrypted-traffic-analysis-and-metadata-leakage.html"><span>Ingeniería de Detección</span><strong>Encrypted Traffic Analysis and Metadata Leakage</strong><small>El análisis de tráfico cifrado es la detección e investigación del comportamiento de comunicación usando metadata que sigue visible cuando el contenido del payload...</small></a>
+<a class="related-card" href="false-positives-false-negatives-and-detection-tradeoffs.html"><span>Ingeniería de Detección</span><strong>False Positives, False Negatives, and Detection Tradeoffs</strong><small>Los falsos positivos son eventos benignos clasificados como sospechosos; los falsos negativos son eventos maliciosos o relevantes para una política que la...</small></a>
+<a class="related-card" href="from-local-exploit-to-detection.html"><span>Ingeniería de Detección</span><strong>From local exploit to detection</strong><small>Use a deliberately vulnerable local fixture with two tenants. The test changes only an object identifier while retaining a valid fixture session. The purpose is to...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definicion">Definición</a>
-<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
-<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
-<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
-<a class="toc-level-2" href="#perspectiva-del-atacante">Perspectiva del atacante</a>
-<a class="toc-level-2" href="#perspectiva-del-defensor">Perspectiva del defensor</a>
-<a class="toc-level-2" href="#tradeoffs-de-deteccion-e-ingenieria">Tradeoffs de detección e ingeniería</a>
-<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
-<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
-<a class="toc-level-3" href="#malentendidos-operacionales">Malentendidos operacionales</a>
-<a class="toc-level-3" href="#limitaciones-modernas">Limitaciones modernas</a>
-<a class="toc-level-3" href="#puntos-ciegos-de-telemetria">Puntos ciegos de telemetría</a>
-<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
-<a class="toc-level-3" href="#lab-1-reconstruir-un-timeline-de-ataque">Lab 1 - Reconstruir un timeline de ataque</a>
-<a class="toc-level-3" href="#lab-2-encadenar-senales-debiles-por-entidad">Lab 2 - Encadenar señales débiles por entidad</a>
-<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
-<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
-<a class="toc-level-3" href="#notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</a>
-<a class="toc-level-2" href="#referencias">Referencias</a>
-<a class="back-to-top" href="#top">Volver arriba</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

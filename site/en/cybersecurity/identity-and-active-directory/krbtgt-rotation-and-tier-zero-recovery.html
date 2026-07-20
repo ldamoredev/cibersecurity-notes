@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KRBTGT Rotation and Tier Zero Recovery - Identity &amp; Active Directory | ldamoredev Security Atlas</title>
+<title>KRBTGT Rotation and Tier Zero Recovery - Identity &amp; Active Directory | Cybersecurity Atlas</title>
 <meta name="description" content="KRBTGT rotation is the controlled reset of the domain&#x27;s krbtgt account password material so previously stolen Kerberos ticket-signing keys can no longer validate...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Identity &amp; Active Directory, KRBTGT Rotation and Tier Zero Recovery, active-directory, kerberos, krbtgt, incident-response, tier-zero">
-<meta name="theme-color" content="#16a34a">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Identity &amp; Active Directory, KRBTGT Rotation and Tier Zero Recovery">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Identity &amp; Active Directory">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:type" content="article">
-<meta property="og:title" content="KRBTGT Rotation and Tier Zero Recovery - Identity &amp; Active Directory | ldamoredev Security Atlas">
+<meta property="og:title" content="KRBTGT Rotation and Tier Zero Recovery - Identity &amp; Active Directory | Cybersecurity Atlas">
 <meta property="og:description" content="KRBTGT rotation is the controlled reset of the domain&#x27;s krbtgt account password material so previously stolen Kerberos ticket-signing keys can no longer validate...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="KRBTGT Rotation and Tier Zero Recovery - Identity &amp; Active Directory | ldamoredev Security Atlas">
+<meta name="twitter:title" content="KRBTGT Rotation and Tier Zero Recovery - Identity &amp; Active Directory | Cybersecurity Atlas">
 <meta name="twitter:description" content="KRBTGT rotation is the controlled reset of the domain&#x27;s krbtgt account password material so previously stolen Kerberos ticket-signing keys can no longer validate...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html#article","name":"KRBTGT Rotation and Tier Zero Recovery - Identity & Active Directory | ldamoredev Security Atlas","headline":"KRBTGT Rotation and Tier Zero Recovery","description":"KRBTGT rotation is the controlled reset of the domain's krbtgt account password material so previously stolen Kerberos ticket-signing keys can no longer validate...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html","inLanguage":"en","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identity & Active Directory","KRBTGT Rotation and Tier Zero Recovery","active-directory","kerberos","krbtgt","incident-response","tier-zero"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identity & Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"KRBTGT Rotation and Tier Zero Recovery","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html#article","name":"KRBTGT Rotation and Tier Zero Recovery - Identity & Active Directory | Cybersecurity Atlas","headline":"KRBTGT Rotation and Tier Zero Recovery","description":"KRBTGT rotation is the controlled reset of the domain's krbtgt account password material so previously stolen Kerberos ticket-signing keys can no longer validate...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html","inLanguage":"en","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Identity & Active Directory","KRBTGT Rotation and Tier Zero Recovery"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Identity & Active Directory","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/index.html"},{"@type":"ListItem","position":4,"name":"KRBTGT Rotation and Tier Zero Recovery","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html"}]}]</script>
+<meta property="article:section" content="Identity &amp; Active Directory">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/identity-and-active-directory/krbtgt-rotation-and-tier-zero-recovery.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Knowledge Base</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Attack Surface &amp; Signal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Atlas Home</a>
 <div class="sidebar-section"><h3>Entry layer</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Learning Path</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Overview</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="Attacker-Defender Duality as a Learning Tool">Attacker-Defender Duality as a Learning Tool</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Certifications as Validation Signals">Certifications as Validation Signals</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="CIA Triad — What It Actually Decides">CIA Triad — What It Actually Decides</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Job Context Specialization">Job Context Specialization</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Minimum Viable Cybersecurity Literacy">Minimum Viable Cybersecurity Literacy</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Threat Modeling Quickstart">Threat Modeling Quickstart</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="What Is Cybersecurity, and Why It Is Not a Tool List">What Is Cybersecurity, and Why It Is Not a Tool List</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Cryptography</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Overview</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -88,7 +97,7 @@
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Overview</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caching and Security">Caching and Security</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Client IP Trust">Client IP Trust</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="DNS Resolution">DNS Resolution</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="DNS Security">DNS Security</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls and Network Boundaries">Firewalls and Network Boundaries</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Header Trust in Node Express">Header Trust in Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="HTTP Headers">HTTP Headers</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="HTTP Messages">HTTP Messages</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS and HTTPS">TLS and HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Wireshark Workflows">Wireshark Workflows</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Overview</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Authentication Flaws">Authentication Flaws</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Broken Access Control">Broken Access Control</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Browser Security Boundaries">Browser Security Boundaries</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Offensive Security / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Overview</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="The Operator Loop">The Operator Loop</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Overview</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Network Security Monitoring Discipline">Network Security Monitoring Discipline</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Attack Surface Mapping</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Overview</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,7 +238,7 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Overview</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detect BloodHound Collection">Detect BloodHound Collection</a>
@@ -235,6 +247,7 @@
 <a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>updated · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>updated · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -412,267 +425,92 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Identity &amp; Active Directory</a><span>/</span><span>KRBTGT Rotation and Tier Zero Recovery</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-red">Identity &amp; Active Directory</span><span class="meta-chip meta-time" title="Estimated reading time">~8 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#active-directory</span><span class="meta-chip tag">#kerberos</span><span class="meta-chip tag">#krbtgt</span><span class="meta-chip tag">#incident-response</span><span class="meta-chip tag">#tier-zero</span><span class="meta-chip tag">#recovery</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-red">Identity &amp; Active Directory</span><span class="meta-chip meta-time" title="Estimated reading time">~8 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="krbtgt-rotation-and-tier-zero-recovery">KRBTGT Rotation and Tier Zero Recovery</h1>
-<h2 id="definition">Definition</h2>
-<p>KRBTGT rotation is the controlled reset of the domain's <code>krbtgt</code> account password material so previously stolen Kerberos ticket-signing keys can no longer validate forged Ticket Granting Tickets. It is not a normal password reset. After suspected <code>krbtgt</code> compromise, it is a Tier 0 recovery operation that must account for ticket lifetimes, password history, domain controller replication, trust relationships, privileged access hygiene, and operational outage risk.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p><a href="golden-ticket-and-krbtgt-compromise.html">Golden Ticket</a> compromise turns AD recovery into a trust-restoration problem. If the attacker has the <code>krbtgt</code> key, they may not need any live user password to authenticate. They can present forged TGTs that appear to belong to real users. Rotating every administrator password while leaving <code>krbtgt</code> unchanged fixes the wrong secret.</p>
+<h1>KRBTGT Rotation and Tier Zero Recovery</h1>
+<h2>Definition</h2>
+<p>KRBTGT rotation is the controlled reset of the domain&#x27;s `krbtgt` account password material so previously stolen Kerberos ticket-signing keys can no longer validate forged Ticket Granting Tickets. It is not a normal password reset. After suspected `krbtgt` compromise, it is a Tier 0 recovery operation that must account for ticket lifetimes, password history, domain controller replication, trust relationships, privileged access hygiene, and operational outage risk.</p>
+<h2>Why it matters</h2>
+<p>&lt;a href=&quot;golden-ticket-and-krbtgt-compromise.html&quot;&gt;Golden Ticket&lt;/a&gt; compromise turns AD recovery into a trust-restoration problem. If the attacker has the `krbtgt` key, they may not need any live user password to authenticate. They can present forged TGTs that appear to belong to real users. Rotating every administrator password while leaving `krbtgt` unchanged fixes the wrong secret.</p>
 <p>The recovery principle:</p>
-<div class="codehilite"><pre><span></span><code>If krbtgt is compromised, the domain cannot fully trust Kerberos TGTs
-until old krbtgt material is pushed out of validity and replication windows.
-</code></pre></div>
-
+<p>``` If krbtgt is compromised, the domain cannot fully trust Kerberos TGTs until old krbtgt material is pushed out of validity and replication windows. ```</p>
 <p>This makes recovery operationally delicate. Rotate too casually and forged tickets remain valid. Rotate too aggressively without replication and dependency planning and legitimate Kerberos authentication can break across the domain.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>KRBTGT recovery depends on <strong>6 mechanics</strong>:</p>
-<ol>
-<li><strong><code>krbtgt</code> signs and encrypts TGTs.</strong> The KDC uses <code>krbtgt</code> password-derived keys to protect TGTs. Services do not know the user's password; they trust Kerberos tickets.</li>
-<li><strong>Domain Controllers cache current and previous keys.</strong> AD keeps previous password material so existing tickets can continue working during normal rotation and replication.</li>
-<li><strong>One reset does not necessarily invalidate all forged tickets.</strong> A forged ticket made with the previous key can remain accepted until the second reset and ticket lifetime/replication windows expire.</li>
-<li><strong>Replication timing matters.</strong> Every DC must receive the new <code>krbtgt</code> password state before the next phase. A DC with stale material can continue validating old tickets or issue inconsistent responses.</li>
-<li><strong>Ticket lifetime matters.</strong> Existing TGTs and renewable tickets may continue until policy limits unless explicitly disrupted by key changes and operational controls.</li>
-<li><strong>Tier 0 containment must precede recovery.</strong> If attackers still control DCSync, DCs, Tier 0 admin sessions, or backups, they can simply steal the new key after rotation.</li>
-</ol>
-<p>The structural lesson is <em>KRBTGT rotation is a sequencing problem</em>. The reset command is small; the recovery operation around it is the work.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
-<ul>
-<li><strong>Contain before rotating.</strong> Remove or disable suspected DCSync principals, isolate compromised DCs, protect Tier 0 admin workstations, and stop active attacker access before changing the trust root.</li>
-<li><strong>Use the double-reset concept.</strong> First reset moves away from the known compromised key; second reset pushes the compromised key out of the previous-password slot. Wait for replication and ticket lifetimes between resets.</li>
-<li><strong>Validate replication between phases.</strong> Check DC convergence before the second reset. Multi-site domains and offline DCs are the classic failure points.</li>
-<li><strong>Assume backup exposure matters.</strong> If attackers accessed DC backups, snapshots, or <code>ntds.dit</code>, the recovery boundary includes backup protection and restoration paths.</li>
-<li><strong>Account for trusts.</strong> Forest trusts, child domains, external trusts, and SID filtering affect what forged tickets can access and which domains need recovery.</li>
-<li><strong>Separate admin identities.</strong> Use clean Tier 0 credentials from trusted PAWs. Do not perform recovery from a compromised workstation.</li>
-<li><strong>Monitor intensely during and after.</strong> Watch for replication requests, suspicious Kerberos failures, privileged logons, service outages, and old-ticket use.</li>
-<li><strong>Document rollback limits.</strong> Rolling back a DC snapshot after <code>krbtgt</code> rotation can reintroduce old secret material. Recovery plans need explicit anti-rollback controls.</li>
-</ul>
-<h2 id="variants-and-operational-scenarios">Variants and operational scenarios</h2>
-<p>KRBTGT recovery has <strong>5 common scenarios</strong>.</p>
-<h3 id="1-routine-hygiene-rotation">1. Routine hygiene rotation</h3>
+<h2>How it works</h2>
+<p>KRBTGT recovery depends on **6 mechanics**:</p>
+<p>1. **`krbtgt` signs and encrypts TGTs.** The KDC uses `krbtgt` password-derived keys to protect TGTs. Services do not know the user&#x27;s password; they trust Kerberos tickets. 2. **Domain Controllers cache current and previous keys.** AD keeps previous password material so existing tickets can continue working during normal rotation and replication. 3. **One reset does not necessarily invalidate all forged tickets.** A forged ticket made with the previous key can remain accepted until the second reset and ticket lifetime/replication windows expire. 4. **Replication timing matters.** Every DC must receive the new `krbtgt` password state before the next phase. A DC with stale material can continue validating old tickets or issue inconsistent responses. 5. **Ticket lifetime matters.** Existing TGTs and renewable tickets may continue until policy limits unless explicitly disrupted by key changes and operational controls. 6. **Tier 0 containment must precede recovery.** If attackers still control DCSync, DCs, Tier 0 admin sessions, or backups, they can simply steal the new key after rotation.</p>
+<p>The structural lesson is *KRBTGT rotation is a sequencing problem*. The reset command is small; the recovery operation around it is the work.</p>
+<h2>Techniques / patterns</h2>
+<ul><li>**Contain before rotating.** Remove or disable suspected DCSync principals, isolate compromised DCs, protect Tier 0 admin workstations, and stop active attacker access before changing the trust root.</li><li>**Use the double-reset concept.** First reset moves away from the known compromised key; second reset pushes the compromised key out of the previous-password slot. Wait for replication and ticket lifetimes between resets.</li><li>**Validate replication between phases.** Check DC convergence before the second reset. Multi-site domains and offline DCs are the classic failure points.</li><li>**Assume backup exposure matters.** If attackers accessed DC backups, snapshots, or `ntds.dit`, the recovery boundary includes backup protection and restoration paths.</li><li>**Account for trusts.** Forest trusts, child domains, external trusts, and SID filtering affect what forged tickets can access and which domains need recovery.</li><li>**Separate admin identities.** Use clean Tier 0 credentials from trusted PAWs. Do not perform recovery from a compromised workstation.</li><li>**Monitor intensely during and after.** Watch for replication requests, suspicious Kerberos failures, privileged logons, service outages, and old-ticket use.</li><li>**Document rollback limits.** Rolling back a DC snapshot after `krbtgt` rotation can reintroduce old secret material. Recovery plans need explicit anti-rollback controls.</li></ul>
+<h2>Variants and operational scenarios</h2>
+<p>KRBTGT recovery has **5 common scenarios**.</p>
+<h3>1. Routine hygiene rotation</h3>
 <p>Planned rotation with no known compromise. Lower urgency, still requires replication validation and helpdesk awareness. Useful to prove the process before a crisis.</p>
-<h3 id="2-suspected-krbtgt-exposure-from-dcsync">2. Suspected <code>krbtgt</code> exposure from DCSync</h3>
-<p>High confidence that <code>krbtgt</code> material was replicated or extracted. Requires containment, double reset, and monitoring for forged-ticket use.</p>
-<h3 id="3-domain-controller-compromise">3. Domain Controller compromise</h3>
+<h3>2. Suspected `krbtgt` exposure from DCSync</h3>
+<p>High confidence that `krbtgt` material was replicated or extracted. Requires containment, double reset, and monitoring for forged-ticket use.</p>
+<h3>3. Domain Controller compromise</h3>
 <p>More severe than one DCSync event. Assume attackers may have LSASS, NTDS, backup, and admin-session access. Rotation alone is insufficient until DC integrity is restored.</p>
-<h3 id="4-forest-or-multi-domain-compromise">4. Forest or multi-domain compromise</h3>
-<p>Each domain has its own <code>krbtgt</code>. Recovery must identify which domains are compromised and how trusts can propagate access.</p>
-<h3 id="5-legacy-fragile-environment">5. Legacy fragile environment</h3>
+<h3>4. Forest or multi-domain compromise</h3>
+<p>Each domain has its own `krbtgt`. Recovery must identify which domains are compromised and how trusts can propagate access.</p>
+<h3>5. Legacy fragile environment</h3>
 <p>Old applications, RC4 dependencies, hard-coded SPNs, offline sites, and stale DCs can make rotation noisy. This is why routine rehearsal matters.</p>
-<h2 id="impact">Impact</h2>
+<h2>Impact</h2>
 <p>Ordered by recovery significance:</p>
-<ul>
-<li><strong>Invalidates stolen TGT-signing material when sequenced correctly.</strong> This is the direct control against Golden Tickets.</li>
-<li><strong>Forces attackers back to live credentials or newly stolen keys.</strong> A completed recovery closes the old forged-ticket path.</li>
-<li><strong>Can disrupt authentication if rushed.</strong> Bad sequencing can break Kerberos for legitimate users and services.</li>
-<li><strong>Reveals Tier 0 dependency debt.</strong> Fragile trusts, stale DCs, and old service dependencies surface during rotation planning.</li>
-<li><strong>Raises incident-response maturity.</strong> A team that can rotate <code>krbtgt</code> safely has usually done the Tier 0 inventory work many organizations avoid.</li>
-</ul>
-<h2 id="detection-and-telemetry">Detection and telemetry</h2>
+<ul><li>**Invalidates stolen TGT-signing material when sequenced correctly.** This is the direct control against Golden Tickets.</li><li>**Forces attackers back to live credentials or newly stolen keys.** A completed recovery closes the old forged-ticket path.</li><li>**Can disrupt authentication if rushed.** Bad sequencing can break Kerberos for legitimate users and services.</li><li>**Reveals Tier 0 dependency debt.** Fragile trusts, stale DCs, and old service dependencies surface during rotation planning.</li><li>**Raises incident-response maturity.** A team that can rotate `krbtgt` safely has usually done the Tier 0 inventory work many organizations avoid.</li></ul>
+<h2>Detection and telemetry</h2>
 <p>Monitor before, during, and after rotation:</p>
-<ol>
-<li>
-<p><strong>DCSync and replication abuse.</strong>
-   Watch <code>4662</code> with replication GUIDs and any non-DC replication behavior. Rotation is pointless if attackers still have DCSync.</p>
-</li>
-<li>
-<p><strong>Kerberos failures after reset.</strong>
-   Track spikes in <code>4768</code>, <code>4769</code>, <code>4771</code>, and <code>4776</code> failures by DC, site, account, and service. Some failure spike is expected; unexplained concentration points to replication or service dependency problems.</p>
-</li>
-<li>
-<p><strong>TGS activity with old behavioral patterns.</strong>
-   If the same suspicious account/source/service pattern continues after rotation, the attacker may have live credentials, new key access, or a missed persistence path.</p>
-</li>
-<li>
-<p><strong>Privileged logons and special privileges.</strong>
-   Monitor <code>4624</code>, <code>4672</code>, admin group changes, DC logons, and PAW usage. Recovery should narrow privileged activity, not create new ambiguous admin sessions.</p>
-</li>
-<li>
-<p><strong>Endpoint and process telemetry on DCs.</strong>
-   Watch LSASS access, <code>ntds.dit</code> reads, VSS operations, suspicious PowerShell, remote execution, and backup access.</p>
-</li>
-<li>
-<p><strong>Replication health.</strong>
-   DC convergence is a security signal here, not only operations hygiene. Stale DCs can undermine recovery.</p>
-</li>
-</ol>
-<h2 id="defensive-controls">Defensive controls</h2>
+<p>1. **DCSync and replication abuse.**    Watch `4662` with replication GUIDs and any non-DC replication behavior. Rotation is pointless if attackers still have DCSync.</p>
+<p>2. **Kerberos failures after reset.**    Track spikes in `4768`, `4769`, `4771`, and `4776` failures by DC, site, account, and service. Some failure spike is expected; unexplained concentration points to replication or service dependency problems.</p>
+<p>3. **TGS activity with old behavioral patterns.**    If the same suspicious account/source/service pattern continues after rotation, the attacker may have live credentials, new key access, or a missed persistence path.</p>
+<p>4. **Privileged logons and special privileges.**    Monitor `4624`, `4672`, admin group changes, DC logons, and PAW usage. Recovery should narrow privileged activity, not create new ambiguous admin sessions.</p>
+<p>5. **Endpoint and process telemetry on DCs.**    Watch LSASS access, `ntds.dit` reads, VSS operations, suspicious PowerShell, remote execution, and backup access.</p>
+<p>6. **Replication health.**    DC convergence is a security signal here, not only operations hygiene. Stale DCs can undermine recovery.</p>
+<h2>Defensive controls</h2>
 <p>Ordered by recovery effectiveness:</p>
-<ol>
-<li>
-<p><strong>Tier 0 containment first.</strong>
-   Disable or isolate compromised Tier 0 principals, remove unexpected DCSync rights, secure DCs, protect backups, and use trusted admin workstations.</p>
-</li>
-<li>
-<p><strong>Double-reset <code>krbtgt</code> with validated wait periods.</strong>
-   Perform reset 1, validate replication and operational stability, wait through the ticket lifetime/replication window, then perform reset 2 and validate again.</p>
-</li>
-<li>
-<p><strong>Use vendor-supported scripts and procedures.</strong>
-   Microsoft publishes forest recovery guidance and KRBTGT reset tooling. Use supported procedures so replication and compatibility checks are not improvised under stress.</p>
-</li>
-<li>
-<p><strong>Validate every DC.</strong>
-   Confirm replication health, time synchronization, authentication behavior, and absence of offline/stale DCs before declaring recovery complete.</p>
-</li>
-<li>
-<p><strong>Rebuild trust in privileged access.</strong>
-   Reset admin credentials, rotate service secrets where relevant, clean PAWs, review delegation, and remove graph paths to DCSync.</p>
-</li>
-<li>
-<p><strong>Monitor post-recovery for old patterns.</strong>
-   A successful <code>krbtgt</code> rotation invalidates old Golden Tickets; it does not prove the adversary has no other persistence.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
-<ul>
-<li><strong>Rotating every human password but not <code>krbtgt</code>.</strong> Human credentials are not the secret that signs forged TGTs.</li>
-<li><strong>One <code>krbtgt</code> reset as a complete recovery.</strong> The previous key can remain accepted. The double-reset sequence exists for a reason.</li>
-<li><strong>Rotating while attackers still have DCSync.</strong> They can recover the new key and the rotation becomes theatre.</li>
-<li><strong>Running recovery from a compromised workstation.</strong> Tier 0 recovery requires clean administrative endpoints.</li>
-<li><strong>Assuming replication will catch up eventually.</strong> Eventual convergence is not a recovery guarantee. Validate it.</li>
-<li><strong>Snapshot rollback of DCs after rotation.</strong> Restoring old DC state can reintroduce old key material and break trust assumptions.</li>
-<li><strong>Treating Golden Ticket recovery as a SIEM rule.</strong> Detection helps; recovery requires changing the trust root and containing the path that exposed it.</li>
-</ul>
-<h2 id="operational-misconceptions">Operational misconceptions</h2>
-<ul>
-<li><strong>"KRBTGT is just another account."</strong> False. It is the domain Kerberos trust root.</li>
-<li><strong>"The reset command is the recovery."</strong> False. The command is one step in containment, replication, validation, and monitoring.</li>
-<li><strong>"If users can still log in, recovery worked."</strong> False. Availability is not the same as invalidating attacker-held key material.</li>
-<li><strong>"Only the compromised domain admin account matters."</strong> False. Replication rights, DCs, backups, and PAWs define the recovery boundary.</li>
-<li><strong>"Rotation is too risky to practice."</strong> Backwards. It is risky precisely because organizations do not rehearse it.</li>
-</ul>
-<h2 id="practical-labs">Practical labs</h2>
-<p>Run as tabletop or in an owned lab domain. Do not experiment with production <code>krbtgt</code> rotation without an approved change and recovery plan.</p>
-<div class="codehilite"><pre><span></span><code>Lab 1 — Tabletop the decision tree.
-Objective: decide when KRBTGT rotation is required.
-Inputs:
-  - DCSync confirmed? yes/no
-  - krbtgt material extracted? yes/no/unknown
-  - DC compromise? yes/no
-  - Tier 0 admin workstation compromise? yes/no
-  - backup exposure? yes/no
-Decision:
-  If krbtgt exposure is confirmed or reasonably suspected, plan double reset after containment.
-Misconception corrected: &quot;no Golden Ticket observed&quot; is not proof krbtgt is safe.
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 2 — Replication health pre-check in a lab.</span>
-<span class="n">repadmin</span> <span class="p">/</span><span class="n">replsummary</span>
-<span class="n">dcdiag</span> <span class="p">/</span><span class="n">test</span><span class="p">:</span><span class="n">replications</span>
-<span class="n">w32tm</span> <span class="p">/</span><span class="n">monitor</span>
-
-<span class="c"># Defender interpretation:</span>
-<span class="c"># - stale DCs and time drift are recovery blockers</span>
-<span class="c"># - replication health is part of the security control</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>Lab 3 — Simulated double-reset runbook.
-Objective: rehearse sequencing without touching production.
-Steps:
-  1. Announce change window and freeze Tier 0 admin activity.
-  2. Confirm DCSync paths removed.
-  3. Reset krbtgt once using supported tooling.
-  4. Validate replication to every DC.
-  5. Wait through the defined ticket lifetime/replication window.
-  6. Reset krbtgt a second time.
-  7. Validate authentication, replication, and monitoring.
-Expected telemetry:
-  - account password-set events for krbtgt
-  - Kerberos failure spikes if clients hold stale tickets
-  - replication traffic across DCs
-Limitations: tabletop cannot prove app compatibility; lab rotation should precede production playbook approval.
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c"># Lab 4 — Monitor Kerberos failures during a lab reset window.</span>
-<span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="p">@{</span><span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;Security&#39;</span><span class="p">;</span> <span class="n">ID</span><span class="p">=</span><span class="n">4768</span><span class="p">,</span><span class="n">4769</span><span class="p">,</span><span class="n">4771</span><span class="p">,</span><span class="n">4776</span><span class="p">}</span> <span class="n">-MaxEvents</span> <span class="n">500</span> <span class="p">|</span>
-  <span class="nb">Select-Object</span> <span class="n">TimeCreated</span><span class="p">,</span> <span class="n">Id</span><span class="p">,</span> <span class="n">ProviderName</span>
-
-<span class="c"># Analyst exercise:</span>
-<span class="c"># - group by DC and account</span>
-<span class="c"># - separate expected cache churn from persistent service breakage</span>
-<span class="c"># - identify services still using stale Kerberos material</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>Lab 5 — Post-recovery validation checklist.
-Validate:
-  - every DC replicated the new krbtgt password version
-  - no non-DC principal has DCSync rights
-  - privileged accounts were rotated from clean PAWs
-  - service accounts with high privilege were reviewed
-  - DC backups and snapshots are protected
-  - old suspicious TGS patterns stopped
-  - incident timeline records exact reset times
-</code></pre></div>
-
-<h2 id="practical-examples">Practical examples</h2>
-<ul>
-<li><strong>Single-reset incident gap.</strong> An IR team rotates Domain Admin passwords and resets <code>krbtgt</code> once. Forged tickets continue during the old-key window. The missing second reset leaves the domain partially untrusted.</li>
-<li><strong>Replication failure.</strong> One remote DC is offline during the rotation. It later returns with stale state and creates inconsistent authentication behavior. Recovery declaration was premature.</li>
-<li><strong>DCSync path not contained.</strong> The attacker still controls a service account with replication rights. They steal the new <code>krbtgt</code> key after reset. The organization changed the secret but not the path to the secret.</li>
-<li><strong>Practiced routine rotation.</strong> A team performs annual planned rotation with monitoring and rollback boundaries. During a real incident, the procedure is known and the risk is lower.</li>
-</ul>
-<h2 id="related-notes">Related notes</h2>
-<ul>
-<li><a href="golden-ticket-and-krbtgt-compromise.html">golden-ticket-and-krbtgt-compromise</a> — the compromise model this recovery operation addresses.</li>
-<li><a href="dcsync-and-ntdsdit-extraction.html">dcsync-and-ntdsdit-extraction</a> — the most common way <code>krbtgt</code> material is exposed.</li>
-<li><a href="bloodhound-attack-path-analysis.html">bloodhound-attack-path-analysis</a> — use graph analysis to remove paths to DCSync and Tier 0.</li>
-<li><a href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html">Attack Path Correlation</a> — recovery monitoring is sequence-based.</li>
-<li><a href="../detection-engineering/telemetry-normalization-correlation-and-enrichment.html">Telemetry Normalization, Correlation, and Enrichment</a> — reset validation depends on normalized DC, endpoint, and identity telemetry.</li>
-<li><a href="../detection-engineering/edr-network-observability-and-process-correlation.html">EDR, Network Observability, and Process Correlation</a> — DC and PAW endpoint telemetry matter during containment.</li>
-</ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
-<ul>
-<li><a href="tier-zero-administration-and-paw.html">tier-zero-administration-and-paw</a></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: ad-forest-recovery">ad-forest-recovery</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: dc-backup-security">dc-backup-security</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: dcsync-containment-playbook">dcsync-containment-playbook</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: kerberos-ticket-lifetime-policy">kerberos-ticket-lifetime-policy</span></li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Recovery:</strong> Microsoft Learn — Active Directory Forest Recovery: Reset the krbtgt password — https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-reset-the-krbtgt-password</li>
-<li><strong>Recovery:</strong> Microsoft Learn — AD Forest Recovery Guide — https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-guide</li>
-<li><strong>Foundational:</strong> MITRE ATT&amp;CK T1558.001 — Golden Ticket — https://attack.mitre.org/techniques/T1558/001/</li>
-<li><strong>Recovery:</strong> Microsoft Security Blog — KRBTGT Account Password Reset Scripts now available for customers — https://www.microsoft.com/en-us/security/blog/2015/02/11/krbtgt-account-password-reset-scripts-now-available-for-customers/</li>
-</ul>
+<p>1. **Tier 0 containment first.**    Disable or isolate compromised Tier 0 principals, remove unexpected DCSync rights, secure DCs, protect backups, and use trusted admin workstations.</p>
+<p>2. **Double-reset `krbtgt` with validated wait periods.**    Perform reset 1, validate replication and operational stability, wait through the ticket lifetime/replication window, then perform reset 2 and validate again.</p>
+<p>3. **Use vendor-supported scripts and procedures.**    Microsoft publishes forest recovery guidance and KRBTGT reset tooling. Use supported procedures so replication and compatibility checks are not improvised under stress.</p>
+<p>4. **Validate every DC.**    Confirm replication health, time synchronization, authentication behavior, and absence of offline/stale DCs before declaring recovery complete.</p>
+<p>5. **Rebuild trust in privileged access.**    Reset admin credentials, rotate service secrets where relevant, clean PAWs, review delegation, and remove graph paths to DCSync.</p>
+<p>6. **Monitor post-recovery for old patterns.**    A successful `krbtgt` rotation invalidates old Golden Tickets; it does not prove the adversary has no other persistence.</p>
+<h3>What does not work as a primary defense</h3>
+<ul><li>**Rotating every human password but not `krbtgt`.** Human credentials are not the secret that signs forged TGTs.</li><li>**One `krbtgt` reset as a complete recovery.** The previous key can remain accepted. The double-reset sequence exists for a reason.</li><li>**Rotating while attackers still have DCSync.** They can recover the new key and the rotation becomes theatre.</li><li>**Running recovery from a compromised workstation.** Tier 0 recovery requires clean administrative endpoints.</li><li>**Assuming replication will catch up eventually.** Eventual convergence is not a recovery guarantee. Validate it.</li><li>**Snapshot rollback of DCs after rotation.** Restoring old DC state can reintroduce old key material and break trust assumptions.</li><li>**Treating Golden Ticket recovery as a SIEM rule.** Detection helps; recovery requires changing the trust root and containing the path that exposed it.</li></ul>
+<h2>Operational misconceptions</h2>
+<ul><li>**&quot;KRBTGT is just another account.&quot;** False. It is the domain Kerberos trust root.</li><li>**&quot;The reset command is the recovery.&quot;** False. The command is one step in containment, replication, validation, and monitoring.</li><li>**&quot;If users can still log in, recovery worked.&quot;** False. Availability is not the same as invalidating attacker-held key material.</li><li>**&quot;Only the compromised domain admin account matters.&quot;** False. Replication rights, DCs, backups, and PAWs define the recovery boundary.</li><li>**&quot;Rotation is too risky to practice.&quot;** Backwards. It is risky precisely because organizations do not rehearse it.</li></ul>
+<h2>Practical labs</h2>
+<p>Run as tabletop or in an owned lab domain. Do not experiment with production `krbtgt` rotation without an approved change and recovery plan.</p>
+<p>``` Lab 1 — Tabletop the decision tree. Objective: decide when KRBTGT rotation is required. Inputs:   - DCSync confirmed? yes/no   - krbtgt material extracted? yes/no/unknown   - DC compromise? yes/no   - Tier 0 admin workstation compromise? yes/no   - backup exposure? yes/no Decision:   If krbtgt exposure is confirmed or reasonably suspected, plan double reset after containment. Misconception corrected: &quot;no Golden Ticket observed&quot; is not proof krbtgt is safe. ```</p>
+<p>``` # Lab 2 — Replication health pre-check in a lab. repadmin /replsummary dcdiag /test:replications w32tm /monitor</p>
+<h1>Defender interpretation:</h1>
+<p>``` Lab 3 — Simulated double-reset runbook. Objective: rehearse sequencing without touching production. Steps:   1. Announce change window and freeze Tier 0 admin activity.   2. Confirm DCSync paths removed.   3. Reset krbtgt once using supported tooling.   4. Validate replication to every DC.   5. Wait through the defined ticket lifetime/replication window.   6. Reset krbtgt a second time.   7. Validate authentication, replication, and monitoring. Expected telemetry:   - account password-set events for krbtgt   - Kerberos failure spikes if clients hold stale tickets   - replication traffic across DCs Limitations: tabletop cannot prove app compatibility; lab rotation should precede production playbook approval. ```</p>
+<p>``` # Lab 4 — Monitor Kerberos failures during a lab reset window. Get-WinEvent -FilterHashtable @{LogName=&#x27;Security&#x27;; ID=4768,4769,4771,4776} -MaxEvents 500 |   Select-Object TimeCreated, Id, ProviderName</p>
+<h1>Analyst exercise:</h1>
+<p>``` Lab 5 — Post-recovery validation checklist. Validate:   - every DC replicated the new krbtgt password version   - no non-DC principal has DCSync rights   - privileged accounts were rotated from clean PAWs   - service accounts with high privilege were reviewed   - DC backups and snapshots are protected   - old suspicious TGS patterns stopped   - incident timeline records exact reset times ```</p>
+<h2>Practical examples</h2>
+<ul><li>**Single-reset incident gap.** An IR team rotates Domain Admin passwords and resets `krbtgt` once. Forged tickets continue during the old-key window. The missing second reset leaves the domain partially untrusted.</li><li>**Replication failure.** One remote DC is offline during the rotation. It later returns with stale state and creates inconsistent authentication behavior. Recovery declaration was premature.</li><li>**DCSync path not contained.** The attacker still controls a service account with replication rights. They steal the new `krbtgt` key after reset. The organization changed the secret but not the path to the secret.</li><li>**Practiced routine rotation.** A team performs annual planned rotation with monitoring and rollback boundaries. During a real incident, the procedure is known and the risk is lower.</li></ul>
+<h2>Related notes</h2>
+<ul><li>&lt;a href=&quot;golden-ticket-and-krbtgt-compromise.html&quot;&gt;golden-ticket-and-krbtgt-compromise&lt;/a&gt; — the compromise model this recovery operation addresses.</li><li>&lt;a href=&quot;dcsync-and-ntdsdit-extraction.html&quot;&gt;dcsync-and-ntdsdit-extraction&lt;/a&gt; — the most common way `krbtgt` material is exposed.</li><li>&lt;a href=&quot;bloodhound-attack-path-analysis.html&quot;&gt;bloodhound-attack-path-analysis&lt;/a&gt; — use graph analysis to remove paths to DCSync and Tier 0.</li><li>&lt;a href=&quot;../detection-engineering/attack-path-correlation-and-kill-chain-observability.html&quot;&gt;Attack Path Correlation&lt;/a&gt; — recovery monitoring is sequence-based.</li><li>&lt;a href=&quot;../detection-engineering/telemetry-normalization-correlation-and-enrichment.html&quot;&gt;Telemetry Normalization, Correlation, and Enrichment&lt;/a&gt; — reset validation depends on normalized DC, endpoint, and identity telemetry.</li><li>&lt;a href=&quot;../detection-engineering/edr-network-observability-and-process-correlation.html&quot;&gt;EDR, Network Observability, and Process Correlation&lt;/a&gt; — DC and PAW endpoint telemetry matter during containment.</li></ul>
+<h3>Suggested future atomic notes</h3>
+<ul><li>&lt;a href=&quot;tier-zero-administration-and-paw.html&quot;&gt;tier-zero-administration-and-paw&lt;/a&gt;</li><li>ad-forest-recovery</li><li>dc-backup-security</li><li>dcsync-containment-playbook</li><li>kerberos-ticket-lifetime-policy</li></ul>
+<h2>References</h2>
+<ul><li>**Recovery:** Microsoft Learn — Active Directory Forest Recovery: Reset the krbtgt password — https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-reset-the-krbtgt-password</li><li>**Recovery:** Microsoft Learn — AD Forest Recovery Guide — https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-guide</li><li>**Foundational:** MITRE ATT&amp;CK T1558.001 — Golden Ticket — https://attack.mitre.org/techniques/T1558/001/</li><li>**Recovery:** Microsoft Security Blog — KRBTGT Account Password Reset Scripts now available for customers — https://www.microsoft.com/en-us/security/blog/2015/02/11/krbtgt-account-password-reset-scripts-now-available-for-customers/</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="kerberoasting.html"><span class="nav-dir">← Previous</span><strong>Kerberoasting</strong></a><a class="branch-nav-link next" href="pass-the-hash-and-ntlm-credential-reuse.html"><span class="nav-dir">Next →</span><strong>Pass-the-Hash and NTLM Credential Reuse</strong></a></nav>
-<section class="related-notes" aria-label="Explore nearby notes">
-<h2>Explore nearby notes</h2>
+<section class="related-notes" aria-label="Related notes">
+<h2>Related notes</h2>
 <div class="related-grid">
-<a class="related-card" href="golden-ticket-and-krbtgt-compromise.html"><span>Identity &amp; Active Directory</span><strong>Golden Ticket and KRBTGT Compromise</strong><small>A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain&#x27;s krbtgt account. It is not...</small></a>
-<a class="related-card" href="gmsa-and-modern-service-account-hardening.html"><span>Identity &amp; Active Directory</span><strong>gMSA and Modern Service Account Hardening</strong><small>A group Managed Service Account (gMSA) is an Active Directory-managed service identity whose password is long, random, automatically rotated, and retrievable only...</small></a>
 <a class="related-card" href="as-rep-roasting.html"><span>Identity &amp; Active Directory</span><strong>AS-REP Roasting</strong><small>AS-REP Roasting is an Active Directory credential attack where an attacker exploits accounts with **Kerberos pre-authentication disabled** by sending an AS-REQ...</small></a>
-<a class="related-card" href="kerberoasting.html"><span>Identity &amp; Active Directory</span><strong>Kerberoasting</strong><small>Kerberoasting is an Active Directory credential attack where an authenticated domain user requests **TGS service tickets** for accounts that have a Service...</small></a>
-<a class="related-card" href="silver-ticket-and-service-account-persistence.html"><span>Identity &amp; Active Directory</span><strong>Silver Ticket and Service Account Persistence</strong><small>A Silver Ticket is a forged Kerberos **service ticket** (TGS) created with a compromised service account key rather than the domain-wide krbtgt key. It is...</small></a>
-<a class="related-card" href="tier-zero-administration-and-paw.html"><span>Identity &amp; Active Directory</span><strong>Tier 0 Administration and Privileged Access Workstations</strong><small>**Tier 0** is the set of identities, hosts, and components that have *effective control over the directory itself* — Domain Controllers, the principals with DCSync...</small></a>
+<a class="related-card" href="bloodhound-attack-path-analysis.html"><span>Identity &amp; Active Directory</span><strong>BloodHound and Attack Path Analysis</strong><small>BloodHound is an open-source graph-analysis tool that models **Active Directory as a directed graph of principals** (users, groups, computers, GPOs, OUs, domains)...</small></a>
+<a class="related-card" href="dcsync-and-ntdsdit-extraction.html"><span>Identity &amp; Active Directory</span><strong>DCSync and ntds.dit Extraction</strong><small>DCSync is an AD credential-extraction attack where the attacker abuses the **DS-Replication-Get-Changes-All** and related directory-replication rights to make...</small></a>
+<a class="related-card" href="gmsa-and-modern-service-account-hardening.html"><span>Identity &amp; Active Directory</span><strong>gMSA and Modern Service Account Hardening</strong><small>A group Managed Service Account (gMSA) is an Active Directory-managed service identity whose password is long, random, automatically rotated, and retrievable only...</small></a>
+<a class="related-card" href="golden-ticket-and-krbtgt-compromise.html"><span>Identity &amp; Active Directory</span><strong>Golden Ticket and KRBTGT Compromise</strong><small>A Golden Ticket is a forged Kerberos **Ticket Granting Ticket** (TGT) created with the compromised long-term key material of the domain&#x27;s krbtgt account. It is not...</small></a>
+<a class="related-card" href="identity-attack-paths-across-idps.html"><span>Identity &amp; Active Directory</span><strong>Identity Attack Paths Across IdPs</strong><small>Cross-IdP attack paths are lateral-movement chains that propagate compromise *across platform boundaries* by traversing the trust edges — **federation, directory...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-operational-scenarios">Variants and operational scenarios</a>
-<a class="toc-level-3" href="#1-routine-hygiene-rotation">1. Routine hygiene rotation</a>
-<a class="toc-level-3" href="#2-suspected-krbtgt-exposure-from-dcsync">2. Suspected  krbtgt  exposure from DCSync</a>
-<a class="toc-level-3" href="#3-domain-controller-compromise">3. Domain Controller compromise</a>
-<a class="toc-level-3" href="#4-forest-or-multi-domain-compromise">4. Forest or multi-domain compromise</a>
-<a class="toc-level-3" href="#5-legacy-fragile-environment">5. Legacy fragile environment</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-telemetry">Detection and telemetry</a>
-<a class="toc-level-2" href="#defensive-controls">Defensive controls</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#operational-misconceptions">Operational misconceptions</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-2" href="#practical-examples">Practical examples</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="back-to-top" href="#top">Back to top</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

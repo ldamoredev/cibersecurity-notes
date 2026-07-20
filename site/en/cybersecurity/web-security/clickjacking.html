@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Clickjacking - Web Security | ldamoredev Security Atlas</title>
+<title>Clickjacking - Web Security | Cybersecurity Atlas</title>
 <meta name="description" content="Clickjacking is a UI redress attack where an attacker embeds a target page in a frame and tricks the user into clicking or typing into the real target UI while...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Clickjacking, web-security, browser-security">
-<meta name="theme-color" content="#16a34a">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Clickjacking">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/clickjacking.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Web Security">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Clickjacking - Web Security | ldamoredev Security Atlas">
+<meta property="og:title" content="Clickjacking - Web Security | Cybersecurity Atlas">
 <meta property="og:description" content="Clickjacking is a UI redress attack where an attacker embeds a target page in a frame and tricks the user into clicking or typing into the real target UI while...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/clickjacking.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Clickjacking - Web Security | ldamoredev Security Atlas">
+<meta name="twitter:title" content="Clickjacking - Web Security | Cybersecurity Atlas">
 <meta name="twitter:description" content="Clickjacking is a UI redress attack where an attacker embeds a target page in a frame and tricks the user into clicking or typing into the real target UI while...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/clickjacking.html#article","name":"Clickjacking - Web Security | ldamoredev Security Atlas","headline":"Clickjacking","description":"Clickjacking is a UI redress attack where an attacker embeds a target page in a frame and tricks the user into clicking or typing into the real target UI while...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/clickjacking.html","inLanguage":"en","datePublished":"2026-04-30","dateModified":"2026-04-30","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/clickjacking.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Clickjacking","web-security","browser-security"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Web Security","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/index.html"},{"@type":"ListItem","position":4,"name":"Clickjacking","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/clickjacking.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/clickjacking.html#article","name":"Clickjacking - Web Security | Cybersecurity Atlas","headline":"Clickjacking","description":"Clickjacking is a UI redress attack where an attacker embeds a target page in a frame and tricks the user into clicking or typing into the real target UI while...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/clickjacking.html","inLanguage":"en","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/clickjacking.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Clickjacking"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Web Security","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/index.html"},{"@type":"ListItem","position":4,"name":"Clickjacking","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/clickjacking.html"}]}]</script>
+<meta property="article:section" content="Web Security">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/clickjacking.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/clickjacking.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/clickjacking.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Knowledge Base</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Attack Surface &amp; Signal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Atlas Home</a>
 <div class="sidebar-section"><h3>Entry layer</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Learning Path</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Overview</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="Attacker-Defender Duality as a Learning Tool">Attacker-Defender Duality as a Learning Tool</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Certifications as Validation Signals">Certifications as Validation Signals</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="CIA Triad — What It Actually Decides">CIA Triad — What It Actually Decides</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Job Context Specialization">Job Context Specialization</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Minimum Viable Cybersecurity Literacy">Minimum Viable Cybersecurity Literacy</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Threat Modeling Quickstart">Threat Modeling Quickstart</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="What Is Cybersecurity, and Why It Is Not a Tool List">What Is Cybersecurity, and Why It Is Not a Tool List</a>
 </div></details>
 </div></details>
-<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Cryptography</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Overview</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -88,7 +97,7 @@
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Overview</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caching and Security">Caching and Security</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Client IP Trust">Client IP Trust</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="DNS Resolution">DNS Resolution</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="DNS Security">DNS Security</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls and Network Boundaries">Firewalls and Network Boundaries</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Header Trust in Node Express">Header Trust in Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="HTTP Headers">HTTP Headers</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="HTTP Messages">HTTP Messages</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS and HTTPS">TLS and HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Wireshark Workflows">Wireshark Workflows</a>
 </div></details>
-<details class="nav-branch accent-blue active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="index.html">Overview</a>
 <a class="nav-leaf" href="auth-flaws.html" title="Authentication Flaws">Authentication Flaws</a>
+<a class="nav-leaf" href="authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="broken-access-control.html" title="Broken Access Control">Broken Access Control</a>
 <a class="nav-leaf" href="browser-security-boundaries.html" title="Browser Security Boundaries">Browser Security Boundaries</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Offensive Security / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Overview</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="The Operator Loop">The Operator Loop</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Overview</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Network Security Monitoring Discipline">Network Security Monitoring Discipline</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Attack Surface Mapping</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Overview</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,7 +238,7 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Overview</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detect BloodHound Collection">Detect BloodHound Collection</a>
@@ -235,6 +247,7 @@
 <a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>updated · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>updated · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -412,245 +425,99 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Web Security</a><span>/</span><span>Clickjacking</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-blue">Web Security</span><span class="meta-chip meta-time" title="Estimated reading time">~5 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated Apr 30, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#web-security</span><span class="meta-chip tag">#browser-security</span><span class="meta-chip tag">#clickjacking</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-blue">Web Security</span><span class="meta-chip meta-time" title="Estimated reading time">~5 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="clickjacking">Clickjacking</h1>
-<h2 id="definition">Definition</h2>
+<h1>Clickjacking</h1>
+<h2>Definition</h2>
 <p>Clickjacking is a UI redress attack where an attacker embeds a target page in a frame and tricks the user into clicking or typing into the real target UI while they believe they are interacting with another page.</p>
-<p>The vulnerability is not "a page has buttons." The vulnerability is that a sensitive page can be embedded by an untrusted origin and visually manipulated around a user's trusted session.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>Clickjacking turns the browser's normal framing behavior into a confused-user action channel. If a logged-in user can be lured to an attacker page, the attacker may cause account changes, consent grants, payment actions, destructive admin clicks, or privacy-impacting UI actions.</p>
-<p>It is tightly connected to <a href="content-security-policy.html">content-security-policy</a> because modern protection is usually <code>Content-Security-Policy: frame-ancestors ...</code>. It also touches <a href="csrf.html">csrf</a> because both classes abuse an authenticated user's browser, but they are not the same bug: CSRF sends a request; clickjacking manipulates visible interaction.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>Clickjacking has <strong>5 moving parts</strong>:</p>
-<ol>
-<li><strong>Sensitive target page.</strong> The victim is authenticated to a page with meaningful UI actions.</li>
-<li><strong>Attacker-controlled wrapper.</strong> The attacker hosts a page that embeds the target in an <code>&lt;iframe&gt;</code>.</li>
-<li><strong>Visual deception.</strong> CSS opacity, positioning, overlays, or misleading text hide what the user is really clicking.</li>
-<li><strong>User action.</strong> The victim clicks, drags, types, or taps where the attacker wants.</li>
-<li><strong>Browser sends trusted interaction.</strong> The action lands on the framed target page under the victim's session.</li>
-</ol>
+<p>The vulnerability is not &quot;a page has buttons.&quot; The vulnerability is that a sensitive page can be embedded by an untrusted origin and visually manipulated around a user&#x27;s trusted session.</p>
+<h2>Why it matters</h2>
+<p>Clickjacking turns the browser&#x27;s normal framing behavior into a confused-user action channel. If a logged-in user can be lured to an attacker page, the attacker may cause account changes, consent grants, payment actions, destructive admin clicks, or privacy-impacting UI actions.</p>
+<p>It is tightly connected to &lt;a href=&quot;content-security-policy.html&quot;&gt;content-security-policy&lt;/a&gt; because modern protection is usually `Content-Security-Policy: frame-ancestors ...`. It also touches &lt;a href=&quot;csrf.html&quot;&gt;csrf&lt;/a&gt; because both classes abuse an authenticated user&#x27;s browser, but they are not the same bug: CSRF sends a request; clickjacking manipulates visible interaction.</p>
+<h2>How it works</h2>
+<p>Clickjacking has **5 moving parts**:</p>
+<p>1. **Sensitive target page.** The victim is authenticated to a page with meaningful UI actions. 2. **Attacker-controlled wrapper.** The attacker hosts a page that embeds the target in an `&lt;iframe&gt;`. 3. **Visual deception.** CSS opacity, positioning, overlays, or misleading text hide what the user is really clicking. 4. **User action.** The victim clicks, drags, types, or taps where the attacker wants. 5. **Browser sends trusted interaction.** The action lands on the framed target page under the victim&#x27;s session.</p>
 <p>Minimal wrapper shape:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="nt">iframe</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span>
-<span class="w">  </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">  </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">  </span><span class="k">opacity</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">;</span>
-<span class="w">  </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">.</span><span class="nc">bait</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span>
-<span class="w">  </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">140</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">  </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">220</span><span class="kt">px</span><span class="p">;</span>
-<span class="w">  </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bait&quot;</span><span class="p">&gt;</span>Claim reward<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://target.example/account/delete&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
-</code></pre></div>
-
+<p>``` &lt;style&gt; iframe {   position: absolute;   top: 0;   left: 0;   width: 800px;   height: 600px;   opacity: 0.05;   z-index: 2; } .bait {   position: absolute;   top: 140px;   left: 220px;   z-index: 1; } &lt;/style&gt; &lt;button class=&quot;bait&quot;&gt;Claim reward&lt;/button&gt; &lt;iframe src=&quot;https://target.example/account/delete&quot;&gt;&lt;/iframe&gt; ```</p>
 <p>The bug is not the iframe tag. The bug is missing or too-broad embed control on a page whose UI can cause sensitive state changes.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
+<h2>Techniques / patterns</h2>
 <p>Attackers and testers look at:</p>
-<ul>
-<li>account settings, password reset, email change, MFA, OAuth consent, billing, admin, and destructive-action pages</li>
-<li>pages that render while authenticated and have no anti-framing header</li>
-<li>state-changing actions that rely only on a click or simple form interaction</li>
-<li>single-click confirmations and weak confirmation dialogs</li>
-<li>mixed protection where some pages set <code>frame-ancestors</code> and others do not</li>
-<li>partner or portal flows where legitimate embedding is needed but too broadly allowed</li>
-</ul>
-<h3 id="worked-example-sensitive-page-frameability">Worked example: sensitive page frameability</h3>
-<div class="codehilite"><pre><span></span><code>Target:
-  /account/email
-
-Action:
-  change recovery email
-
-Headers:
-  no Content-Security-Policy frame-ancestors
-  no X-Frame-Options
-
-Test:
-  owned wrapper page embeds /account/email while logged in
-
-Decision:
-  clickjacking risk is real if the framed UI can complete the change or start a sensitive workflow
-</code></pre></div>
-
+<ul><li>account settings, password reset, email change, MFA, OAuth consent, billing, admin, and destructive-action pages</li><li>pages that render while authenticated and have no anti-framing header</li><li>state-changing actions that rely only on a click or simple form interaction</li><li>single-click confirmations and weak confirmation dialogs</li><li>mixed protection where some pages set `frame-ancestors` and others do not</li><li>partner or portal flows where legitimate embedding is needed but too broadly allowed</li></ul>
+<h3>Worked example: sensitive page frameability</h3>
+<p>``` Target:   /account/email</p>
+<p>Action:   change recovery email</p>
+<p>Headers:   no Content-Security-Policy frame-ancestors   no X-Frame-Options</p>
+<p>Test:   owned wrapper page embeds /account/email while logged in</p>
+<p>Decision:   clickjacking risk is real if the framed UI can complete the change or start a sensitive workflow ```</p>
 <p>A good finding states both frameability and the user action that becomes dangerous.</p>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>Clickjacking has <strong>5 practical variants</strong>.</p>
-<h3 id="1-classic-transparent-iframe">1. Classic transparent iframe</h3>
+<h2>Variants and bypasses</h2>
+<p>Clickjacking has **5 practical variants**.</p>
+<h3>1. Classic transparent iframe</h3>
 <p>The target page is placed over attacker-controlled bait with low opacity or careful positioning. The victim clicks the real target UI.</p>
-<h3 id="2-cursor-or-pointer-deception">2. Cursor or pointer deception</h3>
+<h3>2. Cursor or pointer deception</h3>
 <p>The attacker uses styling and layout to make the pointer appear aligned with a fake action while the real click lands elsewhere.</p>
-<h3 id="3-multi-step-ui-redress">3. Multi-step UI redress</h3>
+<h3>3. Multi-step UI redress</h3>
 <p>The attacker guides the user through several harmless-looking clicks that line up with a sensitive multi-step flow inside the frame.</p>
-<h3 id="4-drag-and-drop-or-typing-abuse">4. Drag-and-drop or typing abuse</h3>
+<h3>4. Drag-and-drop or typing abuse</h3>
 <p>Some UI actions are not simple clicks. The attack may trick users into dragging data, selecting options, or typing into a framed target.</p>
-<h3 id="5-overbroad-trusted-framing">5. Overbroad trusted framing</h3>
-<p>The site uses <code>frame-ancestors</code> but allows broad partner, wildcard, or legacy origins that can host attacker-controlled pages.</p>
-<h2 id="impact">Impact</h2>
+<h3>5. Overbroad trusted framing</h3>
+<p>The site uses `frame-ancestors` but allows broad partner, wildcard, or legacy origins that can host attacker-controlled pages.</p>
+<h2>Impact</h2>
 <p>Ordered roughly by severity:</p>
-<ul>
-<li><strong>Account or security setting changes.</strong> Email, MFA, password, session, or recovery settings can be altered.</li>
-<li><strong>Authorization or consent abuse.</strong> OAuth, SSO, app-authorization, or admin-consent pages can be manipulated.</li>
-<li><strong>Financial or destructive actions.</strong> Payments, purchases, deletions, and administrative changes can be triggered.</li>
-<li><strong>Privacy exposure.</strong> Framed UI may reveal state or trick users into sharing information.</li>
-<li><strong>Trust erosion.</strong> Even failed attempts undermine confidence in sensitive workflows.</li>
-</ul>
-<p>Impact depends on the framed page, the user's role, whether the action requires fresh authentication, and whether the target UI has independent confirmation.</p>
-<h2 id="detection-and-defense">Detection and defense</h2>
+<ul><li>**Account or security setting changes.** Email, MFA, password, session, or recovery settings can be altered.</li><li>**Authorization or consent abuse.** OAuth, SSO, app-authorization, or admin-consent pages can be manipulated.</li><li>**Financial or destructive actions.** Payments, purchases, deletions, and administrative changes can be triggered.</li><li>**Privacy exposure.** Framed UI may reveal state or trick users into sharing information.</li><li>**Trust erosion.** Even failed attempts undermine confidence in sensitive workflows.</li></ul>
+<p>Impact depends on the framed page, the user&#x27;s role, whether the action requires fresh authentication, and whether the target UI has independent confirmation.</p>
+<h2>Detection and defense</h2>
 <p>Ordered by effectiveness:</p>
-<ol>
-<li>
-<p><strong>Set <code>Content-Security-Policy: frame-ancestors</code> on sensitive pages.</strong>
-   <code>frame-ancestors 'none'</code> blocks all framing; <code>frame-ancestors 'self'</code> limits framing to same-origin pages. This is the modern, expressive browser control and should be deployed on the responses that need protection.</p>
-</li>
-<li>
-<p><strong>Use <code>X-Frame-Options</code> for legacy browser coverage where appropriate.</strong>
-   <code>DENY</code> and <code>SAMEORIGIN</code> are simpler than CSP and less flexible, but still useful for older clients. Do not rely on <code>ALLOW-FROM</code>; support is inconsistent and obsolete.</p>
-</li>
-<li>
-<p><strong>Require strong confirmation for high-risk actions.</strong>
-   Re-authentication, typed confirmation, step-up MFA, and transaction signing reduce damage when a UI is exposed. These controls should complement frame blocking, not replace it.</p>
-</li>
-<li>
-<p><strong>Keep legitimate embedding narrow and explicit.</strong>
-   If partners or internal portals must frame a page, allow only exact trusted origins and review whether those origins can host attacker-controlled content.</p>
-</li>
-<li>
-<p><strong>Test every sensitive route, not just the homepage.</strong>
-   Header middleware, proxy routes, static error pages, and legacy flows often drift. Clickjacking protection is per response.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
-<ul>
-<li><strong>CSRF tokens alone.</strong> Clickjacking uses the user's real browser and real UI, so valid CSRF tokens may be present.</li>
-<li><strong>Frame-busting JavaScript.</strong> Scripts can fail, be blocked, race, or be sandboxed; headers are the primary control.</li>
-<li><strong>Hiding buttons with CSS.</strong> The attacker controls the wrapper page, not the target's secure presentation.</li>
-<li><strong>Only protecting the login page.</strong> The risk is usually authenticated settings, consent, billing, and admin pages.</li>
-</ul>
-<h2 id="practical-labs">Practical labs</h2>
+<p>1. **Set `Content-Security-Policy: frame-ancestors` on sensitive pages.**    `frame-ancestors &#x27;none&#x27;` blocks all framing; `frame-ancestors &#x27;self&#x27;` limits framing to same-origin pages. This is the modern, expressive browser control and should be deployed on the responses that need protection.</p>
+<p>2. **Use `X-Frame-Options` for legacy browser coverage where appropriate.**    `DENY` and `SAMEORIGIN` are simpler than CSP and less flexible, but still useful for older clients. Do not rely on `ALLOW-FROM`; support is inconsistent and obsolete.</p>
+<p>3. **Require strong confirmation for high-risk actions.**    Re-authentication, typed confirmation, step-up MFA, and transaction signing reduce damage when a UI is exposed. These controls should complement frame blocking, not replace it.</p>
+<p>4. **Keep legitimate embedding narrow and explicit.**    If partners or internal portals must frame a page, allow only exact trusted origins and review whether those origins can host attacker-controlled content.</p>
+<p>5. **Test every sensitive route, not just the homepage.**    Header middleware, proxy routes, static error pages, and legacy flows often drift. Clickjacking protection is per response.</p>
+<h3>What does not work as a primary defense</h3>
+<ul><li>**CSRF tokens alone.** Clickjacking uses the user&#x27;s real browser and real UI, so valid CSRF tokens may be present.</li><li>**Frame-busting JavaScript.** Scripts can fail, be blocked, race, or be sandboxed; headers are the primary control.</li><li>**Hiding buttons with CSS.** The attacker controls the wrapper page, not the target&#x27;s secure presentation.</li><li>**Only protecting the login page.** The risk is usually authenticated settings, consent, billing, and admin pages.</li></ul>
+<h2>Practical labs</h2>
 <p>Use owned apps or intentionally vulnerable labs.</p>
-<h3 id="inspect-frame-protections">Inspect frame protections</h3>
-<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-I<span class="w"> </span>https://app.example.test/account/settings<span class="w"> </span><span class="p">|</span><span class="w"> </span>rg<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;content-security-policy|x-frame-options&quot;</span>
-</code></pre></div>
-
-<p>Look specifically for <code>frame-ancestors</code> in CSP or <code>DENY</code> / <code>SAMEORIGIN</code> in <code>X-Frame-Options</code>.</p>
-<h3 id="build-a-local-frame-test">Build a local frame test</h3>
-<div class="codehilite"><pre><span></span><code><span class="cp">&lt;!doctype html&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Frame test<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://app.example.test/account/settings&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;900&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;700&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</code></pre></div>
-
+<h3>Inspect frame protections</h3>
+<p>``` curl -I https://app.example.test/account/settings | rg -i &quot;content-security-policy|x-frame-options&quot; ```</p>
+<p>Look specifically for `frame-ancestors` in CSP or `DENY` / `SAMEORIGIN` in `X-Frame-Options`.</p>
+<h3>Build a local frame test</h3>
+<p>``` &lt;!doctype html&gt; &lt;html&gt;   &lt;body&gt;     &lt;h1&gt;Frame test&lt;/h1&gt;     &lt;iframe src=&quot;https://app.example.test/account/settings&quot; width=&quot;900&quot; height=&quot;700&quot;&gt;&lt;/iframe&gt;   &lt;/body&gt; &lt;/html&gt; ```</p>
 <p>Open this file locally while authenticated to the target app and confirm whether the browser blocks framing.</p>
-<h3 id="compare-sensitive-and-nonsensitive-routes">Compare sensitive and nonsensitive routes</h3>
-<div class="codehilite"><pre><span></span><code><span class="k">for</span><span class="w"> </span>path<span class="w"> </span><span class="k">in</span><span class="w"> </span>/<span class="w"> </span>/account<span class="w"> </span>/account/settings<span class="w"> </span>/admin<span class="w"> </span>/oauth/authorize<span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;\n== %s ==\n&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$path</span><span class="s2">&quot;</span>
-<span class="w">  </span>curl<span class="w"> </span>-skI<span class="w"> </span><span class="s2">&quot;https://app.example.test</span><span class="nv">$path</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>rg<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;content-security-policy|x-frame-options&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
-<span class="k">done</span>
-</code></pre></div>
-
+<h3>Compare sensitive and nonsensitive routes</h3>
+<p>``` for path in / /account /account/settings /admin /oauth/authorize; do   printf &quot;\n== %s ==\n&quot; &quot;$path&quot;   curl -skI &quot;https://app.example.test$path&quot; | rg -i &quot;content-security-policy|x-frame-options&quot; || true done ```</p>
 <p>Protection should be consistent on sensitive routes, not only on the root page.</p>
-<h3 id="check-allowed-ancestors">Check allowed ancestors</h3>
-<div class="codehilite"><pre><span></span><code>Route:
-frame-ancestors value:
-Allowed origins:
-Do allowed origins host user content:
-Sensitive action available:
-Decision:
-</code></pre></div>
-
+<h3>Check allowed ancestors</h3>
+<p>``` Route: frame-ancestors value: Allowed origins: Do allowed origins host user content: Sensitive action available: Decision: ```</p>
 <p>An allowlist is only as strong as the least trustworthy allowed origin.</p>
-<h3 id="record-a-clickjacking-finding">Record a clickjacking finding</h3>
-<div class="codehilite"><pre><span></span><code>Page:
-User role:
-Sensitive action:
-Frame protection observed:
-Proof wrapper:
-Action completed or partially completed:
-Recommended header:
-Retest result:
-</code></pre></div>
-
+<h3>Record a clickjacking finding</h3>
+<p>``` Page: User role: Sensitive action: Frame protection observed: Proof wrapper: Action completed or partially completed: Recommended header: Retest result: ```</p>
 <p>Avoid destructive proof. Demonstrate frameability and choose a harmless or reversible action.</p>
-<h2 id="practical-examples">Practical examples</h2>
-<ul>
-<li>Account settings can be framed and a logged-in user can be tricked into starting an email-change flow.</li>
-<li>An OAuth consent page is frameable and can be aligned under misleading "continue" UI.</li>
-<li>An admin dashboard blocks framing, but a legacy admin action endpoint does not.</li>
-<li>A payment confirmation page uses CSRF tokens but lacks <code>frame-ancestors</code>, allowing UI redress.</li>
-<li>A partner portal requires framing, but <code>frame-ancestors *</code> allows any site to embed the page.</li>
-</ul>
-<h2 id="related-notes">Related notes</h2>
-<ul>
-<li><a href="content-security-policy.html">content-security-policy</a></li>
-<li><a href="csrf.html">csrf</a></li>
-<li><a href="../networking/http-headers.html">http-headers</a></li>
-<li><a href="xss.html">xss</a></li>
-<li><a href="open-redirect.html">open-redirect</a></li>
-<li><a href="auth-flaws.html">auth-flaws</a></li>
-</ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
-<ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: frame-ancestors">frame-ancestors</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: x-frame-options">x-frame-options</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: ui-redress-attacks">ui-redress-attacks</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: oauth-consent-clickjacking">oauth-consent-clickjacking</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: browser-security-headers">browser-security-headers</span></li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Foundational:</strong> MDN CSP <code>frame-ancestors</code> — https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors</li>
-<li><strong>Foundational:</strong> OWASP Clickjacking Defense Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html</li>
-<li><strong>Testing / Lab:</strong> PortSwigger Clickjacking — https://portswigger.net/web-security/clickjacking</li>
-</ul>
+<h2>Practical examples</h2>
+<ul><li>Account settings can be framed and a logged-in user can be tricked into starting an email-change flow.</li><li>An OAuth consent page is frameable and can be aligned under misleading &quot;continue&quot; UI.</li><li>An admin dashboard blocks framing, but a legacy admin action endpoint does not.</li><li>A payment confirmation page uses CSRF tokens but lacks `frame-ancestors`, allowing UI redress.</li><li>A partner portal requires framing, but `frame-ancestors *` allows any site to embed the page.</li></ul>
+<h2>Related notes</h2>
+<ul><li>&lt;a href=&quot;content-security-policy.html&quot;&gt;content-security-policy&lt;/a&gt;</li><li>&lt;a href=&quot;csrf.html&quot;&gt;csrf&lt;/a&gt;</li><li>&lt;a href=&quot;../networking/http-headers.html&quot;&gt;http-headers&lt;/a&gt;</li><li>&lt;a href=&quot;xss.html&quot;&gt;xss&lt;/a&gt;</li><li>&lt;a href=&quot;open-redirect.html&quot;&gt;open-redirect&lt;/a&gt;</li><li>&lt;a href=&quot;auth-flaws.html&quot;&gt;auth-flaws&lt;/a&gt;</li></ul>
+<h3>Suggested future atomic notes</h3>
+<ul><li>frame-ancestors</li><li>x-frame-options</li><li>ui-redress-attacks</li><li>oauth-consent-clickjacking</li><li>browser-security-headers</li></ul>
+<h2>References</h2>
+<ul><li>**Foundational:** MDN CSP `frame-ancestors` — https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors</li><li>**Foundational:** OWASP Clickjacking Defense Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html</li><li>**Testing / Lab:** PortSwigger Clickjacking — https://portswigger.net/web-security/clickjacking</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="business-logic-vulnerabilities.html"><span class="nav-dir">← Previous</span><strong>Business Logic Vulnerabilities</strong></a><a class="branch-nav-link next" href="command-injection.html"><span class="nav-dir">Next →</span><strong>Command Injection</strong></a></nav>
-<section class="related-notes" aria-label="Explore nearby notes">
-<h2>Explore nearby notes</h2>
+<section class="related-notes" aria-label="Related notes">
+<h2>Related notes</h2>
 <div class="related-grid">
-<a class="related-card" href="browser-security-boundaries.html"><span>Web Security</span><strong>Browser Security Boundaries</strong><small>&quot;Browser security boundaries&quot; is the **layered stack of isolation boundaries** a modern browser enforces between web content — not a single rule but five...</small></a>
-<a class="related-card" href="content-security-policy.html"><span>Web Security</span><strong>Content Security Policy</strong><small>Content Security Policy (CSP) is a browser security control that tells the browser which sources and execution patterns are allowed for scripts, styles, images...</small></a>
-<a class="related-card" href="same-origin-policy.html"><span>Web Security</span><strong>Same-Origin Policy</strong><small>The same-origin policy (SOP) is the browser&#x27;s foundational isolation rule: script running in one **origin** may freely read another resource&#x27;s content, DOM, and...</small></a>
 <a class="related-card" href="auth-flaws.html"><span>Web Security</span><strong>Authentication Flaws</strong><small>Authentication flaws are weaknesses in how an application verifies identity. They include weak login logic, user enumeration, broken MFA flows, password reset...</small></a>
+<a class="related-card" href="authentication-authorization-and-object-access.html"><span>Web Security</span><strong>Authentication, authorization and object access</strong><small>Authentication establishes a principal. Session management maintains that association across requests. Authorization decides whether that principal may perform an...</small></a>
 <a class="related-card" href="bot-detection-signals.html"><span>Web Security</span><strong>Bot Detection Signals</strong><small>Bot detection signals are the observable clues a web application or edge service uses to classify traffic as human, benign automation, suspicious automation, or...</small></a>
 <a class="related-card" href="broken-access-control.html"><span>Web Security</span><strong>Broken Access Control</strong><small>Broken access control happens when an application fails to enforce what a caller is allowed to access or do.</small></a>
+<a class="related-card" href="browser-security-boundaries.html"><span>Web Security</span><strong>Browser Security Boundaries</strong><small>&quot;Browser security boundaries&quot; is the **layered stack of isolation boundaries** a modern browser enforces between web content — not a single rule but five...</small></a>
+<a class="related-card" href="business-logic-vulnerabilities.html"><span>Web Security</span><strong>Business Logic Vulnerabilities</strong><small>Business logic vulnerabilities are flaws in the intended workflow, assumptions, invariants, or rule design of an application, where the system behaves as coded but...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-3" href="#worked-example-sensitive-page-frameability">Worked example: sensitive page frameability</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-classic-transparent-iframe">1. Classic transparent iframe</a>
-<a class="toc-level-3" href="#2-cursor-or-pointer-deception">2. Cursor or pointer deception</a>
-<a class="toc-level-3" href="#3-multi-step-ui-redress">3. Multi-step UI redress</a>
-<a class="toc-level-3" href="#4-drag-and-drop-or-typing-abuse">4. Drag-and-drop or typing abuse</a>
-<a class="toc-level-3" href="#5-overbroad-trusted-framing">5. Overbroad trusted framing</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-3" href="#inspect-frame-protections">Inspect frame protections</a>
-<a class="toc-level-3" href="#build-a-local-frame-test">Build a local frame test</a>
-<a class="toc-level-3" href="#compare-sensitive-and-nonsensitive-routes">Compare sensitive and nonsensitive routes</a>
-<a class="back-to-top" href="#top">Back to top</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

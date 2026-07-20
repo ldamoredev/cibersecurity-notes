@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Browser Security Boundaries - Web Security | ldamoredev Security Atlas</title>
+<title>Browser Security Boundaries - Web Security | Cybersecurity Atlas</title>
 <meta name="description" content="&quot;Browser security boundaries&quot; is the **layered stack of isolation boundaries** a modern browser enforces between web content — not a single rule but five...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Browser Security Boundaries, web-security, browser-security, cross-origin-isolation, xs-leaks, same-origin-policy">
-<meta name="theme-color" content="#16a34a">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Browser Security Boundaries">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/browser-security-boundaries.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Web Security">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Browser Security Boundaries - Web Security | ldamoredev Security Atlas">
+<meta property="og:title" content="Browser Security Boundaries - Web Security | Cybersecurity Atlas">
 <meta property="og:description" content="&quot;Browser security boundaries&quot; is the **layered stack of isolation boundaries** a modern browser enforces between web content — not a single rule but five...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/browser-security-boundaries.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Browser Security Boundaries - Web Security | ldamoredev Security Atlas">
+<meta name="twitter:title" content="Browser Security Boundaries - Web Security | Cybersecurity Atlas">
 <meta name="twitter:description" content="&quot;Browser security boundaries&quot; is the **layered stack of isolation boundaries** a modern browser enforces between web content — not a single rule but five...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/browser-security-boundaries.html#article","name":"Browser Security Boundaries - Web Security | ldamoredev Security Atlas","headline":"Browser Security Boundaries","description":"\"Browser security boundaries\" is the **layered stack of isolation boundaries** a modern browser enforces between web content — not a single rule but five...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/browser-security-boundaries.html","inLanguage":"en","datePublished":"2026-06-03","dateModified":"2026-06-03","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/browser-security-boundaries.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Browser Security Boundaries","web-security","browser-security","cross-origin-isolation","xs-leaks","same-origin-policy"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Web Security","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/index.html"},{"@type":"ListItem","position":4,"name":"Browser Security Boundaries","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/browser-security-boundaries.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/browser-security-boundaries.html#article","name":"Browser Security Boundaries - Web Security | Cybersecurity Atlas","headline":"Browser Security Boundaries","description":"\"Browser security boundaries\" is the **layered stack of isolation boundaries** a modern browser enforces between web content — not a single rule but five...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/browser-security-boundaries.html","inLanguage":"en","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/browser-security-boundaries.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Browser Security Boundaries"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Web Security","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/index.html"},{"@type":"ListItem","position":4,"name":"Browser Security Boundaries","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/browser-security-boundaries.html"}]}]</script>
+<meta property="article:section" content="Web Security">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/browser-security-boundaries.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/browser-security-boundaries.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/browser-security-boundaries.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Knowledge Base</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Attack Surface &amp; Signal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Atlas Home</a>
 <div class="sidebar-section"><h3>Entry layer</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Learning Path</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Overview</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="Attacker-Defender Duality as a Learning Tool">Attacker-Defender Duality as a Learning Tool</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Certifications as Validation Signals">Certifications as Validation Signals</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="CIA Triad — What It Actually Decides">CIA Triad — What It Actually Decides</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Job Context Specialization">Job Context Specialization</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Minimum Viable Cybersecurity Literacy">Minimum Viable Cybersecurity Literacy</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Threat Modeling Quickstart">Threat Modeling Quickstart</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="What Is Cybersecurity, and Why It Is Not a Tool List">What Is Cybersecurity, and Why It Is Not a Tool List</a>
 </div></details>
 </div></details>
-<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Cryptography</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Overview</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -88,7 +97,7 @@
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Overview</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caching and Security">Caching and Security</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Client IP Trust">Client IP Trust</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="DNS Resolution">DNS Resolution</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="DNS Security">DNS Security</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls and Network Boundaries">Firewalls and Network Boundaries</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Header Trust in Node Express">Header Trust in Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="HTTP Headers">HTTP Headers</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="HTTP Messages">HTTP Messages</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS and HTTPS">TLS and HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Wireshark Workflows">Wireshark Workflows</a>
 </div></details>
-<details class="nav-branch accent-blue active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="index.html">Overview</a>
 <a class="nav-leaf" href="auth-flaws.html" title="Authentication Flaws">Authentication Flaws</a>
+<a class="nav-leaf" href="authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="broken-access-control.html" title="Broken Access Control">Broken Access Control</a>
 <a class="nav-leaf active" href="browser-security-boundaries.html" title="Browser Security Boundaries">Browser Security Boundaries</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Offensive Security / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Overview</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="The Operator Loop">The Operator Loop</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Overview</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Network Security Monitoring Discipline">Network Security Monitoring Discipline</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Attack Surface Mapping</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Overview</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,7 +238,7 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Overview</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detect BloodHound Collection">Detect BloodHound Collection</a>
@@ -235,6 +247,7 @@
 <a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>updated · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>updated · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -412,251 +425,89 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Web Security</a><span>/</span><span>Browser Security Boundaries</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-blue">Web Security</span><span class="meta-chip meta-time" title="Estimated reading time">~9 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated Jun 03, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#web-security</span><span class="meta-chip tag">#browser-security</span><span class="meta-chip tag">#cross-origin-isolation</span><span class="meta-chip tag">#xs-leaks</span><span class="meta-chip tag">#same-origin-policy</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-blue">Web Security</span><span class="meta-chip meta-time" title="Estimated reading time">~9 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="browser-security-boundaries">Browser Security Boundaries</h1>
-<h2 id="definition">Definition</h2>
-<p>"Browser security boundaries" is the <strong>layered stack of isolation boundaries</strong> a modern browser enforces between web content — not a single rule but five boundaries operating at different granularities: <strong>origin</strong> (script access), <strong>site</strong> (state), <strong>process</strong> (memory), <strong>agent cluster</strong> (powerful APIs), and <strong>storage partition</strong> (cross-site state). The <a href="same-origin-policy.html">same-origin-policy</a> is the innermost of these; the others were added (mostly 2019–2025, accelerated by Spectre and by privacy work) because origin-level isolation alone no longer holds against speculative side channels and cross-site tracking. A "browser security bypass" is almost always <em>finding the one layer in this stack that didn't hold</em>.</p>
-<h2 id="why-it-matters">Why it matters</h2>
+<h1>Browser Security Boundaries</h1>
+<h2>Definition</h2>
+<p>&quot;Browser security boundaries&quot; is the **layered stack of isolation boundaries** a modern browser enforces between web content — not a single rule but five boundaries operating at different granularities: **origin** (script access), **site** (state), **process** (memory), **agent cluster** (powerful APIs), and **storage partition** (cross-site state). The &lt;a href=&quot;same-origin-policy.html&quot;&gt;same-origin-policy&lt;/a&gt; is the innermost of these; the others were added (mostly 2019–2025, accelerated by Spectre and by privacy work) because origin-level isolation alone no longer holds against speculative side channels and cross-site tracking. A &quot;browser security bypass&quot; is almost always *finding the one layer in this stack that didn&#x27;t hold*.</p>
+<h2>Why it matters</h2>
 <p>By 2026 the post-Spectre, post-Privacy-Sandbox browser is the most-attacked sandbox on earth, and its security is no longer explainable by SOP alone. Three transferable lessons:</p>
-<ul>
-<li><strong>Different controls key on different boundaries, and the seams are the bugs.</strong> SOP and Origin-Agent-Cluster key on <em>origin</em>; cookies, CORP, and storage partitioning key on <em>site</em> (eTLD+1). <code>a.example.com</code> and <code>b.example.com</code> are different origins but the <em>same site</em> — so a control you assumed was per-origin may actually trust a sibling subdomain. Most boundary bugs live at a seam where a coarse boundary is trusted as if it were fine-grained.</li>
-<li><strong>Spectre moved the real boundary from the language to the OS process.</strong> Speculative execution can read across the in-process JS heap, defeating any language-level isolation. The browser's structural answer was <strong>Site Isolation</strong> — put different sites in different OS processes — and <strong>cross-origin isolation</strong> (COOP+COEP) to re-enable powerful timing APIs safely. The memory boundary is now a <em>process</em> boundary, which is why renderer sandbox escapes matter as much as web bugs.</li>
-<li><strong>SOP blocks reads, not observations — so the modern attack class is inference, not theft.</strong> Cross-site leaks (XS-leaks) infer cross-origin state through SOP-permitted side effects (timing, frame counts, error events, cache). The boundary stack exists largely to close these side channels, and the 2025–26 offense is the search for the side channel a given site forgot to close.</li>
-</ul>
-<p>This is the modern-boundary companion to <a href="same-origin-policy.html">same-origin-policy</a>; SOP is the rule, this note is the system built on it.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>The boundary stack, innermost to outermost — <strong>5 boundaries</strong>:</p>
-<table>
-<thead>
-<tr>
-<th>Boundary</th>
-<th>Granularity</th>
-<th>Enforces</th>
-<th>Key mechanism</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Origin</strong></td>
-<td>scheme+host+port</td>
-<td>script read/DOM/storage access</td>
-<td><a href="same-origin-policy.html">same-origin-policy</a></td>
-</tr>
-<tr>
-<td><strong>Site</strong></td>
-<td>scheme + eTLD+1</td>
-<td>cookie/state scope, CORP <code>same-site</code></td>
-<td>Public Suffix List</td>
-</tr>
-<tr>
-<td><strong>Process</strong></td>
-<td>site (or origin)</td>
-<td>memory isolation vs Spectre</td>
-<td>Site Isolation, Origin-Agent-Cluster</td>
-</tr>
-<tr>
-<td><strong>Agent cluster</strong></td>
-<td>cross-origin-isolated</td>
-<td>access to SAB + precise timers</td>
-<td>COOP + COEP</td>
-</tr>
-<tr>
-<td><strong>Storage partition</strong></td>
-<td>(top-site, embedded-site)</td>
-<td>cross-site state/tracking</td>
-<td>CHIPS, Storage Access API</td>
-</tr>
-</tbody>
-</table>
+<ul><li>**Different controls key on different boundaries, and the seams are the bugs.** SOP and Origin-Agent-Cluster key on *origin*; cookies, CORP, and storage partitioning key on *site* (eTLD+1). `a.example.com` and `b.example.com` are different origins but the *same site* — so a control you assumed was per-origin may actually trust a sibling subdomain. Most boundary bugs live at a seam where a coarse boundary is trusted as if it were fine-grained.</li><li>**Spectre moved the real boundary from the language to the OS process.** Speculative execution can read across the in-process JS heap, defeating any language-level isolation. The browser&#x27;s structural answer was **Site Isolation** — put different sites in different OS processes — and **cross-origin isolation** (COOP+COEP) to re-enable powerful timing APIs safely. The memory boundary is now a *process* boundary, which is why renderer sandbox escapes matter as much as web bugs.</li><li>**SOP blocks reads, not observations — so the modern attack class is inference, not theft.** Cross-site leaks (XS-leaks) infer cross-origin state through SOP-permitted side effects (timing, frame counts, error events, cache). The boundary stack exists largely to close these side channels, and the 2025–26 offense is the search for the side channel a given site forgot to close.</li></ul>
+<p>This is the modern-boundary companion to &lt;a href=&quot;same-origin-policy.html&quot;&gt;same-origin-policy&lt;/a&gt;; SOP is the rule, this note is the system built on it.</p>
+<h2>How it works</h2>
+<p>The boundary stack, innermost to outermost — **5 boundaries**:</p>
+<p>| Boundary | Granularity | Enforces | Key mechanism | | --- | --- | --- | --- | | **Origin** | scheme+host+port | script read/DOM/storage access | &lt;a href=&quot;same-origin-policy.html&quot;&gt;same-origin-policy&lt;/a&gt; | | **Site** | scheme + eTLD+1 | cookie/state scope, CORP `same-site` | Public Suffix List | | **Process** | site (or origin) | memory isolation vs Spectre | Site Isolation, Origin-Agent-Cluster | | **Agent cluster** | cross-origin-isolated | access to SAB + precise timers | COOP + COEP | | **Storage partition** | (top-site, embedded-site) | cross-site state/tracking | CHIPS, Storage Access API |</p>
 <p>The mechanics that bind them:</p>
-<ol>
-<li><strong>Origin vs site.</strong> Origin is SOP's tuple; <em>site</em> is scheme + the registrable domain (eTLD+1, derived from the Public Suffix List). Cookies, <code>Cross-Origin-Resource-Policy: same-site</code>, and storage partitioning operate at site granularity — coarser than origin.</li>
-<li><strong>Process isolation (Spectre's answer).</strong> Because a speculative read can cross the in-process boundary, <strong>Site Isolation</strong> places different sites in different renderer processes so one site's speculation cannot reach another's memory. <strong>Origin-Agent-Cluster (<code>Origin-Agent-Cluster: ?1</code>)</strong> requests origin-keyed (rather than site-keyed) isolation and disables <code>document.domain</code>.</li>
-<li><strong>Cross-origin isolation.</strong> <code>SharedArrayBuffer</code> and high-resolution timers were disabled after Spectre because they build precise side-channel clocks. A document re-enables them only by becoming <em>cross-origin isolated</em>: <code>Cross-Origin-Opener-Policy: same-origin</code> <strong>and</strong> <code>Cross-Origin-Embedder-Policy: require-corp</code>, which together guarantee no un-opted-in cross-origin resource shares its process.</li>
-<li><strong>CORP and COOP as the building blocks.</strong> <code>Cross-Origin-Resource-Policy</code> lets a <em>resource</em> declare who may embed it (<code>same-origin</code>/<code>same-site</code>/<code>cross-origin</code>), blocking speculative cross-origin inclusion. <code>Cross-Origin-Opener-Policy</code> severs the <code>window.opener</code> link between cross-origin top-level documents, closing cross-window leaks.</li>
-<li><strong>Storage partitioning.</strong> Cookies and storage are increasingly keyed by <em>(top-level site, embedded site)</em> so a third-party iframe cannot share state across the sites embedding it; <strong>CHIPS</strong> (<code>Set-Cookie: ...; Partitioned</code>) is the opt-in, and the <strong>Storage Access API</strong> grants scoped exceptions.</li>
-</ol>
+<p>1. **Origin vs site.** Origin is SOP&#x27;s tuple; *site* is scheme + the registrable domain (eTLD+1, derived from the Public Suffix List). Cookies, `Cross-Origin-Resource-Policy: same-site`, and storage partitioning operate at site granularity — coarser than origin. 2. **Process isolation (Spectre&#x27;s answer).** Because a speculative read can cross the in-process boundary, **Site Isolation** places different sites in different renderer processes so one site&#x27;s speculation cannot reach another&#x27;s memory. **Origin-Agent-Cluster (`Origin-Agent-Cluster: ?1`)** requests origin-keyed (rather than site-keyed) isolation and disables `document.domain`. 3. **Cross-origin isolation.** `SharedArrayBuffer` and high-resolution timers were disabled after Spectre because they build precise side-channel clocks. A document re-enables them only by becoming *cross-origin isolated*: `Cross-Origin-Opener-Policy: same-origin` **and** `Cross-Origin-Embedder-Policy: require-corp`, which together guarantee no un-opted-in cross-origin resource shares its process. 4. **CORP and COOP as the building blocks.** `Cross-Origin-Resource-Policy` lets a *resource* declare who may embed it (`same-origin`/`same-site`/`cross-origin`), blocking speculative cross-origin inclusion. `Cross-Origin-Opener-Policy` severs the `window.opener` link between cross-origin top-level documents, closing cross-window leaks. 5. **Storage partitioning.** Cookies and storage are increasingly keyed by *(top-level site, embedded site)* so a third-party iframe cannot share state across the sites embedding it; **CHIPS** (`Set-Cookie: ...; Partitioned`) is the opt-in, and the **Storage Access API** grants scoped exceptions.</p>
 <p>The headers that turn it on, in one block:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Cross-Origin-Opener-Policy: same-origin</span>
-<span class="err">Cross-Origin-Embedder-Policy: require-corp</span>
-<span class="err">Cross-Origin-Resource-Policy: same-origin</span>
-<span class="err">Origin-Agent-Cluster: ?1</span>
-<span class="err"># COOP + COEP  =&gt;  self.crossOriginIsolated === true  =&gt;  SharedArrayBuffer re-enabled</span>
-</code></pre></div>
-
-<p>The boundary is a stack — origin for script access, site for state, process for memory, agent-cluster for powerful APIs, partition for cross-site state. Security holds only as long as <em>every</em> layer the data relies on holds.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
+<p>``` Cross-Origin-Opener-Policy: same-origin Cross-Origin-Embedder-Policy: require-corp Cross-Origin-Resource-Policy: same-origin Origin-Agent-Cluster: ?1 # COOP + COEP  =&gt;  self.crossOriginIsolated === true  =&gt;  SharedArrayBuffer re-enabled ```</p>
+<p>The boundary is a stack — origin for script access, site for state, process for memory, agent-cluster for powerful APIs, partition for cross-site state. Security holds only as long as *every* layer the data relies on holds.</p>
+<h2>Techniques / patterns</h2>
 <p>What an attacker probes:</p>
-<ul>
-<li><strong>Find the coarsest boundary the target trusts.</strong> If a control keys on <em>site</em>, a sibling subdomain (or a subdomain takeover) is inside it. Site-vs-origin confusion is the highest-yield seam.</li>
-<li><strong>Mine SOP-permitted observations for XS-leaks.</strong> Response timing, frame/<code>window.length</code> counts, cache hit/miss, <code>onload</code>/<code>onerror</code> events, <code>history.length</code>, COOP/COEP probing, and <code>crossOriginIsolated</code> state all leak cross-origin/cross-site bits without reading any body.</li>
-<li><strong>Hunt missing isolation headers.</strong> Absent CORP/COOP/COEP means resources can be speculatively included and windows can retain <code>opener</code> — the preconditions for side-channel reads and cross-window leaks.</li>
-<li><strong>Look for SAB without isolation.</strong> Any path that exposes <code>SharedArrayBuffer</code> or a precise timer <em>without</em> full cross-origin isolation reopens the Spectre clock.</li>
-<li><strong>Chain to a sandbox escape.</strong> The process boundary is the last line; a renderer memory-corruption bug (<a href="../binary-exploitation/use-after-free-and-dangling-pointers.html">UAF</a>/type confusion) plus an IPC/broker bug escapes Site Isolation entirely.</li>
-</ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>The <strong>5 pressure classes</strong> against the boundary stack — covering Q5's named 2025–26 techniques.</p>
-<h3 id="1-xs-leaks-cross-site-leaks">1. XS-Leaks (cross-site leaks)</h3>
-<p>Inferring cross-origin/cross-site state via SOP-allowed side effects (timing, frame counting, cache probing, error events, COOP/COEP behavior). The dominant boundary-pressure class against the post-SOP model — it attacks <em>observability</em>, which SOP never restricted.</p>
-<h3 id="2-spectre-class-speculative-side-channels">2. Spectre-class speculative side channels</h3>
-<p>Speculative execution reads memory across the in-process boundary. Neutralized by the <em>process</em> boundary (Site Isolation) and cross-origin isolation; where those are absent — some mobile browsers, embedded WebViews, misconfigured isolation — cross-origin in-process reads remain feasible.</p>
-<h3 id="3-sharedarraybuffer-reintroduction-edge-cases">3. SharedArrayBuffer reintroduction edge cases</h3>
-<p>SAB + precise timers are the side-channel amplifier, gated behind cross-origin isolation. Edge cases reopen them: enterprise policy re-enabling SAB without isolation, origin-trial gaps, or timer-precision quirks that rebuild a usable clock from <code>performance.now()</code>/<code>postMessage</code> timing.</p>
-<h3 id="4-renderer-sandbox-escape">4. Renderer sandbox escape</h3>
-<p>The process boundary is enforced by the OS sandbox. A renderer RCE (UAF/type confusion) chained with an IPC, broker, or kernel bug escapes Site Isolation — the prestige Pwn2Own chain where web-boundary security meets <a href="../binary-exploitation/memory-corruption.html">memory corruption</a>.</p>
-<h3 id="5-site-vs-origin-confusion">5. Site-vs-origin confusion</h3>
-<p>Controls keyed on <em>site</em> (cookies, CORP <code>same-site</code>) trust every same-site origin. A single XSS or subdomain takeover on any sibling subdomain pivots across the <em>site</em> boundary — the coarse layer is the weak link in the stack.</p>
-<h2 id="impact">Impact</h2>
+<ul><li>**Find the coarsest boundary the target trusts.** If a control keys on *site*, a sibling subdomain (or a subdomain takeover) is inside it. Site-vs-origin confusion is the highest-yield seam.</li><li>**Mine SOP-permitted observations for XS-leaks.** Response timing, frame/`window.length` counts, cache hit/miss, `onload`/`onerror` events, `history.length`, COOP/COEP probing, and `crossOriginIsolated` state all leak cross-origin/cross-site bits without reading any body.</li><li>**Hunt missing isolation headers.** Absent CORP/COOP/COEP means resources can be speculatively included and windows can retain `opener` — the preconditions for side-channel reads and cross-window leaks.</li><li>**Look for SAB without isolation.** Any path that exposes `SharedArrayBuffer` or a precise timer *without* full cross-origin isolation reopens the Spectre clock.</li><li>**Chain to a sandbox escape.** The process boundary is the last line; a renderer memory-corruption bug (&lt;a href=&quot;../binary-exploitation/use-after-free-and-dangling-pointers.html&quot;&gt;UAF&lt;/a&gt;/type confusion) plus an IPC/broker bug escapes Site Isolation entirely.</li></ul>
+<h2>Variants and bypasses</h2>
+<p>The **5 pressure classes** against the boundary stack — covering Q5&#x27;s named 2025–26 techniques.</p>
+<h3>1. XS-Leaks (cross-site leaks)</h3>
+<p>Inferring cross-origin/cross-site state via SOP-allowed side effects (timing, frame counting, cache probing, error events, COOP/COEP behavior). The dominant boundary-pressure class against the post-SOP model — it attacks *observability*, which SOP never restricted.</p>
+<h3>2. Spectre-class speculative side channels</h3>
+<p>Speculative execution reads memory across the in-process boundary. Neutralized by the *process* boundary (Site Isolation) and cross-origin isolation; where those are absent — some mobile browsers, embedded WebViews, misconfigured isolation — cross-origin in-process reads remain feasible.</p>
+<h3>3. SharedArrayBuffer reintroduction edge cases</h3>
+<p>SAB + precise timers are the side-channel amplifier, gated behind cross-origin isolation. Edge cases reopen them: enterprise policy re-enabling SAB without isolation, origin-trial gaps, or timer-precision quirks that rebuild a usable clock from `performance.now()`/`postMessage` timing.</p>
+<h3>4. Renderer sandbox escape</h3>
+<p>The process boundary is enforced by the OS sandbox. A renderer RCE (UAF/type confusion) chained with an IPC, broker, or kernel bug escapes Site Isolation — the prestige Pwn2Own chain where web-boundary security meets &lt;a href=&quot;../binary-exploitation/memory-corruption.html&quot;&gt;memory corruption&lt;/a&gt;.</p>
+<h3>5. Site-vs-origin confusion</h3>
+<p>Controls keyed on *site* (cookies, CORP `same-site`) trust every same-site origin. A single XSS or subdomain takeover on any sibling subdomain pivots across the *site* boundary — the coarse layer is the weak link in the stack.</p>
+<h2>Impact</h2>
 <p>Ordered by severity:</p>
-<ul>
-<li><strong>Renderer escape → device compromise.</strong> A sandbox-escape chain breaks the process boundary and runs outside the browser — the highest-impact outcome.</li>
-<li><strong>Cross-origin memory reads.</strong> A Spectre side channel reads another site's secrets sharing the same process (where isolation is absent).</li>
-<li><strong>Cross-site state inference (XS-leaks).</strong> Login status, account attributes, search results, or admin status inferred across the boundary without reading bodies.</li>
-<li><strong>Cross-site tracking / state leakage.</strong> Unpartitioned storage links a user across the sites embedding a third party.</li>
-<li><strong>Defense-in-depth collapse.</strong> A site-granular control trusted as if origin-granular is silently bypassable via a sibling origin.</li>
-</ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
+<ul><li>**Renderer escape → device compromise.** A sandbox-escape chain breaks the process boundary and runs outside the browser — the highest-impact outcome.</li><li>**Cross-origin memory reads.** A Spectre side channel reads another site&#x27;s secrets sharing the same process (where isolation is absent).</li><li>**Cross-site state inference (XS-leaks).** Login status, account attributes, search results, or admin status inferred across the boundary without reading bodies.</li><li>**Cross-site tracking / state leakage.** Unpartitioned storage links a user across the sites embedding a third party.</li><li>**Defense-in-depth collapse.** A site-granular control trusted as if origin-granular is silently bypassable via a sibling origin.</li></ul>
+<h2>Detection and defense</h2>
 <p>How to keep the boundary stack intact, ordered by effectiveness:</p>
-<ol>
-<li>
-<p><strong>Deploy cross-origin isolation where it matters.</strong>
-   Set <code>COOP: same-origin</code> + <code>COEP: require-corp</code> for any app that uses <code>SharedArrayBuffer</code>/precise timers or holds cross-origin-sensitive data. It guarantees a clean process and closes the timer side channels SAB would otherwise enable — the strongest single control for high-value apps.</p>
-</li>
-<li>
-<p><strong>Set CORP on resources.</strong>
-   <code>Cross-Origin-Resource-Policy: same-origin</code> (or <code>same-site</code>) stops a resource from being speculatively included by a cross-origin page — the resource-side half of closing Spectre inclusion.</p>
-</li>
-<li>
-<p><strong>Set COOP to sever opener relationships.</strong>
-   <code>Cross-Origin-Opener-Policy: same-origin</code> cuts the <code>window.opener</code> channel between cross-origin top-level documents, closing a class of cross-window XS-leaks even without full isolation.</p>
-</li>
-<li>
-<p><strong>Opt into origin-keyed isolation; don't relax to site.</strong>
-   <code>Origin-Agent-Cluster: ?1</code> requests per-origin process isolation and disables <code>document.domain</code>. Never widen the boundary back to site via <code>document.domain</code>.</p>
-</li>
-<li>
-<p><strong>Reject cross-site requests server-side with Fetch Metadata.</strong>
-   <code>Sec-Fetch-Site</code>/<code>Sec-Fetch-Mode</code> let the <em>server</em> see and refuse cross-site/cross-origin requests it never intended to serve — a Resource Isolation Policy that blunts many XS-leaks and CSRF at the origin.</p>
-</li>
-<li>
-<p><strong>Partition state and use the Storage Access API.</strong>
-   Adopt CHIPS (<code>Partitioned</code> cookies) and request cross-site access explicitly via the Storage Access API rather than relying on legacy unpartitioned third-party cookies.</p>
-</li>
-<li>
-<p><strong>Keep the renderer hard.</strong>
-   Since the process boundary is the last line, the <a href="../binary-exploitation/exploit-mitigations.html">memory-safety mitigations</a> (hardened allocators, MTE, CFI) are part of the browser boundary story, not separate from it.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
-<ul>
-<li><strong>Relying on SOP alone.</strong> SOP blocks cross-origin <em>reads</em>, not the <em>observations</em> XS-leaks exploit. The boundary stack exists precisely because SOP is necessary-but-insufficient.</li>
-<li><strong>Assuming Site Isolation is everywhere.</strong> Mobile browsers and embedded WebViews may lack full Site Isolation; do not assume the process boundary holds on every platform.</li>
-<li><strong>Treating site as equal to origin.</strong> Sibling subdomains are same-site, not same-origin; site-keyed controls trust them.</li>
-<li><strong>Enabling SharedArrayBuffer without cross-origin isolation.</strong> This reopens the precise-timer side channel the isolation requirement was added to close.</li>
-</ul>
-<h2 id="practical-labs">Practical labs</h2>
+<p>1. **Deploy cross-origin isolation where it matters.**    Set `COOP: same-origin` + `COEP: require-corp` for any app that uses `SharedArrayBuffer`/precise timers or holds cross-origin-sensitive data. It guarantees a clean process and closes the timer side channels SAB would otherwise enable — the strongest single control for high-value apps.</p>
+<p>2. **Set CORP on resources.**    `Cross-Origin-Resource-Policy: same-origin` (or `same-site`) stops a resource from being speculatively included by a cross-origin page — the resource-side half of closing Spectre inclusion.</p>
+<p>3. **Set COOP to sever opener relationships.**    `Cross-Origin-Opener-Policy: same-origin` cuts the `window.opener` channel between cross-origin top-level documents, closing a class of cross-window XS-leaks even without full isolation.</p>
+<p>4. **Opt into origin-keyed isolation; don&#x27;t relax to site.**    `Origin-Agent-Cluster: ?1` requests per-origin process isolation and disables `document.domain`. Never widen the boundary back to site via `document.domain`.</p>
+<p>5. **Reject cross-site requests server-side with Fetch Metadata.**    `Sec-Fetch-Site`/`Sec-Fetch-Mode` let the *server* see and refuse cross-site/cross-origin requests it never intended to serve — a Resource Isolation Policy that blunts many XS-leaks and CSRF at the origin.</p>
+<p>6. **Partition state and use the Storage Access API.**    Adopt CHIPS (`Partitioned` cookies) and request cross-site access explicitly via the Storage Access API rather than relying on legacy unpartitioned third-party cookies.</p>
+<p>7. **Keep the renderer hard.**    Since the process boundary is the last line, the &lt;a href=&quot;../binary-exploitation/exploit-mitigations.html&quot;&gt;memory-safety mitigations&lt;/a&gt; (hardened allocators, MTE, CFI) are part of the browser boundary story, not separate from it.</p>
+<h3>What does not work as a primary defense</h3>
+<ul><li>**Relying on SOP alone.** SOP blocks cross-origin *reads*, not the *observations* XS-leaks exploit. The boundary stack exists precisely because SOP is necessary-but-insufficient.</li><li>**Assuming Site Isolation is everywhere.** Mobile browsers and embedded WebViews may lack full Site Isolation; do not assume the process boundary holds on every platform.</li><li>**Treating site as equal to origin.** Sibling subdomains are same-site, not same-origin; site-keyed controls trust them.</li><li>**Enabling SharedArrayBuffer without cross-origin isolation.** This reopens the precise-timer side channel the isolation requirement was added to close.</li></ul>
+<h2>Practical labs</h2>
 <p>Run only against systems you own or are authorized to test. Most run in DevTools.</p>
-<h3 id="check-cross-origin-isolation-and-sab-availability">Check cross-origin isolation and SAB availability</h3>
-<div class="codehilite"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;crossOriginIsolated =&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">self</span><span class="p">.</span><span class="nx">crossOriginIsolated</span><span class="p">);</span>
-<span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">SharedArrayBuffer</span><span class="p">(</span><span class="mf">8</span><span class="p">);</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;SAB available&#39;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
-<span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;SAB gated:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
-<span class="c1">// SAB should be available iff crossOriginIsolated === true (COOP+COEP set).</span>
-</code></pre></div>
-
-<h3 id="inspect-a-sites-boundary-headers">Inspect a site's boundary headers</h3>
-<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-sD<span class="w"> </span>-<span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>https://app.example.com/<span class="w"> </span><span class="p">|</span><span class="w"> </span>rg<span class="w"> </span>-i<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;^(cross-origin-opener-policy|cross-origin-embedder-policy|cross-origin-resource-policy|origin-agent-cluster|content-security-policy):&#39;</span>
-<span class="c1"># Missing COOP/COEP/CORP = the side-channel boundaries are not being enforced.</span>
-</code></pre></div>
-
-<h3 id="distinguish-origin-from-site">Distinguish origin from site</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1">// For a set of hosts, origin = scheme+host+port; site = scheme + eTLD+1.</span>
-<span class="c1">// a.example.com and b.example.com: DIFFERENT origin, SAME site.</span>
-<span class="c1">// app.example.com:443 and app.example.com:8443: DIFFERENT origin, SAME site.</span>
-<span class="c1">// Controls that key on site trust all of the same-site rows.</span>
-</code></pre></div>
-
-<h3 id="observe-fetch-metadata-on-the-server-side">Observe Fetch Metadata on the server side</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Make a cross-site vs same-origin request and compare the Sec-Fetch-* headers</span>
-<span class="c1"># the server receives — the basis of a Resource Isolation Policy.</span>
-curl<span class="w"> </span>-s<span class="w"> </span>https://app.example.com/api<span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Sec-Fetch-Site: cross-site&#39;</span><span class="w"> </span>-D<span class="w"> </span>-<span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>rg<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;HTTP/&#39;</span>
-</code></pre></div>
-
-<h2 id="practical-examples">Practical examples</h2>
-<ul>
-<li><strong>SAB re-enabled without isolation.</strong> An app turns on <code>SharedArrayBuffer</code> for a WebAssembly feature via enterprise policy but never sets COOP/COEP; on a shared-process mobile browser this reintroduces a Spectre-grade timer.</li>
-<li><strong>Frame-counting XS-leak.</strong> An attacker page embeds <code>victim.example/search?q=secret</code> and reads <code>window.length</code> (subframe count) to infer whether the query matched — login/admin-status inference with no body read.</li>
-<li><strong>Missing CORP enables pixel-reading.</strong> A site serves images without CORP; a cross-origin page (pre-Site-Isolation) speculatively includes them to read pixel data via a timing channel.</li>
-<li><strong>Renderer escape chain.</strong> A V8 type-confusion UAF gives renderer RCE; an IPC/broker bug then escapes Site Isolation — the canonical browser Pwn2Own chain.</li>
-<li><strong>Sibling-subdomain pivot.</strong> An XSS on <code>blog.example.com</code> abuses a <code>CORP: same-site</code> resource and a host-only cookie trusted across <code>*.example.com</code>, crossing the <em>site</em> boundary the app implicitly relied on.</li>
-</ul>
-<h2 id="related-notes">Related notes</h2>
-<ul>
-<li><a href="same-origin-policy.html">same-origin-policy</a> — the innermost boundary and the rule this stack is built on.</li>
-<li><a href="cors-misconfiguration.html">cors-misconfiguration</a> — the read-relaxation layer; CORS sits alongside CORP/COEP in the cross-origin model.</li>
-<li><a href="content-security-policy.html">content-security-policy</a> — the in-origin defense layer that complements the cross-origin boundaries.</li>
-<li><a href="clickjacking.html">clickjacking</a> — <code>frame-ancestors</code>/<code>X-Frame-Options</code>, the embedding boundary against UI redress.</li>
-<li><a href="csrf.html">csrf</a> — SameSite + Fetch Metadata, the request-boundary controls referenced above.</li>
-<li><a href="../networking/cookies-and-sessions.html">Cookies and Sessions</a> — why cookies are site-keyed and how partitioning (CHIPS) changes that.</li>
-<li><a href="../binary-exploitation/use-after-free-and-dangling-pointers.html">Use-After-Free</a> — the renderer-bug half of a sandbox-escape chain.</li>
-<li><a href="../foundations/attacker-defender-duality-as-a-learning-tool.html">Attacker-Defender Duality</a> — the boundary stack is the wall; XS-leaks and escapes are where the operator probes it.</li>
-</ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
-<ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: xs-leaks-and-cross-site-inference">xs-leaks-and-cross-site-inference</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: fetch-metadata-and-resource-isolation-policy">fetch-metadata-and-resource-isolation-policy</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: partitioned-storage-and-chips">partitioned-storage-and-chips</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: spectre-and-speculative-side-channels">spectre-and-speculative-side-channels</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: renderer-sandbox-escapes">renderer-sandbox-escapes</span></li>
-</ul>
-<blockquote>
-<p>Future atomic notes are listed as <code>&lt;span class="unresolved-link" title="Unpublished or unresolved: wikilinks"&gt;wikilinks&lt;/span&gt;</code> even when the target file does not exist yet, so they register as forward-links in Obsidian.</p>
-</blockquote>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Foundational:</strong> web.dev — Why you need "cross-origin isolated" for powerful features (COOP + COEP) — https://web.dev/articles/coop-coep</li>
-<li><strong>Foundational:</strong> MDN — Cross-Origin-Resource-Policy (CORP) — https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Resource-Policy</li>
-<li><strong>Research / Deep Dive:</strong> XS-Leaks Wiki — https://xsleaks.dev/</li>
-<li><strong>Foundational:</strong> The Chromium Projects — Site Isolation — https://www.chromium.org/Home/chromium-security/site-isolation/</li>
-</ul>
+<h3>Check cross-origin isolation and SAB availability</h3>
+<p>``` console.log(&#x27;crossOriginIsolated =&#x27;, self.crossOriginIsolated); try { new SharedArrayBuffer(8); console.log(&#x27;SAB available&#x27;); } catch (e) { console.log(&#x27;SAB gated:&#x27;, e.message); } // SAB should be available iff crossOriginIsolated === true (COOP+COEP set). ```</p>
+<h3>Inspect a site&#x27;s boundary headers</h3>
+<p>``` curl -sD - -o /dev/null https://app.example.com/ | rg -i \   &#x27;^(cross-origin-opener-policy|cross-origin-embedder-policy|cross-origin-resource-policy|origin-agent-cluster|content-security-policy):&#x27; # Missing COOP/COEP/CORP = the side-channel boundaries are not being enforced. ```</p>
+<h3>Distinguish origin from site</h3>
+<p>``` // For a set of hosts, origin = scheme+host+port; site = scheme + eTLD+1. // a.example.com and b.example.com: DIFFERENT origin, SAME site. // app.example.com:443 and app.example.com:8443: DIFFERENT origin, SAME site. // Controls that key on site trust all of the same-site rows. ```</p>
+<h3>Observe Fetch Metadata on the server side</h3>
+<p>``` # Make a cross-site vs same-origin request and compare the Sec-Fetch-* headers # the server receives — the basis of a Resource Isolation Policy. curl -s https://app.example.com/api -H &#x27;Sec-Fetch-Site: cross-site&#x27; -D - -o /dev/null | rg -i &#x27;HTTP/&#x27; ```</p>
+<h2>Practical examples</h2>
+<ul><li>**SAB re-enabled without isolation.** An app turns on `SharedArrayBuffer` for a WebAssembly feature via enterprise policy but never sets COOP/COEP; on a shared-process mobile browser this reintroduces a Spectre-grade timer.</li><li>**Frame-counting XS-leak.** An attacker page embeds `victim.example/search?q=secret` and reads `window.length` (subframe count) to infer whether the query matched — login/admin-status inference with no body read.</li><li>**Missing CORP enables pixel-reading.** A site serves images without CORP; a cross-origin page (pre-Site-Isolation) speculatively includes them to read pixel data via a timing channel.</li><li>**Renderer escape chain.** A V8 type-confusion UAF gives renderer RCE; an IPC/broker bug then escapes Site Isolation — the canonical browser Pwn2Own chain.</li><li>**Sibling-subdomain pivot.** An XSS on `blog.example.com` abuses a `CORP: same-site` resource and a host-only cookie trusted across `*.example.com`, crossing the *site* boundary the app implicitly relied on.</li></ul>
+<h2>Related notes</h2>
+<ul><li>&lt;a href=&quot;same-origin-policy.html&quot;&gt;same-origin-policy&lt;/a&gt; — the innermost boundary and the rule this stack is built on.</li><li>&lt;a href=&quot;cors-misconfiguration.html&quot;&gt;cors-misconfiguration&lt;/a&gt; — the read-relaxation layer; CORS sits alongside CORP/COEP in the cross-origin model.</li><li>&lt;a href=&quot;content-security-policy.html&quot;&gt;content-security-policy&lt;/a&gt; — the in-origin defense layer that complements the cross-origin boundaries.</li><li>&lt;a href=&quot;clickjacking.html&quot;&gt;clickjacking&lt;/a&gt; — `frame-ancestors`/`X-Frame-Options`, the embedding boundary against UI redress.</li><li>&lt;a href=&quot;csrf.html&quot;&gt;csrf&lt;/a&gt; — SameSite + Fetch Metadata, the request-boundary controls referenced above.</li><li>&lt;a href=&quot;../networking/cookies-and-sessions.html&quot;&gt;Cookies and Sessions&lt;/a&gt; — why cookies are site-keyed and how partitioning (CHIPS) changes that.</li><li>&lt;a href=&quot;../binary-exploitation/use-after-free-and-dangling-pointers.html&quot;&gt;Use-After-Free&lt;/a&gt; — the renderer-bug half of a sandbox-escape chain.</li><li>&lt;a href=&quot;../foundations/attacker-defender-duality-as-a-learning-tool.html&quot;&gt;Attacker-Defender Duality&lt;/a&gt; — the boundary stack is the wall; XS-leaks and escapes are where the operator probes it.</li></ul>
+<h3>Suggested future atomic notes</h3>
+<ul><li>xs-leaks-and-cross-site-inference</li><li>fetch-metadata-and-resource-isolation-policy</li><li>partitioned-storage-and-chips</li><li>spectre-and-speculative-side-channels</li><li>renderer-sandbox-escapes</li></ul>
+<p>&gt; Future atomic notes are listed as `&lt;span class=&quot;unresolved-link&quot; title=&quot;Unpublished or unresolved: wikilinks&quot;&gt;wikilinks&lt;/span&gt;` even when the target file does not exist yet, so they register as forward-links in Obsidian.</p>
+<h2>References</h2>
+<ul><li>**Foundational:** web.dev — Why you need &quot;cross-origin isolated&quot; for powerful features (COOP + COEP) — https://web.dev/articles/coop-coep</li><li>**Foundational:** MDN — Cross-Origin-Resource-Policy (CORP) — https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Resource-Policy</li><li>**Research / Deep Dive:** XS-Leaks Wiki — https://xsleaks.dev/</li><li>**Foundational:** The Chromium Projects — Site Isolation — https://www.chromium.org/Home/chromium-security/site-isolation/</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="broken-access-control.html"><span class="nav-dir">← Previous</span><strong>Broken Access Control</strong></a><a class="branch-nav-link next" href="business-logic-vulnerabilities.html"><span class="nav-dir">Next →</span><strong>Business Logic Vulnerabilities</strong></a></nav>
-<section class="related-notes" aria-label="Explore nearby notes">
-<h2>Explore nearby notes</h2>
+<section class="related-notes" aria-label="Related notes">
+<h2>Related notes</h2>
 <div class="related-grid">
-<a class="related-card" href="same-origin-policy.html"><span>Web Security</span><strong>Same-Origin Policy</strong><small>The same-origin policy (SOP) is the browser&#x27;s foundational isolation rule: script running in one **origin** may freely read another resource&#x27;s content, DOM, and...</small></a>
-<a class="related-card" href="clickjacking.html"><span>Web Security</span><strong>Clickjacking</strong><small>Clickjacking is a UI redress attack where an attacker embeds a target page in a frame and tricks the user into clicking or typing into the real target UI while...</small></a>
-<a class="related-card" href="content-security-policy.html"><span>Web Security</span><strong>Content Security Policy</strong><small>Content Security Policy (CSP) is a browser security control that tells the browser which sources and execution patterns are allowed for scripts, styles, images...</small></a>
 <a class="related-card" href="auth-flaws.html"><span>Web Security</span><strong>Authentication Flaws</strong><small>Authentication flaws are weaknesses in how an application verifies identity. They include weak login logic, user enumeration, broken MFA flows, password reset...</small></a>
+<a class="related-card" href="authentication-authorization-and-object-access.html"><span>Web Security</span><strong>Authentication, authorization and object access</strong><small>Authentication establishes a principal. Session management maintains that association across requests. Authorization decides whether that principal may perform an...</small></a>
 <a class="related-card" href="bot-detection-signals.html"><span>Web Security</span><strong>Bot Detection Signals</strong><small>Bot detection signals are the observable clues a web application or edge service uses to classify traffic as human, benign automation, suspicious automation, or...</small></a>
 <a class="related-card" href="broken-access-control.html"><span>Web Security</span><strong>Broken Access Control</strong><small>Broken access control happens when an application fails to enforce what a caller is allowed to access or do.</small></a>
+<a class="related-card" href="business-logic-vulnerabilities.html"><span>Web Security</span><strong>Business Logic Vulnerabilities</strong><small>Business logic vulnerabilities are flaws in the intended workflow, assumptions, invariants, or rule design of an application, where the system behaves as coded but...</small></a>
+<a class="related-card" href="clickjacking.html"><span>Web Security</span><strong>Clickjacking</strong><small>Clickjacking is a UI redress attack where an attacker embeds a target page in a frame and tricks the user into clicking or typing into the real target UI while...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-xs-leaks-cross-site-leaks">1. XS-Leaks (cross-site leaks)</a>
-<a class="toc-level-3" href="#2-spectre-class-speculative-side-channels">2. Spectre-class speculative side channels</a>
-<a class="toc-level-3" href="#3-sharedarraybuffer-reintroduction-edge-cases">3. SharedArrayBuffer reintroduction edge cases</a>
-<a class="toc-level-3" href="#4-renderer-sandbox-escape">4. Renderer sandbox escape</a>
-<a class="toc-level-3" href="#5-site-vs-origin-confusion">5. Site-vs-origin confusion</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-3" href="#check-cross-origin-isolation-and-sab-availability">Check cross-origin isolation and SAB availability</a>
-<a class="toc-level-3" href="#inspect-a-sites-boundary-headers">Inspect a site&#x27;s boundary headers</a>
-<a class="toc-level-3" href="#distinguish-origin-from-site">Distinguish origin from site</a>
-<a class="toc-level-3" href="#observe-fetch-metadata-on-the-server-side">Observe Fetch Metadata on the server side</a>
-<a class="back-to-top" href="#top">Back to top</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

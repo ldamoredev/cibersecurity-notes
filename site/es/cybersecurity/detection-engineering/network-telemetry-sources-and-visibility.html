@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Network Telemetry Sources and Visibility | ldamoredev Security Atlas</title>
-<meta name="description" content="La telemetría de red es la evidencia producida por puntos de observación que ven comunicación a través de una red: paquetes, flows, transacciones de protocol...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Ingeniería de Detección, Network Telemetry Sources and Visibility, detection-engineering, telemetry, network-visibility, observability">
-<meta name="theme-color" content="#16a34a">
+<title>Network Telemetry Sources and Visibility - Ingeniería de Detección | Cybersecurity Atlas</title>
+<meta name="description" content="La telemetría de red es la evidencia producida por puntos de observación que ven comunicación a través de una red: paquetes, flows, transacciones de protocolo...">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Ingeniería de Detección, Network Telemetry Sources and Visibility">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/network-telemetry-sources-and-visibility.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Ingeniería de Detección">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Network Telemetry Sources and Visibility | ldamoredev Security Atlas">
-<meta property="og:description" content="La telemetría de red es la evidencia producida por puntos de observación que ven comunicación a través de una red: paquetes, flows, transacciones de protocol...">
+<meta property="og:title" content="Network Telemetry Sources and Visibility - Ingeniería de Detección | Cybersecurity Atlas">
+<meta property="og:description" content="La telemetría de red es la evidencia producida por puntos de observación que ven comunicación a través de una red: paquetes, flows, transacciones de protocolo...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/network-telemetry-sources-and-visibility.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Network Telemetry Sources and Visibility | ldamoredev Security Atlas">
-<meta name="twitter:description" content="La telemetría de red es la evidencia producida por puntos de observación que ven comunicación a través de una red: paquetes, flows, transacciones de protocol...">
+<meta name="twitter:title" content="Network Telemetry Sources and Visibility - Ingeniería de Detección | Cybersecurity Atlas">
+<meta name="twitter:description" content="La telemetría de red es la evidencia producida por puntos de observación que ven comunicación a través de una red: paquetes, flows, transacciones de protocolo...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/network-telemetry-sources-and-visibility.html#article","name":"Network Telemetry Sources and Visibility | ldamoredev Security Atlas","headline":"Network Telemetry Sources and Visibility","description":"La telemetría de red es la evidencia producida por puntos de observación que ven comunicación a través de una red: paquetes, flows, transacciones de protocol...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/network-telemetry-sources-and-visibility.html","inLanguage":"es","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/network-telemetry-sources-and-visibility.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Ingeniería de Detección","Network Telemetry Sources and Visibility","detection-engineering","telemetry","network-visibility","observability"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Ingeniería de Detección","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/index.html"},{"@type":"ListItem","position":4,"name":"Network Telemetry Sources and Visibility","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/network-telemetry-sources-and-visibility.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/network-telemetry-sources-and-visibility.html#article","name":"Network Telemetry Sources and Visibility - Ingeniería de Detección | Cybersecurity Atlas","headline":"Network Telemetry Sources and Visibility","description":"La telemetría de red es la evidencia producida por puntos de observación que ven comunicación a través de una red: paquetes, flows, transacciones de protocolo...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/network-telemetry-sources-and-visibility.html","inLanguage":"es","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/network-telemetry-sources-and-visibility.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Ingeniería de Detección","Network Telemetry Sources and Visibility"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Ingeniería de Detección","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/index.html"},{"@type":"ListItem","position":4,"name":"Network Telemetry Sources and Visibility","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/network-telemetry-sources-and-visibility.html"}]}]</script>
+<meta property="article:section" content="Ingeniería de Detección">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/network-telemetry-sources-and-visibility.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/detection-engineering/network-telemetry-sources-and-visibility.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/detection-engineering/network-telemetry-sources-and-visibility.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Base de Conocimiento</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Superficie de ataque y señal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Inicio del Atlas</a>
 <div class="sidebar-section"><h3>Capa de entrada</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Fase 2 — Offense / Defense (en pares)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Fase 3 — Superficie de operador (concepto -&gt; capacidad)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Fase 4 — Specialty Tracks (elegí lo que tu trabajo demande)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Ruta de aprendizaje</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Resumen</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="La dualidad atacante-defensor como herramienta de aprendizaje">La dualidad atacante-defensor como herramienta de apr…</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Las certificaciones como señales de validación">Las certificaciones como señales de validación</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="Tríada CIA — Qué decide en realidad">Tríada CIA — Qué decide en realidad</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Especialización por contexto de trabajo">Especialización por contexto de trabajo</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Alfabetización mínima viable en ciberseguridad">Alfabetización mínima viable en ciberseguridad</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Arranque rápido de modelado de amenazas">Arranque rápido de modelado de amenazas</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="Qué es la ciberseguridad, y por qué no es una lista de herramientas">Qué es la ciberseguridad, y por qué no es una lista d…</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Criptografía</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Resumen</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -84,11 +93,11 @@
 <a class="nav-leaf" href="../cryptography/password-hashing.html" title="Password Hashing">Password Hashing</a>
 <a class="nav-leaf" href="../cryptography/post-quantum-awareness.html" title="Post-Quantum Awareness">Post-Quantum Awareness</a>
 <a class="nav-leaf" href="../cryptography/random-and-csprng-pitfalls.html" title="Random and CSPRNG Pitfalls">Random and CSPRNG Pitfalls</a>
-<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll Your Own Crypto Failures">Roll Your Own Crypto Failures</a>
+<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll-Your-Own Crypto Failures">Roll-Your-Own Crypto Failures</a>
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Resumen</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caché y seguridad">Caché y seguridad</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Confianza en la IP del cliente">Confianza en la IP del cliente</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="Resolución DNS">Resolución DNS</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="Seguridad de DNS">Seguridad de DNS</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls y fronteras de red">Firewalls y fronteras de red</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Confianza en headers en Node Express">Confianza en headers en Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="Headers HTTP">Headers HTTP</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="Mensajes HTTP">Mensajes HTTP</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS y HTTPS">TLS y HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Flujos de trabajo con Wireshark">Flujos de trabajo con Wireshark</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Resumen</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Fallas de autenticación">Fallas de autenticación</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Control de acceso roto">Control de acceso roto</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Fronteras de seguridad del navegador">Fronteras de seguridad del navegador</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Seguridad Ofensiva / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Resumen</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -162,7 +173,7 @@
 <a class="nav-leaf" href="../offensive-security/passive-recon.html" title="Passive Recon">Passive Recon</a>
 <a class="nav-leaf" href="../offensive-security/public-asset-discovery.html" title="Public Asset Discovery">Public Asset Discovery</a>
 <a class="nav-leaf" href="../offensive-security/recon.html" title="Recon">Recon</a>
-<a class="nav-leaf" href="../offensive-security/recon-to-testing-handoff.html" title="Recon to Testing Handoff">Recon to Testing Handoff</a>
+<a class="nav-leaf" href="../offensive-security/recon-to-testing-handoff.html" title="Recon-to-Testing Handoff">Recon-to-Testing Handoff</a>
 <a class="nav-leaf" href="../offensive-security/rustscan-and-nse-pipeline.html" title="RustScan and NSE Pipeline">RustScan and NSE Pipeline</a>
 <a class="nav-leaf" href="../offensive-security/scope-validation.html" title="Scope Validation">Scope Validation</a>
 <a class="nav-leaf" href="../offensive-security/service-validation.html" title="Service Validation">Service Validation</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="El loop del operador">El loop del operador</a>
 </div></details>
-<details class="nav-branch accent-cyan active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="index.html">Resumen</a>
 <a class="nav-leaf" href="attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="network-security-monitoring-discipline.html" title="Disciplina de Network Security Monitoring (NSM)">Disciplina de Network Security Monitoring (NSM)</a>
 <a class="nav-leaf active" href="network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Mapeo de Superficie de Ataque</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Resumen</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,15 +238,16 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Resumen</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detectar la recolección de BloodHound">Detectar la recolección de BloodHound</a>
-<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detect DCSync and ntds.dit Access">Detect DCSync and ntds.dit Access</a>
+<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detectar DCSync y acceso a ntds.dit">Detectar DCSync y acceso a ntds.dit</a>
 <a class="nav-leaf" href="../security-playbooks/detect-external-scan-pipeline.html" title="Detect External Recon Scan Pipeline">Detect External Recon Scan Pipeline</a>
-<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
+<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detectar Kerberoasting y AS-REP Roasting">Detectar Kerberoasting y AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -293,8 +306,8 @@
 <details class="nav-branch accent-green"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="nb-name">DevSecOps</span></span><span class="nb-right"><span class="count">13</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../devsecops/index.html">Resumen</a>
 <a class="nav-leaf" href="../devsecops/artifact-integrity.html" title="Artifact Integrity">Artifact Integrity</a>
-<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS as Dev Process Input">ASVS as Dev Process Input</a>
-<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Branch Protection and Release Controls">Branch Protection and Release Controls</a>
+<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS como input del proceso de desarrollo">ASVS como input del proceso de desarrollo</a>
+<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Protección de ramas y controles de release">Protección de ramas y controles de release</a>
 <a class="nav-leaf" href="../devsecops/ci-cd-hardening.html" title="CI/CD Hardening">CI/CD Hardening</a>
 <a class="nav-leaf" href="../devsecops/container-security.html" title="Container Security">Container Security</a>
 <a class="nav-leaf" href="../devsecops/dependency-risk.html" title="Dependency Risk">Dependency Risk</a>
@@ -372,7 +385,7 @@
 <div class="sidebar-section"><h3>Sistema de referencia</h3>
 <details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="ns-name">Registros</span></span><span class="ns-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <a class="nav-child" href="../reference-registry.html"><span class="nc-left"><span class="nc-name">Cybersecurity Reference Registry</span></span></a>
-<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Reference Registry - Detection Engineering</span></span></a>
+<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Registro de Referencia - Ingeniería de Detección</span></span></a>
 <a class="nav-child" href="../reference-registry-privacy-anonymity-opsec.html"><span class="nc-left"><span class="nc-name">Reference Registry - Privacy, Anonymity &amp; OPSEC</span></span></a>
 <a class="nav-child" href="../reference-registry-api-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — API Security</span></span></a>
 <a class="nav-child" href="../reference-registry-attack-surface-mapping.html"><span class="nc-left"><span class="nc-name">Reference Registry — Attack Surface Mapping</span></span></a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>actualizado · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>actualizado · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -410,235 +423,104 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>Network Telemetry Sources and Visibility</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Ingeniería de Detección</a><span>/</span><span>Network Telemetry Sources and Visibility</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-cyan">Ingeniería de Detección</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~7 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#detection-engineering</span><span class="meta-chip tag">#telemetry</span><span class="meta-chip tag">#network-visibility</span><span class="meta-chip tag">#observability</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-cyan">Ingeniería de Detección</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~8 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="network-telemetry-sources-and-visibility">Network Telemetry Sources and Visibility</h1>
-<h2 id="definicion">Definición</h2>
+<h1>Network Telemetry Sources and Visibility</h1>
+<h2>Definición</h2>
 <p>La telemetría de red es la evidencia producida por puntos de observación que ven comunicación a través de una red: paquetes, flows, transacciones de protocolo, logs de dispositivos, cloud flow logs, proxy/WAF logs, DNS logs, metadata TLS y registros de salud de sensores.</p>
-<h2 id="por-que-importa">Por qué importa</h2>
+<h2>Por qué importa</h2>
 <p>La ciberseguridad moderna es guerra de telemetría. Un atacante no solo interactúa con un host; crea evidencia a través de routers, switches, firewalls, proxies, DNS resolvers, handshakes TLS, sockets de endpoint, control planes cloud y sistemas de identidad. Un defensor que entiende qué capa vio qué comportamiento puede reconstruir intención incluso cuando los payloads están cifrados o un sensor único perdió el evento.</p>
-<p>El error senior es tratar &quot;network logs&quot; como una sola cosa. Un SPAN packet capture, un registro NetFlow, Zeek <code>conn.log</code>, una alerta Suricata, un cloud VPC flow log, un evento WAF y un evento de socket EDR describen proyecciones distintas del mismo comportamiento.</p>
-<h2 id="como-funciona">Cómo funciona</h2>
-<p>La visibilidad de red es un <strong>stack de evidencia de 6 capas</strong>:</p>
-<ol>
-<li><strong>Visibilidad de paquetes.</strong> TAPs, SPAN ports, capturas de host y full-packet capture exponen headers y a veces payload. Es la mayor fidelidad y el mayor costo.</li>
-<li><strong>Visibilidad de flow.</strong> NetFlow/IPFIX/sFlow/cloud flow logs resumen quién habló con quién, cuándo, por cuánto tiempo y cuánto.</li>
-<li><strong>Visibilidad de protocolo.</strong> Zeek, Suricata, proxies, DNS servers y WAFs reconstruyen transacciones de application-layer cuando pueden parsear el protocolo.</li>
-<li><strong>Visibilidad de control-plane.</strong> Logs de firewall, load balancer, cloud security group, NAT gateway, route-table y proxy exponen decisiones de policy y cambios de path.</li>
-<li><strong>Visibilidad de endpoint.</strong> EDR y host logs conectan actividad de red con proceso, usuario, command line, padre, hash y sesión.</li>
-<li><strong>Visibilidad de correlación.</strong> SIEM/XDR/hunting platforms unen eventos por host, usuario, IP, proceso, flow ID, ventana temporal y contexto de asset.</li>
-</ol>
+<p>El error senior es tratar &quot;network logs&quot; como una sola cosa. Un SPAN packet capture, un registro NetFlow, Zeek `conn.log`, una alerta Suricata, un cloud VPC flow log, un evento WAF y un evento de socket EDR describen proyecciones distintas del mismo comportamiento.</p>
+<h2>Cómo funciona</h2>
+<p>La visibilidad de red es un **stack de evidencia de 6 capas**:</p>
+<p>1. **Visibilidad de paquetes.** TAPs, SPAN ports, capturas de host y full-packet capture exponen headers y a veces payload. Es la mayor fidelidad y el mayor costo. 2. **Visibilidad de flow.** NetFlow/IPFIX/sFlow/cloud flow logs resumen quién habló con quién, cuándo, por cuánto tiempo y cuánto. 3. **Visibilidad de protocolo.** Zeek, Suricata, proxies, DNS servers y WAFs reconstruyen transacciones de application-layer cuando pueden parsear el protocolo. 4. **Visibilidad de control-plane.** Logs de firewall, load balancer, cloud security group, NAT gateway, route-table y proxy exponen decisiones de policy y cambios de path. 5. **Visibilidad de endpoint.** EDR y host logs conectan actividad de red con proceso, usuario, command line, padre, hash y sesión. 6. **Visibilidad de correlación.** SIEM/XDR/hunting platforms unen eventos por host, usuario, IP, proceso, flow ID, ventana temporal y contexto de asset.</p>
 <p>Interpretación de ejemplo:</p>
-<div class="codehilite"><pre><span></span><code>10.0.4.22 -&gt; 10.0.9.14:445 over 2 minutes
-
-Flow log: 900 short TCP attempts, mostly no bytes returned.
-Zeek: many failed conn states, no SMB transactions.
-Suricata: scan/fan-out alerts.
-EDR: powershell.exe launched nmap.exe from a temp directory.
-Cloud log: source host is a newly created workload in a dev subnet.
-</code></pre></div>
+<p>``` 10.0.4.22 -&gt; 10.0.9.14:445 over 2 minutes</p>
+<p>Flow log: 900 short TCP attempts, mostly no bytes returned. Zeek: many failed conn states, no SMB transactions. Suricata: scan/fan-out alerts. EDR: powershell.exe launched nmap.exe from a temp directory. Cloud log: source host is a newly created workload in a dev subnet. ```</p>
 <p>La detección no vive en un log. Vive en la relación entre timing, comportamiento de puerto, ancestry de proceso, rol del host y path de red.</p>
-<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
-<ul>
-<li><strong>Mapeo de visibilidad.</strong> Para cada pregunta de seguridad, escribí los campos requeridos: fuente, destino, puerto, protocolo, usuario, proceso, hostname, nombre DNS, SNI, JA3/JA4, bytes, paquetes, verdict, action, salud del sensor.</li>
-<li><strong>Razonamiento de punto de observación.</strong> Preguntá dónde está el sensor respecto de NAT, load balancers, TLS termination, proxies, cambios de routing y overlays cloud.</li>
-<li><strong>Pivot packet-to-flow-to-process.</strong> Empezá amplio con flow, profundizá con Zeek/Suricata/pcap y después uní con EDR donde exista cobertura de endpoint.</li>
-<li><strong>Chequeos de salud de sensores.</strong> Tratá packet loss, eventos droppeados, delays de ingestión, clock skew y errores de parser como datos de detección first-class.</li>
-<li><strong>Comparación de puntos de vista.</strong> Compará telemetría pública, VPN, interna, VPC, container y endpoint-local porque la reachability depende del path.</li>
-</ul>
-<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
-<p>La visibilidad de red tiene <strong>7 familias prácticas de telemetría</strong>.</p>
-<h3 id="1-full-packet-capture">1. Full packet capture</h3>
+<h2>Técnicas / patrones</h2>
+<ul><li>**Mapeo de visibilidad.** Para cada pregunta de seguridad, escribí los campos requeridos: fuente, destino, puerto, protocolo, usuario, proceso, hostname, nombre DNS, SNI, JA3/JA4, bytes, paquetes, verdict, action, salud del sensor.</li><li>**Razonamiento de punto de observación.** Preguntá dónde está el sensor respecto de NAT, load balancers, TLS termination, proxies, cambios de routing y overlays cloud.</li><li>**Pivot packet-to-flow-to-process.** Empezá amplio con flow, profundizá con Zeek/Suricata/pcap y después uní con EDR donde exista cobertura de endpoint.</li><li>**Chequeos de salud de sensores.** Tratá packet loss, eventos droppeados, delays de ingestión, clock skew y errores de parser como datos de detección first-class.</li><li>**Comparación de puntos de vista.** Compará telemetría pública, VPN, interna, VPC, container y endpoint-local porque la reachability depende del path.</li></ul>
+<h2>Variantes y bypasses</h2>
+<p>La visibilidad de red tiene **7 familias prácticas de telemetría**.</p>
+<h3>1. Full packet capture</h3>
 <p>Full packet capture da la evidencia más reproducible, pero es caro, sensible a privacidad, pesado en storage y muchas veces imposible a escala cloud. TLS oculta payload salvo que existan claves de terminación o proxy logs descifrados.</p>
-<h3 id="2-feeds-span-y-tap">2. Feeds SPAN y TAP</h3>
+<h3>2. Feeds SPAN y TAP</h3>
 <p>Los TAPs son preferibles para monitoreo fijo de alta fidelidad, mientras SPAN es común para monitoreo flexible. SPAN puede estar sobresuscripto, ser direccional, modificado por comportamiento del switch o mal configurado, así que las capturas SPAN son una vista, no ground truth.</p>
-<h3 id="3-registros-de-flow">3. Registros de flow</h3>
+<h3>3. Registros de flow</h3>
 <p>NetFlow/IPFIX/cloud flow logs escalan bien y detectan fan-out, beaconing, sesiones largas y patrones volumétricos. Normalmente carecen de payload, proceso, hostname, URI y secuencias exactas de TCP flags.</p>
-<h3 id="4-protocol-transaction-logs">4. Protocol transaction logs</h3>
+<h3>4. Protocol transaction logs</h3>
 <p>Zeek, proxies, DNS logs y WAF logs exponen significado de protocolo parseado: DNS queries, métodos HTTP, metadata TLS, archivos, certificados, user agents y parser weirdness. Dependen de visibilidad, soporte de parser y tráfico suficientemente limpio.</p>
-<h3 id="5-streams-de-alertas-ids-ips">5. Streams de alertas IDS/IPS</h3>
+<h3>5. Streams de alertas IDS/IPS</h3>
 <p>Motores tipo Suricata/Snort convierten paquetes y streams en matches de reglas. Son de alto valor cuando están tuneados y contextualizados, pero una alerta es un claim del sensor, no una investigación completa.</p>
-<h3 id="6-telemetria-de-red-de-endpoint">6. Telemetría de red de endpoint</h3>
+<h3>6. Telemetría de red de endpoint</h3>
 <p>EDR ve comportamiento de red propiedad de procesos desde la perspectiva del host. Puede observar tráfico que sensores perimetrales pierden, pero suele carecer de detalle de paquete y puede estar ausente en appliances, hosts no gestionados, containers y workloads de corta vida.</p>
-<h3 id="7-telemetria-cloud-native">7. Telemetría cloud-native</h3>
+<h3>7. Telemetría cloud-native</h3>
 <p>Cloud flow logs, load-balancer logs, DNS resolver logs, firewall logs, NAT gateway logs y eventos de control-plane exponen paths que sensores físicos no pueden ver. Son agregados, específicos de proveedor y muchas veces demorados.</p>
-<h2 id="impacto">Impacto</h2>
-<ul>
-<li><strong>Cobertura de detección.</strong> La selección de telemetría determina qué ataques son detectables antes de escribir cualquier regla.</li>
-<li><strong>Calidad de triage.</strong> Contexto rico acorta investigaciones; contexto débil crea dead ends por IP-only o alert-only.</li>
-<li><strong>Falsos negativos.</strong> Sensores faltantes, flow sampleado, pérdida SPAN, routing asimétrico, payloads cifrados y endpoints no gestionados crean puntos ciegos.</li>
-<li><strong>Falsos positivos.</strong> Telemetría sin rol de asset, ventanas de cambio, contexto de usuario y baselines hace que operaciones normales parezcan maliciosas.</li>
-<li><strong>Presión de costo y retención.</strong> Los logs de alta fidelidad cuestan. Los programas de detección deben decidir qué mantener hot, warm, resumido o descartado.</li>
-</ul>
-<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<h2>Impacto</h2>
+<ul><li>**Cobertura de detección.** La selección de telemetría determina qué ataques son detectables antes de escribir cualquier regla.</li><li>**Calidad de triage.** Contexto rico acorta investigaciones; contexto débil crea dead ends por IP-only o alert-only.</li><li>**Falsos negativos.** Sensores faltantes, flow sampleado, pérdida SPAN, routing asimétrico, payloads cifrados y endpoints no gestionados crean puntos ciegos.</li><li>**Falsos positivos.** Telemetría sin rol de asset, ventanas de cambio, contexto de usuario y baselines hace que operaciones normales parezcan maliciosas.</li><li>**Presión de costo y retención.** Los logs de alta fidelidad cuestan. Los programas de detección deben decidir qué mantener hot, warm, resumido o descartado.</li></ul>
+<h2>Detección y defensa</h2>
 <p>Ordenado por efectividad:</p>
-<ol>
-<li><strong>Ingenierizá telemetría desde preguntas, no desde herramientas.</strong><br>
-Empezá con el comportamiento que necesitás probar o refutar, después listá campos y puntos de observación. Esto evita que &quot;compramos un sensor&quot; se vuelva una estrategia falsa de visibilidad.</li>
-<li><strong>Ubicá sensores en transiciones de trust boundary.</strong><br>
-Monitoreá donde el tráfico cambia de significado: borde internet, ingreso VPN, choke points east-west, límites de identidad, TLS termination, NAT cloud, service mesh y subnets admin privilegiadas.</li>
-<li><strong>Correlacioná entre paquete, flow, protocolo, endpoint y cloud.</strong><br>
-Las detecciones single-source fallan bajo condiciones modernas. La correlación permite que flow fan-out se vuelva un incidente respaldado por proceso en vez de una estadística de IP anónima.</li>
-<li><strong>Validá continuamente la salud de sensores.</strong><br>
-Capture loss, queue drops, ingestion lag, parser failures, clock drift y normalización rota deberían alertar. Un sensor silencioso es una interrupción de detección.</li>
-<li><strong>Usá tiers de retención deliberadamente.</strong><br>
-Conservá metadata de alto valor más tiempo que raw payloads. Guardá suficiente detalle para reconstruir incidentes: timestamps, 5-tuples, dirección, acción, asset, proceso, usuario y parse status.</li>
-</ol>
-<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
-<ul>
-<li><strong>Comprar un SIEM sin diseño de telemetría.</strong> Un SIEM solo correlaciona lo que existe, llega a tiempo y tiene campos usables.</li>
-<li><strong>Depender solo de packet capture.</strong> Los paquetes carecen de identidad, ancestry de proceso, contexto cloud y larga retención en muchos entornos.</li>
-<li><strong>Depender solo de NetFlow.</strong> Flow ve patrones pero normalmente no puede explicar contenido de protocolo, causa de proceso ni payload de exploit.</li>
-<li><strong>Asumir que cifrado significa invisibilidad.</strong> El payload queda oculto, pero timing, endpoints, DNS, metadata de handshake TLS, tamaño de flow y contexto de proceso de endpoint suelen permanecer.</li>
-<li><strong>Tratar capturas SPAN como verdad perfecta.</strong> SPAN puede dropear, duplicar, modificar u omitir tráfico según dirección y oversubscription.</li>
-</ul>
-<h3 id="malentendidos-operacionales">Malentendidos operacionales</h3>
-<ul>
-<li><strong>&quot;Los scans lentos son stealthy.&quot;</strong> Los scans lentos reducen alertas simples por tasa pero todavía crean contacto raro con servicios, joins proceso-red, fan-out de ventana larga, metadata DNS/TLS y comportamiento first-seen.</li>
-<li><strong>&quot;Cloud significa sin monitoreo de red.&quot;</strong> Cloud cambia los puntos de recolección: flow logs, load balancer logs, DNS resolver logs, NAT logs, service meshes y sensores endpoint reemplazan TAPs físicos.</li>
-<li><strong>&quot;Más logs significa mejor detección.&quot;</strong> Más datos no accionables aumentan costo y carga del analista salvo que los campos soporten triage.</li>
-</ul>
-<h3 id="limitaciones-modernas">Limitaciones modernas</h3>
-<ul>
-<li>TLS 1.3, QUIC, ECH, DNS-over-HTTPS, mobile apps, cloud NAT, service meshes y workloads efímeros reducen visibilidad clásica de payload.</li>
-<li>La identidad de asset cambia más rápido que la identidad IP en cloud y containers.</li>
-<li>Los schemas de vendors cambian; las detecciones necesitan regression tests y monitoreo de calidad de campos.</li>
-</ul>
-<h3 id="puntos-ciegos-de-telemetria">Puntos ciegos de telemetría</h3>
-<ul>
-<li>Tráfico east-west dentro de redes planas sin choke point.</li>
-<li>Tráfico host-local, loopback, container bridge y comportamiento de service-mesh sidecar.</li>
-<li>Endpoints no gestionados, appliances, dispositivos de red, IoT y SaaS de terceros.</li>
-<li>Flow records sampleados, conexiones de corta vida y beaconing de bajo volumen.</li>
-<li>Gaps SPAN/TAP, routing asimétrico, packet loss y clock skew.</li>
-</ul>
-<h2 id="labs-practicos">Labs prácticos</h2>
+<p>1. **Ingenierizá telemetría desde preguntas, no desde herramientas.**    Empezá con el comportamiento que necesitás probar o refutar, después listá campos y puntos de observación. Esto evita que &quot;compramos un sensor&quot; se vuelva una estrategia falsa de visibilidad.</p>
+<p>2. **Ubicá sensores en transiciones de trust boundary.**    Monitoreá donde el tráfico cambia de significado: borde internet, ingreso VPN, choke points east-west, límites de identidad, TLS termination, NAT cloud, service mesh y subnets admin privilegiadas.</p>
+<p>3. **Correlacioná entre paquete, flow, protocolo, endpoint y cloud.**    Las detecciones single-source fallan bajo condiciones modernas. La correlación permite que flow fan-out se vuelva un incidente respaldado por proceso en vez de una estadística de IP anónima.</p>
+<p>4. **Validá continuamente la salud de sensores.**    Capture loss, queue drops, ingestion lag, parser failures, clock drift y normalización rota deberían alertar. Un sensor silencioso es una interrupción de detección.</p>
+<p>5. **Usá tiers de retención deliberadamente.**    Conservá metadata de alto valor más tiempo que raw payloads. Guardá suficiente detalle para reconstruir incidentes: timestamps, 5-tuples, dirección, acción, asset, proceso, usuario y parse status.</p>
+<h3>Qué no funciona como defensa primaria</h3>
+<ul><li>**Comprar un SIEM sin diseño de telemetría.** Un SIEM solo correlaciona lo que existe, llega a tiempo y tiene campos usables.</li><li>**Depender solo de packet capture.** Los paquetes carecen de identidad, ancestry de proceso, contexto cloud y larga retención en muchos entornos.</li><li>**Depender solo de NetFlow.** Flow ve patrones pero normalmente no puede explicar contenido de protocolo, causa de proceso ni payload de exploit.</li><li>**Asumir que cifrado significa invisibilidad.** El payload queda oculto, pero timing, endpoints, DNS, metadata de handshake TLS, tamaño de flow y contexto de proceso de endpoint suelen permanecer.</li><li>**Tratar capturas SPAN como verdad perfecta.** SPAN puede dropear, duplicar, modificar u omitir tráfico según dirección y oversubscription.</li></ul>
+<h3>Malentendidos operacionales</h3>
+<ul><li>**&quot;Los scans lentos son stealthy.&quot;** Los scans lentos reducen alertas simples por tasa pero todavía crean contacto raro con servicios, joins proceso-red, fan-out de ventana larga, metadata DNS/TLS y comportamiento first-seen.</li><li>**&quot;Cloud significa sin monitoreo de red.&quot;** Cloud cambia los puntos de recolección: flow logs, load balancer logs, DNS resolver logs, NAT logs, service meshes y sensores endpoint reemplazan TAPs físicos.</li><li>**&quot;Más logs significa mejor detección.&quot;** Más datos no accionables aumentan costo y carga del analista salvo que los campos soporten triage.</li></ul>
+<h3>Limitaciones modernas</h3>
+<ul><li>TLS 1.3, QUIC, ECH, DNS-over-HTTPS, mobile apps, cloud NAT, service meshes y workloads efímeros reducen visibilidad clásica de payload.</li><li>La identidad de asset cambia más rápido que la identidad IP en cloud y containers.</li><li>Los schemas de vendors cambian; las detecciones necesitan regression tests y monitoreo de calidad de campos.</li></ul>
+<h3>Puntos ciegos de telemetría</h3>
+<ul><li>Tráfico east-west dentro de redes planas sin choke point.</li><li>Tráfico host-local, loopback, container bridge y comportamiento de service-mesh sidecar.</li><li>Endpoints no gestionados, appliances, dispositivos de red, IoT y SaaS de terceros.</li><li>Flow records sampleados, conexiones de corta vida y beaconing de bajo volumen.</li><li>Gaps SPAN/TAP, routing asimétrico, packet loss y clock skew.</li></ul>
+<h2>Labs prácticos</h2>
 <p>Corré solo en labs locales propios, cuentas cloud privadas, rangos tipo HTB/THM o contenedores aislados.</p>
-<h3 id="comparar-vistas-de-paquete-flow-y-protocolo">Comparar vistas de paquete, flow y protocolo</h3>
-<div class="codehilite"><pre><span></span><code># Terminal 1: capture packets on a lab host
-sudo tcpdump -i any -w scan.pcap &#x27;host 10.10.10.10&#x27;
-
-# Terminal 2: generate a small authorized scan
-nmap -Pn -sS -p 22,80,443,445 10.10.10.10
-
-# Terminal 3: derive Zeek logs from the same pcap
-mkdir -p zeek-out &amp;&amp; cd zeek-out
-zeek -r ../scan.pcap
-cat conn.log
-</code></pre></div>
-<p>Telemetría esperada: tcpdump muestra paquetes y flags; Zeek <code>conn.log</code> resume conexiones y estados TCP; ninguna vista incluye process ancestry salvo que se agregue telemetría de endpoint.</p>
-<h3 id="observar-perdida-estilo-span-tap-como-variable-de-deteccion">Observar pérdida estilo SPAN/TAP como variable de detección</h3>
-<div class="codehilite"><pre><span></span><code># Use a lab pcap or safe capture feed.
-zeek -r busy-link.pcap policy/misc/capture-loss
-cat capture_loss.log
-</code></pre></div>
-<p>Telemetría esperada: <code>capture_loss.log</code> reporta evidencia de pérdida. La lección defensiva es que alertas faltantes durante ventanas de pérdida no pueden interpretarse como tráfico limpio.</p>
-<h3 id="construir-una-tabla-de-scan-con-forma-de-flow-desde-zeek">Construir una tabla de scan con forma de flow desde Zeek</h3>
-<div class="codehilite"><pre><span></span><code>zeek -r scan.pcap
-zeek-cut id.orig_h id.resp_h id.resp_p proto conn_state duration orig_pkts resp_pkts &lt; conn.log |
-  sort | head -50
-</code></pre></div>
+<h3>Comparar vistas de paquete, flow y protocolo</h3>
+<p>``` # Terminal 1: capture packets on a lab host sudo tcpdump -i any -w scan.pcap &#x27;host 10.10.10.10&#x27;</p>
+<h1>Terminal 2: generate a small authorized scan</h1>
+<h1>Terminal 3: derive Zeek logs from the same pcap</h1>
+<p>Telemetría esperada: tcpdump muestra paquetes y flags; Zeek `conn.log` resume conexiones y estados TCP; ninguna vista incluye process ancestry salvo que se agregue telemetría de endpoint.</p>
+<h3>Observar pérdida estilo SPAN/TAP como variable de detección</h3>
+<p>``` # Use a lab pcap or safe capture feed. zeek -r busy-link.pcap policy/misc/capture-loss cat capture_loss.log ```</p>
+<p>Telemetría esperada: `capture_loss.log` reporta evidencia de pérdida. La lección defensiva es que alertas faltantes durante ventanas de pérdida no pueden interpretarse como tráfico limpio.</p>
+<h3>Construir una tabla de scan con forma de flow desde Zeek</h3>
+<p>``` zeek -r scan.pcap zeek-cut id.orig_h id.resp_h id.resp_p proto conn_state duration orig_pkts resp_pkts &lt; conn.log |   sort | head -50 ```</p>
 <p>Telemetría esperada: el comportamiento de scan aparece como muchas conexiones cortas con fuente repetida, expansión de destinos, estados inusuales y bajo payload de respuesta.</p>
-<h3 id="comparar-punto-de-vista-publico-e-interno">Comparar punto de vista público e interno</h3>
-<div class="codehilite"><pre><span></span><code># From a public-controlled host
-nmap -Pn --top-ports 100 LAB_PUBLIC_IP
-
-# From an internal lab subnet
-nmap -Pn --top-ports 100 LAB_PRIVATE_IP
-</code></pre></div>
+<h3>Comparar punto de vista público e interno</h3>
+<p>``` # From a public-controlled host nmap -Pn --top-ports 100 LAB_PUBLIC_IP</p>
+<h1>From an internal lab subnet</h1>
 <p>Telemetría esperada: la diferencia entre outputs es la historia de límite. Los defensores deberían comparar logs de edge devices, sensores internos y eventos de endpoint para la misma ventana temporal.</p>
-<h3 id="testear-visibilidad-de-metadata-cifrada">Testear visibilidad de metadata cifrada</h3>
-<div class="codehilite"><pre><span></span><code>openssl s_client -connect example.com:443 -servername example.com -alpn h2 &lt;/dev/null 2&gt;/dev/null |
-  sed -n &#x27;1,30p&#x27;
-</code></pre></div>
+<h3>Testear visibilidad de metadata cifrada</h3>
+<p>``` openssl s_client -connect example.com:443 -servername example.com -alpn h2 &lt;/dev/null 2&gt;/dev/null |   sed -n &#x27;1,30p&#x27; ```</p>
 <p>Telemetría esperada: el payload está cifrado, pero SNI, detalles del certificado, protocolo negociado, destino, timing y conteos de bytes todavía pueden ser útiles según ubicación del sensor.</p>
-<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
-<ul>
-<li>Un sensor perimetral ve fan-out SYN tipo Masscan; EDR muestra que se originó en <code>masscan</code> lanzado por un script temporal en una workstation dev.</li>
-<li>Cloud VPC flow logs muestran un workload nuevo contactando cientos de destinos internos <code>445/tcp</code>; Zeek está ciego porque no existe sensor dentro de esa subnet.</li>
-<li>Un WAF loguea enumeración de URI, pero NetFlow muestra que el mismo cliente también probaba SSH y RDP en hosts adyacentes.</li>
-<li>Zeek <code>ssl.log</code> ve un perfil TLS first-seen tipo JA4 desde una subnet de base de datos que solo debería correr servicios Java.</li>
-<li>Una revisión de incidente no encuentra alerta Suricata durante una ventana de exploit, pero <code>capture_loss.log</code> muestra pérdida de sensor por encima del threshold.</li>
-</ul>
-<h2 id="notas-relacionadas">Notas relacionadas</h2>
-<ul>
-<li><a href="index.html">Ingeniería de Detección</a></li>
-<li><a href="zeek-suricata-and-netflow-analysis.html">Análisis con Zeek, Suricata y NetFlow</a></li>
-<li><a href="ids-ips-and-behavioral-detection-pipelines.html">Pipelines de IDS/IPS y detección de comportamiento</a></li>
-<li><a href="telemetry-normalization-correlation-and-enrichment.html">Normalización, correlación y enrichment de telemetría</a></li>
-<li><a href="encrypted-traffic-analysis-and-metadata-leakage.html">Análisis de tráfico cifrado y fuga de metadata</a></li>
-<li><a href="scan-anomaly-detection-and-fingerprint-analysis.html">Detección de anomalías de scan y análisis de fingerprint</a></li>
-<li><a href="edr-network-observability-and-process-correlation.html">Observabilidad de red en EDR y correlación de procesos</a></li>
-<li><a href="../networking/packet-analysis.html">Packet Analysis</a></li>
-<li><a href="../networking/firewalls-and-network-boundaries.html">Firewalls and Network Boundaries</a></li>
-<li><a href="../cloud-security/cloud-logging-and-detection.html">Cloud Logging and Detection</a></li>
-<li><a href="../offensive-security/active-recon.html">Active Recon</a></li>
-<li><a href="../security-playbooks/run-scan-pipeline.html">Ejecutar pipeline de scan externo de recon</a></li>
-</ul>
-<h3 id="notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</h3>
-<ul>
-<li>tap-vs-span-sensor-placement</li>
-<li>cloud-flow-logs-and-network-detection</li>
-<li>telemetry-retention-tiers</li>
-<li>sensor-health-and-capture-loss</li>
-<li>encrypted-traffic-metadata</li>
-</ul>
-<h2 id="referencias">Referencias</h2>
-<ul>
-<li><strong>Fundamental:</strong> RFC 7011 IPFIX - https://www.rfc-editor.org/rfc/rfc7011.html</li>
-<li><strong>Official Tool Docs:</strong> Zeek Logs - https://docs.zeek.org/en/current/logs/</li>
-<li><strong>Official Tool Docs:</strong> Cisco SPAN Configuration Guide - https://www.cisco.com/c/en/us/td/docs/switches/lan/c9000/mgmt/management-configuration-guide/span.html</li>
-<li><strong>Mitigación / Operaciones:</strong> CISA Best Practices for Event Logging and Threat Detection - https://www.cisa.gov/resources-tools/resources/best-practices-event-logging-and-threat-detection</li>
-</ul>
+<h2>Ejemplos prácticos</h2>
+<ul><li>Un sensor perimetral ve fan-out SYN tipo Masscan; EDR muestra que se originó en `masscan` lanzado por un script temporal en una workstation dev.</li><li>Cloud VPC flow logs muestran un workload nuevo contactando cientos de destinos internos `445/tcp`; Zeek está ciego porque no existe sensor dentro de esa subnet.</li><li>Un WAF loguea enumeración de URI, pero NetFlow muestra que el mismo cliente también probaba SSH y RDP en hosts adyacentes.</li><li>Zeek `ssl.log` ve un perfil TLS first-seen tipo JA4 desde una subnet de base de datos que solo debería correr servicios Java.</li><li>Una revisión de incidente no encuentra alerta Suricata durante una ventana de exploit, pero `capture_loss.log` muestra pérdida de sensor por encima del threshold.</li></ul>
+<h2>Notas relacionadas</h2>
+<ul><li>&lt;a href=&quot;index.html&quot;&gt;Ingeniería de Detección&lt;/a&gt;</li><li>&lt;a href=&quot;zeek-suricata-and-netflow-analysis.html&quot;&gt;Análisis con Zeek, Suricata y NetFlow&lt;/a&gt;</li><li>&lt;a href=&quot;ids-ips-and-behavioral-detection-pipelines.html&quot;&gt;Pipelines de IDS/IPS y detección de comportamiento&lt;/a&gt;</li><li>&lt;a href=&quot;telemetry-normalization-correlation-and-enrichment.html&quot;&gt;Normalización, correlación y enrichment de telemetría&lt;/a&gt;</li><li>&lt;a href=&quot;encrypted-traffic-analysis-and-metadata-leakage.html&quot;&gt;Análisis de tráfico cifrado y fuga de metadata&lt;/a&gt;</li><li>&lt;a href=&quot;scan-anomaly-detection-and-fingerprint-analysis.html&quot;&gt;Detección de anomalías de scan y análisis de fingerprint&lt;/a&gt;</li><li>&lt;a href=&quot;edr-network-observability-and-process-correlation.html&quot;&gt;Observabilidad de red en EDR y correlación de procesos&lt;/a&gt;</li><li>&lt;a href=&quot;../networking/packet-analysis.html&quot;&gt;Packet Analysis&lt;/a&gt;</li><li>&lt;a href=&quot;../networking/firewalls-and-network-boundaries.html&quot;&gt;Firewalls and Network Boundaries&lt;/a&gt;</li><li>&lt;a href=&quot;../cloud-security/cloud-logging-and-detection.html&quot;&gt;Cloud Logging and Detection&lt;/a&gt;</li><li>&lt;a href=&quot;../offensive-security/active-recon.html&quot;&gt;Active Recon&lt;/a&gt;</li><li>&lt;a href=&quot;../security-playbooks/run-scan-pipeline.html&quot;&gt;Ejecutar pipeline de scan externo de recon&lt;/a&gt;</li></ul>
+<h3>Notas atómicas futuras sugeridas</h3>
+<ul><li>tap-vs-span-sensor-placement</li><li>cloud-flow-logs-and-network-detection</li><li>telemetry-retention-tiers</li><li>sensor-health-and-capture-loss</li><li>encrypted-traffic-metadata</li></ul>
+<h2>Referencias</h2>
+<ul><li>**Fundamental:** RFC 7011 IPFIX - https://www.rfc-editor.org/rfc/rfc7011.html</li><li>**Official Tool Docs:** Zeek Logs - https://docs.zeek.org/en/current/logs/</li><li>**Official Tool Docs:** Cisco SPAN Configuration Guide - https://www.cisco.com/c/en/us/td/docs/switches/lan/c9000/mgmt/management-configuration-guide/span.html</li><li>**Mitigación / Operaciones:** CISA Best Practices for Event Logging and Threat Detection - https://www.cisa.gov/resources-tools/resources/best-practices-event-logging-and-threat-detection</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="network-security-monitoring-discipline.html"><span class="nav-dir">← Previous</span><strong>Disciplina de Network Security Monitoring (NSM)</strong></a><a class="branch-nav-link next" href="scan-anomaly-detection-and-fingerprint-analysis.html"><span class="nav-dir">Next →</span><strong>Scan Anomaly Detection and Fingerprint Analysis</strong></a></nav>
 <section class="related-notes" aria-label="Notas relacionadas">
 <h2>Notas relacionadas</h2>
 <div class="related-grid">
-<a class="related-card" href="detection-evasion-myths-and-modern-limitations.html"><span>Ingeniería de Detección</span><strong>Detection Evasion Myths and Modern Limitations</strong><small>Los mitos de evasión de detección son afirmaciones sobresimplificadas que confunden evitar un sensor o una firma con volverse invisible para el sistema completo de telemetría.</small></a>
-<a class="related-card" href="network-security-monitoring-discipline.html"><span>Ingeniería de Detección</span><strong>Disciplina de Network Security Monitoring (NSM)</strong><small>El network security monitoring (NSM) es la disciplina de recolectar, retener y analizar evidencia de red para que las intrusiones se detecten e investiguen incluso cuando la prevención ya falló. NSM no es un producto ni un formato de regla — es la postura operativa que dice que la visibilidad se ingenia antes de escribir la detección: decidís dónde se sientan los sensores y qué capas de evidencia retenés, y solo entonces componés detecciones sobre esa evidencia. Esta nota es la spine del lado de red del branch de detection-engineering; las notas de sensores, herramientas y telemetría cuelgan de ella.</small></a>
-<a class="related-card" href="windows-event-logs.html"><span>Ingeniería de Detección</span><strong>Windows Event Logs</strong><small>Windows Event Logs son la telemetría estructurada host-side que emite el sistema operativo Windows para operaciones relevantes de seguridad: autenticación, autorización, ejecución de procesos, cambios de cuentas, acceso a objetos y estado del sistema. Los logs se almacenan como archivos .evtx en %SystemRoot%\System32\winevt\Logs\, se exponen vía el servicio Event Log y se consultan con wevtutil, Get-WinEvent, la UI de Event Viewer o una copia forwardeada a un SIEM. El cuerpo útil de telemetría de seguridad en Windows se construye casi por completo a partir de un conjunto pequeño de Event IDs — aproximadamente 30 de los miles definidos — y los detection engineers senior internalizan ese subset en vez de tratar los Windows logs como un stream indiferenciado.</small></a>
-<a class="related-card" href="attack-path-correlation-and-kill-chain-observability.html"><span>Ingeniería de Detección</span><strong>Attack Path Correlation and Kill Chain Observability</strong><small>La correlación de attack paths es la detección y reconstrucción de relaciones entre eventos a lo largo de una secuencia adversaria, como recon, explotación, persistencia, escalada de privilegios, movimiento lateral, recolección y exfiltración.</small></a>
-<a class="related-card" href="behavioral-detection-vs-signature-detection.html"><span>Ingeniería de Detección</span><strong>Behavioral Detection vs Signature Detection</strong><small>La detección de comportamiento identifica actividad por lo que un actor o sistema hace a lo largo del tiempo, mientras que la detección por firma identifica artefactos conocidos, patrones de bytes, strings, hashes, formas de protocolo o eventos que coinciden con reglas.</small></a>
-<a class="related-card" href="edr-network-observability-and-process-correlation.html"><span>Ingeniería de Detección</span><strong>EDR Network Observability and Process Correlation</strong><small>La observabilidad de red en EDR es la captura desde el endpoint de actividad relacionada con red, especialmente la capacidad de correlacionar sockets, conexiones, destinos, actividad tipo DNS y alertas con linaje de procesos, command lines, usuarios, hashes, sesiones e identidad del host.</small></a>
+<a class="related-card" href="attack-path-correlation-and-kill-chain-observability.html"><span>Ingeniería de Detección</span><strong>Attack Path Correlation and Kill Chain Observability</strong><small>La correlación de attack paths es la detección y reconstrucción de relaciones entre eventos a lo largo de una secuencia adversaria, como recon, explotación...</small></a>
+<a class="related-card" href="behavioral-detection-vs-signature-detection.html"><span>Ingeniería de Detección</span><strong>Behavioral Detection vs Signature Detection</strong><small>La detección de comportamiento identifica actividad por lo que un actor o sistema hace a lo largo del tiempo, mientras que la detección por firma identifica...</small></a>
+<a class="related-card" href="detection-evasion-myths-and-modern-limitations.html"><span>Ingeniería de Detección</span><strong>Detection Evasion Myths and Modern Limitations</strong><small>Los mitos de evasión de detección son afirmaciones sobresimplificadas que confunden evitar un sensor o una firma con volverse invisible para el sistema completo de...</small></a>
+<a class="related-card" href="edr-network-observability-and-process-correlation.html"><span>Ingeniería de Detección</span><strong>EDR Network Observability and Process Correlation</strong><small>La observabilidad de red en EDR es la captura desde el endpoint de actividad relacionada con red, especialmente la capacidad de correlacionar sockets, conexiones...</small></a>
+<a class="related-card" href="encrypted-traffic-analysis-and-metadata-leakage.html"><span>Ingeniería de Detección</span><strong>Encrypted Traffic Analysis and Metadata Leakage</strong><small>El análisis de tráfico cifrado es la detección e investigación del comportamiento de comunicación usando metadata que sigue visible cuando el contenido del payload...</small></a>
+<a class="related-card" href="false-positives-false-negatives-and-detection-tradeoffs.html"><span>Ingeniería de Detección</span><strong>False Positives, False Negatives, and Detection Tradeoffs</strong><small>Los falsos positivos son eventos benignos clasificados como sospechosos; los falsos negativos son eventos maliciosos o relevantes para una política que la...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definicion">Definición</a>
-<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
-<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
-<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
-<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
-<a class="toc-level-3" href="#1-full-packet-capture">1. Full packet capture</a>
-<a class="toc-level-3" href="#2-feeds-span-y-tap">2. Feeds SPAN y TAP</a>
-<a class="toc-level-3" href="#3-registros-de-flow">3. Registros de flow</a>
-<a class="toc-level-3" href="#4-protocol-transaction-logs">4. Protocol transaction logs</a>
-<a class="toc-level-3" href="#5-streams-de-alertas-ids-ips">5. Streams de alertas IDS/IPS</a>
-<a class="toc-level-3" href="#6-telemetria-de-red-de-endpoint">6. Telemetría de red de endpoint</a>
-<a class="toc-level-3" href="#7-telemetria-cloud-native">7. Telemetría cloud-native</a>
-<a class="toc-level-2" href="#impacto">Impacto</a>
-<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
-<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
-<a class="toc-level-3" href="#malentendidos-operacionales">Malentendidos operacionales</a>
-<a class="toc-level-3" href="#limitaciones-modernas">Limitaciones modernas</a>
-<a class="toc-level-3" href="#puntos-ciegos-de-telemetria">Puntos ciegos de telemetría</a>
-<a class="toc-level-2" href="#labs-practicos">Labs prácticos</a>
-<a class="toc-level-3" href="#comparar-vistas-de-paquete-flow-y-protocolo">Comparar vistas de paquete, flow y protocolo</a>
-<a class="toc-level-3" href="#observar-perdida-estilo-span-tap-como-variable-de-deteccion">Observar pérdida estilo SPAN/TAP como variable de detección</a>
-<a class="toc-level-3" href="#construir-una-tabla-de-scan-con-forma-de-flow-desde-zeek">Construir una tabla de scan con forma de flow desde Zeek</a>
-<a class="toc-level-3" href="#comparar-punto-de-vista-publico-e-interno">Comparar punto de vista público e interno</a>
-<a class="toc-level-3" href="#testear-visibilidad-de-metadata-cifrada">Testear visibilidad de metadata cifrada</a>
-<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
-<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
-<a class="toc-level-3" href="#notas-atomicas-futuras-sugeridas">Notas atómicas futuras sugeridas</a>
-<a class="toc-level-2" href="#referencias">Referencias</a>
-<a class="back-to-top" href="#top">Volver arriba</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

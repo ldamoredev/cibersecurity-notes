@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PHAR Deserialization | ldamoredev Security Atlas</title>
-<meta name="description" content="La deserialización PHAR es una clase de vulnerabilidad específica de PHP donde cualquier operación del sistema de archivos que acepte un stream phar:// implí...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Seguridad Web, PHAR Deserialization, web-security, deserialization, php, rce">
-<meta name="theme-color" content="#16a34a">
+<title>PHAR Deserialization - Seguridad Web | Cybersecurity Atlas</title>
+<meta name="description" content="La deserialización PHAR es una clase de vulnerabilidad específica de PHP donde cualquier operación del sistema de archivos que acepte un stream phar://...">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Seguridad Web, PHAR Deserialization">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Seguridad Web">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="es_ES">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHAR Deserialization | ldamoredev Security Atlas">
-<meta property="og:description" content="La deserialización PHAR es una clase de vulnerabilidad específica de PHP donde cualquier operación del sistema de archivos que acepte un stream phar:// implí...">
+<meta property="og:title" content="PHAR Deserialization - Seguridad Web | Cybersecurity Atlas">
+<meta property="og:description" content="La deserialización PHAR es una clase de vulnerabilidad específica de PHP donde cualquier operación del sistema de archivos que acepte un stream phar://...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="PHAR Deserialization | ldamoredev Security Atlas">
-<meta name="twitter:description" content="La deserialización PHAR es una clase de vulnerabilidad específica de PHP donde cualquier operación del sistema de archivos que acepte un stream phar:// implí...">
+<meta name="twitter:title" content="PHAR Deserialization - Seguridad Web | Cybersecurity Atlas">
+<meta name="twitter:description" content="La deserialización PHAR es una clase de vulnerabilidad específica de PHP donde cualquier operación del sistema de archivos que acepte un stream phar://...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html#article","name":"PHAR Deserialization | ldamoredev Security Atlas","headline":"PHAR Deserialization","description":"La deserialización PHAR es una clase de vulnerabilidad específica de PHP donde cualquier operación del sistema de archivos que acepte un stream phar:// implí...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html","inLanguage":"es","datePublished":"2026-04-26","dateModified":"2026-04-26","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Web","PHAR Deserialization","web-security","deserialization","php","rce"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Web","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/index.html"},{"@type":"ListItem","position":4,"name":"PHAR Deserialization","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html#article","name":"PHAR Deserialization - Seguridad Web | Cybersecurity Atlas","headline":"PHAR Deserialization","description":"La deserialización PHAR es una clase de vulnerabilidad específica de PHP donde cualquier operación del sistema de archivos que acepte un stream phar://...","url":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html","inLanguage":"es","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Seguridad Web","PHAR Deserialization"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ldamoredev.github.io/cibersecurity-notes/es/"},{"@type":"ListItem","position":2,"name":"Ciberseguridad","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Seguridad Web","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/index.html"},{"@type":"ListItem","position":4,"name":"PHAR Deserialization","item":"https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html"}]}]</script>
+<meta property="article:section" content="Seguridad Web">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/phar-deserialization.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/web-security/phar-deserialization.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/web-security/phar-deserialization.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Base de Conocimiento</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Superficie de ataque y señal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar tema"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Modo claro</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Modo oscuro</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Inicio del Atlas</a>
 <div class="sidebar-section"><h3>Capa de entrada</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Fase 2 — Offense / Defense (en pares)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Fase 3 — Superficie de operador (concepto -&gt; capacidad)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Fase 4 — Specialty Tracks (elegí lo que tu trabajo demande)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Ruta de aprendizaje</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientación</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Fundamentos</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Resumen</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="La dualidad atacante-defensor como herramienta de aprendizaje">La dualidad atacante-defensor como herramienta de apr…</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Las certificaciones como señales de validación">Las certificaciones como señales de validación</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="Tríada CIA — Qué decide en realidad">Tríada CIA — Qué decide en realidad</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Especialización por contexto de trabajo">Especialización por contexto de trabajo</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Alfabetización mínima viable en ciberseguridad">Alfabetización mínima viable en ciberseguridad</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Arranque rápido de modelado de amenazas">Arranque rápido de modelado de amenazas</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="Qué es la ciberseguridad, y por qué no es una lista de herramientas">Qué es la ciberseguridad, y por qué no es una lista d…</a>
 </div></details>
 </div></details>
-<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Sustrato</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Criptografía</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Resumen</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -84,11 +93,11 @@
 <a class="nav-leaf" href="../cryptography/password-hashing.html" title="Password Hashing">Password Hashing</a>
 <a class="nav-leaf" href="../cryptography/post-quantum-awareness.html" title="Post-Quantum Awareness">Post-Quantum Awareness</a>
 <a class="nav-leaf" href="../cryptography/random-and-csprng-pitfalls.html" title="Random and CSPRNG Pitfalls">Random and CSPRNG Pitfalls</a>
-<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll Your Own Crypto Failures">Roll Your Own Crypto Failures</a>
+<a class="nav-leaf" href="../cryptography/roll-your-own-crypto-failures.html" title="Roll-Your-Own Crypto Failures">Roll-Your-Own Crypto Failures</a>
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Redes</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Resumen</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caché y seguridad">Caché y seguridad</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Confianza en la IP del cliente">Confianza en la IP del cliente</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="Resolución DNS">Resolución DNS</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="Seguridad de DNS">Seguridad de DNS</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls y fronteras de red">Firewalls y fronteras de red</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Confianza en headers en Node Express">Confianza en headers en Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="Headers HTTP">Headers HTTP</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="Mensajes HTTP">Mensajes HTTP</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS y HTTPS">TLS y HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Flujos de trabajo con Wireshark">Flujos de trabajo con Wireshark</a>
 </div></details>
-<details class="nav-branch accent-blue active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Seguridad Web</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="index.html">Resumen</a>
 <a class="nav-leaf" href="auth-flaws.html" title="Fallas de autenticación">Fallas de autenticación</a>
+<a class="nav-leaf" href="authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="broken-access-control.html" title="Control de acceso roto">Control de acceso roto</a>
 <a class="nav-leaf" href="browser-security-boundaries.html" title="Fronteras de seguridad del navegador">Fronteras de seguridad del navegador</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Ofensa-Defensa</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Seguridad Ofensiva / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Resumen</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -162,7 +173,7 @@
 <a class="nav-leaf" href="../offensive-security/passive-recon.html" title="Passive Recon">Passive Recon</a>
 <a class="nav-leaf" href="../offensive-security/public-asset-discovery.html" title="Public Asset Discovery">Public Asset Discovery</a>
 <a class="nav-leaf" href="../offensive-security/recon.html" title="Recon">Recon</a>
-<a class="nav-leaf" href="../offensive-security/recon-to-testing-handoff.html" title="Recon to Testing Handoff">Recon to Testing Handoff</a>
+<a class="nav-leaf" href="../offensive-security/recon-to-testing-handoff.html" title="Recon-to-Testing Handoff">Recon-to-Testing Handoff</a>
 <a class="nav-leaf" href="../offensive-security/rustscan-and-nse-pipeline.html" title="RustScan and NSE Pipeline">RustScan and NSE Pipeline</a>
 <a class="nav-leaf" href="../offensive-security/scope-validation.html" title="Scope Validation">Scope Validation</a>
 <a class="nav-leaf" href="../offensive-security/service-validation.html" title="Service Validation">Service Validation</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="El loop del operador">El loop del operador</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Ingeniería de Detección</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Resumen</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Disciplina de Network Security Monitoring (NSM)">Disciplina de Network Security Monitoring (NSM)</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operador</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Mapeo de Superficie de Ataque</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Resumen</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,15 +238,16 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Playbooks de Seguridad</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Resumen</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detectar la recolección de BloodHound">Detectar la recolección de BloodHound</a>
-<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detect DCSync and ntds.dit Access">Detect DCSync and ntds.dit Access</a>
+<a class="nav-leaf" href="../security-playbooks/detect-dcsync-and-ntdsdit-access.html" title="Detectar DCSync y acceso a ntds.dit">Detectar DCSync y acceso a ntds.dit</a>
 <a class="nav-leaf" href="../security-playbooks/detect-external-scan-pipeline.html" title="Detect External Recon Scan Pipeline">Detect External Recon Scan Pipeline</a>
-<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
+<a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detectar Kerberoasting y AS-REP Roasting">Detectar Kerberoasting y AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -293,8 +306,8 @@
 <details class="nav-branch accent-green"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="nb-name">DevSecOps</span></span><span class="nb-right"><span class="count">13</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../devsecops/index.html">Resumen</a>
 <a class="nav-leaf" href="../devsecops/artifact-integrity.html" title="Artifact Integrity">Artifact Integrity</a>
-<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS as Dev Process Input">ASVS as Dev Process Input</a>
-<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Branch Protection and Release Controls">Branch Protection and Release Controls</a>
+<a class="nav-leaf" href="../devsecops/asvs-as-dev-process-input.html" title="ASVS como input del proceso de desarrollo">ASVS como input del proceso de desarrollo</a>
+<a class="nav-leaf" href="../devsecops/branch-protection-and-release-controls.html" title="Protección de ramas y controles de release">Protección de ramas y controles de release</a>
 <a class="nav-leaf" href="../devsecops/ci-cd-hardening.html" title="CI/CD Hardening">CI/CD Hardening</a>
 <a class="nav-leaf" href="../devsecops/container-security.html" title="Container Security">Container Security</a>
 <a class="nav-leaf" href="../devsecops/dependency-risk.html" title="Dependency Risk">Dependency Risk</a>
@@ -372,7 +385,7 @@
 <div class="sidebar-section"><h3>Sistema de referencia</h3>
 <details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="ns-name">Registros</span></span><span class="ns-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <a class="nav-child" href="../reference-registry.html"><span class="nc-left"><span class="nc-name">Cybersecurity Reference Registry</span></span></a>
-<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Reference Registry - Detection Engineering</span></span></a>
+<a class="nav-child" href="../reference-registry-detection-engineering.html"><span class="nc-left"><span class="nc-name">Registro de Referencia - Ingeniería de Detección</span></span></a>
 <a class="nav-child" href="../reference-registry-privacy-anonymity-opsec.html"><span class="nc-left"><span class="nc-name">Reference Registry - Privacy, Anonymity &amp; OPSEC</span></span></a>
 <a class="nav-child" href="../reference-registry-api-security.html"><span class="nc-left"><span class="nc-name">Reference Registry — API Security</span></span></a>
 <a class="nav-child" href="../reference-registry-attack-surface-mapping.html"><span class="nc-left"><span class="nc-name">Reference Registry — Attack Surface Mapping</span></span></a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>actualizado · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>actualizado · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -410,163 +423,84 @@
 <div id="search-results" hidden></div>
 <div class="main-row">
 <main class="content">
-<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>PHAR Deserialization</span></nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Inicio</a><span>/</span><a href="../index.html">Ciberseguridad</a><span>/</span><a href="index.html">Seguridad Web</a><span>/</span><span>PHAR Deserialization</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-blue">Seguridad Web</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~8 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado Apr 26, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#web-security</span><span class="meta-chip tag">#deserialization</span><span class="meta-chip tag">#php</span><span class="meta-chip tag">#rce</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-blue">Seguridad Web</span><span class="meta-chip meta-time" title="Tiempo estimado de lectura">~8 min de lectura</span><span class="meta-chip meta-updated" title="Última actualización">Actualizado editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="phar-deserialization">PHAR Deserialization</h1>
-<h2 id="definicion">Definición</h2>
-<p>La deserialización PHAR es una clase de vulnerabilidad específica de PHP donde cualquier operación del sistema de archivos que acepte un stream <code>phar://</code> implícitamente deserializa los metadatos del archivo PHAR — invocando métodos mágicos (<code>__wakeup</code>, <code>__destruct</code>) en cualquier objeto almacenado en esos metadatos, sin ninguna llamada a <code>unserialize()</code>.</p>
-<h2 id="por-que-importa">Por qué importa</h2>
+<h1>PHAR Deserialization</h1>
+<h2>Definición</h2>
+<p>La deserialización PHAR es una clase de vulnerabilidad específica de PHP donde cualquier operación del sistema de archivos que acepte un stream `phar://` implícitamente deserializa los metadatos del archivo PHAR — invocando métodos mágicos (`__wakeup`, `__destruct`) en cualquier objeto almacenado en esos metadatos, sin ninguna llamada a `unserialize()`.</p>
+<h2>Por qué importa</h2>
 <p>Este es el vector de deserialización más subestimado en PHP porque la cadena de explotación no parece una deserialización:</p>
-<ul>
-<li>La &quot;subida&quot; y la &quot;operación del sistema de archivos&quot; son primitivos de funcionalidades separados que muchos threat models tratan como aislados.</li>
-<li>El trigger puede estar completamente en código de librería de terceros — la aplicación propia no llama a nada relacionado con serialización.</li>
-<li>Más de 50 funciones PHP nativas pueden actuar como triggers, muchas de las cuales se usan en comprobaciones de validación de entrada completamente inócuas (<code>file_exists</code>, <code>getimagesize</code>).</li>
-<li>La divulgación de Sam Thomas en Black Hat USA 2018 cambió el threat model de &quot;subida de archivo&quot; de forma permanente. Antes de ella, el consenso era que una subida sin ejecución directa estaba contenida. Después de ella, cualquier ruta de código que toca archivos subidos es potencialmente un trigger de deserialización.</li>
-</ul>
-<h2 id="como-funciona">Cómo funciona</h2>
-<p>PHP Archive (PHAR) es un formato de empaquetado de PHP (análogo a JAR de Java). Un archivo PHAR contiene:</p>
-<ol>
-<li>Un stub (código PHP ejecutable con <code>&lt;?php ... __HALT_COMPILER();</code>)</li>
-<li>Un manifiesto (metadatos serializados con PHP)</li>
-<li>Los archivos contenidos</li>
-<li>Una firma opcional</li>
-</ol>
-<p>El manifiesto se <strong>deserializa</strong> (usando <code>unserialize</code> internamente) cada vez que PHP abre el archivo a través del wrapper de stream <code>phar://</code>. No importa qué función PHP realiza la apertura.</p>
-<p>Cualquier objeto en el manifiesto cuyos métodos mágicos hagan algo peligroso con sus propiedades serializadas actúa como kick-off de gadget chain — exactamente igual que si <code>unserialize()</code> se hubiera llamado explícitamente.</p>
+<ul><li>La &quot;subida&quot; y la &quot;operación del sistema de archivos&quot; son primitivos de funcionalidades separados que muchos threat models tratan como aislados.</li><li>El trigger puede estar completamente en código de librería de terceros — la aplicación propia no llama a nada relacionado con serialización.</li><li>Más de 50 funciones PHP nativas pueden actuar como triggers, muchas de las cuales se usan en comprobaciones de validación de entrada completamente inócuas (`file_exists`, `getimagesize`).</li><li>La divulgación de Sam Thomas en Black Hat USA 2018 cambió el threat model de &quot;subida de archivo&quot; de forma permanente. Antes de ella, el consenso era que una subida sin ejecución directa estaba contenida. Después de ella, cualquier ruta de código que toca archivos subidos es potencialmente un trigger de deserialización.</li></ul>
+<h2>Cómo funciona</h2>
+<p>PHP Archive (PHAR) es un formato de empaquetado de PHP (análogo a JAR de Java). Un archivo PHAR contiene: 1. Un stub (código PHP ejecutable con `&lt;?php ... __HALT_COMPILER();`) 2. Un manifiesto (metadatos serializados con PHP) 3. Los archivos contenidos 4. Una firma opcional</p>
+<p>El manifiesto se **deserializa** (usando `unserialize` internamente) cada vez que PHP abre el archivo a través del wrapper de stream `phar://`. No importa qué función PHP realiza la apertura.</p>
+<p>Cualquier objeto en el manifiesto cuyos métodos mágicos hagan algo peligroso con sus propiedades serializadas actúa como kick-off de gadget chain — exactamente igual que si `unserialize()` se hubiera llamado explícitamente.</p>
 <p>Cadena de explotación completa:</p>
-<ol>
-<li><strong>Construir</strong> un PHAR con un manifiesto que contenga un objeto de gadget chain serializado (usando PHPGGC u objetos artesanales).</li>
-<li><strong>Disfrazar</strong> el PHAR como un tipo de archivo aceptado (JPEG, GIF, PDF, ZIP) para pasar la validación de subidas — los archivos PHAR políglotas comienzan con bytes mágicos válidos del formato objetivo.</li>
-<li><strong>Subir</strong> el polígloita vía cualquier funcionalidad de subida de archivo que no desnaturalice el contenido.</li>
-<li><strong>Disparar</strong> cualquier ruta de código que llame a una función sensible al sistema de archivos en el path del archivo con un stream <code>phar://</code>.</li>
-</ol>
-<p>El trigger no requiere que la aplicación &quot;ejecute&quot; el archivo. Solo requiere que la aplicación <em>mencione el archivo</em> en una llamada a función PHP que soporte wrappers de stream.</p>
-<h2 id="tecnicas-patrones">Técnicas / patrones</h2>
-<h3 id="identificar-la-superficie-de-trigger">Identificar la superficie de trigger</h3>
+<p>1. **Construir** un PHAR con un manifiesto que contenga un objeto de gadget chain serializado (usando PHPGGC u objetos artesanales). 2. **Disfrazar** el PHAR como un tipo de archivo aceptado (JPEG, GIF, PDF, ZIP) para pasar la validación de subidas — los archivos PHAR políglotas comienzan con bytes mágicos válidos del formato objetivo. 3. **Subir** el polígloita vía cualquier funcionalidad de subida de archivo que no desnaturalice el contenido. 4. **Disparar** cualquier ruta de código que llame a una función sensible al sistema de archivos en el path del archivo con un stream `phar://`.</p>
+<p>El trigger no requiere que la aplicación &quot;ejecute&quot; el archivo. Solo requiere que la aplicación *mencione el archivo* en una llamada a función PHP que soporte wrappers de stream.</p>
+<h2>Técnicas / patrones</h2>
+<h3>Identificar la superficie de trigger</h3>
 <p>El primer paso es identificar dónde el código de la aplicación llama a funciones del sistema de archivos con input derivado del usuario (IDs de upload, nombres de archivo en base de datos, paths en parámetros de query):</p>
-<div class="codehilite"><pre><span></span><code>file_exists($path)
-is_file($path)
-file_get_contents($path)
-fopen($path, &#x27;r&#x27;)
-getimagesize($path)
-imagecreatefromjpeg($path)
-</code></pre></div>
-<p>Más de 50 funciones nativas PHP soportan wrappers de stream. Una búsqueda de grep para <code>file_exists\|fopen\|getimagesize\|imagecreatefrom</code> en rutas de código que usan input del sistema de archivos encontrará los candidatos.</p>
-<h3 id="construir-el-poligloita-phar">Construir el polígloita PHAR</h3>
-<p>Las herramientas automatizan esto:</p>
-<ul>
-<li><strong>PHPGGC</strong> — genera objetos de gadget chain serializados apropiados para el framework de la aplicación, con soporte integrado para generación de archivos PHAR y políglotas (JPEG, GIF, PNG, PDF, ZIP).</li>
-</ul>
-<p>Construcción manual: el archivo debe comenzar con los magic bytes del formato objetivo (por ejemplo, <code>FFD8FF</code> para JPEG) antes de cualquier stub PHAR, para que tanto el parser de imagen como el wrapper PHAR lo acepten.</p>
-<h3 id="disparar-la-deserializacion">Disparar la deserialización</h3>
+<p>```php file_exists($path) is_file($path) file_get_contents($path) fopen($path, &#x27;r&#x27;) getimagesize($path) imagecreatefromjpeg($path) ```</p>
+<p>Más de 50 funciones nativas PHP soportan wrappers de stream. Una búsqueda de grep para `file_exists\|fopen\|getimagesize\|imagecreatefrom` en rutas de código que usan input del sistema de archivos encontrará los candidatos.</p>
+<h3>Construir el polígloita PHAR</h3>
+<p>Las herramientas automatizan esto: - **PHPGGC** — genera objetos de gadget chain serializados apropiados para el framework de la aplicación, con soporte integrado para generación de archivos PHAR y políglotas (JPEG, GIF, PNG, PDF, ZIP).</p>
+<p>Construcción manual: el archivo debe comenzar con los magic bytes del formato objetivo (por ejemplo, `FFD8FF` para JPEG) antes de cualquier stub PHAR, para que tanto el parser de imagen como el wrapper PHAR lo acepten.</p>
+<h3>Disparar la deserialización</h3>
 <p>El trigger más común en aplicaciones del mundo real es una ruta de procesamiento de imágenes:</p>
-<div class="codehilite"><pre><span></span><code>// Validación de &quot;seguridad&quot; que es en sí misma el trigger
-if (getimagesize(&quot;uploads/&quot; . $filename)) {
-    // ...
-}
-</code></pre></div>
-<p>Pasar <code>phar://uploads/avatar.jpg</code> (o controlar el valor de <code>$filename</code> hacia <code>phar://...</code>) dispara la deserialización durante la llamada a <code>getimagesize</code>.</p>
+<p>```php // Validación de &quot;seguridad&quot; que es en sí misma el trigger if (getimagesize(&quot;uploads/&quot; . $filename)) {     // ... } ```</p>
+<p>Pasar `phar://uploads/avatar.jpg` (o controlar el valor de `$filename` hacia `phar://...`) dispara la deserialización durante la llamada a `getimagesize`.</p>
 <p>En aplicaciones donde el path viene de la base de datos o de otro almacenamiento, el atacante puede no controlar directamente el argumento del stream. El vector secundario son las funcionalidades de &quot;preview&quot; o &quot;thumbnail&quot; que leen archivos subidos usando el ID como parte del path.</p>
-<h2 id="variantes-y-bypasses">Variantes y bypasses</h2>
-<h3 id="confusion-de-phar-readonly">Confusión de <code>phar.readonly</code></h3>
-<p>La INI <code>phar.readonly = On</code> (valor por defecto) previene <strong>crear</strong> archivos PHAR con <code>PharData</code> — pero no previene <strong>leer</strong> o <strong>disparar</strong> archivos PHAR existentes vía el wrapper de stream <code>phar://</code>. Los equipos a veces asumen que <code>phar.readonly</code> mitiga los ataques PHAR; no lo hace.</p>
-<h3 id="phar-como-jpeg-gif-pdf-zip-poligloita">PHAR como JPEG / GIF / PDF / ZIP polígloita</h3>
-<p>Los formatos de imagen/documento más comunes tienen firmas de cabecera o áreas de comentarios que pueden coexistir con el stub PHAR:</p>
-<ul>
-<li><strong>GIF</strong> — <code>GIF89a</code> seguido del stub PHAR antes del fin de cabecera es la variante más confiable.</li>
-<li><strong>JPEG</strong> — los datos JFIF permiten datos arbitrarios después de los magic bytes iniciales.</li>
-<li><strong>PDF</strong> — el <code>%PDF-1.x</code> puede preceder al stub en muchos parsers.</li>
-<li><strong>ZIP</strong> — dado que PHAR puede empaquetarse como ZIP, los PHARs legítimos basados en ZIP tienen firmas de ZIP.</li>
-</ul>
-<h3 id="trigger-a-traves-de-librerias-de-terceros">Trigger a través de librerías de terceros</h3>
-<p>La cadena <code>file_exists → phar deserialize</code> puede estar enteramente dentro de una librería de terceros (un SDK de procesamiento de imágenes, un wrapper de almacenamiento de archivos, un ORM que valida adjuntos). La aplicación ni siquiera necesita llamar a funciones del sistema de archivos directamente.</p>
-<h3 id="inyeccion-de-wrapper-de-stream">Inyección de wrapper de stream</h3>
-<p>En algunos casos, el atacante puede controlar el prefijo del path o el wrapper de stream completo a través de path traversal, manipulación de configuración, o configuración insegura (por ejemplo, <code>allow_url_fopen</code>).</p>
-<h3 id="eludir-streamwrapperunregister">Eludir <code>stream_wrapper_unregister</code></h3>
-<p>Las aplicaciones que intentan desregistrar el wrapper <code>phar://</code> como defensa a veces solo lo hacen al inicio, y las librerías o plugins pueden volver a registrarlo. La unregistration también falla si se ejecuta después de que cualquier carga de clase de autoloader haya resuelto archivos usando el wrapper.</p>
-<h2 id="impacto">Impacto</h2>
-<ul>
-<li><strong>Ejecución remota de código</strong> — el gadget sink alcanza <code>exec</code>/<code>eval</code>/<code>proc_open</code>/equivalente. Techo por defecto cuando hay una gadget chain viable en el framework de la aplicación.</li>
-<li><strong>Lectura / escritura arbitraria de archivos</strong> — los sinks de gadget chain que no alcanzan RCE completo aún pueden alcanzar ops de filesystem.</li>
-<li><strong>SSRF</strong> — gadget chains con sinks de network request (Guzzle, Curl wrappers).</li>
-<li><strong>Escalada de privilegios / bypass de auth</strong> — gadget chains que modifican estado de sesión o permisos.</li>
-</ul>
+<h2>Variantes y bypasses</h2>
+<h3>Confusión de `phar.readonly`</h3>
+<p>La INI `phar.readonly = On` (valor por defecto) previene **crear** archivos PHAR con `PharData` — pero no previene **leer** o **disparar** archivos PHAR existentes vía el wrapper de stream `phar://`. Los equipos a veces asumen que `phar.readonly` mitiga los ataques PHAR; no lo hace.</p>
+<h3>PHAR como JPEG / GIF / PDF / ZIP polígloita</h3>
+<p>Los formatos de imagen/documento más comunes tienen firmas de cabecera o áreas de comentarios que pueden coexistir con el stub PHAR: - **GIF** — `GIF89a` seguido del stub PHAR antes del fin de cabecera es la variante más confiable. - **JPEG** — los datos JFIF permiten datos arbitrarios después de los magic bytes iniciales. - **PDF** — el `%PDF-1.x` puede preceder al stub en muchos parsers. - **ZIP** — dado que PHAR puede empaquetarse como ZIP, los PHARs legítimos basados en ZIP tienen firmas de ZIP.</p>
+<h3>Trigger a través de librerías de terceros</h3>
+<p>La cadena `file_exists → phar deserialize` puede estar enteramente dentro de una librería de terceros (un SDK de procesamiento de imágenes, un wrapper de almacenamiento de archivos, un ORM que valida adjuntos). La aplicación ni siquiera necesita llamar a funciones del sistema de archivos directamente.</p>
+<h3>Inyección de wrapper de stream</h3>
+<p>En algunos casos, el atacante puede controlar el prefijo del path o el wrapper de stream completo a través de path traversal, manipulación de configuración, o configuración insegura (por ejemplo, `allow_url_fopen`).</p>
+<h3>Eludir `stream_wrapper_unregister`</h3>
+<p>Las aplicaciones que intentan desregistrar el wrapper `phar://` como defensa a veces solo lo hacen al inicio, y las librerías o plugins pueden volver a registrarlo. La unregistration también falla si se ejecuta después de que cualquier carga de clase de autoloader haya resuelto archivos usando el wrapper.</p>
+<h2>Impacto</h2>
+<ul><li>**Ejecución remota de código** — el gadget sink alcanza `exec`/`eval`/`proc_open`/equivalente. Techo por defecto cuando hay una gadget chain viable en el framework de la aplicación.</li><li>**Lectura / escritura arbitraria de archivos** — los sinks de gadget chain que no alcanzan RCE completo aún pueden alcanzar ops de filesystem.</li><li>**SSRF** — gadget chains con sinks de network request (Guzzle, Curl wrappers).</li><li>**Escalada de privilegios / bypass de auth** — gadget chains que modifican estado de sesión o permisos.</li></ul>
 <p>El daño directo de la sola subida sin trigger de sistema de archivos es cero. El impacto viene del trigger.</p>
-<h2 id="deteccion-y-defensa">Detección y defensa</h2>
+<h2>Detección y defensa</h2>
 <p>Ordenado por efectividad:</p>
-<p>1. <strong>Nunca pasar paths controlados por el usuario directamente a funciones del sistema de archivos.</strong> Si el path que llega a <code>file_exists</code>, <code>getimagesize</code>, <code>fopen</code>, etc. puede ser influenciado por el atacante (directamente o vía IDs almacenados en base de datos derivados de input del usuario), esa es la vulnerabilidad. Canonicalizar y validar contra una allowlist de directorio base antes de cualquier llamada al sistema de archivos.</p>
-<p>2. <strong>Re-encodear o desnaturalizar archivos subidos en el momento de la subida.</strong> Re-encodear imágenes a través de la librería de imágenes (GD, Imagick en modo de re-renderizado) descarta los bytes del stub PHAR y destruye cualquier polígloita. Hacer esto durante la subida, antes de que el archivo alcance almacenamiento permanente. No re-encodear después del almacenamiento — el trigger puede ocurrir antes del procesamiento.</p>
-<p>3. <strong>Validar con magia de bytes y parseo, no con extensión.</strong> Verificar que el contenido real del archivo coincide con el tipo declarado usando parseo real (no solo lectura de los primeros bytes, sino decodificación completa). Un JPEG válido que se decodifica como imagen no contiene un stub PHAR viable.</p>
-<p>4. <strong>Desregistrar el wrapper de stream <code>phar://</code> si la aplicación no usa PHARs.</strong> <code>stream_wrapper_unregister(&#x27;phar&#x27;)</code> al inicio del ciclo de request previene que cualquier ruta de código en el request use wrappers PHAR. Hacer esto temprano, antes de cargar plugins o librerías que puedan re-registrarlo. Esta es una defensa en profundidad útil, no una defensa primaria.</p>
-<p>5. <strong>Almacenar archivos subidos en una ubicación sin path traversal al código de la aplicación.</strong> Usar un bucket de storage separado, filesystem, o prefijo de directorio que no pueda resolverse de vuelta al árbol fuente de la app o al almacenamiento de configuración.</p>
-<p>6. <strong>Auditar paths de archivos que llegan a funciones PHP del sistema de archivos.</strong> Instrumentar o revisar estáticamente todas las rutas de código donde el input del usuario (incluyendo IDs almacenados en base de datos) puede influenciar argumentos de funciones del sistema de archivos. Esta es la superficie de ataque real — no los endpoints de subida.</p>
-<h3 id="que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</h3>
-<ul>
-<li><strong><code>phar.readonly = On</code></strong> — previene crear PHARs, no disparar PHARs existentes vía stream.</li>
-<li><strong>Validación de extensión solamente</strong> — los polígloitas pasan la validación de extensión por diseño.</li>
-<li><strong>Verificación de MIME/Content-Type solamente</strong> — el Content-Type es controlado por el atacante; el MIME detectado por magic bytes puede confundirse con el inicio del archivo que es válido para el tipo objetivo.</li>
-<li><strong>Solo almacenar fuera del webroot</strong> — el trigger no requiere ejecución HTTP directa. Requiere cualquier llamada al sistema de archivos PHP en el path del archivo.</li>
-</ul>
-<h2 id="ejemplos-practicos">Ejemplos prácticos</h2>
-<ul>
-<li>Un campo de avatar acepta JPEGs; la app llama a <code>getimagesize(&quot;uploads/&quot; . $id)</code> para generar thumbnails. El atacante sube un PHAR polígloita disfrazado de JPEG. El ID queda en la base de datos. La próxima vez que se llame a <code>getimagesize</code> en ese path, la gadget chain del manifiesto PHAR se deserializa y el <code>__destruct</code> de Monolog alcanza <code>proc_open</code>.</li>
-<li>Una app de gestión de documentos almacena paths de archivo en la base de datos y los pasa a <code>file_exists</code> para validación. La ruta puede comenzar con <code>phar://</code> si el almacenamiento de la base de datos no normaliza los valores. El atacante modifica su path almacenado (vía IDOR o SQLi) para apuntar al archivo subido con un prefijo <code>phar://</code>.</li>
-<li>Un plugin de WordPress acepta subidas de ZIP para instalación de temas. El plugin llama a <code>file_exists</code> en las entradas del archivo durante la extracción. El ZIP es a su vez un PHAR válido con un manifiesto malicioso.</li>
-</ul>
-<h2 id="notas-relacionadas">Notas relacionadas</h2>
-<ul>
-<li><a href="deserialization.html">deserialization</a> — el mecanismo subyacente; la deserialización PHAR es un trigger alternativo del mismo bug de deserialización.</li>
-<li><a href="gadget-chains.html">gadget-chains</a> — las cadenas que se ejecutan una vez que el PHAR dispara el kick-off son cadenas de gadgets estándar.</li>
-<li><a href="file-upload-abuse.html">file-upload-abuse</a> — mecanismo de entrega primario; el threat model de subida de archivo debe incluir el trigger PHAR.</li>
-<li><a href="path-traversal.html">path-traversal</a> — el control del path que llega a funciones del sistema de archivos es la condición previa de explotación.</li>
-</ul>
-<h2 id="referencias">Referencias</h2>
-<ul>
-<li><strong>Investigación / Deep Dive:</strong> Sam Thomas, &quot;It&#x27;s a PHP unserialization vulnerability Jim, but not as we know it&quot; (Black Hat USA 2018) — https://i.blackhat.com/us-18/Thu-August-9/us-18-Thomas-Its-A-PHP-Unserialization-Vulnerability-Jim-But-Not-As-We-Know-It.pdf</li>
-<li><strong>Docs Oficiales:</strong> PHPGGC — https://github.com/ambionics/phpggc</li>
-<li><strong>Testing / Lab:</strong> PortSwigger Insecure deserialization — https://portswigger.net/web-security/deserialization</li>
-<li><strong>Fundamental:</strong> OWASP Deserialization Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html</li>
-</ul>
+<p>1. **Nunca pasar paths controlados por el usuario directamente a funciones del sistema de archivos.**    Si el path que llega a `file_exists`, `getimagesize`, `fopen`, etc. puede ser influenciado por el atacante (directamente o vía IDs almacenados en base de datos derivados de input del usuario), esa es la vulnerabilidad. Canonicalizar y validar contra una allowlist de directorio base antes de cualquier llamada al sistema de archivos.</p>
+<p>2. **Re-encodear o desnaturalizar archivos subidos en el momento de la subida.**    Re-encodear imágenes a través de la librería de imágenes (GD, Imagick en modo de re-renderizado) descarta los bytes del stub PHAR y destruye cualquier polígloita. Hacer esto durante la subida, antes de que el archivo alcance almacenamiento permanente. No re-encodear después del almacenamiento — el trigger puede ocurrir antes del procesamiento.</p>
+<p>3. **Validar con magia de bytes y parseo, no con extensión.**    Verificar que el contenido real del archivo coincide con el tipo declarado usando parseo real (no solo lectura de los primeros bytes, sino decodificación completa). Un JPEG válido que se decodifica como imagen no contiene un stub PHAR viable.</p>
+<p>4. **Desregistrar el wrapper de stream `phar://` si la aplicación no usa PHARs.**    `stream_wrapper_unregister(&#x27;phar&#x27;)` al inicio del ciclo de request previene que cualquier ruta de código en el request use wrappers PHAR. Hacer esto temprano, antes de cargar plugins o librerías que puedan re-registrarlo. Esta es una defensa en profundidad útil, no una defensa primaria.</p>
+<p>5. **Almacenar archivos subidos en una ubicación sin path traversal al código de la aplicación.**    Usar un bucket de storage separado, filesystem, o prefijo de directorio que no pueda resolverse de vuelta al árbol fuente de la app o al almacenamiento de configuración.</p>
+<p>6. **Auditar paths de archivos que llegan a funciones PHP del sistema de archivos.**    Instrumentar o revisar estáticamente todas las rutas de código donde el input del usuario (incluyendo IDs almacenados en base de datos) puede influenciar argumentos de funciones del sistema de archivos. Esta es la superficie de ataque real — no los endpoints de subida.</p>
+<h3>Qué no funciona como defensa primaria</h3>
+<ul><li>**`phar.readonly = On`** — previene crear PHARs, no disparar PHARs existentes vía stream.</li><li>**Validación de extensión solamente** — los polígloitas pasan la validación de extensión por diseño.</li><li>**Verificación de MIME/Content-Type solamente** — el Content-Type es controlado por el atacante; el MIME detectado por magic bytes puede confundirse con el inicio del archivo que es válido para el tipo objetivo.</li><li>**Solo almacenar fuera del webroot** — el trigger no requiere ejecución HTTP directa. Requiere cualquier llamada al sistema de archivos PHP en el path del archivo.</li></ul>
+<h2>Ejemplos prácticos</h2>
+<ul><li>Un campo de avatar acepta JPEGs; la app llama a `getimagesize(&quot;uploads/&quot; . $id)` para generar thumbnails. El atacante sube un PHAR polígloita disfrazado de JPEG. El ID queda en la base de datos. La próxima vez que se llame a `getimagesize` en ese path, la gadget chain del manifiesto PHAR se deserializa y el `__destruct` de Monolog alcanza `proc_open`.</li><li>Una app de gestión de documentos almacena paths de archivo en la base de datos y los pasa a `file_exists` para validación. La ruta puede comenzar con `phar://` si el almacenamiento de la base de datos no normaliza los valores. El atacante modifica su path almacenado (vía IDOR o SQLi) para apuntar al archivo subido con un prefijo `phar://`.</li><li>Un plugin de WordPress acepta subidas de ZIP para instalación de temas. El plugin llama a `file_exists` en las entradas del archivo durante la extracción. El ZIP es a su vez un PHAR válido con un manifiesto malicioso.</li></ul>
+<h2>Notas relacionadas</h2>
+<ul><li>&lt;a href=&quot;deserialization.html&quot;&gt;deserialization&lt;/a&gt; — el mecanismo subyacente; la deserialización PHAR es un trigger alternativo del mismo bug de deserialización.</li><li>&lt;a href=&quot;gadget-chains.html&quot;&gt;gadget-chains&lt;/a&gt; — las cadenas que se ejecutan una vez que el PHAR dispara el kick-off son cadenas de gadgets estándar.</li><li>&lt;a href=&quot;file-upload-abuse.html&quot;&gt;file-upload-abuse&lt;/a&gt; — mecanismo de entrega primario; el threat model de subida de archivo debe incluir el trigger PHAR.</li><li>&lt;a href=&quot;path-traversal.html&quot;&gt;path-traversal&lt;/a&gt; — el control del path que llega a funciones del sistema de archivos es la condición previa de explotación.</li></ul>
+<h2>Referencias</h2>
+<ul><li>**Investigación / Deep Dive:** Sam Thomas, &quot;It&#x27;s a PHP unserialization vulnerability Jim, but not as we know it&quot; (Black Hat USA 2018) — https://i.blackhat.com/us-18/Thu-August-9/us-18-Thomas-Its-A-PHP-Unserialization-Vulnerability-Jim-But-Not-As-We-Know-It.pdf</li><li>**Docs Oficiales:** PHPGGC — https://github.com/ambionics/phpggc</li><li>**Testing / Lab:** PortSwigger Insecure deserialization — https://portswigger.net/web-security/deserialization</li><li>**Fundamental:** OWASP Deserialization Cheat Sheet — https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="path-traversal.html"><span class="nav-dir">← Previous</span><strong>Path traversal</strong></a><a class="branch-nav-link next" href="request-smuggling.html"><span class="nav-dir">Next →</span><strong>Request Smuggling</strong></a></nav>
 <section class="related-notes" aria-label="Notas relacionadas">
 <h2>Notas relacionadas</h2>
 <div class="related-grid">
-<a class="related-card" href="gadget-chains.html"><span>Seguridad Web</span><strong>Gadget Chains</strong><small>Una gadget chain es una secuencia de invocaciones de métodos a través de código de confianza existente que recorre datos controlados por el atacante desde un punto de entrada de deserialización hasta un sink peligroso. El atacante no escribe código nuevo en el objetivo — solo elige qué grafo de objetos serializados reconstruye el deserializador, y la cadena es cualquier cosa que ese grafo haga invocar al runtime.</small></a>
-<a class="related-card" href="deserialization.html"><span>Seguridad Web</span><strong>Insecure Deserialization</strong><small>La deserialización insegura es el acto de reconstruir un objeto tipado a partir de bytes controlados por el atacante, donde el proceso de reconstrucción en sí ejecuta rutas de código bajo la influencia del atacante. El bug no es &quot;aceptamos datos incorrectos&quot; — es &quot;instanciamos un grafo de objetos a partir de datos en los que no confiamos, e instanciar tiene efectos secundarios.&quot;</small></a>
-<a class="related-card" href="auth-flaws.html"><span>Seguridad Web</span><strong>Fallas de autenticación</strong><small>Las fallas de autenticación son debilidades en cómo una aplicación verifica la identidad. Incluyen lógica de login débil, enumeración de usuarios, flujos de MFA rotos, debilidades en el reset de contraseña, exposición a credential stuffing y supuestos defectuosos alrededor de la emisión de sesiones/tokens.</small></a>
-<a class="related-card" href="bot-detection-signals.html"><span>Seguridad Web</span><strong>Bot Detection Signals</strong><small>Las señales de detección de bots son atributos observables de requests HTTP, sesiones de navegador y patrones de comportamiento que diferencian el tráfico automatizado del tráfico humano legítimo. No existe una señal única suficiente — la detección efectiva puntúa múltiples familias de señales en conjunto.</small></a>
+<a class="related-card" href="auth-flaws.html"><span>Seguridad Web</span><strong>Fallas de autenticación</strong><small>Las fallas de autenticación son debilidades en cómo una aplicación verifica la identidad. Incluyen lógica de login débil, enumeración de usuarios, flujos de MFA...</small></a>
+<a class="related-card" href="authentication-authorization-and-object-access.html"><span>Seguridad Web</span><strong>Authentication, authorization and object access</strong><small>Authentication establishes a principal. Session management maintains that association across requests. Authorization decides whether that principal may perform an...</small></a>
+<a class="related-card" href="bot-detection-signals.html"><span>Seguridad Web</span><strong>Bot Detection Signals</strong><small>Las señales de detección de bots son atributos observables de requests HTTP, sesiones de navegador y patrones de comportamiento que diferencian el tráfico...</small></a>
 <a class="related-card" href="broken-access-control.html"><span>Seguridad Web</span><strong>Control de acceso roto</strong><small>El control de acceso roto (broken access control) ocurre cuando una aplicación no logra imponer a qué puede acceder o qué puede hacer un llamante.</small></a>
-<a class="related-card" href="browser-security-boundaries.html"><span>Seguridad Web</span><strong>Fronteras de seguridad del navegador</strong><small>Las &quot;fronteras de seguridad del navegador&quot; son el stack en capas de fronteras de aislamiento que un navegador moderno impone entre contenido web — no una sola regla sino cinco fronteras que operan a distintas granularidades: origen (acceso de script), sitio (estado), proceso (memoria), agent cluster (APIs poderosas) y partición de almacenamiento (estado cross-site). La política del mismo origen es la más interna de estas; las otras se agregaron (mayormente 2019–2025, aceleradas por Spectre y por el trabajo de privacidad) porque el aislamiento a nivel de origen por sí solo ya no aguanta contra los canales laterales especulativos y el tracking cross-site. Un &quot;bypass de seguridad del navegador&quot; es casi siempre encontrar la única capa de este stack que no aguantó.</small></a>
+<a class="related-card" href="browser-security-boundaries.html"><span>Seguridad Web</span><strong>Fronteras de seguridad del navegador</strong><small>Las &quot;fronteras de seguridad del navegador&quot; son el **stack en capas de fronteras de aislamiento** que un navegador moderno impone entre contenido web — no una sola...</small></a>
+<a class="related-card" href="business-logic-vulnerabilities.html"><span>Seguridad Web</span><strong>Business Logic Vulnerabilities</strong><small>Las vulnerabilidades de lógica de negocio son fallas en el flujo de trabajo previsto, suposiciones, invariantes o diseño de reglas de una aplicación, donde el...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="En esta página"><div class="toc-inner"><h2>En esta página</h2>
-<a class="toc-level-2" href="#definicion">Definición</a>
-<a class="toc-level-2" href="#por-que-importa">Por qué importa</a>
-<a class="toc-level-2" href="#como-funciona">Cómo funciona</a>
-<a class="toc-level-2" href="#tecnicas-patrones">Técnicas / patrones</a>
-<a class="toc-level-3" href="#identificar-la-superficie-de-trigger">Identificar la superficie de trigger</a>
-<a class="toc-level-3" href="#construir-el-poligloita-phar">Construir el polígloita PHAR</a>
-<a class="toc-level-3" href="#disparar-la-deserializacion">Disparar la deserialización</a>
-<a class="toc-level-2" href="#variantes-y-bypasses">Variantes y bypasses</a>
-<a class="toc-level-3" href="#confusion-de-phar-readonly">Confusión de phar.readonly</a>
-<a class="toc-level-3" href="#phar-como-jpeg-gif-pdf-zip-poligloita">PHAR como JPEG / GIF / PDF / ZIP polígloita</a>
-<a class="toc-level-3" href="#trigger-a-traves-de-librerias-de-terceros">Trigger a través de librerías de terceros</a>
-<a class="toc-level-3" href="#inyeccion-de-wrapper-de-stream">Inyección de wrapper de stream</a>
-<a class="toc-level-3" href="#eludir-streamwrapperunregister">Eludir stream_wrapper_unregister</a>
-<a class="toc-level-2" href="#impacto">Impacto</a>
-<a class="toc-level-2" href="#deteccion-y-defensa">Detección y defensa</a>
-<a class="toc-level-3" href="#que-no-funciona-como-defensa-primaria">Qué no funciona como defensa primaria</a>
-<a class="toc-level-2" href="#ejemplos-practicos">Ejemplos prácticos</a>
-<a class="toc-level-2" href="#notas-relacionadas">Notas relacionadas</a>
-<a class="toc-level-2" href="#referencias">Referencias</a>
-<a class="back-to-top" href="#top">Volver arriba</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

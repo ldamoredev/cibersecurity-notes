@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RustScan and NSE Pipeline - Offensive Security / Recon | ldamoredev Security Atlas</title>
+<title>RustScan and NSE Pipeline - Offensive Security / Recon | Cybersecurity Atlas</title>
 <meta name="description" content="The RustScan + NSE pipeline is a two-stage workflow in which RustScan performs fast asynchronous port discovery on a target and pipes the discovered port list...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Offensive Security / Recon, RustScan and NSE Pipeline, offensive-security, rustscan, nmap, nse, pipeline">
-<meta name="theme-color" content="#16a34a">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Offensive Security / Recon, RustScan and NSE Pipeline">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Offensive Security / Recon">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RustScan and NSE Pipeline - Offensive Security / Recon | ldamoredev Security Atlas">
+<meta property="og:title" content="RustScan and NSE Pipeline - Offensive Security / Recon | Cybersecurity Atlas">
 <meta property="og:description" content="The RustScan + NSE pipeline is a two-stage workflow in which RustScan performs fast asynchronous port discovery on a target and pipes the discovered port list...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="RustScan and NSE Pipeline - Offensive Security / Recon | ldamoredev Security Atlas">
+<meta name="twitter:title" content="RustScan and NSE Pipeline - Offensive Security / Recon | Cybersecurity Atlas">
 <meta name="twitter:description" content="The RustScan + NSE pipeline is a two-stage workflow in which RustScan performs fast asynchronous port discovery on a target and pipes the discovered port list...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html#article","name":"RustScan and NSE Pipeline - Offensive Security / Recon | ldamoredev Security Atlas","headline":"RustScan and NSE Pipeline","description":"The RustScan + NSE pipeline is a two-stage workflow in which RustScan performs fast asynchronous port discovery on a target and pipes the discovered port list...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html","inLanguage":"en","datePublished":"2026-05-11","dateModified":"2026-05-11","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Offensive Security / Recon","RustScan and NSE Pipeline","offensive-security","rustscan","nmap","nse","pipeline"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Offensive Security / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"RustScan and NSE Pipeline","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html#article","name":"RustScan and NSE Pipeline - Offensive Security / Recon | Cybersecurity Atlas","headline":"RustScan and NSE Pipeline","description":"The RustScan + NSE pipeline is a two-stage workflow in which RustScan performs fast asynchronous port discovery on a target and pipes the discovered port list...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html","inLanguage":"en","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Offensive Security / Recon","RustScan and NSE Pipeline"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Offensive Security / Recon","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/index.html"},{"@type":"ListItem","position":4,"name":"RustScan and NSE Pipeline","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html"}]}]</script>
+<meta property="article:section" content="Offensive Security / Recon">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/offensive-security/rustscan-and-nse-pipeline.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Knowledge Base</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Attack Surface &amp; Signal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Atlas Home</a>
 <div class="sidebar-section"><h3>Entry layer</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Learning Path</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Overview</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="Attacker-Defender Duality as a Learning Tool">Attacker-Defender Duality as a Learning Tool</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Certifications as Validation Signals">Certifications as Validation Signals</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="CIA Triad — What It Actually Decides">CIA Triad — What It Actually Decides</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Job Context Specialization">Job Context Specialization</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Minimum Viable Cybersecurity Literacy">Minimum Viable Cybersecurity Literacy</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Threat Modeling Quickstart">Threat Modeling Quickstart</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="What Is Cybersecurity, and Why It Is Not a Tool List">What Is Cybersecurity, and Why It Is Not a Tool List</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Cryptography</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Overview</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -88,7 +97,7 @@
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../networking/index.html">Overview</a>
 <a class="nav-leaf" href="../networking/caching-and-security.html" title="Caching and Security">Caching and Security</a>
 <a class="nav-leaf" href="../networking/client-ip-trust.html" title="Client IP Trust">Client IP Trust</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="../networking/dns-resolution.html" title="DNS Resolution">DNS Resolution</a>
 <a class="nav-leaf" href="../networking/dns-security.html" title="DNS Security">DNS Security</a>
 <a class="nav-leaf" href="../networking/firewalls-and-network-boundaries.html" title="Firewalls and Network Boundaries">Firewalls and Network Boundaries</a>
+<a class="nav-leaf" href="../networking/from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="../networking/header-trust-in-node-express.html" title="Header Trust in Node Express">Header Trust in Node Express</a>
 <a class="nav-leaf" href="../networking/http-headers.html" title="HTTP Headers">HTTP Headers</a>
 <a class="nav-leaf" href="../networking/http-messages.html" title="HTTP Messages">HTTP Messages</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="../networking/tls-https.html" title="TLS and HTTPS">TLS and HTTPS</a>
 <a class="nav-leaf" href="../networking/wireshark-workflows.html" title="Wireshark Workflows">Wireshark Workflows</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Overview</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Authentication Flaws">Authentication Flaws</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Broken Access Control">Broken Access Control</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Browser Security Boundaries">Browser Security Boundaries</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Offensive Security / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="index.html">Overview</a>
 <a class="nav-leaf" href="active-recon.html" title="Active Recon">Active Recon</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="operator-loop.html" title="The Operator Loop">The Operator Loop</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Overview</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Network Security Monitoring Discipline">Network Security Monitoring Discipline</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Attack Surface Mapping</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Overview</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,7 +238,7 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Overview</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detect BloodHound Collection">Detect BloodHound Collection</a>
@@ -235,6 +247,7 @@
 <a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>updated · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>updated · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -412,207 +425,80 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Offensive Security / Recon</a><span>/</span><span>RustScan and NSE Pipeline</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-rose">Offensive Security / Recon</span><span class="meta-chip meta-time" title="Estimated reading time">~5 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated May 11, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#offensive-security</span><span class="meta-chip tag">#rustscan</span><span class="meta-chip tag">#nmap</span><span class="meta-chip tag">#nse</span><span class="meta-chip tag">#pipeline</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-rose">Offensive Security / Recon</span><span class="meta-chip meta-time" title="Estimated reading time">~5 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="rustscan-and-nse-pipeline">RustScan and NSE Pipeline</h1>
-<h2 id="definition">Definition</h2>
+<h1>RustScan and NSE Pipeline</h1>
+<h2>Definition</h2>
 <p>The RustScan + NSE pipeline is a two-stage workflow in which RustScan performs fast asynchronous port discovery on a target and pipes the discovered port list directly into Nmap, which then drives the Nmap Scripting Engine (NSE) for service detection, version probing, and category-scoped vulnerability checks.</p>
-<h2 id="why-it-matters">Why it matters</h2>
-<p>Running <code>nmap -A -p- target</code> against a single host can take 10–30 minutes — and most of that time is spent on ports that turned out to be closed. Splitting the work into "discover ports fast → enumerate ports deeply" cuts a single-host full-range scan from minutes to seconds without losing any of Nmap's enumeration power, because the deep stage runs only on the open ports.</p>
-<p>The senior framing is that this is <em>the same two-phase pattern as Masscan + Nmap</em>, just sized down: RustScan replaces the bulk-discovery layer for single hosts and small subnets, while Masscan owns the same role for AS-scale work. Understanding NSE script categories then determines whether the second phase is safe, useful, or accidentally noisy/destructive.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>The pipeline is <strong>3 stages</strong>:</p>
-<ol>
-<li><strong>Discovery (RustScan).</strong> Async Tokio runtime opens up to <code>--ulimit</code> concurrent half-open sockets, sweeps the configured port set, and emits an open-port list. Adaptive learning adjusts batch size based on early response patterns.</li>
-<li><strong>Handoff.</strong> Everything after <code>--</code> on the RustScan command line is passed verbatim to Nmap. RustScan invokes Nmap with <code>-p &lt;discovered_ports&gt;</code> and the user's flags.</li>
-<li><strong>Enumeration (Nmap + NSE).</strong> Nmap runs version detection, OS fingerprinting, and any selected NSE scripts on the open ports only.</li>
-</ol>
+<h2>Why it matters</h2>
+<p>Running `nmap -A -p- target` against a single host can take 10–30 minutes — and most of that time is spent on ports that turned out to be closed. Splitting the work into &quot;discover ports fast → enumerate ports deeply&quot; cuts a single-host full-range scan from minutes to seconds without losing any of Nmap&#x27;s enumeration power, because the deep stage runs only on the open ports.</p>
+<p>The senior framing is that this is *the same two-phase pattern as Masscan + Nmap*, just sized down: RustScan replaces the bulk-discovery layer for single hosts and small subnets, while Masscan owns the same role for AS-scale work. Understanding NSE script categories then determines whether the second phase is safe, useful, or accidentally noisy/destructive.</p>
+<h2>How it works</h2>
+<p>The pipeline is **3 stages**:</p>
+<p>1. **Discovery (RustScan).** Async Tokio runtime opens up to `--ulimit` concurrent half-open sockets, sweeps the configured port set, and emits an open-port list. Adaptive learning adjusts batch size based on early response patterns. 2. **Handoff.** Everything after `--` on the RustScan command line is passed verbatim to Nmap. RustScan invokes Nmap with `-p &lt;discovered_ports&gt;` and the user&#x27;s flags. 3. **Enumeration (Nmap + NSE).** Nmap runs version detection, OS fingerprinting, and any selected NSE scripts on the open ports only.</p>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span><code>rustscan<span class="w"> </span>-a<span class="w"> </span>target<span class="w"> </span>--ulimit<span class="w"> </span><span class="m">5000</span><span class="w"> </span>--<span class="w"> </span>-sV<span class="w"> </span>-sC<span class="w"> </span>--script<span class="w"> </span><span class="s2">&quot;default,safe,vuln&quot;</span>
-</code></pre></div>
-
-<p>Interpretation:
-- <code>--ulimit 5000</code> raises the open-file-descriptor limit so 5000 ports can be probed concurrently.
-- Everything after <code>--</code> is Nmap's: <code>-sV</code> (version), <code>-sC</code> (default NSE), <code>--script "default,safe,vuln"</code> (category Boolean).
-- RustScan exec()s Nmap with <code>-p &lt;ports it found&gt;</code> automatically. Nmap then ignores all the closed ports RustScan already ruled out.</p>
-<p>The bug RustScan is solving is <em>not</em> in Nmap; it is in <em>how Nmap is typically run</em> (<code>-p-</code> against a full host where 65,500 ports were always going to be closed). The pipeline is an optimization, not a replacement.</p>
-<p>NSE script categories are the <strong>second</strong> part of the senior story:</p>
-<ul>
-<li><code>auth</code>, <code>broadcast</code>, <code>brute</code>, <code>default</code>, <code>discovery</code>, <code>dos</code>, <code>exploit</code>, <code>external</code>, <code>fuzzer</code>, <code>intrusive</code>, <code>malware</code>, <code>safe</code>, <code>version</code>, <code>vuln</code>.</li>
-<li>Safe engagement default: <code>--script "default,safe"</code> plus selectively <code>discovery</code> and <code>version</code>.</li>
-<li>Add <code>vuln</code> only with explicit authorization.</li>
-<li><code>intrusive</code>, <code>exploit</code>, <code>brute</code>, <code>dos</code> require explicit consent and a documented blast-radius assessment.</li>
-</ul>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
-<ul>
-<li><strong>Master the <code>--</code> divider.</strong> Everything after <code>--</code> is Nmap. If you can't articulate what <code>-A -sC --script vuln</code> does at the Nmap level, RustScan is hiding bugs from you, not saving you time.</li>
-<li><strong><code>--ulimit</code> ≥ batch size, always.</strong> Default failure mode: RustScan throttles to ulimit and silently reports false <code>filtered</code>. <code>ulimit -n</code> in the shell and <code>--ulimit</code> on the CLI must agree.</li>
-<li><strong>Use <code>--scripts None</code></strong> when you want only the port list (e.g., feeding into a custom pipeline).</li>
-<li><strong>Boolean script selection</strong> beats long script lists: <code>--script "(default or safe) and not (brute or dos)"</code>.</li>
-<li><strong>Per-port NSE selectivity.</strong> <code>--script "http-*" -p 80,443</code> runs HTTP-only scripts; avoid pulling SMB scripts at HTTP ports.</li>
-<li><strong>Script arguments</strong> are mandatory for <code>vuln</code> checks that need credentials or paths: <code>--script-args 'http.useragent="custom",userdb=users.txt'</code>.</li>
-<li><strong>NSE script update</strong> before any serious engagement: <code>nmap --script-updatedb</code>.</li>
-<li><strong>Stdin chaining</strong> for pipelines: <code>subfinder -d target.com | dnsx -a -resp-only | rustscan -a - -- -sV -sC</code>.</li>
-</ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<h3 id="1-single-host-deep-scan">1. Single-host deep scan</h3>
-<p><code>rustscan -a host -r 1-65535 --ulimit 65535 -- -A -sC --script vuln</code>. The original use case — full port range, full enumeration, in roughly the time Nmap version detection alone would have taken.</p>
-<h3 id="2-subnet-sweep-with-selective-nse">2. Subnet sweep with selective NSE</h3>
-<p><code>rustscan -a 10.0.0.0/24 --ulimit 5000 -- -sV --script "(default or safe) and not (brute or intrusive)"</code>. Subnet-scale discovery with conservative NSE.</p>
-<h3 id="3-port-list-only-mode">3. Port-list-only mode</h3>
-<p><code>rustscan -a host --scripts None -g</code>. Greppable port list, no Nmap. For custom pipelines (Nuclei, custom scanners) that don't want Nmap's overhead.</p>
-<h3 id="4-http-focused-enumeration">4. HTTP-focused enumeration</h3>
-<p><code>rustscan -a host -p 80,443,8080,8443 -- -sV --script "http-title,http-headers,http-methods,http-enum,http-server-header"</code>. Targeted HTTP NSE without pulling unrelated script categories.</p>
-<h3 id="5-authenticated-vuln-category">5. Authenticated vuln category</h3>
-<p><code>rustscan -a host -- -sV --script vuln --script-args "creds.global=user:pass"</code>. NSE <code>vuln</code> scripts that check authenticated-only conditions. Requires explicit engagement scope authorizing credentials.</p>
-<h3 id="6-containerized-scan">6. Containerized scan</h3>
-<p><code>docker run --rm rustscan/rustscan:latest -a target -- -sV -sC</code>. The official deployment — avoids host ulimit fights, reproducible across operators.</p>
-<h2 id="impact">Impact</h2>
-<ul>
-<li><strong>10–100× wall-clock reduction</strong> vs. naive <code>nmap -p- -A</code>.</li>
-<li><strong>Operational risk if NSE category is wrong.</strong> <code>--script "default"</code> includes some scripts that send authentication attempts (<code>http-auth-finder</code>, <code>pop3-brute</code> is not default but easy to add) — review the category contents before assuming "default = safe".</li>
-<li><strong>NSE <code>vuln</code> false positives.</strong> Many <code>vuln</code> scripts check banner versions and miss patches — every alert requires manual validation before reporting.</li>
-<li><strong><code>exploit</code> and <code>dos</code> categories can crash services.</strong> They are excluded from <code>default</code> for a reason; opting in needs change-management approval in any production-touching engagement.</li>
-<li><strong>Detection footprint.</strong> RustScan + NSE is louder than Nmap alone — same per-IP fingerprint plus NSE's script-specific probes are easily clustered by behavioral SIEM rules.</li>
-</ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
-<ol>
-<li>
-<p><strong>NSE-aware IDS rules.</strong>
-   Snort/Suricata signatures for the more-noisy NSE scripts (<code>http-enum</code>, <code>smb-vuln-*</code>, <code>ssl-enum-ciphers</code> against a closed cluster) are publicly available and tuned. Defenders should subscribe.</p>
-</li>
-<li>
-<p><strong>Per-port deep-inspection rate limits.</strong>
-   The RustScan handoff means Nmap will hit a small port set with many NSE probes in quick succession. Per-port-per-source rate limits at the WAF/IDS catch this distinctly.</p>
-</li>
-<li>
-<p><strong>Version banner shaping.</strong>
-   Many NSE <code>vuln</code> scripts decide on version strings. Defenders that strip or randomize version banners reduce false-positive surface in engagements <em>and</em> reduce true-positive value for attackers — both reasons to do it.</p>
-</li>
-<li>
-<p><strong>Honeypots that respond to <code>http-enum</code>.</strong>
-   A path table that returns 200 to every directory NSE probes makes the script's output meaningless without affecting real users. Asymmetric defense.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
-<ul>
-<li><strong>Blocking RustScan's source IP</strong> — same trap as Masscan: it finishes its job in seconds.</li>
-<li><strong>Disabling specific Nmap probes</strong> — Nmap controls its probe library, not the target.</li>
-<li><strong>Hoping <code>--script vuln</code> reports are accurate</strong> — most are version-string heuristics. Defenders should not treat an absence of NSE-<code>vuln</code> alerts as evidence of safety.</li>
-</ul>
-<h2 id="practical-labs">Practical labs</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 1 — baseline pipeline against an authorized lab host.</span>
-rustscan<span class="w"> </span>-a<span class="w"> </span>LAB<span class="w"> </span>--ulimit<span class="w"> </span><span class="m">5000</span><span class="w"> </span>--<span class="w"> </span>-sV<span class="w"> </span>-sC<span class="w"> </span>--script<span class="w"> </span><span class="s2">&quot;default,safe&quot;</span>
-<span class="c1"># Time it. Compare to `nmap -p- -sV -sC LAB`.</span>
-<span class="c1"># Expect 5–20× wall-clock reduction.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 2 — ulimit mismatch failure mode.</span>
-<span class="nb">ulimit</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1024</span>
-rustscan<span class="w"> </span>-a<span class="w"> </span>LAB<span class="w"> </span>-b<span class="w"> </span><span class="m">5000</span><span class="w"> </span>--<span class="w"> </span>-sV<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="nb">ulimit</span>
-<span class="c1"># Reproduces the &quot;Too many open files&quot; error. The fix is `--ulimit 65535` (and matching shell ulimit).</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 3 — NSE category Boolean.</span>
-nmap<span class="w"> </span>--script<span class="w"> </span><span class="s2">&quot;(default or vuln) and not (intrusive or dos)&quot;</span><span class="w"> </span>--script-help<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-40
-nmap<span class="w"> </span>-sV<span class="w"> </span>--script<span class="w"> </span><span class="s2">&quot;(default or vuln) and not (intrusive or dos)&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="m">22</span>,80,443<span class="w"> </span>LAB
-<span class="c1"># Inspect which scripts ran. Match the category list against the engagement scope.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 4 — pipeline from subdomain enum.</span>
-subfinder<span class="w"> </span>-d<span class="w"> </span>target.tld<span class="w"> </span>-silent<span class="w"> </span><span class="p">|</span>
-<span class="w">  </span>dnsx<span class="w"> </span>-a<span class="w"> </span>-resp-only<span class="w"> </span>-silent<span class="w"> </span><span class="p">|</span>
-<span class="w">  </span>rustscan<span class="w"> </span>-a<span class="w"> </span>-<span class="w"> </span>--ulimit<span class="w"> </span><span class="m">5000</span><span class="w"> </span>--<span class="w"> </span>-sV<span class="w"> </span>--script<span class="w"> </span><span class="s2">&quot;default,safe&quot;</span>
-<span class="c1"># A single chain that goes from a domain to enumerated services.</span>
-<span class="c1"># Only run against authorized scope.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 5 — port-list-only mode for custom downstream.</span>
-rustscan<span class="w"> </span>-a<span class="w"> </span>LAB<span class="w"> </span>--scripts<span class="w"> </span>None<span class="w"> </span>-g
-<span class="c1"># Output is one line per host: &quot;10.0.0.5 -&gt; [22,80,443]&quot;.</span>
-<span class="c1"># Pipe to Nuclei, gowitness, ffuf, or custom tooling instead of Nmap.</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Lab 6 — NSE update and script audit.</span>
-sudo<span class="w"> </span>nmap<span class="w"> </span>--script-updatedb
-locate<span class="w"> </span>nse_main.lua<span class="w">  </span><span class="c1"># find script path</span>
-ls<span class="w"> </span><span class="k">$(</span>nmap<span class="w"> </span>--script-help<span class="w"> </span>default<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;/^Categories:/{exit} {print $1}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-5<span class="k">)</span>
-<span class="c1"># Always know what `default` contains before claiming &quot;I only ran safe scripts&quot;.</span>
-</code></pre></div>
-
-<h2 id="practical-examples">Practical examples</h2>
-<ul>
-<li><strong>Bug-bounty single-target deep dive.</strong> RustScan + NSE against an in-scope host completes full-range version detection in 30–60 seconds instead of 15–30 minutes — letting an operator review 10× more targets in a session.</li>
-<li><strong>CI-driven external attack surface.</strong> Nightly RustScan + NSE <code>default,safe</code> against a list of owned subdomains, with results diffed against the previous night. New ports/services or version changes trigger an alert.</li>
-<li><strong>Internal red-team pivot.</strong> From a foothold, <code>rustscan -a internal-subnet/24 --ulimit 5000 -- -sV --script "default,safe and not brute"</code> finds high-value services (Jenkins, GitLab, internal Confluence) within minutes.</li>
-<li><strong>Cloud workload audit.</strong> From a controlled scanner inside a VPC, RustScan + NSE validates that intended security-group exposure matches actual reachability for every workload.</li>
-<li><strong>Pre-engagement smoke test.</strong> Before kicking off the real engagement, a <code>--script default,safe</code> pass confirms tooling works end-to-end and produces a baseline diff target.</li>
-</ul>
-<h2 id="related-notes">Related notes</h2>
-<ul>
-<li><a href="../networking/nmap-scanning.html">Nmap Scanning</a></li>
-<li><a href="../networking/service-enumeration.html">Service Enumeration</a></li>
-<li><a href="../networking/ports-and-services.html">Ports and Services</a></li>
-<li><a href="host-and-port-discovery.html">Host and Port Discovery</a></li>
-<li><a href="service-validation.html">Service Validation</a></li>
-<li><a href="active-recon.html">Active Recon</a></li>
-<li><a href="enumeration.html">Enumeration</a></li>
-<li><a href="../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html">Scan Anomaly Detection and Fingerprint Analysis</a></li>
-<li><a href="../detection-engineering/edr-network-observability-and-process-correlation.html">EDR Network Observability and Process Correlation</a></li>
-<li><a href="nmap-timing-and-evasion.html">nmap-timing-and-evasion</a></li>
-<li><a href="packet-fragmentation-and-decoy-scans.html">packet-fragmentation-and-decoy-scans</a></li>
-<li><a href="masscan-internet-scale-scanning.html">masscan-internet-scale-scanning</a></li>
-</ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
-<ul>
-<li><a href="nse-vuln-category-audit.html">nse-vuln-category-audit</a></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: writing-custom-nse-scripts">writing-custom-nse-scripts</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: naabu-vs-rustscan">naabu-vs-rustscan</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: scan-pipeline-orchestration">scan-pipeline-orchestration</span></li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Official Tool Docs:</strong> RustScan repository and docs — https://github.com/RustScan/RustScan</li>
-<li><strong>Official Tool Docs:</strong> Nmap Scripting Engine — https://nmap.org/book/nse.html</li>
-<li><strong>Research / Deep Dive:</strong> ProjectDiscovery Reconnaissance 103 — Host and Port Discovery — https://projectdiscovery.io/blog/reconnaissance-series-3-host-and-port-discovery</li>
-</ul>
+<p>``` rustscan -a target --ulimit 5000 -- -sV -sC --script &quot;default,safe,vuln&quot; ```</p>
+<p>Interpretation: - `--ulimit 5000` raises the open-file-descriptor limit so 5000 ports can be probed concurrently. - Everything after `--` is Nmap&#x27;s: `-sV` (version), `-sC` (default NSE), `--script &quot;default,safe,vuln&quot;` (category Boolean). - RustScan exec()s Nmap with `-p &lt;ports it found&gt;` automatically. Nmap then ignores all the closed ports RustScan already ruled out.</p>
+<p>The bug RustScan is solving is *not* in Nmap; it is in *how Nmap is typically run* (`-p-` against a full host where 65,500 ports were always going to be closed). The pipeline is an optimization, not a replacement.</p>
+<p>NSE script categories are the **second** part of the senior story:</p>
+<ul><li>`auth`, `broadcast`, `brute`, `default`, `discovery`, `dos`, `exploit`, `external`, `fuzzer`, `intrusive`, `malware`, `safe`, `version`, `vuln`.</li><li>Safe engagement default: `--script &quot;default,safe&quot;` plus selectively `discovery` and `version`.</li><li>Add `vuln` only with explicit authorization.</li><li>`intrusive`, `exploit`, `brute`, `dos` require explicit consent and a documented blast-radius assessment.</li></ul>
+<h2>Techniques / patterns</h2>
+<ul><li>**Master the `--` divider.** Everything after `--` is Nmap. If you can&#x27;t articulate what `-A -sC --script vuln` does at the Nmap level, RustScan is hiding bugs from you, not saving you time.</li><li>**`--ulimit` ≥ batch size, always.** Default failure mode: RustScan throttles to ulimit and silently reports false `filtered`. `ulimit -n` in the shell and `--ulimit` on the CLI must agree.</li><li>**Use `--scripts None`** when you want only the port list (e.g., feeding into a custom pipeline).</li><li>**Boolean script selection** beats long script lists: `--script &quot;(default or safe) and not (brute or dos)&quot;`.</li><li>**Per-port NSE selectivity.** `--script &quot;http-*&quot; -p 80,443` runs HTTP-only scripts; avoid pulling SMB scripts at HTTP ports.</li><li>**Script arguments** are mandatory for `vuln` checks that need credentials or paths: `--script-args &#x27;http.useragent=&quot;custom&quot;,userdb=users.txt&#x27;`.</li><li>**NSE script update** before any serious engagement: `nmap --script-updatedb`.</li><li>**Stdin chaining** for pipelines: `subfinder -d target.com | dnsx -a -resp-only | rustscan -a - -- -sV -sC`.</li></ul>
+<h2>Variants and bypasses</h2>
+<h3>1. Single-host deep scan</h3>
+<p>`rustscan -a host -r 1-65535 --ulimit 65535 -- -A -sC --script vuln`. The original use case — full port range, full enumeration, in roughly the time Nmap version detection alone would have taken.</p>
+<h3>2. Subnet sweep with selective NSE</h3>
+<p>`rustscan -a 10.0.0.0/24 --ulimit 5000 -- -sV --script &quot;(default or safe) and not (brute or intrusive)&quot;`. Subnet-scale discovery with conservative NSE.</p>
+<h3>3. Port-list-only mode</h3>
+<p>`rustscan -a host --scripts None -g`. Greppable port list, no Nmap. For custom pipelines (Nuclei, custom scanners) that don&#x27;t want Nmap&#x27;s overhead.</p>
+<h3>4. HTTP-focused enumeration</h3>
+<p>`rustscan -a host -p 80,443,8080,8443 -- -sV --script &quot;http-title,http-headers,http-methods,http-enum,http-server-header&quot;`. Targeted HTTP NSE without pulling unrelated script categories.</p>
+<h3>5. Authenticated vuln category</h3>
+<p>`rustscan -a host -- -sV --script vuln --script-args &quot;creds.global=user:pass&quot;`. NSE `vuln` scripts that check authenticated-only conditions. Requires explicit engagement scope authorizing credentials.</p>
+<h3>6. Containerized scan</h3>
+<p>`docker run --rm rustscan/rustscan:latest -a target -- -sV -sC`. The official deployment — avoids host ulimit fights, reproducible across operators.</p>
+<h2>Impact</h2>
+<ul><li>**10–100× wall-clock reduction** vs. naive `nmap -p- -A`.</li><li>**Operational risk if NSE category is wrong.** `--script &quot;default&quot;` includes some scripts that send authentication attempts (`http-auth-finder`, `pop3-brute` is not default but easy to add) — review the category contents before assuming &quot;default = safe&quot;.</li><li>**NSE `vuln` false positives.** Many `vuln` scripts check banner versions and miss patches — every alert requires manual validation before reporting.</li><li>**`exploit` and `dos` categories can crash services.** They are excluded from `default` for a reason; opting in needs change-management approval in any production-touching engagement.</li><li>**Detection footprint.** RustScan + NSE is louder than Nmap alone — same per-IP fingerprint plus NSE&#x27;s script-specific probes are easily clustered by behavioral SIEM rules.</li></ul>
+<h2>Detection and defense</h2>
+<p>1. **NSE-aware IDS rules.**    Snort/Suricata signatures for the more-noisy NSE scripts (`http-enum`, `smb-vuln-*`, `ssl-enum-ciphers` against a closed cluster) are publicly available and tuned. Defenders should subscribe.</p>
+<p>2. **Per-port deep-inspection rate limits.**    The RustScan handoff means Nmap will hit a small port set with many NSE probes in quick succession. Per-port-per-source rate limits at the WAF/IDS catch this distinctly.</p>
+<p>3. **Version banner shaping.**    Many NSE `vuln` scripts decide on version strings. Defenders that strip or randomize version banners reduce false-positive surface in engagements *and* reduce true-positive value for attackers — both reasons to do it.</p>
+<p>4. **Honeypots that respond to `http-enum`.**    A path table that returns 200 to every directory NSE probes makes the script&#x27;s output meaningless without affecting real users. Asymmetric defense.</p>
+<h3>What does not work as a primary defense</h3>
+<ul><li>**Blocking RustScan&#x27;s source IP** — same trap as Masscan: it finishes its job in seconds.</li><li>**Disabling specific Nmap probes** — Nmap controls its probe library, not the target.</li><li>**Hoping `--script vuln` reports are accurate** — most are version-string heuristics. Defenders should not treat an absence of NSE-`vuln` alerts as evidence of safety.</li></ul>
+<h2>Practical labs</h2>
+<p>``` # Lab 1 — baseline pipeline against an authorized lab host. rustscan -a LAB --ulimit 5000 -- -sV -sC --script &quot;default,safe&quot; # Time it. Compare to `nmap -p- -sV -sC LAB`. # Expect 5–20× wall-clock reduction. ```</p>
+<p>``` # Lab 2 — ulimit mismatch failure mode. ulimit -n 1024 rustscan -a LAB -b 5000 -- -sV 2&gt;&amp;1 | grep -i ulimit # Reproduces the &quot;Too many open files&quot; error. The fix is `--ulimit 65535` (and matching shell ulimit). ```</p>
+<p>``` # Lab 3 — NSE category Boolean. nmap --script &quot;(default or vuln) and not (intrusive or dos)&quot; --script-help | head -40 nmap -sV --script &quot;(default or vuln) and not (intrusive or dos)&quot; -p 22,80,443 LAB # Inspect which scripts ran. Match the category list against the engagement scope. ```</p>
+<p>``` # Lab 4 — pipeline from subdomain enum. subfinder -d target.tld -silent |   dnsx -a -resp-only -silent |   rustscan -a - --ulimit 5000 -- -sV --script &quot;default,safe&quot; # A single chain that goes from a domain to enumerated services. # Only run against authorized scope. ```</p>
+<p>``` # Lab 5 — port-list-only mode for custom downstream. rustscan -a LAB --scripts None -g # Output is one line per host: &quot;10.0.0.5 -&gt; [22,80,443]&quot;. # Pipe to Nuclei, gowitness, ffuf, or custom tooling instead of Nmap. ```</p>
+<p>``` # Lab 6 — NSE update and script audit. sudo nmap --script-updatedb locate nse_main.lua  # find script path ls $(nmap --script-help default 2&gt;/dev/null | awk &#x27;/^Categories:/{exit} {print $1}&#x27; | head -5) # Always know what `default` contains before claiming &quot;I only ran safe scripts&quot;. ```</p>
+<h2>Practical examples</h2>
+<ul><li>**Bug-bounty single-target deep dive.** RustScan + NSE against an in-scope host completes full-range version detection in 30–60 seconds instead of 15–30 minutes — letting an operator review 10× more targets in a session.</li><li>**CI-driven external attack surface.** Nightly RustScan + NSE `default,safe` against a list of owned subdomains, with results diffed against the previous night. New ports/services or version changes trigger an alert.</li><li>**Internal red-team pivot.** From a foothold, `rustscan -a internal-subnet/24 --ulimit 5000 -- -sV --script &quot;default,safe and not brute&quot;` finds high-value services (Jenkins, GitLab, internal Confluence) within minutes.</li><li>**Cloud workload audit.** From a controlled scanner inside a VPC, RustScan + NSE validates that intended security-group exposure matches actual reachability for every workload.</li><li>**Pre-engagement smoke test.** Before kicking off the real engagement, a `--script default,safe` pass confirms tooling works end-to-end and produces a baseline diff target.</li></ul>
+<h2>Related notes</h2>
+<ul><li>&lt;a href=&quot;../networking/nmap-scanning.html&quot;&gt;Nmap Scanning&lt;/a&gt;</li><li>&lt;a href=&quot;../networking/service-enumeration.html&quot;&gt;Service Enumeration&lt;/a&gt;</li><li>&lt;a href=&quot;../networking/ports-and-services.html&quot;&gt;Ports and Services&lt;/a&gt;</li><li>&lt;a href=&quot;host-and-port-discovery.html&quot;&gt;Host and Port Discovery&lt;/a&gt;</li><li>&lt;a href=&quot;service-validation.html&quot;&gt;Service Validation&lt;/a&gt;</li><li>&lt;a href=&quot;active-recon.html&quot;&gt;Active Recon&lt;/a&gt;</li><li>&lt;a href=&quot;enumeration.html&quot;&gt;Enumeration&lt;/a&gt;</li><li>&lt;a href=&quot;../detection-engineering/scan-anomaly-detection-and-fingerprint-analysis.html&quot;&gt;Scan Anomaly Detection and Fingerprint Analysis&lt;/a&gt;</li><li>&lt;a href=&quot;../detection-engineering/edr-network-observability-and-process-correlation.html&quot;&gt;EDR Network Observability and Process Correlation&lt;/a&gt;</li><li>&lt;a href=&quot;nmap-timing-and-evasion.html&quot;&gt;nmap-timing-and-evasion&lt;/a&gt;</li><li>&lt;a href=&quot;packet-fragmentation-and-decoy-scans.html&quot;&gt;packet-fragmentation-and-decoy-scans&lt;/a&gt;</li><li>&lt;a href=&quot;masscan-internet-scale-scanning.html&quot;&gt;masscan-internet-scale-scanning&lt;/a&gt;</li></ul>
+<h3>Suggested future atomic notes</h3>
+<ul><li>&lt;a href=&quot;nse-vuln-category-audit.html&quot;&gt;nse-vuln-category-audit&lt;/a&gt;</li><li>writing-custom-nse-scripts</li><li>naabu-vs-rustscan</li><li>scan-pipeline-orchestration</li></ul>
+<h2>References</h2>
+<ul><li>**Official Tool Docs:** RustScan repository and docs — https://github.com/RustScan/RustScan</li><li>**Official Tool Docs:** Nmap Scripting Engine — https://nmap.org/book/nse.html</li><li>**Research / Deep Dive:** ProjectDiscovery Reconnaissance 103 — Host and Port Discovery — https://projectdiscovery.io/blog/reconnaissance-series-3-host-and-port-discovery</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="recon-to-testing-handoff.html"><span class="nav-dir">← Previous</span><strong>Recon to Testing Handoff</strong></a><a class="branch-nav-link next" href="scope-validation.html"><span class="nav-dir">Next →</span><strong>Scope Validation</strong></a></nav>
-<section class="related-notes" aria-label="Explore nearby notes">
-<h2>Explore nearby notes</h2>
+<section class="related-notes" aria-label="Related notes">
+<h2>Related notes</h2>
 <div class="related-grid">
-<a class="related-card" href="nse-vuln-category-audit.html"><span>Offensive Security / Recon</span><strong>NSE `vuln` Category Audit</strong><small>The Nmap Scripting Engine&#x27;s vuln category contains roughly **150 scripts** that claim to detect vulnerabilities. They are not all equal: some are reliable...</small></a>
-<a class="related-card" href="idle-scan-and-ipid-side-channels.html"><span>Offensive Security / Recon</span><strong>Idle Scan and IPID Side Channels</strong><small>An **idle scan** (nmap -sI zombie:port target) infers a target&#x27;s port state without sending a single packet from the attacker&#x27;s real IP. It works by exploiting a...</small></a>
-<a class="related-card" href="nmap-timing-and-evasion.html"><span>Offensive Security / Recon</span><strong>Nmap Timing and Evasion</strong><small>Nmap timing and evasion is the use of Nmap&#x27;s rate, retry, parallelism, and packet-shape primitives to either (a) reduce false filtered results against rate-limited...</small></a>
-<a class="related-card" href="packet-fragmentation-and-decoy-scans.html"><span>Offensive Security / Recon</span><strong>Packet Fragmentation and Decoy Scans</strong><small>Packet fragmentation (-f, --mtu) and decoy scans (-D) are two Nmap evasion primitives that operate at different layers: fragmentation splits probe headers across...</small></a>
 <a class="related-card" href="active-recon.html"><span>Offensive Security / Recon</span><strong>Active Recon</strong><small>Active recon is information gathering that directly interacts with target infrastructure, services, or applications to validate or extend what passive recon...</small></a>
 <a class="related-card" href="cloaking-and-security-evasion.html"><span>Offensive Security / Recon</span><strong>Cloaking and Security Evasion</strong><small>Cloaking is the practice of showing different behavior to different visitors based on signals such as IP, geography, ASN, reverse DNS, User-Agent, browser...</small></a>
+<a class="related-card" href="company-mapping.html"><span>Offensive Security / Recon</span><strong>Company Mapping</strong><small>Company mapping is the process of connecting domains, brands, subsidiaries, acquisitions, vendors, public identities, products, and infrastructure clues into a...</small></a>
+<a class="related-card" href="enumeration.html"><span>Offensive Security / Recon</span><strong>Enumeration</strong><small>Enumeration is the focused, methodical expansion of discovered leads into concrete, validated knowledge about reachable services, routes, identities, parameters...</small></a>
+<a class="related-card" href="host-and-port-discovery.html"><span>Offensive Security / Recon</span><strong>Host and Port Discovery</strong><small>Host and port discovery is the process of finding live hosts and the reachable ports and services they expose within an authorized scope.</small></a>
+<a class="related-card" href="idle-scan-and-ipid-side-channels.html"><span>Offensive Security / Recon</span><strong>Idle Scan and IPID Side Channels</strong><small>An **idle scan** (nmap -sI zombie:port target) infers a target&#x27;s port state without sending a single packet from the attacker&#x27;s real IP. It works by exploiting a...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-single-host-deep-scan">1. Single-host deep scan</a>
-<a class="toc-level-3" href="#2-subnet-sweep-with-selective-nse">2. Subnet sweep with selective NSE</a>
-<a class="toc-level-3" href="#3-port-list-only-mode">3. Port-list-only mode</a>
-<a class="toc-level-3" href="#4-http-focused-enumeration">4. HTTP-focused enumeration</a>
-<a class="toc-level-3" href="#5-authenticated-vuln-category">5. Authenticated vuln category</a>
-<a class="toc-level-3" href="#6-containerized-scan">6. Containerized scan</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-2" href="#practical-examples">Practical examples</a>
-<a class="toc-level-2" href="#related-notes">Related notes</a>
-<a class="toc-level-3" href="#suggested-future-atomic-notes">Suggested future atomic notes</a>
-<a class="back-to-top" href="#top">Back to top</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>

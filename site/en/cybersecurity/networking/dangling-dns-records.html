@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Dangling DNS Records - Networking | ldamoredev Security Atlas</title>
+<title>Dangling DNS Records - Networking | Cybersecurity Atlas</title>
 <meta name="description" content="Dangling DNS records are DNS entries that still point to infrastructure, cloud resources, SaaS mappings, storage buckets, CDN distributions, or service targets...">
-<meta name="author" content="ldamoredev">
-<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Networking, Dangling DNS Records, dns, dangling-records">
-<meta name="theme-color" content="#16a34a">
+<meta name="author" content="Lautaro Damore">
+<meta name="application-name" content="Cybersecurity Atlas">
+<meta name="keywords" content="cybersecurity, web security, API security, cloud security, offensive security, DevSecOps, security playbooks, Networking, Dangling DNS Records">
+<meta name="theme-color" content="#43D17A">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/dangling-dns-records.html">
@@ -15,23 +18,26 @@
 <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <link rel="manifest" href="../../../site.webmanifest">
-<meta property="article:section" content="Networking">
-<meta property="og:site_name" content="ldamoredev Security Atlas">
+<meta property="og:site_name" content="Cybersecurity Atlas">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Dangling DNS Records - Networking | ldamoredev Security Atlas">
+<meta property="og:title" content="Dangling DNS Records - Networking | Cybersecurity Atlas">
 <meta property="og:description" content="Dangling DNS records are DNS entries that still point to infrastructure, cloud resources, SaaS mappings, storage buckets, CDN distributions, or service targets...">
 <meta property="og:url" content="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/dangling-dns-records.html">
 <meta property="og:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ldamoredev Security Atlas">
+<meta property="og:image:alt" content="Cybersecurity Atlas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Dangling DNS Records - Networking | ldamoredev Security Atlas">
+<meta name="twitter:title" content="Dangling DNS Records - Networking | Cybersecurity Atlas">
 <meta name="twitter:description" content="Dangling DNS records are DNS entries that still point to infrastructure, cloud resources, SaaS mappings, storage buckets, CDN distributions, or service targets...">
 <meta name="twitter:image" content="https://ldamoredev.github.io/cibersecurity-notes/assets/og-image.png">
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/dangling-dns-records.html#article","name":"Dangling DNS Records - Networking | ldamoredev Security Atlas","headline":"Dangling DNS Records","description":"Dangling DNS records are DNS entries that still point to infrastructure, cloud resources, SaaS mappings, storage buckets, CDN distributions, or service targets...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/dangling-dns-records.html","inLanguage":"en","datePublished":"2026-04-29","dateModified":"2026-04-29","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/dangling-dns-records.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"ldamoredev Security Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"ldamoredev"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Networking","Dangling DNS Records","dns","dangling-records"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Networking","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/index.html"},{"@type":"ListItem","position":4,"name":"Dangling DNS Records","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/dangling-dns-records.html"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/dangling-dns-records.html#article","name":"Dangling DNS Records - Networking | Cybersecurity Atlas","headline":"Dangling DNS Records","description":"Dangling DNS records are DNS entries that still point to infrastructure, cloud resources, SaaS mappings, storage buckets, CDN distributions, or service targets...","url":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/dangling-dns-records.html","inLanguage":"en","datePublished":"editorial review needed","dateModified":"editorial review needed","mainEntityOfPage":{"@type":"WebPage","@id":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/dangling-dns-records.html"},"isPartOf":{"@type":"WebSite","@id":"https://ldamoredev.github.io/cibersecurity-notes/#website","name":"Cybersecurity Atlas","url":"https://ldamoredev.github.io/cibersecurity-notes/"},"author":{"@type":"Person","@id":"https://ldamoredev.github.io/cibersecurity-notes/#author","name":"Lautaro Damore"},"keywords":["cybersecurity","web security","API security","cloud security","offensive security","DevSecOps","security playbooks","Networking","Dangling DNS Records"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ldamoredev.github.io/cibersecurity-notes/en/"},{"@type":"ListItem","position":2,"name":"Cybersecurity","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/index.html"},{"@type":"ListItem","position":3,"name":"Networking","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/index.html"},{"@type":"ListItem","position":4,"name":"Dangling DNS Records","item":"https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/dangling-dns-records.html"}]}]</script>
+<meta property="article:section" content="Networking">
+<meta property="article:published_time" content="editorial review needed">
+<meta property="article:modified_time" content="editorial review needed">
 <link rel="alternate" hreflang="en" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/dangling-dns-records.html">
 <link rel="alternate" hreflang="es" href="https://ldamoredev.github.io/cibersecurity-notes/es/cybersecurity/networking/dangling-dns-records.html">
 <link rel="alternate" hreflang="x-default" href="https://ldamoredev.github.io/cibersecurity-notes/en/cybersecurity/networking/dangling-dns-records.html">
@@ -39,13 +45,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<link rel="stylesheet" href="../../../assets/style.css?v=6d139dc885">
-<link rel="stylesheet" href="../../../assets/pygments.css?v=6d139dc885">
+<link rel="stylesheet" href="../../../assets/style.css?v=99fbda06b7">
+<link rel="stylesheet" href="../../../assets/pygments.css?v=99fbda06b7">
 </head>
 <body id="top" data-root="../../.." data-locale-root="../..">
-<div class="app with-toc">
+<div class="app no-toc">
 <nav class="sidebar">
-<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Knowledge Base</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
+<div class="sidebar-head"><a class="sidebar-brand" href="../../index.html"><span class="brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="brand-text"><span class="brand-title">CyberSec Atlas</span><span class="brand-sub">Attack Surface &amp; Signal</span></span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-label"><span class="label-light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Light mode</span><span class="label-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>Dark mode</span></span><span class="toggle-pill"></span></button></div>
 <div class="sidebar-body">
 <a class="sidebar-home" href="../../index.html">Atlas Home</a>
 <div class="sidebar-section"><h3>Entry layer</h3>
@@ -56,21 +62,24 @@
 <a class="sidebar-link kind-concept" href="../phase-2-offense-defense.html">Phase 2 — Offense / Defense (Paired)</a>
 <a class="sidebar-link kind-concept" href="../phase-3-operator.html">Phase 3 — Operator Surface (Concept → Capability)</a>
 <a class="sidebar-link kind-concept" href="../phase-4-specialty.html">Phase 4 — Specialty Tracks (Pick What Your Job Demands)</a>
+<a class="sidebar-link kind-lab" href="../atlas-security-range.html">Atlas Security Range</a>
 </div>
 <div class="sidebar-section"><h3>Learning Path</h3>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
-<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">8</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="ns-name"><span class="ns-num">00</span>Orientation</span></span><span class="ns-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span class="nb-name">Foundations</span></span><span class="nb-right"><span class="count">10</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../foundations/index.html">Overview</a>
 <a class="nav-leaf" href="../foundations/attacker-defender-duality-as-a-learning-tool.html" title="Attacker-Defender Duality as a Learning Tool">Attacker-Defender Duality as a Learning Tool</a>
 <a class="nav-leaf" href="../foundations/certifications-as-validation-signals.html" title="Certifications as Validation Signals">Certifications as Validation Signals</a>
 <a class="nav-leaf" href="../foundations/cia-triad-and-what-it-actually-decides.html" title="CIA Triad — What It Actually Decides">CIA Triad — What It Actually Decides</a>
 <a class="nav-leaf" href="../foundations/job-context-specialization.html" title="Job Context Specialization">Job Context Specialization</a>
 <a class="nav-leaf" href="../foundations/minimum-viable-cybersecurity-literacy.html" title="Minimum Viable Cybersecurity Literacy">Minimum Viable Cybersecurity Literacy</a>
+<a class="nav-leaf" href="../foundations/security-boundaries-and-trust-assumptions.html" title="Security boundaries and trust assumptions">Security boundaries and trust assumptions</a>
+<a class="nav-leaf" href="../foundations/threat-modeling-from-asset-to-abuse-case.html" title="Threat modeling from asset to abuse case">Threat modeling from asset to abuse case</a>
 <a class="nav-leaf" href="../foundations/threat-modeling-quickstart.html" title="Threat Modeling Quickstart">Threat Modeling Quickstart</a>
 <a class="nav-leaf" href="../foundations/what-is-cybersecurity-and-why-it-is-not-a-tool-list.html" title="What Is Cybersecurity, and Why It Is Not a Tool List">What Is Cybersecurity, and Why It Is Not a Tool List</a>
 </div></details>
 </div></details>
-<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">68</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group" open><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="ns-name"><span class="ns-num">01</span>Substrate</span></span><span class="ns-right"><span class="count">70</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-emerald"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="nb-name">Cryptography</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../cryptography/index.html">Overview</a>
 <a class="nav-leaf" href="../cryptography/aead-and-nonce-misuse.html" title="AEAD and Nonce Misuse">AEAD and Nonce Misuse</a>
@@ -88,7 +97,7 @@
 <a class="nav-leaf" href="../cryptography/symmetric-encryption-modes.html" title="Symmetric Encryption Modes">Symmetric Encryption Modes</a>
 <a class="nav-leaf" href="../cryptography/tls-handshake-and-pki.html" title="TLS Handshake and PKI">TLS Handshake and PKI</a>
 </div></details>
-<details class="nav-branch accent-sky active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">23</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-sky active" open><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Networking</span></span><span class="nb-right"><span class="count">24</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="index.html">Overview</a>
 <a class="nav-leaf" href="caching-and-security.html" title="Caching and Security">Caching and Security</a>
 <a class="nav-leaf" href="client-ip-trust.html" title="Client IP Trust">Client IP Trust</a>
@@ -98,6 +107,7 @@
 <a class="nav-leaf" href="dns-resolution.html" title="DNS Resolution">DNS Resolution</a>
 <a class="nav-leaf" href="dns-security.html" title="DNS Security">DNS Security</a>
 <a class="nav-leaf" href="firewalls-and-network-boundaries.html" title="Firewalls and Network Boundaries">Firewalls and Network Boundaries</a>
+<a class="nav-leaf" href="from-browser-request-to-server-evidence.html" title="From browser request to server evidence">From browser request to server evidence</a>
 <a class="nav-leaf" href="header-trust-in-node-express.html" title="Header Trust in Node Express">Header Trust in Node Express</a>
 <a class="nav-leaf" href="http-headers.html" title="HTTP Headers">HTTP Headers</a>
 <a class="nav-leaf" href="http-messages.html" title="HTTP Messages">HTTP Messages</a>
@@ -113,9 +123,10 @@
 <a class="nav-leaf" href="tls-https.html" title="TLS and HTTPS">TLS and HTTPS</a>
 <a class="nav-leaf" href="wireshark-workflows.html" title="Wireshark Workflows">Wireshark Workflows</a>
 </div></details>
-<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">30</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-blue"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="nb-name">Web Security</span></span><span class="nb-right"><span class="count">31</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../web-security/index.html">Overview</a>
 <a class="nav-leaf" href="../web-security/auth-flaws.html" title="Authentication Flaws">Authentication Flaws</a>
+<a class="nav-leaf" href="../web-security/authentication-authorization-and-object-access.html" title="Authentication, authorization and object access">Authentication, authorization and object access</a>
 <a class="nav-leaf" href="../web-security/bot-detection-signals.html" title="Bot Detection Signals">Bot Detection Signals</a>
 <a class="nav-leaf" href="../web-security/broken-access-control.html" title="Broken Access Control">Broken Access Control</a>
 <a class="nav-leaf" href="../web-security/browser-security-boundaries.html" title="Browser Security Boundaries">Browser Security Boundaries</a>
@@ -146,7 +157,7 @@
 <a class="nav-leaf" href="../web-security/xxe.html" title="XXE">XXE</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">35</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 8a4 4 0 0 0-4 4v3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/></svg><span class="ns-name"><span class="ns-num">02</span>Paired</span></span><span class="ns-right"><span class="count">36</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-rose"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span class="nb-name">Offensive Security / Recon</span></span><span class="nb-right"><span class="count">21</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../offensive-security/index.html">Overview</a>
 <a class="nav-leaf" href="../offensive-security/active-recon.html" title="Active Recon">Active Recon</a>
@@ -170,7 +181,7 @@
 <a class="nav-leaf" href="../offensive-security/tech-stack-fingerprinting.html" title="Tech Stack Fingerprinting">Tech Stack Fingerprinting</a>
 <a class="nav-leaf" href="../offensive-security/operator-loop.html" title="The Operator Loop">The Operator Loop</a>
 </div></details>
-<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">14</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-cyan"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><line x1="12" y1="12" x2="20" y2="6"/></svg><span class="nb-name">Detection Engineering</span></span><span class="nb-right"><span class="count">15</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../detection-engineering/index.html">Overview</a>
 <a class="nav-leaf" href="../detection-engineering/attack-path-correlation-and-kill-chain-observability.html" title="Attack Path Correlation and Kill Chain Observability">Attack Path Correlation and Kill Chain Observability</a>
 <a class="nav-leaf" href="../detection-engineering/behavioral-detection-vs-signature-detection.html" title="Behavioral Detection vs Signature Detection">Behavioral Detection vs Signature Detection</a>
@@ -178,6 +189,7 @@
 <a class="nav-leaf" href="../detection-engineering/edr-network-observability-and-process-correlation.html" title="EDR Network Observability and Process Correlation">EDR Network Observability and Process Correlation</a>
 <a class="nav-leaf" href="../detection-engineering/encrypted-traffic-analysis-and-metadata-leakage.html" title="Encrypted Traffic Analysis and Metadata Leakage">Encrypted Traffic Analysis and Metadata Leakage</a>
 <a class="nav-leaf" href="../detection-engineering/false-positives-false-negatives-and-detection-tradeoffs.html" title="False Positives, False Negatives, and Detection Tradeoffs">False Positives, False Negatives, and Detection Trade…</a>
+<a class="nav-leaf" href="../detection-engineering/from-local-exploit-to-detection.html" title="From local exploit to detection">From local exploit to detection</a>
 <a class="nav-leaf" href="../detection-engineering/ids-ips-and-behavioral-detection-pipelines.html" title="IDS/IPS and Behavioral Detection Pipelines">IDS/IPS and Behavioral Detection Pipelines</a>
 <a class="nav-leaf" href="../detection-engineering/network-security-monitoring-discipline.html" title="Network Security Monitoring Discipline">Network Security Monitoring Discipline</a>
 <a class="nav-leaf" href="../detection-engineering/network-telemetry-sources-and-visibility.html" title="Network Telemetry Sources and Visibility">Network Telemetry Sources and Visibility</a>
@@ -187,7 +199,7 @@
 <a class="nav-leaf" href="../detection-engineering/zeek-suricata-and-netflow-analysis.html" title="Zeek, Suricata, and NetFlow Analysis">Zeek, Suricata, and NetFlow Analysis</a>
 </div></details>
 </div></details>
-<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">49</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
+<details class="nav-group"><summary><span class="ns-left"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span class="ns-name"><span class="ns-num">03</span>Operator</span></span><span class="ns-right"><span class="count">50</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-children">
 <details class="nav-branch accent-amber"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span class="nb-name">Attack Surface Mapping</span></span><span class="nb-right"><span class="count">11</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../attack-surface-mapping/index.html">Overview</a>
 <a class="nav-leaf" href="../attack-surface-mapping/admin-interface-discovery.html" title="Admin Interface Discovery">Admin Interface Discovery</a>
@@ -226,7 +238,7 @@
 <a class="nav-leaf" href="../linux-privilege-escalation/sudo-misconfigurations.html" title="Sudo Misconfigurations">Sudo Misconfigurations</a>
 <a class="nav-leaf" href="../linux-privilege-escalation/suid-sgid-misconfigurations.html" title="SUID and SGID Misconfigurations">SUID and SGID Misconfigurations</a>
 </div></details>
-<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">17</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
+<details class="nav-branch accent-slate"><summary><span class="nb-left"><svg class="nb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="nb-name">Security Playbooks</span></span><span class="nb-right"><span class="count">18</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary><div class="nav-leaves">
 <a class="nav-leaf nav-leaf-overview" href="../security-playbooks/index.html">Overview</a>
 <a class="nav-leaf" href="../security-playbooks/break-jwt-validation.html" title="Break JWT Validation">Break JWT Validation</a>
 <a class="nav-leaf" href="../security-playbooks/detect-bloodhound-collection.html" title="Detect BloodHound Collection">Detect BloodHound Collection</a>
@@ -235,6 +247,7 @@
 <a class="nav-leaf" href="../security-playbooks/detect-kerberoasting-and-as-rep-roasting.html" title="Detect Kerberoasting and AS-REP Roasting">Detect Kerberoasting and AS-REP Roasting</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-idor.html" title="Exploit IDOR">Exploit IDOR</a>
 <a class="nav-leaf" href="../security-playbooks/exploit-sqli.html" title="Exploit SQL Injection">Exploit SQL Injection</a>
+<a class="nav-leaf" href="../security-playbooks/incident-response-from-signal-to-recovery.html" title="Incident response from signal to recovery">Incident response from signal to recovery</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-file-upload-surface.html" title="Inspect File Upload Surface">Inspect File Upload Surface</a>
 <a class="nav-leaf" href="../security-playbooks/inspect-session-handling.html" title="Inspect Session Handling">Inspect Session Handling</a>
 <a class="nav-leaf" href="../security-playbooks/investigate-ssrf.html" title="Investigate SSRF">Investigate SSRF</a>
@@ -391,7 +404,7 @@
 </div></details>
 </div>
 </div>
-<div class="sidebar-footer"><span>updated · 2026-06-03</span><span class="v">v2026.05</span></div>
+<div class="sidebar-footer"><span>updated · 2026-07-19</span><span class="v">v2026.05</span></div>
 </nav>
 <div class="main-col">
 <header class="topbar">
@@ -412,226 +425,97 @@
 <main class="content">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../index.html">Cybersecurity</a><span>/</span><a href="index.html">Networking</a><span>/</span><span>Dangling DNS Records</span></nav>
 <header class="page-hero">
-<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-sky">Networking</span><span class="meta-chip meta-time" title="Estimated reading time">~6 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated Apr 29, 2026</span><span class="meta-chip tag">#cybersecurity</span><span class="meta-chip tag">#networking</span><span class="meta-chip tag">#dns</span><span class="meta-chip tag">#dangling-records</span></div>
+<div class="page-meta"><span class="meta-chip">concept</span><span class="meta-chip accent-sky">Networking</span><span class="meta-chip meta-time" title="Estimated reading time">~6 min read</span><span class="meta-chip meta-updated" title="Last updated">Updated editorial review needed</span></div>
 </header>
 <article class="article-note">
-<h1 id="dangling-dns-records">Dangling DNS Records</h1>
-<h2 id="definition">Definition</h2>
+<h1>Dangling DNS Records</h1>
+<h2>Definition</h2>
 <p>Dangling DNS records are DNS entries that still point to infrastructure, cloud resources, SaaS mappings, storage buckets, CDN distributions, or service targets that no longer exist or are no longer controlled by the intended owner.</p>
-<h2 id="why-it-matters">Why it matters</h2>
+<h2>Why it matters</h2>
 <p>Dangling records are the lifecycle failure underneath many subdomain takeover findings. A hostname can look legitimate to users, browsers, cookies, HSTS policy, OAuth redirect allowlists, and internal documentation while its backing target is abandoned or claimable.</p>
-<p>This networking note owns the stale name-target mechanism. <a href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a> owns the confirmed exposure condition where an attacker can claim the target.</p>
-<h2 id="how-it-works">How it works</h2>
-<p>A dangling-record failure has <strong>4 moving parts</strong>:</p>
-<ol>
-<li><strong>DNS name remains live.</strong> The organization still publishes <code>blog.example.com</code>, <code>docs.example.com</code>, or another hostname.</li>
-<li><strong>Target lifecycle changes.</strong> The backing app, bucket, CDN distribution, SaaS tenant, or cloud load balancer is deleted, renamed, expired, or moved.</li>
-<li><strong>DNS cleanup does not happen.</strong> The stale record still points at the old provider target.</li>
-<li><strong>Provider behavior decides impact.</strong> Some providers return harmless errors; others allow a new tenant/resource to claim the same target.</li>
-</ol>
+<p>This networking note owns the stale name-target mechanism. &lt;a href=&quot;../attack-surface-mapping/subdomain-takeover.html&quot;&gt;Subdomain Takeover&lt;/a&gt; owns the confirmed exposure condition where an attacker can claim the target.</p>
+<h2>How it works</h2>
+<p>A dangling-record failure has **4 moving parts**:</p>
+<p>1. **DNS name remains live.** The organization still publishes `blog.example.com`, `docs.example.com`, or another hostname. 2. **Target lifecycle changes.** The backing app, bucket, CDN distribution, SaaS tenant, or cloud load balancer is deleted, renamed, expired, or moved. 3. **DNS cleanup does not happen.** The stale record still points at the old provider target. 4. **Provider behavior decides impact.** Some providers return harmless errors; others allow a new tenant/resource to claim the same target.</p>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span><code>docs.example.com. 300 IN CNAME example-docs.vendor-cdn.net.
-</code></pre></div>
-
-<p>If <code>example-docs</code> is deleted at the vendor but DNS remains, an attacker may be able to register <code>example-docs</code> and serve content as <code>docs.example.com</code>.</p>
+<p>``` docs.example.com. 300 IN CNAME example-docs.vendor-cdn.net. ```</p>
+<p>If `example-docs` is deleted at the vendor but DNS remains, an attacker may be able to register `example-docs` and serve content as `docs.example.com`.</p>
 <p>The bug is the broken lifecycle link between DNS and the provider resource, not DNS resolution alone.</p>
-<h2 id="techniques-patterns">Techniques / patterns</h2>
+<h2>Techniques / patterns</h2>
 <p>Attackers and defenders inspect:</p>
-<ul>
-<li><code>CNAME</code> records pointing to SaaS, CDN, app-hosting, storage, and cloud-provider names</li>
-<li><code>A</code> / <code>AAAA</code> records pointing to deallocated cloud IPs or old load balancers</li>
-<li>provider-specific error strings such as "no such app", "project not found", "bucket not found", or "unconfigured domain"</li>
-<li>TXT verification records that may preserve old provider ownership</li>
-<li>DNS records for retired environments: <code>staging</code>, <code>preview</code>, <code>old</code>, <code>docs</code>, <code>help</code>, <code>status</code>, <code>campaign</code></li>
-<li>CT logs and DNS history for hostnames that no longer appear in current inventory</li>
-<li>provider documentation on whether custom-domain targets are claimable after deletion</li>
-</ul>
-<h2 id="variants-and-bypasses">Variants and bypasses</h2>
-<p>Dangling records appear in <strong>6 common shapes</strong>.</p>
-<h3 id="1-dangling-cname-to-saas-or-app-hosting">1. Dangling CNAME to SaaS or app hosting</h3>
+<ul><li>`CNAME` records pointing to SaaS, CDN, app-hosting, storage, and cloud-provider names</li><li>`A` / `AAAA` records pointing to deallocated cloud IPs or old load balancers</li><li>provider-specific error strings such as &quot;no such app&quot;, &quot;project not found&quot;, &quot;bucket not found&quot;, or &quot;unconfigured domain&quot;</li><li>TXT verification records that may preserve old provider ownership</li><li>DNS records for retired environments: `staging`, `preview`, `old`, `docs`, `help`, `status`, `campaign`</li><li>CT logs and DNS history for hostnames that no longer appear in current inventory</li><li>provider documentation on whether custom-domain targets are claimable after deletion</li></ul>
+<h2>Variants and bypasses</h2>
+<p>Dangling records appear in **6 common shapes**.</p>
+<h3>1. Dangling CNAME to SaaS or app hosting</h3>
 <p>The hostname aliases to a provider-managed name, but the tenant/project/site no longer exists. This is the classic subdomain takeover shape for documentation sites, support portals, marketing pages, and app platforms.</p>
-<h3 id="2-deleted-storage-bucket-or-static-site">2. Deleted storage bucket or static site</h3>
+<h3>2. Deleted storage bucket or static site</h3>
 <p>The DNS record points to object storage or static hosting, and the bucket/site name becomes available to another account. Impact depends on provider namespace rules and region matching.</p>
-<h3 id="3-deallocated-cloud-ip-or-load-balancer">3. Deallocated cloud IP or load balancer</h3>
-<p>An <code>A</code> record points to an IP or load balancer that was released. If the address or endpoint can later be assigned to another customer, the stale record can route traffic to the wrong owner.</p>
-<h3 id="4-stale-cdn-distribution-or-custom-domain">4. Stale CDN distribution or custom domain</h3>
+<h3>3. Deallocated cloud IP or load balancer</h3>
+<p>An `A` record points to an IP or load balancer that was released. If the address or endpoint can later be assigned to another customer, the stale record can route traffic to the wrong owner.</p>
+<h3>4. Stale CDN distribution or custom domain</h3>
 <p>The organization removes the CDN distribution or custom-domain binding but leaves DNS. Another distribution may be able to claim the hostname if certificate/domain validation permits it.</p>
-<h3 id="5-verification-token-residue">5. Verification-token residue</h3>
+<h3>5. Verification-token residue</h3>
 <p>TXT records for email, SaaS, domain validation, search consoles, analytics, or cloud providers remain after the integration is retired. The record may not route traffic, but it can preserve proof-of-control.</p>
-<h3 id="6-internalprivate-dangling-records">6. Internal/private dangling records</h3>
+<h3>6. Internal/private dangling records</h3>
 <p>Private hosted zones and internal DNS can dangle too. The impact is usually internal misrouting, SSRF amplification, service impersonation, or confusing incident response rather than public takeover.</p>
-<h2 id="impact">Impact</h2>
+<h2>Impact</h2>
 <p>Ordered roughly by severity:</p>
-<ul>
-<li><strong>Subdomain takeover.</strong> Attacker serves content under a trusted hostname after claiming the backing provider target.</li>
-<li><strong>Credential/session abuse.</strong> Trusted subdomain status can influence cookies, OAuth redirect allowlists, CORS, SSO callbacks, or phishing credibility.</li>
-<li><strong>Traffic interception.</strong> Users, API clients, or automation continue sending requests to a name whose target is no longer yours.</li>
-<li><strong>Brand and phishing abuse.</strong> The attacker gets HTTPS and a legitimate-looking hostname if certificate issuance succeeds.</li>
-<li><strong>Internal service confusion.</strong> Private stale names route workloads to wrong services or dead endpoints.</li>
-<li><strong>Inventory drift.</strong> Dangling records are evidence that asset lifecycle and DNS lifecycle are disconnected.</li>
-</ul>
-<h2 id="detection-and-defense">Detection and defense</h2>
+<ul><li>**Subdomain takeover.** Attacker serves content under a trusted hostname after claiming the backing provider target.</li><li>**Credential/session abuse.** Trusted subdomain status can influence cookies, OAuth redirect allowlists, CORS, SSO callbacks, or phishing credibility.</li><li>**Traffic interception.** Users, API clients, or automation continue sending requests to a name whose target is no longer yours.</li><li>**Brand and phishing abuse.** The attacker gets HTTPS and a legitimate-looking hostname if certificate issuance succeeds.</li><li>**Internal service confusion.** Private stale names route workloads to wrong services or dead endpoints.</li><li>**Inventory drift.** Dangling records are evidence that asset lifecycle and DNS lifecycle are disconnected.</li></ul>
+<h2>Detection and defense</h2>
 <p>Ordered by effectiveness:</p>
-<ol>
-<li>
-<p><strong>Bind DNS records to owned provider resources in inventory.</strong>
-   Every external record should map to a concrete cloud/SaaS/CDN/storage resource with an owner and lifecycle state. If the backing resource disappears, DNS should alert or fail review.</p>
-</li>
-<li>
-<p><strong>Delete or park DNS before destroying the target.</strong>
-   Deprovisioning should remove the DNS record or point it to a controlled parking endpoint before deleting the provider resource. This avoids the claimable window.</p>
-</li>
-<li>
-<p><strong>Continuously scan provider-specific dangling fingerprints.</strong>
-   Periodically resolve CNAMEs and request the host over HTTP/HTTPS. Provider "not found" messages are high-signal. Keep a fingerprint list but verify manually before declaring takeover.</p>
-</li>
-<li>
-<p><strong>Clean up stale verification TXT records.</strong>
-   Remove SaaS, email, search, and cloud validation records when integrations end. Verification tokens are often forgotten because they do not serve traffic directly.</p>
-</li>
-<li>
-<p><strong>Prefer provider configurations that require domain validation before claim.</strong>
-   Some platforms prevent arbitrary claim without a fresh DNS token or certificate validation. Choose safer providers and enable domain-ownership checks where available.</p>
-</li>
-<li>
-<p><strong>Monitor DNS and certificate transparency for abandoned names.</strong>
-   CT logs may show certificates for old hosts. DNS history may show names that disappeared from inventory but still receive traffic or remain delegated.</p>
-</li>
-<li>
-<p><strong>Document accepted parked states.</strong>
-   A deliberate <code>CNAME</code> to a controlled parking host or <code>A</code> to a sink page is different from an accidental provider error. Make the difference visible.</p>
-</li>
-</ol>
-<h3 id="what-does-not-work-as-a-primary-defense">What does not work as a primary defense</h3>
-<ul>
-<li><strong>Assuming a provider 404 is harmless.</strong> Some provider 404s are exactly the signal that a target can be claimed.</li>
-<li><strong>Relying on HSTS or HTTPS.</strong> TLS can protect the connection to an attacker-controlled claimed target; it does not prove the target is yours.</li>
-<li><strong>Deleting the cloud resource first.</strong> That creates the dangling condition. DNS cleanup must happen before or with deletion.</li>
-<li><strong>Scanning only current inventory.</strong> Dangling records often live in forgotten hosts found through CT logs, DNS history, docs, or old repos.</li>
-<li><strong>Treating all fingerprints as confirmed takeovers.</strong> Provider behavior changes. A fingerprint means investigate and safely prove claimability in authorized scope.</li>
-</ul>
-<h2 id="practical-labs">Practical labs</h2>
+<p>1. **Bind DNS records to owned provider resources in inventory.**    Every external record should map to a concrete cloud/SaaS/CDN/storage resource with an owner and lifecycle state. If the backing resource disappears, DNS should alert or fail review.</p>
+<p>2. **Delete or park DNS before destroying the target.**    Deprovisioning should remove the DNS record or point it to a controlled parking endpoint before deleting the provider resource. This avoids the claimable window.</p>
+<p>3. **Continuously scan provider-specific dangling fingerprints.**    Periodically resolve CNAMEs and request the host over HTTP/HTTPS. Provider &quot;not found&quot; messages are high-signal. Keep a fingerprint list but verify manually before declaring takeover.</p>
+<p>4. **Clean up stale verification TXT records.**    Remove SaaS, email, search, and cloud validation records when integrations end. Verification tokens are often forgotten because they do not serve traffic directly.</p>
+<p>5. **Prefer provider configurations that require domain validation before claim.**    Some platforms prevent arbitrary claim without a fresh DNS token or certificate validation. Choose safer providers and enable domain-ownership checks where available.</p>
+<p>6. **Monitor DNS and certificate transparency for abandoned names.**    CT logs may show certificates for old hosts. DNS history may show names that disappeared from inventory but still receive traffic or remain delegated.</p>
+<p>7. **Document accepted parked states.**    A deliberate `CNAME` to a controlled parking host or `A` to a sink page is different from an accidental provider error. Make the difference visible.</p>
+<h3>What does not work as a primary defense</h3>
+<ul><li>**Assuming a provider 404 is harmless.** Some provider 404s are exactly the signal that a target can be claimed.</li><li>**Relying on HSTS or HTTPS.** TLS can protect the connection to an attacker-controlled claimed target; it does not prove the target is yours.</li><li>**Deleting the cloud resource first.** That creates the dangling condition. DNS cleanup must happen before or with deletion.</li><li>**Scanning only current inventory.** Dangling records often live in forgotten hosts found through CT logs, DNS history, docs, or old repos.</li><li>**Treating all fingerprints as confirmed takeovers.** Provider behavior changes. A fingerprint means investigate and safely prove claimability in authorized scope.</li></ul>
+<h2>Practical labs</h2>
 <p>Run only against domains you own or are authorized to assess.</p>
-<h3 id="list-cname-targets-and-provider-boundaries">List CNAME targets and provider boundaries</h3>
-<div class="codehilite"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>name<span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="nv">target</span><span class="o">=</span><span class="k">$(</span>dig<span class="w"> </span>+short<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span><span class="w"> </span>CNAME<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n1<span class="k">)</span>
-<span class="w">  </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$target</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;%-45s -&gt; %s\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$target</span><span class="s2">&quot;</span>
-<span class="k">done</span><span class="w"> </span>&lt;<span class="w"> </span>subdomains.txt
-</code></pre></div>
-
+<h3>List CNAME targets and provider boundaries</h3>
+<p>``` while read -r name; do   target=$(dig +short &quot;$name&quot; CNAME | tail -n1)   [ -n &quot;$target&quot; ] &amp;&amp; printf &#x27;%-45s -&gt; %s\n&#x27; &quot;$name&quot; &quot;$target&quot; done &lt; subdomains.txt ```</p>
 <p>Label each target by provider and expected owner.</p>
-<h3 id="probe-provider-error-fingerprints">Probe provider error fingerprints</h3>
-<div class="codehilite"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>name<span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;\n== %s ==\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span>
-<span class="w">  </span>dig<span class="w"> </span>+short<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span><span class="w"> </span>CNAME
-<span class="w">  </span>curl<span class="w"> </span>-skL<span class="w"> </span>--max-time<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="s2">&quot;https://</span><span class="nv">$name</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39;1,12p&#39;</span>
-<span class="k">done</span><span class="w"> </span>&lt;<span class="w"> </span>subdomains.txt
-</code></pre></div>
-
-<p>Look for provider-specific unconfigured-domain messages, then verify against the provider's current docs and your scope rules.</p>
-<h3 id="compare-dns-with-asset-inventory">Compare DNS with asset inventory</h3>
-<div class="codehilite"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>name<span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="nv">target</span><span class="o">=</span><span class="k">$(</span>dig<span class="w"> </span>+short<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span><span class="w"> </span>CNAME<span class="w"> </span>A<span class="w"> </span>AAAA<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="k">)</span>
-<span class="w">  </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;%s,%s\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$name</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$target</span><span class="s2">&quot;</span>
-<span class="k">done</span><span class="w"> </span>&lt;<span class="w"> </span>subdomains.txt<span class="w"> </span>&gt;<span class="w"> </span>dns-targets.csv
-</code></pre></div>
-
-<p>Diff <code>dns-targets.csv</code> against cloud/CDN/SaaS inventory exports. Unmatched targets are review candidates.</p>
-<h3 id="check-stale-verification-records">Check stale verification records</h3>
-<div class="codehilite"><pre><span></span><code><span class="nv">domain</span><span class="o">=</span>example.com
-dig<span class="w"> </span>+short<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$domain</span><span class="s2">&quot;</span><span class="w"> </span>TXT
-<span class="k">for</span><span class="w"> </span>sub<span class="w"> </span><span class="k">in</span><span class="w"> </span>google-site-verification<span class="w"> </span>atlassian-domain-verification<span class="w"> </span>amazonses<span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span>dig<span class="w"> </span>+short<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$sub</span><span class="s2">.</span><span class="nv">$domain</span><span class="s2">&quot;</span><span class="w"> </span>TXT
-<span class="k">done</span>
-</code></pre></div>
-
+<h3>Probe provider error fingerprints</h3>
+<p>``` while read -r name; do   printf &#x27;\n== %s ==\n&#x27; &quot;$name&quot;   dig +short &quot;$name&quot; CNAME   curl -skL --max-time 5 &quot;https://$name&quot; | sed -n &#x27;1,12p&#x27; done &lt; subdomains.txt ```</p>
+<p>Look for provider-specific unconfigured-domain messages, then verify against the provider&#x27;s current docs and your scope rules.</p>
+<h3>Compare DNS with asset inventory</h3>
+<p>``` while read -r name; do   target=$(dig +short &quot;$name&quot; CNAME A AAAA | tr &#x27;\n&#x27; &#x27; &#x27;)   printf &#x27;%s,%s\n&#x27; &quot;$name&quot; &quot;$target&quot; done &lt; subdomains.txt &gt; dns-targets.csv ```</p>
+<p>Diff `dns-targets.csv` against cloud/CDN/SaaS inventory exports. Unmatched targets are review candidates.</p>
+<h3>Check stale verification records</h3>
+<p>``` domain=example.com dig +short &quot;$domain&quot; TXT for sub in google-site-verification atlassian-domain-verification amazonses; do   dig +short &quot;$sub.$domain&quot; TXT done ```</p>
 <p>Unexpected tokens should map to active integrations or be removed.</p>
-<h3 id="review-certificate-transparency-for-forgotten-names">Review Certificate Transparency for forgotten names</h3>
-<div class="codehilite"><pre><span></span><code><span class="nv">domain</span><span class="o">=</span>example.com
-curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;https://crt.sh/?q=%25.</span><span class="nv">$domain</span><span class="s2">&amp;output=json&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.[].name_value&#39;</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u
-</code></pre></div>
-
+<h3>Review Certificate Transparency for forgotten names</h3>
+<p>``` domain=example.com curl -s &quot;https://crt.sh/?q=%25.$domain&amp;output=json&quot; \   | jq -r &#x27;.[].name_value&#x27; 2&gt;/dev/null \   | tr &#x27;\n&#x27; &#x27;\n&#x27; \   | sort -u ```</p>
 <p>Names in CT but not inventory are good dangling-record candidates.</p>
-<h3 id="safe-confirmation-pattern">Safe confirmation pattern</h3>
-<div class="codehilite"><pre><span></span><code>1. Confirm the hostname is in authorized scope.
-2. Confirm the provider target no longer maps to an owned resource.
-3. Confirm provider docs say the target is claimable.
-4. Use the least invasive proof allowed by the program or owner.
-5. Never serve deceptive content or collect traffic.
-</code></pre></div>
-
-<h2 id="practical-examples">Practical examples</h2>
-<ul>
-<li><code>help.example.com</code> points to a deleted helpdesk tenant and displays a provider "project not found" page.</li>
-<li><code>static.example.com</code> points to a removed storage bucket whose name can be re-created.</li>
-<li><code>campaign.example.com</code> points to a retired marketing SaaS custom domain after the contract ended.</li>
-<li><code>_amazonses.example.com</code> remains long after SES sending was migrated elsewhere.</li>
-<li>A private DNS record still points <code>payments.internal</code> to an old service IP now used by another workload.</li>
-</ul>
-<h2 id="related-notes">Related notes</h2>
-<ul>
-<li><a href="dns-resolution.html">dns-resolution</a> — how the name-target chain resolves.</li>
-<li><a href="dns-security.html">dns-security</a> — ownership, control, and cleanup process.</li>
-<li><a href="../attack-surface-mapping/subdomain-takeover.html">Subdomain Takeover</a> — exposure finding when the target is claimable.</li>
-<li><a href="../attack-surface-mapping/third-party-exposure.html">Third-Party Exposure</a></li>
-<li><a href="../offensive-security/subdomain-enumeration.html">Subdomain Enumeration</a></li>
-<li><a href="tls-https.html">tls-https</a> — HSTS and certificate behavior can amplify trusted-subdomain impact.</li>
-</ul>
-<h3 id="suggested-future-atomic-notes">Suggested future atomic notes</h3>
-<ul>
-<li><span class="unresolved-link" title="Unpublished or unresolved: provider-takeover-fingerprints">provider-takeover-fingerprints</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: stale-verification-records">stale-verification-records</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: cloud-storage-takeover">cloud-storage-takeover</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: cdn-custom-domain-takeover">cdn-custom-domain-takeover</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: dns-inventory-automation">dns-inventory-automation</span></li>
-<li><span class="unresolved-link" title="Unpublished or unresolved: safe-takeover-proof">safe-takeover-proof</span></li>
-</ul>
-<h2 id="references">References</h2>
-<ul>
-<li><strong>Foundational:</strong> Cloudflare Learning Center on DNS records — https://www.cloudflare.com/learning/dns/dns-records/</li>
-<li><strong>Testing / Lab:</strong> OWASP WSTG Information Gathering — https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/</li>
-<li><strong>Research / Deep Dive:</strong> ProjectDiscovery guide to DNS takeovers — https://projectdiscovery.io/blog/guide-to-dns-takeovers</li>
-<li><strong>Research / Deep Dive:</strong> HackerOne guide to subdomain takeovers — https://www.hackerone.com/blog/guide-subdomain-takeovers-20</li>
-</ul>
+<h3>Safe confirmation pattern</h3>
+<p>``` 1. Confirm the hostname is in authorized scope. 2. Confirm the provider target no longer maps to an owned resource. 3. Confirm provider docs say the target is claimable. 4. Use the least invasive proof allowed by the program or owner. 5. Never serve deceptive content or collect traffic. ```</p>
+<h2>Practical examples</h2>
+<ul><li>`help.example.com` points to a deleted helpdesk tenant and displays a provider &quot;project not found&quot; page.</li><li>`static.example.com` points to a removed storage bucket whose name can be re-created.</li><li>`campaign.example.com` points to a retired marketing SaaS custom domain after the contract ended.</li><li>`_amazonses.example.com` remains long after SES sending was migrated elsewhere.</li><li>A private DNS record still points `payments.internal` to an old service IP now used by another workload.</li></ul>
+<h2>Related notes</h2>
+<ul><li>&lt;a href=&quot;dns-resolution.html&quot;&gt;dns-resolution&lt;/a&gt; — how the name-target chain resolves.</li><li>&lt;a href=&quot;dns-security.html&quot;&gt;dns-security&lt;/a&gt; — ownership, control, and cleanup process.</li><li>&lt;a href=&quot;../attack-surface-mapping/subdomain-takeover.html&quot;&gt;Subdomain Takeover&lt;/a&gt; — exposure finding when the target is claimable.</li><li>&lt;a href=&quot;../attack-surface-mapping/third-party-exposure.html&quot;&gt;Third-Party Exposure&lt;/a&gt;</li><li>&lt;a href=&quot;../offensive-security/subdomain-enumeration.html&quot;&gt;Subdomain Enumeration&lt;/a&gt;</li><li>&lt;a href=&quot;tls-https.html&quot;&gt;tls-https&lt;/a&gt; — HSTS and certificate behavior can amplify trusted-subdomain impact.</li></ul>
+<h3>Suggested future atomic notes</h3>
+<ul><li>provider-takeover-fingerprints</li><li>stale-verification-records</li><li>cloud-storage-takeover</li><li>cdn-custom-domain-takeover</li><li>dns-inventory-automation</li><li>safe-takeover-proof</li></ul>
+<h2>References</h2>
+<ul><li>**Foundational:** Cloudflare Learning Center on DNS records — https://www.cloudflare.com/learning/dns/dns-records/</li><li>**Testing / Lab:** OWASP WSTG Information Gathering — https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/</li><li>**Research / Deep Dive:** ProjectDiscovery guide to DNS takeovers — https://projectdiscovery.io/blog/guide-to-dns-takeovers</li><li>**Research / Deep Dive:** HackerOne guide to subdomain takeovers — https://www.hackerone.com/blog/guide-subdomain-takeovers-20</li></ul>
 <nav class="branch-nav" aria-label="Within this branch"><a class="branch-nav-link prev" href="cookies-and-sessions.html"><span class="nav-dir">← Previous</span><strong>Cookies and Sessions</strong></a><a class="branch-nav-link next" href="dns-resolution.html"><span class="nav-dir">Next →</span><strong>DNS Resolution</strong></a></nav>
-<section class="related-notes" aria-label="Explore nearby notes">
-<h2>Explore nearby notes</h2>
+<section class="related-notes" aria-label="Related notes">
+<h2>Related notes</h2>
 <div class="related-grid">
-<a class="related-card" href="dns-resolution.html"><span>Networking</span><strong>DNS Resolution</strong><small>DNS resolution is the lookup process that turns a human-readable name, such as app.example.com, into the records a client needs to choose a destination: address...</small></a>
-<a class="related-card" href="dns-security.html"><span>Networking</span><strong>DNS Security</strong><small>DNS security is the discipline of keeping the naming layer trustworthy: domains and subdomains should resolve only to intended destinations, be controlled by...</small></a>
 <a class="related-card" href="caching-and-security.html"><span>Networking</span><strong>Caching and Security</strong><small>Caching is the reuse of previously generated responses by browsers, CDNs, reverse proxies, shared intermediaries, or application layers. Caching becomes a security...</small></a>
 <a class="related-card" href="client-ip-trust.html"><span>Networking</span><strong>Client IP Trust</strong><small>Client IP trust is the question of **which IP an application treats as &quot;the client&quot;** when requests pass through any intermediary — reverse proxy, load balancer...</small></a>
 <a class="related-card" href="metadata-endpoints.html"><span>Networking</span><strong>Cloud Instance Metadata Endpoints</strong><small>Cloud-instance metadata endpoints are HTTP services hosted by the cloud provider on a **link-local address** (typically 169.254.169.254) that any process running...</small></a>
 <a class="related-card" href="cookies-and-sessions.html"><span>Networking</span><strong>Cookies and Sessions</strong><small>Cookies are HTTP header-carried state that browsers store and automatically attach to later requests. Sessions are the server-side or token-backed continuity model...</small></a>
+<a class="related-card" href="dns-resolution.html"><span>Networking</span><strong>DNS Resolution</strong><small>DNS resolution is the lookup process that turns a human-readable name, such as app.example.com, into the records a client needs to choose a destination: address...</small></a>
+<a class="related-card" href="dns-security.html"><span>Networking</span><strong>DNS Security</strong><small>DNS security is the discipline of keeping the naming layer trustworthy: domains and subdomains should resolve only to intended destinations, be controlled by...</small></a>
 </div></section>
 </article>
 </main>
-<aside class="toc" aria-label="On this page"><div class="toc-inner"><h2>On This Page</h2>
-<a class="toc-level-2" href="#definition">Definition</a>
-<a class="toc-level-2" href="#why-it-matters">Why it matters</a>
-<a class="toc-level-2" href="#how-it-works">How it works</a>
-<a class="toc-level-2" href="#techniques-patterns">Techniques / patterns</a>
-<a class="toc-level-2" href="#variants-and-bypasses">Variants and bypasses</a>
-<a class="toc-level-3" href="#1-dangling-cname-to-saas-or-app-hosting">1. Dangling CNAME to SaaS or app hosting</a>
-<a class="toc-level-3" href="#2-deleted-storage-bucket-or-static-site">2. Deleted storage bucket or static site</a>
-<a class="toc-level-3" href="#3-deallocated-cloud-ip-or-load-balancer">3. Deallocated cloud IP or load balancer</a>
-<a class="toc-level-3" href="#4-stale-cdn-distribution-or-custom-domain">4. Stale CDN distribution or custom domain</a>
-<a class="toc-level-3" href="#5-verification-token-residue">5. Verification-token residue</a>
-<a class="toc-level-3" href="#6-internalprivate-dangling-records">6. Internal/private dangling records</a>
-<a class="toc-level-2" href="#impact">Impact</a>
-<a class="toc-level-2" href="#detection-and-defense">Detection and defense</a>
-<a class="toc-level-3" href="#what-does-not-work-as-a-primary-defense">What does not work as a primary defense</a>
-<a class="toc-level-2" href="#practical-labs">Practical labs</a>
-<a class="toc-level-3" href="#list-cname-targets-and-provider-boundaries">List CNAME targets and provider boundaries</a>
-<a class="toc-level-3" href="#probe-provider-error-fingerprints">Probe provider error fingerprints</a>
-<a class="toc-level-3" href="#compare-dns-with-asset-inventory">Compare DNS with asset inventory</a>
-<a class="back-to-top" href="#top">Back to top</a></div></aside>
+
 </div>
 </div>
 </div>
-<script src="../../../assets/search.js?v=6d139dc885"></script>
+<script src="../../../assets/search.js?v=99fbda06b7"></script>
 </body>
 </html>
